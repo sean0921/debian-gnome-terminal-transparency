@@ -1,7 +1,10 @@
 gnome-terminal (2.7.2-1) experimental; urgency=low
 
   * GNOME Team Upload.
-  * New (development) upstream release.
+  * New (development) upstream release
+    - add the detection of email addresses (Closes: #230549).
+  * debian/patches/fix_selection.patch:
+    - patch from the CVS to fix selection problems.
 
  -- Sebastien Bacher <seb128@debian.org>  Wed, 23 Jun 2004 19:38:19 +0200
 
