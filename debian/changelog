@@ -1,3 +1,10 @@
+gnome-terminal (2.8.2-2) unstable; urgency=medium
+
+  * Pass --as-needed to LDFLAGS, to reduce dependencies.
+    + Incidentally removes the dependency upon libhowl0 (closes: #298850).
+
+ -- Josselin Mouette <joss@debian.org>  Thu, 10 Mar 2005 22:50:38 +0100
+
 gnome-terminal (2.8.2-1) unstable; urgency=medium
 
   * New upstream release (translation updates).
