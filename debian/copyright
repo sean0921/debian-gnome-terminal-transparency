@@ -1,0 +1,12 @@
+This package was debianized by Jim Pick <jim@jimpick.com> on
+Sat, 14 Mar 1998 20:12:23 -0800. 
+
+It was downloaded from ftp://ftp.gnome.org/pub/GNOME/sources/gnome-terminal/.
+
+Upstream Author: Havoc Pennington <hp@redhat.com>
+
+Copyright: 
+You are free to distribute this software under the terms of the GNU General 
+Public License. 
+On Debian systems, the complete text of the GNU General Public License can 
+be found in the file `/usr/share/common-licenses/GPL`.

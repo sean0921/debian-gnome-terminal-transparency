@@ -1,0 +1,4 @@
+version=2
+ftp://ftp.gnome.org/pub/GNOME/sources/gnome-terminal/2.4/ \
+        gnome-terminal-(.*)\.tar\.gz \
+	        debian uupdate
