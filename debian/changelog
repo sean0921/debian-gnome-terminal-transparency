@@ -1,3 +1,15 @@
+gnome-terminal (2.6.1-6) unstable; urgency=low
+
+  * debian/control.in:
+    - Updated libgnomeui-dev build-depends to get gnutls11 (Closes: #263644)
+    - Removed builds-depends on libesd0-dev
+  * debian/patches
+    - Added a patch from gnome cvs to wrap the call to
+    terminal_screen_set_profile (Closes: #249908)
+  * Schemas are now in /usr/share/gconf/schemas/
+
+ -- Arnaud Patard <arnaud.patard@rtp-net.org>  Mon,  9 Aug 2004 19:56:31 +0200
+
 gnome-terminal (2.6.1-5) unstable; urgency=low
 
   * GNOME Team upload.
