@@ -1,3 +1,11 @@
+gnome-terminal (2.6.0-2) experimental; urgency=low
+
+  * debian/prerm:
+  - only deregister the alternative on removal, not on
+    upgrades
+
+ -- Gustavo Noronha Silva <kov@debian.org>  Fri, 26 Mar 2004 18:14:49 -0300
+
 gnome-terminal (2.6.0-1) experimental; urgency=low
 
   * GNOME team upload.
