@@ -1,3 +1,10 @@
+gnome-terminal (2.7.2-1) experimental; urgency=low
+
+  * GNOME Team Upload.
+  * New (development) upstream release.
+
+ -- Sebastien Bacher <seb128@debian.org>  Wed, 23 Jun 2004 19:38:19 +0200
+
 gnome-terminal (2.6.1-4) unstable; urgency=low
 
   * GNOME Team Upload.
