@@ -1,4 +1,4 @@
-gnome-terminal (2.8.2-1) UNRELEASED; urgency=medium
+gnome-terminal (2.8.2-1) unstable; urgency=medium
 
   * New upstream release (translation updates).
   * [debian/patches/update-config-guess-sub.patch] Dropped; upstream now
@@ -6,7 +6,7 @@ gnome-terminal (2.8.2-1) UNRELEASED; urgency=medium
     autotools-dev.
   * [debian/rules] Have binary-post-install clean up scrollkeeper's droppings.
 
- -- J.H.M. Dassen (Ray) <jdassen@debian.org>  Sun, 12 Dec 2004 14:57:34 +0100
+ -- J.H.M. Dassen (Ray) <jdassen@debian.org>  Sat,  1 Jan 2005 12:20:00 +0100
 
 gnome-terminal (2.8.0-2) unstable; urgency=low
 
