@@ -1,3 +1,12 @@
+gnome-terminal (2.6.0-1) experimental; urgency=low
+
+  * GNOME team upload.
+  * New upstream release.
+  * debian/control.in
+    + updated dependencies to GNOME 2.6
+
+ -- Ondřej Surý <ondrej@debian.org>  Fri, 26 Mar 2004 14:41:34 +0100
+
 gnome-terminal (2.4.2-7) unstable; urgency=low
 
   * New maintainer (Closes: #235054)
@@ -7,7 +16,7 @@ gnome-terminal (2.4.2-7) unstable; urgency=low
 
 gnome-terminal (2.4.2-6) unstable; urgency=low
 
-  * Fucking tired with these broken package orphaned.
+  * Orphaned package.
 
  -- Christian Marillat <marillat@debian.org>  Thu, 26 Feb 2004 22:02:00 +0100
 
