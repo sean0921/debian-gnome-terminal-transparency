@@ -1,7 +1,7 @@
-gnome-terminal (2.6.1) experimental; urgency=low
+gnome-terminal (2.6.1-1) experimental; urgency=low
 
   * New Upstream release
-    - Translation updates
+    - Translation updates.
 
  -- Arnaud Patard <arnaud.patard@rtp-net.org>  Sun, 18 Apr 2004 16:24:56 +0200
 
