@@ -1,26 +1,15 @@
-gnome-terminal (2.6.1-6) unstable; urgency=low
+gnome-terminal (2.8.0-1) experimental; urgency=low
 
-  * debian/control.in:
-    - Updated libgnomeui-dev build-depends to get gnutls11 (Closes: #263644)
-    - Removed builds-depends on libesd0-dev
-  * debian/patches
-    - Added a patch from gnome cvs to wrap the call to
-    terminal_screen_set_profile (Closes: #249908)
-  * Schemas are now in /usr/share/gconf/schemas/
+  * New upstream release.
+  * [debian/patches/update-config-guess-sub.patch] Update config.{guess,sub}.
+  * Fixed in 2.7.2:
+    Recognize mailto: (with or without the mailto:...) and webdav: uris
+    (Closes: #230549)
+  * [debian/control.in] Dropped "libesd0-dev" build dependency, as the
+    gnome-terminal code does not depend on it directly (and the libraries it
+    depends on that do have a proper dependency on it).
 
- -- Arnaud Patard <arnaud.patard@rtp-net.org>  Mon,  9 Aug 2004 19:56:31 +0200
-
-gnome-terminal (2.6.1-5) unstable; urgency=low
-
-  * GNOME Team upload.
-  * debian/patches/tab-change.patch:
-    - new patch to not display obnoxious characters on next/previous tab
-      (Closes: #256207).
-  * debian/postinst:
-    - set an higher priority (40) on the x-terminal-emulator alternative, so 
-      gnome-terminal has the priority over xterm and uxterm (Closes: #252345).
-
- -- Sebastien Bacher <seb128@debian.org>  Wed, 30 Jun 2004 19:19:43 +0200
+ -- J.H.M. Dassen (Ray) <jdassen@debian.org>  Sun, 17 Oct 2004 09:49:40 +0200
 
 gnome-terminal (2.7.3-1) experimental; urgency=low
 
