@@ -1,3 +1,11 @@
+gnome-terminal (2.8.0-2) unstable; urgency=low
+
+  * Upload to unstable.
+  * debian/watch:
+    - updated.
+
+ -- Sebastien Bacher <seb128@debian.org>  Fri, 19 Nov 2004 17:18:12 +0100
+
 gnome-terminal (2.8.0-1) experimental; urgency=low
 
   * New upstream release.
