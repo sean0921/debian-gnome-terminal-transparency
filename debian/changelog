@@ -1,3 +1,16 @@
+gnome-terminal (2.8.0-1) experimental; urgency=low
+
+  * New upstream release.
+  * [debian/patches/update-config-guess-sub.patch] Update config.{guess,sub}.
+  * Fixed in 2.7.2:
+    Recognize mailto: (with or without the mailto:...) and webdav: uris
+    (Closes: #230549)
+  * [debian/control.in] Dropped "libesd0-dev" build dependency, as the
+    gnome-terminal code does not depend on it directly (and the libraries it
+    depends on that do have a proper dependency on it).
+
+ -- J.H.M. Dassen (Ray) <jdassen@debian.org>  Sun, 17 Oct 2004 09:49:40 +0200
+
 gnome-terminal (2.7.3-1) experimental; urgency=low
 
   * GNOME Team upload.
