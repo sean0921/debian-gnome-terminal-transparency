@@ -1,3 +1,10 @@
+gnome-terminal (2.6.0-3) experimental; urgency=low
+
+  * Added a missing build dependencie on libgnomevfs2-dev, preventing
+    gnome-terminal to start (Closes: #240590)
+
+ -- Arnaud Patard <arnaud.patard@rtp-net.org>  Tue, 30 Mar 2004 02:18:18 +0200
+
 gnome-terminal (2.6.0-2) experimental; urgency=low
 
   * debian/prerm:
