@@ -1,3 +1,40 @@
+gnome-terminal (2.6.1-5) unstable; urgency=low
+
+  * GNOME Team upload.
+  * debian/patches/tab-change.patch:
+    - new patch to not display obnoxious characters on next/previous tab
+      (Closes: #256207).
+  * debian/postinst:
+    - set an higher priority (40) on the x-terminal-emulator alternative, so 
+      gnome-terminal has the priority over xterm and uxterm (Closes: #252345).
+
+ -- Sebastien Bacher <seb128@debian.org>  Wed, 30 Jun 2004 19:19:43 +0200
+
+gnome-terminal (2.7.3-1) experimental; urgency=low
+
+  * GNOME Team upload.
+  * New (development) upstream release.
+  * debian/patches/fix_selection.patch:
+    - removed, this patch is included in the code now.
+  * debian/patches/tab-change.patch:
+    - new patch to not display obnoxious characters on next/previous tab
+      (Closes: #256207).
+  * debian/postinst:
+    - set an higher priority (40) on the x-terminal-emulator alternative, so 
+      gnome-terminal has the priority over xterm and uxterm (Closes: #252345).
+
+ -- Sebastien Bacher <seb128@debian.org>  Wed, 30 Jun 2004 16:23:21 +0200
+
+gnome-terminal (2.7.2-1) experimental; urgency=low
+
+  * GNOME Team Upload.
+  * New (development) upstream release
+    - add the detection of email addresses (Closes: #230549).
+  * debian/patches/fix_selection.patch:
+    - patch from the CVS to fix selection problems.
+
+ -- Sebastien Bacher <seb128@debian.org>  Wed, 23 Jun 2004 19:38:19 +0200
+
 gnome-terminal (2.6.1-4) unstable; urgency=low
 
   * GNOME Team Upload.

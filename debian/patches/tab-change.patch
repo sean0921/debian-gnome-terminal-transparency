@@ -1,0 +1,22 @@
+--- src/terminal-window.c.orig	Sat Jun 26 10:17:53 2004
++++ src/terminal-window.c	Sat Jun 26 10:20:50 2004
+@@ -1283,10 +1283,6 @@ update_tab_sensitivity (TerminalWindow *
+   notebook = window->priv->notebook;
+   page_num = gtk_notebook_get_current_page (GTK_NOTEBOOK (notebook));
+   
+-  gtk_widget_set_sensitive (window->priv->previous_tab_menuitem,
+-                            page_num > 0);
+-
+-
+   /* FIXME
+    * http://bugzilla.gnome.org/show_bug.cgi?id=73229
+    */
+@@ -1299,8 +1295,6 @@ update_tab_sensitivity (TerminalWindow *
+   else
+     gtk_widget_set_sensitive (window->priv->close_tab_menuitem, TRUE);
+   
+-  gtk_widget_set_sensitive (window->priv->next_tab_menuitem,
+-                            !on_last_page);
+ }
+ 
+ static void
