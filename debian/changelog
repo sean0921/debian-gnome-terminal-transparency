@@ -1,3 +1,9 @@
+gnome-terminal (2.10.0-2) UNRELEASED; urgency=low
+
+  * gnome-terminal-data depends on misc:Depends (for gconf).
+
+ -- Josselin Mouette <joss@debian.org>  Wed, 27 Apr 2005 20:55:31 +0200
+
 gnome-terminal (2.10.0-1) experimental; urgency=low
 
   * New upstream release.
