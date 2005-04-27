@@ -8,7 +8,7 @@ Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.o
 
 Package: gnome-terminal
 Architecture: any
-Depends: ${shlibs:Depends}, scrollkeeper (>= 0.3.14-5), gnome-control-center (>= 1:2.2.0)
+Depends: ${shlibs:Depends}, scrollkeeper (>= 0.3.14-5), gnome-control-center (>= 1:2.2.0), gnome-terminal-data (= ${Source-Version})
 Conflicts: gnome-terminal2
 Replaces: gnome-terminal2
 Provides: x-terminal-emulator
@@ -21,3 +21,11 @@ Description: The GNOME 2 terminal emulator application
  .
  To run any application that is designed to run on VT102, VT220, and xterm
  terminals.
+
+Package: gnome-terminal-data
+Architecture: all
+Replaces: gnome-terminal (<< 2.10)
+Recommends: gnome-terminal
+Description: Data files for the GNOME terminal emulator
+ This package contains data, help files and localization settings for
+ gnome-terminal, the GNOME 2 terminal emulator application.

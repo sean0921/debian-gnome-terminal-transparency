@@ -1,0 +1,7 @@
+debian/tmp/usr/share/gnome-terminal
+debian/tmp/usr/share/locale
+debian/tmp/usr/share/pixmaps
+debian/tmp/usr/share/gnome
+debian/tmp/usr/share/omf
+
+debian/gnome-terminal.xpm /usr/share/pixmaps

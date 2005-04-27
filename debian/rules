@@ -7,18 +7,10 @@ include /usr/share/cdbs/1/class/gnome.mk
 
 include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
 
-DEB_INSTALL_MANPAGES_gnome-terminal := debian/gnome-terminal.1
-
 DEB_CONFIGURE_SCRIPT_ENV := LDFLAGS="-Wl,-O1 -Wl,--as-needed"
 
 build/gnome-terminal::
 	/usr/bin/docbook-to-man debian/gnome-terminal.sgml > debian/gnome-terminal.1
-
-binary-post-install/gnome-terminal::
-	rm -rf debian/gnome-terminal/var/scrollkeeper
-	-rmdir debian/gnome-terminal/var
-	cp debian/gnome-terminal.xpm debian/gnome-terminal/usr/share/pixmaps
-	install -m 0755 debian/gnome-terminal.wrapper debian/gnome-terminal/usr/bin
 
 clean::
 	rm -f debian/gnome-terminal.1
