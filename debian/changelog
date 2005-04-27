@@ -1,3 +1,10 @@
+gnome-terminal (2.10.0-1) experimental; urgency=low
+
+  * New upstream release.
+  * Update debian/watch.
+
+ -- Josselin Mouette <joss@debian.org>  Wed, 27 Apr 2005 19:15:41 +0200
+
 gnome-terminal (2.8.2-2) unstable; urgency=medium
 
   * Pass --as-needed to LDFLAGS, to reduce dependencies.
