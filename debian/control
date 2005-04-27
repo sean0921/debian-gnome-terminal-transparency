@@ -25,6 +25,7 @@ Description: The GNOME 2 terminal emulator application
 Package: gnome-terminal-data
 Architecture: all
 Conflicts: gnome-terminal (<< 2.10)
+Depends: ${misc:Depends}
 Recommends: gnome-terminal
 Description: Data files for the GNOME terminal emulator
  This package contains data, help files and localization settings for
