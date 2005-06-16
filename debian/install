@@ -1,6 +1,0 @@
-debian/tmp/usr/bin
-debian/tmp/usr/share/application-registry
-debian/tmp/usr/share/applications
-debian/tmp/usr/lib
-
-debian/gnome-terminal.wrapper /usr/bin

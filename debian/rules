@@ -14,3 +14,4 @@ build/gnome-terminal::
 
 clean::
 	rm -f debian/gnome-terminal.1
+
