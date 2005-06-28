@@ -1,6 +1,11 @@
 gnome-terminal (2.10.0-3) UNRELEASED; urgency=low
 
   * Don't overwrite DEB_CONFIGURE_SCRIPT_ENV completely.
+  Sebastien Bacher:
+  * debian/control.in:
+    - the data package replaces files.
+  * debian/patches/translation_warning.patch:
+    - fix a warning due to a translation issue (Closes: #315948).
 
  -- Josselin Mouette <joss@debian.org>  Sat, 25 Jun 2005 13:41:51 +0200
 
