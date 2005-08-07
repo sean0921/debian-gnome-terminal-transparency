@@ -2,7 +2,7 @@ Source: gnome-terminal
 Section: gnome
 Priority: optional
 Maintainer: Arnaud Patard <arnaud.patard@rtp-net.org>
-Standards-Version: 3.6.1
+Standards-Version: 3.6.2
 Build-Depends: cdbs, debhelper (>= 4.1.0), liborbit2-dev (>= 1:2.10.2-1.1), intltool, libgnomeui-dev (>= 2.10.0), libvte-dev (>= 1:0.11.13), libglade2-dev (>= 2.5.1), scrollkeeper, libstartup-notification0-dev, libgnomevfs2-dev (>= 2.10.0), gnome-pkg-tools, docbook-to-man
 Uploaders: @GNOME_TEAM@, Marc Dequènes <Duck@DuckCorp.org>
 
@@ -17,10 +17,12 @@ Description: The GNOME 2 terminal emulator application
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:
  .
- To access a UNIX shell in the GNOME environment.
- .
- To run any application that is designed to run on VT102, VT220, and xterm
+ - Access a UNIX shell in the GNOME environment.
+ - Run any application that is designed to run on VT102, VT220, and xterm
  terminals.
+ . 
+ GNOME Terminal features the ability to use multiple terminals in a single 
+ window (tabs) and profiles support.
 
 Package: gnome-terminal-data
 Architecture: all

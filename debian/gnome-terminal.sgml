@@ -66,14 +66,14 @@
     <para>GNOME Terminal is a terminal emulation application that you can
       use to perform the following actions:</para>
 
-    <para>To access a UNIX shell in the GNOME environment.</para>
+    <para>Access a UNIX shell in the GNOME environment.</para>
     <para>A shell is a program that interprets and executes the commands
       that you type at a command line prompt. When you start GNOME Terminal,
       the application starts the default shell that is specified in your
       system account. You can switch to a different shell at any
       time.</para>
 
-    <para>To run any application that is designed to run on VT102, VT220,
+    <para>Run any application that is designed to run on VT102, VT220,
       and xterm terminals.</para>
 
     <para>GNOME Terminal emulates the xterm program developed by the X
@@ -111,8 +111,9 @@
       <varlistentry>
         <term><option>--tab-with-profile=<replaceable>PROFILENAME</replaceable></option></term>
         <listitem>
-          <para>Open a new tab in the last-opened window with the given
-            profile. More than one of these options can be provided.</para>
+          <para>Open a tab in the window with the given profile. More than
+                one of these options can be provided, to open
+                several tabs .</para>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -125,8 +126,8 @@
       <varlistentry>
         <term><option>--tab-with-profile-internal-id=<replaceable>PROFILEID</replaceable></option></term>
         <listitem>
-          <para>Open a new tab in the last-opened window with the given
-          profile ID. Used internally to save sessions.</para>
+          <para>Open a tab in the window with the given profile ID.
+                Used internally to save sessions.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
