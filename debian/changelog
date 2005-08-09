@@ -9,6 +9,7 @@ gnome-terminal (2.10.0-3) UNRELEASED; urgency=low
   Clément Stenac:
   * Clarify some manpage descriptions (Closes: #275888)
   * Improve description (Closes:#264480)
+  * Add gconf dependency for gnome-terminal-data (Closes:#315171)
 
  -- Josselin Mouette <joss@debian.org>  Sat, 25 Jun 2005 13:41:51 +0200
 
