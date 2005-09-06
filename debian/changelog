@@ -1,17 +1,23 @@
 gnome-terminal (2.10.0-3) UNRELEASED; urgency=low
 
+  [ Josselin Mouette ]
   * Don't overwrite DEB_CONFIGURE_SCRIPT_ENV completely.
   Sebastien Bacher:
   * debian/control.in:
     - the data package replaces files.
   * debian/patches/translation_warning.patch:
     - fix a warning due to a translation issue (Closes: #315948).
-  Clément Stenac:
+
+  [ Clément Stenac ]
   * Clarify some manpage descriptions (Closes: #275888)
   * Improve description (Closes:#264480)
   * Add gconf dependency for gnome-terminal-data (Closes:#315171)
 
- -- Josselin Mouette <joss@debian.org>  Sat, 25 Jun 2005 13:41:51 +0200
+  [ Loic Minier ]
+  * Fix by Tim Baverstock to stop ARGV processing when we find -e.
+    (Closes: #326825)
+
+ -- Loic Minier <lool@dooz.org>  Tue,  6 Sep 2005 08:32:27 +0200
 
 gnome-terminal (2.10.0-2) unstable; urgency=low
 
