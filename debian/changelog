@@ -11,13 +11,13 @@ gnome-terminal (2.10.0-3) UNRELEASED; urgency=low
   [ Clément Stenac ]
   * Clarify some manpage descriptions (Closes: #275888)
   * Improve description (Closes:#264480)
-  * Add gconf dependency for gnome-terminal-data (Closes:#315171)
+  * Add gconf dependency for gnome-terminal-data (Closes:#315171, #328295)
 
   [ Loic Minier ]
   * Fix by Tim Baverstock to stop ARGV processing when we find -e.
     (Closes: #326825)
 
- -- Loic Minier <lool@dooz.org>  Tue,  6 Sep 2005 08:32:27 +0200
+ -- Loic Minier <lool@dooz.org>  Wed, 14 Sep 2005 20:20:21 +0200
 
 gnome-terminal (2.10.0-2) unstable; urgency=low
 
