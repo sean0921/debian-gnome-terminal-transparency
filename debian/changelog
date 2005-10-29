@@ -6,8 +6,9 @@ gnome-terminal (2.12.0-1) experimental; urgency=low
     [debian/patches/03_menu_entry.patch]
   * Add CDBS' utils. [debian/rules]
   * Clarify Copyright versus License. [debian/copyright]
+  * Don't run scrollkeeper. [debian/rules]
 
- -- Loic Minier <lool@dooz.org>  Sat, 29 Oct 2005 20:32:41 +0200
+ -- Loic Minier <lool@dooz.org>  Sat, 29 Oct 2005 20:44:07 +0200
 
 gnome-terminal (2.10.0-3) UNRELEASED; urgency=low
 
