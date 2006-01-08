@@ -3,10 +3,10 @@ Sat, 14 Mar 1998 20:12:23 -0800.
 
 It was downloaded from ftp://ftp.gnome.org/pub/GNOME/sources/gnome-terminal/
 
-Upstream Authors: Havoc Pennington <hp@redhat.com>,
+Upstream Authors and Copyright Holders: Havoc Pennington <hp@redhat.com>,
 	Mariano Suárez-Alvarez <mariano@gnome.org>
 
-Copyright:
+License:
 
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by

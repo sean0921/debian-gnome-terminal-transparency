@@ -1,0 +1,10 @@
+diff -Nur gnome-terminal-2.11.3.orig/gnome-terminal.desktop.in.in gnome-terminal-2.11.3/gnome-terminal.desktop.in.in
+--- gnome-terminal-2.11.3.orig/gnome-terminal.desktop.in.in	2005-07-02 01:50:31.000000000 +0200
++++ gnome-terminal-2.11.3/gnome-terminal.desktop.in.in	2005-09-06 10:17:42.000000000 +0200
+@@ -11,5 +11,5 @@
+ X-GNOME-Bugzilla-Product=gnome-terminal
+ X-GNOME-Bugzilla-Component=general
+ X-GNOME-Bugzilla-Version=@VERSION@
+-Categories=GNOME;Application;System;Utility;TerminalEmulator;
++Categories=GNOME;Application;Utility;TerminalEmulator;
+ StartupNotify=true

@@ -1,3 +1,21 @@
+gnome-terminal (2.12.0-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Josselin Mouette <joss@debian.org>  Sun,  8 Jan 2006 17:10:23 +0100
+
+gnome-terminal (2.12.0-1) experimental; urgency=low
+
+  * New upstream releases.
+    - Update watch file. [debian/watch]
+  * New patch from Ubuntu to move the menu entry to utilities/accessories.
+    [debian/patches/03_menu_entry.patch]
+  * Add CDBS' utils. [debian/rules]
+  * Clarify Copyright versus License. [debian/copyright]
+  * Don't run scrollkeeper. [debian/rules]
+
+ -- Loic Minier <lool@dooz.org>  Sat, 29 Oct 2005 20:44:07 +0200
+
 gnome-terminal (2.10.0-3) UNRELEASED; urgency=low
 
   [ Josselin Mouette ]

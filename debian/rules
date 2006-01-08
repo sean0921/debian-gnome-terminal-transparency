@@ -2,12 +2,13 @@
 # -*- mode: makefile; coding: utf-8 -*-
 
 include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/rules/utils.mk
 include /usr/share/cdbs/1/rules/simple-patchsys.mk
 include /usr/share/cdbs/1/class/gnome.mk
-
 include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
 
 DEB_CONFIGURE_SCRIPT_ENV += LDFLAGS="-Wl,-O1 -Wl,--as-needed"
+DEB_CONFIGURE_EXTRA_FLAGS += --disable-scrollkeeper
 
 build/gnome-terminal::
 	/usr/bin/docbook-to-man debian/gnome-terminal.sgml > debian/gnome-terminal.1
