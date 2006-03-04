@@ -1,3 +1,17 @@
+gnome-terminal (2.13.93-1) experimental; urgency=low
+
+  * New upstream release
+    - Tabs can be dragged and dropped (Closes: #240139, #265736)
+    - Pre-selects the window/tab title on edit (Closes: #305678)
+
+ -- Guilherme de S. Pastore <guilherme.pastore@terra.com.br>  Sat,  4 Mar 2006 15:40:35 -0300
+
+gnome-terminal (2.12.0-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Josselin Mouette <joss@debian.org>  Sun,  8 Jan 2006 17:10:23 +0100
+
 gnome-terminal (2.12.0-1) experimental; urgency=low
 
   * New upstream releases.
