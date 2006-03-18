@@ -1,3 +1,24 @@
+gnome-terminal (2.14.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Guilherme de S. Pastore <guilherme.pastore@terra.com.br>  Sat, 18 Mar 2006 13:13:33 -0300
+
+gnome-terminal (2.13.93-1) experimental; urgency=low
+
+  * New upstream release
+    - Tabs can be dragged and dropped. (Closes: #240139, #265736)
+    - Pre-selects the window/tab title on edit. (Closes: #305678)
+  * debian/patches:
+    - tab-change.patch: dropped; fixed upstream.
+    - 03_menu_entry.patch: dropped; applied upstream.
+    - translation_warning.patch: dropped; fixed upstream.
+  * debian/gnome-terminal-data.install:
+    - do not install /usr/share/application-registry, it has been
+      dropped and deprecated upstream.  
+
+ -- Guilherme de S. Pastore <guilherme.pastore@terra.com.br>  Sat,  4 Mar 2006 15:46:20 -0300
+
 gnome-terminal (2.12.0-2) unstable; urgency=low
 
   * Upload to unstable.
