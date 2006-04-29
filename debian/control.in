@@ -1,10 +1,10 @@
 Source: gnome-terminal
 Section: gnome
 Priority: optional
-Maintainer: Arnaud Patard <arnaud.patard@rtp-net.org>
+Maintainer: Guilherme de S. Pastore <gpastore@debian.org>
 Standards-Version: 3.6.2
 Build-Depends: cdbs, debhelper (>= 4.1.0), liborbit2-dev (>= 1:2.10.2-1.1), intltool, libgnomeui-dev (>= 2.10.0), libvte-dev (>= 1:0.11.13), libglade2-dev (>= 2.5.1), scrollkeeper, libstartup-notification0-dev, libgnomevfs2-dev (>= 2.10.0), gnome-pkg-tools, docbook-to-man
-Uploaders: @GNOME_TEAM@, Marc Dequènes <Duck@DuckCorp.org>
+Uploaders: @GNOME_TEAM@
 
 Package: gnome-terminal
 Architecture: any

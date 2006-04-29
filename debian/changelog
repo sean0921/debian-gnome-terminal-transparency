@@ -1,3 +1,9 @@
+gnome-terminal (2.14.1-2) UNRELEASED; urgency=low
+
+  * List fatalerror as the primary maintainer.
+
+ -- Josselin Mouette <joss@debian.org>  Sat, 29 Apr 2006 02:39:09 +0200
+
 gnome-terminal (2.14.1-1) unstable; urgency=low
 
   * New upstream release.
