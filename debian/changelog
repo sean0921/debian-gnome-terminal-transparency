@@ -1,11 +1,15 @@
-gnome-terminal (2.14.1-2) UNRELEASED; urgency=low
+gnome-terminal (2.14.2-1) unstable; urgency=low
 
+  [ Josselin Mouette ]
   * List fatalerror as the primary maintainer.
   * Make the package binNMU-safe.
     + Build-depend on dpkg-dev 1.13.19.
     + Use ${source:Version}.
 
- -- Josselin Mouette <joss@debian.org>  Sat,  6 May 2006 08:27:28 +0200
+  [ Loic Minier ]
+  * New upstream release.
+
+ -- Loic Minier <lool@dooz.org>  Mon, 29 May 2006 22:13:45 +0200
 
 gnome-terminal (2.14.1-1) unstable; urgency=low
 
