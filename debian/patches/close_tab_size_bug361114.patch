@@ -1,0 +1,27 @@
+===================================================================
+RCS file: /cvs/gnome/gnome-terminal/src/terminal-window.c,v
+retrieving revision 1.128
+retrieving revision 1.129
+diff -u -r1.128 -r1.129
+--- terminal-window.c	2006/07/10 18:32:21	1.128
++++ terminal-window.c	2006/07/24 22:12:11	1.129
+@@ -1840,6 +1840,7 @@
+                                TerminalScreen  *screen,
+                                TerminalWindow  *window)
+ {  
++  gboolean single;
+   /* Called from terminal_notebook_move_tab() */
+   if (find_screen (window, screen) != NULL) {
+     g_assert (terminal_screen_get_window (screen) == window);
+@@ -1871,6 +1872,11 @@
+   reset_tab_menuitems (window);
+   update_tab_sensitivity (window);
+ 
++  /* The tab bar may have disappeared */
++  single = g_list_length (window->priv->terms) == 1;
++  if (single)
++    terminal_window_set_size (window, window->priv->active_term, TRUE);
++
+   /* Close window if no more terminals */
+   if (window->priv->terms == NULL)
+     gtk_widget_destroy (GTK_WIDGET (window));

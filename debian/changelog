@@ -1,8 +1,14 @@
 gnome-terminal (2.14.2-2) UNRELEASED; urgency=low
 
+  [ Loic Minier ]
   * Fix watch file.
 
- -- Loic Minier <lool@dooz.org>  Mon, 26 Jun 2006 22:39:23 +0200
+  [ Josselin Mouette ]
+  * close_tab_size_bug361114.patch: patch from upstream CVS, to prevent 
+    the window from growing of one line when there is one tab remaining 
+    (closes: #361114).
+
+ -- Josselin Mouette <joss@debian.org>  Mon, 28 Aug 2006 13:46:47 +0200
 
 gnome-terminal (2.14.2-1) unstable; urgency=low
 
