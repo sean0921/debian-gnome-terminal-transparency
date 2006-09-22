@@ -1,3 +1,42 @@
+gnome-terminal (2.16.0-1) experimental; urgency=low
+
+  [ Guilherme de S. Pastore ]
+  * New upstream release.
+    - Doesn't add lines after closing tabs (Closes: #361114).
+
+  * debian/control.in: bumped Standards-Version to 3.7.2.
+  * debian/copyright, debian/watch: updated for download.gnome.org.
+
+  [ Loic Minier ]
+  * Fix watch file.
+
+ -- Guilherme de S. Pastore <gpastore@debian.org>  Fri, 22 Sep 2006 16:11:39 -0300
+
+gnome-terminal (2.14.2-1) unstable; urgency=low
+
+  [ Josselin Mouette ]
+  * List fatalerror as the primary maintainer.
+  * Make the package binNMU-safe.
+    + Build-depend on dpkg-dev 1.13.19.
+    + Use ${source:Version}.
+
+  [ Loic Minier ]
+  * New upstream release.
+
+ -- Loic Minier <lool@dooz.org>  Mon, 29 May 2006 22:13:45 +0200
+
+gnome-terminal (2.14.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Guilherme de S. Pastore <gpastore@debian.org>  Fri, 21 Apr 2006 12:34:04 -0300
+
+gnome-terminal (2.14.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Guilherme de S. Pastore <guilherme.pastore@terra.com.br>  Sat, 18 Mar 2006 13:13:33 -0300
+
 gnome-terminal (2.13.93-1) experimental; urgency=low
 
   * New upstream release
