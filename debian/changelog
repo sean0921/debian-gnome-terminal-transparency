@@ -4,7 +4,11 @@ gnome-terminal (2.16.0-1) experimental; urgency=low
   * New upstream release.
     - Doesn't add lines after closing tabs (Closes: #361114).
 
-  * debian/control.in: bumped Standards-Version to 3.7.2.
+  * debian/control.in:
+    - bumped Standards-Version to 3.7.2.
+    - bumped build-dependencies on libgtk2.0-dev and libvte-dev to
+      the 2.16 versions.
+
   * debian/copyright, debian/watch: updated for download.gnome.org.
 
   [ Loic Minier ]
