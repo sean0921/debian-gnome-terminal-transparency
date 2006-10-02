@@ -1,3 +1,9 @@
+gnome-terminal (2.16.1-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Guilherme de S. Pastore <gpastore@debian.org>  Mon,  2 Oct 2006 16:38:37 -0300
+
 gnome-terminal (2.16.0-1) experimental; urgency=low
 
   [ Guilherme de S. Pastore ]
