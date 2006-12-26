@@ -1,3 +1,10 @@
+gnome-terminal (2.16.1-2) experimental; urgency=low
+
+  * 01_terminal-window_resize.patch: stolen from upstream CVS. Avoid 
+    spurious window resizing when opening new tabs.
+
+ -- Josselin Mouette <joss@debian.org>  Tue, 26 Dec 2006 20:58:36 +0100
+
 gnome-terminal (2.16.1-1) experimental; urgency=low
 
   * New upstream release.
