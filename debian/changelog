@@ -1,10 +1,15 @@
 gnome-terminal (2.16.1-4) UNRELEASED; urgency=low
 
+  [ Loic Minier ]
   * Add a get-orig-source target to retrieve the upstream tarball.
   * Include the new check-dist Makefile to prevent accidental uploads to
     unstable; bump build-dep on gnome-pkg-tools to >= 0.10.
 
- -- Loic Minier <lool@dooz.org>  Mon, 22 Jan 2007 11:31:30 +0100
+  [ Josselin Mouette ]
+  * 02_black-screen.patch: fix the "black screen" that sometimes appear 
+    when creating a new tab (closes: #363612).
+
+ -- Josselin Mouette <joss@debian.org>  Mon, 22 Jan 2007 20:31:36 +0100
 
 gnome-terminal (2.16.1-3) experimental; urgency=low
 
