@@ -8,7 +8,7 @@ Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.o
 
 Package: gnome-terminal
 Architecture: any
-Depends: ${shlibs:Depends}, scrollkeeper (>= 0.3.14-5), gnome-control-center (>= 1:2.8.0), gnome-terminal-data (= ${source:Version})
+Depends: ${shlibs:Depends}, scrollkeeper (>= 0.3.14-5), gnome-control-center (>= 1:2.8.0), gnome-terminal-data (>= ${gnome:Version}), gnome-terminal-data (<< ${gnome:NextVersion})
 Conflicts: gnome-terminal2
 Replaces: gnome-terminal2
 Provides: x-terminal-emulator
@@ -20,8 +20,8 @@ Description: The GNOME 2 terminal emulator application
  - Access a UNIX shell in the GNOME environment.
  - Run any application that is designed to run on VT102, VT220, and xterm
  terminals.
- . 
- GNOME Terminal features the ability to use multiple terminals in a single 
+ .
+ GNOME Terminal features the ability to use multiple terminals in a single
  window (tabs) and profiles support.
 
 Package: gnome-terminal-data
