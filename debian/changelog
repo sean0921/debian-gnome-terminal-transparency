@@ -1,3 +1,10 @@
+gnome-terminal (2.16.1-5) UNRELEASED; urgency=low
+
+  * Merge 2.14.2-2; SVN r6519:9038.
+    - Drop patch 40_close_tab_size_bug361114; merged upstream.
+
+ -- Loic Minier <lool@dooz.org>  Sun, 18 Mar 2007 11:05:14 +0100
+
 gnome-terminal (2.16.1-4) experimental; urgency=low
 
   [ Loic Minier ]
@@ -52,6 +59,23 @@ gnome-terminal (2.16.0-1) experimental; urgency=low
   * Fix watch file.
 
  -- Guilherme de S. Pastore <gpastore@debian.org>  Fri, 22 Sep 2006 16:11:39 -0300
+
+gnome-terminal (2.14.2-2) unstable; urgency=low
+
+  [ Loic Minier ]
+  * Fix watch file.
+
+  [ Josselin Mouette ]
+  * close_tab_size_bug361114.patch: patch from upstream CVS, to prevent
+    the window from growing of one line when there is one tab remaining
+    (closes: #361114).
+
+  [ Loic Minier ]
+  * Add a get-orig-source target to retrieve the upstream tarball.
+  * Fix patch close_tab_size_bug361114 to apply and rename to
+    40_close_tab_size_bug361114; add comments.
+
+ -- Loic Minier <lool@dooz.org>  Sun, 18 Mar 2007 10:56:31 +0100
 
 gnome-terminal (2.14.2-1) unstable; urgency=low
 
