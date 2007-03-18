@@ -1,3 +1,15 @@
+gnome-terminal (2.18.0-1) experimental; urgency=low
+
+  * New upstream major stable release.
+    - Bump up build-deps to libstartup-notification0-dev >= 0.8, libvte-dev
+      >= 1:0.15.3.
+    - Add missing build-dep on libgconf2-dev >= 2.14.0, libxft-dev (>= 2.0.0),
+      libpango1.0-dev (>= 1.1.1).
+    - Drop patch 01_terminal-window_resize, merged upstream.
+    - Drop patch 02_black-screen, merged upstream.
+
+ -- Loic Minier <lool@dooz.org>  Sun, 18 Mar 2007 11:42:58 +0100
+
 gnome-terminal (2.16.1-5) experimental; urgency=low
 
   * Merge 2.14.2-2; SVN r6519:9038.
