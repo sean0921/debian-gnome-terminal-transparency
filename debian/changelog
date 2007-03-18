@@ -1,4 +1,4 @@
-gnome-terminal (2.14.2-2) UNRELEASED; urgency=low
+gnome-terminal (2.14.2-2) unstable; urgency=low
 
   [ Loic Minier ]
   * Fix watch file.
@@ -10,8 +10,10 @@ gnome-terminal (2.14.2-2) UNRELEASED; urgency=low
 
   [ Loic Minier ]
   * Add a get-orig-source target to retrieve the upstream tarball.
+  * Fix patch close_tab_size_bug361114 to apply and rename to
+    40_close_tab_size_bug361114; add comments.
 
- -- Loic Minier <lool@dooz.org>  Sat, 13 Jan 2007 23:31:13 +0100
+ -- Loic Minier <lool@dooz.org>  Sun, 18 Mar 2007 10:56:31 +0100
 
 gnome-terminal (2.14.2-1) unstable; urgency=low
 

@@ -1,11 +1,14 @@
+Debian #361114; from upstream CVS; prevents the window from growing of one line
+when there is one tab remaining.
+
 ===================================================================
 RCS file: /cvs/gnome/gnome-terminal/src/terminal-window.c,v
 retrieving revision 1.128
 retrieving revision 1.129
-diff -u -r1.128 -r1.129
---- terminal-window.c	2006/07/10 18:32:21	1.128
-+++ terminal-window.c	2006/07/24 22:12:11	1.129
-@@ -1840,6 +1840,7 @@
+diff -Nur gnome-terminal-2.14.2/src/terminal-window.c gnome-terminal-2.14.2.new/src/terminal-window.c
+--- gnome-terminal-2.14.2/src/terminal-window.c	2006-03-04 07:21:01.000000000 +0100
++++ gnome-terminal-2.14.2.new/src/terminal-window.c	2007-03-18 10:54:49.000000000 +0100
+@@ -1815,6 +1815,7 @@
                                 TerminalScreen  *screen,
                                 TerminalWindow  *window)
  {  
@@ -13,7 +16,7 @@ diff -u -r1.128 -r1.129
    /* Called from terminal_notebook_move_tab() */
    if (find_screen (window, screen) != NULL) {
      g_assert (terminal_screen_get_window (screen) == window);
-@@ -1871,6 +1872,11 @@
+@@ -1846,6 +1847,11 @@
    reset_tab_menuitems (window);
    update_tab_sensitivity (window);
  
