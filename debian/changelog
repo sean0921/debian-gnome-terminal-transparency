@@ -5,8 +5,9 @@ gnome-terminal (2.16.1-5) UNRELEASED; urgency=low
   * Set LDFLAGS directly instead of via DEB_CONFIGURE_SCRIPT_ENV; build-depend
     on cdbs >= 0.4.41.
   * Bump up Debhelper compatibility level to 5.
+  * Cleanups.
 
- -- Loic Minier <lool@dooz.org>  Sun, 18 Mar 2007 11:07:33 +0100
+ -- Loic Minier <lool@dooz.org>  Sun, 18 Mar 2007 11:21:08 +0100
 
 gnome-terminal (2.16.1-4) experimental; urgency=low
 

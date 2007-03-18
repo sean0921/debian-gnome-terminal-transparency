@@ -1,4 +1,6 @@
-#!/bin/sh -e
+#!/bin/sh
+
+set -e
 
 #DEBHELPER#
 
@@ -6,5 +8,3 @@ if [ "$1" = "remove" ]; then
 	update-alternatives --remove x-terminal-emulator /usr/bin/gnome-terminal.wrapper
 fi
 
-
-exit 0
