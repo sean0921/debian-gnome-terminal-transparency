@@ -1,3 +1,82 @@
+gnome-terminal (2.18.0-1) experimental; urgency=low
+
+  * New upstream major stable release.
+    - Bump up build-deps to libstartup-notification0-dev >= 0.8, libvte-dev
+      >= 1:0.15.3.
+    - Add missing build-dep on libgconf2-dev >= 2.14.0, libxft-dev (>= 2.0.0),
+      libpango1.0-dev (>= 1.1.1).
+    - Drop patch 01_terminal-window_resize, merged upstream.
+    - Drop patch 02_black-screen, merged upstream.
+
+ -- Loic Minier <lool@dooz.org>  Sun, 18 Mar 2007 11:42:58 +0100
+
+gnome-terminal (2.16.1-5) experimental; urgency=low
+
+  * Merge 2.14.2-2; SVN r6519:9038.
+    - Drop patch 40_close_tab_size_bug361114; merged upstream.
+  * Set LDFLAGS directly instead of via DEB_CONFIGURE_SCRIPT_ENV; build-depend
+    on cdbs >= 0.4.41.
+  * Bump up Debhelper compatibility level to 5.
+  * Cleanups.
+  * Pass -Wl,-z,defs before --as-needed in LDFLAGS.
+
+ -- Loic Minier <lool@dooz.org>  Sun, 18 Mar 2007 11:21:34 +0100
+
+gnome-terminal (2.16.1-4) experimental; urgency=low
+
+  [ Loic Minier ]
+  * Add a get-orig-source target to retrieve the upstream tarball.
+  * Include the new check-dist Makefile to prevent accidental uploads to
+    unstable; bump build-dep on gnome-pkg-tools to >= 0.10.
+
+  [ Josselin Mouette ]
+  * 02_black-screen.patch: fix the "black screen" that sometimes appear
+    when creating a new tab (closes: #363612).
+
+  [ Loic Minier ]
+  * Use ${gnome:Version} and ${gnome:NextVersion}.
+  * Include the gnome-versions.mk snippet.
+  * Build-depend on the Gtk 2.10 transitionned libgnomeui-dev: >= 2.16.0-2.
+
+ -- Loic Minier <lool@dooz.org>  Tue,  6 Mar 2007 11:20:53 +0100
+
+gnome-terminal (2.16.1-3) experimental; urgency=low
+
+  * Build-depend on gnome-doc-utils (closes: #405206).
+
+ -- Josselin Mouette <joss@debian.org>  Tue,  2 Jan 2007 15:32:45 +0100
+
+gnome-terminal (2.16.1-2) experimental; urgency=low
+
+  * 01_terminal-window_resize.patch: stolen from upstream CVS. Avoid 
+    spurious window resizing when opening new tabs.
+
+ -- Josselin Mouette <joss@debian.org>  Tue, 26 Dec 2006 20:58:36 +0100
+
+gnome-terminal (2.16.1-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Guilherme de S. Pastore <gpastore@debian.org>  Mon,  2 Oct 2006 16:38:37 -0300
+
+gnome-terminal (2.16.0-1) experimental; urgency=low
+
+  [ Guilherme de S. Pastore ]
+  * New upstream release.
+    - Doesn't add lines after closing tabs (Closes: #361114).
+
+  * debian/control.in:
+    - bumped Standards-Version to 3.7.2.
+    - bumped build-dependencies on libgtk2.0-dev and libvte-dev to
+      the 2.16 versions.
+
+  * debian/copyright, debian/watch: updated for download.gnome.org.
+
+  [ Loic Minier ]
+  * Fix watch file.
+
+ -- Guilherme de S. Pastore <gpastore@debian.org>  Fri, 22 Sep 2006 16:11:39 -0300
+
 gnome-terminal (2.14.2-2) unstable; urgency=low
 
   [ Loic Minier ]
