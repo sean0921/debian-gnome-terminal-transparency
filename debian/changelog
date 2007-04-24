@@ -1,3 +1,9 @@
+gnome-terminal (2.18.0-2) UNRELEASED; urgency=low
+
+  * Upload to unstable; drop check-dist include.
+
+ -- Loic Minier <lool@dooz.org>  Tue, 24 Apr 2007 15:16:03 +0200
+
 gnome-terminal (2.18.0-1) experimental; urgency=low
 
   * New upstream major stable release.
