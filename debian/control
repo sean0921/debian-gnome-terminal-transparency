@@ -3,12 +3,33 @@ Section: gnome
 Priority: optional
 Maintainer: Guilherme de S. Pastore <gpastore@debian.org>
 Standards-Version: 3.7.2
-Build-Depends: cdbs (>= 0.4.41), debhelper (>= 5), liborbit2-dev (>= 1:2.10.2-1.1), intltool, libgtk2.0-dev (>= 2.10.0), libgnomeui-dev (>= 2.16.0-2), libvte-dev (>= 1:0.15.3), libglade2-dev (>= 2.5.1), scrollkeeper, libstartup-notification0-dev (>= 0.8), libgnomevfs2-dev (>= 2.10.0), gnome-pkg-tools (>= 0.10), dpkg-dev (>= 1.13.19), docbook-to-man, gnome-doc-utils, libgconf2-dev (>= 2.14.0), libxft-dev (>= 2.0.0), libpango1.0-dev (>= 1.1.1)
-Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Andrew Lau <netsnipe@users.sourceforge.net>, Clément Stenac <zorglub@debian.org>, Dafydd Harries <daf@debian.org>, Gustavo Franco <stratus@debian.org>, Gustavo Noronha Silva <kov@debian.org>, J.H.M. Dassen (Ray) <jdassen@debian.org>, Jordi Mallach <jordi@debian.org>, Jose Carlos Garcia Sogo <jsogo@debian.org>, Josselin Mouette <joss@debian.org>, Kilian Krause <kilian@debian.org>, Loic Minier <lool@dooz.org>, Marc 'HE' Brockschmidt <he@debian.org>, Marco Cabizza <marco87@gmail.com>, Oystein Gisnas <oystein@gisnas.net>, Ondřej Surý <ondrej@debian.org>, Ross Burton <ross@debian.org>, Sebastien Bacher <seb128@debian.org>, Sjoerd Simons <sjoerd@debian.org>
+Build-Depends: cdbs (>= 0.4.41),
+               debhelper (>= 5),
+               liborbit2-dev (>= 1:2.10.2-1.1),
+               intltool,
+               libgtk2.0-dev (>= 2.10.0),
+               libgnomeui-dev (>= 2.16.0-2),
+               libvte-dev (>= 1:0.15.3),
+               libglade2-dev (>= 2.5.1),
+               scrollkeeper,
+               libstartup-notification0-dev (>= 0.8),
+               libgnomevfs2-dev (>= 2.10.0),
+               gnome-pkg-tools (>= 0.10),
+               dpkg-dev (>= 1.13.19),
+               docbook-to-man,
+               gnome-doc-utils,
+               libgconf2-dev (>= 2.14.0),
+               libxft-dev (>= 2.0.0),
+               libpango1.0-dev (>= 1.1.1)
+Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Josselin Mouette <joss@debian.org>, Loic Minier <lool@dooz.org>
 
 Package: gnome-terminal
 Architecture: any
-Depends: ${shlibs:Depends}, scrollkeeper (>= 0.3.14-5), gnome-control-center (>= 1:2.8.0), gnome-terminal-data (>= ${gnome:Version}), gnome-terminal-data (<< ${gnome:NextVersion})
+Depends: ${shlibs:Depends},
+         scrollkeeper (>= 0.3.14-5),
+         gnome-control-center (>= 1:2.8.0),
+         gnome-terminal-data (>= ${gnome:Version}),
+         gnome-terminal-data (<< ${gnome:NextVersion})
 Conflicts: gnome-terminal2
 Replaces: gnome-terminal2
 Provides: x-terminal-emulator
