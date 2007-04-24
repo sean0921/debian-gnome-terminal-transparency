@@ -1,10 +1,13 @@
-gnome-terminal (2.18.0-2) UNRELEASED; urgency=low
+gnome-terminal (2.18.0-2) unstable; urgency=low
 
   * Upload to unstable; drop check-dist include.
   * Wrap build-deps and deps.
   * Add a ${misc:Depends}.
+  * Apply patch by Vincent Ho to let gnome-terminal.wrapper ignore and warn
+    about the --icon flag and to map the -name to --window-with-profile
+    instead of --tclass; closes: #295195, #315945, #358865.
 
- -- Loic Minier <lool@dooz.org>  Tue, 24 Apr 2007 15:21:57 +0200
+ -- Loic Minier <lool@dooz.org>  Tue, 24 Apr 2007 15:24:36 +0200
 
 gnome-terminal (2.18.0-1) experimental; urgency=low
 
