@@ -1,3 +1,9 @@
+gnome-terminal (2.18.1-1) unstable; urgency=low
+
+  * New upstream stable release.
+
+ -- Loic Minier <lool@dooz.org>  Tue, 19 Jun 2007 11:55:31 +0200
+
 gnome-terminal (2.18.0-2) unstable; urgency=low
 
   * Upload to unstable; drop check-dist include.
