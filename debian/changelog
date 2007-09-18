@@ -1,3 +1,9 @@
+gnome-terminal (2.18.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 18 Sep 2007 10:55:37 +0200
+
 gnome-terminal (2.18.1-1) unstable; urgency=low
 
   * New upstream stable release.

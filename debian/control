@@ -21,7 +21,7 @@ Build-Depends: cdbs (>= 0.4.41),
                libgconf2-dev (>= 2.14.0),
                libxft-dev (>= 2.0.0),
                libpango1.0-dev (>= 1.1.1)
-Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Josselin Mouette <joss@debian.org>, Loic Minier <lool@dooz.org>
+Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Josselin Mouette <joss@debian.org>, Loic Minier <lool@dooz.org>, Sebastian Dröge <slomo@debian.org>
 
 Package: gnome-terminal
 Architecture: any
