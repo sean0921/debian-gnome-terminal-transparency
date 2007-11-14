@@ -1,8 +1,10 @@
-gnome-terminal (2.18.2-2) UNRELEASED; urgency=low
+gnome-terminal (2.18.2-2) unstable; urgency=low
 
   * Drop version in scrollkeeper depedency.
+  * New patch, 04_resized_on_tabs_switch, kludge to help Gtk+ resize the
+    terminal when switching tabs; from the Ubuntu package.
 
- -- Loic Minier <lool@dooz.org>  Mon, 24 Sep 2007 00:11:14 +0200
+ -- Loic Minier <lool@dooz.org>  Wed, 14 Nov 2007 10:02:01 +0100
 
 gnome-terminal (2.18.2-1) unstable; urgency=low
 
