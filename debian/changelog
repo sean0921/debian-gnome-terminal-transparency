@@ -1,3 +1,9 @@
+gnome-terminal (2.18.3-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 27 Nov 2007 06:25:11 +0100
+
 gnome-terminal (2.18.2-2) unstable; urgency=low
 
   * Drop version in scrollkeeper depedency; closes: #451260.
