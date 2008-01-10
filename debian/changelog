@@ -1,3 +1,11 @@
+gnome-terminal (2.18.4-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+  * debian/control.in:
+    + Update Standards-Version to 3.7.3, no additional changes needed.
+
+ -- Sebastian Dröge <slomo@debian.org>  Thu, 10 Jan 2008 09:06:06 +0100
+
 gnome-terminal (2.18.3-1) unstable; urgency=low
 
   * New upstream bugfix release.
