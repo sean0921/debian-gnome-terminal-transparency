@@ -1,5 +1,5 @@
 ?package(gnome-terminal):needs="X11"\
-  section="XShells"\
+  section="Applications/Terminal Emulators"\
   hints="Gnome"\
   title="Gnome Terminal"\
   icon="/usr/share/pixmaps/gnome-terminal.xpm"\
