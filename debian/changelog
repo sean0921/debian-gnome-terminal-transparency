@@ -1,3 +1,50 @@
+gnome-terminal (2.18.4-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+  * debian/control.in:
+    + Update Standards-Version to 3.7.3, no additional changes needed.
+  * debian/gnome-terminal-data.menu:
+    + Fix section.
+
+ -- Sebastian Dröge <slomo@debian.org>  Thu, 10 Jan 2008 09:06:06 +0100
+
+gnome-terminal (2.18.3-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 27 Nov 2007 06:25:11 +0100
+
+gnome-terminal (2.18.2-2) unstable; urgency=low
+
+  * Drop version in scrollkeeper depedency; closes: #451260.
+  * New patch, 04_resized_on_tabs_switch, kludge to help Gtk+ resize the
+    terminal when switching tabs; from the Ubuntu package.
+
+ -- Loic Minier <lool@dooz.org>  Wed, 14 Nov 2007 10:02:01 +0100
+
+gnome-terminal (2.18.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 18 Sep 2007 10:55:37 +0200
+
+gnome-terminal (2.18.1-1) unstable; urgency=low
+
+  * New upstream stable release.
+
+ -- Loic Minier <lool@dooz.org>  Tue, 19 Jun 2007 11:55:31 +0200
+
+gnome-terminal (2.18.0-2) unstable; urgency=low
+
+  * Upload to unstable; drop check-dist include.
+  * Wrap build-deps and deps.
+  * Add a ${misc:Depends}.
+  * Apply patch by Vincent Ho to let gnome-terminal.wrapper ignore and warn
+    about the --icon flag and to map the -name to --window-with-profile
+    instead of --tclass; closes: #295195, #315945, #358865.
+
+ -- Loic Minier <lool@dooz.org>  Tue, 24 Apr 2007 15:24:36 +0200
+
 gnome-terminal (2.18.0-1) experimental; urgency=low
 
   * New upstream major stable release.
