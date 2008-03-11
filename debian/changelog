@@ -1,3 +1,11 @@
+gnome-terminal (2.22.0-1) unstable; urgency=low
+
+  * New upstream stable release:
+    + debian/control.in:
+      - Build depend on GLib >= 2.15.2 and libgnome >= 2.14.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 11 Mar 2008 08:46:27 +0100
+
 gnome-terminal (2.18.4-1) unstable; urgency=low
 
   * New upstream bugfix release.

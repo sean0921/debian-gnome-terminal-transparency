@@ -7,13 +7,14 @@ Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 5),
                liborbit2-dev (>= 1:2.10.2-1.1),
                intltool,
-               libgtk2.0-dev (>= 2.10.0),
+               libgtk2.0-dev (>= 2.12.0),
+               libglib2.0-dev (>= 2.15.2),
+               libgnome2-dev (>= 2.14.0),
                libgnomeui-dev (>= 2.16.0-2),
                libvte-dev (>= 1:0.15.3),
                libglade2-dev (>= 2.5.1),
                scrollkeeper,
                libstartup-notification0-dev (>= 0.8),
-               libgnomevfs2-dev (>= 2.10.0),
                gnome-pkg-tools (>= 0.10),
                dpkg-dev (>= 1.13.19),
                docbook-to-man,
@@ -21,7 +22,7 @@ Build-Depends: cdbs (>= 0.4.41),
                libgconf2-dev (>= 2.14.0),
                libxft-dev (>= 2.0.0),
                libpango1.0-dev (>= 1.1.1)
-Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Josselin Mouette <joss@debian.org>, Loic Minier <lool@dooz.org>, Sebastian Dröge <slomo@debian.org>
+Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Loic Minier <lool@dooz.org>, Sebastian Dröge <slomo@debian.org>
 
 Package: gnome-terminal
 Architecture: any
