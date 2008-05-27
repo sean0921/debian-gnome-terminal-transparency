@@ -1,12 +1,16 @@
-gnome-terminal (2.22.1-2) UNRELEASED; urgency=low
+gnome-terminal (2.22.2-1) unstable; urgency=low
 
+  [ Emilio Pozuelo Monfort ]
   * debian/control:
     - Use two spaces in the description for the list of actions.
       Closes: #480322.
     - Don't depend on gnome-control-center. Closes: #474607.
     - Added Debian GNOME Maintainers to Uploaders.
 
- -- Emilio Pozuelo Monfort <pochu@ubuntu.com>  Fri, 09 May 2008 18:46:24 +0200
+  [ Sebastian Dröge ]
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 27 May 2008 07:39:49 +0200
 
 gnome-terminal (2.22.1-1) unstable; urgency=low
 
