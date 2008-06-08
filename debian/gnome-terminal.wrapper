@@ -57,7 +57,7 @@ while ($opt = shift(@ARGV))
     }
     elsif ($opt eq '-e')
     {
-	push(@args, '-x', @ARGV);
+	push(@args, '-e', @ARGV);
 	last;
     }
     elsif ($opt eq '-h' || $opt eq '--help')
