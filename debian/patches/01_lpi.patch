@@ -1,33 +1,35 @@
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.21.91/configure.in gnome-terminal-2.21.91.new/configure.in
---- gnome-terminal-2.21.91/configure.in	2008-02-11 22:01:33.000000000 +0000
-+++ gnome-terminal-2.21.91.new/configure.in	2008-02-11 23:14:14.000000000 +0000
-@@ -37,6 +37,7 @@
+diff -Nur -x '*.orig' -x '*~' ubuntu/configure.ac ubuntu.new/configure.ac
+--- ubuntu/configure.ac	2008-06-17 20:38:09.000000000 +0200
++++ ubuntu.new/configure.ac	2008-06-18 10:36:36.000000000 +0200
+@@ -48,6 +48,7 @@
   glib-2.0 >= $GLIB_REQUIRED dnl
   gtk+-2.0 >= $GTK_REQUIRED dnl
   gconf-2.0 >= $GCONF_REQUIRED dnl
 + launchpad-integration
   gio-2.0 dnl
-  libglade-2.0 dnl
   libgnomeui-2.0 dnl
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.21.91/src/terminal-window.c gnome-terminal-2.21.91.new/src/terminal-window.c
---- gnome-terminal-2.21.91/src/terminal-window.c	2008-01-15 00:20:37.000000000 +0000
-+++ gnome-terminal-2.21.91.new/src/terminal-window.c	2008-02-11 23:12:32.000000000 +0000
-@@ -29,6 +29,7 @@
- #include <string.h>
- #include <stdlib.h>
- #include <libgnome/gnome-program.h>
-+#include <launchpad-integration.h>
- #include <gtk/gtklabel.h>
+  libgnome-2.0 >= $LIBGNOME_REQUIRED dnl
+diff -Nur -x '*.orig' -x '*~' ubuntu/src/terminal-window.c ubuntu.new/src/terminal-window.c
+--- ubuntu/src/terminal-window.c	2008-06-17 21:02:47.000000000 +0200
++++ ubuntu.new/src/terminal-window.c	2008-06-18 10:40:19.000000000 +0200
+@@ -25,6 +25,7 @@
  #include <gdk/gdkx.h>
  #include <gdk/gdkkeysyms.h>
-@@ -1067,7 +1068,9 @@
-   mi = append_stock_menuitem (menu, GTK_STOCK_ABOUT, NULL,
-                               G_CALLBACK (about_callback), window);
-   set_menuitem_text (mi, _("_About"), FALSE);
--  
-+
-+  launchpad_integration_add_items (menu, -1, TRUE, TRUE);
-+
-   terminal_window_reread_profile_list (window);
-   
-   terminal_window_set_menubar_visible (window, TRUE);
+ #include <libsn/sn-launchee.h>
++#include <launchpad-integration.h>
+ 
+ #include "encoding.h"
+ #include "skey-popup.h"
+@@ -1479,11 +1480,11 @@
+       g_printerr ("Failed to load UI: %s\n", error->message);
+       g_error_free (error);
+     }
+-
+   priv->menubar = gtk_ui_manager_get_widget (manager, "/menubar");
+   gtk_box_pack_start (GTK_BOX (main_vbox),
+ 		      priv->menubar,
+ 		      FALSE, FALSE, 0);
++  launchpad_integration_add_ui (manager, "Help");
+ 
+   /* Add tabs menu */
+   priv->tabs_menu = terminal_tabs_menu_new (window);

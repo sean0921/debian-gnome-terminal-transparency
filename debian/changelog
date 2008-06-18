@@ -1,3 +1,14 @@
+gnome-terminal (2.23.4.2-0ubuntu1) intrepid; urgency=low
+
+  * new upstream version
+  * changed debian/patches/01_lpi.patch to work with GtkUIManager
+  * dropped debian/patches/03_ubuntu_lpi_fix_crash.diff because the
+    UIManager makes it obsolete
+  * updated and renamed debian/patches/02_autoconf.patch to
+    debian/patches/99_autoreconf.patch
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Wed, 18 Jun 2008 10:33:45 +0200
+
 gnome-terminal (2.22.1-0ubuntu2) hardy; urgency=low
 
   * rebuild due to the liblaunchpad-integration soname change
