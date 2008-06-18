@@ -1,6 +1,6 @@
 diff -Nur -x '*.orig' -x '*~' ubuntu/configure.ac ubuntu.new/configure.ac
 --- ubuntu/configure.ac	2008-06-17 20:38:09.000000000 +0200
-+++ ubuntu.new/configure.ac	2008-06-18 10:36:36.000000000 +0200
++++ ubuntu.new/configure.ac	2008-06-18 11:28:33.000000000 +0200
 @@ -48,6 +48,7 @@
   glib-2.0 >= $GLIB_REQUIRED dnl
   gtk+-2.0 >= $GTK_REQUIRED dnl
@@ -11,7 +11,7 @@ diff -Nur -x '*.orig' -x '*~' ubuntu/configure.ac ubuntu.new/configure.ac
   libgnome-2.0 >= $LIBGNOME_REQUIRED dnl
 diff -Nur -x '*.orig' -x '*~' ubuntu/src/terminal-window.c ubuntu.new/src/terminal-window.c
 --- ubuntu/src/terminal-window.c	2008-06-17 21:02:47.000000000 +0200
-+++ ubuntu.new/src/terminal-window.c	2008-06-18 10:40:19.000000000 +0200
++++ ubuntu.new/src/terminal-window.c	2008-06-18 11:29:51.000000000 +0200
 @@ -25,6 +25,7 @@
  #include <gdk/gdkx.h>
  #include <gdk/gdkkeysyms.h>
@@ -29,7 +29,18 @@ diff -Nur -x '*.orig' -x '*~' ubuntu/src/terminal-window.c ubuntu.new/src/termin
    gtk_box_pack_start (GTK_BOX (main_vbox),
  		      priv->menubar,
  		      FALSE, FALSE, 0);
-+  launchpad_integration_add_ui (manager, "Help");
++  launchpad_integration_add_ui (manager, "/menubar/Help/LaunchpadItems");
  
    /* Add tabs menu */
    priv->tabs_menu = terminal_tabs_menu_new (window);
+diff -Nur -x '*.orig' -x '*~' ubuntu/src/terminal.xml ubuntu.new/src/terminal.xml
+--- ubuntu/src/terminal.xml	2008-06-17 20:38:09.000000000 +0200
++++ ubuntu.new/src/terminal.xml	2008-06-18 11:28:55.000000000 +0200
+@@ -51,6 +51,7 @@
+     </menu>
+     <menu action="Help">
+       <menuitem action="HelpContents" />
++      <placeholder name='LaunchpadItems'/>
+       <menuitem action="HelpAbout" />
+     </menu>
+   </menubar>
