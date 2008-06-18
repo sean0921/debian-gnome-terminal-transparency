@@ -1,0 +1,33 @@
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.21.91/configure.in gnome-terminal-2.21.91.new/configure.in
+--- gnome-terminal-2.21.91/configure.in	2008-02-11 22:01:33.000000000 +0000
++++ gnome-terminal-2.21.91.new/configure.in	2008-02-11 23:14:14.000000000 +0000
+@@ -37,6 +37,7 @@
+  glib-2.0 >= $GLIB_REQUIRED dnl
+  gtk+-2.0 >= $GTK_REQUIRED dnl
+  gconf-2.0 >= $GCONF_REQUIRED dnl
++ launchpad-integration
+  gio-2.0 dnl
+  libglade-2.0 dnl
+  libgnomeui-2.0 dnl
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.21.91/src/terminal-window.c gnome-terminal-2.21.91.new/src/terminal-window.c
+--- gnome-terminal-2.21.91/src/terminal-window.c	2008-01-15 00:20:37.000000000 +0000
++++ gnome-terminal-2.21.91.new/src/terminal-window.c	2008-02-11 23:12:32.000000000 +0000
+@@ -29,6 +29,7 @@
+ #include <string.h>
+ #include <stdlib.h>
+ #include <libgnome/gnome-program.h>
++#include <launchpad-integration.h>
+ #include <gtk/gtklabel.h>
+ #include <gdk/gdkx.h>
+ #include <gdk/gdkkeysyms.h>
+@@ -1067,7 +1068,9 @@
+   mi = append_stock_menuitem (menu, GTK_STOCK_ABOUT, NULL,
+                               G_CALLBACK (about_callback), window);
+   set_menuitem_text (mi, _("_About"), FALSE);
+-  
++
++  launchpad_integration_add_items (menu, -1, TRUE, TRUE);
++
+   terminal_window_reread_profile_list (window);
+   
+   terminal_window_set_menubar_visible (window, TRUE);
