@@ -1,4 +1,4 @@
 version=2
-http://ftp.gnome.org/pub/GNOME/sources/gnome-terminal/([\d\.]+)[02468]/ \
+http://ftp.gnome.org/pub/GNOME/sources/gnome-terminal/([\d\.]+)[0-9]/ \
         gnome-terminal-(.*)\.tar\.gz \
 	        debian uupdate

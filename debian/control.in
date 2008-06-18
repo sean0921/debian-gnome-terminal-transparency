@@ -24,6 +24,7 @@ Build-Depends: cdbs (>= 0.4.41),
                liblaunchpad-integration-dev,
                libglib2.0-dev (>= 2.15.2)
 Uploaders: @GNOME_TEAM@
+Vcs-Bzr: http://code.launchpad.net/~ubuntu-core-dev/gnome-terminal/ubuntu
 
 Package: gnome-terminal
 Architecture: any

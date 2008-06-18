@@ -6,6 +6,11 @@ gnome-terminal (2.23.4.2-0ubuntu1) intrepid; urgency=low
     UIManager makes it obsolete
   * updated and renamed debian/patches/02_autoconf.patch to
     debian/patches/99_autoreconf.patch
+  * debian/control.in:
+    - add Vcs-Bzr header
+  * debian/watch:
+    - look for uneven version numbers too to make bzr-buildpackage
+      auto download the right tarball
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Wed, 18 Jun 2008 10:33:45 +0200
 
