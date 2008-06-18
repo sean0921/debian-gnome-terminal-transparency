@@ -1,0 +1,11 @@
+diff -Nur -x '*.orig' -x '*~' ubuntu/src/Makefile.am ubuntu.new/src/Makefile.am
+--- ubuntu/src/Makefile.am	2008-06-02 00:08:58.000000000 +0200
++++ ubuntu.new/src/Makefile.am	2008-06-18 11:19:12.000000000 +0200
+@@ -44,7 +44,6 @@
+ 	-DTERM_PKGDATADIR=\"$(pkgdatadir)\" \
+ 	-DSN_API_NOT_YET_FROZEN \
+ 	-DGDK_MULTIHEAD_SAFE \
+-	-DG_DISABLE_SINGLE_INCLUDES \
+ 	-DPANGO_DISABLE_SINGLE_INCLUDES \
+ 	-DATK_DISABLE_SINGLE_INCLUDES \
+ 	-DGDK_DISABLE_SINGLE_INCLUDES \

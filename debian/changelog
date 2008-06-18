@@ -11,6 +11,8 @@ gnome-terminal (2.23.4.2-0ubuntu1) intrepid; urgency=low
   * debian/watch:
     - look for uneven version numbers too to make bzr-buildpackage
       auto download the right tarball
+  * debian/gnome-terminal-data.install:
+    - drop /usr/share/pixmaps, its no longer used
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Wed, 18 Jun 2008 10:33:45 +0200
 
