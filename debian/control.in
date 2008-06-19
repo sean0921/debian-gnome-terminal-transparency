@@ -7,11 +7,10 @@ Standards-Version: 3.7.3
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 5),
                liborbit2-dev (>= 1:2.10.2-1.1),
-               intltool,
+               intltool (>= 0.40),
                libgtk2.0-dev (>= 2.10.0),
                libgnomeui-dev (>= 2.16.0-2),
                libvte-dev (>= 1:0.15.3),
-               libglade2-dev (>= 2.5.1),
                scrollkeeper,
                libstartup-notification0-dev (>= 0.8),
                gnome-pkg-tools (>= 0.10),
@@ -22,7 +21,7 @@ Build-Depends: cdbs (>= 0.4.41),
                libxft-dev (>= 2.0.0),
                libpango1.0-dev (>= 1.1.1),
                liblaunchpad-integration-dev,
-               libglib2.0-dev (>= 2.15.2)
+               libglib2.0-dev (>= 2.16.0)
 Uploaders: @GNOME_TEAM@
 Vcs-Bzr: http://code.launchpad.net/~ubuntu-core-dev/gnome-terminal/ubuntu
 
@@ -31,7 +30,6 @@ Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
          scrollkeeper,
-         gnome-control-center (>= 1:2.8.0),
          gnome-terminal-data (>= ${gnome:Version}),
          gnome-terminal-data (<< ${gnome:NextVersion})
 Conflicts: gnome-terminal2
@@ -41,9 +39,8 @@ Recommends: yelp
 Description: The GNOME 2 terminal emulator application
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:
- .
- - Access a UNIX shell in the GNOME environment.
- - Run any application that is designed to run on VT102, VT220, and xterm
+  - Access a UNIX shell in the GNOME environment.
+  - Run any application that is designed to run on VT102, VT220, and xterm
  terminals.
  .
  GNOME Terminal features the ability to use multiple terminals in a single

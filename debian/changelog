@@ -1,3 +1,14 @@
+gnome-terminal (2.23.4.2-0ubuntu2) intrepid; urgency=low
+
+  * Sync some changes from Debian
+    - Use two spaces in the description for the list of actions.
+    - Don't depend on gnome-control-center
+  * debian/control.in
+    - Build depend on libglib2.0-dev (>= 2.16.0) and intltool (>= 0.40)
+    - Remove Build depend on libglade2-dev 
+
+ -- Pedro Fragoso <emberez@gmail.com>  Thu, 19 Jun 2008 13:50:03 +0100
+
 gnome-terminal (2.23.4.2-0ubuntu1) intrepid; urgency=low
 
   * new upstream version
