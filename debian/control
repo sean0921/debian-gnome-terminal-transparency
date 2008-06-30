@@ -3,7 +3,7 @@ Section: gnome
 Priority: optional
 Maintainer: Guilherme de S. Pastore <gpastore@debian.org>
 Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Loic Minier <lool@dooz.org>, Sebastian Dröge <slomo@debian.org>
-Standards-Version: 3.7.3
+Standards-Version: 3.8.0
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 5),
                liborbit2-dev (>= 1:2.10.2-1.1),
