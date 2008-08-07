@@ -1,3 +1,16 @@
+gnome-terminal (2.23.6-0ubuntu1) intrepid; urgency=low
+
+  * New upstream release
+    - Add option --maximized (LP: #201930)
+    - Match caseinsensitively (LP: #228751) (LP: #161116) (LP: #172460)
+  * debian/control.in:
+    - Lets bump vte 0.16.15 to get gt using GRegex to fix
+      case sensitive bugs
+  * debian/patches/99_autoreconf.patch:
+    - Refreshed for the new release
+
+ -- Pedro Fragoso <ember@ubuntu.com>  Thu, 07 Aug 2008 16:18:31 +0100
+
 gnome-terminal (2.23.4.2-0ubuntu2) intrepid; urgency=low
 
   * Sync some changes from Debian
