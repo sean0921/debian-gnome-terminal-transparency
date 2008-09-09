@@ -1,3 +1,19 @@
+gnome-terminal (2.23.91-0ubuntu1) intrepid; urgency=low
+
+  * New upstream release
+    - gnome-terminal crashed with SIGSEGV in free() (LP: #260838)
+    - Multiple gnome-terminals don't have the same X group property
+      Reverts the patch from bug #115994, since it breaks window 
+      switching with Alt-F6 in metacity (and also didn't offer a real
+      rationale for making each window be its own group leader).
+      (LP: #72732)
+  * debian/control.in:
+    - Bump up libgtk build-depend to 2.13.6
+  * debian/patches/99_autoreconf.patch:
+    - Refresh for new release
+    
+ -- Pedro Fragoso <ember@ubuntu.com>  Sun, 31 Aug 2008 02:00:46 +0100
+
 gnome-terminal (2.23.6-0ubuntu2) intrepid; urgency=low
 
   * 20_add_alt_screen_toggle_ui.patch, control: hook new vte alternate screen
