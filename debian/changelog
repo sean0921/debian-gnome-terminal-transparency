@@ -1,3 +1,10 @@
+gnome-terminal (2.22.3-3) UNRELEASED; urgency=low
+
+  * 01_error_crash.patch: stolen from upstream (r2948). Fixes crash when 
+    passing incorrect arguments to the command line. Closes: #477259.
+
+ -- Josselin Mouette <joss@debian.org>  Wed, 17 Sep 2008 12:22:21 +0200
+
 gnome-terminal (2.22.3-2) unstable; urgency=low
 
   * gnome-terminal.wrapper: correctly emulate the completely brain-dead 
