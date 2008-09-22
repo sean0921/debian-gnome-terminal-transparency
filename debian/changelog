@@ -1,3 +1,11 @@
+gnome-terminal (2.24.0-0ubuntu1) intrepid; urgency=low
+
+  * New upstream version
+  * 99_autoreconf.patch:
+    - regenerated
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Mon, 22 Sep 2008 17:06:14 +0200
+
 gnome-terminal (2.23.91-0ubuntu1) intrepid; urgency=low
 
   * New upstream release
