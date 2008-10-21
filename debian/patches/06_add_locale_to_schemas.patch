@@ -1,0 +1,123 @@
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.24.1/src/gnome-terminal.schemas.in gnome-terminal-2.24.1.new/src/gnome-terminal.schemas.in
+--- gnome-terminal-2.24.1/src/gnome-terminal.schemas.in	2008-10-20 18:58:15.000000000 +0100
++++ gnome-terminal-2.24.1.new/src/gnome-terminal.schemas.in	2008-10-21 15:20:55.000000000 +0100
+@@ -920,7 +920,9 @@
+       <applyto>/apps/gnome-terminal/keybindings/switch_to_tab_1</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
++      <locale name="C">
+       <default>&lt;Alt&gt;1</default>
++      </locale>
+     </schema>
+ 
+     <schema>
+@@ -928,7 +930,9 @@
+       <applyto>/apps/gnome-terminal/keybindings/switch_to_tab_2</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
++      <locale name="C">
+       <default>&lt;Alt&gt;2</default>
++      </locale>
+     </schema>
+ 
+     <schema>
+@@ -936,7 +940,9 @@
+       <applyto>/apps/gnome-terminal/keybindings/switch_to_tab_3</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
++      <locale name="C">
+       <default>&lt;Alt&gt;3</default>
++      </locale>
+     </schema>
+ 
+     <schema>
+@@ -944,7 +950,9 @@
+       <applyto>/apps/gnome-terminal/keybindings/switch_to_tab_4</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
++      <locale name="C">
+       <default>&lt;Alt&gt;4</default>
++      </locale>
+     </schema>
+ 
+     <schema>
+@@ -952,7 +960,9 @@
+       <applyto>/apps/gnome-terminal/keybindings/switch_to_tab_5</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
++      <locale name="C">
+       <default>&lt;Alt&gt;5</default>
++      </locale>
+     </schema>
+ 
+     <schema>
+@@ -960,7 +970,9 @@
+       <applyto>/apps/gnome-terminal/keybindings/switch_to_tab_6</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
++      <locale name="C">
+       <default>&lt;Alt&gt;6</default>
++      </locale>
+     </schema>
+ 
+     <schema>
+@@ -968,7 +980,9 @@
+       <applyto>/apps/gnome-terminal/keybindings/switch_to_tab_7</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
++      <locale name="C">
+       <default>&lt;Alt&gt;7</default>
++      </locale>
+     </schema>
+ 
+     <schema>
+@@ -976,7 +990,9 @@
+       <applyto>/apps/gnome-terminal/keybindings/switch_to_tab_8</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
++      <locale name="C">
+       <default>&lt;Alt&gt;8</default>
++      </locale>
+     </schema>
+ 
+     <schema>
+@@ -984,7 +1000,9 @@
+       <applyto>/apps/gnome-terminal/keybindings/switch_to_tab_9</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
++      <locale name="C">      
+       <default>&lt;Alt&gt;9</default>
++      </locale>
+     </schema>
+ 
+     <schema>
+@@ -992,7 +1010,9 @@
+       <applyto>/apps/gnome-terminal/keybindings/switch_to_tab_10</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
++      <locale name="C">
+ <!-- no default -->
++      </locale>
+     </schema>
+ 
+     <schema>
+@@ -1000,7 +1020,9 @@
+       <applyto>/apps/gnome-terminal/keybindings/switch_to_tab_11</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
++      <locale name="C">
+ <!-- no default -->
++      </locale>
+     </schema>
+ 
+     <schema>
+@@ -1008,7 +1030,9 @@
+       <applyto>/apps/gnome-terminal/keybindings/switch_to_tab_12</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
++      <locale name="C">
+ <!-- no default -->
++      </locale>
+     </schema>
+ 
+     <schema>
