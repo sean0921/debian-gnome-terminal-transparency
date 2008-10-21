@@ -7,6 +7,8 @@ gnome-terminal (2.24.1-0ubuntu1) intrepid; urgency=low
     - In main menu, Terminal and Tabs have same mnemonic (lp: #279046)
   * debian/patches/05_restore_tab_switching_shortcuts.patch:
     - Dropped, the change is in the release
+  * debian/patches/06_add_locale_to_schemas.patch:
+    - Add <locale> tag to .schemas
   * debian/patches/99_autoreconf.patch:
     - Refreshed
 
