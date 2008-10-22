@@ -1,4 +1,16 @@
-gnome-terminal (2.24.1-0ubuntu1) intrepid; urgency=low
+gnome-terminal (2.24.1.1-0ubuntu1) intrepid; urgency=low
+
+  * New upstream release
+    - Revert the partial fix for bug #548600 due to regression
+      it causes
+  * debian/patches/06_add_locale_to_schemas.patch:
+    - Removed due to regression
+  * debian/patches/99_autoreconf.patch:
+    - Refreshed
+
+ -- Pedro Fragoso <ember@ubuntu.com>  Wed, 22 Oct 2008 13:50:03 +0100
+
+gnome-terminal (2.24.1-0ubuntu1~ppa1) intrepid; urgency=low
 
   * New upstream release
     - accels sent to the terminal if the corresponding gtkaction
