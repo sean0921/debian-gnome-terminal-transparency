@@ -1,0 +1,17 @@
+#
+# Description: Restoring tab switching keybindings introduced a crash bug, which this patch fixes.
+# Upstream: http://bugzilla.gnome.org/show_bug.cgi?id=556893
+# Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/286823
+#
+diff -Nur -x '*.orig' -x '*~' ubuntu/src/terminal-tabs-menu.c ubuntu.new/src/terminal-tabs-menu.c
+--- ubuntu/src/terminal-tabs-menu.c	2008-10-22 21:31:46.000000000 +0100
++++ ubuntu.new/src/terminal-tabs-menu.c	2008-10-22 21:32:44.000000000 +0100
+@@ -35,7 +35,7 @@
+ #define LABEL_WIDTH_CHARS 32
+ #define ACTION_VERB_FORMAT_PREFIX       "JmpTab"
+ #define ACTION_VERB_FORMAT_PREFIX_LEN   strlen (ACTION_VERB_FORMAT_PREFIX)
+-#define ACTION_VERB_FORMAT		ACTION_VERB_FORMAT_PREFIX "%u"
++#define ACTION_VERB_FORMAT		ACTION_VERB_FORMAT_PREFIX "%x"
+ #define ACTION_VERB_FORMAT_LENGTH	strlen (ACTION_VERB_FORMAT) + 14 + 1
+ #define ACTION_VERB_FORMAT_BASE         (16) /* %x is hex */
+ #define ACCEL_PATH_FORMAT		"<Actions>/Main/TabsSwitch%u"
