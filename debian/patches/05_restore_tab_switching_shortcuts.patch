@@ -5,7 +5,7 @@
 #
 diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.24.1.1/src/gnome-terminal.schemas.in gnome-terminal-2.24.1.1.new/src/gnome-terminal.schemas.in
 --- gnome-terminal-2.24.1.1/src/gnome-terminal.schemas.in	2008-10-22 13:04:42.000000000 +0100
-+++ gnome-terminal-2.24.1.1.new/src/gnome-terminal.schemas.in	2008-10-23 13:49:06.000000000 +0100
++++ gnome-terminal-2.24.1.1.new/src/gnome-terminal.schemas.in	2008-10-23 14:05:11.000000000 +0100
 @@ -916,6 +916,210 @@
      </schema>
  
@@ -219,7 +219,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.24.1.1/src/gnome-terminal.schemas
        <owner>gnome-terminal</owner>
 diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.24.1.1/src/terminal-accels.c gnome-terminal-2.24.1.1.new/src/terminal-accels.c
 --- gnome-terminal-2.24.1.1/src/terminal-accels.c	2008-10-22 13:04:42.000000000 +0100
-+++ gnome-terminal-2.24.1.1.new/src/terminal-accels.c	2008-10-23 13:50:51.000000000 +0100
++++ gnome-terminal-2.24.1.1.new/src/terminal-accels.c	2008-10-23 14:05:51.000000000 +0100
 @@ -20,11 +20,14 @@
  
  #include <string.h>
@@ -303,18 +303,9 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.24.1.1/src/terminal-accels.c gnom
  };
  
  enum
-@@ -870,7 +911,7 @@
-   g_signal_connect (tree, "row-changed", G_CALLBACK (row_changed), NULL);
- #endif
- 
--  for (i = 0; i < G_N_ELEMENTS (all_entries); ++i)
-+  for (i = 0; i < G_N_ELEMENTS (all_entries) - 1; ++i)
-     {
-       GtkTreeIter parent_iter;
-       int j;
 diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.24.1.1/src/terminal-tabs-menu.c gnome-terminal-2.24.1.1.new/src/terminal-tabs-menu.c
 --- gnome-terminal-2.24.1.1/src/terminal-tabs-menu.c	2008-10-22 13:04:42.000000000 +0100
-+++ gnome-terminal-2.24.1.1.new/src/terminal-tabs-menu.c	2008-10-23 13:49:06.000000000 +0100
++++ gnome-terminal-2.24.1.1.new/src/terminal-tabs-menu.c	2008-10-23 14:05:11.000000000 +0100
 @@ -30,14 +30,16 @@
  #include "terminal-screen-container.h"
  #include "terminal-intl.h"
