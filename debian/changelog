@@ -13,6 +13,7 @@ gnome-terminal (2.24.1.1-0ubuntu1) intrepid; urgency=low
   * debian/patches/05_restore_tab_switching_shortcuts.patch:
     - Re-add patch dropped by upstream due to missing commit in stable branch
       and crasher regression. Fix for crasher is already in 2.24.1.1.
+      (LP: #272199)
 
  -- Iain Lane <laney@ubuntu.com>  Thu, 23 Oct 2008 10:20:55 +0100
 
