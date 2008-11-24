@@ -1,9 +1,57 @@
-gnome-terminal (2.21.4-1) UNRELEASED; urgency=low
+gnome-terminal (2.22.3-3) unstable; urgency=low
 
-  * New upstream development version.
-  * Add check-dist.
+  * 01_error_crash.patch: stolen from upstream (r2948). Fixes crash when 
+    passing incorrect arguments to the command line. Closes: #477259.
 
- -- Bradley Smith <brad@brad-smith.co.uk>  Sat, 12 Jan 2008 02:12:47 +0000
+ -- Josselin Mouette <joss@debian.org>  Thu, 18 Sep 2008 16:17:00 +0200
+
+gnome-terminal (2.22.3-2) unstable; urgency=low
+
+  * gnome-terminal.wrapper: correctly emulate the completely brain-dead 
+    argument parsing of the -e option in xterm. Closes: #488974.
+
+ -- Josselin Mouette <joss@debian.org>  Fri, 18 Jul 2008 11:57:11 +0200
+
+gnome-terminal (2.22.3-1) unstable; urgency=low
+
+  [ Josselin Mouette ]
+  * gnome-terminal.wrapper: -e runs gnome-terminal -e, not -x.
+    Closes: #457846.
+
+  [ Sebastian Dröge ]
+  * New upstream bugfix release.
+  * debian/control.in:
+    + Updated Standards-Version to 3.8.0, no additional changes needed.
+
+ -- Sebastian Dröge <slomo@debian.org>  Mon, 30 Jun 2008 10:21:32 +0200
+
+gnome-terminal (2.22.2-1) unstable; urgency=low
+
+  [ Emilio Pozuelo Monfort ]
+  * debian/control:
+    - Use two spaces in the description for the list of actions.
+      Closes: #480322.
+    - Don't depend on gnome-control-center. Closes: #474607.
+    - Added Debian GNOME Maintainers to Uploaders.
+
+  [ Sebastian Dröge ]
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 27 May 2008 07:39:49 +0200
+
+gnome-terminal (2.22.1-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Mon, 07 Apr 2008 14:26:17 +0200
+
+gnome-terminal (2.22.0-1) unstable; urgency=low
+
+  * New upstream stable release:
+    + debian/control.in:
+      - Build depend on GLib >= 2.15.2 and libgnome >= 2.14.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 11 Mar 2008 08:46:27 +0100
 
 gnome-terminal (2.18.4-1) unstable; urgency=low
 
