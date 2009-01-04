@@ -1,3 +1,9 @@
+gnome-terminal (2.24.2-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- Josselin Mouette <joss@debian.org>  Sun, 04 Jan 2009 10:58:20 +0100
+
 gnome-terminal (2.24.1.1-1) experimental; urgency=low
 
   * New upstream release:
