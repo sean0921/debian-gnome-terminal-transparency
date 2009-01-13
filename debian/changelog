@@ -1,3 +1,9 @@
+gnome-terminal (2.24.3-1) experimental; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 13 Jan 2009 09:27:46 +0100
+
 gnome-terminal (2.24.2-1) experimental; urgency=low
 
   * New upstream release.
