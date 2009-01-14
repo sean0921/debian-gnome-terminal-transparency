@@ -1,31 +1,26 @@
-diff -Nur -x '*.orig' -x '*~' ubuntu/configure.ac ubuntu.new/configure.ac
---- ubuntu/configure.ac	2008-06-17 20:38:09.000000000 +0200
-+++ ubuntu.new/configure.ac	2008-06-18 11:28:33.000000000 +0200
-@@ -48,6 +48,7 @@
-  glib-2.0 >= $GLIB_REQUIRED dnl
-  gtk+-2.0 >= $GTK_REQUIRED dnl
-  gconf-2.0 >= $GCONF_REQUIRED dnl
-+ launchpad-integration
-  gio-2.0 dnl
-  libgnomeui-2.0 dnl
-  libgnome-2.0 >= $LIBGNOME_REQUIRED dnl
-diff -Nur -x '*.orig' -x '*~' ubuntu/src/terminal-window.c ubuntu.new/src/terminal-window.c
---- ubuntu/src/terminal-window.c	2008-06-17 21:02:47.000000000 +0200
-+++ ubuntu.new/src/terminal-window.c	2008-06-18 11:29:51.000000000 +0200
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.25.3/configure.ac gnome-terminal-2.25.3.new/configure.ac
+--- gnome-terminal-2.25.3/configure.ac	2008-12-15 19:57:28.000000000 +0000
++++ gnome-terminal-2.25.3.new/configure.ac	2009-01-11 22:11:03.000000000 +0000
+@@ -51,6 +51,7 @@
+    gio-2.0
+    gtk+-2.0 >= $GTK_REQUIRED
+    gconf-2.0 >= $GCONF_REQUIRED
++   launchpad-integration
+    dbus-glib-1 >= $DBUS_GLIB_REQUIRED
+    libstartup-notification-1.0 >= $STARTUP_NOTIFICATION_REQUIRED])
+ 
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.25.3/src/terminal-window.c gnome-terminal-2.25.3.new/src/terminal-window.c
+--- gnome-terminal-2.25.3/src/terminal-window.c	2008-12-15 21:25:10.000000000 +0000
++++ gnome-terminal-2.25.3.new/src/terminal-window.c	2009-01-11 22:12:00.000000000 +0000
 @@ -25,6 +25,7 @@
  #include <gdk/gdkx.h>
  #include <gdk/gdkkeysyms.h>
  #include <libsn/sn-launchee.h>
 +#include <launchpad-integration.h>
  
- #include "encoding.h"
  #include "skey-popup.h"
-@@ -1479,11 +1480,11 @@
-       g_printerr ("Failed to load UI: %s\n", error->message);
-       g_error_free (error);
-     }
--
-   priv->menubar = gtk_ui_manager_get_widget (manager, "/menubar");
+ #include "terminal-accels.h"
+@@ -1819,6 +1820,7 @@
    gtk_box_pack_start (GTK_BOX (main_vbox),
  		      priv->menubar,
  		      FALSE, FALSE, 0);
@@ -33,10 +28,10 @@ diff -Nur -x '*.orig' -x '*~' ubuntu/src/terminal-window.c ubuntu.new/src/termin
  
    /* Add tabs menu */
    priv->tabs_menu = terminal_tabs_menu_new (window);
-diff -Nur -x '*.orig' -x '*~' ubuntu/src/terminal.xml ubuntu.new/src/terminal.xml
---- ubuntu/src/terminal.xml	2008-06-17 20:38:09.000000000 +0200
-+++ ubuntu.new/src/terminal.xml	2008-06-18 11:28:55.000000000 +0200
-@@ -51,6 +51,7 @@
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.25.3/src/terminal.xml gnome-terminal-2.25.3.new/src/terminal.xml
+--- gnome-terminal-2.25.3/src/terminal.xml	2008-11-24 17:19:28.000000000 +0000
++++ gnome-terminal-2.25.3.new/src/terminal.xml	2009-01-11 22:12:32.000000000 +0000
+@@ -56,6 +56,7 @@
      </menu>
      <menu action="Help">
        <menuitem action="HelpContents" />

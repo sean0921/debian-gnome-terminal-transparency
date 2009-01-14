@@ -1,3 +1,28 @@
+gnome-terminal (2.25.3-0ubuntu1) jaunty; urgency=low
+
+  * New upstream version (LP: #316186):
+    - Now uses DBus for single instance/factory setup
+    - Bugs fixed (LP: #212761, LP: #298426, LP: #258775,
+      LP: #279046, LP: #290777, LP: #194065).
+  * debian/control{.in}:
+    - Bumped build-dependency on libvte-dev to 1:0.19.1.
+    - Dropped build-dependency on libgnomeui-dev.
+    - Added build-dependency on libdbus-glib-1-dev (>= 0.6).
+    - Dropped build-dependency on libxft-dev, as the xft VTE
+      backend has gone.
+  * debian/patches/01_lpi.patch:
+    - New version update.
+  * Dropped 05_restore_tab_switching_shortcuts.patch:
+    - Merged upstream.
+  * debian/patches/99_autoreconf.patch:
+    - New version update.
+  * debian/copyright:
+    - Updated authors.
+  * debian/gnome-terminal-data.install:
+    - Don't try to install /usr/lib/bonobo, as it no longer exists.
+
+ -- Chris Coulson <chrisccoulson@googlemail.com>  Sun, 11 Jan 2009 21:42:27 +0000
+
 gnome-terminal (2.24.1.1-0ubuntu1) intrepid-proposed; urgency=low
 
   [ Pedro Fragoso ]

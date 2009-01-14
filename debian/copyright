@@ -3,7 +3,9 @@ Sat, 14 Mar 1998 20:12:23 -0800.
 
 It was downloaded from http://download.gnome.org/sources/gnome-terminal/
 
-Upstream Authors and Copyright Holders: Havoc Pennington <hp@redhat.com>,
+Upstream Authors and Copyright Holders:
+	Guilherme de S. Pastore <gpastore@gnome.org> 
+	Havoc Pennington <hp@redhat.com>,
 	Mariano Suárez-Alvarez <mariano@gnome.org>
 
 License:
