@@ -20,7 +20,8 @@ Build-Depends: cdbs (>= 0.4.41),
                libpango1.0-dev (>= 1.1.1),
                liblaunchpad-integration-dev,
                libglib2.0-dev (>= 2.16.0),
-               libdbus-glib-1-dev (>= 0.6)
+               libdbus-glib-1-dev (>= 0.6),
+               libsm-dev
 Uploaders: @GNOME_TEAM@
 Vcs-Bzr: http://code.launchpad.net/~ubuntu-core-dev/gnome-terminal/ubuntu
 

@@ -1,3 +1,10 @@
+gnome-terminal (2.25.5-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release
+  * Add Build-dep on libsm-dev
+
+ -- Pedro Fragoso <ember@ubuntu.com>  Tue, 20 Jan 2009 02:26:16 +0000
+
 gnome-terminal (2.25.3-0ubuntu1) jaunty; urgency=low
 
   * New upstream version (LP: #316186):
