@@ -1,3 +1,18 @@
+gnome-terminal (2.25.91-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release (LP: #330367)
+  * debian/control.in:
+    - Use ~ubuntu-desktop Vcs headers
+
+ -- Pedro Fragoso <ember@ubuntu.com>  Tue, 17 Feb 2009 02:09:49 +0000
+
+gnome-terminal (2.25.5-0ubuntu2) jaunty; urgency=low
+
+  * No-change upload to build against new cdbs/gconf and get gconf
+    translations stripped.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Fri, 23 Jan 2009 16:59:48 +0100
+
 gnome-terminal (2.25.5-0ubuntu1) jaunty; urgency=low
 
   * New upstream release
