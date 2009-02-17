@@ -1,6 +1,6 @@
 gnome-terminal (2.25.91-0ubuntu1) jaunty; urgency=low
 
-  * New upstream release
+  * New upstream release (LP: #330367)
   * debian/control.in:
     - Use ~ubuntu-desktop Vcs headers
 
