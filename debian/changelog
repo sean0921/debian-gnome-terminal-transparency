@@ -1,3 +1,11 @@
+gnome-terminal (2.25.91-0ubuntu2) jaunty; urgency=low
+
+  * debian/patches/30_SVNr3329_fix_memory_corruption.patch: apply patch from 
+    SVN upstream that fixes memory corruption in gnome-terminal. 
+    (LP: #331462, LP: #333819, LP: #333149, LP: #332673)
+
+ -- Daniel Holbach <daniel.holbach@ubuntu.com>  Tue, 24 Feb 2009 17:22:32 +0100
+
 gnome-terminal (2.25.91-0ubuntu1) jaunty; urgency=low
 
   * New upstream release (LP: #330367)
@@ -59,6 +67,7 @@ gnome-terminal (2.24.1.1-0ubuntu1) intrepid-proposed; urgency=low
   [ Iain Lane ]
   * debian/patches/05_restore_tab_switching_shortcuts.patch:
     - Re-add patch dropped by upstream due to missing commit in stable branch
+    log = files.LogFile()
       and crasher regression. Fix for crasher is already in 2.24.1.1.
       (LP: #272199)
 
