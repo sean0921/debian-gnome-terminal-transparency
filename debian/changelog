@@ -1,3 +1,9 @@
+gnome-terminal (2.24.3-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Sebastian Dröge <slomo@debian.org>  Sun, 08 Mar 2009 08:18:23 +0100
+
 gnome-terminal (2.24.3-1) experimental; urgency=low
 
   * New upstream bugfix release.
