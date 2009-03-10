@@ -1,3 +1,9 @@
+gnome-terminal (2.24.3-3) UNRELEASED; urgency=low
+
+  * Recommend gvfs. Closes: #519159.
+
+ -- Josselin Mouette <joss@debian.org>  Tue, 10 Mar 2009 22:45:14 +0100
+
 gnome-terminal (2.24.3-2) unstable; urgency=low
 
   * Upload to unstable.

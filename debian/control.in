@@ -33,7 +33,8 @@ Depends: ${shlibs:Depends},
 Conflicts: gnome-terminal2
 Replaces: gnome-terminal2
 Provides: x-terminal-emulator
-Recommends: yelp
+Recommends: yelp,
+            gvfs
 Description: The GNOME 2 terminal emulator application
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:
