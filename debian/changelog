@@ -1,8 +1,13 @@
-gnome-terminal (2.24.3-3) UNRELEASED; urgency=low
+gnome-terminal (2.24.3-3) unstable; urgency=low
 
   * Recommend gvfs. Closes: #519159.
+  * 01_tabs_shortcuts.patch: restore the ability to set shortcuts to 
+    each tab. Closes: #519523.
+  * 02_tabs_shortcuts_translations.patch: restore translations from 
+    version 2.22 for this functionality.
+    + Thanks to Mart Raudsepp for preparing the patches.
 
- -- Josselin Mouette <joss@debian.org>  Tue, 10 Mar 2009 22:45:14 +0100
+ -- Josselin Mouette <joss@debian.org>  Fri, 13 Mar 2009 15:11:33 +0100
 
 gnome-terminal (2.24.3-2) unstable; urgency=low
 
