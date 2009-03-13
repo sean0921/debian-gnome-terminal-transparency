@@ -7357,7 +7357,7 @@ Index: po/sv.po
 ===================================================================
 --- po/sv.po	(revision 3237)
 +++ po/sv.po	(working copy)
-@@ -433,6 +433,54 @@
+@@ -248,6 +248,54 @@
  msgid "Keyboard shortcut key for pasting the contents of the clipboard into the terminal. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string \"disabled\", then there will be no keyboard shortcut for this action."
  msgstr "Snabbtangent för att klistra in markerad text från urklipp. Uttryckt som en sträng i samma format som används för GTK+-resursfiler. Om du ställer in detta alternativ till specialsträngen \"disabled\" kommer det inte att finnas någon tangentbindning för denna åtgärd."
  
@@ -7412,7 +7412,7 @@ Index: po/sv.po
  #: ../src/gnome-terminal.schemas.in.h:54
  msgid "Keyboard shortcut key for toggling full screen mode. Expressed as a string in the same format used for GTK+ resource files. If you set the option to the special string \"disabled\", then there will be no keyboard shortcut for this action."
  msgstr "Snabbtangent för att växla helskärmsläge. Uttryckt som en sträng i samma format som används för GTK+-resursfiler. Om du ställer in detta alternativ till specialsträngen \"disabled\" kommer det inte att finnas någon tangentbindning för denna åtgärd."
-@@ -517,6 +565,54 @@
+@@ -332,6 +380,54 @@
  msgid "Keyboard shortcut to set the terminal title"
  msgstr "Snabbtangent för att ställa in terminaltiteln"
  
@@ -7467,7 +7467,7 @@ Index: po/sv.po
  #: ../src/gnome-terminal.schemas.in.h:75
  msgid "Keyboard shortcut to switch to the next tab"
  msgstr "Snabbtangent för att byta till nästa flik"
-@@ -1176,6 +1272,54 @@
+@@ -991,6 +1087,54 @@
  msgid "Detach Tab"
  msgstr "Frigör flik"
  
@@ -7519,7 +7519,7 @@ Index: po/sv.po
 +msgid "Switch to Tab 12"
 +msgstr "Byt till flik 12"
 +
- #: ../src/terminal-accels.c:159
+ #: ../src/terminal-accels.c:179
  msgid "Contents"
  msgstr "Innehåll"
 Index: po/de.po
