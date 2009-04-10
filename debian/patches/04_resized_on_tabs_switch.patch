@@ -1,7 +1,7 @@
 diff -Nur gnome-terminal-2.18.1/src/terminal-window.c gnome-terminal-2.18.1.new/src/terminal-window.c
 --- gnome-terminal-2.18.1/src/terminal-window.c	2007-06-19 12:36:55.000000000 +0200
 +++ gnome-terminal-2.18.1.new/src/terminal-window.c	2007-06-19 12:36:56.000000000 +0200
-@@ -1585,6 +1585,14 @@
+@@ -2323,6 +2323,14 @@
    app = gtk_widget_get_toplevel (widget);
    g_assert (app != NULL);
  

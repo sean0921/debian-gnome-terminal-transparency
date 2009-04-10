@@ -3,24 +3,21 @@ Section: gnome
 Priority: optional
 Maintainer: Guilherme de S. Pastore <gpastore@debian.org>
 Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Josselin Mouette <joss@debian.org>, Sebastian Dröge <slomo@debian.org>
-Standards-Version: 3.8.0
+Standards-Version: 3.8.1
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 5),
-               liborbit2-dev (>= 1:2.10.2-1.1),
                intltool (>= 0.40.0),
                libgtk2.0-dev (>= 2.13.6),
                libglib2.0-dev (>= 2.16.0),
-               libgnome2-dev (>= 2.14.0),
-               libgnomeui-dev (>= 2.16.0-2),
-               libvte-dev (>= 1:0.17.0),
+               libvte-dev (>= 1:0.19.1),
                scrollkeeper,
                libstartup-notification0-dev (>= 0.8),
+               libdbus-glib-1-dev (>= 0.6),
                gnome-pkg-tools (>= 0.10),
                dpkg-dev (>= 1.13.19),
                docbook-to-man,
                gnome-doc-utils,
                libgconf2-dev (>= 2.14.0),
-               libxft-dev (>= 2.0.0),
                libpango1.0-dev (>= 1.1.1)
 
 Package: gnome-terminal
@@ -33,7 +30,8 @@ Depends: ${shlibs:Depends},
 Conflicts: gnome-terminal2
 Replaces: gnome-terminal2
 Provides: x-terminal-emulator
-Recommends: yelp
+Recommends: yelp,
+            gvfs
 Description: The GNOME 2 terminal emulator application
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:
