@@ -23,7 +23,7 @@ Build-Depends: cdbs (>= 0.4.41),
                libdbus-glib-1-dev (>= 0.6),
                libsm-dev
 Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Vcs-Bzr: http://code.launchpad.net/~ubuntu-core-dev/gnome-terminal/ubuntu
+Vcs-Bzr: http://code.launchpad.net/~ubuntu-desktop/gnome-terminal/ubuntu
 
 Package: gnome-terminal
 Architecture: any

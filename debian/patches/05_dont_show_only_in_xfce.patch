@@ -1,0 +1,8 @@
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.26.0/gnome-terminal.desktop.in.in gnome-terminal-2.26.0.new/gnome-terminal.desktop.in.in
+--- gnome-terminal-2.26.0/gnome-terminal.desktop.in.in	2008-10-01 13:41:41.000000000 -0300
++++ gnome-terminal-2.26.0.new/gnome-terminal.desktop.in.in	2009-03-31 11:54:43.000000000 -0300
+@@ -12,3 +12,4 @@
+ X-GNOME-Bugzilla-Version=@VERSION@
+ Categories=GNOME;GTK;Utility;TerminalEmulator;
+ StartupNotify=true
++NotShowIn=XFCE;
