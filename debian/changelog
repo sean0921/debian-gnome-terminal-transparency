@@ -6,8 +6,9 @@ gnome-terminal (2.26.1-0ubuntu1) UNRELEASED; urgency=low
     - re-generate debian/control
   * remove debian/patches/30_honour_point_pixel_sizes.patch, the change
     is in the tarball
+  * re-generate debian/patches/99_autoreconf.patch
 
- -- Didier Roche <didrocks@ubuntu.com>  Tue, 14 Apr 2009 11:02:54 +0200
+ -- Didier Roche <didrocks@ubuntu.com>  Tue, 14 Apr 2009 11:17:40 +0200
 
 gnome-terminal (2.26.0-0ubuntu2) jaunty; urgency=low
 
