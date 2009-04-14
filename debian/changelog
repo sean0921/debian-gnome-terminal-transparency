@@ -1,5 +1,13 @@
 gnome-terminal (2.26.1-0ubuntu1) UNRELEASED; urgency=low
 
+  * New upstream release: (LP: #572414, #361053)
+    - Make gnome-terminal session loading work (LP: #333603)
+    - Missing translator comment
+    - gnome terminal treats pixelsized fonts point sized
+    - Use of uninitialized variables
+    - gnome-terminal crashed with SIGSEGV in gtk_ui_manager_remove_ui()
+    - Update to GNOME Help Centre OMF Files
+    - Translation update 
   * debian/control.in:
     - bump libgtk2.0-dev to 2.14.0
     - bump libvte-dev to 0.20.0
@@ -8,7 +16,7 @@ gnome-terminal (2.26.1-0ubuntu1) UNRELEASED; urgency=low
     is in the tarball
   * re-generate debian/patches/99_autoreconf.patch
 
- -- Didier Roche <didrocks@ubuntu.com>  Tue, 14 Apr 2009 11:17:40 +0200
+ -- Didier Roche <didrocks@ubuntu.com>  Tue, 14 Apr 2009 14:29:34 +0200
 
 gnome-terminal (2.26.0-0ubuntu2) jaunty; urgency=low
 
