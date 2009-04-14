@@ -4,8 +4,10 @@ gnome-terminal (2.26.1-0ubuntu1) UNRELEASED; urgency=low
     - bump libgtk2.0-dev to 2.14.0
     - bump libvte-dev to 0.20.0
     - re-generate debian/control
+  * remove debian/patches/30_honour_point_pixel_sizes.patch, the change
+    is in the tarball
 
- -- Didier Roche <didrocks@ubuntu.com>  Tue, 14 Apr 2009 09:48:15 +0200
+ -- Didier Roche <didrocks@ubuntu.com>  Tue, 14 Apr 2009 11:02:54 +0200
 
 gnome-terminal (2.26.0-0ubuntu2) jaunty; urgency=low
 
