@@ -33,8 +33,9 @@ Depends: ${shlibs:Depends},
 Conflicts: gnome-terminal2
 Replaces: gnome-terminal2
 Provides: x-terminal-emulator
-Recommends: yelp
-Description: The GNOME 2 terminal emulator application
+Recommends: yelp,
+            gvfs
+Description: The GNOME terminal emulator application
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:
   - Access a UNIX shell in the GNOME environment.
@@ -51,4 +52,4 @@ Recommends: gnome-terminal
 Depends: ${misc:Depends}
 Description: Data files for the GNOME terminal emulator
  This package contains data, help files and localization settings for
- gnome-terminal, the GNOME 2 terminal emulator application.
+ gnome-terminal, the GNOME terminal emulator application.
