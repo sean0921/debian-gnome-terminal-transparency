@@ -1,4 +1,4 @@
-gnome-terminal (2.26.1-0ubuntu1) UNRELEASED; urgency=low
+gnome-terminal (2.26.1-0ubuntu1) karmic; urgency=low
 
   * New upstream release: (LP: #361053)
     - Make gnome-terminal session loading work (LP: #333603)
