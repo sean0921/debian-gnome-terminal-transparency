@@ -1,6 +1,7 @@
 gnome-terminal (2.24.3-4) UNRELEASED; urgency=low
 
   * Stop mentioning GNOME 2.
+  * Remove scrollkeeper dependency.
 
  -- Josselin Mouette <joss@debian.org>  Sat, 25 Apr 2009 15:02:05 +0200
 

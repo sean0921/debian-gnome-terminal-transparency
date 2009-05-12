@@ -27,7 +27,6 @@ Package: gnome-terminal
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
-         scrollkeeper,
          gnome-terminal-data (>= ${gnome:Version}),
          gnome-terminal-data (<< ${gnome:NextVersion})
 Conflicts: gnome-terminal2
