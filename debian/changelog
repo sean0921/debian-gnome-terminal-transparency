@@ -1,5 +1,6 @@
 gnome-terminal (2.26.0-1) UNRELEASED; urgency=low
 
+  [ Luca Bruno ]
   * New upstream release.
   * debian/control.in:
     - Build-Depends:
@@ -16,6 +17,9 @@ gnome-terminal (2.26.0-1) UNRELEASED; urgency=low
     - Remove bonobo as dropped upstream.
   * debian/copyright:
     - Specify GPL version 2.
+
+  [ Josselin Mouette ]
+  * Remove scrollkeeper dependency.
 
  -- Luca Bruno <lethalman88@gmail.com>  Fri, 10 Apr 2009 10:57:43 +0200
 
