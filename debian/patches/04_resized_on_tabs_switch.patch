@@ -1,7 +1,7 @@
-diff -Nur gnome-terminal-2.18.1/src/terminal-window.c gnome-terminal-2.18.1.new/src/terminal-window.c
---- gnome-terminal-2.18.1/src/terminal-window.c	2007-06-19 12:36:55.000000000 +0200
-+++ gnome-terminal-2.18.1.new/src/terminal-window.c	2007-06-19 12:36:56.000000000 +0200
-@@ -1585,6 +1585,14 @@
+diff -Naur gnome-terminal-2.26.2/src/terminal-window.c gnome-terminal-2.26.2.new/src/terminal-window.c
+--- gnome-terminal-2.26.2/src/terminal-window.c	2009-05-19 00:51:00.000000000 +0800
++++ gnome-terminal-2.26.2.new/src/terminal-window.c	2009-05-20 17:15:18.000000000 +0800
+@@ -2337,6 +2337,14 @@
    app = gtk_widget_get_toplevel (widget);
    g_assert (app != NULL);
  
@@ -15,4 +15,3 @@ diff -Nur gnome-terminal-2.18.1/src/terminal-window.c gnome-terminal-2.18.1.new/
 +  gtk_widget_set_size_request (widget, 2000, 2000);
    gtk_widget_size_request (app, &toplevel_request);
    gtk_widget_size_request (widget, &widget_request);
- 

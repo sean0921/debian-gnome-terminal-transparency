@@ -4,6 +4,5 @@ debian/tmp/usr/share/locale
 debian/tmp/usr/share/gnome
 debian/tmp/usr/share/omf
 debian/tmp/usr/share/applications
-debian/tmp/usr/lib/bonobo
 
 debian/gnome-terminal.xpm /usr/share/pixmaps

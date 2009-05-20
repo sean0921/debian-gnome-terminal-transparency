@@ -1,7 +1,20 @@
-gnome-terminal (2.24.3-4) UNRELEASED; urgency=low
+gnome-terminal (2.26.2-1) UNRELEASED; urgency=low
 
+  [ Josselin Mouette ]
   * Stop mentioning GNOME 2.
   * Remove scrollkeeper dependency.
+
+  [ Deng Xiyue ]
+  * New upstream release.
+    + Bump b-dep: libgtk2.0-dev (>= 2.14.0), libvte-dev (>= 0.20.0).
+    + New b-dep: libdbus-glib-1-dev (>= 0.6).
+    + Drop 01_tabs_shortcuts.patch, 02_tabs_shortcuts_translations.patch.
+      Merged upstream.
+    + Refresh 04_resized_on_tabs_switch.patch to apply cleanly.
+  * Drop bonobo path in gnome-terminal-data.install.  DBus is used instead.
+  * Split Copyright holder section to silence lintian warning, and add missing
+    copyright holders.
+  * Point to versioned license files.
 
  -- Josselin Mouette <joss@debian.org>  Sat, 25 Apr 2009 15:02:05 +0200
 

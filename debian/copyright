@@ -3,8 +3,25 @@ Sat, 14 Mar 1998 20:12:23 -0800.
 
 It was downloaded from http://download.gnome.org/sources/gnome-terminal/
 
-Upstream Authors and Copyright Holders: Havoc Pennington <hp@redhat.com>,
+Upstream Authors: Havoc Pennington <hp@redhat.com>,
 	Mariano Suárez-Alvarez <mariano@gnome.org>
+
+Copyright:
+ © 2007, 2008, 2009 Christian Persch
+ © 2003 David Bordoley
+ © 2001, 2002-2004 Havoc Pennington
+ © 2007 Novell, Inc.
+ © 2002 Jonathan Blandford <jrb@redhat.com>
+ © 1999, 2000, 2002, 2003 Red Hat, Inc.
+ © 2002 Mathias Hasselmann
+ © 1997, 1998, 1999, 2000 Free Software Foundation
+ © 2003–2004, 2007 Mariano Suárez-Alvarez
+ © 2006 Guilherme de S. Pastore
+ © 2001 Nikos Mavroyanopoulos
+ © 2002 Sun Microsystems
+ © 2001 George Lebl
+ 
+
 
 License:
 
@@ -23,5 +40,4 @@ License:
    MA 02110-1301, USA.
 
 On Debian systems, the complete text of the GNU General
-Public License can be found in `/usr/share/common-licenses/GPL'.
-
+Public License can be found in `/usr/share/common-licenses/GPL-2'.
