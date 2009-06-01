@@ -1,4 +1,4 @@
-gnome-terminal (2.26.2-1) UNRELEASED; urgency=low
+gnome-terminal (2.26.2-1) unstable; urgency=low
 
   [ Josselin Mouette ]
   * Stop mentioning GNOME 2.
@@ -17,7 +17,13 @@ gnome-terminal (2.26.2-1) UNRELEASED; urgency=low
   * Point to versioned license files.
   * Update Standard-Version to 3.8.1.
 
- -- Josselin Mouette <joss@debian.org>  Sat, 25 Apr 2009 15:02:05 +0200
+  [ Josselin Mouette ]
+  * Drop unnecessary build-deps, add libsm-dev.
+  * 01_onlyshowin.patch: new patch. Only show gnome-terminal in GNOME 
+    menus, other desktop environments already have their terminal 
+    emulators.
+
+ -- Josselin Mouette <joss@debian.org>  Mon, 01 Jun 2009 11:28:01 +0200
 
 gnome-terminal (2.24.3-3) unstable; urgency=low
 
