@@ -1,0 +1,7 @@
+--- gnome-terminal.desktop.in.in.orig	2009-06-01 11:31:40.396545651 +0200
++++ gnome-terminal.desktop.in.in	2009-06-01 11:32:01.080542492 +0200
+@@ -12,3 +12,4 @@
+ X-GNOME-Bugzilla-Version=@VERSION@
+ Categories=GNOME;GTK;Utility;TerminalEmulator;
+ StartupNotify=true
++OnlyShowIn=GNOME;

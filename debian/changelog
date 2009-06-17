@@ -1,332 +1,167 @@
-gnome-terminal (2.26.1-0ubuntu1) karmic; urgency=low
-
-  * New upstream release: (LP: #361053)
-    - Make gnome-terminal session loading work (LP: #333603)
-    - Missing translator comment
-    - gnome terminal treats pixelsized fonts point sized
-    - Use of uninitialized variables
-    - gnome-terminal crashed with SIGSEGV in gtk_ui_manager_remove_ui()
-    - Update to GNOME Help Centre OMF Files
-    - Translation update
-    - 'Close this terminal' warning labels button as 'Close Window'
-      (LP: #331295)
-  * debian/control.in:
-    - bump libgtk2.0-dev to 2.14.0
-    - bump libvte-dev to 0.20.0
-    - re-generate debian/control
-  * remove debian/patches/30_honour_point_pixel_sizes.patch, the change
-    is in the tarball
-  * re-generate debian/patches/99_autoreconf.patch
-
- -- Didier Roche <didrocks@ubuntu.com>  Tue, 28 Apr 2009 12:07:18 +0200
-
-gnome-terminal (2.26.0-0ubuntu2) jaunty; urgency=low
-
-  * src/terminal-screen.c: honour point and pixel sized system
-    fonts - LP: #345189
-    - add debian/patches/30_honour_point_pixel_sizes.patch
-  * gnome-terminal.desktop.in.in: don't show gnome-terminal menu entry
-    in XFCE by default - LP: #352451
-    - add debian/patches/05_dont_show_only_in_xfce.patch
-
- -- Alexander Sack <asac@ubuntu.com>  Thu, 19 Mar 2009 12:47:58 +0100
-
-gnome-terminal (2.26.0-0ubuntu1) jaunty; urgency=low
-
-  * New upstream release (LP: #343715)
-  * debian/patches/30_SVNr3329_fix_memory_corruption.patch:
-    - Removed, the change is in the tarball
-  * debian/patches/99_autoreconf.patch:
-    - Refreshed
-
- -- Pedro Fragoso <ember@ubuntu.com>  Mon, 16 Mar 2009 10:59:29 +0000
-
-gnome-terminal (2.25.91-0ubuntu2) jaunty; urgency=low
-
-  * debian/patches/30_SVNr3329_fix_memory_corruption.patch: apply patch from 
-    SVN upstream that fixes memory corruption in gnome-terminal. 
-    (LP: #331462, LP: #333819, LP: #333149, LP: #332673)
-
- -- Daniel Holbach <daniel.holbach@ubuntu.com>  Tue, 24 Feb 2009 17:22:32 +0100
-
-gnome-terminal (2.25.91-0ubuntu1) jaunty; urgency=low
-
-  * New upstream release (LP: #330367)
-  * debian/control.in:
-    - Use ~ubuntu-desktop Vcs headers
-
- -- Pedro Fragoso <ember@ubuntu.com>  Tue, 17 Feb 2009 02:09:49 +0000
-
-gnome-terminal (2.25.5-0ubuntu2) jaunty; urgency=low
-
-  * No-change upload to build against new cdbs/gconf and get gconf
-    translations stripped.
-
- -- Martin Pitt <martin.pitt@ubuntu.com>  Fri, 23 Jan 2009 16:59:48 +0100
-
-gnome-terminal (2.25.5-0ubuntu1) jaunty; urgency=low
-
-  * New upstream release
-  * Add Build-dep on libsm-dev
-
- -- Pedro Fragoso <ember@ubuntu.com>  Tue, 20 Jan 2009 02:26:16 +0000
-
-gnome-terminal (2.25.3-0ubuntu1) jaunty; urgency=low
-
-  * New upstream version (LP: #316186):
-    - Now uses DBus for single instance/factory setup
-    - Bugs fixed (LP: #212761, LP: #298426, LP: #258775,
-      LP: #279046, LP: #290777, LP: #194065).
-  * debian/control{.in}:
-    - Bumped build-dependency on libvte-dev to 1:0.19.1.
-    - Dropped build-dependency on libgnomeui-dev.
-    - Added build-dependency on libdbus-glib-1-dev (>= 0.6).
-    - Dropped build-dependency on libxft-dev, as the xft VTE
-      backend has gone.
-  * debian/patches/01_lpi.patch:
-    - New version update.
-  * Dropped 05_restore_tab_switching_shortcuts.patch:
-    - Merged upstream.
-  * debian/patches/99_autoreconf.patch:
-    - New version update.
-  * debian/copyright:
-    - Updated authors.
-  * debian/gnome-terminal-data.install:
-    - Don't try to install /usr/lib/bonobo, as it no longer exists.
-
- -- Chris Coulson <chrisccoulson@googlemail.com>  Sun, 11 Jan 2009 21:42:27 +0000
-
-gnome-terminal (2.24.1.1-0ubuntu1) intrepid-proposed; urgency=low
-
-  [ Pedro Fragoso ]
-  * New upstream release
-    - Revert the partial fix for bug #548600 due to regression
-      it causes
-  * debian/patches/06_add_locale_to_schemas.patch:
-    - Removed due to regression
-  * debian/patches/99_autoreconf.patch:
-    - Refreshed
-
-  [ Iain Lane ]
-  * debian/patches/05_restore_tab_switching_shortcuts.patch:
-    - Re-add patch dropped by upstream due to missing commit in stable branch
-      and crasher regression. Fix for crasher is already in 2.24.1.1.
-      (LP: #272199)
-
- -- Iain Lane <laney@ubuntu.com>  Thu, 23 Oct 2008 10:20:55 +0100
-
-gnome-terminal (2.24.1-0ubuntu1) intrepid; urgency=low
-
-  * New upstream release
-    - accels sent to the terminal if the corresponding gtkaction
-      is insensitive (lp: #208291) (lp: #279480)
-    - Set title dialog should activate with Enter (lp: #268286)
-    - In main menu, Terminal and Tabs have same mnemonic (lp: #279046)
-  * debian/patches/05_restore_tab_switching_shortcuts.patch:
-    - Dropped, the change is in the release
-  * debian/patches/06_add_locale_to_schemas.patch:
-    - Add <locale> tag to .schemas
-  * debian/patches/99_autoreconf.patch:
-    - Refreshed
-
- -- Pedro Fragoso <ember@ubuntu.com>  Mon, 20 Oct 2008 21:13:52 +0100
-
-gnome-terminal (2.24.0-0ubuntu2) intrepid; urgency=low
-
-  * debian/patches/05_restore_tab_switching_shortcuts.patch: Backport patch
-    from GNOME SVN to restore previously removed switch-to-tab keybnindings
-    (LP: #272199).
-    References:
-      + http://svn.gnome.org/viewvc/gnome-terminal?view=revision&revision=3170
-      + http://svn.gnome.org/viewvc/gnome-terminal?view=revision&revision=3171
-      + http://bugzilla.gnome.org/show_bug.cgi?id=548600
-
- -- Iain Lane <laney@ubuntu.com>  Mon, 13 Oct 2008 21:24:44 +0100
-
-gnome-terminal (2.24.0-0ubuntu1) intrepid; urgency=low
-
-  * New upstream version
-  * 99_autoreconf.patch:
-    - regenerated
-
- -- Michael Vogt <michael.vogt@ubuntu.com>  Mon, 22 Sep 2008 17:06:14 +0200
-
-gnome-terminal (2.23.91-0ubuntu1) intrepid; urgency=low
-
-  * New upstream release
-    - gnome-terminal crashed with SIGSEGV in free() (LP: #260838)
-    - Multiple gnome-terminals don't have the same X group property
-      Reverts the patch from bug #115994, since it breaks window 
-      switching with Alt-F6 in metacity (and also didn't offer a real
-      rationale for making each window be its own group leader).
-      (LP: #72732)
-  * debian/control.in:
-    - Bump up libgtk build-depend to 2.13.6
-  * debian/patches/99_autoreconf.patch:
-    - Refresh for new release
-    
- -- Pedro Fragoso <ember@ubuntu.com>  Sun, 31 Aug 2008 02:00:46 +0100
-
-gnome-terminal (2.23.6-0ubuntu2) intrepid; urgency=low
-
-  * 20_add_alt_screen_toggle_ui.patch, control: hook new vte alternate screen
-    scrolling toggle via UI, thanks to Heath Caldwell (LP: #106995).
-
- -- Kees Cook <kees@ubuntu.com>  Thu, 28 Aug 2008 10:04:03 -0700
-
-gnome-terminal (2.23.6-0ubuntu1) intrepid; urgency=low
-
-  * New upstream release
-    - Add option --maximized (LP: #201930)
-    - Match caseinsensitively (LP: #228751) (LP: #161116) (LP: #172460)
-  * debian/control.in:
-    - Lets bump vte 0.16.15 to get gt using GRegex to fix
-      case sensitive bugs
-  * debian/patches/99_autoreconf.patch:
-    - Refreshed for the new release
-
- -- Pedro Fragoso <ember@ubuntu.com>  Thu, 07 Aug 2008 16:18:31 +0100
-
-gnome-terminal (2.23.4.2-0ubuntu2) intrepid; urgency=low
-
-  * Sync some changes from Debian
-    - Use two spaces in the description for the list of actions.
-    - Don't depend on gnome-control-center
-  * debian/control.in
-    - Build depend on libglib2.0-dev (>= 2.16.0) and intltool (>= 0.40)
-    - Remove Build depend on libglade2-dev 
-
- -- Pedro Fragoso <emberez@gmail.com>  Thu, 19 Jun 2008 13:50:03 +0100
-
-gnome-terminal (2.23.4.2-0ubuntu1) intrepid; urgency=low
-
-  * new upstream version
-  * changed debian/patches/01_lpi.patch to work with GtkUIManager
-  * dropped debian/patches/03_ubuntu_lpi_fix_crash.diff because the
-    UIManager makes it obsolete
-  * updated and renamed debian/patches/02_autoconf.patch to
-    debian/patches/99_autoreconf.patch
-  * debian/control.in:
-    - add Vcs-Bzr header
-  * debian/watch:
-    - look for uneven version numbers too to make bzr-buildpackage
-      auto download the right tarball
-  * debian/gnome-terminal-data.install:
-    - drop /usr/share/pixmaps, its no longer used
-
- -- Michael Vogt <michael.vogt@ubuntu.com>  Wed, 18 Jun 2008 10:33:45 +0200
-
-gnome-terminal (2.22.1-0ubuntu2) hardy; urgency=low
-
-  * rebuild due to the liblaunchpad-integration soname change
-
- -- Sebastien Bacher <seb128@canonical.com>  Wed, 09 Apr 2008 17:39:31 +0200
-
-gnome-terminal (2.22.1-0ubuntu1) hardy; urgency=low
-
-  * New upstream bugfix release (LP: #213357)
-    - Fix DetachTab action. (LP: #187358)      
-    - 02_autoconf.patch: updated
-
- -- Pedro Fragoso <emberez@gmail.com>  Mon, 07 Apr 2008 14:04:39 +0100
-
-gnome-terminal (2.22.0-0ubuntu1) hardy; urgency=low
-
-  * New upstream release (LP: #200800)
-    - Updated translations
-  * debian/patches/02_autoconf.patch: updated
-
- -- Pedro Fragoso <emberez@gmail.com>  Mon, 10 Mar 2008 23:13:09 +0000
-
-gnome-terminal (2.21.92-0ubuntu1) hardy; urgency=low
-
-  * New upstream release (lp: #195931)
-    - Ensure menu items are always drawn (weren't in some cases) (lp: #183521)
-    - Stop forcing invisible_char to '*' (yet again)
-  * debian/patches/02_autoconf.patch: updated
-
- -- Pedro Fragoso <emberez@gmail.com>  Tue, 26 Feb 2008 22:04:31 +0000
-
-gnome-terminal (2.21.91.1-0ubuntu1) hardy; urgency=low
-
-  * New upstream release (LP: #191404)
-    - Initialise variable
-  * debian/control{.in}:
-    - Removed b-d on libgvfsfcommon-dev
-
- -- Pedro Fragoso <emberez@gmail.com>  Tue, 12 Feb 2008 23:51:24 +0000
-
-gnome-terminal (2.21.91-0ubuntu1) hardy; urgency=low
-
-  * New upstream release (LP: #189568)
-    - Port to gio
-    - Use of explicit suffix in 'Icon' field of application
-      launcher (LP: #190688)
-    - crash launching g-t with specific args (LP: #186109)
-    - Disconnect from the settings notify on dispose
-      instead of finalise. (LP: #188565)
-  * debian/control{.in}:
-    + Changed b-d libgnomevfs2-dev to libgvfscommon-dev
-  * debian/patches/:
-    - 01_lpi: updated
-    - 02_autoconf: updated
-
- -- Pedro Fragoso <emberez@gmail.com>  Mon, 11 Feb 2008 22:48:32 +0000
-
-gnome-terminal (2.21.90-0ubuntu1) hardy; urgency=low
-
-  * New bugfix upstream release (LP: #187388)
-
- -- Pedro Fragoso <emberez@gmail.com>  Wed, 30 Jan 2008 19:16:24 +0000
-
-gnome-terminal (2.21.5-0ubuntu1) hardy; urgency=low
-
-  * New upstream release (LP: #174462)
-   - Adapt to new GChecksum API
-   - Bug 336155 – [patch] port gnome-terminal to goption; based on patch
-     from Christian Kirbach
-   - Fix cropped tab close buttons with gnome-icon-theme svn
-   - Translation updates
-  * Bumpd b-d on libglib2.0-dev (>= 2.15.2)
-  * 02_autconf.patch updated
-
- -- Pedro Fragoso <emberez@gmail.com>  Tue, 15 Jan 2008 15:16:06 +0000
-
-gnome-terminal (2.21.4-0ubuntu1) hardy; urgency=low
-
-  * New upstream release
-  * Bump to Standards-Version 3.7.3
-  * debian/control:
-    - added libglib2.0-dev (>= 2.15.0)
-    - added esound-common (>= 0.2.38-0ubuntu5)
-
- -- Pedro Fragoso <emberez@gmail.com>  Tue, 18 Dec 2007 12:36:55 +0000
-
-gnome-terminal (2.21.3-0ubuntu1) hardy; urgency=low
+gnome-terminal (2.26.2-1ubuntu1) UNRELEASED; urgency=low
+
+  * Re-base on Debian unstable (LP: #388048), remaining changes:
+    - debian/control:
+      + Add Vcs-Bzr info.
+      + Build-depend on liblaunchpad-integration-dev.
+    - debian/watch:
+      + Watch unstable series.
+    - debian/patches/01_lpi.patch:
+      + Launchpad integration.
+    - debian/patches/20_add_alt_screen_toggle_ui.patch:
+      + Hook new vte alternate screen scrolling toggle via UI, 
+        thanks to Heath Caldwell (LP: #106995).
+    - debian/patches/99_autoreconf.patch:
+      + Autotools update.
+
+ -- Chris Coulson <chrisccoulson@googlemail.com>  Wed, 17 Jun 2009 00:35:48 +0100
+
+gnome-terminal (2.26.2-1) unstable; urgency=low
+
+  [ Josselin Mouette ]
+  * Stop mentioning GNOME 2.
+  * Remove scrollkeeper dependency.
+
+  [ Deng Xiyue ]
+  * New upstream release.
+    + Bump b-dep: libgtk2.0-dev (>= 2.14.0), libvte-dev (>= 0.20.0).
+    + New b-dep: libdbus-glib-1-dev (>= 0.6).
+    + Drop 01_tabs_shortcuts.patch, 02_tabs_shortcuts_translations.patch.
+      Merged upstream.
+    + Refresh 04_resized_on_tabs_switch.patch to apply cleanly.
+  * Drop bonobo path in gnome-terminal-data.install.  DBus is used instead.
+  * Split Copyright holder section to silence lintian warning, and add missing
+    copyright holders.
+  * Point to versioned license files.
+  * Update Standard-Version to 3.8.1.
+
+  [ Josselin Mouette ]
+  * Drop unnecessary build-deps, add libsm-dev.
+  * 01_onlyshowin.patch: new patch. Only show gnome-terminal in GNOME 
+    menus, other desktop environments already have their terminal 
+    emulators.
+
+ -- Josselin Mouette <joss@debian.org>  Mon, 01 Jun 2009 11:28:01 +0200
+
+gnome-terminal (2.24.3-3) unstable; urgency=low
+
+  * Recommend gvfs. Closes: #519159.
+  * 01_tabs_shortcuts.patch: restore the ability to set shortcuts to 
+    each tab. Closes: #519523.
+  * 02_tabs_shortcuts_translations.patch: restore translations from 
+    version 2.22 for this functionality.
+    + Thanks to Mart Raudsepp for preparing the patches.
+
+ -- Josselin Mouette <joss@debian.org>  Fri, 13 Mar 2009 15:11:33 +0100
+
+gnome-terminal (2.24.3-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Sebastian Dröge <slomo@debian.org>  Sun, 08 Mar 2009 08:18:23 +0100
+
+gnome-terminal (2.24.3-1) experimental; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 13 Jan 2009 09:27:46 +0100
+
+gnome-terminal (2.24.2-1) experimental; urgency=low
 
   * New upstream release.
-    - debian/patches:
-     +  updated 01_lpi
-		02_autoconf
-		03_ubuntu_lpi_fix_crash
-		04_resized_on_tabs
 
- -- Pedro Fragoso <emberez@gmail.com>  Wed, 05 Dec 2007 16:37:13 +0000
+ -- Josselin Mouette <joss@debian.org>  Sun, 04 Jan 2009 10:58:20 +0100
 
-gnome-terminal (2.18.2-1ubuntu1) hardy; urgency=low
+gnome-terminal (2.24.1.1-1) experimental; urgency=low
 
-  * Merge from Debian unstable, remaining changes:
-    - debian/control.in:
-      + Set maintainer to Ubuntu Desktop Team.
-      + Add liblaunchpad-integration-dev to Build-Depends.
-      + Unversioned dependency on scrollkeeper so rarian-compat can be
-        installed.
-    - debian/patches:
-      + debian/patches/01_lpi.patch, debian/patches/02_autoconf.patch,
-        debian/patches/03_ubuntu_lpi_fix_crash.diff: LPI.
-      + debian/patches/04_resized_on_tabs_switch.patch: Distro fix.
+  * New upstream release:
+    + debian/control.in:
+      - Update build-depends.
+    + debian/patches/01_error_crash.patch:
+      - Dropped, merged upstream.
+    + debian/gnome-terminal-data.install:
+      - Drop pixmaps directory.
 
- -- Michael Bienia <geser@ubuntu.com>  Fri, 16 Nov 2007 15:48:11 +0100
+ -- Sebastian Dröge <slomo@debian.org>  Mon, 24 Nov 2008 11:05:22 +0100
+
+gnome-terminal (2.22.3-3) unstable; urgency=low
+
+  * 01_error_crash.patch: stolen from upstream (r2948). Fixes crash when 
+    passing incorrect arguments to the command line. Closes: #477259.
+
+ -- Josselin Mouette <joss@debian.org>  Thu, 18 Sep 2008 16:17:00 +0200
+
+gnome-terminal (2.22.3-2) unstable; urgency=low
+
+  * gnome-terminal.wrapper: correctly emulate the completely brain-dead 
+    argument parsing of the -e option in xterm. Closes: #488974.
+
+ -- Josselin Mouette <joss@debian.org>  Fri, 18 Jul 2008 11:57:11 +0200
+
+gnome-terminal (2.22.3-1) unstable; urgency=low
+
+  [ Josselin Mouette ]
+  * gnome-terminal.wrapper: -e runs gnome-terminal -e, not -x.
+    Closes: #457846.
+
+  [ Sebastian Dröge ]
+  * New upstream bugfix release.
+  * debian/control.in:
+    + Updated Standards-Version to 3.8.0, no additional changes needed.
+
+ -- Sebastian Dröge <slomo@debian.org>  Mon, 30 Jun 2008 10:21:32 +0200
+
+gnome-terminal (2.22.2-1) unstable; urgency=low
+
+  [ Emilio Pozuelo Monfort ]
+  * debian/control:
+    - Use two spaces in the description for the list of actions.
+      Closes: #480322.
+    - Don't depend on gnome-control-center. Closes: #474607.
+    - Added Debian GNOME Maintainers to Uploaders.
+
+  [ Sebastian Dröge ]
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 27 May 2008 07:39:49 +0200
+
+gnome-terminal (2.22.1-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Mon, 07 Apr 2008 14:26:17 +0200
+
+gnome-terminal (2.22.0-1) unstable; urgency=low
+
+  * New upstream stable release:
+    + debian/control.in:
+      - Build depend on GLib >= 2.15.2 and libgnome >= 2.14.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 11 Mar 2008 08:46:27 +0100
+
+gnome-terminal (2.18.4-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+  * debian/control.in:
+    + Update Standards-Version to 3.7.3, no additional changes needed.
+  * debian/gnome-terminal-data.menu:
+    + Fix section.
+
+ -- Sebastian Dröge <slomo@debian.org>  Thu, 10 Jan 2008 09:06:06 +0100
+
+gnome-terminal (2.18.3-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 27 Nov 2007 06:25:11 +0100
+
+gnome-terminal (2.18.2-2) unstable; urgency=low
+
+  * Drop version in scrollkeeper depedency; closes: #451260.
+  * New patch, 04_resized_on_tabs_switch, kludge to help Gtk+ resize the
+    terminal when switching tabs; from the Ubuntu package.
+
+ -- Loic Minier <lool@dooz.org>  Wed, 14 Nov 2007 10:02:01 +0100
 
 gnome-terminal (2.18.2-1) unstable; urgency=low
 
