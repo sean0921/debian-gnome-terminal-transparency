@@ -10,6 +10,9 @@ gnome-terminal (2.26.2-3) UNRELEASED; urgency=low
       in gnome-terminal-data.
   * Move the menu and desktop files to the gnome-terminal package, add
     replaces accordingly.
+  * debian/patches/04_resized_on_tabs_switch.patch: Removed. This was
+    added because gnome-terminal didn't resize when you changed to a
+    tab with a different font size. That works fine now without the patch.
 
  -- Emilio Pozuelo Monfort <pochu@ubuntu.com>  Sat, 27 Jun 2009 16:22:22 +0200
 
