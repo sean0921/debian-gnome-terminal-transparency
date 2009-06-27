@@ -2,8 +2,8 @@ Source: gnome-terminal
 Section: gnome
 Priority: optional
 Maintainer: Guilherme de S. Pastore <gpastore@debian.org>
-Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Josselin Mouette <joss@debian.org>, Sebastian Dröge <slomo@debian.org>
-Standards-Version: 3.8.1
+Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Emilio Pozuelo Monfort <pochu@ubuntu.com>, Josselin Mouette <joss@debian.org>, Sebastian Dröge <slomo@debian.org>
+Standards-Version: 3.8.2
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 5),
                intltool (>= 0.40.0),
@@ -26,8 +26,7 @@ Depends: ${shlibs:Depends},
          ${misc:Depends},
          gnome-terminal-data (>= ${gnome:Version}),
          gnome-terminal-data (<< ${gnome:NextVersion})
-Conflicts: gnome-terminal2
-Replaces: gnome-terminal2
+Replaces: gnome-terminal-data (<< 2.26.2-3)
 Provides: x-terminal-emulator
 Recommends: yelp,
             gvfs
@@ -47,5 +46,11 @@ Replaces: gnome-terminal (<< 2.10-1)
 Recommends: gnome-terminal
 Depends: ${misc:Depends}
 Description: Data files for the GNOME terminal emulator
+ GNOME Terminal is a terminal emulation application that you can use to
+ perform the following actions:
+  - Access a UNIX shell in the GNOME environment.
+  - Run any application that is designed to run on VT102, VT220, and xterm
+ terminals.
+ .
  This package contains data, help files and localization settings for
  gnome-terminal, the GNOME terminal emulator application.

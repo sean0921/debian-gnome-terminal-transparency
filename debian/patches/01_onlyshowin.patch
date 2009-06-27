@@ -1,3 +1,6 @@
+Description: Only show g-t in GNOME, as other DE have their own terminal emulators
+Bug: http://bugzilla.gnome.org/show_bug.cgi?id=587132
+
 --- gnome-terminal.desktop.in.in.orig	2009-06-01 11:31:40.396545651 +0200
 +++ gnome-terminal.desktop.in.in	2009-06-01 11:32:01.080542492 +0200
 @@ -12,3 +12,4 @@

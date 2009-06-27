@@ -1,3 +1,4 @@
 debian/tmp/usr/bin
+debian/tmp/usr/share/applications
 
 debian/gnome-terminal.wrapper /usr/bin

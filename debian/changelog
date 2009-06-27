@@ -1,3 +1,18 @@
+gnome-terminal (2.26.2-3) UNRELEASED; urgency=low
+
+  * debian/watch: don't uupdate.
+  * Add descriptions and links to patch headers.
+  * debian/control.in:
+    - Standards-Version is 3.8.2, no changes needed.
+    - Extend gnome-terminal-data's long description.
+    - No need to replace/conflict gnome-terminal2, that's gone for good.
+    - gnome-terminal 2.10 is not even in oldstable, no need to replace it
+      in gnome-terminal-data.
+  * Move the menu and desktop files to the gnome-terminal package, add
+    replaces accordingly.
+
+ -- Emilio Pozuelo Monfort <pochu@ubuntu.com>  Sat, 27 Jun 2009 16:22:22 +0200
+
 gnome-terminal (2.26.2-2) unstable; urgency=low
 
   * 02_let_gconf_autostart.patch: Don’t exit if there is no GConf daemon 

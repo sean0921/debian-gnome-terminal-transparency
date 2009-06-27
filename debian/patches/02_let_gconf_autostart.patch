@@ -1,3 +1,7 @@
+Description: allow gnome-terminal to run as root
+Bug: http://bugzilla.gnome.org/show_bug.cgi?id=564649
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=531702
+
 --- src/terminal.c.orig	2009-06-27 14:48:41.740115657 +0200
 +++ src/terminal.c	2009-06-27 14:49:37.573407952 +0200
 @@ -234,9 +234,6 @@
