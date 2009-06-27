@@ -1,3 +1,12 @@
+gnome-terminal (2.26.2-2) unstable; urgency=low
+
+  * 02_let_gconf_autostart.patch: Don’t exit if there is no GConf daemon 
+    running. Instead, let dbus-daemon and gconfd be autostarted as they 
+    should be if this is needed. Thanks to Sean Finney for the 
+    suggestion. Closes: #531734 and some duplicates.
+
+ -- Josselin Mouette <joss@debian.org>  Sat, 27 Jun 2009 14:53:33 +0200
+
 gnome-terminal (2.26.2-1) unstable; urgency=low
 
   [ Josselin Mouette ]
