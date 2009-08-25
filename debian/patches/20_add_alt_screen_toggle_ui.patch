@@ -1,6 +1,6 @@
-diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/gnome-terminal.schemas.in gnome-terminal.new/src/gnome-terminal.schemas.in
---- gnome-terminal/src/gnome-terminal.schemas.in	2008-06-17 13:28:21.000000000 -0700
-+++ gnome-terminal.new/src/gnome-terminal.schemas.in	2008-08-28 10:03:36.000000000 -0700
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/gnome-terminal.schemas.in gnome-terminal-2.27.91.new/src/gnome-terminal.schemas.in
+--- gnome-terminal-2.27.91/src/gnome-terminal.schemas.in	2009-04-18 02:30:45.000000000 +1000
++++ gnome-terminal-2.27.91.new/src/gnome-terminal.schemas.in	2009-08-25 12:25:04.000000000 +1000
 @@ -326,6 +326,23 @@
      </schema>
  
@@ -25,10 +25,10 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/gnome-terminal.schemas.in gnome
        <key>/schemas/apps/gnome-terminal/profiles/Default/exit_action</key>
        <applyto>/apps/gnome-terminal/profiles/Default/exit_action</applyto>
        <owner>gnome-terminal</owner>
-diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/profile-editor.c gnome-terminal.new/src/profile-editor.c
---- gnome-terminal/src/profile-editor.c	2008-06-26 12:48:43.000000000 -0700
-+++ gnome-terminal.new/src/profile-editor.c	2008-08-28 10:03:36.000000000 -0700
-@@ -243,6 +243,10 @@
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/profile-editor.c gnome-terminal-2.27.91.new/src/profile-editor.c
+--- gnome-terminal-2.27.91/src/profile-editor.c	2009-04-18 02:30:45.000000000 +1000
++++ gnome-terminal-2.27.91.new/src/profile-editor.c	2009-08-25 12:25:04.000000000 +1000
+@@ -241,6 +241,10 @@
      SET_SENSITIVE ("scroll-on-output-checkbutton",
                     !terminal_profile_property_locked (profile, TERMINAL_PROFILE_SCROLL_ON_OUTPUT));
  
@@ -39,7 +39,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/profile-editor.c gnome-terminal
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_EXIT_ACTION))
      SET_SENSITIVE ("exit-action-combobox",
                     !terminal_profile_property_locked (profile, TERMINAL_PROFILE_EXIT_ACTION));
-@@ -808,6 +812,7 @@
+@@ -819,6 +823,7 @@
    CONNECT ("scrollbar-position-combobox", TERMINAL_PROFILE_SCROLLBAR_POSITION);
    CONNECT ("scroll-on-keystroke-checkbutton", TERMINAL_PROFILE_SCROLL_ON_KEYSTROKE);
    CONNECT ("scroll-on-output-checkbutton", TERMINAL_PROFILE_SCROLL_ON_OUTPUT);
@@ -47,10 +47,10 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/profile-editor.c gnome-terminal
    CONNECT ("show-menubar-checkbutton", TERMINAL_PROFILE_DEFAULT_SHOW_MENUBAR);
    CONNECT ("solid-radiobutton", TERMINAL_PROFILE_BACKGROUND_TYPE);
    CONNECT ("system-font-checkbutton", TERMINAL_PROFILE_USE_SYSTEM_FONT);
-diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/profile-preferences.glade gnome-terminal.new/src/profile-preferences.glade
---- gnome-terminal/src/profile-preferences.glade	2008-06-24 11:14:33.000000000 -0700
-+++ gnome-terminal.new/src/profile-preferences.glade	2008-08-28 10:03:36.000000000 -0700
-@@ -1966,13 +1966,34 @@
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/profile-preferences.glade gnome-terminal-2.27.91.new/src/profile-preferences.glade
+--- gnome-terminal-2.27.91/src/profile-preferences.glade	2009-08-13 23:07:42.000000000 +1000
++++ gnome-terminal-2.27.91.new/src/profile-preferences.glade	2009-08-25 12:25:04.000000000 +1000
+@@ -2021,13 +2021,34 @@
  	    <widget class="GtkTable" id="table27">
  	      <property name="border_width">12</property>
  	      <property name="visible">True</property>
@@ -86,10 +86,10 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/profile-preferences.glade gnome
  		<widget class="GtkCheckButton" id="scroll-on-keystroke-checkbutton">
  		  <property name="visible">True</property>
  		  <property name="can_focus">True</property>
-diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/terminal-profile.c gnome-terminal.new/src/terminal-profile.c
---- gnome-terminal/src/terminal-profile.c	2008-08-04 09:50:31.000000000 -0700
-+++ gnome-terminal.new/src/terminal-profile.c	2008-08-28 10:03:36.000000000 -0700
-@@ -76,6 +76,7 @@
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/terminal-profile.c gnome-terminal-2.27.91.new/src/terminal-profile.c
+--- gnome-terminal-2.27.91/src/terminal-profile.c	2009-08-17 03:54:12.000000000 +1000
++++ gnome-terminal-2.27.91.new/src/terminal-profile.c	2009-08-25 12:25:04.000000000 +1000
+@@ -70,6 +70,7 @@
    PROP_SCROLLBAR_POSITION,
    PROP_SCROLL_ON_KEYSTROKE,
    PROP_SCROLL_ON_OUTPUT,
@@ -97,7 +97,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/terminal-profile.c gnome-termin
    PROP_SILENT_BELL,
    PROP_TITLE,
    PROP_TITLE_MODE,
-@@ -110,6 +111,7 @@
+@@ -104,6 +105,7 @@
  #define KEY_SCROLLBAR_POSITION "scrollbar_position"
  #define KEY_SCROLL_ON_KEYSTROKE "scroll_on_keystroke"
  #define KEY_SCROLL_ON_OUTPUT "scroll_on_output"
@@ -105,7 +105,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/terminal-profile.c gnome-termin
  #define KEY_SILENT_BELL "silent_bell"
  #define KEY_TITLE_MODE "title_mode"
  #define KEY_TITLE "title"
-@@ -144,6 +146,7 @@
+@@ -139,6 +141,7 @@
  #define DEFAULT_SCROLLBAR_POSITION    (TERMINAL_SCROLLBAR_RIGHT)
  #define DEFAULT_SCROLL_ON_KEYSTROKE   (TRUE)
  #define DEFAULT_SCROLL_ON_OUTPUT      (FALSE)
@@ -113,7 +113,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/terminal-profile.c gnome-termin
  #define DEFAULT_SILENT_BELL           (FALSE)
  #define DEFAULT_TITLE_MODE            (TERMINAL_TITLE_REPLACE)
  #define DEFAULT_TITLE                 (N_("Terminal"))
-@@ -1279,6 +1282,7 @@
+@@ -1280,6 +1283,7 @@
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (SCROLL_BACKGROUND, DEFAULT_SCROLL_BACKGROUND, KEY_SCROLL_BACKGROUND);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (SCROLL_ON_KEYSTROKE, DEFAULT_SCROLL_ON_KEYSTROKE, KEY_SCROLL_ON_KEYSTROKE);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (SCROLL_ON_OUTPUT, DEFAULT_SCROLL_ON_OUTPUT, KEY_SCROLL_ON_OUTPUT);
@@ -121,9 +121,9 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/terminal-profile.c gnome-termin
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (SILENT_BELL, DEFAULT_SILENT_BELL, KEY_SILENT_BELL);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (UPDATE_RECORDS, DEFAULT_UPDATE_RECORDS, KEY_UPDATE_RECORDS);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_CUSTOM_COMMAND, DEFAULT_USE_CUSTOM_COMMAND, KEY_USE_CUSTOM_COMMAND);
-diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/terminal-profile.h gnome-terminal.new/src/terminal-profile.h
---- gnome-terminal/src/terminal-profile.h	2008-06-28 16:29:23.000000000 -0700
-+++ gnome-terminal.new/src/terminal-profile.h	2008-08-28 10:03:36.000000000 -0700
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/terminal-profile.h gnome-terminal-2.27.91.new/src/terminal-profile.h
+--- gnome-terminal-2.27.91/src/terminal-profile.h	2009-04-18 02:30:45.000000000 +1000
++++ gnome-terminal-2.27.91.new/src/terminal-profile.h	2009-08-25 12:25:04.000000000 +1000
 @@ -88,6 +88,7 @@
  #define TERMINAL_PROFILE_SCROLLBAR_POSITION     "scrollbar-position"
  #define TERMINAL_PROFILE_SCROLL_ON_KEYSTROKE    "scroll-on-keystroke"
@@ -132,10 +132,10 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/terminal-profile.h gnome-termin
  #define TERMINAL_PROFILE_SILENT_BELL            "silent-bell"
  #define TERMINAL_PROFILE_TITLE_MODE             "title-mode"
  #define TERMINAL_PROFILE_TITLE                  "title"
-diff -Nur -x '*.orig' -x '*~' gnome-terminal/src/terminal-screen.c gnome-terminal.new/src/terminal-screen.c
---- gnome-terminal/src/terminal-screen.c	2008-08-04 09:51:34.000000000 -0700
-+++ gnome-terminal.new/src/terminal-screen.c	2008-08-28 10:03:36.000000000 -0700
-@@ -833,6 +833,9 @@
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/terminal-screen.c gnome-terminal-2.27.91.new/src/terminal-screen.c
+--- gnome-terminal-2.27.91/src/terminal-screen.c	2009-08-13 22:39:24.000000000 +1000
++++ gnome-terminal-2.27.91.new/src/terminal-screen.c	2009-08-25 12:25:04.000000000 +1000
+@@ -971,6 +971,9 @@
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_SCROLL_ON_OUTPUT))
      vte_terminal_set_scroll_on_output (vte_terminal,
                                         terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_SCROLL_ON_OUTPUT));

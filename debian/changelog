@@ -1,3 +1,17 @@
+gnome-terminal (2.27.91-0ubuntu1) UNRELEASED; urgency=low
+
+  * New upstream release: (LP: #418398)
+    - Fixes (LP: #347566)
+  * debian/patches/01_lpi.patch:
+  * debian/patches/01_onlyshowin.patch:
+  * debian/patches/02_let_gconf_autostart.patch:
+  * debian/patches/04_resized_on_tabs_switch.patch:
+  * debian/patches/20_add_alt_screen_toggle_ui.patch:
+  * debian/patches/99_autoreconf.patch:
+    - Refreshed
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 25 Aug 2009 12:18:19 +1000
+
 gnome-terminal (2.26.3.1-0ubuntu1) karmic; urgency=low
 
   * New upstream release: (LP: #399575)

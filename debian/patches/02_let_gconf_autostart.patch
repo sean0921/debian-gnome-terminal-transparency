@@ -1,26 +1,30 @@
---- src/terminal.c.orig	2009-06-27 14:48:41.740115657 +0200
-+++ src/terminal.c	2009-06-27 14:49:37.573407952 +0200
-@@ -234,9 +234,6 @@
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/terminal.c gnome-terminal-2.27.91.new/src/terminal.c
+--- gnome-terminal-2.27.91/src/terminal.c	2009-08-13 22:24:55.000000000 +1000
++++ gnome-terminal-2.27.91.new/src/terminal.c	2009-08-25 12:24:28.000000000 +1000
+@@ -235,9 +235,6 @@
    return g_string_free (name, FALSE);
  }
  
 -/* Evil hack alert: this is exported from libgconf-2 but not in a public header */
--extern gboolean gconf_ping_daemon (void);
--         
+-extern gboolean gconf_spawn_daemon(GError** err);
+-
  int
  main (int argc, char **argv)
  {
-@@ -444,16 +441,6 @@
+@@ -446,19 +443,6 @@
    g_free (argv_copy);
    g_free (factory_name);
  
 -  /* If the gconf daemon isn't available (e.g. because there's no dbus
 -   * session bus running), we'd crash later on. Tell the user about it
 -   * now, and exit. See bug #561663.
+-   * Don't use gconf_ping_daemon() here since the server may just not
+-   * be running yet, but able to be started. See comments on bug #564649.
 -   */
--  if (!gconf_ping_daemon ())
+-  if (!gconf_spawn_daemon (&error))
 -    {
--      g_printerr ("Failed to contact the GConf daemon; exiting.\n");
+-      g_printerr ("Failed to summon the GConf demon: %s\n", error->message);
+-      g_error_free (error);
 -      exit (1);
 -    }
 -
