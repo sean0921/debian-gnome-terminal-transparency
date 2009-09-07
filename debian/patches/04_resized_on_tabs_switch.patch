@@ -1,7 +1,7 @@
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/terminal-window.c gnome-terminal-2.27.91.new/src/terminal-window.c
---- gnome-terminal-2.27.91/src/terminal-window.c	2009-08-25 12:24:51.000000000 +1000
-+++ gnome-terminal-2.27.91.new/src/terminal-window.c	2009-08-25 12:24:52.000000000 +1000
-@@ -2475,6 +2475,14 @@
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.92/src/terminal-window.c gnome-terminal-2.27.92.new/src/terminal-window.c
+--- gnome-terminal-2.27.92/src/terminal-window.c	2009-09-07 12:18:23.000000000 +1000
++++ gnome-terminal-2.27.92.new/src/terminal-window.c	2009-09-07 12:18:24.000000000 +1000
+@@ -2509,6 +2509,14 @@
    app = gtk_widget_get_toplevel (widget);
    g_assert (app != NULL);
  

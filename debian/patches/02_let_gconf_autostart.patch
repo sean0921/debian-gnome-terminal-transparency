@@ -1,6 +1,6 @@
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/terminal.c gnome-terminal-2.27.91.new/src/terminal.c
---- gnome-terminal-2.27.91/src/terminal.c	2009-08-13 22:24:55.000000000 +1000
-+++ gnome-terminal-2.27.91.new/src/terminal.c	2009-08-25 12:24:28.000000000 +1000
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.92/src/terminal.c gnome-terminal-2.27.92.new/src/terminal.c
+--- gnome-terminal-2.27.92/src/terminal.c	2009-09-06 22:19:27.000000000 +1000
++++ gnome-terminal-2.27.92.new/src/terminal.c	2009-09-07 12:18:00.000000000 +1000
 @@ -235,9 +235,6 @@
    return g_string_free (name, FALSE);
  }
@@ -11,7 +11,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/terminal.c gnome-termin
  int
  main (int argc, char **argv)
  {
-@@ -446,19 +443,6 @@
+@@ -452,19 +449,6 @@
    g_free (argv_copy);
    g_free (factory_name);
  
@@ -23,7 +23,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/terminal.c gnome-termin
 -   */
 -  if (!gconf_spawn_daemon (&error))
 -    {
--      g_printerr ("Failed to summon the GConf demon: %s\n", error->message);
+-      g_printerr ("Failed to summon the GConf demon; exiting.  %s\n", error->message);
 -      g_error_free (error);
 -      exit (1);
 -    }
