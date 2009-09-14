@@ -1,3 +1,14 @@
+gnome-terminal (2.26.3.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/03_useless_plural_forms.patch:
+    - remove useless Plural-Forms line which breaks build with
+      gnome-doc-utils master (Closes: #545602).
+  * debian/control.in:
+    - Bump Standards-Version to 3.8.3, no changes needed.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Tue, 15 Sep 2009 00:34:09 +0200
+
 gnome-terminal (2.26.2-3) UNRELEASED; urgency=low
 
   * debian/watch: don't uupdate.

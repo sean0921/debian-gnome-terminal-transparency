@@ -3,7 +3,7 @@ Section: gnome
 Priority: optional
 Maintainer: Guilherme de S. Pastore <gpastore@debian.org>
 Uploaders: @GNOME_TEAM@
-Standards-Version: 3.8.2
+Standards-Version: 3.8.3
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 5),
                intltool (>= 0.40.0),

@@ -2,8 +2,8 @@ Source: gnome-terminal
 Section: gnome
 Priority: optional
 Maintainer: Guilherme de S. Pastore <gpastore@debian.org>
-Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Emilio Pozuelo Monfort <pochu@ubuntu.com>, Josselin Mouette <joss@debian.org>, Sebastian Dröge <slomo@debian.org>
-Standards-Version: 3.8.2
+Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Josselin Mouette <joss@debian.org>, Luca Falavigna <dktrkranz@debian.org>, Sebastian Dröge <slomo@debian.org>
+Standards-Version: 3.8.3
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 5),
                intltool (>= 0.40.0),
@@ -42,7 +42,6 @@ Description: The GNOME terminal emulator application
 
 Package: gnome-terminal-data
 Architecture: all
-Replaces: gnome-terminal (<< 2.10-1)
 Recommends: gnome-terminal
 Depends: ${misc:Depends}
 Description: Data files for the GNOME terminal emulator
