@@ -1,3 +1,14 @@
+gnome-terminal (2.28.0-1) unstable; urgency=low
+
+  * New upstream stable release:
+    + debian/control.in:
+      - Update build dependencies.
+    + debian/patches/02_let_gconf_autostart.patch,
+      debian/patches/03_useless_plural_forms.patch:
+      - Dropped, merged upstream.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 22 Sep 2009 14:02:42 +0200
+
 gnome-terminal (2.26.3.1-1) unstable; urgency=low
 
   * New upstream release.
