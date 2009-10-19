@@ -1,6 +1,6 @@
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/gnome-terminal.schemas.in gnome-terminal-2.27.91.new/src/gnome-terminal.schemas.in
---- gnome-terminal-2.27.91/src/gnome-terminal.schemas.in	2009-04-18 02:30:45.000000000 +1000
-+++ gnome-terminal-2.27.91.new/src/gnome-terminal.schemas.in	2009-08-25 12:25:04.000000000 +1000
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.28.1/src/gnome-terminal.schemas.in gnome-terminal-2.28.1.new/src/gnome-terminal.schemas.in
+--- gnome-terminal-2.28.1/src/gnome-terminal.schemas.in	2009-04-17 17:30:45.000000000 +0100
++++ gnome-terminal-2.28.1.new/src/gnome-terminal.schemas.in	2009-10-19 23:56:30.652725789 +0100
 @@ -326,6 +326,23 @@
      </schema>
  
@@ -25,10 +25,10 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/gnome-terminal.schemas.
        <key>/schemas/apps/gnome-terminal/profiles/Default/exit_action</key>
        <applyto>/apps/gnome-terminal/profiles/Default/exit_action</applyto>
        <owner>gnome-terminal</owner>
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/profile-editor.c gnome-terminal-2.27.91.new/src/profile-editor.c
---- gnome-terminal-2.27.91/src/profile-editor.c	2009-04-18 02:30:45.000000000 +1000
-+++ gnome-terminal-2.27.91.new/src/profile-editor.c	2009-08-25 12:25:04.000000000 +1000
-@@ -241,6 +241,10 @@
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.28.1/src/profile-editor.c gnome-terminal-2.28.1.new/src/profile-editor.c
+--- gnome-terminal-2.28.1/src/profile-editor.c	2009-10-19 19:10:22.000000000 +0100
++++ gnome-terminal-2.28.1.new/src/profile-editor.c	2009-10-19 23:56:30.652725789 +0100
+@@ -240,6 +240,10 @@
      SET_SENSITIVE ("scroll-on-output-checkbutton",
                     !terminal_profile_property_locked (profile, TERMINAL_PROFILE_SCROLL_ON_OUTPUT));
  
@@ -39,7 +39,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/profile-editor.c gnome-
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_EXIT_ACTION))
      SET_SENSITIVE ("exit-action-combobox",
                     !terminal_profile_property_locked (profile, TERMINAL_PROFILE_EXIT_ACTION));
-@@ -819,6 +823,7 @@
+@@ -818,6 +822,7 @@
    CONNECT ("scrollbar-position-combobox", TERMINAL_PROFILE_SCROLLBAR_POSITION);
    CONNECT ("scroll-on-keystroke-checkbutton", TERMINAL_PROFILE_SCROLL_ON_KEYSTROKE);
    CONNECT ("scroll-on-output-checkbutton", TERMINAL_PROFILE_SCROLL_ON_OUTPUT);
@@ -47,9 +47,9 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/profile-editor.c gnome-
    CONNECT ("show-menubar-checkbutton", TERMINAL_PROFILE_DEFAULT_SHOW_MENUBAR);
    CONNECT ("solid-radiobutton", TERMINAL_PROFILE_BACKGROUND_TYPE);
    CONNECT ("system-font-checkbutton", TERMINAL_PROFILE_USE_SYSTEM_FONT);
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/profile-preferences.glade gnome-terminal-2.27.91.new/src/profile-preferences.glade
---- gnome-terminal-2.27.91/src/profile-preferences.glade	2009-08-13 23:07:42.000000000 +1000
-+++ gnome-terminal-2.27.91.new/src/profile-preferences.glade	2009-08-25 12:25:04.000000000 +1000
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.28.1/src/profile-preferences.glade gnome-terminal-2.28.1.new/src/profile-preferences.glade
+--- gnome-terminal-2.28.1/src/profile-preferences.glade	2009-10-19 19:10:22.000000000 +0100
++++ gnome-terminal-2.28.1.new/src/profile-preferences.glade	2009-10-19 23:56:30.652725789 +0100
 @@ -2021,13 +2021,34 @@
  	    <widget class="GtkTable" id="table27">
  	      <property name="border_width">12</property>
@@ -86,9 +86,9 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/profile-preferences.gla
  		<widget class="GtkCheckButton" id="scroll-on-keystroke-checkbutton">
  		  <property name="visible">True</property>
  		  <property name="can_focus">True</property>
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/terminal-profile.c gnome-terminal-2.27.91.new/src/terminal-profile.c
---- gnome-terminal-2.27.91/src/terminal-profile.c	2009-08-17 03:54:12.000000000 +1000
-+++ gnome-terminal-2.27.91.new/src/terminal-profile.c	2009-08-25 12:25:04.000000000 +1000
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.28.1/src/terminal-profile.c gnome-terminal-2.28.1.new/src/terminal-profile.c
+--- gnome-terminal-2.28.1/src/terminal-profile.c	2009-09-28 21:12:39.000000000 +0100
++++ gnome-terminal-2.28.1.new/src/terminal-profile.c	2009-10-19 23:56:30.662725221 +0100
 @@ -70,6 +70,7 @@
    PROP_SCROLLBAR_POSITION,
    PROP_SCROLL_ON_KEYSTROKE,
@@ -121,9 +121,9 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/terminal-profile.c gnom
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (SILENT_BELL, DEFAULT_SILENT_BELL, KEY_SILENT_BELL);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (UPDATE_RECORDS, DEFAULT_UPDATE_RECORDS, KEY_UPDATE_RECORDS);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_CUSTOM_COMMAND, DEFAULT_USE_CUSTOM_COMMAND, KEY_USE_CUSTOM_COMMAND);
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/terminal-profile.h gnome-terminal-2.27.91.new/src/terminal-profile.h
---- gnome-terminal-2.27.91/src/terminal-profile.h	2009-04-18 02:30:45.000000000 +1000
-+++ gnome-terminal-2.27.91.new/src/terminal-profile.h	2009-08-25 12:25:04.000000000 +1000
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.28.1/src/terminal-profile.h gnome-terminal-2.28.1.new/src/terminal-profile.h
+--- gnome-terminal-2.28.1/src/terminal-profile.h	2009-04-17 17:30:45.000000000 +0100
++++ gnome-terminal-2.28.1.new/src/terminal-profile.h	2009-10-19 23:56:30.662725221 +0100
 @@ -88,6 +88,7 @@
  #define TERMINAL_PROFILE_SCROLLBAR_POSITION     "scrollbar-position"
  #define TERMINAL_PROFILE_SCROLL_ON_KEYSTROKE    "scroll-on-keystroke"
@@ -132,9 +132,9 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/terminal-profile.h gnom
  #define TERMINAL_PROFILE_SILENT_BELL            "silent-bell"
  #define TERMINAL_PROFILE_TITLE_MODE             "title-mode"
  #define TERMINAL_PROFILE_TITLE                  "title"
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.27.91/src/terminal-screen.c gnome-terminal-2.27.91.new/src/terminal-screen.c
---- gnome-terminal-2.27.91/src/terminal-screen.c	2009-08-13 22:39:24.000000000 +1000
-+++ gnome-terminal-2.27.91.new/src/terminal-screen.c	2009-08-25 12:25:04.000000000 +1000
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.28.1/src/terminal-screen.c gnome-terminal-2.28.1.new/src/terminal-screen.c
+--- gnome-terminal-2.28.1/src/terminal-screen.c	2009-10-19 19:10:22.000000000 +0100
++++ gnome-terminal-2.28.1.new/src/terminal-screen.c	2009-10-19 23:56:30.672722417 +0100
 @@ -971,6 +971,9 @@
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_SCROLL_ON_OUTPUT))
      vte_terminal_set_scroll_on_output (vte_terminal,
