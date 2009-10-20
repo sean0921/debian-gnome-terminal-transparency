@@ -2,14 +2,14 @@ Source: gnome-terminal
 Section: gnome
 Priority: optional
 Maintainer: Guilherme de S. Pastore <gpastore@debian.org>
-Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Josselin Mouette <joss@debian.org>, Sebastian Dröge <slomo@debian.org>
+Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Josselin Mouette <joss@debian.org>, Luca Falavigna <dktrkranz@debian.org>, Sebastian Dröge <slomo@debian.org>
 Standards-Version: 3.8.3
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 5),
                intltool (>= 0.40.0),
                libgtk2.0-dev (>= 2.14.0),
                libglib2.0-dev (>= 2.16.0),
-               libvte-dev (>= 1:0.21.5),
+               libvte-dev (>= 1:0.22.0),
                scrollkeeper,
                libstartup-notification0-dev (>= 0.8),
                libsm-dev,

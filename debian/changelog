@@ -1,3 +1,11 @@
+gnome-terminal (2.28.1-1) unstable; urgency=low
+
+  * New upstream bugfix release:
+    + debian/control.in:
+      - Update build dependencies.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 20 Oct 2009 08:28:30 +0200
+
 gnome-terminal (2.28.0-1) unstable; urgency=low
 
   * New upstream stable release:
