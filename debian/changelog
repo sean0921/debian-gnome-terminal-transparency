@@ -1,3 +1,25 @@
+gnome-terminal (2.28.1-1ubuntu1) lucid; urgency=low
+
+  * Rebase on Debian 2.28.1-1, remaining changes:
+    - debian/patches/01_lpi.patch:
+    - debian/patches/99_autoreconf.patch:
+    - debian/control.in:
+      - LP integration  
+    - debian/patches/20_add_alt_screen_toggle_ui.patch:
+      - Hook new vte alternate screen scrolling toggle via UI
+    - debian/watch:
+      - Watch for unstable versions
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 01 Dec 2009 17:34:22 +1100
+
+gnome-terminal (2.28.1-1) unstable; urgency=low
+
+  * New upstream bugfix release:
+    + debian/control.in:
+      - Update build dependencies.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 20 Oct 2009 08:28:30 +0200
+
 gnome-terminal (2.28.1-0ubuntu1) karmic; urgency=low
 
   * New upstream release (LP: #455880):
@@ -11,6 +33,17 @@ gnome-terminal (2.28.1-0ubuntu1) karmic; urgency=low
     - 99_autoreconf.patch
 
  -- Chris Coulson <chrisccoulson@ubuntu.com>  Mon, 19 Oct 2009 23:37:35 +0100
+
+gnome-terminal (2.28.0-1) unstable; urgency=low
+
+  * New upstream stable release:
+    + debian/control.in:
+      - Update build dependencies.
+    + debian/patches/02_let_gconf_autostart.patch,
+      debian/patches/03_useless_plural_forms.patch:
+      - Dropped, merged upstream.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 22 Sep 2009 14:02:42 +0200
 
 gnome-terminal (2.28.0-0ubuntu1) karmic; urgency=low
 
@@ -49,6 +82,35 @@ gnome-terminal (2.26.3.1-0ubuntu1) karmic; urgency=low
     - Refreshed
 
  -- Robert Ancell <robert.ancell@canonical.com>  Wed, 15 Jul 2009 13:27:01 +1000
+
+gnome-terminal (2.26.3.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/03_useless_plural_forms.patch:
+    - remove useless Plural-Forms line which breaks build with
+      gnome-doc-utils master (Closes: #545602).
+  * debian/control.in:
+    - Bump Standards-Version to 3.8.3, no changes needed.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Tue, 15 Sep 2009 00:34:09 +0200
+
+gnome-terminal (2.26.2-3) UNRELEASED; urgency=low
+
+  * debian/watch: don't uupdate.
+  * Add descriptions and links to patch headers.
+  * debian/control.in:
+    - Standards-Version is 3.8.2, no changes needed.
+    - Extend gnome-terminal-data's long description.
+    - No need to replace/conflict gnome-terminal2, that's gone for good.
+    - gnome-terminal 2.10 is not even in oldstable, no need to replace it
+      in gnome-terminal-data.
+  * Move the menu and desktop files to the gnome-terminal package, add
+    replaces accordingly.
+  * debian/patches/04_resized_on_tabs_switch.patch: Removed. This was
+    added because gnome-terminal didn't resize when you changed to a
+    tab with a different font size. That works fine now without the patch.
+
+ -- Emilio Pozuelo Monfort <pochu@ubuntu.com>  Sat, 27 Jun 2009 16:22:22 +0200
 
 gnome-terminal (2.26.2-2) unstable; urgency=low
 
