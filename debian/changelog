@@ -1,3 +1,17 @@
+gnome-terminal (2.29.1-0ubuntu1) UNRELEASED; urgency=low
+
+  * New upstream release (LP: #499992):
+    - --geometry works again (LP: #333412)
+    - tab detaching works again
+    - unlimited scrollback
+    - improved proxy env suppport
+    - bold color support
+    - tons of translation updates
+  * debian/control.in:
+    - libvte-dev build-dep raised to 0.23.1
+
+ -- Martin Peeks <martinp23@googlemail.com>  Mon, 04 Jan 2010 01:26:32 +0000
+
 gnome-terminal (2.28.1-1ubuntu1) lucid; urgency=low
 
   * Rebase on Debian 2.28.1-1, remaining changes:
