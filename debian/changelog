@@ -9,6 +9,7 @@ gnome-terminal (2.29.1-0ubuntu1) UNRELEASED; urgency=low
     - tons of translation updates
   * debian/control.in:
     - libvte-dev build-dep raised to 0.23.1
+  * debian/patches/99_autoreconf.patch: refreshed
 
  -- Martin Peeks <martinp23@googlemail.com>  Mon, 04 Jan 2010 01:26:32 +0000
 
