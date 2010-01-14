@@ -1,27 +1,92 @@
-gnome-terminal (2.26.0-1) UNRELEASED; urgency=low
+gnome-terminal (2.28.2-1) unstable; urgency=low
 
-  [ Luca Bruno ]
+  * New upstream bugfix release.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Mon, 14 Dec 2009 22:45:57 +0100
+
+gnome-terminal (2.28.1-1) unstable; urgency=low
+
+  * New upstream bugfix release:
+    + debian/control.in:
+      - Update build dependencies.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 20 Oct 2009 08:28:30 +0200
+
+gnome-terminal (2.28.0-1) unstable; urgency=low
+
+  * New upstream stable release:
+    + debian/control.in:
+      - Update build dependencies.
+    + debian/patches/02_let_gconf_autostart.patch,
+      debian/patches/03_useless_plural_forms.patch:
+      - Dropped, merged upstream.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 22 Sep 2009 14:02:42 +0200
+
+gnome-terminal (2.26.3.1-1) unstable; urgency=low
+
   * New upstream release.
+  * debian/patches/03_useless_plural_forms.patch:
+    - remove useless Plural-Forms line which breaks build with
+      gnome-doc-utils master (Closes: #545602).
   * debian/control.in:
-    - Build-Depends:
-      + Bump libvte-dev to 0.19.1.
-      + Add libdbus-glib-1-dev 0.6.
-      + Remove libgnomeui-dev, libgnome2-dev, liborbit2-dev and libxft-dev.
-    - Updated Standards-Version to 3.8.1, no additional changes needed.
-  * debian/patches/01_tabs_shortcuts.patch,
-    debian/patches/02_tabs_shortcuts_translations.patch:
-    - Remove as this functionality has been re-added upstream.
-  * debian/patches/04_resized_on_tabs_switch.patch:
-    - Update to apply cleanly.
-  * debian/gnome-terminal-data.install:
-    - Remove bonobo as dropped upstream.
-  * debian/copyright:
-    - Specify GPL version 2.
+    - Bump Standards-Version to 3.8.3, no changes needed.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Tue, 15 Sep 2009 00:34:09 +0200
+
+gnome-terminal (2.26.2-3) UNRELEASED; urgency=low
+
+  * debian/watch: don't uupdate.
+  * Add descriptions and links to patch headers.
+  * debian/control.in:
+    - Standards-Version is 3.8.2, no changes needed.
+    - Extend gnome-terminal-data's long description.
+    - No need to replace/conflict gnome-terminal2, that's gone for good.
+    - gnome-terminal 2.10 is not even in oldstable, no need to replace it
+      in gnome-terminal-data.
+  * Move the menu and desktop files to the gnome-terminal package, add
+    replaces accordingly.
+  * debian/patches/04_resized_on_tabs_switch.patch: Removed. This was
+    added because gnome-terminal didn't resize when you changed to a
+    tab with a different font size. That works fine now without the patch.
+
+ -- Emilio Pozuelo Monfort <pochu@ubuntu.com>  Sat, 27 Jun 2009 16:22:22 +0200
+
+gnome-terminal (2.26.2-2) unstable; urgency=low
+
+  * 02_let_gconf_autostart.patch: Don’t exit if there is no GConf daemon 
+    running. Instead, let dbus-daemon and gconfd be autostarted as they 
+    should be if this is needed. Thanks to Sean Finney for the 
+    suggestion. Closes: #531734 and some duplicates.
+
+ -- Josselin Mouette <joss@debian.org>  Sat, 27 Jun 2009 14:53:33 +0200
+
+gnome-terminal (2.26.2-1) unstable; urgency=low
 
   [ Josselin Mouette ]
+  * Stop mentioning GNOME 2.
   * Remove scrollkeeper dependency.
 
- -- Luca Bruno <lethalman88@gmail.com>  Fri, 10 Apr 2009 10:57:43 +0200
+  [ Deng Xiyue ]
+  * New upstream release.
+    + Bump b-dep: libgtk2.0-dev (>= 2.14.0), libvte-dev (>= 0.20.0).
+    + New b-dep: libdbus-glib-1-dev (>= 0.6).
+    + Drop 01_tabs_shortcuts.patch, 02_tabs_shortcuts_translations.patch.
+      Merged upstream.
+    + Refresh 04_resized_on_tabs_switch.patch to apply cleanly.
+  * Drop bonobo path in gnome-terminal-data.install.  DBus is used instead.
+  * Split Copyright holder section to silence lintian warning, and add missing
+    copyright holders.
+  * Point to versioned license files.
+  * Update Standard-Version to 3.8.1.
+
+  [ Josselin Mouette ]
+  * Drop unnecessary build-deps, add libsm-dev.
+  * 01_onlyshowin.patch: new patch. Only show gnome-terminal in GNOME 
+    menus, other desktop environments already have their terminal 
+    emulators.
+
+ -- Josselin Mouette <joss@debian.org>  Mon, 01 Jun 2009 11:28:01 +0200
 
 gnome-terminal (2.24.3-3) unstable; urgency=low
 
