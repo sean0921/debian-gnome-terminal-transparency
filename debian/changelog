@@ -1,4 +1,4 @@
-gnome-terminal (2.29.1-0ubuntu1) UNRELEASED; urgency=low
+gnome-terminal (2.29.1-0ubuntu1) lucid; urgency=low
 
   * New upstream release (LP: #499992):
     - --geometry works again (LP: #333412)
