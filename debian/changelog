@@ -1,3 +1,12 @@
+gnome-terminal (2.29.1-0ubuntu2) UNRELEASED; urgency=low
+
+  * debian/control.in:
+    - update Replace line to match the Ubuntu version where
+      the move of the desktop/menu files from gnome-terminal-data
+      to gnome-terminal happend
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Tue, 26 Jan 2010 09:48:41 +0100
+
 gnome-terminal (2.29.1-0ubuntu1) lucid; urgency=low
 
   * New upstream release (LP: #499992):
