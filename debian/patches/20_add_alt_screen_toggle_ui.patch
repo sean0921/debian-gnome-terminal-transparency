@@ -69,8 +69,8 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/profile-preferences.glad
 + 		<packing>
 + 		  <property name="left_attach">0</property>
 + 		  <property name="right_attach">2</property>
-+ 		  <property name="top_attach">4</property>
-+ 		  <property name="bottom_attach">5</property>
++ 		  <property name="top_attach">5</property>
++ 		  <property name="bottom_attach">6</property>
 + 		  <property name="y_options"></property>
 + 		</packing>
 + 	      </child>

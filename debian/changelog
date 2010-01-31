@@ -1,3 +1,11 @@
+gnome-terminal (2.29.1-0ubuntu3) UNRELEASED; urgency=low
+
+  * debian/patches/20_add_alt_screen_toggle_ui.patch:
+    - Move the extra table entry down one row, to stop it rendering over
+      an existing entry
+
+ -- Chris Coulson <chrisccoulson@ubuntu.com>  Sun, 31 Jan 2010 17:47:33 +0000
+
 gnome-terminal (2.29.1-0ubuntu2) lucid; urgency=low
 
   * debian/control.in:
