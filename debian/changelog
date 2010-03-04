@@ -1,3 +1,26 @@
+gnome-terminal (2.29.6-0ubuntu2) UNRELEASED; urgency=low
+
+  * debian/gnome-terminal-ambiance.schemas:
+    - Provide settings for a new profile "Ambiance"
+  * debian/rules:
+    - Install the schema for the new profile
+  * debian/gnome-termina-data.gconf-defaults
+    - Set default profile to "Ambiance"
+  * debian/patches/02_rename_default_profile.patch:
+    - Change the visible name for the upstream default profile to "Legacy".
+      "Default" no longer makes sense, as it's not the default profile.
+      We do this by directly patching the upstream schema to
+      ensure the new string appears in the translation template
+  * debian/patches/03_add_new_profiles_on_upgrade.patch:
+    - Ensure that new profiles installed in /apps/gnome-terminal/profiles
+      are available to the user after upgrade, even if they have a custom
+      profile list. This is just achieved by scanning for new subfolders
+      and merging in the new profile names
+  * debian/patches/04_change_fallback_profile.patch:
+    - Change fallback profile to Ambiance
+
+ -- Chris Coulson <chris.coulson@canonical.com>  Thu, 04 Mar 2010 11:15:31 +0000
+
 gnome-terminal (2.29.6-0ubuntu1) lucid; urgency=low
 
   * New upstream release (LP: #516775)
