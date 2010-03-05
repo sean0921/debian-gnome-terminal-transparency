@@ -51,7 +51,7 @@
       <applyto>/apps/gnome-terminal/profiles/Ambiance/background_color</applyto>
       <owner>gnome-terminal</owner>
       <type>string</type>
-      <default>#300A24</default>
+      <default>#2C001E</default>
       <locale name="C">
          <short>Default color of terminal background</short>
          <long>
