@@ -1,9 +1,9 @@
-gnome-terminal (2.29.6-0ubuntu3) UNRELEASED; urgency=low
+gnome-terminal (2.29.6-0ubuntu3) lucid; urgency=low
 
   * debian/gnome-terminal-ambiance.schemas:
     - change color to corresponds to bg one and be darker (LP: #532377)
 
- -- Didier Roche <didrocks@ubuntu.com>  Fri, 05 Mar 2010 13:10:33 +0100
+ -- Didier Roche <didrocks@ubuntu.com>  Fri, 05 Mar 2010 17:49:25 +0100
 
 gnome-terminal (2.29.6-0ubuntu2) lucid; urgency=low
 
