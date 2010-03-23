@@ -1,4 +1,4 @@
-gnome-terminal (2.29.6-0ubuntu4) UNRELEASED; urgency=low
+gnome-terminal (2.29.6-0ubuntu4) lucid; urgency=low
 
   * debian/gnome-terminal-ambiance.schemas:
     - Add alternate_screen_scroll schema to Ambiance profile, to fix
