@@ -1,3 +1,19 @@
+gnome-terminal (2.29.6-0ubuntu5) UNRELEASED; urgency=low
+
+  * Revert the previous changes to add a new profile, as changing
+    the default profile on upgrade is suboptimal, and there are better
+    ways to implement the visual changes
+    - Removed patches:
+      + 02_rename_default_profile.patch
+      + 03_add_new_profiles_on_upgrade.patch
+      + 04_change_fallback_profile.patch
+    - Delete debian/gnome-terminal-ambiance.schemas
+    - Delete ebian/gnome-termina-data.gconf-defaults
+    - debian/rules:
+      + Don't install custom schema
+
+ -- Chris Coulson <chris.coulson@canonical.com>  Tue, 23 Mar 2010 21:41:22 +0000
+
 gnome-terminal (2.29.6-0ubuntu4) lucid; urgency=low
 
   * debian/gnome-terminal-ambiance.schemas:

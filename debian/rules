@@ -16,11 +16,6 @@ DEB_CONFIGURE_EXTRA_FLAGS += --disable-scrollkeeper
 build/gnome-terminal::
 	/usr/bin/docbook-to-man debian/gnome-terminal.sgml > debian/gnome-terminal.1
 
-# Install the new schema before dh_gconf is called and the schemas are moved to /usr/share
-# Doing it after will mean it gets no postinst hook, and doesn't get registered on install
-install/gnome-terminal-data::
-	cp debian/gnome-terminal-ambiance.schemas debian/tmp/etc/gconf/schemas
-
 clean::
 	rm -f debian/gnome-terminal.1
 
