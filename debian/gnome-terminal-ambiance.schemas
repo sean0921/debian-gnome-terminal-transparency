@@ -284,6 +284,23 @@
     </schema>
 
     <schema>
+      <key>/schemas/apps/gnome-terminal/profiles/Ambiance/alternate_screen_scroll</key>
+      <applyto>/apps/gnome-terminal/profiles/Ambiance/alternate_screen_scroll</applyto>
+      <owner>gnome-terminal</owner>
+      <type>bool</type>
+      <default>true</default>
+      <locale name="C">
+         <short>
+	  Whether to send keystrokes for alternate screen scrolling
+	 </short>
+         <long>
+          If true, send Up/Down keystrokes for scrolling when using alternate
+	  screen or when scrolling is restricted.
+         </long>
+      </locale>
+    </schema>
+
+    <schema>
       <key>/schemas/apps/gnome-terminal/profiles/Ambiance/exit_action</key>
       <applyto>/apps/gnome-terminal/profiles/Ambiance/exit_action</applyto>
       <owner>gnome-terminal</owner>

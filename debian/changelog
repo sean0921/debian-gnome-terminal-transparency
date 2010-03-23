@@ -1,3 +1,11 @@
+gnome-terminal (2.29.6-0ubuntu4) UNRELEASED; urgency=low
+
+  * debian/gnome-terminal-ambiance.schemas:
+    - Add alternate_screen_scroll schema to Ambiance profile, to fix
+      mouse-wheel scrolling (LP: #533647)
+
+ -- Chris Coulson <chris.coulson@canonical.com>  Tue, 23 Mar 2010 01:37:30 +0000
+
 gnome-terminal (2.29.6-0ubuntu3) lucid; urgency=low
 
   * debian/gnome-terminal-ambiance.schemas:
