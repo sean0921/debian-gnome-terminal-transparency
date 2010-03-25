@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+set -e
+
+#DEBHELPER#
+
+# Fix the gconf defaults when upgrading from previous unstable version
+if [ "$1" = "configure" ] && dpkg --compare-versions "$2" le "2.29.6-0ubuntu4" \
+ && dpkg --compare-versions "$2" ge "2.29.6-0ubuntu2" && which update-gconf-defaults >/dev/null 2>&1; then
+	update-gconf-defaults 
+fi
