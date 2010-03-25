@@ -1,6 +1,6 @@
 diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/gnome-terminal.schemas.in gnome-terminal-2.29.6.new/src/gnome-terminal.schemas.in
 --- gnome-terminal-2.29.6/src/gnome-terminal.schemas.in	2010-01-14 01:00:12.000000000 +0000
-+++ gnome-terminal-2.29.6.new/src/gnome-terminal.schemas.in	2010-03-25 16:22:19.269976527 +0000
++++ gnome-terminal-2.29.6.new/src/gnome-terminal.schemas.in	2010-03-25 17:38:30.149950030 +0000
 @@ -672,6 +672,21 @@
      </schema>
  
@@ -25,7 +25,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/gnome-terminal.schemas.i
        <owner>gnome-terminal</owner>
 diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/terminal-profile.c gnome-terminal-2.29.6.new/src/terminal-profile.c
 --- gnome-terminal-2.29.6/src/terminal-profile.c	2009-12-15 06:50:36.000000000 +0000
-+++ gnome-terminal-2.29.6.new/src/terminal-profile.c	2010-03-25 16:40:42.587444253 +0000
++++ gnome-terminal-2.29.6.new/src/terminal-profile.c	2010-03-25 17:38:30.149950030 +0000
 @@ -83,6 +83,7 @@
    PROP_USE_SKEY,
    PROP_USE_SYSTEM_FONT,
@@ -82,7 +82,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/terminal-profile.c gnome
    TERMINAL_PROFILE_PROPERTY_BOXED (BOLD_COLOR, GDK_TYPE_COLOR, KEY_BOLD_COLOR);
 diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/terminal-profile.h gnome-terminal-2.29.6.new/src/terminal-profile.h
 --- gnome-terminal-2.29.6/src/terminal-profile.h	2009-12-15 06:50:36.000000000 +0000
-+++ gnome-terminal-2.29.6.new/src/terminal-profile.h	2010-03-25 16:22:19.269976527 +0000
++++ gnome-terminal-2.29.6.new/src/terminal-profile.h	2010-03-25 17:38:30.177448148 +0000
 @@ -101,6 +101,7 @@
  #define TERMINAL_PROFILE_USE_SKEY               "use-skey"
  #define TERMINAL_PROFILE_USE_SYSTEM_FONT        "use-system-font"
@@ -93,7 +93,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/terminal-profile.h gnome
  
 diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/terminal-screen.c gnome-terminal-2.29.6.new/src/terminal-screen.c
 --- gnome-terminal-2.29.6/src/terminal-screen.c	2010-01-14 00:49:48.000000000 +0000
-+++ gnome-terminal-2.29.6.new/src/terminal-screen.c	2010-03-25 16:22:19.269976527 +0000
++++ gnome-terminal-2.29.6.new/src/terminal-screen.c	2010-03-25 17:40:08.697470314 +0000
 @@ -325,13 +325,27 @@
  {
    TerminalScreen *screen = TERMINAL_SCREEN (widget);
@@ -217,10 +217,11 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/terminal-screen.c gnome-
  
    if (pspec)
      prop_name = pspec->name;
-@@ -1029,41 +1108,7 @@
+@@ -1028,42 +1107,9 @@
+       prop_name == I_(TERMINAL_PROFILE_BACKGROUND_TYPE) ||
        prop_name == I_(TERMINAL_PROFILE_BACKGROUND_IMAGE) ||
        prop_name == I_(TERMINAL_PROFILE_BACKGROUND_DARKNESS) ||
-       prop_name == I_(TERMINAL_PROFILE_SCROLL_BACKGROUND))
+-      prop_name == I_(TERMINAL_PROFILE_SCROLL_BACKGROUND))
 -    {
 -      bg_type = terminal_profile_get_property_enum (profile, TERMINAL_PROFILE_BACKGROUND_TYPE);
 -
@@ -256,6 +257,8 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/terminal-screen.c gnome-
 -                                               bg_type == TERMINAL_BACKGROUND_TRANSPARENT &&
 -                                               (!priv->window || !terminal_window_uses_argb_visual (priv->window)));
 -    }
++      prop_name == I_(TERMINAL_PROFILE_SCROLL_BACKGROUND) ||
++      prop_name == I_(TERMINAL_PROFILE_USE_THEME_BACKGROUND))
 +    update_background (screen);
  
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_BACKSPACE_BINDING))
