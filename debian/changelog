@@ -11,6 +11,12 @@ gnome-terminal (2.29.6-0ubuntu5) UNRELEASED; urgency=low
     - Delete ebian/gnome-termina-data.gconf-defaults
     - debian/rules:
       + Don't install custom schema
+  * Add debian/patches/02_add_transparency_properties.patch:
+    - This patch allows the background transparency to be controlled from
+      the GTK theme (using "TerminalScreen::background-darkness"). In
+      addition to this, the background colour and text colour are already
+      themable from the GTK theme (by setting the "text[NORMAL]" and
+      "base[NORMAL]" colours for the TerminalScreen class)
 
  -- Chris Coulson <chris.coulson@canonical.com>  Tue, 23 Mar 2010 21:41:22 +0000
 

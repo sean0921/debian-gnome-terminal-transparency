@@ -1,0 +1,262 @@
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/gnome-terminal.schemas.in gnome-terminal-2.29.6.new/src/gnome-terminal.schemas.in
+--- gnome-terminal-2.29.6/src/gnome-terminal.schemas.in	2010-01-14 01:00:12.000000000 +0000
++++ gnome-terminal-2.29.6.new/src/gnome-terminal.schemas.in	2010-03-25 16:22:19.269976527 +0000
+@@ -672,6 +672,21 @@
+     </schema>
+ 
+     <schema>
++      <key>/schemas/apps/gnome-terminal/profiles/Default/use_theme_background</key>
++      <applyto>/apps/gnome-terminal/profiles/Default/use_theme_background</applyto>
++      <owner>gnome-terminal</owner>
++      <type>bool</type>
++      <default>true</default>
++      <locale name="C">
++         <short>Whether to use the transparency setting from the theme for the terminal widget</short>
++         <long>
++        If true, the transparency setting defined in the theme will be used for defining the 
++        background type of the terminal, instead of the settings provided by the user.
++         </long>
++      </locale>
++    </schema>
++
++    <schema>
+       <key>/schemas/apps/gnome-terminal/profiles/Default/use_system_font</key>
+       <applyto>/apps/gnome-terminal/profiles/Default/use_system_font</applyto>
+       <owner>gnome-terminal</owner>
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/terminal-profile.c gnome-terminal-2.29.6.new/src/terminal-profile.c
+--- gnome-terminal-2.29.6/src/terminal-profile.c	2009-12-15 06:50:36.000000000 +0000
++++ gnome-terminal-2.29.6.new/src/terminal-profile.c	2010-03-25 16:40:42.587444253 +0000
+@@ -83,6 +83,7 @@
+   PROP_USE_SKEY,
+   PROP_USE_SYSTEM_FONT,
+   PROP_USE_THEME_COLORS,
++  PROP_USE_THEME_BACKGROUND,
+   PROP_VISIBLE_NAME,
+   PROP_WORD_CHARS,
+   LAST_PROP
+@@ -122,6 +123,7 @@
+ #define KEY_USE_SKEY "use_skey"
+ #define KEY_USE_SYSTEM_FONT "use_system_font"
+ #define KEY_USE_THEME_COLORS "use_theme_colors"
++#define KEY_USE_THEME_BACKGROUND "use_theme_background"
+ #define KEY_VISIBLE_NAME "visible_name"
+ #define KEY_WORD_CHARS "word_chars"
+ 
+@@ -161,6 +163,7 @@
+ #define DEFAULT_USE_SKEY              (TRUE)
+ #define DEFAULT_USE_SYSTEM_FONT       (TRUE)
+ #define DEFAULT_USE_THEME_COLORS      (TRUE)
++#define DEFAULT_USE_THEME_BACKGROUND  (TRUE)
+ #define DEFAULT_VISIBLE_NAME          (N_("Unnamed"))
+ #define DEFAULT_WORD_CHARS            ("-A-Za-z0-9,./?%&#:_=+@~")
+ 
+@@ -1157,6 +1160,21 @@
+         g_object_notify (object, TERMINAL_PROFILE_BACKGROUND_IMAGE);
+         break;
+ 
++      case PROP_BACKGROUND_TYPE:
++        /* This next one is a temporary hack as we are UI frozen. Basically, it means that
++         * selecting a solid background will use the background settings defined in the
++         * theme. This should have it's own button though */
++        if (g_value_get_enum (value) == TERMINAL_BACKGROUND_SOLID)
++          {
++            g_value_set_boolean (g_value_array_get_nth (priv->properties, PROP_USE_THEME_BACKGROUND), TRUE);
++          }
++        else
++          {
++            g_value_set_boolean (g_value_array_get_nth (priv->properties, PROP_USE_THEME_BACKGROUND), FALSE);
++          }
++        g_object_notify (object, TERMINAL_PROFILE_USE_THEME_BACKGROUND);
++        break;
++
+       default:
+         break;
+     }
+@@ -1304,6 +1322,7 @@
+   TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_SKEY, DEFAULT_USE_SKEY, KEY_USE_SKEY);
+   TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_SYSTEM_FONT, DEFAULT_USE_SYSTEM_FONT, KEY_USE_SYSTEM_FONT);
+   TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_THEME_COLORS, DEFAULT_USE_THEME_COLORS, KEY_USE_THEME_COLORS);
++  TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_THEME_BACKGROUND, DEFAULT_USE_THEME_BACKGROUND, KEY_USE_THEME_BACKGROUND);
+ 
+   TERMINAL_PROFILE_PROPERTY_BOXED (BACKGROUND_COLOR, GDK_TYPE_COLOR, KEY_BACKGROUND_COLOR);
+   TERMINAL_PROFILE_PROPERTY_BOXED (BOLD_COLOR, GDK_TYPE_COLOR, KEY_BOLD_COLOR);
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/terminal-profile.h gnome-terminal-2.29.6.new/src/terminal-profile.h
+--- gnome-terminal-2.29.6/src/terminal-profile.h	2009-12-15 06:50:36.000000000 +0000
++++ gnome-terminal-2.29.6.new/src/terminal-profile.h	2010-03-25 16:22:19.269976527 +0000
+@@ -101,6 +101,7 @@
+ #define TERMINAL_PROFILE_USE_SKEY               "use-skey"
+ #define TERMINAL_PROFILE_USE_SYSTEM_FONT        "use-system-font"
+ #define TERMINAL_PROFILE_USE_THEME_COLORS       "use-theme-colors"
++#define TERMINAL_PROFILE_USE_THEME_BACKGROUND	"use-theme-background"
+ #define TERMINAL_PROFILE_VISIBLE_NAME           "visible-name"
+ #define TERMINAL_PROFILE_WORD_CHARS             "word-chars"
+ 
+diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/terminal-screen.c gnome-terminal-2.29.6.new/src/terminal-screen.c
+--- gnome-terminal-2.29.6/src/terminal-screen.c	2010-01-14 00:49:48.000000000 +0000
++++ gnome-terminal-2.29.6.new/src/terminal-screen.c	2010-03-25 16:22:19.269976527 +0000
+@@ -325,13 +325,27 @@
+ {
+   TerminalScreen *screen = TERMINAL_SCREEN (widget);
+   TerminalScreenPrivate *priv = screen->priv;
++  TerminalProfile *profile = priv->profile;
+   TerminalBackgroundType bg_type;
++  gfloat style_darkness;
+ 
+   GTK_WIDGET_CLASS (terminal_screen_parent_class)->realize (widget);
+ 
+   g_assert (priv->window != NULL);
+ 
++  gtk_widget_style_get (widget,
++                        "background-darkness", &style_darkness,
++                        NULL);
++
+   /* FIXME: Don't enable this if we have a compmgr. */
++  if (terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_USE_THEME_BACKGROUND))
++    {
++      bg_type = style_darkness < 1 ? TERMINAL_BACKGROUND_TRANSPARENT : TERMINAL_BACKGROUND_SOLID;
++    }
++  else
++    {
++      bg_type = terminal_profile_get_property_enum (profile, TERMINAL_PROFILE_BACKGROUND_TYPE);
++    }
+   bg_type = terminal_profile_get_property_enum (priv->profile, TERMINAL_PROFILE_BACKGROUND_TYPE);
+   vte_terminal_set_background_transparent (VTE_TERMINAL (screen),
+                                            bg_type == TERMINAL_BACKGROUND_TRANSPARENT &&
+@@ -339,6 +353,65 @@
+ }
+ 
+ static void
++update_background (TerminalScreen *screen)
++{
++  TerminalScreenPrivate *priv = screen->priv;
++  TerminalBackgroundType bg_type;
++  TerminalProfile *profile = priv->profile;
++  VteTerminal *vte_terminal = VTE_TERMINAL (screen);
++  gfloat style_darkness;
++  gdouble opacity;
++  gboolean use_theme_background;
++
++  gtk_widget_style_get (GTK_WIDGET (screen),
++                        "background-darkness", &style_darkness,
++                        NULL);
++  use_theme_background = terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_USE_THEME_BACKGROUND);
++
++  if (use_theme_background)
++    {
++      bg_type = style_darkness < 1 ? TERMINAL_BACKGROUND_TRANSPARENT : TERMINAL_BACKGROUND_SOLID;
++    }
++  else
++    {
++      bg_type = terminal_profile_get_property_enum (profile, TERMINAL_PROFILE_BACKGROUND_TYPE);
++    }
++
++  if (bg_type == TERMINAL_BACKGROUND_IMAGE)
++    {
++      vte_terminal_set_background_image (vte_terminal,
++                                         terminal_profile_get_property_object (profile, TERMINAL_PROFILE_BACKGROUND_IMAGE));
++      vte_terminal_set_scroll_background (vte_terminal,
++                                          terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_SCROLL_BACKGROUND));
++    }
++  else
++    {
++      vte_terminal_set_background_image (vte_terminal, NULL);
++      vte_terminal_set_scroll_background (vte_terminal, FALSE);
++    }
++
++  if (bg_type == TERMINAL_BACKGROUND_IMAGE ||
++      bg_type == TERMINAL_BACKGROUND_TRANSPARENT)
++    {
++      opacity = use_theme_background ? (gdouble) style_darkness : terminal_profile_get_property_double (profile, TERMINAL_PROFILE_BACKGROUND_DARKNESS);
++      vte_terminal_set_background_saturation (vte_terminal,
++                                              1.0 - opacity);
++      vte_terminal_set_opacity (vte_terminal,
++                                0xffff * opacity);
++    }
++  else
++    {
++      vte_terminal_set_background_saturation (vte_terminal, 1.0); /* normal color */
++      vte_terminal_set_opacity (vte_terminal, 0xffff);
++    }
++
++  /* FIXME: Don't enable this if we have a compmgr. */
++  vte_terminal_set_background_transparent (vte_terminal,
++                                           bg_type == TERMINAL_BACKGROUND_TRANSPARENT &&
++                                           (!priv->window || !terminal_window_uses_argb_visual (priv->window)));
++}
++
++static void
+ terminal_screen_style_set (GtkWidget *widget,
+                            GtkStyle *previous_style)
+ {
+@@ -349,6 +422,7 @@
+     style_set (widget, previous_style);
+ 
+   update_color_scheme (screen);
++  update_background (screen);
+ 
+   if (GTK_WIDGET_REALIZED (widget))
+     terminal_screen_change_font (screen);
+@@ -628,6 +702,12 @@
+                          G_TYPE_STRV,
+                          G_PARAM_READWRITE | G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB));
+ 
++  gtk_widget_class_install_style_property
++    (widget_class,
++     g_param_spec_float ("background-darkness", NULL, NULL,
++                         0, 1, 1,
++                         G_PARAM_READABLE | G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB));
++
+   g_type_class_add_private (object_class, sizeof (TerminalScreenPrivate));
+ 
+   /* Precompile the regexes */
+@@ -936,7 +1016,6 @@
+   GObject *object = G_OBJECT (screen);
+   VteTerminal *vte_terminal = VTE_TERMINAL (screen);
+   const char *prop_name;
+-  TerminalBackgroundType bg_type;
+ 
+   if (pspec)
+     prop_name = pspec->name;
+@@ -1029,41 +1108,7 @@
+       prop_name == I_(TERMINAL_PROFILE_BACKGROUND_IMAGE) ||
+       prop_name == I_(TERMINAL_PROFILE_BACKGROUND_DARKNESS) ||
+       prop_name == I_(TERMINAL_PROFILE_SCROLL_BACKGROUND))
+-    {
+-      bg_type = terminal_profile_get_property_enum (profile, TERMINAL_PROFILE_BACKGROUND_TYPE);
+-
+-      if (bg_type == TERMINAL_BACKGROUND_IMAGE)
+-        {
+-          vte_terminal_set_background_image (vte_terminal,
+-                                             terminal_profile_get_property_object (profile, TERMINAL_PROFILE_BACKGROUND_IMAGE));
+-          vte_terminal_set_scroll_background (vte_terminal,
+-                                              terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_SCROLL_BACKGROUND));
+-        }
+-      else
+-        {
+-          vte_terminal_set_background_image (vte_terminal, NULL);
+-          vte_terminal_set_scroll_background (vte_terminal, FALSE);
+-        }
+-
+-      if (bg_type == TERMINAL_BACKGROUND_IMAGE ||
+-          bg_type == TERMINAL_BACKGROUND_TRANSPARENT)
+-        {
+-          vte_terminal_set_background_saturation (vte_terminal,
+-                                                  1.0 - terminal_profile_get_property_double (profile, TERMINAL_PROFILE_BACKGROUND_DARKNESS));
+-          vte_terminal_set_opacity (vte_terminal,
+-                                    0xffff * terminal_profile_get_property_double (profile, TERMINAL_PROFILE_BACKGROUND_DARKNESS));
+-        }
+-      else
+-        {
+-          vte_terminal_set_background_saturation (vte_terminal, 1.0); /* normal color */
+-          vte_terminal_set_opacity (vte_terminal, 0xffff);
+-        }
+-      
+-      /* FIXME: Don't enable this if we have a compmgr. */
+-      vte_terminal_set_background_transparent (vte_terminal,
+-                                               bg_type == TERMINAL_BACKGROUND_TRANSPARENT &&
+-                                               (!priv->window || !terminal_window_uses_argb_visual (priv->window)));
+-    }
++    update_background (screen);
+ 
+   if (!prop_name || prop_name == I_(TERMINAL_PROFILE_BACKSPACE_BINDING))
+   vte_terminal_set_backspace_binding (vte_terminal,
