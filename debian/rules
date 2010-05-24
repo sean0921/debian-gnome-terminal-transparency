@@ -13,6 +13,9 @@ LDFLAGS += -Wl,-z,defs -Wl,-O1 -Wl,--as-needed
 
 DEB_CONFIGURE_EXTRA_FLAGS += --disable-scrollkeeper
 
+common-configure-arch common-configure-indep::
+	autoreconf -f -i -s
+
 build/gnome-terminal::
 	/usr/bin/docbook-to-man debian/gnome-terminal.sgml > debian/gnome-terminal.1
 

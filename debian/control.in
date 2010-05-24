@@ -4,16 +4,15 @@ Priority: optional
 XSBC-Original-Maintainer: Guilherme de S. Pastore <gpastore@debian.org>
 Maintainer: Ubuntu Desktop Team <ubuntu-desktop@lists.ubuntu.com>
 Uploaders: @GNOME_TEAM@
-Standards-Version: 3.8.4
-Vcs-Bzr: http://code.launchpad.net/~ubuntu-desktop/gnome-terminal/ubuntu
+Standards-Version: 3.8.3
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 5),
                intltool (>= 0.40.0),
+               libx11-dev,
                libgtk2.0-dev (>= 2.14.0),
                libglib2.0-dev (>= 2.16.0),
                libvte-dev (>= 1:0.24.0),
                scrollkeeper,
-               libstartup-notification0-dev (>= 0.8),
                libsm-dev,
                gnome-pkg-tools (>= 0.10),
                dpkg-dev (>= 1.13.19),
@@ -22,6 +21,7 @@ Build-Depends: cdbs (>= 0.4.41),
                libgconf2-dev (>= 2.14.0),
                libdbus-glib-1-dev (>= 0.6),
                liblaunchpad-integration-dev
+Vcs-Bzr: http://code.launchpad.net/~ubuntu-desktop/gnome-terminal/ubuntu
 
 Package: gnome-terminal
 Architecture: any

@@ -1,134 +1,63 @@
-gnome-terminal (2.30.0-0ubuntu1) UNRELEASED; urgency=low
+gnome-terminal (2.30.1-1ubuntu1) UNRELEASED; urgency=low
 
-  * New upstream release
+  * Merge with Debian unstable, remaining Ubuntu changes:
   * debian/control.in:
-    - Use Standards-Version 3.8.4
-    - Build-Depends on libvte-dev 0.24.0
-
- -- Robert Ancell <robert.ancell@canonical.com>  Thu, 01 Apr 2010 11:18:48 +1100
-
-gnome-terminal (2.29.6-0ubuntu5) lucid; urgency=low
-
-  * Revert the previous changes to add a new profile, as changing
-    the default profile on upgrade is suboptimal, and there are better
-    ways to implement the visual changes
-    - Removed patches:
-      + 02_rename_default_profile.patch
-      + 03_add_new_profiles_on_upgrade.patch
-      + 04_change_fallback_profile.patch
-    - Delete debian/gnome-terminal-ambiance.schemas
-    - Delete ebian/gnome-termina-data.gconf-defaults
-    - debian/rules:
-      + Don't install custom schema
-  * Add debian/patches/02_add_transparency_properties.patch:
+    - Build depend on liblaunchpad-integration-dev
+    - Add Bzr link
+  * debian/rules:
+    - Run autoreconf on build
+  * debian/patches/01_lpi.patch:
+    - LP integration
+  * debian/patches/02_add_transparency_properties.patch:
     - This patch allows the background transparency to be controlled from
       the GTK theme (using "TerminalScreen::background-darkness"). In
       addition to this, the background colour and text colour are already
       themable from the GTK theme (by setting the "text[NORMAL]" and
       "base[NORMAL]" colours for the TerminalScreen class)
-  * debian/gnome-terminal-data.postinst:
-    - Fix up the system gconf defaults when upgrading from a previous 
-      unstable version which had the extra profile. Users upgrading from
-      this will probably still need to remove the "Ambiance" profile
-      manually from their configuration though (there's not an easy way
-      to do this automatically, and it only affects users upgrading
-      from previous unstable versions)
-  * This fixes LP: #532511 and LP: #542144
-
- -- Chris Coulson <chris.coulson@canonical.com>  Tue, 23 Mar 2010 21:41:22 +0000
-
-gnome-terminal (2.29.6-0ubuntu4) lucid; urgency=low
-
-  * debian/gnome-terminal-ambiance.schemas:
-    - Add alternate_screen_scroll schema to Ambiance profile, to fix
-      mouse-wheel scrolling (LP: #533647)
-
- -- Chris Coulson <chris.coulson@canonical.com>  Tue, 23 Mar 2010 01:37:30 +0000
-
-gnome-terminal (2.29.6-0ubuntu3) lucid; urgency=low
-
-  * debian/gnome-terminal-ambiance.schemas:
-    - change color to corresponds to bg one and be darker (LP: #532377)
-
- -- Didier Roche <didrocks@ubuntu.com>  Fri, 05 Mar 2010 17:49:25 +0100
-
-gnome-terminal (2.29.6-0ubuntu2) lucid; urgency=low
-
-  * debian/gnome-terminal-ambiance.schemas:
-    - Provide settings for a new profile "Ambiance"
-  * debian/rules:
-    - Install the schema for the new profile
-  * debian/gnome-termina-data.gconf-defaults
-    - Set default profile to "Ambiance"
-  * debian/patches/02_rename_default_profile.patch:
-    - Change the visible name for the upstream default profile to "Legacy".
-      "Default" no longer makes sense, as it's not the default profile.
-      We do this by directly patching the upstream schema to
-      ensure the new string appears in the translation template
-  * debian/patches/03_add_new_profiles_on_upgrade.patch:
-    - Ensure that new profiles installed in /apps/gnome-terminal/profiles
-      are available to the user after upgrade, even if they have a custom
-      profile list. This is just achieved by scanning for new subfolders
-      and merging in the new profile names
-  * debian/patches/04_change_fallback_profile.patch:
-    - Change fallback profile to Ambiance
-
- -- Chris Coulson <chris.coulson@canonical.com>  Thu, 04 Mar 2010 11:15:31 +0000
-
-gnome-terminal (2.29.6-0ubuntu1) lucid; urgency=low
-
-  * New upstream release (LP: #516775)
-  * debian/control.in:
-    - Update Build-Depends for libvte-dev (>= 1:0.23.5)
-  * debian/patches/99_autoreconf.patch: refreshed
-
- -- Baptiste Mille-Mathias <baptiste.millemathias@gmail.com>  Wed, 03 Feb 2010 21:03:37 +0100
-
-gnome-terminal (2.29.1-0ubuntu3) lucid; urgency=low
-
   * debian/patches/20_add_alt_screen_toggle_ui.patch:
-    - Move the extra table entry down one row, to stop it rendering over
-      an existing entry
+    - Hook new vte alternate screen scrolling toggle via UI
+  * debian/watch:
+    - Watch for unstable versions
 
- -- Chris Coulson <chrisccoulson@ubuntu.com>  Sun, 31 Jan 2010 17:47:33 +0000
+ -- Robert Ancell <robert.ancell@canonical.com>  Thu, 01 Apr 2010 11:18:48 +1100
 
-gnome-terminal (2.29.1-0ubuntu2) lucid; urgency=low
+gnome-terminal (2.30.1-1) unstable; urgency=low
 
-  * debian/control.in:
-    - update Replace line to match the Ubuntu version where
-      the move of the desktop/menu files from gnome-terminal-data
-      to gnome-terminal happend
+  * New upstream bugfix release.
 
- -- Michael Vogt <michael.vogt@ubuntu.com>  Tue, 26 Jan 2010 09:48:41 +0100
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 04 May 2010 09:37:18 +0200
 
-gnome-terminal (2.29.1-0ubuntu1) lucid; urgency=low
+gnome-terminal (2.30.0-1) unstable; urgency=low
 
-  * New upstream release (LP: #499992):
-    - --geometry works again (LP: #333412)
-    - tab detaching works again
-    - unlimited scrollback
-    - improved proxy env suppport
-    - bold color support
-    - tons of translation updates
-  * debian/control.in:
-    - libvte-dev build-dep raised to 0.23.1
-  * debian/patches/99_autoreconf.patch: refreshed
+  * New upstream stable release:
+    + debian/control.in:
+      - Update build dependencies.
 
- -- Martin Peeks <martinp23@googlemail.com>  Mon, 04 Jan 2010 01:26:32 +0000
+ -- Sebastian Dröge <slomo@debian.org>  Wed, 31 Mar 2010 11:18:11 +0200
 
-gnome-terminal (2.28.1-1ubuntu1) lucid; urgency=low
+gnome-terminal (2.29.92-1) experimental; urgency=low
 
-  * Rebase on Debian 2.28.1-1, remaining changes:
-    - debian/patches/01_lpi.patch:
-    - debian/patches/99_autoreconf.patch:
-    - debian/control.in:
-      - LP integration  
-    - debian/patches/20_add_alt_screen_toggle_ui.patch:
-      - Hook new vte alternate screen scrolling toggle via UI
-    - debian/watch:
-      - Watch for unstable versions
+  * New upstream development release:
+    + debian/control.in:
+      - Update build dependencies.
 
- -- Robert Ancell <robert.ancell@canonical.com>  Tue, 01 Dec 2009 17:34:22 +1100
+ -- Sebastian Dröge <slomo@debian.org>  Fri, 12 Mar 2010 17:52:12 +0100
+
+gnome-terminal (2.29.6-1) experimental; urgency=low
+
+  * New upstream development release:
+    + debian/control.in:
+      - Update build dependencies.
+    + debian/rules:
+      - Include check-dist.mk to prevent accidental uploads to unstable.
+
+ -- Sebastian Dröge <slomo@debian.org>  Thu, 14 Jan 2010 08:29:30 +0100
+
+gnome-terminal (2.28.2-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Mon, 14 Dec 2009 22:45:57 +0100
 
 gnome-terminal (2.28.1-1) unstable; urgency=low
 
@@ -137,20 +66,6 @@ gnome-terminal (2.28.1-1) unstable; urgency=low
       - Update build dependencies.
 
  -- Sebastian Dröge <slomo@debian.org>  Tue, 20 Oct 2009 08:28:30 +0200
-
-gnome-terminal (2.28.1-0ubuntu1) karmic; urgency=low
-
-  * New upstream release (LP: #455880):
-    - Fix a small memory leak
-    - Remove debug spew
-    - Allow unlimited scrollback
-  * debian/control:
-    - Bump libvte-dev build-dep to 0.22.0
-  * Refreshed patches:
-    - 20_add_alt_screen_toggle_ui.patch
-    - 99_autoreconf.patch
-
- -- Chris Coulson <chrisccoulson@ubuntu.com>  Mon, 19 Oct 2009 23:37:35 +0100
 
 gnome-terminal (2.28.0-1) unstable; urgency=low
 
@@ -162,44 +77,6 @@ gnome-terminal (2.28.0-1) unstable; urgency=low
       - Dropped, merged upstream.
 
  -- Sebastian Dröge <slomo@debian.org>  Tue, 22 Sep 2009 14:02:42 +0200
-
-gnome-terminal (2.28.0-0ubuntu1) karmic; urgency=low
-
-  * New upstream release (LP: #434162)
-    - many bug fixes:  (LP: #359759, #381041, #340091, #345189)
-    - updated translation
-  * Bump libvte-dev to 0.21.5
-
- -- Didier Roche <didrocks@ubuntu.com>  Tue, 22 Sep 2009 10:41:40 +0200
-
-gnome-terminal (2.27.92-0ubuntu1) karmic; urgency=low
-
-  * New upstream release: (LP: #425477)
-    - Fixes (LP: #418555)
-
- -- Robert Ancell <robert.ancell@canonical.com>  Mon, 07 Sep 2009 12:08:47 +1000
-
-gnome-terminal (2.27.91-0ubuntu1) karmic; urgency=low
-
-  * New upstream release: (LP: #418398)
-    - Fixes (LP: #347566)
-  * debian/patches/01_lpi.patch:
-  * debian/patches/01_onlyshowin.patch:
-  * debian/patches/02_let_gconf_autostart.patch:
-  * debian/patches/04_resized_on_tabs_switch.patch:
-  * debian/patches/20_add_alt_screen_toggle_ui.patch:
-  * debian/patches/99_autoreconf.patch:
-    - Refreshed
-
- -- Robert Ancell <robert.ancell@canonical.com>  Tue, 25 Aug 2009 12:18:19 +1000
-
-gnome-terminal (2.26.3.1-0ubuntu1) karmic; urgency=low
-
-  * New upstream release: (LP: #399575)
-  * debian/patches/99_autoreconf.patch:
-    - Refreshed
-
- -- Robert Ancell <robert.ancell@canonical.com>  Wed, 15 Jul 2009 13:27:01 +1000
 
 gnome-terminal (2.26.3.1-1) unstable; urgency=low
 
@@ -238,24 +115,6 @@ gnome-terminal (2.26.2-2) unstable; urgency=low
     suggestion. Closes: #531734 and some duplicates.
 
  -- Josselin Mouette <joss@debian.org>  Sat, 27 Jun 2009 14:53:33 +0200
-
-gnome-terminal (2.26.2-1ubuntu1) karmic; urgency=low
-
-  * Re-base on Debian unstable (LP: #388048), remaining changes:
-    - debian/control:
-      + Add Vcs-Bzr info.
-      + Build-depend on liblaunchpad-integration-dev.
-    - debian/watch:
-      + Watch unstable series.
-    - debian/patches/01_lpi.patch:
-      + Launchpad integration.
-    - debian/patches/20_add_alt_screen_toggle_ui.patch:
-      + Hook new vte alternate screen scrolling toggle via UI, 
-        thanks to Heath Caldwell (LP: #106995).
-    - debian/patches/99_autoreconf.patch:
-      + Autotools update.
-
- -- Chris Coulson <chrisccoulson@googlemail.com>  Wed, 17 Jun 2009 00:35:48 +0100
 
 gnome-terminal (2.26.2-1) unstable; urgency=low
 
