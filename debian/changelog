@@ -3,6 +3,7 @@ gnome-terminal (2.30.1-1ubuntu1) UNRELEASED; urgency=low
   * Merge with Debian unstable, remaining Ubuntu changes:
   * debian/control.in:
     - Build depend on liblaunchpad-integration-dev
+    - Build depend on gnome-common to run autoreconf
     - Add Bzr link
   * debian/rules:
     - Run autoreconf on build
