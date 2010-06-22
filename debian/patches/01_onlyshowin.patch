@@ -1,8 +1,9 @@
-Description: Only show g-t in GNOME, as other DE have their own terminal emulators
-Bug: http://bugzilla.gnome.org/show_bug.cgi?id=587132
+Only show gnome-terminal in GNOME menus
 
---- gnome-terminal.desktop.in.in.orig	2009-06-01 11:31:40.396545651 +0200
-+++ gnome-terminal.desktop.in.in	2009-06-01 11:32:01.080542492 +0200
+Index: gnome-terminal-2.30.2/gnome-terminal.desktop.in.in
+===================================================================
+--- gnome-terminal-2.30.2.orig/gnome-terminal.desktop.in.in	2010-06-22 20:27:42.711402866 +0200
++++ gnome-terminal-2.30.2/gnome-terminal.desktop.in.in	2010-06-22 20:27:39.947410271 +0200
 @@ -12,3 +12,4 @@
  X-GNOME-Bugzilla-Version=@VERSION@
  Categories=GNOME;GTK;Utility;TerminalEmulator;
