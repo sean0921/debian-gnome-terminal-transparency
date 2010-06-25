@@ -1,26 +1,15 @@
 gnome-terminal (2.30.1-1ubuntu1) maverick; urgency=low
 
-  * Merge with Debian unstable, remaining Ubuntu changes:
-  * debian/control.in:
-    - Build depend on liblaunchpad-integration-dev
-    - Build depend on gnome-common to run autoreconf
-    - Add Bzr link
-  * debian/rules:
-    - Run autoreconf on build
-  * debian/patches/01_lpi.patch:
-    - LP integration
-  * debian/patches/02_add_transparency_properties.patch:
-    - This patch allows the background transparency to be controlled from
-      the GTK theme (using "TerminalScreen::background-darkness"). In
-      addition to this, the background colour and text colour are already
-      themable from the GTK theme (by setting the "text[NORMAL]" and
-      "base[NORMAL]" colours for the TerminalScreen class)
-  * debian/patches/20_add_alt_screen_toggle_ui.patch:
-    - Hook new vte alternate screen scrolling toggle via UI
-  * debian/watch:
-    - Watch for unstable versions
 
- -- Robert Ancell <robert.ancell@canonical.com>  Thu, 01 Apr 2010 11:18:48 +1100
+ -- Robert Ancell <robert.ancell@canonical.com>  Fri, 25 Jun 2010 13:35:40 +1000
+
+gnome-terminal (2.30.2-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+  * Switch to format 3.0 (quilt).
+  * Bump Standards-Version to 3.8.4, no changes required.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Tue, 22 Jun 2010 20:54:32 +0200
 
 gnome-terminal (2.30.1-1) unstable; urgency=low
 

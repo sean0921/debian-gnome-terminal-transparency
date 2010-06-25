@@ -1,3 +1,6 @@
+Description: Hook new vte alternate screen scrolling toggle via UI
+Author: ?
+
 diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/gnome-terminal.schemas.in gnome-terminal-2.29.1.new/src/gnome-terminal.schemas.in
 --- gnome-terminal-2.29.1/src/gnome-terminal.schemas.in	2009-12-22 15:16:40.000000000 +0000
 +++ gnome-terminal-2.29.1.new/src/gnome-terminal.schemas.in	2010-01-04 14:53:27.279426044 +0000

@@ -1,6 +1,6 @@
-## Description: add some description
-## Origin/Author: add some origin or author
-## Bug: bug URL
+Description: Launchpad integration
+Author: ?
+
 diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.30.0/configure.ac gnome-terminal-2.30.0.new/configure.ac
 --- gnome-terminal-2.30.0/configure.ac	2010-03-29 23:20:42.000000000 +1100
 +++ gnome-terminal-2.30.0.new/configure.ac	2010-04-01 11:24:32.766705525 +1100

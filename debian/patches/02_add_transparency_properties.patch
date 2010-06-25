@@ -1,3 +1,6 @@
+Description: This patch allows the background transparency to be controlled from the GTK theme (using "TerminalScreen::background-darkness"). In addition to this, the background colour and text colour are already themable from the GTK theme (by setting the "text[NORMAL]" and "base[NORMAL]" colours for the TerminalScreen class)
+Author: ?
+
 diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.6/src/gnome-terminal.schemas.in gnome-terminal-2.29.6.new/src/gnome-terminal.schemas.in
 --- gnome-terminal-2.29.6/src/gnome-terminal.schemas.in	2010-01-14 01:00:12.000000000 +0000
 +++ gnome-terminal-2.29.6.new/src/gnome-terminal.schemas.in	2010-03-25 17:38:30.149950030 +0000

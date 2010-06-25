@@ -4,7 +4,7 @@ Priority: optional
 XSBC-Original-Maintainer: Guilherme de S. Pastore <gpastore@debian.org>
 Maintainer: Ubuntu Desktop Team <ubuntu-desktop@lists.ubuntu.com>
 Uploaders: @GNOME_TEAM@
-Standards-Version: 3.8.3
+Standards-Version: 3.8.4
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 5),
                gnome-common,
