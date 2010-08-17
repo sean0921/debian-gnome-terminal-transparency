@@ -1,10 +1,11 @@
 Description: Hook new vte alternate screen scrolling toggle via UI
 Author: ?
 
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/gnome-terminal.schemas.in gnome-terminal-2.29.1.new/src/gnome-terminal.schemas.in
---- gnome-terminal-2.29.1/src/gnome-terminal.schemas.in	2009-12-22 15:16:40.000000000 +0000
-+++ gnome-terminal-2.29.1.new/src/gnome-terminal.schemas.in	2010-01-04 14:53:27.279426044 +0000
-@@ -402,6 +402,23 @@
+Index: gnome-terminal-2.31.90/src/gnome-terminal.schemas.in
+===================================================================
+--- gnome-terminal-2.31.90.orig/src/gnome-terminal.schemas.in	2010-08-17 17:51:15.740563001 +1000
++++ gnome-terminal-2.31.90/src/gnome-terminal.schemas.in	2010-08-17 17:59:14.880563001 +1000
+@@ -418,6 +418,23 @@
      </schema>
  
      <schema>
@@ -28,10 +29,11 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/gnome-terminal.schemas.i
        <key>/schemas/apps/gnome-terminal/profiles/Default/exit_action</key>
        <applyto>/apps/gnome-terminal/profiles/Default/exit_action</applyto>
        <owner>gnome-terminal</owner>
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/profile-editor.c gnome-terminal-2.29.1.new/src/profile-editor.c
---- gnome-terminal-2.29.1/src/profile-editor.c	2009-12-22 15:16:40.000000000 +0000
-+++ gnome-terminal-2.29.1.new/src/profile-editor.c	2010-01-04 14:53:27.279426044 +0000
-@@ -275,6 +275,10 @@
+Index: gnome-terminal-2.31.90/src/profile-editor.c
+===================================================================
+--- gnome-terminal-2.31.90.orig/src/profile-editor.c	2010-08-17 17:55:18.610563000 +1000
++++ gnome-terminal-2.31.90/src/profile-editor.c	2010-08-17 17:59:14.880563001 +1000
+@@ -289,6 +289,10 @@
      SET_SENSITIVE ("scroll-on-output-checkbutton",
                     !terminal_profile_property_locked (profile, TERMINAL_PROFILE_SCROLL_ON_OUTPUT));
  
@@ -42,7 +44,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/profile-editor.c gnome-t
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_EXIT_ACTION))
      SET_SENSITIVE ("exit-action-combobox",
                     !terminal_profile_property_locked (profile, TERMINAL_PROFILE_EXIT_ACTION));
-@@ -845,6 +849,7 @@
+@@ -897,6 +901,7 @@
    CONNECT ("scrollbar-position-combobox", TERMINAL_PROFILE_SCROLLBAR_POSITION);
    CONNECT ("scroll-on-keystroke-checkbutton", TERMINAL_PROFILE_SCROLL_ON_KEYSTROKE);
    CONNECT ("scroll-on-output-checkbutton", TERMINAL_PROFILE_SCROLL_ON_OUTPUT);
@@ -50,10 +52,11 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/profile-editor.c gnome-t
    CONNECT ("show-menubar-checkbutton", TERMINAL_PROFILE_DEFAULT_SHOW_MENUBAR);
    CONNECT ("solid-radiobutton", TERMINAL_PROFILE_BACKGROUND_TYPE);
    CONNECT ("system-font-checkbutton", TERMINAL_PROFILE_USE_SYSTEM_FONT);
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/profile-preferences.glade gnome-terminal-2.29.1.new/src/profile-preferences.glade
---- gnome-terminal-2.29.1/src/profile-preferences.glade	2009-12-22 15:16:40.000000000 +0000
-+++ gnome-terminal-2.29.1.new/src/profile-preferences.glade	2010-01-04 14:54:36.789430934 +0000
-@@ -2315,6 +2315,27 @@
+Index: gnome-terminal-2.31.90/src/profile-preferences.glade
+===================================================================
+--- gnome-terminal-2.31.90.orig/src/profile-preferences.glade	2010-08-17 17:51:15.750563001 +1000
++++ gnome-terminal-2.31.90/src/profile-preferences.glade	2010-08-17 17:59:14.880563001 +1000
+@@ -2436,6 +2436,27 @@
  		</packing>
  	      </child>
  
@@ -81,9 +84,10 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/profile-preferences.glad
  	      <child>
  		<widget class="GtkCheckButton" id="scroll-on-keystroke-checkbutton">
  		  <property name="visible">True</property>
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/terminal-profile.c gnome-terminal-2.29.1.new/src/terminal-profile.c
---- gnome-terminal-2.29.1/src/terminal-profile.c	2009-12-22 15:16:40.000000000 +0000
-+++ gnome-terminal-2.29.1.new/src/terminal-profile.c	2010-01-04 14:53:27.279426044 +0000
+Index: gnome-terminal-2.31.90/src/terminal-profile.c
+===================================================================
+--- gnome-terminal-2.31.90.orig/src/terminal-profile.c	2010-08-17 17:51:15.740563001 +1000
++++ gnome-terminal-2.31.90/src/terminal-profile.c	2010-08-17 17:59:14.890563001 +1000
 @@ -75,6 +75,7 @@
    PROP_SCROLLBAR_POSITION,
    PROP_SCROLL_ON_KEYSTROKE,
@@ -92,7 +96,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/terminal-profile.c gnome
    PROP_SILENT_BELL,
    PROP_TITLE,
    PROP_TITLE_MODE,
-@@ -114,6 +115,7 @@
+@@ -116,6 +117,7 @@
  #define KEY_SCROLLBAR_POSITION "scrollbar_position"
  #define KEY_SCROLL_ON_KEYSTROKE "scroll_on_keystroke"
  #define KEY_SCROLL_ON_OUTPUT "scroll_on_output"
@@ -100,7 +104,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/terminal-profile.c gnome
  #define KEY_SILENT_BELL "silent_bell"
  #define KEY_TITLE_MODE "title_mode"
  #define KEY_TITLE "title"
-@@ -153,6 +155,7 @@
+@@ -157,6 +159,7 @@
  #define DEFAULT_SCROLLBAR_POSITION    (TERMINAL_SCROLLBAR_RIGHT)
  #define DEFAULT_SCROLL_ON_KEYSTROKE   (TRUE)
  #define DEFAULT_SCROLL_ON_OUTPUT      (FALSE)
@@ -108,7 +112,7 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/terminal-profile.c gnome
  #define DEFAULT_SILENT_BELL           (FALSE)
  #define DEFAULT_TITLE_MODE            (TERMINAL_TITLE_REPLACE)
  #define DEFAULT_TITLE                 (N_("Terminal"))
-@@ -1298,6 +1301,7 @@
+@@ -1304,6 +1307,7 @@
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (SCROLLBACK_UNLIMITED, DEFAULT_SCROLLBACK_UNLIMITED, KEY_SCROLLBACK_UNLIMITED);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (SCROLL_ON_KEYSTROKE, DEFAULT_SCROLL_ON_KEYSTROKE, KEY_SCROLL_ON_KEYSTROKE);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (SCROLL_ON_OUTPUT, DEFAULT_SCROLL_ON_OUTPUT, KEY_SCROLL_ON_OUTPUT);
@@ -116,9 +120,10 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/terminal-profile.c gnome
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (SILENT_BELL, DEFAULT_SILENT_BELL, KEY_SILENT_BELL);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (UPDATE_RECORDS, DEFAULT_UPDATE_RECORDS, KEY_UPDATE_RECORDS);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_CUSTOM_COMMAND, DEFAULT_USE_CUSTOM_COMMAND, KEY_USE_CUSTOM_COMMAND);
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/terminal-profile.h gnome-terminal-2.29.1.new/src/terminal-profile.h
---- gnome-terminal-2.29.1/src/terminal-profile.h	2009-12-22 15:16:40.000000000 +0000
-+++ gnome-terminal-2.29.1.new/src/terminal-profile.h	2010-01-04 14:53:27.279426044 +0000
+Index: gnome-terminal-2.31.90/src/terminal-profile.h
+===================================================================
+--- gnome-terminal-2.31.90.orig/src/terminal-profile.h	2010-08-17 17:51:15.740563001 +1000
++++ gnome-terminal-2.31.90/src/terminal-profile.h	2010-08-17 17:59:14.890563001 +1000
 @@ -93,6 +93,7 @@
  #define TERMINAL_PROFILE_SCROLLBAR_POSITION     "scrollbar-position"
  #define TERMINAL_PROFILE_SCROLL_ON_KEYSTROKE    "scroll-on-keystroke"
@@ -127,10 +132,11 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/terminal-profile.h gnome
  #define TERMINAL_PROFILE_SILENT_BELL            "silent-bell"
  #define TERMINAL_PROFILE_TITLE_MODE             "title-mode"
  #define TERMINAL_PROFILE_TITLE                  "title"
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.29.1/src/terminal-screen.c gnome-terminal-2.29.1.new/src/terminal-screen.c
---- gnome-terminal-2.29.1/src/terminal-screen.c	2009-12-22 15:16:40.000000000 +0000
-+++ gnome-terminal-2.29.1.new/src/terminal-screen.c	2010-01-04 14:55:56.526956354 +0000
-@@ -987,6 +987,9 @@
+Index: gnome-terminal-2.31.90/src/terminal-screen.c
+===================================================================
+--- gnome-terminal-2.31.90.orig/src/terminal-screen.c	2010-08-17 17:58:51.800563000 +1000
++++ gnome-terminal-2.31.90/src/terminal-screen.c	2010-08-17 17:59:14.890563001 +1000
+@@ -1029,6 +1029,9 @@
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_SCROLL_ON_OUTPUT))
      vte_terminal_set_scroll_on_output (vte_terminal,
                                         terminal_profile_get_property_boolean (profile, TERMINAL_PROFILE_SCROLL_ON_OUTPUT));

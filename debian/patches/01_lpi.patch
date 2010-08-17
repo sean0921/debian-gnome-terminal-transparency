@@ -1,29 +1,31 @@
 Description: Launchpad integration
 Author: ?
 
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.30.0/configure.ac gnome-terminal-2.30.0.new/configure.ac
---- gnome-terminal-2.30.0/configure.ac	2010-03-29 23:20:42.000000000 +1100
-+++ gnome-terminal-2.30.0.new/configure.ac	2010-04-01 11:24:32.766705525 +1100
-@@ -60,6 +60,7 @@
-    gtk+-2.0 >= $GTK_REQUIRED
+Index: gnome-terminal-2.31.90/configure.ac
+===================================================================
+--- gnome-terminal-2.31.90.orig/configure.ac	2010-08-16 23:11:07.000000000 +1000
++++ gnome-terminal-2.31.90/configure.ac	2010-08-17 17:50:48.040563002 +1000
+@@ -80,6 +80,7 @@
+    gio-2.0 >= $GIO_REQUIRED
+    gtk+-$GTK_API_VERSION >= $GTK_REQUIRED
     gconf-2.0 >= $GCONF_REQUIRED
-    dbus-glib-1 >= $DBUS_GLIB_REQUIRED
 +   launchpad-integration
     $PLATFORM_DEPS])
  
- # Check the smclient backend
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.30.0/src/terminal-window.c gnome-terminal-2.30.0.new/src/terminal-window.c
---- gnome-terminal-2.30.0/src/terminal-window.c	2010-03-29 23:20:24.000000000 +1100
-+++ gnome-terminal-2.30.0.new/src/terminal-window.c	2010-04-01 11:24:09.664197661 +1100
+ # ********
+Index: gnome-terminal-2.31.90/src/terminal-window.c
+===================================================================
+--- gnome-terminal-2.31.90.orig/src/terminal-window.c	2010-08-11 02:31:39.000000000 +1000
++++ gnome-terminal-2.31.90/src/terminal-window.c	2010-08-17 17:50:28.200563001 +1000
 @@ -26,6 +26,7 @@
  #include <gdk/gdkx.h>
  #endif
  #include <gdk/gdkkeysyms.h>
 +#include <launchpad-integration.h>
  
- #include "skey-popup.h"
  #include "terminal-accels.h"
-@@ -1986,6 +1987,7 @@
+ #include "terminal-app.h"
+@@ -2090,6 +2091,7 @@
    gtk_box_pack_start (GTK_BOX (main_vbox),
  		      priv->menubar,
  		      FALSE, FALSE, 0);
@@ -31,10 +33,11 @@ diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.30.0/src/terminal-window.c gnome-
  
    /* Add tabs menu */
    priv->tabs_menu = terminal_tabs_menu_new (window);
-diff -Nur -x '*.orig' -x '*~' gnome-terminal-2.30.0/src/terminal.xml gnome-terminal-2.30.0.new/src/terminal.xml
---- gnome-terminal-2.30.0/src/terminal.xml	2010-03-22 05:44:24.000000000 +1100
-+++ gnome-terminal-2.30.0.new/src/terminal.xml	2010-04-01 11:24:09.664197661 +1100
-@@ -57,6 +57,7 @@
+Index: gnome-terminal-2.31.90/src/terminal.xml
+===================================================================
+--- gnome-terminal-2.31.90.orig/src/terminal.xml	2010-08-10 23:04:40.000000000 +1000
++++ gnome-terminal-2.31.90/src/terminal.xml	2010-08-17 17:50:28.200563001 +1000
+@@ -73,6 +73,7 @@
      </menu>
      <menu action="Help">
        <menuitem action="HelpContents" />

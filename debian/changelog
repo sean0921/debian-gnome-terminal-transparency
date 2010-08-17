@@ -1,3 +1,15 @@
+gnome-terminal (2.31.90-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+  * debian/control:
+    - Build-depend on dh-autoreconf
+    - Bump build-depend on libglib2.0-dev, libgtk2.0-dev, libvte-dev,
+      libgconf2-dev
+  * debian/rules:
+    - Use autoreconf.mk
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 17 Aug 2010 17:25:32 +1000
+
 gnome-terminal (2.30.2-1ubuntu2) maverick; urgency=low
 
   * Fix LP: #549552 - solid colour BG is transparent. When set to solid,
