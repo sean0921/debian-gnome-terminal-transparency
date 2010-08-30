@@ -1,3 +1,11 @@
+gnome-terminal (2.31.91-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+  * debian/control:
+    - Bump build-depend on libvte-dev
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Mon, 30 Aug 2010 11:14:20 +1000
+
 gnome-terminal (2.31.90-0ubuntu1) maverick; urgency=low
 
   * New upstream release
