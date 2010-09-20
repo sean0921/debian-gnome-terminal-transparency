@@ -1,4 +1,4 @@
-gnome-terminal (2.31.91-0ubuntu2) UNRELEASED; urgency=low
+gnome-terminal (2.31.91-0ubuntu2) maverick; urgency=low
 
   * Fix LP: #633303 - gnome-terminal crashed with signal 5 in _XError() 
     when Mutter is restarted. Make sure gnome-terminal sets _NET_WM_DESKTOP
@@ -6,7 +6,7 @@ gnome-terminal (2.31.91-0ubuntu2) UNRELEASED; urgency=low
     - add debian/patches/21_dont_crash_on_composite_change.patch
     - update debian/patches/series
 
- -- Chris Coulson <chris.coulson@canonical.com>  Mon, 20 Sep 2010 14:44:56 +0100
+ -- Chris Coulson <chris.coulson@canonical.com>  Mon, 20 Sep 2010 14:53:22 +0100
 
 gnome-terminal (2.31.91-0ubuntu1) maverick; urgency=low
 
