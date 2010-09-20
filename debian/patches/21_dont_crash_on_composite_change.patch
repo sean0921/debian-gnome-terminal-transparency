@@ -1,0 +1,20 @@
+# Description: Make sure gnome-terminal sets _NET_WM_DESKTOP on the newly
+#              created X window when handling composited-changed, rather than 
+#              the one that was destroyed previously
+# Bug-Ubuntu: https://launchpad.net/bugs/633303
+# Forwarded: no
+# Author: Chris Coulson <chris.coulson@canonical.com>
+
+--- a/src/terminal-window.c
++++ b/src/terminal-window.c
+@@ -1677,6 +1677,10 @@ terminal_window_composited_changed_cb (G
+       /* put the window back where it was before */
+       gtk_window_move (GTK_WINDOW (window), x, y);
+       gtk_widget_realize (widget);
++
++      /* Get new GdkWindow */
++      widget_window = gtk_widget_get_window (widget);
++
+       gdk_x11_window_set_user_time (widget_window, user_time);
+ 
+       if (was_minimized)

@@ -2,3 +2,4 @@
 01_lpi.patch
 02_add_transparency_properties.patch
 20_add_alt_screen_toggle_ui.patch
+21_dont_crash_on_composite_change.patch
