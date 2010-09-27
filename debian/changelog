@@ -1,9 +1,9 @@
-gnome-terminal (2.32.0-0ubuntu1) UNRELEASED; urgency=low
+gnome-terminal (2.32.0-0ubuntu1) maverick; urgency=low
 
   * New upstream version 2.32.0
   * Drop 21_dont_crash_on_composite_change.patch - merged upstream
 
- -- Chris Coulson <chris.coulson@canonical.com>  Mon, 27 Sep 2010 16:59:01 +0100
+ -- Chris Coulson <chris.coulson@canonical.com>  Mon, 27 Sep 2010 17:05:38 +0100
 
 gnome-terminal (2.31.91-0ubuntu2) maverick; urgency=low
 
