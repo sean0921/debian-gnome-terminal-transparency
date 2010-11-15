@@ -1,4 +1,5 @@
 01_onlyshowin.patch
 01_lpi.patch
 02_add_transparency_properties.patch
+03_libice_link.patch
 20_add_alt_screen_toggle_ui.patch

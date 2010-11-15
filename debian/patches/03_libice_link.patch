@@ -1,0 +1,16 @@
+Description: Link smclient to libICE to make the linker happy
+Bug: https://bugzilla.gnome.org/show_bug.cgi?id=634950
+
+Index: gnome-terminal-2.32.1/configure.ac
+===================================================================
+--- gnome-terminal-2.32.1.orig/configure.ac	2010-11-16 09:46:38.173990003 +1100
++++ gnome-terminal-2.32.1/configure.ac	2010-11-16 09:46:47.457990059 +1100
+@@ -92,7 +92,7 @@
+   [AS_HELP_STRING([--with-smclient-backend],[which smclient backend to use (xsmp/win32/quartz)])],
+   [],
+   [case "$GDK_TARGET" in
+-    x11) with_smclient=xsmp SMCLIENT_PKGS="sm" ;;
++    x11) with_smclient=xsmp SMCLIENT_PKGS="sm ice" ;;
+     win32|quartz) with_smclient=$GDK_TARGET ;;
+     *) with_smclient=no ;;
+    esac])
