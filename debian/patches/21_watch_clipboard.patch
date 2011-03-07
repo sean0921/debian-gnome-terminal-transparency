@@ -1,0 +1,64 @@
+Index: gnome-terminal-2.32.1/src/terminal-window.c
+===================================================================
+--- gnome-terminal-2.32.1.orig/src/terminal-window.c	2011-03-07 10:15:11.241700961 -0500
++++ gnome-terminal-2.32.1/src/terminal-window.c	2011-03-07 10:15:15.891838092 -0500
+@@ -1032,10 +1032,8 @@
+ }
+ 
+ static void
+-edit_menu_activate_callback (GtkMenuItem *menuitem,
+-                             gpointer     user_data)
++update_edit_menu (TerminalWindow *window)
+ {
+-  TerminalWindow *window = (TerminalWindow *) user_data;
+   GtkClipboard *clipboard;
+ 
+   clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+@@ -1988,6 +1986,7 @@
+   GError *error;
+   GtkWindowGroup *window_group;
+   GtkAccelGroup *accel_group;
++  GtkClipboard *clipboard;
+ 
+   priv = window->priv = G_TYPE_INSTANCE_GET_PRIVATE (window, TERMINAL_TYPE_WINDOW, TerminalWindowPrivate);
+ 
+@@ -2061,15 +2060,10 @@
+   gtk_ui_manager_insert_action_group (manager, action_group, 0);
+   g_object_unref (action_group);
+ 
+-  action = gtk_action_group_get_action (action_group, "Edit");
+-  g_signal_connect (action, "activate",
+-                    G_CALLBACK (edit_menu_activate_callback), window);
+-
+-  /* Set this action invisible so the Edit menu doesn't flash the first
+-   * time it's shown and there's no text/uri-list on the clipboard.
+-   */
+-  action = gtk_action_group_get_action (priv->action_group, "EditPasteURIPaths");
+-  gtk_action_set_visible (action, FALSE);
++  clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
++  g_signal_connect_swapped (clipboard, "owner-change",
++                            G_CALLBACK (update_edit_menu), window);
++  update_edit_menu (window);
+ 
+   /* Idem for this action, since the window is not fullscreen. */
+   action = gtk_action_group_get_action (priv->action_group, "PopupLeaveFullscreen");
+@@ -2162,6 +2156,7 @@
+   TerminalWindowPrivate *priv = window->priv;
+   TerminalApp *app;
+   GdkScreen *screen;
++  GtkClipboard *clipboard;
+ 
+   remove_popup_info (window);
+ 
+@@ -2186,6 +2181,11 @@
+                                         G_CALLBACK (terminal_window_encoding_list_changed_cb),
+                                         window);
+ 
++  clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
++  g_signal_handlers_disconnect_by_func (clipboard,
++                                        G_CALLBACK (update_edit_menu),
++                                        window);
++
+   screen = gtk_widget_get_screen (GTK_WIDGET (object));
+   if (screen)
+     {

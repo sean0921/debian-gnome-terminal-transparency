@@ -1,3 +1,11 @@
+gnome-terminal (2.32.1-0ubuntu3) natty; urgency=low
+
+  * debian/patches/21_watch_clipboard.patch:
+    - Watch clipboard contents to set Edit->Paste sensitivity appropriately.
+      LP: #630383
+
+ -- Michael Terry <mterry@ubuntu.com>  Mon, 07 Mar 2011 10:38:22 -0500
+
 gnome-terminal (2.32.1-0ubuntu2) natty; urgency=low
 
   * debian/patches/03_libice_link.patch:

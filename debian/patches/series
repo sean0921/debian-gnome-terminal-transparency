@@ -3,3 +3,4 @@
 02_add_transparency_properties.patch
 03_libice_link.patch
 20_add_alt_screen_toggle_ui.patch
+21_watch_clipboard.patch
