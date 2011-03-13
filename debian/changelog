@@ -1,3 +1,11 @@
+gnome-terminal (2.33.90-1) experimental; urgency=low
+
+  * New upstream release.
+    + debian/rules: build the GTK+ 3 version
+    + debian/control.in: update build-dependencies for the switch to GTK+ 3
+
+ -- Frederic Peters <fpeters@debian.org>  Sun, 13 Mar 2011 13:21:50 +0100
+
 gnome-terminal (2.30.2-1) unstable; urgency=low
 
   * New upstream bugfix release.
