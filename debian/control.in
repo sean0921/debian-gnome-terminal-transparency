@@ -8,9 +8,10 @@ Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 5),
                intltool (>= 0.40.0),
                libx11-dev,
-               libgtk2.0-dev (>= 2.14.0),
-               libglib2.0-dev (>= 2.16.0),
-               libvte-dev (>= 1:0.24.0),
+               libgtk-3-dev (>= 3.0.0),
+               libgtk2.0-dev (>= 2.24.0),
+               libglib2.0-dev (>= 2.26.0),
+               libvte-2.90-dev (>= 0.27.3),
                scrollkeeper,
                libsm-dev,
                gnome-pkg-tools (>= 0.10),
@@ -18,12 +19,14 @@ Build-Depends: cdbs (>= 0.4.41),
                docbook-to-man,
                gnome-doc-utils,
                libgconf2-dev (>= 2.14.0),
-               libdbus-glib-1-dev (>= 0.6)
+               libdbus-glib-1-dev (>= 0.6),
+               gsettings-desktop-schemas-dev (>= 0.1.0)
 
 Package: gnome-terminal
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
+         gsettings-desktop-schemas (>= 0.1.0),
          gnome-terminal-data (>= ${gnome:Version}),
          gnome-terminal-data (<< ${gnome:NextVersion})
 Replaces: gnome-terminal-data (<< 2.26.2-3)
