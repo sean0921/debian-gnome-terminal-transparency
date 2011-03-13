@@ -18,7 +18,7 @@ Build-Depends: cdbs (>= 0.4.41),
                dpkg-dev (>= 1.13.19),
                docbook-to-man,
                gnome-doc-utils,
-               libgconf2-dev (>= 2.14.0),
+               libgconf2-dev (>= 2.31.3),
                libdbus-glib-1-dev (>= 0.6),
                gsettings-desktop-schemas-dev (>= 0.1.0)
 

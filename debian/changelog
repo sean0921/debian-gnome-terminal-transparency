@@ -1,3 +1,9 @@
+gnome-terminal (2.33.90-2) experimental; urgency=low
+
+  * debian/rules: bump libgconf2-dev build-dep.
+
+ -- Frederic Peters <fpeters@debian.org>  Sun, 13 Mar 2011 15:27:35 +0100
+
 gnome-terminal (2.33.90-1) experimental; urgency=low
 
   * New upstream release.
