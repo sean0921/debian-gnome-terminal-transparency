@@ -1,3 +1,39 @@
+gnome-terminal (2.33.90-2) experimental; urgency=low
+
+  * debian/rules: bump libgconf2-dev build-dep.
+
+ -- Frederic Peters <fpeters@debian.org>  Sun, 13 Mar 2011 15:27:35 +0100
+
+gnome-terminal (2.33.90-1) experimental; urgency=low
+
+  * New upstream release.
+    + debian/rules: build the GTK+ 3 version
+    + debian/control.in: update build-dependencies for the switch to GTK+ 3
+
+ -- Frederic Peters <fpeters@debian.org>  Sun, 13 Mar 2011 13:21:50 +0100
+
+gnome-terminal (2.30.2-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+  * Switch to format 3.0 (quilt).
+  * Bump Standards-Version to 3.8.4, no changes required.
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Tue, 22 Jun 2010 20:54:32 +0200
+
+gnome-terminal (2.30.1-1) unstable; urgency=low
+
+  * New upstream bugfix release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 04 May 2010 09:37:18 +0200
+
+gnome-terminal (2.30.0-1) unstable; urgency=low
+
+  * New upstream stable release:
+    + debian/control.in:
+      - Update build dependencies.
+
+ -- Sebastian Dröge <slomo@debian.org>  Wed, 31 Mar 2010 11:18:11 +0200
+
 gnome-terminal (2.29.92-1) experimental; urgency=low
 
   * New upstream development release:
