@@ -1,31 +1,31 @@
 Description: Launchpad integration
 Author: ?
 
-Index: gnome-terminal-2.31.90/configure.ac
+Index: gnome-terminal-2.33.90/configure.ac
 ===================================================================
---- gnome-terminal-2.31.90.orig/configure.ac	2010-08-16 23:11:07.000000000 +1000
-+++ gnome-terminal-2.31.90/configure.ac	2010-08-17 17:50:48.040563002 +1000
-@@ -80,6 +80,7 @@
-    gio-2.0 >= $GIO_REQUIRED
+--- gnome-terminal-2.33.90.orig/configure.ac
++++ gnome-terminal-2.33.90/configure.ac
+@@ -92,6 +92,7 @@
     gtk+-$GTK_API_VERSION >= $GTK_REQUIRED
     gconf-2.0 >= $GCONF_REQUIRED
-+   launchpad-integration
+    gsettings-desktop-schemas >= $GSETTINGS_DESKTOP_SCHEMAS_REQUIRED
++   launchpad-integration-3.0
     $PLATFORM_DEPS])
  
  # ********
-Index: gnome-terminal-2.31.90/src/terminal-window.c
+Index: gnome-terminal-2.33.90/src/terminal-window.c
 ===================================================================
---- gnome-terminal-2.31.90.orig/src/terminal-window.c	2010-08-11 02:31:39.000000000 +1000
-+++ gnome-terminal-2.31.90/src/terminal-window.c	2010-08-17 17:50:28.200563001 +1000
-@@ -26,6 +26,7 @@
- #include <gdk/gdkx.h>
- #endif
+--- gnome-terminal-2.33.90.orig/src/terminal-window.c
++++ gnome-terminal-2.33.90/src/terminal-window.c
+@@ -32,6 +32,7 @@
  #include <gdk/gdkkeysyms.h>
+ #define GDK_KEY(symbol) GDK_##symbol
+ #endif
 +#include <launchpad-integration.h>
  
  #include "terminal-accels.h"
  #include "terminal-app.h"
-@@ -2090,6 +2091,7 @@
+@@ -2123,6 +2124,7 @@
    gtk_box_pack_start (GTK_BOX (main_vbox),
  		      priv->menubar,
  		      FALSE, FALSE, 0);
@@ -33,10 +33,10 @@ Index: gnome-terminal-2.31.90/src/terminal-window.c
  
    /* Add tabs menu */
    priv->tabs_menu = terminal_tabs_menu_new (window);
-Index: gnome-terminal-2.31.90/src/terminal.xml
+Index: gnome-terminal-2.33.90/src/terminal.xml
 ===================================================================
---- gnome-terminal-2.31.90.orig/src/terminal.xml	2010-08-10 23:04:40.000000000 +1000
-+++ gnome-terminal-2.31.90/src/terminal.xml	2010-08-17 17:50:28.200563001 +1000
+--- gnome-terminal-2.33.90.orig/src/terminal.xml
++++ gnome-terminal-2.33.90/src/terminal.xml
 @@ -73,6 +73,7 @@
      </menu>
      <menu action="Help">

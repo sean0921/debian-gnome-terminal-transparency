@@ -4,16 +4,17 @@ Priority: optional
 XSBC-Original-Maintainer: Guilherme de S. Pastore <gpastore@debian.org>
 Maintainer: Ubuntu Desktop Team <ubuntu-desktop@lists.ubuntu.com>
 Uploaders: @GNOME_TEAM@
-Standards-Version: 3.8.4
+Standards-Version: 3.9.2
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 5),
                dh-autoreconf,
                gnome-common,
                intltool (>= 0.40.0),
                libx11-dev,
-               libgtk2.0-dev (>= 2.18.0),
-               libglib2.0-dev (>= 2.25.12),
-               libvte-dev (>= 1:0.26.0),
+               libgtk-3-dev (>= 3.0.0),
+               libgtk2.0-dev (>= 2.24.0),
+               libglib2.0-dev (>= 2.26.0),
+               libvte-2.90-dev (>= 0.27.3),
                scrollkeeper,
                libsm-dev,
                gnome-pkg-tools (>= 0.10),
@@ -22,20 +23,22 @@ Build-Depends: cdbs (>= 0.4.41),
                gnome-doc-utils,
                libgconf2-dev (>= 2.31.3),
                libdbus-glib-1-dev (>= 0.6),
-               liblaunchpad-integration-dev
+               gsettings-desktop-schemas-dev (>= 0.1.0),
+               liblaunchpad-integration-3.0-dev
 Vcs-Bzr: http://code.launchpad.net/~ubuntu-desktop/gnome-terminal/ubuntu
 
 Package: gnome-terminal
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
+         gsettings-desktop-schemas (>= 0.1.0),
          gnome-terminal-data (>= ${gnome:Version}),
          gnome-terminal-data (<< ${gnome:NextVersion})
 Replaces: gnome-terminal-data (<< 2.28.1-1ubuntu1)
 Provides: x-terminal-emulator
 Recommends: yelp,
             gvfs
-Description: The GNOME terminal emulator application
+Description: GNOME terminal emulator application
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:
   - Access a UNIX shell in the GNOME environment.
