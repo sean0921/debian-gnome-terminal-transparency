@@ -1,3 +1,9 @@
+gnome-terminal (3.0.1-0ubuntu1) oneiric; urgency=low
+
+  * New upstream release
+
+ -- Rodrigo Moya <rodrigo.moya@canonical.com>  Wed, 25 May 2011 10:36:19 +0200
+
 gnome-terminal (3.0.0-2ubuntu1) oneiric; urgency=low
 
   [ Raphaël Hertzog ]
