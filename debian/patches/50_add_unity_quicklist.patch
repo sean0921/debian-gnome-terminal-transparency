@@ -1,0 +1,18 @@
+Description: Add Unity static quicklist support to gnome-terminal
+Forwarded: https://bugzilla.gnome.org/show_bug.cgi?id=651531
+Author: Didier Roche <didrocks@ubuntu.com>
+
+Index: gnome-terminal-3.0.1/gnome-terminal.desktop.in.in
+===================================================================
+--- gnome-terminal-3.0.1.orig/gnome-terminal.desktop.in.in	2011-05-31 10:57:02.607566202 +0200
++++ gnome-terminal-3.0.1/gnome-terminal.desktop.in.in	2011-05-31 11:01:54.069011470 +0200
+@@ -13,3 +13,9 @@
+ Categories=GNOME;GTK;Utility;TerminalEmulator;
+ StartupNotify=true
+ OnlyShowIn=GNOME;
++X-Ayatana-Desktop-Shortcuts=New
++
++[New Shortcut Group]
++_Name=New Terminal
++Exec=gnome-terminal
++TargetEnvironment=Unity
