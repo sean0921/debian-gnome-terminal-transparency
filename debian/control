@@ -25,6 +25,8 @@ Build-Depends: cdbs (>= 0.4.41),
                gnome-doc-utils,
                libgconf2-dev (>= 2.31.3),
                gsettings-desktop-schemas-dev (>= 0.1.0)
+Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/gnome-terminal/
+Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/gnome-terminal/
 
 Package: gnome-terminal
 Architecture: any
