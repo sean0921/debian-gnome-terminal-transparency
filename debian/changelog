@@ -1,4 +1,4 @@
-gnome-terminal (3.0.1-1) UNRELEASED; urgency=low
+gnome-terminal (3.0.1-1) unstable; urgency=low
 
   [ Raphaël Hertzog ]
   * Add lintian overrides for menu-icon-missing.
@@ -16,7 +16,7 @@ gnome-terminal (3.0.1-1) UNRELEASED; urgency=low
     - Strip debian/tmp/ from .install files.
   * Remove debian/fonts.conf, unused.
 
- -- Michael Biebl <biebl@debian.org>  Thu, 16 Jun 2011 15:31:35 +0200
+ -- Michael Biebl <biebl@debian.org>  Thu, 16 Jun 2011 16:19:04 +0200
 
 gnome-terminal (3.0.0-1) experimental; urgency=low
 
