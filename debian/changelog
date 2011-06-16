@@ -1,8 +1,12 @@
 gnome-terminal (3.0.0-2) UNRELEASED; urgency=low
 
+  [ Raphaël Hertzog ]
   * Add lintian overrides for menu-icon-missing.
 
- -- Raphaël Hertzog <hertzog@debian.org>  Thu, 14 Apr 2011 22:15:32 +0000
+  [ Michael Biebl ]
+  * debian/watch: Switch to .bz2 tarballs.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 16 Jun 2011 15:30:37 +0200
 
 gnome-terminal (3.0.0-1) experimental; urgency=low
 
