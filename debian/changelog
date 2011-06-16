@@ -8,6 +8,8 @@ gnome-terminal (3.0.1-1) UNRELEASED; urgency=low
   * New upstream release.
   * debian/control.in
     - Drop Build-Depends on libdbus-glib-1-dev.
+    - Drop Build-Depends on dpkg-dev (>= 1.13.19), even the version from lenny
+      is recent enough.
     - Add Vcs-* fields.
 
  -- Michael Biebl <biebl@debian.org>  Thu, 16 Jun 2011 15:31:35 +0200
