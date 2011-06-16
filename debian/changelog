@@ -1,3 +1,32 @@
+gnome-terminal (3.0.0-2) UNRELEASED; urgency=low
+
+  * Add lintian overrides for menu-icon-missing.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Thu, 14 Apr 2011 22:15:32 +0000
+
+gnome-terminal (3.0.0-1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/control.in:
+    + remove article from description synopsis.
+    + bump Standards-Version to 3.9.2, no changes required.
+
+ -- Frederic Peters <fpeters@debian.org>  Thu, 14 Apr 2011 22:16:36 +0200
+
+gnome-terminal (2.33.90-2) experimental; urgency=low
+
+  * debian/rules: bump libgconf2-dev build-dep.
+
+ -- Frederic Peters <fpeters@debian.org>  Sun, 13 Mar 2011 15:27:35 +0100
+
+gnome-terminal (2.33.90-1) experimental; urgency=low
+
+  * New upstream release.
+    + debian/rules: build the GTK+ 3 version
+    + debian/control.in: update build-dependencies for the switch to GTK+ 3
+
+ -- Frederic Peters <fpeters@debian.org>  Sun, 13 Mar 2011 13:21:50 +0100
+
 gnome-terminal (2.30.2-1) unstable; urgency=low
 
   * New upstream bugfix release.
