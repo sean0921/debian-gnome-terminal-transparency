@@ -1,3 +1,10 @@
+gnome-terminal (3.0.1-0ubuntu3) oneiric; urgency=low
+
+  * debian/patches/01_onlyshowin.patch:
+    - Add Unity to OnlyShowIn value (LP: #803519)
+
+ -- Michael Terry <mterry@ubuntu.com>  Tue, 19 Jul 2011 18:21:19 -0400
+
 gnome-terminal (3.0.1-0ubuntu2) oneiric; urgency=low
 
   * debian/patches/50_add_unity_quicklist.patch:
