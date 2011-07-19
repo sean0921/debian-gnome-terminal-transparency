@@ -9,7 +9,7 @@ Index: gnome-terminal-3.0.1/gnome-terminal.desktop.in.in
 @@ -13,3 +13,9 @@
  Categories=GNOME;GTK;Utility;TerminalEmulator;
  StartupNotify=true
- OnlyShowIn=GNOME;
+ OnlyShowIn=GNOME;Unity;
 +X-Ayatana-Desktop-Shortcuts=New
 +
 +[New Shortcut Group]
