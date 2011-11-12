@@ -1,8 +1,22 @@
-gnome-terminal (3.0.0-2) UNRELEASED; urgency=low
+gnome-terminal (3.0.1-1) unstable; urgency=low
 
+  [ Raphaël Hertzog ]
   * Add lintian overrides for menu-icon-missing.
 
- -- Raphaël Hertzog <hertzog@debian.org>  Thu, 14 Apr 2011 22:15:32 +0000
+  [ Michael Biebl ]
+  * debian/watch: Switch to .bz2 tarballs.
+  * New upstream release.
+  * debian/control.in
+    - Drop Build-Depends on libdbus-glib-1-dev.
+    - Drop Build-Depends on dpkg-dev (>= 1.13.19), even the version from lenny
+      is recent enough.
+    - Add Vcs-* fields.
+  * Bump debhelper compatibility level to 8.
+    - Update Build-Depends on debhelper.
+    - Strip debian/tmp/ from .install files.
+  * Remove debian/fonts.conf, unused.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 16 Jun 2011 16:19:04 +0200
 
 gnome-terminal (3.0.0-1) experimental; urgency=low
 
