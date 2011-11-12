@@ -1,3 +1,11 @@
+gnome-terminal (3.2.1-1) experimental; urgency=low
+
+  * New upstream release.
+  * Bump vte requirement.
+  * Stop forcing gtk+ version, only gtk+ 3.x is supported now.
+
+ -- Josselin Mouette <joss@debian.org>  Sat, 12 Nov 2011 17:52:40 +0100
+
 gnome-terminal (3.0.1-1) unstable; urgency=low
 
   [ Raphaël Hertzog ]
