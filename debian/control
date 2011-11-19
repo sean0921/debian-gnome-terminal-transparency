@@ -7,16 +7,16 @@ Source: gnome-terminal
 Section: gnome
 Priority: optional
 Maintainer: Guilherme de S. Pastore <gpastore@debian.org>
-Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Frederic Peters <fpeters@debian.org>, Luca Falavigna <dktrkranz@debian.org>, Michael Biebl <biebl@debian.org>, Sebastian Dröge <slomo@debian.org>
+Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Frederic Peters <fpeters@debian.org>, Josselin Mouette <joss@debian.org>, Michael Biebl <biebl@debian.org>, Sebastian Dröge <slomo@debian.org>
 Standards-Version: 3.9.2
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 8),
                intltool (>= 0.40.0),
                libx11-dev,
                libgtk-3-dev (>= 3.0.0),
-               libgtk2.0-dev (>= 2.24.0),
+               libgtk2.0-dev,
                libglib2.0-dev (>= 2.26.0),
-               libvte-2.90-dev (>= 0.27.3),
+               libvte-2.90-dev (>= 1:0.30.0),
                scrollkeeper,
                libsm-dev,
                gnome-pkg-tools (>= 0.10),
