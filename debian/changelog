@@ -1,4 +1,4 @@
-gnome-terminal (3.2.1-2) experimental; urgency=low
+gnome-terminal (3.2.1-2) UNRELEASED; urgency=low
 
   * Reintroduce gtk2 build-dependency, it’s required for 
     gtk-builder-convert.
