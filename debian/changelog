@@ -2,6 +2,8 @@ gnome-terminal (3.2.1-3) UNRELEASED; urgency=low
 
   * debian/watch:
     - Track .xz tarballs.
+  * debian/control.in:
+    - Set pkg-gnome-maintainers@lists.alioth.debian.org as Maintainer.
 
  -- Michael Biebl <biebl@debian.org>  Sat, 03 Dec 2011 05:02:29 +0100
 
