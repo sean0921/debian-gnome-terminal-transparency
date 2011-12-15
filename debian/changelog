@@ -1,5 +1,6 @@
 gnome-terminal (3.2.1-2ubuntu1) UNRELEASED; urgency=low
 
+  [ Rico Tzschichholz ]
   * Sync with debian, remaining changes:
     - debian/control:
       + Build-Depend on liblaunchpad-integration-3.0-dev, dh-autoreconf
@@ -14,6 +15,9 @@ gnome-terminal (3.2.1-2ubuntu1) UNRELEASED; urgency=low
       + 50_add_unity_quicklist.patch: Add unity quicklist support
     - debian/rules: Include autoreconf.mk
     - debian/watch: Allow retrieving of unstable releases
+
+  [ Martin Pitt ]
+  * debian/watch: Look for tar.xz tarballs.
 
  -- Rico Tzschichholz <ricotz@ubuntu.com>  Thu, 15 Dec 2011 13:04:33 +0100
 
