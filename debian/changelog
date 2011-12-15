@@ -1,46 +1,56 @@
-gnome-terminal (3.0.1-0ubuntu3) oneiric; urgency=low
+gnome-terminal (3.2.1-2ubuntu1) UNRELEASED; urgency=low
 
-  * debian/patches/01_onlyshowin.patch:
-    - Add Unity to OnlyShowIn value (LP: #803519)
+  * Sync with debian, remaining changes:
+    - debian/control:
+      + Build-Depend on liblaunchpad-integration-3.0-dev, dh-autoreconf
+        and gnome-common
+    - debian/patches:
+      + 01_lpi.patch: Launchpad integration patch
+      + 01_onlyshowin.patch: Add Unity to OnlyShowIn value (LP: #803519)
+      + 02_add_transparency_properties.patch: Allow background
+        transparency to be controlled from the GTK theme. Needs rebase
+      + 20_add_alt_screen_toggle_ui.patch: Hook new vte
+        alternate screen scrolling toggle via UI
+      + 50_add_unity_quicklist.patch: Add unity quicklist support
+    - debian/rules: Include autoreconf.mk
+    - debian/watch: Allow retrieving of unstable releases
 
- -- Michael Terry <mterry@ubuntu.com>  Tue, 19 Jul 2011 18:21:19 -0400
+ -- Rico Tzschichholz <ricotz@ubuntu.com>  Thu, 15 Dec 2011 13:04:33 +0100
 
-gnome-terminal (3.0.1-0ubuntu2) oneiric; urgency=low
+gnome-terminal (3.2.1-2) unstable; urgency=low
 
-  * debian/patches/50_add_unity_quicklist.patch:
-    - add unity quicklist support
+  * Reintroduce gtk2 build-dependency, it’s required for 
+    gtk-builder-convert.
 
- -- Didier Roche <didrocks@ubuntu.com>  Tue, 31 May 2011 11:49:45 +0200
+ -- Josselin Mouette <joss@debian.org>  Sun, 20 Nov 2011 00:25:02 +0100
 
-gnome-terminal (3.0.1-0ubuntu1) oneiric; urgency=low
+gnome-terminal (3.2.1-1) experimental; urgency=low
 
-  * New upstream release
+  * New upstream release.
+  * Bump vte requirement.
+  * Stop forcing gtk+ version, only gtk+ 3.x is supported now.
 
- -- Rodrigo Moya <rodrigo.moya@canonical.com>  Wed, 25 May 2011 10:36:19 +0200
+ -- Josselin Mouette <joss@debian.org>  Sat, 12 Nov 2011 17:52:40 +0100
 
-gnome-terminal (3.0.0-2ubuntu1) oneiric; urgency=low
+gnome-terminal (3.0.1-1) unstable; urgency=low
 
   [ Raphaël Hertzog ]
   * Add lintian overrides for menu-icon-missing.
 
-  [ Rodrigo Moya ]
-  * Rebase on Debian and the GNOME3 PPA (Thanks to Rico Tzschichholz).
-    Remaining Ubuntu-specific changes:
-  * debian/control:
-    - Build-Depend on liblaunchpad-integration-3.0-dev, dh-autoreconf and gnome-common
-    - Replaces: gnome-terminal-data (<< 2.28.1-1ubuntu1)
-  * debian/patches/01_lpi.patch:
-    - Launchpad integration patch
-  * debian/patches/02_add_transparency_properties.patch:
-    - Allow background transparency to be controlled from the GTK theme. Needs rebase
-  * debian/patches/20_add_alt_screen_toggle_ui.patch:
-    - Hook new vte alternate screen scrolling toggle via UI
-  * debian/rules:
-    - Include autoreconf.mk
-  * debian/watch:
-    - Allow retrieving of unstable releases
+  [ Michael Biebl ]
+  * debian/watch: Switch to .bz2 tarballs.
+  * New upstream release.
+  * debian/control.in
+    - Drop Build-Depends on libdbus-glib-1-dev.
+    - Drop Build-Depends on dpkg-dev (>= 1.13.19), even the version from lenny
+      is recent enough.
+    - Add Vcs-* fields.
+  * Bump debhelper compatibility level to 8.
+    - Update Build-Depends on debhelper.
+    - Strip debian/tmp/ from .install files.
+  * Remove debian/fonts.conf, unused.
 
- -- Rodrigo Moya <rodrigo.moya@canonical.com>  Tue, 17 May 2011 16:17:22 +0200
+ -- Michael Biebl <biebl@debian.org>  Thu, 16 Jun 2011 16:19:04 +0200
 
 gnome-terminal (3.0.0-1) experimental; urgency=low
 
