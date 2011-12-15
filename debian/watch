@@ -1,3 +1,3 @@
 version=3
-http://ftp.gnome.org/pub/GNOME/sources/gnome-terminal/([\d\.]+)\d/ \
+http://ftp.gnome.org/pub/GNOME/sources/gnome-terminal/([\d\.]+)/ \
         gnome-terminal-(.*)\.tar\.xz

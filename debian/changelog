@@ -18,6 +18,7 @@ gnome-terminal (3.2.1-2ubuntu1) UNRELEASED; urgency=low
 
   [ Martin Pitt ]
   * debian/watch: Look for tar.xz tarballs.
+  * debian/watch: Fix syntax.
 
  -- Rico Tzschichholz <ricotz@ubuntu.com>  Thu, 15 Dec 2011 13:04:33 +0100
 
