@@ -1,11 +1,11 @@
 Description: Launchpad integration
 Author: ?
 
-Index: gnome-terminal-2.33.90/configure.ac
+Index: gnome-terminal-3.2.1/configure.ac
 ===================================================================
---- gnome-terminal-2.33.90.orig/configure.ac
-+++ gnome-terminal-2.33.90/configure.ac
-@@ -92,6 +92,7 @@
+--- gnome-terminal-3.2.1.orig/configure.ac
++++ gnome-terminal-3.2.1/configure.ac
+@@ -87,6 +87,7 @@
     gtk+-$GTK_API_VERSION >= $GTK_REQUIRED
     gconf-2.0 >= $GCONF_REQUIRED
     gsettings-desktop-schemas >= $GSETTINGS_DESKTOP_SCHEMAS_REQUIRED
@@ -13,10 +13,10 @@ Index: gnome-terminal-2.33.90/configure.ac
     $PLATFORM_DEPS])
  
  # ********
-Index: gnome-terminal-2.33.90/src/terminal-window.c
+Index: gnome-terminal-3.2.1/src/terminal-window.c
 ===================================================================
---- gnome-terminal-2.33.90.orig/src/terminal-window.c
-+++ gnome-terminal-2.33.90/src/terminal-window.c
+--- gnome-terminal-3.2.1.orig/src/terminal-window.c
++++ gnome-terminal-3.2.1/src/terminal-window.c
 @@ -32,6 +32,7 @@
  #include <gdk/gdkkeysyms.h>
  #define GDK_KEY(symbol) GDK_##symbol
@@ -25,7 +25,7 @@ Index: gnome-terminal-2.33.90/src/terminal-window.c
  
  #include "terminal-accels.h"
  #include "terminal-app.h"
-@@ -2123,6 +2124,7 @@
+@@ -2114,6 +2115,7 @@
    gtk_box_pack_start (GTK_BOX (main_vbox),
  		      priv->menubar,
  		      FALSE, FALSE, 0);
@@ -33,10 +33,10 @@ Index: gnome-terminal-2.33.90/src/terminal-window.c
  
    /* Add tabs menu */
    priv->tabs_menu = terminal_tabs_menu_new (window);
-Index: gnome-terminal-2.33.90/src/terminal.xml
+Index: gnome-terminal-3.2.1/src/terminal.xml
 ===================================================================
---- gnome-terminal-2.33.90.orig/src/terminal.xml
-+++ gnome-terminal-2.33.90/src/terminal.xml
+--- gnome-terminal-3.2.1.orig/src/terminal.xml
++++ gnome-terminal-3.2.1/src/terminal.xml
 @@ -73,6 +73,7 @@
      </menu>
      <menu action="Help">

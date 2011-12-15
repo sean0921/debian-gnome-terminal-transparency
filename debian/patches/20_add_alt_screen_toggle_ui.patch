@@ -1,10 +1,10 @@
 Description: Hook new vte alternate screen scrolling toggle via UI
 Author: ?
 
-Index: gnome-terminal-2.33.90/src/gnome-terminal.schemas.in
+Index: gnome-terminal-3.2.1/src/gnome-terminal.schemas.in
 ===================================================================
---- gnome-terminal-2.33.90.orig/src/gnome-terminal.schemas.in
-+++ gnome-terminal-2.33.90/src/gnome-terminal.schemas.in
+--- gnome-terminal-3.2.1.orig/src/gnome-terminal.schemas.in
++++ gnome-terminal-3.2.1/src/gnome-terminal.schemas.in
 @@ -418,6 +418,23 @@
      </schema>
  
@@ -29,10 +29,10 @@ Index: gnome-terminal-2.33.90/src/gnome-terminal.schemas.in
        <key>/schemas/apps/gnome-terminal/profiles/Default/exit_action</key>
        <applyto>/apps/gnome-terminal/profiles/Default/exit_action</applyto>
        <owner>gnome-terminal</owner>
-Index: gnome-terminal-2.33.90/src/profile-editor.c
+Index: gnome-terminal-3.2.1/src/profile-editor.c
 ===================================================================
---- gnome-terminal-2.33.90.orig/src/profile-editor.c
-+++ gnome-terminal-2.33.90/src/profile-editor.c
+--- gnome-terminal-3.2.1.orig/src/profile-editor.c
++++ gnome-terminal-3.2.1/src/profile-editor.c
 @@ -279,6 +279,10 @@
      SET_SENSITIVE ("scroll-on-output-checkbutton",
                     !terminal_profile_property_locked (profile, TERMINAL_PROFILE_SCROLL_ON_OUTPUT));
@@ -44,7 +44,7 @@ Index: gnome-terminal-2.33.90/src/profile-editor.c
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_EXIT_ACTION))
      SET_SENSITIVE ("exit-action-combobox",
                     !terminal_profile_property_locked (profile, TERMINAL_PROFILE_EXIT_ACTION));
-@@ -899,6 +903,7 @@
+@@ -914,6 +918,7 @@
    CONNECT ("scrollbar-position-combobox", TERMINAL_PROFILE_SCROLLBAR_POSITION);
    CONNECT ("scroll-on-keystroke-checkbutton", TERMINAL_PROFILE_SCROLL_ON_KEYSTROKE);
    CONNECT ("scroll-on-output-checkbutton", TERMINAL_PROFILE_SCROLL_ON_OUTPUT);
@@ -52,10 +52,10 @@ Index: gnome-terminal-2.33.90/src/profile-editor.c
    CONNECT ("show-menubar-checkbutton", TERMINAL_PROFILE_DEFAULT_SHOW_MENUBAR);
    CONNECT ("solid-radiobutton", TERMINAL_PROFILE_BACKGROUND_TYPE);
    CONNECT ("system-font-checkbutton", TERMINAL_PROFILE_USE_SYSTEM_FONT);
-Index: gnome-terminal-2.33.90/src/profile-preferences.glade
+Index: gnome-terminal-3.2.1/src/profile-preferences.glade
 ===================================================================
---- gnome-terminal-2.33.90.orig/src/profile-preferences.glade
-+++ gnome-terminal-2.33.90/src/profile-preferences.glade
+--- gnome-terminal-3.2.1.orig/src/profile-preferences.glade
++++ gnome-terminal-3.2.1/src/profile-preferences.glade
 @@ -2416,6 +2416,27 @@
  		</packing>
  	      </child>
@@ -84,10 +84,10 @@ Index: gnome-terminal-2.33.90/src/profile-preferences.glade
  	      <child>
  		<widget class="GtkCheckButton" id="scroll-on-keystroke-checkbutton">
  		  <property name="visible">True</property>
-Index: gnome-terminal-2.33.90/src/terminal-profile.c
+Index: gnome-terminal-3.2.1/src/terminal-profile.c
 ===================================================================
---- gnome-terminal-2.33.90.orig/src/terminal-profile.c
-+++ gnome-terminal-2.33.90/src/terminal-profile.c
+--- gnome-terminal-3.2.1.orig/src/terminal-profile.c
++++ gnome-terminal-3.2.1/src/terminal-profile.c
 @@ -75,6 +75,7 @@
    PROP_SCROLLBAR_POSITION,
    PROP_SCROLL_ON_KEYSTROKE,
@@ -120,10 +120,10 @@ Index: gnome-terminal-2.33.90/src/terminal-profile.c
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (SILENT_BELL, DEFAULT_SILENT_BELL, KEY_SILENT_BELL);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (UPDATE_RECORDS, DEFAULT_UPDATE_RECORDS, KEY_UPDATE_RECORDS);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_CUSTOM_COMMAND, DEFAULT_USE_CUSTOM_COMMAND, KEY_USE_CUSTOM_COMMAND);
-Index: gnome-terminal-2.33.90/src/terminal-profile.h
+Index: gnome-terminal-3.2.1/src/terminal-profile.h
 ===================================================================
---- gnome-terminal-2.33.90.orig/src/terminal-profile.h
-+++ gnome-terminal-2.33.90/src/terminal-profile.h
+--- gnome-terminal-3.2.1.orig/src/terminal-profile.h
++++ gnome-terminal-3.2.1/src/terminal-profile.h
 @@ -93,6 +93,7 @@
  #define TERMINAL_PROFILE_SCROLLBAR_POSITION     "scrollbar-position"
  #define TERMINAL_PROFILE_SCROLL_ON_KEYSTROKE    "scroll-on-keystroke"
@@ -132,10 +132,10 @@ Index: gnome-terminal-2.33.90/src/terminal-profile.h
  #define TERMINAL_PROFILE_SILENT_BELL            "silent-bell"
  #define TERMINAL_PROFILE_TITLE_MODE             "title-mode"
  #define TERMINAL_PROFILE_TITLE                  "title"
-Index: gnome-terminal-2.33.90/src/terminal-screen.c
+Index: gnome-terminal-3.2.1/src/terminal-screen.c
 ===================================================================
---- gnome-terminal-2.33.90.orig/src/terminal-screen.c
-+++ gnome-terminal-2.33.90/src/terminal-screen.c
+--- gnome-terminal-3.2.1.orig/src/terminal-screen.c
++++ gnome-terminal-3.2.1/src/terminal-screen.c
 @@ -963,6 +963,9 @@
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_SCROLL_ON_OUTPUT))
      vte_terminal_set_scroll_on_output (vte_terminal,
