@@ -1,4 +1,4 @@
-gnome-terminal (3.2.1-2ubuntu1) UNRELEASED; urgency=low
+gnome-terminal (3.2.1-2ubuntu1) precise; urgency=low
 
   [ Rico Tzschichholz ]
   * Sync with debian, remaining changes:
@@ -20,7 +20,7 @@ gnome-terminal (3.2.1-2ubuntu1) UNRELEASED; urgency=low
   * debian/watch: Look for tar.xz tarballs.
   * debian/watch: Fix syntax.
 
- -- Rico Tzschichholz <ricotz@ubuntu.com>  Thu, 15 Dec 2011 13:04:33 +0100
+ -- Rico Tzschichholz <ricotz@ubuntu.com>  Thu, 15 Dec 2011 15:07:34 +0100
 
 gnome-terminal (3.2.1-2) unstable; urgency=low
 
