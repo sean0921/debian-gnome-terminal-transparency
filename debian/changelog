@@ -1,3 +1,11 @@
+gnome-terminal (3.3.0-0ubuntu1) UNRELEASED; urgency=low
+
+  * New upstream release.
+    - Add gconf setting to change default encoding (LP: #3923)
+    - Should work now on Broadway
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Tue, 21 Feb 2012 21:47:54 -0500
+
 gnome-terminal (3.2.1-2ubuntu1) precise; urgency=low
 
   [ Rico Tzschichholz ]
