@@ -1,5 +1,6 @@
 01_onlyshowin.patch
 01_lpi.patch
 #02_add_transparency_properties.patch
+03_add_keywords.desktop
 20_add_alt_screen_toggle_ui.patch
 50_add_unity_quicklist.patch
