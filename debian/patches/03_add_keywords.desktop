@@ -6,4 +6,4 @@ Index: gnome-terminal-3.3.0/gnome-terminal.desktop.in.in
  Categories=GNOME;GTK;Utility;TerminalEmulator;
  StartupNotify=true
  OnlyShowIn=GNOME;Unity;
-+_Keywords=Terminal;Command;Run;
++_Keywords=Run;
