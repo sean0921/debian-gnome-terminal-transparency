@@ -1,5 +1,11 @@
-gnome-terminal (3.3.0-0ubuntu2) UNRELEASED; urgency=low
+gnome-terminal (3.4.0.1-0ubuntu1) precise-proposed; urgency=low
 
+  * New upstream release:
+    - Add default encoding profile property
+    - Works with gtk+ broadway backend
+    - Drop GTK 2 support
+
+  [ Didier Roche ]
   * debian/patches/50_add_unity_quicklist.patch:
     - update to latest spec
 
@@ -7,7 +13,7 @@ gnome-terminal (3.3.0-0ubuntu2) UNRELEASED; urgency=low
   * debian/patches/03_add_keywords.desktop:
     - add keywords for looking for correct keyword (LP: #943020)
 
- -- Didier Roche <didrocks@ubuntu.com>  Wed, 29 Feb 2012 11:08:53 +0100
+ -- Robert Ancell <robert.ancell@canonical.com>  Wed, 28 Mar 2012 11:43:21 +1100
 
 gnome-terminal (3.3.0-0ubuntu1) precise; urgency=low
 
