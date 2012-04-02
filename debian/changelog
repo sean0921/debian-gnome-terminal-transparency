@@ -1,12 +1,12 @@
 gnome-terminal (3.4.0.1-1) UNRELEASED; urgency=low
 
   * New upstream release.
-  * debian/watch:
-    - Track .xz tarballs.
-  * debian/control.in:
-    - Set pkg-gnome-maintainers@lists.alioth.debian.org as Maintainer.
+  * debian/watch: Track .xz tarballs.
+  * Set pkg-gnome-maintainers@lists.alioth.debian.org as Maintainer.
+  * Update debian/copyright using the machine-readable copyright format 1.0,
+    gnome-terminal is licensed under GPL-3+.
 
- -- Michael Biebl <biebl@debian.org>  Mon, 02 Apr 2012 10:28:23 +0200
+ -- Michael Biebl <biebl@debian.org>  Mon, 02 Apr 2012 13:19:11 +0200
 
 gnome-terminal (3.2.1-2) unstable; urgency=low
 
