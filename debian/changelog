@@ -1,3 +1,10 @@
+gnome-terminal (3.4.1.1-0ubuntu1) precise; urgency=low
+
+  * New upstream release:
+    - Translation updates
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 17 Apr 2012 14:27:57 +1000
+
 gnome-terminal (3.4.0.1-0ubuntu1) precise-proposed; urgency=low
 
   * New upstream release:
