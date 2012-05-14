@@ -1,3 +1,13 @@
+gnome-terminal (3.4.1.1-0ubuntu2) quantal; urgency=low
+
+  * debian/control:
+    - Use standards version 3.9.3
+    - Drop dependency on liblaunchpad-integration-3.0-dev
+  * debian/01_lpi.patch:
+    - Dropped, we no longer do Launchpad integration
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Mon, 14 May 2012 15:19:07 +1200
+
 gnome-terminal (3.4.1.1-0ubuntu1) precise; urgency=low
 
   * New upstream release:
