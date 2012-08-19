@@ -1,4 +1,4 @@
-gnome-terminal (3.5.90-0ubuntu1) UNRELEASED; urgency=low
+gnome-terminal (3.5.90-0ubuntu1) quantal; urgency=low
 
   * New upstream release
   * debian/control:
@@ -8,7 +8,7 @@ gnome-terminal (3.5.90-0ubuntu1) UNRELEASED; urgency=low
   * debian/patches/00git_fix_help.patch:
     - Fix help>contents not working
 
- -- Robert Ancell <robert.ancell@canonical.com>  Mon, 20 Aug 2012 09:38:53 +1200
+ -- Robert Ancell <robert.ancell@canonical.com>  Mon, 20 Aug 2012 11:26:15 +1200
 
 gnome-terminal (3.4.1.1-0ubuntu2) quantal; urgency=low
 
