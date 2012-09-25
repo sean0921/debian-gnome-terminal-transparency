@@ -1,3 +1,11 @@
+gnome-terminal (3.6.0-0ubuntu1) UNRELEASED; urgency=low
+
+  * New upstream release
+  * debian/patches/00git_fix_help.patch:
+    - removed, from upstream
+
+ -- Didier Roche <didrocks@ubuntu.com>  Tue, 25 Sep 2012 11:06:37 +0200
+
 gnome-terminal (3.5.90-0ubuntu1) quantal; urgency=low
 
   * New upstream release
