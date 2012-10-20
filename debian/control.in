@@ -1,9 +1,9 @@
 Source: gnome-terminal
 Section: gnome
 Priority: optional
-Maintainer: Guilherme de S. Pastore <gpastore@debian.org>
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: @GNOME_TEAM@
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 8),
                intltool (>= 0.40.0),
