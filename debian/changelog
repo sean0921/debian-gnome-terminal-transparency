@@ -1,3 +1,9 @@
+gnome-terminal (3.6.1-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 20 Oct 2012 22:56:22 +0200
+
 gnome-terminal (3.4.1.1-1) unstable; urgency=low
 
   * New upstream translation release.
