@@ -1,8 +1,9 @@
 gnome-terminal (3.4.1.1-2) UNRELEASED; urgency=low
 
-  * Recommend dbus-x11: gnome-terminal silently does nothing if there is no
+  * Recommend dbus-x11: gnome-terminal's default usage requires a
     D-Bus session, and dbus-x11 is the recommended way to get one of those
     (Closes: #691177; related to #631968)
+  * If unable to connect to D-Bus, warn before we exit 1 (Closes: #691178)
 
  -- Simon McVittie <smcv@debian.org>  Wed, 24 Oct 2012 10:52:15 +0100
 
