@@ -1,0 +1,29 @@
+From b37ac83d532328d07b226234c71b460cf29007a9 Mon Sep 17 00:00:00 2001
+From: Simon McVittie <simon.mcvittie@collabora.co.uk>
+Date: Wed, 24 Oct 2012 10:45:54 +0100
+Subject: [PATCH] Log a message if unable to connect to D-Bus in "factory
+ mode"
+
+"Factory mode" is the default. Lack of this message made debugging
+Debian #631968 harder.
+
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=691178
+---
+ src/terminal.c |    1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/terminal.c b/src/terminal.c
+index 9b19aa4..73dc884 100644
+--- a/src/terminal.c
++++ b/src/terminal.c
+@@ -303,6 +303,7 @@ name_lost_cb (GDBusConnection *connection,
+ 
+   /* Couldn't get the connection? No way to continue! */
+   if (connection == NULL) {
++    g_warning ("Unable to to connect to D-Bus");
+     data->exit_code = EXIT_FAILURE;
+     gtk_main_quit ();
+     return;
+-- 
+1.7.10.4
+
