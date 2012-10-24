@@ -32,7 +32,8 @@ Depends: ${shlibs:Depends},
 Replaces: gnome-terminal-data (<< 2.26.2-3)
 Provides: x-terminal-emulator
 Recommends: yelp,
-            gvfs
+            gvfs,
+            dbus-x11
 Description: GNOME terminal emulator application
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:
