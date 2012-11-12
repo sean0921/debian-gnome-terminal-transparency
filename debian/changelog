@@ -1,3 +1,9 @@
+gnome-terminal (3.6.1-0ubuntu1) raring; urgency=low
+
+  * New upstream release
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 13 Nov 2012 09:56:11 +1300
+
 gnome-terminal (3.6.0-0ubuntu1) quantal-proposed; urgency=low
 
   * New upstream release
