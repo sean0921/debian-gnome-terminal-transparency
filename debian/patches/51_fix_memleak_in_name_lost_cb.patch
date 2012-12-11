@@ -1,0 +1,18 @@
+Description: Fix memleak in name_lost_cb
+Forwarded: not-needed
+Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1088352
+Author: Matthew Fischer <matthew.fischer@canonical.com>
+
+Index: gnome-terminal-3.6.1/src/terminal.c
+===================================================================
+--- gnome-terminal-3.6.1.orig/src/terminal.c	2012-10-15 17:01:59.000000000 -0600
++++ gnome-terminal-3.6.1/src/terminal.c	2012-12-09 22:55:41.627599631 -0700
+@@ -340,7 +340,7 @@
+ 
+       g_string_append_printf (string, "%s=%s", envv[i], value);
+     }
+-
++  g_strfreev(envv);
+   len = string->len;
+   s = g_string_free (string, FALSE);
+   g_variant_builder_add (&builder, "@ay",
