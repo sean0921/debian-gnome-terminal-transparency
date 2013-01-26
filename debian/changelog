@@ -1,3 +1,10 @@
+gnome-terminal (3.6.1-0ubuntu4) UNRELEASED; urgency=low
+
+  * debian/control.in: Revert accidentally added dependencies
+    in previous update
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 26 Jan 2013 18:17:42 -0500
+
 gnome-terminal (3.6.1-0ubuntu3) raring; urgency=low
 
   * debian/patches/02_add_transparency_properties.patch:
