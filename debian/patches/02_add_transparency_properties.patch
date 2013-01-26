@@ -1,10 +1,10 @@
 Description: This patch allows the background transparency to be controlled from the GTK theme (using "TerminalScreen::background-darkness"). In addition to this, the background colour and text colour are already themable from the GTK theme (by setting the "text[NORMAL]" and "base[NORMAL]" colours for the TerminalScreen class)
 Author: ?
 
-Index: gnome-terminal-2.31.90/src/gnome-terminal.schemas.in
+Index: gnome-terminal-3.6.1/src/gnome-terminal.schemas.in
 ===================================================================
---- gnome-terminal-2.31.90.orig/src/gnome-terminal.schemas.in	2010-07-03 20:43:28.000000000 +1000
-+++ gnome-terminal-2.31.90/src/gnome-terminal.schemas.in	2010-08-17 17:51:15.740563001 +1000
+--- gnome-terminal-3.6.1.orig/src/gnome-terminal.schemas.in	2013-01-26 17:50:01.846160535 -0500
++++ gnome-terminal-3.6.1/src/gnome-terminal.schemas.in	2013-01-26 17:50:01.834160536 -0500
 @@ -688,6 +688,21 @@
      </schema>
  
@@ -27,35 +27,35 @@ Index: gnome-terminal-2.31.90/src/gnome-terminal.schemas.in
        <key>/schemas/apps/gnome-terminal/profiles/Default/use_system_font</key>
        <applyto>/apps/gnome-terminal/profiles/Default/use_system_font</applyto>
        <owner>gnome-terminal</owner>
-Index: gnome-terminal-2.31.90/src/terminal-profile.c
+Index: gnome-terminal-3.6.1/src/terminal-profile.c
 ===================================================================
---- gnome-terminal-2.31.90.orig/src/terminal-profile.c	2010-08-10 22:27:56.000000000 +1000
-+++ gnome-terminal-2.31.90/src/terminal-profile.c	2010-08-17 17:51:15.740563001 +1000
-@@ -84,6 +84,7 @@
-   PROP_USE_SKEY,
+--- gnome-terminal-3.6.1.orig/src/terminal-profile.c	2013-01-26 17:50:01.846160535 -0500
++++ gnome-terminal-3.6.1/src/terminal-profile.c	2013-01-26 17:50:01.834160536 -0500
+@@ -85,6 +85,7 @@
+   PROP_USE_CUSTOM_DEFAULT_SIZE,
    PROP_USE_SYSTEM_FONT,
    PROP_USE_THEME_COLORS,
 +  PROP_USE_THEME_BACKGROUND,
    PROP_VISIBLE_NAME,
    PROP_WORD_CHARS,
    LAST_PROP
-@@ -124,6 +125,7 @@
- #define KEY_USE_SKEY "use_skey"
+@@ -125,6 +126,7 @@
+ #define KEY_USE_CUSTOM_DEFAULT_SIZE "use_custom_default_size"
  #define KEY_USE_SYSTEM_FONT "use_system_font"
  #define KEY_USE_THEME_COLORS "use_theme_colors"
 +#define KEY_USE_THEME_BACKGROUND "use_theme_background"
  #define KEY_VISIBLE_NAME "visible_name"
  #define KEY_WORD_CHARS "word_chars"
  
-@@ -164,6 +166,7 @@
- #define DEFAULT_USE_SKEY              (TRUE)
+@@ -165,6 +167,7 @@
+ #define DEFAULT_USE_CUSTOM_DEFAULT_SIZE (FALSE)
  #define DEFAULT_USE_SYSTEM_FONT       (TRUE)
  #define DEFAULT_USE_THEME_COLORS      (TRUE)
 +#define DEFAULT_USE_THEME_BACKGROUND  (TRUE)
  #define DEFAULT_VISIBLE_NAME          (N_("Unnamed"))
  #define DEFAULT_WORD_CHARS            ("-A-Za-z0-9,./?%&#:_=+@~")
  
-@@ -1014,7 +1017,6 @@
+@@ -1027,7 +1030,6 @@
              is_construct = TRUE;
              break;
            }
@@ -63,32 +63,40 @@ Index: gnome-terminal-2.31.90/src/terminal-profile.c
        if (is_construct)
          continue;
  
-@@ -1309,6 +1311,7 @@
-   TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_SKEY, DEFAULT_USE_SKEY, KEY_USE_SKEY);
+@@ -1321,6 +1323,7 @@
+   TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_CUSTOM_DEFAULT_SIZE, DEFAULT_USE_CUSTOM_DEFAULT_SIZE, KEY_USE_CUSTOM_DEFAULT_SIZE);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_SYSTEM_FONT, DEFAULT_USE_SYSTEM_FONT, KEY_USE_SYSTEM_FONT);
    TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_THEME_COLORS, DEFAULT_USE_THEME_COLORS, KEY_USE_THEME_COLORS);
 +  TERMINAL_PROFILE_PROPERTY_BOOLEAN (USE_THEME_BACKGROUND, DEFAULT_USE_THEME_BACKGROUND, KEY_USE_THEME_BACKGROUND);
  
    TERMINAL_PROFILE_PROPERTY_BOXED (BACKGROUND_COLOR, GDK_TYPE_COLOR, KEY_BACKGROUND_COLOR);
    TERMINAL_PROFILE_PROPERTY_BOXED (BOLD_COLOR, GDK_TYPE_COLOR, KEY_BOLD_COLOR);
-Index: gnome-terminal-2.31.90/src/terminal-profile.h
+Index: gnome-terminal-3.6.1/src/terminal-profile.h
 ===================================================================
---- gnome-terminal-2.31.90.orig/src/terminal-profile.h	2010-08-10 22:27:56.000000000 +1000
-+++ gnome-terminal-2.31.90/src/terminal-profile.h	2010-08-17 17:51:15.740563001 +1000
+--- gnome-terminal-3.6.1.orig/src/terminal-profile.h	2013-01-26 17:50:01.846160535 -0500
++++ gnome-terminal-3.6.1/src/terminal-profile.h	2013-01-26 17:50:01.838160536 -0500
 @@ -102,6 +102,7 @@
- #define TERMINAL_PROFILE_USE_SKEY               "use-skey"
+ #define TERMINAL_PROFILE_USE_CUSTOM_DEFAULT_SIZE "use-custom-default-size"
  #define TERMINAL_PROFILE_USE_SYSTEM_FONT        "use-system-font"
  #define TERMINAL_PROFILE_USE_THEME_COLORS       "use-theme-colors"
 +#define TERMINAL_PROFILE_USE_THEME_BACKGROUND	"use-theme-background"
  #define TERMINAL_PROFILE_VISIBLE_NAME           "visible-name"
  #define TERMINAL_PROFILE_WORD_CHARS             "word-chars"
  
-Index: gnome-terminal-2.31.90/src/terminal-screen.c
+Index: gnome-terminal-3.6.1/src/terminal-screen.c
 ===================================================================
---- gnome-terminal-2.31.90.orig/src/terminal-screen.c	2010-08-10 22:27:57.000000000 +1000
-+++ gnome-terminal-2.31.90/src/terminal-screen.c	2010-08-17 17:58:51.800563000 +1000
-@@ -308,6 +308,65 @@
- }
+--- gnome-terminal-3.6.1.orig/src/terminal-screen.c	2013-01-26 17:50:01.846160535 -0500
++++ gnome-terminal-3.6.1/src/terminal-screen.c	2013-01-26 17:58:56.706138166 -0500
+@@ -328,6 +328,7 @@
+     style_set (widget, previous_style);
+ 
+   update_color_scheme (screen);
++  update_background (screen);
+ 
+   if (gtk_widget_get_realized (widget))
+     terminal_screen_change_font (screen);
+@@ -356,6 +357,65 @@
+ #endif
  
  static void
 +update_background (TerminalScreen *screen)
@@ -150,18 +158,10 @@ Index: gnome-terminal-2.31.90/src/terminal-screen.c
 +}
 +
 +static void
- terminal_screen_style_set (GtkWidget *widget,
-                            GtkStyle *previous_style)
+ terminal_screen_init (TerminalScreen *screen)
  {
-@@ -318,6 +377,7 @@
-     style_set (widget, previous_style);
- 
-   update_color_scheme (screen);
-+  update_background (screen);
- 
-   if (gtk_widget_get_realized (widget))
-     terminal_screen_change_font (screen);
-@@ -595,6 +655,12 @@
+   const GtkTargetEntry target_table[] = {
+@@ -611,6 +671,12 @@
                           G_TYPE_STRV,
                           G_PARAM_READWRITE | G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB));
  
@@ -174,7 +174,7 @@ Index: gnome-terminal-2.31.90/src/terminal-screen.c
    g_type_class_add_private (object_class, sizeof (TerminalScreenPrivate));
  
    /* Precompile the regexes */
-@@ -908,7 +974,6 @@
+@@ -907,7 +973,6 @@
    GObject *object = G_OBJECT (screen);
    VteTerminal *vte_terminal = VTE_TERMINAL (screen);
    const char *prop_name;
@@ -182,7 +182,7 @@ Index: gnome-terminal-2.31.90/src/terminal-screen.c
    TerminalWindow *window;
  
    if (pspec)
-@@ -1003,42 +1068,9 @@
+@@ -985,42 +1050,9 @@
        prop_name == I_(TERMINAL_PROFILE_BACKGROUND_TYPE) ||
        prop_name == I_(TERMINAL_PROFILE_BACKGROUND_IMAGE) ||
        prop_name == I_(TERMINAL_PROFILE_BACKGROUND_DARKNESS) ||
@@ -228,10 +228,10 @@ Index: gnome-terminal-2.31.90/src/terminal-screen.c
  
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_BACKSPACE_BINDING))
    vte_terminal_set_backspace_binding (vte_terminal,
-Index: gnome-terminal-2.31.90/src/profile-editor.c
+Index: gnome-terminal-3.6.1/src/profile-editor.c
 ===================================================================
---- gnome-terminal-2.31.90.orig/src/profile-editor.c	2010-08-10 22:27:57.000000000 +1000
-+++ gnome-terminal-2.31.90/src/profile-editor.c	2010-08-17 17:55:18.610563000 +1000
+--- gnome-terminal-3.6.1.orig/src/profile-editor.c	2013-01-26 17:50:01.846160535 -0500
++++ gnome-terminal-3.6.1/src/profile-editor.c	2013-01-26 17:50:01.838160536 -0500
 @@ -130,31 +130,41 @@
                       !terminal_profile_property_locked (profile, TERMINAL_PROFILE_CUSTOM_COMMAND));
      }
@@ -290,7 +290,7 @@ Index: gnome-terminal-2.31.90/src/profile-editor.c
          }
      }
  
-@@ -897,6 +907,7 @@
+@@ -924,6 +934,7 @@
    CONNECT ("use-custom-command-checkbutton", TERMINAL_PROFILE_USE_CUSTOM_COMMAND);
    CONNECT ("use-custom-default-size-checkbutton", TERMINAL_PROFILE_USE_CUSTOM_DEFAULT_SIZE);
    CONNECT ("use-theme-colors-checkbutton", TERMINAL_PROFILE_USE_THEME_COLORS);
@@ -298,10 +298,10 @@ Index: gnome-terminal-2.31.90/src/profile-editor.c
    CONNECT ("word-chars-entry", TERMINAL_PROFILE_WORD_CHARS);
    CONNECT_WITH_FLAGS ("bell-checkbutton", TERMINAL_PROFILE_SILENT_BELL, FLAG_INVERT_BOOL);
  
-Index: gnome-terminal-2.31.90/src/profile-preferences.glade
+Index: gnome-terminal-3.6.1/src/profile-preferences.glade
 ===================================================================
---- gnome-terminal-2.31.90.orig/src/profile-preferences.glade	2010-07-03 20:43:28.000000000 +1000
-+++ gnome-terminal-2.31.90/src/profile-preferences.glade	2010-08-17 17:51:15.750563001 +1000
+--- gnome-terminal-3.6.1.orig/src/profile-preferences.glade	2013-01-26 17:50:01.846160535 -0500
++++ gnome-terminal-3.6.1/src/profile-preferences.glade	2013-01-26 17:50:01.842160535 -0500
 @@ -2026,6 +2026,25 @@
  	      <property name="spacing">6</property>
  

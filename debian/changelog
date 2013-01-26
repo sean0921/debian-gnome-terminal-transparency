@@ -1,3 +1,10 @@
+gnome-terminal (3.6.1-0ubuntu3) UNRELEASED; urgency=low
+
+  * debian/patches/02_add_transparency_properties.patch:
+    - Refreshed and re-enabled
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 26 Jan 2013 18:09:46 -0500
+
 gnome-terminal (3.6.1-0ubuntu2) raring; urgency=low
 
   * Add patch from Matthew Fischer to fix a memleak by freeing an unfreed
