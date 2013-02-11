@@ -1,4 +1,4 @@
-gnome-terminal (3.6.1-0ubuntu4) UNRELEASED; urgency=low
+gnome-terminal (3.6.1-0ubuntu4) raring; urgency=low
 
   * 02_add_transparency_properties.patch:
     - Dropped, gnome-terminal 3.7 has dropped support for translucent
@@ -7,7 +7,7 @@ gnome-terminal (3.6.1-0ubuntu4) UNRELEASED; urgency=low
   * debian/control.in: Revert accidentally added dependencies
     in previous update
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 26 Jan 2013 18:17:42 -0500
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Mon, 11 Feb 2013 12:26:46 -0500
 
 gnome-terminal (3.6.1-0ubuntu3) raring; urgency=low
 
