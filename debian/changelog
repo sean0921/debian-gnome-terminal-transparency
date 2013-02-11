@@ -1,5 +1,9 @@
 gnome-terminal (3.6.1-0ubuntu4) UNRELEASED; urgency=low
 
+  * 02_add_transparency_properties.patch:
+    - Dropped, gnome-terminal 3.7 has dropped support for translucent
+      backgrounds which means this patch won't be easily forward-compatible.
+      This patch also had been disabled for quite a while w/o much complaint.
   * debian/control.in: Revert accidentally added dependencies
     in previous update
 
