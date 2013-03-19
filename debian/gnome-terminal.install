@@ -1,4 +1,7 @@
 usr/bin
+usr/lib/gnome-terminal
 usr/share/applications
+usr/share/dbus-1/services
+usr/share/glib-2.0/schemas
 
 debian/gnome-terminal.wrapper /usr/bin
