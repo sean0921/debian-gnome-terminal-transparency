@@ -14,6 +14,8 @@ gnome-terminal (3.8.0-1) UNRELEASED; urgency=low
 
   [ Emilio Pozuelo Monfort ]
   * New upstream release 3.8.0.
+    + debian/patches/01_onlyshowin.patch:
+      - Refreshed.
 
  -- Andreas Henriksson <andreas@fatal.se>  Fri, 15 Mar 2013 23:02:43 +0100
 
