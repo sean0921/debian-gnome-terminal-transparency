@@ -19,6 +19,8 @@ gnome-terminal (3.8.0-1) UNRELEASED; urgency=low
     + debian/control.in:
       - Add build dependency on desktop-file-utils.
       - Bump libdconf-dev build dependency to pick the new soname.
+    + debian/patches/10_crash_profiles.patch:
+      - New patch. Fix a crash when opening the profile editor.
 
  -- Andreas Henriksson <andreas@fatal.se>  Fri, 15 Mar 2013 23:02:43 +0100
 
