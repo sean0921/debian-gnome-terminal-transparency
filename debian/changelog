@@ -1,3 +1,9 @@
+gnome-terminal (3.8.0-2) UNRELEASED; urgency=low
+
+  * 01_onlyshowin.patch: Show in Unity too 
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Sun, 31 Mar 2013 11:23:26 -0400
+
 gnome-terminal (3.8.0-1) experimental; urgency=low
 
   [ Andreas Henriksson ]
