@@ -1,4 +1,4 @@
-gnome-terminal (3.8.0.1-1) UNRELEASED; urgency=low
+gnome-terminal (3.8.0.1-1) experimental; urgency=low
 
   [ Jeremy Bicha ]
   * 01_onlyshowin.patch: Show in Unity too 
@@ -8,7 +8,7 @@ gnome-terminal (3.8.0.1-1) UNRELEASED; urgency=low
     + debian/patches/10_crash_profiles.patch:
       - Removed, no longer needed.
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Sun, 31 Mar 2013 11:23:26 -0400
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 01 Apr 2013 13:10:38 +0200
 
 gnome-terminal (3.8.0-1) experimental; urgency=low
 
