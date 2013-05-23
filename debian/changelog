@@ -1,4 +1,4 @@
-gnome-terminal (3.8.2-1ubuntu1) UNRELEASED; urgency=low
+gnome-terminal (3.8.2-0ubuntu1) UNRELEASED; urgency=low
 
   * NOT READY YET - things to consider
     - Staying in the same directory on new tab doesn't work yet, needs shell
