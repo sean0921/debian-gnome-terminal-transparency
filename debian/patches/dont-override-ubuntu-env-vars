@@ -1,0 +1,23 @@
+Description: As the maintainer notes: don't disable ubuntu specific changes controlled by env vars
+Forwarded: not-needed
+Author: Iain Lane <iain.lane@canonical.com>
+
+Index: b/src/server.c
+===================================================================
+--- a/src/server.c
++++ b/src/server.c
+@@ -75,14 +75,6 @@
+ 
+   terminal_i18n_init (TRUE);
+ 
+-  /* Set some env vars to disable ubuntu crap. They'll certainly patch this
+-   * out in their package, but anyone running from git will get the right
+-   * behaviour.
+-   */
+-  g_setenv ("LIBOVERLAY_SCROLLBAR", "0", TRUE);
+-  g_setenv ("UBUNTU_MENUPROXY", "0", TRUE);
+-  g_setenv ("NO_UNITY_GTK_MODULE", "1", TRUE);
+-
+ #if !GLIB_CHECK_VERSION (2, 35, 3)
+   g_type_init ();
+ #endif

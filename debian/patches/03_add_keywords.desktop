@@ -1,9 +1,0 @@
-Index: gnome-terminal-3.3.0/gnome-terminal.desktop.in.in
-===================================================================
---- gnome-terminal-3.3.0.orig/gnome-terminal.desktop.in.in	2012-02-29 11:11:21.673342327 +0100
-+++ gnome-terminal-3.3.0/gnome-terminal.desktop.in.in	2012-02-29 11:12:10.517584569 +0100
-@@ -13,3 +13,4 @@
- Categories=GNOME;GTK;Utility;TerminalEmulator;
- StartupNotify=true
- OnlyShowIn=GNOME;Unity;
-+_Keywords=Run;
