@@ -6,6 +6,7 @@ gnome-terminal (3.8.2-1) UNRELEASED; urgency=low
   [ Michael Biebl ]
   * Upload to unstable.
   * New upstream release.
+  * Bump Standards-Version to 3.9.4. No further changes.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 12 May 2013 12:38:50 +0200
 
