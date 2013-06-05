@@ -1,6 +1,10 @@
 gnome-terminal (3.8.0.1-2) UNRELEASED; urgency=low
 
+  [ Emilio Pozuelo Monfort ]
   * Remove obsolete build dependency on scrollkeeper.
+
+  [ Michael Biebl ]
+  * Upload to unstable.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 12 May 2013 12:38:50 +0200
 
