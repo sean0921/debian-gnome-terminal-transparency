@@ -1,3 +1,53 @@
+gnome-terminal (3.8.0.1-2) UNRELEASED; urgency=low
+
+  * Remove obsolete build dependency on scrollkeeper.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 12 May 2013 12:38:50 +0200
+
+gnome-terminal (3.8.0.1-1) experimental; urgency=low
+
+  [ Jeremy Bicha ]
+  * 01_onlyshowin.patch: Show in Unity too 
+
+  [ Emilio Pozuelo Monfort ]
+  * New upstream release.
+    + debian/patches/10_crash_profiles.patch:
+      - Removed, no longer needed.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 01 Apr 2013 13:10:38 +0200
+
+gnome-terminal (3.8.0-1) experimental; urgency=low
+
+  [ Andreas Henriksson ]
+  * New upstream release 3.7.92.
+  * Update build-dependencies according to configure.ac:
+    - added uuid-dev and libdconf-dev (>= 0.12.0)
+    - bumped gtk, glib and vte
+  * debian/gnome-terminal-data.install:
+    - don't try to install non-existing etc and usr/share/gnome-terminal
+  * debian/gnome-terminal.install:
+    - install new helper binaries gnome-terminal-{migration,server}
+    - install gsettings schema
+    - install dbus service for gnome-terminal-server
+
+  [ Emilio Pozuelo Monfort ]
+  * New upstream release 3.8.0.
+    + debian/patches/01_onlyshowin.patch:
+      - Refreshed.
+    + debian/control.in:
+      - Add build dependency on desktop-file-utils.
+      - Bump libdconf-dev build dependency to pick the new soname.
+    + debian/patches/10_crash_profiles.patch:
+      - New patch. Fix a crash when opening the profile editor.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 30 Mar 2013 20:40:18 +0100
+
+gnome-terminal (3.6.1-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 20 Oct 2012 22:56:22 +0200
+
 gnome-terminal (3.4.1.1-2) unstable; urgency=low
 
   * Team upload
