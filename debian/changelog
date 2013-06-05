@@ -1,4 +1,4 @@
-gnome-terminal (3.8.2-1) UNRELEASED; urgency=low
+gnome-terminal (3.8.2-1) unstable; urgency=low
 
   [ Emilio Pozuelo Monfort ]
   * Remove obsolete build dependency on scrollkeeper.
@@ -8,7 +8,7 @@ gnome-terminal (3.8.2-1) UNRELEASED; urgency=low
   * New upstream release.
   * Bump Standards-Version to 3.9.4. No further changes.
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 12 May 2013 12:38:50 +0200
+ -- Michael Biebl <biebl@debian.org>  Wed, 05 Jun 2013 22:23:26 +0200
 
 gnome-terminal (3.8.0.1-1) experimental; urgency=low
 
