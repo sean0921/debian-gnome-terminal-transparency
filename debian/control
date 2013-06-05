@@ -12,6 +12,7 @@ Standards-Version: 3.9.4
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 8),
                gnome-common,
+               autotools-dev,
                intltool (>= 0.40.0),
                libx11-dev,
                libdconf-dev (>= 0.14.0),
