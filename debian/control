@@ -7,7 +7,7 @@ Source: gnome-terminal
 Section: gnome
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Emilio Pozuelo Monfort <pochu@debian.org>, Frederic Peters <fpeters@debian.org>, Josselin Mouette <joss@debian.org>, Michael Biebl <biebl@debian.org>, Sjoerd Simons <sjoerd@debian.org>
+Uploaders: Emilio Pozuelo Monfort <pochu@debian.org>, Josselin Mouette <joss@debian.org>, Michael Biebl <biebl@debian.org>, Sjoerd Simons <sjoerd@debian.org>
 Standards-Version: 3.9.3
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 8),
@@ -41,7 +41,8 @@ Depends: ${shlibs:Depends},
 Replaces: gnome-terminal-data (<< 2.26.2-3)
 Provides: x-terminal-emulator
 Recommends: yelp,
-            gvfs
+            gvfs,
+            dbus-x11
 Description: GNOME terminal emulator application
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:
