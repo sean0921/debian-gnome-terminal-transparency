@@ -1,0 +1,41 @@
+Author: Emilio Pozuelo Monfort <pochu@debian.org>
+Author: Petr Salinger <Petr.Salinger@seznam.cz>
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=711529
+Description: Fix build on kfreebsd
+
+kfreebsd doesn't have F_DUPFD_CLOEXEC, so use it conditionally.
+As mentioned in the bug report, it will have support for it in
+jessie, so we can drop it in jessie+1.
+
+--- a/src/terminal-screen.c
++++ b/src/terminal-screen.c
+@@ -190,6 +190,20 @@
+ static TerminalURLFlavour *url_regex_flavors;
+ static guint n_url_regexes;
+ 
++#ifdef F_DUPFD_CLOEXEC
++static inline int dup_cloexec(int fd, int hint)
++{
++  return fcntl (fd, F_DUPFD_CLOEXEC, hint);
++}
++#else
++static inline int dup_cloexec(int fd, int hint)
++{
++  if ((fd = fcntl (fd, F_DUPFD, hint)) == -1)
++    return -1;
++  return fcntl (fd, F_SETFD, FD_CLOEXEC);
++}
++#endif
++
+ /* See bug #697024 */
+ #ifndef __linux__
+ 
+@@ -1335,7 +1349,7 @@
+       for (j = 0; j < n_fds; j++) {
+         if (fds[j] == target_fd) {
+           do {
+-            fd = fcntl (fds[j], F_DUPFD_CLOEXEC, 10);
++            fd = dup_cloexec(fds[j], 10);
+           } while (fd == -1 && errno == EINTR);
+           if (fd == -1)
+             _exit (127);

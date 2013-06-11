@@ -3,6 +3,10 @@ gnome-terminal (3.8.3-1) UNRELEASED; urgency=low
   * New upstream release.
   * debian/control.in:
     + Update build dependencies.
+  * debian/patches/10_kfreebsd-f_dupfd_cloexec.patch:
+    + New patch, don't use F_DUPFD_CLOEXEC if it's not defined (e.g.
+      on kFreeBSD). Thanks Petr Salinger for the initial patch.
+      Closes: #711529.
 
  -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 11 Jun 2013 21:04:18 +0200
 

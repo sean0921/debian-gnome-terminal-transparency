@@ -1,1 +1,2 @@
 01_onlyshowin.patch
+10_kfreebsd-f_dupfd_cloexec.patch
