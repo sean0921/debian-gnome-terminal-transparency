@@ -1,4 +1,4 @@
-gnome-terminal (3.8.3-1) UNRELEASED; urgency=low
+gnome-terminal (3.8.3-1) unstable; urgency=low
 
   * New upstream release.
   * debian/control.in:
@@ -8,7 +8,7 @@ gnome-terminal (3.8.3-1) UNRELEASED; urgency=low
       on kFreeBSD). Thanks Petr Salinger for the initial patch.
       Closes: #711529.
 
- -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 11 Jun 2013 21:04:18 +0200
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 11 Jun 2013 22:02:43 +0200
 
 gnome-terminal (3.8.2-1) unstable; urgency=low
 
