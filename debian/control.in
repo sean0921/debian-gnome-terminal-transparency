@@ -1,20 +1,21 @@
 Source: gnome-terminal
 Section: gnome
 Priority: optional
-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: @GNOME_TEAM@
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 8),
                gnome-common,
+               autotools-dev,
                intltool (>= 0.40.0),
                libx11-dev,
                libdconf-dev (>= 0.14.0),
                libgtk-3-dev (>= 3.6.0),
                libgtk2.0-dev,
                libglib2.0-dev (>= 2.33.2),
-               libvte-2.90-dev (>= 1:0.34.0),
-               scrollkeeper,
+               libvte-2.90-dev (>= 1:0.34.6),
                libsm-dev,
                gnome-pkg-tools (>= 0.10),
                docbook-to-man,
@@ -37,7 +38,8 @@ Depends: ${shlibs:Depends},
 Replaces: gnome-terminal-data (<< 2.26.2-3)
 Provides: x-terminal-emulator
 Recommends: yelp,
-            gvfs
+            gvfs,
+            dbus-x11
 Description: GNOME terminal emulator application
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:
