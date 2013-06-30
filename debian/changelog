@@ -3,6 +3,8 @@ gnome-terminal (3.8.3-2) UNRELEASED; urgency=low
   * debian/rules:
     - Build with --enable-distro-packaging to not override
       environment variables
+  * debian/patches/git-add-quit.patch:
+    - Backport patch to add Quit to app menu
 
  -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 29 Jun 2013 23:24:18 -0400
 
