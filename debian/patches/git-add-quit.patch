@@ -1,0 +1,105 @@
+From b56dfe662b0cd86d37d6c5c1964129a37332510c Mon Sep 17 00:00:00 2001
+From: Christian Persch <chpe@gnome.org>
+Date: Thu, 20 Jun 2013 20:17:45 +0000
+Subject: appmenu: Add Quit item
+
+https://bugzilla.gnome.org/show_bug.cgi?id=690910
+---
+diff --git a/src/terminal-app.c b/src/terminal-app.c
+index 7ad5d14..6d6fbe9 100644
+--- a/src/terminal-app.c
++++ b/src/terminal-app.c
+@@ -282,6 +282,21 @@ app_menu_about_cb (GSimpleAction *action,
+   terminal_util_show_about (gtk_application_get_active_window (application));
+ }
+ 
++static void
++app_menu_quit_cb (GSimpleAction *action,
++                  GVariant      *parameter,
++                  gpointer       user_data)
++{
++  GtkApplication *application = user_data;
++  GtkWindow *window;
++
++  window = gtk_application_get_active_window (application);
++  if (TERMINAL_IS_WINDOW (window))
++    terminal_window_request_close (TERMINAL_WINDOW (window));
++  else /* a dialogue */
++    gtk_widget_destroy (GTK_WIDGET (window));
++}
++
+ /* Class implementation */
+ 
+ G_DEFINE_TYPE (TerminalApp, terminal_app, GTK_TYPE_APPLICATION)
+@@ -300,7 +315,8 @@ terminal_app_startup (GApplication *application)
+   const GActionEntry app_menu_actions[] = {
+     { "preferences", app_menu_preferences_cb,   NULL, NULL, NULL },
+     { "help",        app_menu_help_cb,          NULL, NULL, NULL },
+-    { "about",       app_menu_about_cb,         NULL, NULL, NULL }
++    { "about",       app_menu_about_cb,         NULL, NULL, NULL },
++    { "quit",        app_menu_quit_cb,          NULL, NULL, NULL }
+   };
+ 
+   GtkBuilder *builder;
+diff --git a/src/terminal-appmenu.ui b/src/terminal-appmenu.ui
+index 36b7e0b..0c6b86b 100644
+--- a/src/terminal-appmenu.ui
++++ b/src/terminal-appmenu.ui
+@@ -32,6 +32,10 @@
+         <attribute name="label" translatable="yes">_About</attribute>
+         <attribute name="action">app.about</attribute>
+       </item>
++      <item>
++        <attribute name="label" translatable="yes">_Quit</attribute>
++        <attribute name="action">app.quit</attribute>
++      </item>
+     </section>
+   </menu>
+ </interface>
+diff --git a/src/terminal-window.c b/src/terminal-window.c
+index 743cbcb..c863f43 100644
+--- a/src/terminal-window.c
++++ b/src/terminal-window.c
+@@ -2860,10 +2860,7 @@ static void
+ file_close_window_callback (GtkAction *action,
+                             TerminalWindow *window)
+ {
+-  if (confirm_close_window_or_tab (window, NULL))
+-    return;
+-
+-  gtk_widget_destroy (GTK_WIDGET (window));
++  terminal_window_request_close (window);
+ }
+ 
+ #ifdef ENABLE_SAVE
+@@ -3524,3 +3521,14 @@ terminal_window_get_ui_manager (TerminalWindow *window)
+ 
+   return priv->ui_manager;
+ }
++
++void
++terminal_window_request_close (TerminalWindow *window)
++{
++  g_return_if_fail (TERMINAL_IS_WINDOW (window));
++
++  if (confirm_close_window_or_tab (window, NULL))
++    return;
++
++  gtk_widget_destroy (GTK_WIDGET (window));
++}
+diff --git a/src/terminal-window.h b/src/terminal-window.h
+index dd50abb..1f2191d 100644
+--- a/src/terminal-window.h
++++ b/src/terminal-window.h
+@@ -85,6 +85,8 @@ void terminal_window_update_geometry  (TerminalWindow *window);
+ 
+ GtkWidget* terminal_window_get_mdi_container (TerminalWindow *window);
+ 
++void terminal_window_request_close (TerminalWindow *window);
++
+ G_END_DECLS
+ 
+ #endif /* TERMINAL_WINDOW_H */
+--
+cgit v0.9.2
+

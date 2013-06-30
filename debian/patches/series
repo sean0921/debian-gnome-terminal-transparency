@@ -2,3 +2,4 @@
 10_kfreebsd-f_dupfd_cloexec.patch
 50_add_unity_quicklist.patch
 alternate_screen_scroll.patch
+git-add-quit.patch
