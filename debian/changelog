@@ -7,7 +7,7 @@ gnome-terminal (3.8.4-0ubuntu1) UNRELEASED; urgency=low
   * Resynchronise with Debian, remaining changes:
     - debian/patches/50_add_unity_quicklist.patch: Add Unity quicklist menu
       item.
-    - debian/patches/alternate_screen_scroll.patch: Add (rewritten for
+    - debian/patches/51_alternate_screen_scroll.patch: Add (rewritten for
       gsettings, and without UI unless people complain, in which case we'll
       revisit) patch to use VTE's "alternate" scrolling. This allows, for
       example, scrolling with the mouse wheel in pagers such as when viewing
@@ -17,10 +17,12 @@ gnome-terminal (3.8.4-0ubuntu1) UNRELEASED; urgency=low
   * debian/rules:
     - Build with --enable-distro-packaging to not override Ubuntu
       environment variables
+  * debian/patches/52_support_apturl.patch:
+    - Support apt: URIs (LP: #217611)
   * debian/patches/git-add-quit:
     - Backport patch to add Quit to app menu
 
- -- Iain Lane <iain.lane@canonical.com>  Thu, 23 May 2013 13:16:39 +0100
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Mon, 08 Jul 2013 18:25:42 -0400
 
 gnome-terminal (3.8.3-1) unstable; urgency=low
 

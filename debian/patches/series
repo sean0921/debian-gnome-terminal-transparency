@@ -1,5 +1,6 @@
 01_onlyshowin.patch
 10_kfreebsd-f_dupfd_cloexec.patch
 50_add_unity_quicklist.patch
-alternate_screen_scroll.patch
+51_alternate_screen_scroll.patch
+52_support_apturl.patch
 git-add-quit.patch
