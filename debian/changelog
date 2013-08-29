@@ -1,4 +1,4 @@
-gnome-terminal (3.8.4-1) UNRELEASED; urgency=low
+gnome-terminal (3.8.4-1) unstable; urgency=low
 
   [ Jeremy Bicha ]
   * debian/rules:
@@ -10,7 +10,7 @@ gnome-terminal (3.8.4-1) UNRELEASED; urgency=low
   [ Michael Biebl ]
   * New upstream release.
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 29 Jun 2013 23:24:18 -0400
+ -- Michael Biebl <biebl@debian.org>  Thu, 29 Aug 2013 13:16:40 +0200
 
 gnome-terminal (3.8.3-1) unstable; urgency=low
 
