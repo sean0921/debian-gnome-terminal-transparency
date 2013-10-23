@@ -5,10 +5,8 @@ Subject: appmenu: Add Quit item
 
 https://bugzilla.gnome.org/show_bug.cgi?id=690910
 ---
-Index: gnome-terminal-3.8.4/src/terminal-app.c
-===================================================================
---- gnome-terminal-3.8.4.orig/src/terminal-app.c	2013-08-29 13:16:01.929702602 +0200
-+++ gnome-terminal-3.8.4/src/terminal-app.c	2013-08-29 13:16:01.921702500 +0200
+--- a/src/terminal-app.c
++++ b/src/terminal-app.c
 @@ -281,6 +281,21 @@
    terminal_util_show_about (gtk_application_get_active_window (application));
  }
@@ -41,10 +39,8 @@ Index: gnome-terminal-3.8.4/src/terminal-app.c
    };
  
    GtkBuilder *builder;
-Index: gnome-terminal-3.8.4/src/terminal-appmenu.ui
-===================================================================
---- gnome-terminal-3.8.4.orig/src/terminal-appmenu.ui	2013-08-29 13:16:01.929702602 +0200
-+++ gnome-terminal-3.8.4/src/terminal-appmenu.ui	2013-08-29 13:16:01.921702500 +0200
+--- a/src/terminal-appmenu.ui
++++ b/src/terminal-appmenu.ui
 @@ -32,6 +32,10 @@
          <attribute name="label" translatable="yes">_About</attribute>
          <attribute name="action">app.about</attribute>
@@ -56,11 +52,9 @@ Index: gnome-terminal-3.8.4/src/terminal-appmenu.ui
      </section>
    </menu>
  </interface>
-Index: gnome-terminal-3.8.4/src/terminal-window.c
-===================================================================
---- gnome-terminal-3.8.4.orig/src/terminal-window.c	2013-08-29 13:16:01.929702602 +0200
-+++ gnome-terminal-3.8.4/src/terminal-window.c	2013-08-29 13:16:01.925702552 +0200
-@@ -2948,10 +2948,7 @@
+--- a/src/terminal-window.c
++++ b/src/terminal-window.c
+@@ -2933,10 +2933,7 @@
  file_close_window_callback (GtkAction *action,
                              TerminalWindow *window)
  {
@@ -72,7 +66,7 @@ Index: gnome-terminal-3.8.4/src/terminal-window.c
  }
  
  #ifdef ENABLE_SAVE
-@@ -3612,3 +3609,14 @@
+@@ -3597,3 +3594,14 @@
  
    return priv->ui_manager;
  }
@@ -87,10 +81,8 @@ Index: gnome-terminal-3.8.4/src/terminal-window.c
 +
 +  gtk_widget_destroy (GTK_WIDGET (window));
 +}
-Index: gnome-terminal-3.8.4/src/terminal-window.h
-===================================================================
---- gnome-terminal-3.8.4.orig/src/terminal-window.h	2013-08-29 13:16:01.929702602 +0200
-+++ gnome-terminal-3.8.4/src/terminal-window.h	2013-08-29 13:16:01.925702552 +0200
+--- a/src/terminal-window.h
++++ b/src/terminal-window.h
 @@ -87,6 +87,8 @@
  
  GtkWidget* terminal_window_get_mdi_container (TerminalWindow *window);

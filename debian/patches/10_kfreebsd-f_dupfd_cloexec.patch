@@ -30,7 +30,7 @@ jessie, so we can drop it in jessie+1.
  /* See bug #697024 */
  #ifndef __linux__
  
-@@ -1335,7 +1349,7 @@
+@@ -1338,7 +1352,7 @@
        for (j = 0; j < n_fds; j++) {
          if (fds[j] == target_fd) {
            do {

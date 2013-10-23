@@ -1,3 +1,11 @@
+gnome-terminal (3.10.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump build-dependency on vt3 to >= 1:0.34.8.
+  * Refresh patches.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Wed, 23 Oct 2013 18:31:39 +0200
+
 gnome-terminal (3.8.4-1) unstable; urgency=low
 
   [ Jeremy Bicha ]
