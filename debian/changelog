@@ -1,3 +1,13 @@
+gnome-terminal (3.10.1-2) UNRELEASED; urgency=medium
+
+  * Team upload.
+  * debian/README.Debian: Document how to make new tabs opened within
+    Gnome Terminal have the same working directory as the current tab
+    (see #706065). Taken from the vte3 package, where this was already
+    documented but apparently not easily found.
+
+ -- Fabian Greffrath <fabian+debian@greffrath.com>  Tue, 21 Jan 2014 10:02:58 +0100
+
 gnome-terminal (3.10.1-1) unstable; urgency=low
 
   * New upstream release.
