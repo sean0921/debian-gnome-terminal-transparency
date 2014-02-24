@@ -20,6 +20,8 @@ gnome-terminal (3.11.3-1) experimental; urgency=medium
   * Add new patch debian/patches/nautilus-x11.patch
     - build fails because of -Wl,-z,defs missing -lX11 in nautilus extension
   * Include autoreconf.mk cdbs snippet and build-depend on dh-autoreconf
+  * Install new files in gnome-terminal
+    - nautilus extension and gnome-shell search provider ini
 
  -- Andreas Henriksson <andreas@fatal.se>  Mon, 24 Feb 2014 20:43:28 +0100
 
