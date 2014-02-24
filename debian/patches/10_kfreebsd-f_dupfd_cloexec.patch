@@ -9,7 +9,7 @@ jessie, so we can drop it in jessie+1.
 
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -190,6 +190,20 @@
+@@ -187,6 +187,20 @@
  static TerminalURLFlavour *url_regex_flavors;
  static guint n_url_regexes;
  
@@ -30,12 +30,12 @@ jessie, so we can drop it in jessie+1.
  /* See bug #697024 */
  #ifndef __linux__
  
-@@ -1338,7 +1352,7 @@
+@@ -1243,7 +1257,7 @@
        for (j = 0; j < n_fds; j++) {
          if (fds[j] == target_fd) {
            do {
--            fd = fcntl (fds[j], F_DUPFD_CLOEXEC, 10);
-+            fd = dup_cloexec(fds[j], 10);
+-            fd = fcntl (fds[j], F_DUPFD_CLOEXEC, 3);
++            fd = dup_cloexec(fds[j], 3);
            } while (fd == -1 && errno == EINTR);
            if (fd == -1)
              _exit (127);
