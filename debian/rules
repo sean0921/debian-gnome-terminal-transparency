@@ -10,6 +10,8 @@ include /usr/share/gnome-pkg-tools/1/rules/gnome-version.mk
 
 LDFLAGS += -Wl,-z,defs -Wl,-O1 -Wl,--as-needed
 
+DEB_CONFIGURE_EXTRA_FLAGS += --enable-distro-packaging
+
 build/gnome-terminal::
 	/usr/bin/docbook-to-man debian/gnome-terminal.sgml > debian/gnome-terminal.1
 
