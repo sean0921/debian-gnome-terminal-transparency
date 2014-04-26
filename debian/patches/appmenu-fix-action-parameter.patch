@@ -1,0 +1,23 @@
+From c79f71feaf525f5e7236934a94268f836e1af862 Mon Sep 17 00:00:00 2001
+From: Christian Persch <chpe@gnome.org>
+Date: Mon, 24 Mar 2014 14:16:22 +0000
+Subject: appmenu: Fix action parameter
+
+https://bugzilla.gnome.org/show_bug.cgi?id=726942
+(cherry picked from commit d58bc01a2e891e31e11f03eb0d6ae9b5ff260b2b)
+---
+diff --git a/src/terminal-appmenu.ui b/src/terminal-appmenu.ui
+index 148c640..01ff5a8 100644
+--- a/src/terminal-appmenu.ui
++++ b/src/terminal-appmenu.ui
+@@ -21,7 +21,7 @@
+       <item>
+         <attribute name="label" translatable="yes">_New Terminal</attribute>
+         <attribute name="action">win.new-terminal</attribute>
+-        <attribute name="target">'default'</attribute>
++        <attribute name="target" type="(ss)">('default','default')</attribute>
+       </item>
+     </section>
+     <section>
+--
+cgit v0.9.2
