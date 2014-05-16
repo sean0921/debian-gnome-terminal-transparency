@@ -2,25 +2,27 @@
 # 
 # Modifications should be made to debian/control.in instead.
 # This file is regenerated automatically in the clean target.
-
 Source: gnome-terminal
 Section: gnome
 Priority: optional
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Emilio Pozuelo Monfort <pochu@debian.org>, Josselin Mouette <joss@debian.org>, Michael Biebl <biebl@debian.org>, Sjoerd Simons <sjoerd@debian.org>
+Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Emilio Pozuelo Monfort <pochu@debian.org>, Josselin Mouette <joss@debian.org>, Michael Biebl <biebl@debian.org>, Sjoerd Simons <sjoerd@debian.org>
 Standards-Version: 3.9.4
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 8),
+               dh-autoreconf,
+               appdata-tools,
                gnome-common,
                autotools-dev,
-               intltool (>= 0.40.0),
+               intltool (>= 0.00.0),
+               libnautilus-extension-dev,
                libx11-dev,
                libdconf-dev (>= 0.14.0),
                libgtk-3-dev (>= 3.6.0),
                libgtk2.0-dev,
-               libglib2.0-dev (>= 2.33.2),
-               libvte-2.90-dev (>= 1:0.34.6),
+               libglib2.0-dev (>= 2.39.2),
+               libvte-2.90-dev (>= 1:0.34.0),
                libsm-dev,
                gnome-pkg-tools (>= 0.10),
                docbook-to-man,

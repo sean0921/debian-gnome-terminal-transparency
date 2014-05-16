@@ -1,4 +1,4 @@
-gnome-terminal (3.8.4-0ubuntu1) UNRELEASED; urgency=low
+gnome-terminal (3.12.2-0ubuntu1~ppa1) utopic; urgency=low
 
   [ Iain Lane ]
   * NOT READY YET
@@ -12,6 +12,22 @@ gnome-terminal (3.8.4-0ubuntu1) UNRELEASED; urgency=low
       revisit) patch to use VTE's "alternate" scrolling. This allows, for
       example, scrolling with the mouse wheel in pagers such as when viewing
       man pages.
+  * Disable shell provider, we don't want to build-dep on gnome-shell.
+  * Bump build-dependencies according to configure.ac:
+    - intltool 0.50.0
+    - vte 0.36.0
+    - glib 2.39.2
+  * Make debian/patches/10_kfreebsd-f_dupfd_cloexec.patch apply again.
+  * Drop debian/patches/git-add-quit.patch, now included in upstream release.
+  * Add build-dependency on libnautilus-extension-dev
+  * Add new patch debian/patches/nautilus-x11.patch
+    - build fails because of -Wl,-z,defs missing -lX11 in nautilus extension
+  * Include autoreconf.mk cdbs snippet and build-depend on dh-autoreconf
+  * Install new files in gnome-terminal
+    - nautilus extension
+  * debian/patches/0001-Restore-transparency.patch: Patch from Debarishi Ray
+    to re-add support for transparent terminals. Updated to support loading a
+    transparency value from the theme, if it provides one.
 
   [ Jeremy Bicha ]
   * debian/rules:
@@ -22,7 +38,7 @@ gnome-terminal (3.8.4-0ubuntu1) UNRELEASED; urgency=low
   * debian/patches/git-add-quit:
     - Backport patch to add Quit to app menu
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Mon, 08 Jul 2013 18:25:42 -0400
+ -- Iain Lane <iain.lane@canonical.com>  Fri, 16 May 2014 12:52:43 +0100
 
 gnome-terminal (3.8.3-1) unstable; urgency=low
 

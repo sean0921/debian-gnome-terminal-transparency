@@ -1,9 +1,11 @@
 Only show gnome-terminal in GNOME menus
 
+Index: b/gnome-terminal.desktop.in.in
+===================================================================
 --- a/gnome-terminal.desktop.in.in
 +++ b/gnome-terminal.desktop.in.in
 @@ -13,3 +13,4 @@
  X-GNOME-Bugzilla-Version=@VERSION@
- Categories=GNOME;GTK;Utility;System;TerminalEmulator;
+ Categories=GNOME;GTK;System;TerminalEmulator;
  StartupNotify=true
 +OnlyShowIn=GNOME;Unity;

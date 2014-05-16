@@ -7,7 +7,7 @@ Index: b/gnome-terminal.desktop.in.in
 --- a/gnome-terminal.desktop.in.in
 +++ b/gnome-terminal.desktop.in.in
 @@ -14,3 +14,9 @@
- Categories=GNOME;GTK;Utility;System;TerminalEmulator;
+ Categories=GNOME;GTK;System;TerminalEmulator;
  StartupNotify=true
  OnlyShowIn=GNOME;Unity;
 +Actions=New
