@@ -1,4 +1,3 @@
 nautilus-x11.patch
 01_onlyshowin.patch
 10_kfreebsd-f_dupfd_cloexec.patch
-appmenu-fix-action-parameter.patch
