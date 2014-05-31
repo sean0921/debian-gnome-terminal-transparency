@@ -1,3 +1,12 @@
+gnome-terminal (3.12.2-2) unstable; urgency=medium
+
+  The "Why?" release.
+
+  * Make gnome-shell build-dependency linux-any (Closes: #749888)
+  * Only install gnome-shell search provider ini file on linux.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sat, 31 May 2014 19:05:33 +0200
+
 gnome-terminal (3.12.2-1) unstable; urgency=medium
 
   * New upstream release.

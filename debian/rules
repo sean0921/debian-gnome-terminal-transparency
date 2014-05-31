@@ -19,3 +19,8 @@ build/gnome-terminal::
 clean::
 	rm -f debian/gnome-terminal.1
 
+install/gnome-terminal::
+ifeq ($(DEB_HOST_ARCH_OS),linux)
+	dh_install -pgnome-terminal debian/tmp/usr/share/gnome-shell/search-providers/gnome-terminal-search-provider.ini
+endif
+
