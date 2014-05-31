@@ -1,3 +1,10 @@
+gnome-terminal (3.12.2-3) unstable; urgency=medium
+
+  * Explicitly disable search provider on non-linux.
+    Thanks to Pino Toscano.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sat, 31 May 2014 19:54:59 +0200
+
 gnome-terminal (3.12.2-2) unstable; urgency=medium
 
   The "Why?" release.
