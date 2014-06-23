@@ -8,7 +8,7 @@ Section: gnome
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: Andreas Henriksson <andreas@fatal.se>, Emilio Pozuelo Monfort <pochu@debian.org>, Michael Biebl <biebl@debian.org>
-Standards-Version: 3.9.4
+Standards-Version: 3.9.5
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 8),
                dh-autoreconf,
@@ -20,7 +20,7 @@ Build-Depends: cdbs (>= 0.4.41),
                libgtk-3-dev (>= 3.6.0),
                libgtk2.0-dev,
                libglib2.0-dev (>= 2.39.2),
-               libvte-2.90-dev (>= 1:0.36.1),
+               libvte-2.90-dev (>= 1:0.36.3),
                libsm-dev,
                gnome-pkg-tools (>= 0.10),
                docbook-to-man,
