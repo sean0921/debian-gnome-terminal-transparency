@@ -1,11 +1,11 @@
-gnome-terminal (3.12.3-1) UNRELEASED; urgency=medium
+gnome-terminal (3.12.3-1) unstable; urgency=medium
 
   * New upstream release.
   * Bump libvte-2.90-dev build-dependency to >= 1:0.36.3
     - as required by configure.ac
   * Bump Standards-Version to 3.9.5
 
- -- Andreas Henriksson <andreas@fatal.se>  Mon, 23 Jun 2014 20:26:12 +0200
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 23 Jun 2014 20:47:43 +0200
 
 gnome-terminal (3.12.2-3) unstable; urgency=medium
 
