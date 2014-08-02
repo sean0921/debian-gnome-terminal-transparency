@@ -1,3 +1,4 @@
 nautilus-x11.patch
 01_onlyshowin.patch
 10_kfreebsd-f_dupfd_cloexec.patch
+Don-t-allow-the-theme-to-set-black-on-black.patch

@@ -17,6 +17,10 @@ ifneq ($(DEB_HOST_ARCH_OS),linux)
     DEB_CONFIGURE_EXTRA_FLAGS += --disable-search-provider
 endif
 
+# this is a plugin (loadable module), not version "nautilus" of libterminal
+# https://bugs.debian.org/204975
+DEB_DH_MAKESHLIBS_ARGS_ALL = -X/usr/lib/nautilus/extensions-3.0/libterminal-nautilus.so
+
 build/gnome-terminal::
 	/usr/bin/docbook-to-man debian/gnome-terminal.sgml > debian/gnome-terminal.1
 

@@ -1,3 +1,16 @@
+gnome-terminal (3.12.3-2) unstable; urgency=medium
+
+  * Team upload.
+  * When we ask the system theme how to draw a TerminalScreen widget,
+    if it answers "black text on a black background" (like the built-in
+    fallback theme in Gtk < 3.14, "Raleigh"), instead draw black text on
+    a white background like the GNOME default theme "Adwaita" does.
+    (Closes: #683744)
+  * Tell dh_makeshlibs that the libterminal-nautilus.so plugin is not
+    a shared library (workaround for #204975)
+
+ -- Simon McVittie <smcv@debian.org>  Sat, 02 Aug 2014 17:33:44 +0100
+
 gnome-terminal (3.12.3-1) unstable; urgency=medium
 
   * New upstream release.
