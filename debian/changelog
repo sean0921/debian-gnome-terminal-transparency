@@ -1,3 +1,10 @@
+gnome-terminal (3.12.3-3) UNRELEASED; urgency=medium
+
+  * Be Multi-Arch: foreign so gnome-terminal:amd64 can satisfy
+    a dependency from, e.g., steam:i386 (Closes: #698957)
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 04 Aug 2014 11:14:22 +0100
+
 gnome-terminal (3.12.3-2) unstable; urgency=medium
 
   * Team upload.
