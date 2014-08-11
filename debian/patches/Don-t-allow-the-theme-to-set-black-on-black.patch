@@ -17,8 +17,8 @@ This affects users who meet all of these conditions:
 * have left the "Use colors from system theme" preference enabled,
   as it is by default
 
+Bug: https://bugzilla.gnome.org/show_bug.cgi?id=734601
 Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=683744
-Forwarded: not-needed, Adwaita will be the built-in default theme in Gtk 3.14
 ---
  src/terminal-screen.c | 11 +++++++++++
  1 file changed, 11 insertions(+)
