@@ -1,3 +1,64 @@
+gnome-terminal (3.12.3-3) UNRELEASED; urgency=medium
+
+  * Be Multi-Arch: foreign so gnome-terminal:amd64 can satisfy
+    a dependency from, e.g., steam:i386 (Closes: #698957)
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 04 Aug 2014 11:14:22 +0100
+
+gnome-terminal (3.12.3-2) unstable; urgency=medium
+
+  * Team upload.
+  * When we ask the system theme how to draw a TerminalScreen widget,
+    if it answers "black text on a black background" (like the built-in
+    fallback theme in Gtk < 3.14, "Raleigh"), instead draw black text on
+    a white background like the GNOME default theme "Adwaita" does.
+    (Closes: #683744)
+  * Tell dh_makeshlibs that the libterminal-nautilus.so plugin is not
+    a shared library (workaround for #204975)
+
+ -- Simon McVittie <smcv@debian.org>  Sat, 02 Aug 2014 17:33:44 +0100
+
+gnome-terminal (3.12.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump libvte-2.90-dev build-dependency to >= 1:0.36.3
+    - as required by configure.ac
+  * Bump Standards-Version to 3.9.5
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 23 Jun 2014 20:47:43 +0200
+
+gnome-terminal (3.12.2-3) unstable; urgency=medium
+
+  * Explicitly disable search provider on non-linux.
+    Thanks to Pino Toscano.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sat, 31 May 2014 19:54:59 +0200
+
+gnome-terminal (3.12.2-2) unstable; urgency=medium
+
+  The "Why?" release.
+
+  * Make gnome-shell build-dependency linux-any (Closes: #749888)
+  * Only install gnome-shell search provider ini file on linux.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sat, 31 May 2014 19:05:33 +0200
+
+gnome-terminal (3.12.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump build-dependencies according to configure.ac changes:
+    - libvte-2.90-dev >= 1:0.36.1
+  * Drop debian/patches/appmenu-fix-action-parameter.patch
+    - now included in upstream release.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sun, 18 May 2014 22:27:40 +0200
+
+gnome-terminal (3.12.0-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 26 Apr 2014 10:30:29 +0200
+
 gnome-terminal (3.12.0-1) experimental; urgency=medium
 
   * New upstream release.

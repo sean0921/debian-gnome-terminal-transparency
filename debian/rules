@@ -13,9 +13,22 @@ LDFLAGS += -Wl,-z,defs -Wl,-O1 -Wl,--as-needed
 
 DEB_CONFIGURE_EXTRA_FLAGS += --enable-distro-packaging
 
+ifneq ($(DEB_HOST_ARCH_OS),linux)
+    DEB_CONFIGURE_EXTRA_FLAGS += --disable-search-provider
+endif
+
+# this is a plugin (loadable module), not version "nautilus" of libterminal
+# https://bugs.debian.org/204975
+DEB_DH_MAKESHLIBS_ARGS_ALL = -X/usr/lib/nautilus/extensions-3.0/libterminal-nautilus.so
+
 build/gnome-terminal::
 	/usr/bin/docbook-to-man debian/gnome-terminal.sgml > debian/gnome-terminal.1
 
 clean::
 	rm -f debian/gnome-terminal.1
+
+install/gnome-terminal::
+ifeq ($(DEB_HOST_ARCH_OS),linux)
+	dh_install -pgnome-terminal debian/tmp/usr/share/gnome-shell/search-providers/gnome-terminal-search-provider.ini
+endif
 
