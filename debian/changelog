@@ -1,4 +1,4 @@
-gnome-terminal (3.13.90-1) UNRELEASED; urgency=medium
+gnome-terminal (3.13.90-1) experimental; urgency=medium
 
   [ Simon McVittie ]
   * Be Multi-Arch: foreign so gnome-terminal:amd64 can satisfy
@@ -7,7 +7,7 @@ gnome-terminal (3.13.90-1) UNRELEASED; urgency=medium
   [ Sjoerd Simons ]
   * New upstream release
 
- -- Sjoerd Simons <sjoerd@debian.org>  Sat, 06 Sep 2014 12:51:16 +0200
+ -- Sjoerd Simons <sjoerd@debian.org>  Thu, 11 Sep 2014 21:00:46 +0200
 
 gnome-terminal (3.12.3-2) unstable; urgency=medium
 
