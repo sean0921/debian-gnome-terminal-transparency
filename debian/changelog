@@ -6,6 +6,7 @@ gnome-terminal (3.13.90-1) experimental; urgency=medium
 
   [ Sjoerd Simons ]
   * New upstream release
+  * Add valac (>= 0.24) to b-d
 
  -- Sjoerd Simons <sjoerd@debian.org>  Thu, 11 Sep 2014 21:00:46 +0200
 
