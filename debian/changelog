@@ -1,9 +1,27 @@
-gnome-terminal (3.12.3-3) UNRELEASED; urgency=medium
+gnome-terminal (3.14.0-1) unstable; urgency=medium
 
+  * New upstream release.
+  * Bump build-depencencies according to configure.ac changes:
+    + libgtk-3-dev (>= 3.10.0),
+    + libvte-2.91-dev (>= 0.38.0),
+  * Drop libgtk2.0-dev build-dependency.
+  * Make debian/patches/01_onlyshowin.patch apply again.
+  * Have quilt refresh remaining patches.
+  * Upload to unstable.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sat, 27 Sep 2014 01:16:35 +0200
+
+gnome-terminal (3.13.90-1) experimental; urgency=medium
+
+  [ Simon McVittie ]
   * Be Multi-Arch: foreign so gnome-terminal:amd64 can satisfy
     a dependency from, e.g., steam:i386 (Closes: #698957)
 
- -- Simon McVittie <smcv@debian.org>  Mon, 04 Aug 2014 11:14:22 +0100
+  [ Sjoerd Simons ]
+  * New upstream release
+  * Add valac (>= 0.24) to b-d
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Thu, 11 Sep 2014 21:00:46 +0200
 
 gnome-terminal (3.12.3-2) unstable; urgency=medium
 
