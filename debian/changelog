@@ -18,7 +18,6 @@ gnome-terminal (3.12.2-0ubuntu1) UNRELEASED; urgency=low
     - vte 0.36.0
     - glib 2.39.2
   * Make debian/patches/10_kfreebsd-f_dupfd_cloexec.patch apply again.
-  * Drop debian/patches/git-add-quit.patch, now included in upstream release.
   * Add build-dependency on libnautilus-extension-dev
   * Add new patch debian/patches/nautilus-x11.patch
     - build fails because of -Wl,-z,defs missing -lX11 in nautilus extension
@@ -35,8 +34,6 @@ gnome-terminal (3.12.2-0ubuntu1) UNRELEASED; urgency=low
       environment variables
   * debian/patches/52_support_apturl.patch:
     - Support apt: URIs (LP: #217611)
-  * debian/patches/git-add-quit:
-    - Backport patch to add Quit to app menu
 
  -- Iain Lane <iain.lane@canonical.com>  Fri, 16 May 2014 12:52:43 +0100
 
