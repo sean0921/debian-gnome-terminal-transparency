@@ -1,9 +1,6 @@
 gnome-terminal (3.12.2-0ubuntu1) UNRELEASED; urgency=low
 
   [ Iain Lane ]
-  * NOT READY YET
-    - Staying in the same directory on new tab doesn't work yet, needs shell
-      level work - that's https://bugzilla.gnome.org/show_bug.cgi?id=697475
   * Drop 03_add_keywords.desktop: Not useful any more.
   * Drop 20_add_alt_screen_toggle_ui.patch: Too much effort to maintain, not
     deemed important enough to keep.
@@ -39,6 +36,10 @@ gnome-terminal (3.12.2-0ubuntu1) UNRELEASED; urgency=low
       environment variables
   * debian/patches/52_support_apturl.patch:
     - Support apt: URIs (LP: #217611)
+
+  [ Martin Pitt ]
+  * Add 61_cwd_fallback.patch: Provide fallback for reading current directory
+    if OSC 7 fails. (LP: #1132700)
 
  -- Iain Lane <iain.lane@canonical.com>  Fri, 16 May 2014 12:52:43 +0100
 

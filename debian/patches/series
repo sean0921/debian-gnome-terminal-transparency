@@ -6,3 +6,4 @@
 52_support_apturl.patch
 60_add_lp_handler.patch
 nautilus-x11.patch
+61_cwd_fallback.patch
