@@ -4,6 +4,7 @@ gnome-terminal (3.12.2-0ubuntu1) UNRELEASED; urgency=low
   * NOT READY YET
     - Staying in the same directory on new tab doesn't work yet, needs shell
       level work - that's https://bugzilla.gnome.org/show_bug.cgi?id=697475
+  * Drop 03_add_keywords.desktop: Not useful any more.
   * Resynchronise with Debian, remaining changes:
     - debian/patches/50_add_unity_quicklist.patch: Add Unity quicklist menu
       item.
