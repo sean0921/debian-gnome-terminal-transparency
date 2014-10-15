@@ -15,6 +15,8 @@ gnome-terminal (3.12.2-0ubuntu1) UNRELEASED; urgency=low
       revisit) patch to use VTE's "alternate" scrolling. This allows, for
       example, scrolling with the mouse wheel in pagers such as when viewing
       man pages.
+    - debian/patches/60_add_lp_handler.patch: Add a handler for launchpad bug
+      URLs.
   * Disable shell provider, we don't want to build-dep on gnome-shell.
   * Bump build-dependencies according to configure.ac:
     - intltool 0.50.0

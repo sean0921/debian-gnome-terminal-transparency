@@ -1,0 +1,114 @@
+Description: add a handler for launchpad bug URLs.
+Author: Marc Deslauriers <marc.deslauriers@canonical.com>
+Forwarded: yes, https://bugzilla.gnome.org/show_bug.cgi?id=709087
+Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1232589
+
+Index: gnome-terminal/src/terminal-screen.c
+===================================================================
+--- gnome-terminal.orig/src/terminal-screen.c
++++ gnome-terminal/src/terminal-screen.c
+@@ -181,6 +181,7 @@ static const TerminalRegexPattern url_re
+   { "(?:callto:|h323:|sip:)" USERCHARS_CLASS "[" USERCHARS ".]*(?:" PORT "/[a-z0-9]+)?\\@" HOST, FLAVOR_VOIP_CALL, G_REGEX_CASELESS  },
+   { "(?:mailto:)?" USERCHARS_CLASS "[" USERCHARS ".]*\\@" HOSTCHARS_CLASS "+\\." HOST, FLAVOR_EMAIL, G_REGEX_CASELESS  },
+   { "(?:news:|man:|info:|apt:)[-[:alnum:]\\Q^_{|}~!\"#$%&'()*+,./;:=?`\\E]+", FLAVOR_AS_IS, G_REGEX_CASELESS  },
++  { "(?:lp: #)[[:digit:]]+", FLAVOR_LP, G_REGEX_CASELESS  },
+ };
+ 
+ static GRegex **url_regexes;
+Index: gnome-terminal/src/terminal-screen.h
+===================================================================
+--- gnome-terminal.orig/src/terminal-screen.h
++++ gnome-terminal/src/terminal-screen.h
+@@ -30,7 +30,8 @@ typedef enum {
+   FLAVOR_AS_IS,
+   FLAVOR_DEFAULT_TO_HTTP,
+   FLAVOR_VOIP_CALL,
+-  FLAVOR_EMAIL
++  FLAVOR_EMAIL,
++  FLAVOR_LP
+ } TerminalURLFlavour;
+ 
+ /* Forward decls */
+Index: gnome-terminal/src/terminal-util.c
+===================================================================
+--- gnome-terminal.orig/src/terminal-util.c
++++ gnome-terminal/src/terminal-util.c
+@@ -289,6 +289,9 @@ terminal_util_open_url (GtkWidget *paren
+     case FLAVOR_AS_IS:
+       uri = g_strdup (orig_url);
+       break;
++    case FLAVOR_LP:
++      uri = terminal_util_get_lp_url (orig_url);
++      break;
+     default:
+       uri = NULL;
+       g_assert_not_reached ();
+@@ -302,6 +305,20 @@ terminal_util_open_url (GtkWidget *paren
+     }
+ }
+ 
++char *
++terminal_util_get_lp_url (const char *orig_url)
++{
++  char *uri;
++  const char *bugnum = orig_url;
++
++  while (*bugnum && ! g_ascii_isdigit (*bugnum))
++      bugnum++;
++
++  uri = g_strdup_printf ("https://bugs.launchpad.net/bugs/%s", bugnum);
++
++  return uri;
++}
++
+ /**
+  * terminal_util_transform_uris_to_quoted_fuse_paths:
+  * @uris:
+Index: gnome-terminal/src/terminal-window.c
+===================================================================
+--- gnome-terminal.orig/src/terminal-window.c
++++ gnome-terminal/src/terminal-window.c
+@@ -2001,7 +2001,18 @@ popup_copy_url_callback (GtkAction *acti
+     return;
+ 
+   clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
+-  gtk_clipboard_set_text (clipboard, info->string, -1);
++
++  if (info->flavour == FLAVOR_LP)
++    {
++      char *uri;
++      uri = terminal_util_get_lp_url (info->string);
++      gtk_clipboard_set_text (clipboard, uri, -1);
++      g_free (uri);
++    }
++  else
++    {
++      gtk_clipboard_set_text (clipboard, info->string, -1);
++    }
+ }
+ 
+ static void
+@@ -2094,7 +2105,9 @@ popup_clipboard_targets_received_cb (Gtk
+ 
+   can_paste = targets != NULL && gtk_targets_include_text (targets, n_targets);
+   can_paste_uris = targets != NULL && gtk_targets_include_uri (targets, n_targets);
+-  show_link = info->string != NULL && (info->flavour == FLAVOR_AS_IS || info->flavour == FLAVOR_DEFAULT_TO_HTTP);
++  show_link = info->string != NULL && (info->flavour == FLAVOR_AS_IS ||
++                                       info->flavour == FLAVOR_DEFAULT_TO_HTTP ||
++                                       info->flavour == FLAVOR_LP);
+   show_email_link = info->string != NULL && info->flavour == FLAVOR_EMAIL;
+   show_call_link = info->string != NULL && info->flavour == FLAVOR_VOIP_CALL;
+ 
+Index: gnome-terminal/src/terminal-util.h
+===================================================================
+--- gnome-terminal.orig/src/terminal-util.h
++++ gnome-terminal/src/terminal-util.h
+@@ -46,6 +46,8 @@ void terminal_util_open_url (GtkWidget *
+                              TerminalURLFlavour flavor,
+                              guint32 user_time);
+ 
++char *terminal_util_get_lp_url (const char *orig_url);
++
+ void terminal_util_transform_uris_to_quoted_fuse_paths (char **uris);
+ 
+ char *terminal_util_concat_uris (char **uris,
