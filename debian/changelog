@@ -7,11 +7,6 @@ gnome-terminal (3.12.2-0ubuntu1) UNRELEASED; urgency=low
   * Resynchronise with Debian, remaining changes:
     - debian/patches/50_add_unity_quicklist.patch: Add Unity quicklist menu
       item.
-    - debian/patches/51_alternate_screen_scroll.patch: Add (rewritten for
-      gsettings, and without UI unless people complain, in which case we'll
-      revisit) patch to use VTE's "alternate" scrolling. This allows, for
-      example, scrolling with the mouse wheel in pagers such as when viewing
-      man pages.
     - debian/patches/60_add_lp_handler.patch: Add a handler for launchpad bug
       URLs.
   * Disable shell provider, we don't want to build-dep on gnome-shell.
