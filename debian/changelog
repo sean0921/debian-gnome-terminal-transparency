@@ -23,7 +23,8 @@ gnome-terminal (3.12.2-0ubuntu1) UNRELEASED; urgency=low
     - nautilus extension
   * debian/patches/0001-Restore-transparency.patch: Patch from Debarishi Ray
     to re-add support for transparent terminals. Updated to support loading a
-    transparency value from the theme, if it provides one.
+    transparency value from the theme, if it provides one and to migrate the
+    settings from GConf.
 
   [ Jeremy Bicha ]
   * debian/rules:
