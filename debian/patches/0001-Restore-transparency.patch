@@ -358,3 +358,38 @@ Index: b/src/terminal-window.c
    uuid_generate (u);
    uuid_unparse (u, uuidstr);
    priv->uuid = g_strdup (uuidstr);
+Index: b/src/migration.c
+===================================================================
+--- a/src/migration.c
++++ b/src/migration.c
+@@ -363,6 +363,8 @@
+ {
+   GSettings *settings;
+   char *child_name, *path;
++  gchar *background_type = NULL, *bg_type_key, *bg_darkness_key;
++  gdouble background_darkness;
+   gs_free char *name;
+   gboolean is_default;
+ 
+@@ -379,6 +381,21 @@
+ 
+   path = gconf_concat_dir_and_key (GCONF_PROFILES_PREFIX, gconf_id);
+ 
++  bg_type_key = gconf_concat_dir_and_key (path, KEY_BACKGROUND_TYPE);
++  background_type = gconf_client_get_string (client, bg_type_key, NULL);
++  g_free (bg_type_key);
++  g_settings_set_boolean (settings, TERMINAL_PROFILE_USE_TRANSPARENT_BACKGROUND,
++                          g_strcmp0(background_type, "transparent") == 0);
++  g_free (background_type);
++
++  bg_darkness_key = gconf_concat_dir_and_key (path, KEY_BACKGROUND_DARKNESS);
++  background_darkness = gconf_client_get_float (client,
++                                                bg_darkness_key, NULL);
++
++  g_free (bg_darkness_key);
++  g_settings_set_int (settings, TERMINAL_PROFILE_BACKGROUND_TRANSPARENCY_PERCENT,
++                      (int) (background_darkness * 100));
++
+   migrate_string (client, path, KEY_VISIBLE_NAME,
+                   settings, TERMINAL_PROFILE_VISIBLE_NAME_KEY);
+ 
