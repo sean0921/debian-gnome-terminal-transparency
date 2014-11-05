@@ -1,6 +1,11 @@
 gnome-terminal (3.12.2-0ubuntu1) UNRELEASED; urgency=low
 
   [ Iain Lane ]
+  * NOTE: This version changes behaviour around the "Switch to tab" keyboard
+    shortcuts. They are now active all the time, whereas previously they were
+    only active when you had a corresponding number of tabs open. If you need
+    to send these keys to your terminal, clear the shortcuts in the
+    preferences dialog.
   * Drop 03_add_keywords.desktop: Not useful any more.
   * Drop 20_add_alt_screen_toggle_ui.patch: Too much effort to maintain, not
     deemed important enough to keep.
