@@ -1,4 +1,4 @@
-gnome-terminal (3.12.2-0ubuntu1) UNRELEASED; urgency=low
+gnome-terminal (3.12.2-0ubuntu1) vivid; urgency=low
 
   [ Iain Lane ]
   * NOTE: This version changes behaviour around the "Switch to tab" keyboard
@@ -42,7 +42,7 @@ gnome-terminal (3.12.2-0ubuntu1) UNRELEASED; urgency=low
   * Add 61_cwd_fallback.patch: Provide fallback for reading current directory
     if OSC 7 fails. (LP: #1132700)
 
- -- Iain Lane <iain.lane@canonical.com>  Fri, 16 May 2014 12:52:43 +0100
+ -- Iain Lane <iain.lane@canonical.com>  Wed, 05 Nov 2014 15:55:30 +0000
 
 gnome-terminal (3.8.3-1) unstable; urgency=low
 
