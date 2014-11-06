@@ -1,3 +1,9 @@
+gnome-terminal (3.12.3-0ubuntu1) vivid; urgency=medium
+
+  * New upstream release 3.12.3.
+
+ -- Iain Lane <iain.lane@canonical.com>  Thu, 06 Nov 2014 10:33:32 +0000
+
 gnome-terminal (3.12.2-0ubuntu1) vivid; urgency=low
 
   [ Iain Lane ]
