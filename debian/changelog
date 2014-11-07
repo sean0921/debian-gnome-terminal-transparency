@@ -1,3 +1,12 @@
+gnome-terminal (3.12.2-0ubuntu2) UNRELEASED; urgency=medium
+
+  * Add gnome-shell_search_provider.patch: provide a local copy of the dbus
+    interface so can build shell search provider without depending on
+    gnome-shell which is in universe
+  * gnome-terminal-data.install: Install search provider
+
+ -- Tim Lunn <tim@feathertop.org>  Sat, 08 Nov 2014 07:53:55 +1100
+
 gnome-terminal (3.12.2-0ubuntu1) vivid; urgency=low
 
   [ Iain Lane ]
