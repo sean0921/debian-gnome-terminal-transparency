@@ -1,5 +1,6 @@
 gnome-terminal (3.14.1-1ubuntu1) UNRELEASED; urgency=medium
 
+  [ Iain Lane ]
   * Merge with Debian, remaining changes:
     - debian/patches/50_add_unity_quicklist.patch: Add Unity quicklist menu
       item.
@@ -15,6 +16,12 @@ gnome-terminal (3.14.1-1ubuntu1) UNRELEASED; urgency=medium
     Make sure the window always draws a background, even when transparency is
     on.
   * Disable shell provider, we don't want to build-dep on gnome-shell.
+
+  [ Tim Lunn ]
+  * Add gnome-shell_search_provider.patch: provide a local copy of the dbus
+    interface so can build shell search provider without depending on
+    gnome-shell which is in universe (LP: #1390224)
+  * gnome-terminal-data.install: Install search provider
 
  -- Iain Lane <iain.lane@canonical.com>  Tue, 11 Nov 2014 10:18:30 +0000
 

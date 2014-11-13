@@ -8,3 +8,4 @@ Don-t-allow-the-theme-to-set-black-on-black.patch
 61_cwd_fallback.patch
 0001-Restore-transparency.patch
 0001-window-Make-the-drawing-robust-across-all-themes.patch
+gnome-shell_search_provider.patch
