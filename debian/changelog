@@ -1,8 +1,107 @@
+gnome-terminal (3.14.1-1ubuntu1) UNRELEASED; urgency=medium
+
+  * Merge with Debian, remaining changes:
+    - debian/patches/50_add_unity_quicklist.patch: Add Unity quicklist menu
+      item.
+    - debian/patches/52_support_apturl.patch: Support apt: urls.
+    - debian/patches/60_add_lp_handler.patch: Add a handler for launchpad bug
+      URLs.
+    - debian/patches/0001-Restore-transparency.patch: Restore transparency
+      support, dropped upstream. Patch from Debarishi Ray, modified by Iain
+      Lane to support a 'theme' default value.
+    - Add 61_cwd_fallback.patch: Provide fallback for reading current
+      directory if OSC 7 fails.
+  * debian/patches/0001-window-Make-the-drawing-robust-across-all-themes.patch:
+    Make sure the window always draws a background, even when transparency is
+    on.
+  * Disable shell provider, we don't want to build-dep on gnome-shell.
+
+ -- Iain Lane <iain.lane@canonical.com>  Tue, 11 Nov 2014 10:18:30 +0000
+
+gnome-terminal (3.14.1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Pedro Beja <althaser@gmail.com>  Fri, 17 Oct 2014 16:47:35 +0100
+
+gnome-terminal (3.14.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump build-depencencies according to configure.ac changes:
+    + libgtk-3-dev (>= 3.10.0),
+    + libvte-2.91-dev (>= 0.38.0),
+  * Drop libgtk2.0-dev build-dependency.
+  * Make debian/patches/01_onlyshowin.patch apply again.
+  * Have quilt refresh remaining patches.
+  * Upload to unstable.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sat, 27 Sep 2014 01:16:35 +0200
+
+gnome-terminal (3.13.90-1) experimental; urgency=medium
+
+  [ Simon McVittie ]
+  * Be Multi-Arch: foreign so gnome-terminal:amd64 can satisfy
+    a dependency from, e.g., steam:i386 (Closes: #698957)
+
+  [ Sjoerd Simons ]
+  * New upstream release
+  * Add valac (>= 0.24) to b-d
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Thu, 11 Sep 2014 21:00:46 +0200
+
+gnome-terminal (3.12.3-2) unstable; urgency=medium
+
+  * Team upload.
+  * When we ask the system theme how to draw a TerminalScreen widget,
+    if it answers "black text on a black background" (like the built-in
+    fallback theme in Gtk < 3.14, "Raleigh"), instead draw black text on
+    a white background like the GNOME default theme "Adwaita" does.
+    (Closes: #683744)
+  * Tell dh_makeshlibs that the libterminal-nautilus.so plugin is not
+    a shared library (workaround for #204975)
+
+ -- Simon McVittie <smcv@debian.org>  Sat, 02 Aug 2014 17:33:44 +0100
+
+gnome-terminal (3.12.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump libvte-2.90-dev build-dependency to >= 1:0.36.3
+    - as required by configure.ac
+  * Bump Standards-Version to 3.9.5
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 23 Jun 2014 20:47:43 +0200
+
 gnome-terminal (3.12.3-0ubuntu1) vivid; urgency=medium
 
   * New upstream release 3.12.3.
 
  -- Iain Lane <iain.lane@canonical.com>  Thu, 06 Nov 2014 10:33:32 +0000
+
+gnome-terminal (3.12.2-3) unstable; urgency=medium
+
+  * Explicitly disable search provider on non-linux.
+    Thanks to Pino Toscano.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sat, 31 May 2014 19:54:59 +0200
+
+gnome-terminal (3.12.2-2) unstable; urgency=medium
+
+  The "Why?" release.
+
+  * Make gnome-shell build-dependency linux-any (Closes: #749888)
+  * Only install gnome-shell search provider ini file on linux.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sat, 31 May 2014 19:05:33 +0200
+
+gnome-terminal (3.12.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump build-dependencies according to configure.ac changes:
+    - libvte-2.90-dev >= 1:0.36.1
+  * Drop debian/patches/appmenu-fix-action-parameter.patch
+    - now included in upstream release.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Sun, 18 May 2014 22:27:40 +0200
 
 gnome-terminal (3.12.2-0ubuntu1) vivid; urgency=low
 
@@ -49,6 +148,72 @@ gnome-terminal (3.12.2-0ubuntu1) vivid; urgency=low
     if OSC 7 fails. (LP: #1132700)
 
  -- Iain Lane <iain.lane@canonical.com>  Wed, 05 Nov 2014 15:55:30 +0000
+
+gnome-terminal (3.12.0-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sat, 26 Apr 2014 10:30:29 +0200
+
+gnome-terminal (3.12.0-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Update build-dependencies according to configure.ac changes:
+    - Bump libvte-2.90-dev to (>= 1:0.36.0)
+    - Add appdata-tools for appdata file validation
+  * gnome-terminal: install appdata xml
+  * Add debian/patches/appmenu-fix-action-parameter.patch from upstream.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 24 Mar 2014 20:41:10 +0100
+
+gnome-terminal (3.11.3-1) experimental; urgency=medium
+
+  [ Fabian Greffrath ]
+  * debian/README.Debian: Document how to make new tabs opened within
+    Gnome Terminal have the same working directory as the current tab
+    (see #706065). Taken from the vte3 package, where this was already
+    documented but apparently not easily found.
+
+  [ Andreas Henriksson ]
+  * New upstream release.
+  * Bump build-dependencies according to configure.ac:
+    - intltool 0.50.0
+    - vte 0.35.1
+    - glib 2.39.2
+  * Make debian/patches/10_kfreebsd-f_dupfd_cloexec.patch apply again.
+  * Drop debian/patches/git-add-quit.patch, now included in upstream release.
+  * Add build-dependency on gnome-shell
+    - dbus interface xml needed by new search provider
+  * Add build-dependency on libnautilus-extension-dev
+  * Add new patch debian/patches/nautilus-x11.patch
+    - build fails because of -Wl,-z,defs missing -lX11 in nautilus extension
+  * Include autoreconf.mk cdbs snippet and build-depend on dh-autoreconf
+  * Install new files in gnome-terminal
+    - nautilus extension and gnome-shell search provider ini
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 24 Feb 2014 20:43:28 +0100
+
+gnome-terminal (3.10.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump build-dependency on vt3 to >= 1:0.34.8.
+  * Refresh patches.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Wed, 23 Oct 2013 18:31:39 +0200
+
+gnome-terminal (3.8.4-1) unstable; urgency=low
+
+  [ Jeremy Bicha ]
+  * debian/rules:
+    - Build with --enable-distro-packaging to not override
+      environment variables
+  * debian/patches/git-add-quit.patch:
+    - Backport patch to add Quit to app menu
+
+  [ Michael Biebl ]
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 29 Aug 2013 13:16:40 +0200
 
 gnome-terminal (3.8.3-1) unstable; urgency=low
 

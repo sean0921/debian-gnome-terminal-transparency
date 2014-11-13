@@ -22,9 +22,9 @@ Index: b/src/org.gnome.Terminal.gschema.xml
 ===================================================================
 --- a/src/org.gnome.Terminal.gschema.xml
 +++ b/src/org.gnome.Terminal.gschema.xml
-@@ -326,6 +326,20 @@
-       <default>'current'</default>
-       <summary>Which encoding to use</summary>
+@@ -318,6 +318,20 @@
+       <default>'narrow'</default>
+       <summary>Whether ambiguous-width characters are narrow or wide when using UTF-8 encoding</summary>
      </key>
 +    <key name="use-transparent-background" type="b">
 +      <default>false</default>
@@ -55,7 +55,7 @@ Index: b/src/profile-editor.c
  
  typedef struct _TerminalColorScheme TerminalColorScheme;
  
-@@ -711,6 +712,7 @@
+@@ -776,6 +777,7 @@
    GtkWidget *editor, *w;
    gs_free char *uuid = NULL;
    guint i;
@@ -63,7 +63,16 @@ Index: b/src/profile-editor.c
  
    editor = g_object_get_data (G_OBJECT (profile), "editor-window");
    if (editor)
-@@ -782,6 +784,14 @@
+@@ -783,7 +785,7 @@
+       terminal_util_dialog_focus_widget (editor, widget_name);
+ 
+       gtk_window_set_transient_for (GTK_WINDOW (editor),
+-                                    GTK_WINDOW (transient_parent));
++                                    NULL);
+       gtk_window_present (GTK_WINDOW (editor));
+       return;
+     }
+@@ -852,6 +854,14 @@
                          profile);
      }
  
@@ -78,9 +87,9 @@ Index: b/src/profile-editor.c
    profile_palette_notify_colorpickers_cb (profile, TERMINAL_PROFILE_PALETTE_KEY, editor);
    g_signal_connect (profile, "changed::" TERMINAL_PROFILE_PALETTE_KEY,
                      G_CALLBACK (profile_palette_notify_colorpickers_cb),
-@@ -1026,6 +1036,28 @@
-                    gtk_builder_get_object (builder, "rewrap-on-resize-checkbutton"),
-                    "active", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
+@@ -1099,12 +1109,33 @@
+                    "active-id",
+                    G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
  
 +  g_settings_bind (profile, TERMINAL_PROFILE_USE_TRANSPARENT_BACKGROUND,
 +                   gtk_builder_get_object (builder, "use-transparent-background"),
@@ -103,10 +112,16 @@ Index: b/src/profile-editor.c
 +              G_SETTINGS_BIND_INVERT_BOOLEAN |
 +              G_SETTINGS_BIND_NO_SENSITIVITY);
 +
-+
+   /* Finished! */
    terminal_util_bind_mnemonic_label_sensitivity (editor);
  
    terminal_util_dialog_focus_widget (editor, widget_name);
+ 
+   gtk_window_set_transient_for (GTK_WINDOW (editor),
+-                                GTK_WINDOW (transient_parent));
++                                NULL);
+   gtk_window_present (GTK_WINDOW (editor));
+ }
 Index: b/src/profile-preferences.ui
 ===================================================================
 --- a/src/profile-preferences.ui
@@ -123,7 +138,7 @@ Index: b/src/profile-preferences.ui
    <object class="GtkListStore" id="model1">
      <columns>
        <!-- column-name gchararray -->
-@@ -1228,6 +1233,122 @@
+@@ -1073,6 +1078,122 @@
                                  <property name="position">1</property>
                                </packing>
                              </child>
@@ -250,9 +265,9 @@ Index: b/src/terminal-schemas.h
 ===================================================================
 --- a/src/terminal-schemas.h
 +++ b/src/terminal-schemas.h
-@@ -65,6 +65,10 @@
+@@ -63,6 +63,10 @@
+ #define TERMINAL_PROFILE_USE_THEME_COLORS_KEY           "use-theme-colors"
  #define TERMINAL_PROFILE_VISIBLE_NAME_KEY               "visible-name"
- #define TERMINAL_PROFILE_WORD_CHARS_KEY                 "word-chars"
  
 +#define TERMINAL_PROFILE_USE_TRANSPARENT_BACKGROUND      "use-transparent-background"
 +#define TERMINAL_PROFILE_USE_THEME_TRANSPARENCY          "use-theme-transparency"
@@ -265,7 +280,7 @@ Index: b/src/terminal-screen.c
 ===================================================================
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -539,6 +539,10 @@
+@@ -534,6 +534,10 @@
  
    g_type_class_add_private (object_class, sizeof (TerminalScreenPrivate));
  
@@ -276,7 +291,7 @@ Index: b/src/terminal-screen.c
    /* Precompile the regexes */
    n_url_regexes = G_N_ELEMENTS (url_regex_patterns);
    url_regexes = g_new0 (GRegex*, n_url_regexes);
-@@ -792,7 +796,10 @@
+@@ -765,7 +769,10 @@
        prop_name == I_(TERMINAL_PROFILE_BACKGROUND_COLOR_KEY) ||
        prop_name == I_(TERMINAL_PROFILE_BOLD_COLOR_SAME_AS_FG_KEY) ||
        prop_name == I_(TERMINAL_PROFILE_BOLD_COLOR_KEY) ||
@@ -288,23 +303,20 @@ Index: b/src/terminal-screen.c
      update_color_scheme (screen);
  
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_AUDIBLE_BELL_KEY))
-@@ -857,6 +864,10 @@
+@@ -824,6 +831,9 @@
    GdkRGBA fg, bg, bold, theme_fg, theme_bg;
    GdkRGBA *boldp;
    GtkStyleContext *context;
 +  GtkWidget *toplevel;
 +  gboolean transparent, theme_transparent;
-+  guint16 opacity;
 +  gfloat style_darkness;
  
    context = gtk_widget_get_style_context (widget);
    gtk_style_context_get_color (context, GTK_STATE_FLAG_NORMAL, &theme_fg);
-@@ -880,6 +891,33 @@
-   vte_terminal_set_colors_rgba (VTE_TERMINAL (screen), &fg, &bg,
-                                 colors, n_colors);
-   vte_terminal_set_color_bold_rgba (VTE_TERMINAL (screen), boldp);
-+
-+
+@@ -855,9 +865,35 @@
+     boldp = NULL;
+ 
+   colors = terminal_g_settings_get_rgba_palette (priv->profile, TERMINAL_PROFILE_PALETTE_KEY, &n_colors);
 +  theme_transparent = g_settings_get_boolean (profile, TERMINAL_PROFILE_USE_THEME_TRANSPARENCY);
 +  transparent = g_settings_get_boolean (profile, TERMINAL_PROFILE_USE_TRANSPARENT_BACKGROUND);
 +
@@ -314,30 +326,34 @@ Index: b/src/terminal-screen.c
 +
 +  if (theme_transparent && style_darkness >= 0)
 +    {
-+      opacity = (guint16) (G_MAXUINT16 * style_darkness);
++      bg.alpha = style_darkness;
 +    }
 +  else if (transparent)
 +    {
 +      gint transparency_percent;
 +
 +      transparency_percent = g_settings_get_int (profile, TERMINAL_PROFILE_BACKGROUND_TRANSPARENCY_PERCENT);
-+      opacity = (guint16) (G_MAXUINT16 * (100 - transparency_percent) / 100.0);
++      bg.alpha = (100 - transparency_percent) / 100.0;
 +    }
 +  else
-+    opacity = G_MAXUINT16;
++      bg.alpha = 1.0;
 +
-+  vte_terminal_set_opacity (VTE_TERMINAL (screen), opacity);
+   vte_terminal_set_colors (VTE_TERMINAL (screen), &fg, &bg,
+                            colors, n_colors);
+   vte_terminal_set_color_bold (VTE_TERMINAL (screen), boldp);
++
 +  toplevel = gtk_widget_get_toplevel (GTK_WIDGET (screen));
 +  if (toplevel != NULL && gtk_widget_is_toplevel (toplevel))
 +    gtk_widget_set_app_paintable (toplevel, transparent);
++
  }
  
- void
+ static void
 Index: b/src/terminal-window.c
 ===================================================================
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -2619,6 +2619,8 @@
+@@ -2562,6 +2562,8 @@
    TerminalWindowPrivate *priv;
    TerminalApp *app;
    TerminalSettingsList *profiles_list;
@@ -346,7 +362,7 @@ Index: b/src/terminal-window.c
    GtkActionGroup *action_group;
    GtkAction *action;
    GtkUIManager *manager;
-@@ -2634,6 +2636,11 @@
+@@ -2577,6 +2579,11 @@
  
    gtk_widget_init_template (GTK_WIDGET (window));
  
@@ -362,7 +378,7 @@ Index: b/src/migration.c
 ===================================================================
 --- a/src/migration.c
 +++ b/src/migration.c
-@@ -332,6 +332,9 @@
+@@ -329,6 +329,9 @@
    migrate_string_list (client, GCONF_GLOBAL_PREFIX, "active_encodings",
                         settings, TERMINAL_SETTING_ENCODINGS_KEY);
  
@@ -372,7 +388,7 @@ Index: b/src/migration.c
    g_object_unref (client);
  
    return TRUE;
-@@ -363,6 +366,8 @@
+@@ -360,6 +363,8 @@
  {
    GSettings *settings;
    char *child_name, *path;
@@ -381,7 +397,7 @@ Index: b/src/migration.c
    gs_free char *name;
    gboolean is_default;
  
-@@ -379,6 +384,31 @@
+@@ -376,6 +381,31 @@
  
    path = gconf_concat_dir_and_key (GCONF_PROFILES_PREFIX, gconf_id);
  
@@ -413,7 +429,7 @@ Index: b/src/migration.c
    migrate_string (client, path, KEY_VISIBLE_NAME,
                    settings, TERMINAL_PROFILE_VISIBLE_NAME_KEY);
  
-@@ -476,7 +506,7 @@
+@@ -466,7 +496,7 @@
    TerminalSettingsList *list;
    GConfClient *client;
    GConfValue *value, *dvalue;
@@ -422,7 +438,7 @@ Index: b/src/migration.c
    const char *default_profile;
  
    client = gconf_client_get_default ();
-@@ -486,15 +516,24 @@
+@@ -476,15 +506,24 @@
        dvalue->type == GCONF_VALUE_STRING)
      default_profile = gconf_value_get_string (dvalue);
    else
@@ -448,3 +464,25 @@ Index: b/src/migration.c
        migrate_profile (list, client,
                         gconf_value_get_string (l->data),
                         default_profile);
+Index: b/src/terminal-app.c
+===================================================================
+--- a/src/terminal-app.c
++++ b/src/terminal-app.c
+@@ -176,7 +176,7 @@
+   if (profile == NULL)
+     return;
+ 
+-  terminal_profile_edit (profile, NULL, "profile-name-entry");
++  terminal_profile_edit (profile, transient_parent, "profile-name-entry");
+ }
+ 
+ void
+@@ -599,7 +599,7 @@
+                            GtkWindow       *transient_parent,
+                            const char      *widget_name)
+ {
+-  terminal_profile_edit (profile, NULL, widget_name);
++  terminal_profile_edit (profile, transient_parent, widget_name);
+ }
+ 
+ void
