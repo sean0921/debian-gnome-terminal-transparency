@@ -1,4 +1,4 @@
-gnome-terminal (3.14.1-1ubuntu1) UNRELEASED; urgency=medium
+gnome-terminal (3.14.1-1ubuntu1) vivid; urgency=medium
 
   [ Iain Lane ]
   * Merge with Debian, remaining changes:
@@ -22,7 +22,7 @@ gnome-terminal (3.14.1-1ubuntu1) UNRELEASED; urgency=medium
     interface so can build shell search provider without depending on
     gnome-shell which is in universe (LP: #1390224)
 
- -- Iain Lane <iain.lane@canonical.com>  Tue, 11 Nov 2014 10:18:30 +0000
+ -- Iain Lane <iain.lane@canonical.com>  Fri, 14 Nov 2014 16:39:19 +0000
 
 gnome-terminal (3.14.1-1) unstable; urgency=medium
 
