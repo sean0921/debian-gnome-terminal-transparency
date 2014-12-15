@@ -72,7 +72,7 @@ Index: b/src/profile-editor.c
        gtk_window_present (GTK_WINDOW (editor));
        return;
      }
-@@ -852,6 +854,14 @@
+@@ -852,6 +854,15 @@
                          profile);
      }
  
@@ -80,6 +80,7 @@ Index: b/src/profile-editor.c
 +              terminal_window_get_active (TERMINAL_WINDOW (transient_parent))),
 +                        "background-darkness", &style_darkness,
 +                        NULL);
++
 +  gtk_widget_set_visible (gtk_builder_get_object (
 +              builder,
 +              "use-theme-transparency-checkbutton"), style_darkness >= 0);
@@ -87,7 +88,7 @@ Index: b/src/profile-editor.c
    profile_palette_notify_colorpickers_cb (profile, TERMINAL_PROFILE_PALETTE_KEY, editor);
    g_signal_connect (profile, "changed::" TERMINAL_PROFILE_PALETTE_KEY,
                      G_CALLBACK (profile_palette_notify_colorpickers_cb),
-@@ -1099,12 +1109,33 @@
+@@ -1099,12 +1110,33 @@
                     "active-id",
                     G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
  
@@ -280,7 +281,7 @@ Index: b/src/terminal-screen.c
 ===================================================================
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -534,6 +534,10 @@
+@@ -591,6 +591,10 @@
  
    g_type_class_add_private (object_class, sizeof (TerminalScreenPrivate));
  
@@ -291,7 +292,7 @@ Index: b/src/terminal-screen.c
    /* Precompile the regexes */
    n_url_regexes = G_N_ELEMENTS (url_regex_patterns);
    url_regexes = g_new0 (GRegex*, n_url_regexes);
-@@ -765,7 +769,10 @@
+@@ -822,7 +826,10 @@
        prop_name == I_(TERMINAL_PROFILE_BACKGROUND_COLOR_KEY) ||
        prop_name == I_(TERMINAL_PROFILE_BOLD_COLOR_SAME_AS_FG_KEY) ||
        prop_name == I_(TERMINAL_PROFILE_BOLD_COLOR_KEY) ||
@@ -303,7 +304,7 @@ Index: b/src/terminal-screen.c
      update_color_scheme (screen);
  
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_AUDIBLE_BELL_KEY))
-@@ -824,6 +831,9 @@
+@@ -881,6 +888,9 @@
    GdkRGBA fg, bg, bold, theme_fg, theme_bg;
    GdkRGBA *boldp;
    GtkStyleContext *context;
@@ -313,7 +314,7 @@ Index: b/src/terminal-screen.c
  
    context = gtk_widget_get_style_context (widget);
    gtk_style_context_get_color (context, GTK_STATE_FLAG_NORMAL, &theme_fg);
-@@ -855,9 +865,35 @@
+@@ -912,9 +922,35 @@
      boldp = NULL;
  
    colors = terminal_g_settings_get_rgba_palette (priv->profile, TERMINAL_PROFILE_PALETTE_KEY, &n_colors);
@@ -477,7 +478,7 @@ Index: b/src/terminal-app.c
  }
  
  void
-@@ -599,7 +599,7 @@
+@@ -599,21 +599,21 @@
                             GtkWindow       *transient_parent,
                             const char      *widget_name)
  {
@@ -486,3 +487,32 @@ Index: b/src/terminal-app.c
  }
  
  void
+ terminal_app_edit_preferences (TerminalApp     *app,
+                                GtkWindow       *transient_parent)
+ {
+-  terminal_prefs_show_preferences (NULL, "general");
++  terminal_prefs_show_preferences (transient_parent, "general");
+ }
+ 
+ void
+ terminal_app_edit_encodings (TerminalApp     *app,
+                              GtkWindow       *transient_parent)
+ {
+-  terminal_prefs_show_preferences (NULL, "encodings");
++  terminal_prefs_show_preferences (transient_parent, "encodings");
+ }
+ 
+ /**
+Index: b/src/terminal-prefs.c
+===================================================================
+--- a/src/terminal-prefs.c
++++ b/src/terminal-prefs.c
+@@ -427,7 +427,7 @@
+     return;
+ 
+   terminal_app_edit_profile (terminal_app_get (), selected_profile,
+-                             GTK_WINDOW (data->dialog), NULL);
++                             data->parent, NULL);
+ }
+ 
+ static void
