@@ -1,9 +1,10 @@
-gnome-terminal (3.14.1-1ubuntu2) UNRELEASED; urgency=medium
+gnome-terminal (3.14.2-0ubuntu1) UNRELEASED; urgency=medium
 
   * Pass the terminal window in all code paths that launch the profile editor,
     to avoid dereferencing the wrong thing. (LP: #1401192)
+  * New upstream translation release.
 
- -- Iain Lane <iain@orangesquash.org.uk>  Mon, 15 Dec 2014 16:50:41 +0000
+ -- Iain Lane <iain.lane@canonical.com>  Mon, 15 Dec 2014 16:53:42 +0000
 
 gnome-terminal (3.14.1-1ubuntu1) vivid; urgency=medium
 
