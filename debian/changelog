@@ -1,3 +1,12 @@
+gnome-terminal (3.14.2-0ubuntu3) UNRELEASED; urgency=medium
+
+  * debian/gnome-terminal: Add a wrapper script to launch gnome-terminal with
+    a different app-id when a user passes the now ignored --disable-factory
+    option. This should restore compatibility with old launchers for users who
+    are upgrading.
+
+ -- Iain Lane <iain.lane@canonical.com>  Fri, 27 Feb 2015 11:57:59 +0000
+
 gnome-terminal (3.14.2-0ubuntu2) vivid; urgency=medium
 
   * Change appdata-tools b-dep to appstream-util

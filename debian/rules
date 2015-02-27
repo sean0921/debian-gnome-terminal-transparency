@@ -32,3 +32,8 @@ ifeq ($(DEB_HOST_ARCH_OS),linux)
 	dh_install -pgnome-terminal debian/tmp/usr/share/gnome-shell/search-providers/gnome-terminal-search-provider.ini
 endif
 
+binary-post-install/gnome-terminal::
+	mv $(CURDIR)/debian/gnome-terminal/usr/bin/gnome-terminal \
+		$(CURDIR)/debian/gnome-terminal/usr/bin/gnome-terminal.real
+	install -m0755 $(CURDIR)/debian/gnome-terminal.wrap \
+		$(CURDIR)/debian/gnome-terminal/usr/bin/gnome-terminal
