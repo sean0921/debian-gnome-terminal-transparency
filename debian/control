@@ -12,6 +12,7 @@ Standards-Version: 3.9.5
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 8),
                dh-autoreconf,
+               dh-exec,
                gnome-common,
                autotools-dev,
                intltool (>= 0.50.0),

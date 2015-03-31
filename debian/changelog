@@ -4,6 +4,8 @@ gnome-terminal (3.14.2-0ubuntu3) UNRELEASED; urgency=medium
     a different app-id when a user passes the now ignored --disable-factory
     option. This should restore compatibility with old launchers for users who
     are upgrading.
+  * When specifying a profile on the commandline, fall back to the default if
+    it doesn't exist.
 
  -- Iain Lane <iain.lane@canonical.com>  Fri, 27 Feb 2015 11:57:59 +0000
 
