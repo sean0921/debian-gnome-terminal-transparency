@@ -1,19 +1,28 @@
-Description: If the profile specified isn't found then try to use the default one.
-Author: Iain Lane <iain.lane@canonical.com>
-Forwarded: https://bugzilla.gnome.org/show_bug.cgi?id=747106
+From 72fc6c497e583e8ee32c2138be678cef1691096f Mon Sep 17 00:00:00 2001
+From: Iain Lane <laney@ubuntu.com>
+Date: Wed, 1 Apr 2015 20:53:22 +0200
+Subject: [PATCH] client: legacy: Fall back to default profile
 
-Index: b/src/terminal-options.c
-===================================================================
+When using a nonexistent profile name or ID, fall back to the default
+profile, for compatibility with gnome-terminal < 3.8.
+
+https://bugzilla.gnome.org/show_bug.cgi?id=747106
+---
+ src/terminal-options.c | 21 ++++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
+
+diff --git a/src/terminal-options.c b/src/terminal-options.c
+index d12b2d7..a3e01df 100644
 --- a/src/terminal-options.c
 +++ b/src/terminal-options.c
-@@ -321,7 +321,16 @@
+@@ -319,7 +319,16 @@ option_profile_cb (const gchar *option_name,
    profile = terminal_profiles_list_dup_uuid_or_name (terminal_options_ensure_profiles_list (options),
                                                       value, error);
    if (profile == NULL)
 -    return FALSE;
 +  {
-+      g_warning ("Profile '%s' specified but not found. Attempting to fall back "
-+              "to the default profile.", value);
++      g_printerr ("Profile '%s' specified but not found. Attempting to fall back "
++                  "to the default profile.\n", value);
 +      g_clear_error (error);
 +      profile = terminal_profiles_list_dup_uuid_or_name (terminal_options_ensure_profiles_list (options),
 +                                                         NULL, error);
@@ -24,15 +33,15 @@ Index: b/src/terminal-options.c
  
    if (options->initial_windows)
      {
-@@ -381,6 +390,16 @@
+@@ -379,6 +388,16 @@ option_window_callback (const gchar *option_name,
  
    profile = terminal_profiles_list_dup_uuid_or_name (terminal_options_ensure_profiles_list (options),
                                                       value, error);
 +
 +  if (value && profile == NULL)
 +  {
-+      g_warning ("Profile '%s' specified but not found. Attempting to fall back "
-+              "to the default profile.", value);
++      g_printerr ("Profile '%s' specified but not found. Attempting to fall back "
++                  "to the default profile.\n", value);
 +      g_clear_error (error);
 +      profile = terminal_profiles_list_dup_uuid_or_name (terminal_options_ensure_profiles_list (options),
 +                                                         NULL, error);
@@ -41,3 +50,6 @@ Index: b/src/terminal-options.c
    if (profile == NULL)
      return FALSE;
  
+-- 
+2.1.4
+
