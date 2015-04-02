@@ -36,6 +36,9 @@ Architecture: any
 Multi-Arch: foreign
 Depends: ${shlibs:Depends},
          ${misc:Depends},
+         python3,
+         python3-gi,
+         gir1.2-glib-2.0,
          gsettings-desktop-schemas (>= 0.1.0),
          gnome-terminal-data (>= ${gnome:Version}),
          gnome-terminal-data (<< ${gnome:NextVersion})
