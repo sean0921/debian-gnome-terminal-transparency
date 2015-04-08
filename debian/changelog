@@ -1,4 +1,4 @@
-gnome-terminal (3.14.2-0ubuntu3) UNRELEASED; urgency=medium
+gnome-terminal (3.14.2-0ubuntu3) vivid; urgency=medium
 
   * debian/gnome-terminal: Add a wrapper script to launch gnome-terminal with
     a different app-id when a user passes the now ignored --disable-factory
@@ -7,7 +7,7 @@ gnome-terminal (3.14.2-0ubuntu3) UNRELEASED; urgency=medium
   * 0001-client-legacy-Fall-back-to-default-profile.patch: When specifying a
     profile on the commandline, fall back to the default if it doesn't exist.
 
- -- Iain Lane <iain.lane@canonical.com>  Fri, 27 Feb 2015 11:57:59 +0000
+ -- Iain Lane <iain.lane@canonical.com>  Wed, 08 Apr 2015 16:18:11 +0100
 
 gnome-terminal (3.14.2-0ubuntu2) vivid; urgency=medium
 
