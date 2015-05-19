@@ -24,7 +24,6 @@ Build-Depends: cdbs (>= 0.4.41),
                yelp-tools,
                libgconf2-dev (>= 2.31.3),
                desktop-file-utils,
-               appdata-tools,
                gsettings-desktop-schemas-dev (>= 0.1.0),
                gnome-shell [linux-any],
                libnautilus-extension-dev
