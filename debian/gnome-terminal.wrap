@@ -77,7 +77,7 @@ class GnomeTerminal(object):
             self.name = cmdargs.appid
 
         # wasn't supplied, so just invoke g-t
-        if not cmdargs.disable_factory and cmdargs.cls is not None:
+        if not cmdargs.disable_factory and cmdargs.cls is None:
             if self.name is not None:
                 self.args.append('--app-id=%s' % self.name)
             sys.exit(subprocess.call(self.args))

@@ -1,3 +1,11 @@
+gnome-terminal (3.14.2-0ubuntu5) UNRELEASED; urgency=medium
+
+  * gnome-terminal.wrap: Fix conditional: directly invoke g-t if we pass
+    neither of --disable-factory and --class, otherwise invoke our custom
+    server.
+
+ -- Iain Lane <iain.lane@canonical.com>  Tue, 26 May 2015 14:58:59 +0100
+
 gnome-terminal (3.14.2-0ubuntu4) wily; urgency=medium
 
   * Apply fix from Ed Catamur to wait on the server instead of the client in
