@@ -39,19 +39,17 @@ class GnomeTerminal(object):
 
     def server_appeared(self, con, name, owner):
         # start gnome-terminal now
-        gt = Gio.Subprocess.new(['/usr/bin/gnome-terminal.real',
-                                 '--app-id', name] +
-                                self.args,
-                                Gio.SubprocessFlags.NONE)
-        gt.wait_async(None, self.exit_loop, gt)
+         Gio.Subprocess.new(['/usr/bin/gnome-terminal.real',
+                             '--app-id', name] +
+                             self.args,
+                             Gio.SubprocessFlags.NONE)
 
     def spawn_terminal_server(self, name):
-        subprocess.Popen(['/usr/lib/gnome-terminal/gnome-terminal-server',
-                          '--app-id',
-                          name],
-                         stdout=subprocess.DEVNULL,
-                         stdin=subprocess.DEVNULL,
-                         stderr=subprocess.DEVNULL)
+        ts = Gio.Subprocess.new(['/usr/lib/gnome-terminal/gnome-terminal-server',
+                                 '--app-id',
+                                 name],
+                                Gio.SubprocessFlags.NONE)
+        ts.wait_async(None, self.exit_loop, ts)
 
     def __init__(self, args, mainloop):
         self.name = None
