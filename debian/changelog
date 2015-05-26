@@ -1,10 +1,10 @@
-gnome-terminal (3.14.2-0ubuntu5) UNRELEASED; urgency=medium
+gnome-terminal (3.14.2-0ubuntu5) wily; urgency=medium
 
   * gnome-terminal.wrap: Fix conditional: only directly invoke g-t if we don't
     pass --disable-factory. The --class fallback didn't work, but we never hit
     this bug because the conditional was wrong.
 
- -- Iain Lane <iain.lane@canonical.com>  Tue, 26 May 2015 14:58:59 +0100
+ -- Iain Lane <iain.lane@canonical.com>  Tue, 26 May 2015 18:16:10 +0100
 
 gnome-terminal (3.14.2-0ubuntu4) wily; urgency=medium
 
