@@ -1,3 +1,10 @@
+gnome-terminal (3.14.2-0ubuntu6) UNRELEASED; urgency=medium
+
+  * gnome-terminal.wrap: Support the case where --app-id is passed to refer to
+    a custom .service file.
+
+ -- Iain Lane <iain.lane@canonical.com>  Wed, 27 May 2015 10:02:04 +0100
+
 gnome-terminal (3.14.2-0ubuntu5) wily; urgency=medium
 
   * gnome-terminal.wrap: Fix conditional: only directly invoke g-t if we don't
