@@ -6,6 +6,7 @@ gnome-terminal (3.16.2-1) UNRELEASED; urgency=medium
   * Refresh patches.
   * Bump debhelper compatibility level to 9.
   * Add Homepage: field.
+  * Bump Standards-Version to 3.9.6.
 
  -- Michael Biebl <biebl@debian.org>  Thu, 28 May 2015 04:06:28 +0200
 
