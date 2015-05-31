@@ -7,6 +7,11 @@ gnome-terminal (3.16.2-1) UNRELEASED; urgency=medium
   * Bump debhelper compatibility level to 9.
   * Add Homepage: field.
   * Bump Standards-Version to 3.9.6.
+  * Provide fallback for reading current directory if OSC 7 fails. In Debian
+    there is no mechanism (yet) to source scripts for non-login interactive
+    shells so we can't rely on /etc/profile.d/vte*.sh but instead fallback to
+    reading /proc to determine the working directory of the current tab.
+    (Closes: #706065)
 
  -- Michael Biebl <biebl@debian.org>  Thu, 28 May 2015 04:06:28 +0200
 
