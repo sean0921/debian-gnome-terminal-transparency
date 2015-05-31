@@ -1,4 +1,4 @@
-gnome-terminal (3.16.2-1) UNRELEASED; urgency=medium
+gnome-terminal (3.16.2-1) unstable; urgency=medium
 
   * New upstream release.
   * Drop obsolete Replaces from pre-wheezy.
@@ -13,7 +13,7 @@ gnome-terminal (3.16.2-1) UNRELEASED; urgency=medium
     reading /proc to determine the working directory of the current tab.
     (Closes: #706065)
 
- -- Michael Biebl <biebl@debian.org>  Thu, 28 May 2015 04:06:28 +0200
+ -- Michael Biebl <biebl@debian.org>  Sun, 31 May 2015 19:10:05 +0200
 
 gnome-terminal (3.14.2-1) unstable; urgency=medium
 
