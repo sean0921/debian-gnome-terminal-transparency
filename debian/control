@@ -6,7 +6,7 @@ Source: gnome-terminal
 Section: gnome
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Andreas Henriksson <andreas@fatal.se>, Emilio Pozuelo Monfort <pochu@debian.org>, Sjoerd Simons <sjoerd@debian.org>
+Uploaders: Andreas Henriksson <andreas@fatal.se>, Michael Biebl <biebl@debian.org>, Sjoerd Simons <sjoerd@debian.org>
 Standards-Version: 3.9.5
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 8),
@@ -42,7 +42,6 @@ Depends: ${shlibs:Depends},
          gsettings-desktop-schemas (>= 0.1.0),
          gnome-terminal-data (>= ${gnome:Version}),
          gnome-terminal-data (<< ${gnome:NextVersion})
-Replaces: gnome-terminal-data (<< 2.26.2-3)
 Provides: x-terminal-emulator
 Recommends: yelp,
             gvfs,

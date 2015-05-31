@@ -38,7 +38,6 @@ Depends: ${shlibs:Depends},
          gsettings-desktop-schemas (>= 0.1.0),
          gnome-terminal-data (>= ${gnome:Version}),
          gnome-terminal-data (<< ${gnome:NextVersion})
-Replaces: gnome-terminal-data (<< 2.26.2-3)
 Provides: x-terminal-emulator
 Recommends: yelp,
             gvfs,

@@ -1,6 +1,7 @@
 gnome-terminal (3.16.2-1) UNRELEASED; urgency=medium
 
   * New upstream release.
+  * Drop obsolete Replaces from pre-wheezy.
 
  -- Michael Biebl <biebl@debian.org>  Thu, 28 May 2015 04:06:28 +0200
 
