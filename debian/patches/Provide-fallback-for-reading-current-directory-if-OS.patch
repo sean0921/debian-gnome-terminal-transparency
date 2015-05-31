@@ -1,6 +1,4 @@
-From c9003e9c6efa23505c7998697804725c070ef5ac Mon Sep 17 00:00:00 2001
 From: Martin Pitt <martinpitt@gnome.org>
-Date: Sun, 31 May 2015 19:00:36 +0200
 Subject: [PATCH] Provide fallback for reading current directory if OSC 7 fails
 
 Bug: https://bugzilla.gnome.org/show_bug.cgi?id=697475
