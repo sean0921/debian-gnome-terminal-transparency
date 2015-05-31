@@ -3,6 +3,7 @@ gnome-terminal (3.16.2-1) UNRELEASED; urgency=medium
   * New upstream release.
   * Drop obsolete Replaces from pre-wheezy.
   * Bump Build-Depends on libvte-2.91-dev to (>= 0.40.2) as per configure.ac.
+  * Refresh patches.
 
  -- Michael Biebl <biebl@debian.org>  Thu, 28 May 2015 04:06:28 +0200
 
