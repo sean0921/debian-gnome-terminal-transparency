@@ -16,8 +16,10 @@ gnome-terminal (3.16.2-1ubuntu1) UNRELEASED; urgency=low
       interface so can build shell search provider without depending on
       gnome-shell which is in universe
     - Add a wrapper script to restore command line compatibility.
+  * debian/patches/0001-client-legacy-Fall-back-to-default-profile.patch:
+    Drop, applied upstream.
 
- -- Ubuntu Merge-o-Matic <mom@ubuntu.com>  Sun, 31 May 2015 22:40:16 +0000
+ -- Iain Lane <iain.lane@canonical.com>  Mon, 01 Jun 2015 14:38:20 +0100
 
 gnome-terminal (3.16.2-1) unstable; urgency=medium
 
