@@ -22,7 +22,7 @@ Index: b/src/org.gnome.Terminal.gschema.xml
 ===================================================================
 --- a/src/org.gnome.Terminal.gschema.xml
 +++ b/src/org.gnome.Terminal.gschema.xml
-@@ -318,6 +318,20 @@
+@@ -333,6 +333,20 @@
        <default>'narrow'</default>
        <summary>Whether ambiguous-width characters are narrow or wide when using UTF-8 encoding</summary>
      </key>
@@ -72,7 +72,7 @@ Index: b/src/profile-editor.c
        gtk_window_present (GTK_WINDOW (editor));
        return;
      }
-@@ -852,6 +854,15 @@
+@@ -859,6 +861,15 @@
                          profile);
      }
  
@@ -88,7 +88,7 @@ Index: b/src/profile-editor.c
    profile_palette_notify_colorpickers_cb (profile, TERMINAL_PROFILE_PALETTE_KEY, editor);
    g_signal_connect (profile, "changed::" TERMINAL_PROFILE_PALETTE_KEY,
                      G_CALLBACK (profile_palette_notify_colorpickers_cb),
-@@ -1099,12 +1110,33 @@
+@@ -1106,12 +1117,33 @@
                     "active-id",
                     G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
  
@@ -139,7 +139,7 @@ Index: b/src/profile-preferences.ui
    <object class="GtkListStore" id="model1">
      <columns>
        <!-- column-name gchararray -->
-@@ -1073,6 +1078,122 @@
+@@ -1045,6 +1050,122 @@
                                  <property name="position">1</property>
                                </packing>
                              </child>
@@ -266,9 +266,9 @@ Index: b/src/terminal-schemas.h
 ===================================================================
 --- a/src/terminal-schemas.h
 +++ b/src/terminal-schemas.h
-@@ -63,6 +63,10 @@
- #define TERMINAL_PROFILE_USE_THEME_COLORS_KEY           "use-theme-colors"
+@@ -64,6 +64,10 @@
  #define TERMINAL_PROFILE_VISIBLE_NAME_KEY               "visible-name"
+ #define TERMINAL_PROFILE_WORD_CHAR_EXCEPTIONS_KEY       "word-char-exceptions"
  
 +#define TERMINAL_PROFILE_USE_TRANSPARENT_BACKGROUND      "use-transparent-background"
 +#define TERMINAL_PROFILE_USE_THEME_TRANSPARENCY          "use-theme-transparency"
@@ -276,12 +276,12 @@ Index: b/src/terminal-schemas.h
 +
  #define TERMINAL_SETTING_CONFIRM_CLOSE_KEY              "confirm-close"
  #define TERMINAL_SETTING_DEFAULT_SHOW_MENUBAR_KEY       "default-show-menubar"
- #define TERMINAL_SETTING_DARK_THEME_KEY                 "dark-theme"
+ #define TERMINAL_SETTING_ENABLE_MENU_BAR_ACCEL_KEY      "menu-accelerator-enabled"
 Index: b/src/terminal-screen.c
 ===================================================================
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -591,6 +591,10 @@
+@@ -534,6 +534,10 @@
  
    g_type_class_add_private (object_class, sizeof (TerminalScreenPrivate));
  
@@ -292,7 +292,7 @@ Index: b/src/terminal-screen.c
    /* Precompile the regexes */
    n_url_regexes = G_N_ELEMENTS (url_regex_patterns);
    url_regexes = g_new0 (GRegex*, n_url_regexes);
-@@ -822,7 +826,10 @@
+@@ -765,7 +769,10 @@
        prop_name == I_(TERMINAL_PROFILE_BACKGROUND_COLOR_KEY) ||
        prop_name == I_(TERMINAL_PROFILE_BOLD_COLOR_SAME_AS_FG_KEY) ||
        prop_name == I_(TERMINAL_PROFILE_BOLD_COLOR_KEY) ||
@@ -304,7 +304,7 @@ Index: b/src/terminal-screen.c
      update_color_scheme (screen);
  
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_AUDIBLE_BELL_KEY))
-@@ -881,6 +888,9 @@
+@@ -831,6 +838,9 @@
    GdkRGBA fg, bg, bold, theme_fg, theme_bg;
    GdkRGBA *boldp;
    GtkStyleContext *context;
@@ -314,7 +314,7 @@ Index: b/src/terminal-screen.c
  
    context = gtk_widget_get_style_context (widget);
    gtk_style_context_get_color (context, GTK_STATE_FLAG_NORMAL, &theme_fg);
-@@ -912,9 +922,35 @@
+@@ -862,9 +872,35 @@
      boldp = NULL;
  
    colors = terminal_g_settings_get_rgba_palette (priv->profile, TERMINAL_PROFILE_PALETTE_KEY, &n_colors);
@@ -478,7 +478,7 @@ Index: b/src/terminal-app.c
  }
  
  void
-@@ -599,21 +599,21 @@
+@@ -595,21 +595,21 @@
                             GtkWindow       *transient_parent,
                             const char      *widget_name)
  {
