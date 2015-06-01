@@ -1,4 +1,4 @@
-gnome-terminal (3.16.2-1ubuntu1) UNRELEASED; urgency=low
+gnome-terminal (3.16.2-1ubuntu1) wily; urgency=low
 
   * Merge with Debian, remaining changes:
     - debian/patches/50_add_unity_quicklist.patch: Add Unity quicklist menu
@@ -21,7 +21,7 @@ gnome-terminal (3.16.2-1ubuntu1) UNRELEASED; urgency=low
   * gnome-terminal.wrap: Support the case where --app-id is passed to refer to
     a custom .service file.
 
- -- Iain Lane <iain.lane@canonical.com>  Mon, 01 Jun 2015 14:38:20 +0100
+ -- Iain Lane <iain.lane@canonical.com>  Mon, 01 Jun 2015 15:05:02 +0100
 
 gnome-terminal (3.16.2-1) unstable; urgency=medium
 
