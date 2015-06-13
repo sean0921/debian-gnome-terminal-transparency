@@ -1,4 +1,4 @@
-gnome-terminal (3.14.1-1+deb8u1) UNRELEASED; urgency=medium
+gnome-terminal (3.14.1-1+deb8u1) jessie; urgency=medium
 
   * Provide fallback for reading current directory if OSC 7 fails. In Debian
     there is no mechanism (yet) to source scripts for non-login interactive
@@ -6,7 +6,7 @@ gnome-terminal (3.14.1-1+deb8u1) UNRELEASED; urgency=medium
     reading /proc to determine the working directory of the current tab.
     (Closes: #706065)
 
- -- Michael Biebl <biebl@debian.org>  Sat, 13 Jun 2015 12:48:09 +0200
+ -- Michael Biebl <biebl@debian.org>  Sat, 13 Jun 2015 12:51:11 +0200
 
 gnome-terminal (3.14.1-1) unstable; urgency=medium
 
