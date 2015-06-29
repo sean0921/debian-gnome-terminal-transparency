@@ -43,6 +43,8 @@ Provides: x-terminal-emulator
 Recommends: yelp,
             gvfs,
             dbus-x11
+Conflicts: nautilus-open-terminal
+Replaces: nautilus-open-terminal
 Description: GNOME terminal emulator application
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:
