@@ -1,10 +1,14 @@
 gnome-terminal (3.16.2-2) UNRELEASED; urgency=medium
 
+  [ Fabian Greffrath ]
   * Team upload.
   * Add Conflicts and Replaces against the nautilus-open-terminal
     package (Closes: #766919). The gnome-terminal package provides
     the exact same functionality and removal of the former package
     has been requested (see #789900).
+
+  [ Josselin Mouette ]
+  * Remove Debian menu entry.
 
  -- Fabian Greffrath <fabian@debian.org>  Thu, 25 Jun 2015 15:26:29 +0200
 
