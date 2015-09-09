@@ -9,3 +9,4 @@ Don-t-allow-the-theme-to-set-black-on-black.patch
 0001-window-Make-the-drawing-robust-across-all-themes.patch
 gnome-shell_search_provider.patch
 Provide-fallback-for-reading-current-directory-if-OS.patch
+scrollbar-background-theming.patch
