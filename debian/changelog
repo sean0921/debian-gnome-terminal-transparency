@@ -1,3 +1,11 @@
+gnome-terminal (3.16.2-1ubuntu3) UNRELEASED; urgency=medium
+
+  * debian/patches/scrollbar-background-theming.patch:
+    - Draw background under the scrollbar that matches the actual terminal
+      background color. This allows proper theming. (LP: #1493964)
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Fri, 11 Sep 2015 16:21:50 +0100
+
 gnome-terminal (3.16.2-1ubuntu2) wily; urgency=medium
 
   * No-change rebuild for python3.5 transition
