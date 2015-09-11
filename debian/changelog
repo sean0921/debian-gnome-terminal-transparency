@@ -1,3 +1,9 @@
+gnome-terminal (3.16.2-1ubuntu2) wily; urgency=medium
+
+  * No-change rebuild for python3.5 transition
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Wed, 22 Jul 2015 17:08:12 +0000
+
 gnome-terminal (3.16.2-1ubuntu1) wily; urgency=low
 
   * Merge with Debian, remaining changes:
