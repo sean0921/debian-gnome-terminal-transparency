@@ -10,6 +10,9 @@ gnome-terminal (3.16.2-2) UNRELEASED; urgency=medium
   [ Josselin Mouette ]
   * Remove Debian menu entry.
 
+  [ Pedro Beja ]
+  * Remove obsolete flags --disable-factory, --title and --usage from manpage. 
+
  -- Fabian Greffrath <fabian@debian.org>  Thu, 25 Jun 2015 15:26:29 +0200
 
 gnome-terminal (3.16.2-1) unstable; urgency=medium
