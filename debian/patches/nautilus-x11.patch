@@ -13,11 +13,9 @@ libtool: link:  gcc -shared  -fPIC -DPIC  .libs/libterminal_nautilus_la-terminal
 collect2: error: ld returned 1 exit status
 
 
-Index: gnome-terminal-3.16.2/configure.ac
-===================================================================
---- gnome-terminal-3.16.2.orig/configure.ac	2015-05-31 18:52:30.138216857 +0200
-+++ gnome-terminal-3.16.2/configure.ac	2015-05-31 18:52:30.138216857 +0200
-@@ -223,7 +223,8 @@
+--- a/configure.ac
++++ b/configure.ac
+@@ -228,7 +228,8 @@
    PKG_CHECK_MODULES([NAUTILUS],[
      libnautilus-extension >= $NAUTILUS_REQUIRED
      gio-2.0
