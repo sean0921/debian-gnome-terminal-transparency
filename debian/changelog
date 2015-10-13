@@ -1,4 +1,4 @@
-gnome-terminal (3.18.1-1) unstable; urgency=medium
+gnome-terminal (3.18.1-1) UNRELEASED; urgency=medium
 
   * New upstream release.
   * Bump Build-Depends on libvte-2.91-dev to (>= 0.42.1) as per configure.ac.
