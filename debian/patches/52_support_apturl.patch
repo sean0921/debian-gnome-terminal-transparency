@@ -1,8 +1,8 @@
-Index: b/src/terminal-screen.c
+Index: gnome-terminal-3.18.1/src/terminal-screen.c
 ===================================================================
---- a/src/terminal-screen.c
-+++ b/src/terminal-screen.c
-@@ -180,7 +180,7 @@
+--- gnome-terminal-3.18.1.orig/src/terminal-screen.c
++++ gnome-terminal-3.18.1/src/terminal-screen.c
+@@ -181,7 +181,7 @@ static const TerminalRegexPattern url_re
    { "(?:www|ftp)" HOSTCHARS_CLASS "*\\." HOST PORT URLPATH , FLAVOR_DEFAULT_TO_HTTP, G_REGEX_CASELESS  },
    { "(?:callto:|h323:|sip:)" USERCHARS_CLASS "[" USERCHARS ".]*(?:" PORT "/[a-z0-9]+)?\\@" HOST, FLAVOR_VOIP_CALL, G_REGEX_CASELESS  },
    { "(?:mailto:)?" USERCHARS_CLASS "[" USERCHARS ".]*\\@" HOSTCHARS_CLASS "+\\." HOST, FLAVOR_EMAIL, G_REGEX_CASELESS  },

@@ -1,3 +1,11 @@
+gnome-terminal (3.18.1-0ubuntu1) xenial; urgency=medium
+
+  * New upstream release
+  * debian/control:
+    - Bump build-depends on libglib2.0-dev, libvte-2.91-dev, valac
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 27 Oct 2015 16:38:22 +1300
+
 gnome-terminal (3.16.2-1ubuntu4) wily; urgency=medium
 
   * debian/patches/0001-Restore-transparency.patch: Pass the correct parent

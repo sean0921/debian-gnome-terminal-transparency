@@ -3,11 +3,11 @@ Author: Marc Deslauriers <marc.deslauriers@canonical.com>
 Forwarded: yes, https://bugzilla.gnome.org/show_bug.cgi?id=709087
 Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1232589
 
-Index: gnome-terminal/src/terminal-screen.c
+Index: gnome-terminal-3.18.1/src/terminal-screen.c
 ===================================================================
---- gnome-terminal.orig/src/terminal-screen.c
-+++ gnome-terminal/src/terminal-screen.c
-@@ -181,6 +181,7 @@ static const TerminalRegexPattern url_re
+--- gnome-terminal-3.18.1.orig/src/terminal-screen.c
++++ gnome-terminal-3.18.1/src/terminal-screen.c
+@@ -182,6 +182,7 @@ static const TerminalRegexPattern url_re
    { "(?:callto:|h323:|sip:)" USERCHARS_CLASS "[" USERCHARS ".]*(?:" PORT "/[a-z0-9]+)?\\@" HOST, FLAVOR_VOIP_CALL, G_REGEX_CASELESS  },
    { "(?:mailto:)?" USERCHARS_CLASS "[" USERCHARS ".]*\\@" HOSTCHARS_CLASS "+\\." HOST, FLAVOR_EMAIL, G_REGEX_CASELESS  },
    { "(?:news:|man:|info:|apt:)[-[:alnum:]\\Q^_{|}~!\"#$%&'()*+,./;:=?`\\E]+", FLAVOR_AS_IS, G_REGEX_CASELESS  },
@@ -15,10 +15,10 @@ Index: gnome-terminal/src/terminal-screen.c
  };
  
  static GRegex **url_regexes;
-Index: gnome-terminal/src/terminal-screen.h
+Index: gnome-terminal-3.18.1/src/terminal-screen.h
 ===================================================================
---- gnome-terminal.orig/src/terminal-screen.h
-+++ gnome-terminal/src/terminal-screen.h
+--- gnome-terminal-3.18.1.orig/src/terminal-screen.h
++++ gnome-terminal-3.18.1/src/terminal-screen.h
 @@ -30,7 +30,8 @@ typedef enum {
    FLAVOR_AS_IS,
    FLAVOR_DEFAULT_TO_HTTP,
@@ -29,11 +29,11 @@ Index: gnome-terminal/src/terminal-screen.h
  } TerminalURLFlavour;
  
  /* Forward decls */
-Index: gnome-terminal/src/terminal-util.c
+Index: gnome-terminal-3.18.1/src/terminal-util.c
 ===================================================================
---- gnome-terminal.orig/src/terminal-util.c
-+++ gnome-terminal/src/terminal-util.c
-@@ -289,6 +289,9 @@ terminal_util_open_url (GtkWidget *paren
+--- gnome-terminal-3.18.1.orig/src/terminal-util.c
++++ gnome-terminal-3.18.1/src/terminal-util.c
+@@ -301,6 +301,9 @@ terminal_util_open_url (GtkWidget *paren
      case FLAVOR_AS_IS:
        uri = g_strdup (orig_url);
        break;
@@ -43,7 +43,7 @@ Index: gnome-terminal/src/terminal-util.c
      default:
        uri = NULL;
        g_assert_not_reached ();
-@@ -302,6 +305,20 @@ terminal_util_open_url (GtkWidget *paren
+@@ -314,6 +317,20 @@ terminal_util_open_url (GtkWidget *paren
      }
  }
  
@@ -64,11 +64,11 @@ Index: gnome-terminal/src/terminal-util.c
  /**
   * terminal_util_transform_uris_to_quoted_fuse_paths:
   * @uris:
-Index: gnome-terminal/src/terminal-window.c
+Index: gnome-terminal-3.18.1/src/terminal-window.c
 ===================================================================
---- gnome-terminal.orig/src/terminal-window.c
-+++ gnome-terminal/src/terminal-window.c
-@@ -2001,7 +2001,18 @@ popup_copy_url_callback (GtkAction *acti
+--- gnome-terminal-3.18.1.orig/src/terminal-window.c
++++ gnome-terminal-3.18.1/src/terminal-window.c
+@@ -1924,7 +1924,18 @@ popup_copy_url_callback (GtkAction *acti
      return;
  
    clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
@@ -88,7 +88,7 @@ Index: gnome-terminal/src/terminal-window.c
  }
  
  static void
-@@ -2094,7 +2105,9 @@ popup_clipboard_targets_received_cb (Gtk
+@@ -2017,7 +2028,9 @@ popup_clipboard_targets_received_cb (Gtk
  
    can_paste = targets != NULL && gtk_targets_include_text (targets, n_targets);
    can_paste_uris = targets != NULL && gtk_targets_include_uri (targets, n_targets);
@@ -99,10 +99,10 @@ Index: gnome-terminal/src/terminal-window.c
    show_email_link = info->string != NULL && info->flavour == FLAVOR_EMAIL;
    show_call_link = info->string != NULL && info->flavour == FLAVOR_VOIP_CALL;
  
-Index: gnome-terminal/src/terminal-util.h
+Index: gnome-terminal-3.18.1/src/terminal-util.h
 ===================================================================
---- gnome-terminal.orig/src/terminal-util.h
-+++ gnome-terminal/src/terminal-util.h
+--- gnome-terminal-3.18.1.orig/src/terminal-util.h
++++ gnome-terminal-3.18.1/src/terminal-util.h
 @@ -46,6 +46,8 @@ void terminal_util_open_url (GtkWidget *
                               TerminalURLFlavour flavor,
                               guint32 user_time);

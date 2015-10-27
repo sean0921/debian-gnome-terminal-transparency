@@ -11,11 +11,11 @@ Subject: [PATCH] Provide a copy of Shell SearchProvider interface file, so we
  3 files changed, 88 insertions(+), 4 deletions(-)
  create mode 100644 src/org.gnome.ShellSearchProvider2.xml
 
-diff --git a/configure.ac b/configure.ac
-index 68e155a..7878988 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -184,9 +184,6 @@ AC_ARG_ENABLE([search-provider],
+Index: gnome-terminal-3.18.1/configure.ac
+===================================================================
+--- gnome-terminal-3.18.1.orig/configure.ac
++++ gnome-terminal-3.18.1/configure.ac
+@@ -205,9 +205,6 @@ AC_ARG_ENABLE([search-provider],
  AC_MSG_RESULT([$enable_search_provider])
  
  if test "$enable_search_provider" = "yes"; then
@@ -25,11 +25,11 @@ index 68e155a..7878988 100644
    AC_DEFINE([ENABLE_SEARCH_PROVIDER],[1],[Define to enable gnome-shell search provider])
  fi
  
-diff --git a/src/Makefile.am b/src/Makefile.am
-index 8050f06..4d7bfe6 100644
---- a/src/Makefile.am
-+++ b/src/Makefile.am
-@@ -327,7 +327,7 @@ gnome_terminal_server_SOURCES += \
+Index: gnome-terminal-3.18.1/src/Makefile.am
+===================================================================
+--- gnome-terminal-3.18.1.orig/src/Makefile.am
++++ gnome-terminal-3.18.1/src/Makefile.am
+@@ -350,7 +350,7 @@ gnome_terminal_server_SOURCES += \
  	terminal-search-provider.h \
  	$(NULL)
  
@@ -38,11 +38,10 @@ index 8050f06..4d7bfe6 100644
  	$(AM_V_GEN) $(GDBUS_CODEGEN) \
  			--interface-prefix=org.gnome.Shell \
  			--c-namespace=Terminal \
-diff --git a/src/org.gnome.ShellSearchProvider2.xml b/src/org.gnome.ShellSearchProvider2.xml
-new file mode 100644
-index 0000000..9502340
+Index: gnome-terminal-3.18.1/src/org.gnome.ShellSearchProvider2.xml
+===================================================================
 --- /dev/null
-+++ b/src/org.gnome.ShellSearchProvider2.xml
++++ gnome-terminal-3.18.1/src/org.gnome.ShellSearchProvider2.xml
 @@ -0,0 +1,87 @@
 +<!DOCTYPE node PUBLIC
 +'-//freedesktop//DTD D-BUS Object Introspection 1.0//EN'
@@ -131,7 +130,3 @@ index 0000000..9502340
 +    </method>
 +  </interface>
 +</node>
--- 
-2.1.0
-
-

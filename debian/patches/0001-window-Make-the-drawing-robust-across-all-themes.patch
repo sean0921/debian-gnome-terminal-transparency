@@ -17,11 +17,11 @@ https://bugzilla.gnome.org/show_bug.cgi?id=730016
  src/terminal-window.c | 21 +++++++++++++++++++++
  1 file changed, 21 insertions(+)
 
-diff --git a/src/terminal-window.c b/src/terminal-window.c
-index 90b58d3..01297bf 100644
---- a/src/terminal-window.c
-+++ b/src/terminal-window.c
-@@ -2180,6 +2180,26 @@ terminal_window_realize (GtkWidget *widget)
+Index: gnome-terminal-3.18.1/src/terminal-window.c
+===================================================================
+--- gnome-terminal-3.18.1.orig/src/terminal-window.c
++++ gnome-terminal-3.18.1/src/terminal-window.c
+@@ -2242,6 +2242,26 @@ terminal_window_realize (GtkWidget *widg
  }
  
  static gboolean
@@ -48,7 +48,7 @@ index 90b58d3..01297bf 100644
  terminal_window_state_event (GtkWidget            *widget,
                               GdkEventWindowState  *event)
  {
-@@ -2709,6 +2729,7 @@ terminal_window_class_init (TerminalWindowClass *klass)
+@@ -2804,6 +2824,7 @@ terminal_window_class_init (TerminalWind
  
    widget_class->show = terminal_window_show;
    widget_class->realize = terminal_window_realize;
@@ -56,6 +56,3 @@ index 90b58d3..01297bf 100644
    widget_class->window_state_event = terminal_window_state_event;
    widget_class->screen_changed = terminal_window_screen_changed;
    widget_class->style_updated = terminal_window_style_updated;
--- 
-2.1.3
-
