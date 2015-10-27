@@ -507,6 +507,15 @@ Index: b/src/terminal-prefs.c
 ===================================================================
 --- a/src/terminal-prefs.c
 +++ b/src/terminal-prefs.c
+@@ -301,7 +301,7 @@
+     return;
+ 
+   terminal_app_edit_profile (terminal_app_get (),
+-                             selected_profile, GTK_WINDOW (data->dialog), NULL);
++                             selected_profile, data->parent, NULL);
+ }
+ 
+ static GtkTreeView *
 @@ -427,7 +427,7 @@
      return;
  
