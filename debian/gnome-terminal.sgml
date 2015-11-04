@@ -52,10 +52,7 @@
      <arg><option>--show-menubar</option></arg>
      <arg><option>--hide-menubar</option></arg>
      <arg><option>--geometry<replaceable>=GEOMETRY</replaceable></option></arg>
-     <arg><option>--disable-factory</option></arg>
-     <arg><option>-t, --title<replaceable>=TITLE</replaceable></option></arg>
      <arg><option>--working-directory<replaceable>=DIRNAME</replaceable></option></arg>
-     <arg><option>--usage</option></arg>
      <arg><option>-?, --help</option></arg>
 
     </cmdsynopsis>
@@ -161,32 +158,13 @@
             specified once per window to be opened.</para>
         </listitem>
       </varlistentry>
-      <varlistentry>
-        <term><option>--disable-factory</option></term>
-        <listitem>
-          <para>Do not register with the activation name server, do not
-            re-use an active terminal.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term><option>-t, --title=<replaceable>TITLE</replaceable></option></term>
-        <listitem>
-          <para>Set the terminal's title to <replaceable>TITLE</replaceable>.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
+     <varlistentry>
         <term><option>--working-directory=<replaceable>DIRNAME</replaceable></option></term>
         <listitem>
           <para>Set the terminal's working directory to <replaceable>DIRNAME</replaceable>.</para>
         </listitem>
       </varlistentry>
-      <varlistentry>
-        <term><option>--usage</option></term>
-        <listitem>
-          <para>Display brief usage message.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
+     <varlistentry>
         <term><option>-?, --help</option></term>
         <listitem>
           <para>Show help message.</para>

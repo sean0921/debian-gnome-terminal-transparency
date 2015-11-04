@@ -1,3 +1,40 @@
+gnome-terminal (3.18.1-1ubuntu1) xenial; urgency=medium
+
+  * Merge with Debian, remaining Ubuntu changes:
+  * debian/control:
+    - Don't depend on gnome-shell - it is in Universe. (See patch below).
+    - gnome-terminal depends on python3, python3-gi and gir1.2-glib-2.0 for the
+      wrapper script.
+  * gnome-terminal.wrap:
+  * debian/rules:
+    - Add a wrapper script to restore command line compatibility.
+  * debian/patches/0001-Restore-transparency.patch:
+    - Restore transparency support
+  * debian/patches/0001-window-Make-the-drawing-robust-across-all-themes.patch:
+    - Make sure the window always draws a background, even when transparency
+      is on.
+  * debian/patches/50_add_unity_quicklist.patch:
+    - Add Unity quicklist menu item.
+  * debian/patches/52_support_apturl.patch:
+    - Support apt: urls.
+  * debian/patches/60_add_lp_handler.patch:
+    - Add a handler for launchpad bug URLs.
+  * Add gnome-shell_search_provider.patch:
+    - Provide a local copy of the dbus interface so can build shell search
+      provider without depending on gnome-shell which is in universe.
+  * debian/patches/scrollbar-background-theming.patch:
+    - Draw background under the scrollbar that matches the actual terminal
+      background color. This allows proper theming.
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Wed, 04 Nov 2015 13:38:31 +1300
+
+gnome-terminal (3.18.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump Build-Depends on libvte-2.91-dev to (>= 0.42.1) as per configure.ac.
+
+ -- Michael Biebl <biebl@debian.org>  Wed, 14 Oct 2015 17:30:20 +0200
+
 gnome-terminal (3.18.1-0ubuntu1) xenial; urgency=medium
 
   * New upstream release
@@ -5,6 +42,30 @@ gnome-terminal (3.18.1-0ubuntu1) xenial; urgency=medium
     - Bump build-depends on libglib2.0-dev, libvte-2.91-dev, valac
 
  -- Robert Ancell <robert.ancell@canonical.com>  Tue, 27 Oct 2015 16:38:22 +1300
+
+gnome-terminal (3.18.0-1) unstable; urgency=medium
+
+  [ Fabian Greffrath ]
+  * Add Conflicts and Replaces against the nautilus-open-terminal
+    package (Closes: #766919). The gnome-terminal package provides
+    the exact same functionality and removal of the former package
+    has been requested (see #789900).
+
+  [ Josselin Mouette ]
+  * Remove Debian menu entry.
+
+  [ Pedro Beja ]
+  * Remove obsolete flags --disable-factory, --title and --usage from manpage. 
+
+  [ Andreas Henriksson ]
+  * New upstream release.
+  * Update build-dependencies according to configure.ac changes:
+    - bump libglib2.0-dev to >= 2.42.0
+    - bump libvte-2.91-dev to >= 0.42.0
+    - bump valac to >= 0.26
+  * Have quilt refresh patches to make them apply cleanly.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Tue, 22 Sep 2015 17:52:00 +0200
 
 gnome-terminal (3.16.2-1ubuntu4) wily; urgency=medium
 

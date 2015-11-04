@@ -28,7 +28,7 @@ Build-Depends: cdbs (>= 0.4.41),
                gsettings-desktop-schemas-dev (>= 0.1.0),
                libnautilus-extension-dev
 Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/gnome-terminal/
-Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/gnome-terminal/
+Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/gnome-terminal/
 Homepage: https://wiki.gnome.org/Apps/Terminal
 
 Package: gnome-terminal
@@ -46,6 +46,8 @@ Provides: x-terminal-emulator
 Recommends: yelp,
             gvfs,
             dbus-x11
+Conflicts: nautilus-open-terminal
+Replaces: nautilus-open-terminal
 Description: GNOME terminal emulator application
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:

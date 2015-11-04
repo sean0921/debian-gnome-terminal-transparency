@@ -7,11 +7,9 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=712628
  src/terminal-screen.c | 66 +++++++++++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 66 insertions(+)
 
-Index: gnome-terminal-3.18.1/src/terminal-screen.c
-===================================================================
---- gnome-terminal-3.18.1.orig/src/terminal-screen.c
-+++ gnome-terminal-3.18.1/src/terminal-screen.c
-@@ -221,6 +221,63 @@ fake_dup3 (int fd, int fd2, int flags)
+--- a/src/terminal-screen.c
++++ b/src/terminal-screen.c
+@@ -220,6 +220,63 @@
  
  G_DEFINE_TYPE (TerminalScreen, terminal_screen, VTE_TYPE_TERMINAL)
  
@@ -75,7 +73,7 @@ Index: gnome-terminal-3.18.1/src/terminal-screen.c
  static void
  free_tag_data (TagData *tagdata)
  {
-@@ -1588,12 +1645,21 @@ terminal_screen_button_press (GtkWidget
+@@ -1551,12 +1608,21 @@
  char *
  terminal_screen_get_current_dir (TerminalScreen *screen)
  {
