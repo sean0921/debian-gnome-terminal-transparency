@@ -1,8 +1,8 @@
-gnome-terminal (3.18.2-1ubuntu2) UNRELEASED; urgency=medium
+gnome-terminal (3.18.2-1ubuntu2) xenial; urgency=medium
 
   * Unrevert my last upload.
 
- -- Iain Lane <iain.lane@canonical.com>  Thu, 12 Nov 2015 10:01:24 +0000
+ -- Iain Lane <iain.lane@canonical.com>  Thu, 12 Nov 2015 10:01:58 +0000
 
 gnome-terminal (3.18.2-1ubuntu1) xenial; urgency=medium
 
