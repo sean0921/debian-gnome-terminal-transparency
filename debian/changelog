@@ -1,3 +1,39 @@
+gnome-terminal (3.18.2-1ubuntu1) xenial; urgency=medium
+
+  * Merge with Debian, remaining Ubuntu changes:
+  * debian/control:
+    - Don't depend on gnome-shell - it is in Universe. (See patch below).
+    - gnome-terminal depends on python3, python3-gi and gir1.2-glib-2.0 for the
+      wrapper script.
+  * gnome-terminal.wrap:
+  * debian/rules:
+    - Add a wrapper script to restore command line compatibility.
+  * debian/patches/0001-Restore-transparency.patch:
+    - Restore transparency support
+  * debian/patches/0001-window-Make-the-drawing-robust-across-all-themes.patch:
+    - Make sure the window always draws a background, even when transparency
+      is on.
+  * debian/patches/50_add_unity_quicklist.patch:
+    - Add Unity quicklist menu item.
+  * debian/patches/52_support_apturl.patch:
+    - Support apt: urls.
+  * debian/patches/60_add_lp_handler.patch:
+    - Add a handler for launchpad bug URLs.
+  * Add gnome-shell_search_provider.patch:
+    - Provide a local copy of the dbus interface so can build shell search
+      provider without depending on gnome-shell which is in universe.
+  * debian/patches/scrollbar-background-theming.patch:
+    - Draw background under the scrollbar that matches the actual terminal
+      background color. This allows proper theming.
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Thu, 12 Nov 2015 17:10:13 +1300
+
+gnome-terminal (3.18.2-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Wed, 11 Nov 2015 15:52:44 +0100
+
 gnome-terminal (3.18.1-1ubuntu1) xenial; urgency=medium
 
   * Merge with Debian, remaining Ubuntu changes:
