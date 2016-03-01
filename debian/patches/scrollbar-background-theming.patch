@@ -3,11 +3,11 @@ Author: Marco Trevisan <marco.trevisan@canonical.com>
 Forwarded: yes, https://bugzilla.gnome.org/show_bug.cgi?id=754796
 Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1493964
 
-Index: gnome-terminal-3.18.1/src/terminal-screen-container.c
+Index: b/src/terminal-screen-container.c
 ===================================================================
---- gnome-terminal-3.18.1.orig/src/terminal-screen-container.c
-+++ gnome-terminal-3.18.1/src/terminal-screen-container.c
-@@ -97,9 +97,25 @@ terminal_screen_container_init (Terminal
+--- a/src/terminal-screen-container.c
++++ b/src/terminal-screen-container.c
+@@ -97,9 +97,25 @@
    priv->vscrollbar_policy = GTK_POLICY_AUTOMATIC;
  }
  
@@ -33,7 +33,7 @@ Index: gnome-terminal-3.18.1/src/terminal-screen-container.c
    TerminalScreenContainer *container = TERMINAL_SCREEN_CONTAINER (object);
    TerminalScreenContainerPrivate *priv = container->priv;
  
-@@ -108,9 +124,12 @@ terminal_screen_container_constructed (G
+@@ -108,9 +124,12 @@
    g_assert (priv->screen != NULL);
  
    priv->hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
@@ -48,7 +48,7 @@ Index: gnome-terminal-3.18.1/src/terminal-screen-container.c
  
    gtk_box_pack_start (GTK_BOX (priv->hbox), GTK_WIDGET (priv->screen), TRUE, TRUE, 0);
    gtk_box_pack_start (GTK_BOX (priv->hbox), priv->vscrollbar, FALSE, FALSE, 0);
-@@ -119,6 +138,11 @@ terminal_screen_container_constructed (G
+@@ -119,6 +138,11 @@
    gtk_widget_show_all (priv->hbox);
  
    _terminal_screen_update_scrollbar (priv->screen);
@@ -60,11 +60,11 @@ Index: gnome-terminal-3.18.1/src/terminal-screen-container.c
  }
  
  static void
-Index: gnome-terminal-3.18.1/src/terminal-screen.c
+Index: b/src/terminal-screen.c
 ===================================================================
---- gnome-terminal-3.18.1.orig/src/terminal-screen.c
-+++ gnome-terminal-3.18.1/src/terminal-screen.c
-@@ -88,6 +88,8 @@ struct _TerminalScreenPrivate
+--- a/src/terminal-screen.c
++++ b/src/terminal-screen.c
+@@ -88,6 +88,8 @@
    int child_pid;
    GSList *match_tags;
    guint launch_child_source_id;
@@ -73,7 +73,7 @@ Index: gnome-terminal-3.18.1/src/terminal-screen.c
  };
  
  enum
-@@ -105,7 +107,9 @@ enum {
+@@ -105,7 +107,9 @@
    PROP_ICON_TITLE,
    PROP_ICON_TITLE_SET,
    PROP_TITLE,
@@ -84,7 +84,7 @@ Index: gnome-terminal-3.18.1/src/terminal-screen.c
  };
  
  enum
-@@ -473,6 +477,12 @@ terminal_screen_get_property (GObject *o
+@@ -475,6 +479,12 @@
        case PROP_TITLE:
          g_value_set_string (value, terminal_screen_get_title (screen));
          break;
@@ -97,7 +97,7 @@ Index: gnome-terminal-3.18.1/src/terminal-screen.c
        default:
          G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
          break;
-@@ -498,6 +508,8 @@ terminal_screen_set_property (GObject *o
+@@ -500,6 +510,8 @@
        case PROP_ICON_TITLE:
        case PROP_ICON_TITLE_SET:
        case PROP_TITLE:
@@ -106,7 +106,7 @@ Index: gnome-terminal-3.18.1/src/terminal-screen.c
          /* not writable */
        default:
          G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-@@ -604,6 +616,20 @@ terminal_screen_class_init (TerminalScre
+@@ -607,6 +619,20 @@
                           G_TYPE_STRV,
                           G_PARAM_READWRITE | G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB));
  
@@ -127,7 +127,7 @@ Index: gnome-terminal-3.18.1/src/terminal-screen.c
    g_type_class_add_private (object_class, sizeof (TerminalScreenPrivate));
  
    gtk_widget_class_install_style_property (widget_class,
-@@ -786,6 +812,22 @@ terminal_screen_get_icon_title_set (Term
+@@ -789,6 +815,22 @@
    return vte_terminal_get_icon_title (VTE_TERMINAL (screen)) != NULL;
  }
  
@@ -150,7 +150,7 @@ Index: gnome-terminal-3.18.1/src/terminal-screen.c
  static void
  terminal_screen_profile_changed_cb (GSettings     *profile,
                                      const char    *prop_name,
-@@ -969,10 +1011,21 @@ update_color_scheme (TerminalScreen *scr
+@@ -998,6 +1040,18 @@
                             colors, n_colors);
    vte_terminal_set_color_bold (VTE_TERMINAL (screen), boldp);
  
@@ -166,18 +166,14 @@ Index: gnome-terminal-3.18.1/src/terminal-screen.c
 +      g_object_notify (G_OBJECT (screen), "fg-color");
 +    }
 +
-   toplevel = gtk_widget_get_toplevel (GTK_WIDGET (screen));
-   if (toplevel != NULL && gtk_widget_is_toplevel (toplevel))
-     gtk_widget_set_app_paintable (toplevel, transparent);
--
- }
+   update_toplevel_transparency (screen);
  
- static void
-Index: gnome-terminal-3.18.1/src/terminal-screen.h
+ }
+Index: b/src/terminal-screen.h
 ===================================================================
---- gnome-terminal-3.18.1.orig/src/terminal-screen.h
-+++ gnome-terminal-3.18.1/src/terminal-screen.h
-@@ -104,6 +104,8 @@ char **      terminal_screen_get_initial
+--- a/src/terminal-screen.h
++++ b/src/terminal-screen.h
+@@ -104,6 +104,8 @@
  const char* terminal_screen_get_title          (TerminalScreen *screen);
  const char* terminal_screen_get_icon_title     (TerminalScreen *screen);
  gboolean    terminal_screen_get_icon_title_set (TerminalScreen *screen);
