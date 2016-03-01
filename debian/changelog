@@ -1,3 +1,13 @@
+gnome-terminal (3.18.2-1ubuntu3) UNRELEASED; urgency=medium
+
+  * 0001-window-Make-the-drawing-robust-across-all-themes.patch: Merge into
+    0001-Restore-Transparency.patch.
+  * 0001-Restore-Transparency.patch: Cherry-pick
+    38a9536245918e521005ca3b4b473d3f68a24da4 from Debarshi's branch, to fix
+    padding in some display servers.
+
+ -- Iain Lane <iain@orangesquash.org.uk>  Tue, 01 Mar 2016 11:07:48 +0000
+
 gnome-terminal (3.18.2-1ubuntu2) xenial; urgency=medium
 
   * Unrevert my last upload.
