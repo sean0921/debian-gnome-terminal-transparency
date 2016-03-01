@@ -1,4 +1,4 @@
-gnome-terminal (3.18.2-1ubuntu3) UNRELEASED; urgency=medium
+gnome-terminal (3.18.2-1ubuntu3) xenial; urgency=medium
 
   * 0001-window-Make-the-drawing-robust-across-all-themes.patch: Merge into
     0001-Restore-Transparency.patch.
@@ -7,7 +7,7 @@ gnome-terminal (3.18.2-1ubuntu3) UNRELEASED; urgency=medium
     padding in some display servers.
   * scrollbar-background-theming.patch: Fix to apply given the above.
 
- -- Iain Lane <iain@orangesquash.org.uk>  Tue, 01 Mar 2016 11:07:48 +0000
+ -- Iain Lane <iain@orangesquash.org.uk>  Tue, 01 Mar 2016 11:47:03 +0000
 
 gnome-terminal (3.18.2-1ubuntu2) xenial; urgency=medium
 
