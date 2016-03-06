@@ -1,3 +1,9 @@
+gnome-terminal (3.18.3-1) UNRELEASED; urgency=medium
+
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Sun, 06 Mar 2016 22:13:28 +0100
+
 gnome-terminal (3.18.2-1) unstable; urgency=medium
 
   * New upstream release.
