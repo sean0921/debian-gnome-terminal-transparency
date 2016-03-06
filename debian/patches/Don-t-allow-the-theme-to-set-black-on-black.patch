@@ -23,9 +23,11 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=683744
  src/terminal-screen.c | 11 +++++++++++
  1 file changed, 11 insertions(+)
 
---- a/src/terminal-screen.c
-+++ b/src/terminal-screen.c
-@@ -850,6 +850,17 @@
+Index: gnome-terminal-3.18.3/src/terminal-screen.c
+===================================================================
+--- gnome-terminal-3.18.3.orig/src/terminal-screen.c	2016-03-06 22:14:12.236211702 +0100
++++ gnome-terminal-3.18.3/src/terminal-screen.c	2016-03-06 22:14:12.232211650 +0100
+@@ -839,6 +839,17 @@
    gtk_style_context_get_color (context, gtk_style_context_get_state (context), &theme_fg);
    gtk_style_context_get_background_color (context, gtk_style_context_get_state (context), &theme_bg);
  

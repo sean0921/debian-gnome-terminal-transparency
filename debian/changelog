@@ -1,6 +1,7 @@
 gnome-terminal (3.18.3-1) UNRELEASED; urgency=medium
 
   * New upstream release.
+  * Refresh patches.
 
  -- Michael Biebl <biebl@debian.org>  Sun, 06 Mar 2016 22:13:28 +0100
 
