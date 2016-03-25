@@ -1,3 +1,17 @@
+gnome-terminal (3.20.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update build-dependencies according to configure.ac changes:
+    - bump libgtk-3-dev to >= 3.12.0
+    - bump libvte-2.91-dev to >= 0.44.0
+    - add libpcre2-dev (>= 10.00)
+  * Fix Don-t-allow-the-theme-to-set-black-on-black.patch to apply again.
+    Note: this patch could possibly be dropped since raleigh is no longer
+          the default theme.
+  * Have quilt refresh remaining patches.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Fri, 25 Mar 2016 09:48:50 +0100
+
 gnome-terminal (3.18.3-1) unstable; urgency=medium
 
   * New upstream release.

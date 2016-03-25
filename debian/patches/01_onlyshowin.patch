@@ -1,7 +1,7 @@
 Only show gnome-terminal in GNOME menus
 
---- a/gnome-terminal.desktop.in.in
-+++ b/gnome-terminal.desktop.in.in
+--- a/org.gnome.Terminal.desktop.in.in
++++ b/org.gnome.Terminal.desktop.in.in
 @@ -14,3 +14,4 @@
  Categories=GNOME;GTK;System;TerminalEmulator;
  StartupNotify=true

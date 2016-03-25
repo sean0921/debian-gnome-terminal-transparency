@@ -15,7 +15,7 @@ collect2: error: ld returned 1 exit status
 
 --- a/configure.ac
 +++ b/configure.ac
-@@ -228,7 +228,8 @@
+@@ -256,7 +256,8 @@
    PKG_CHECK_MODULES([NAUTILUS],[
      libnautilus-extension >= $NAUTILUS_REQUIRED
      gio-2.0

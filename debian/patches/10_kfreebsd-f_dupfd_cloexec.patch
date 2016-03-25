@@ -7,13 +7,11 @@ kfreebsd doesn't have F_DUPFD_CLOEXEC, so use it conditionally.
 As mentioned in the bug report, it will have support for it in
 jessie, so we can drop it in jessie+1.
 
-Index: gnome-terminal-3.18.3/src/terminal-screen.c
-===================================================================
---- gnome-terminal-3.18.3.orig/src/terminal-screen.c	2016-03-06 22:14:06.776140200 +0100
-+++ gnome-terminal-3.18.3/src/terminal-screen.c	2016-03-06 22:14:06.776140200 +0100
-@@ -177,6 +177,20 @@
- static TerminalURLFlavour *url_regex_flavors;
+--- a/src/terminal-screen.c
++++ b/src/terminal-screen.c
+@@ -196,6 +196,20 @@
  static guint n_url_regexes;
+ static guint n_extra_regexes;
  
 +#ifdef F_DUPFD_CLOEXEC
 +static inline int dup_cloexec(int fd, int hint)
@@ -32,7 +30,7 @@ Index: gnome-terminal-3.18.3/src/terminal-screen.c
  /* See bug #697024 */
  #ifndef __linux__
  
-@@ -1203,7 +1217,7 @@
+@@ -1333,7 +1347,7 @@
        for (j = 0; j < n_fds; j++) {
          if (fds[j] == target_fd) {
            do {

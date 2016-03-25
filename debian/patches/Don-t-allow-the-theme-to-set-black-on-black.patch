@@ -23,11 +23,9 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=683744
  src/terminal-screen.c | 11 +++++++++++
  1 file changed, 11 insertions(+)
 
-Index: gnome-terminal-3.18.3/src/terminal-screen.c
-===================================================================
---- gnome-terminal-3.18.3.orig/src/terminal-screen.c	2016-03-06 22:14:12.236211702 +0100
-+++ gnome-terminal-3.18.3/src/terminal-screen.c	2016-03-06 22:14:12.232211650 +0100
-@@ -839,6 +839,17 @@
+--- a/src/terminal-screen.c
++++ b/src/terminal-screen.c
+@@ -945,6 +945,17 @@
    gtk_style_context_get_color (context, gtk_style_context_get_state (context), &theme_fg);
    gtk_style_context_get_background_color (context, gtk_style_context_get_state (context), &theme_bg);
  
@@ -42,6 +40,6 @@ Index: gnome-terminal-3.18.3/src/terminal-screen.c
 +      theme_bg.blue = 1.0;
 +    }
 +
-   if (g_settings_get_boolean (profile, TERMINAL_PROFILE_USE_THEME_COLORS_KEY) ||
+   use_theme_colors = g_settings_get_boolean (profile, TERMINAL_PROFILE_USE_THEME_COLORS_KEY);
+   if (use_theme_colors ||
        (!terminal_g_settings_get_rgba (profile, TERMINAL_PROFILE_FOREGROUND_COLOR_KEY, &fg) ||
-        !terminal_g_settings_get_rgba (profile, TERMINAL_PROFILE_BACKGROUND_COLOR_KEY, &bg)))
