@@ -9,9 +9,9 @@ jessie, so we can drop it in jessie+1.
 
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -184,6 +184,20 @@
- static TerminalURLFlavour *url_regex_flavors;
+@@ -196,6 +196,20 @@
  static guint n_url_regexes;
+ static guint n_extra_regexes;
  
 +#ifdef F_DUPFD_CLOEXEC
 +static inline int dup_cloexec(int fd, int hint)
@@ -30,7 +30,7 @@ jessie, so we can drop it in jessie+1.
  /* See bug #697024 */
  #ifndef __linux__
  
-@@ -1192,7 +1206,7 @@
+@@ -1333,7 +1347,7 @@
        for (j = 0; j < n_fds; j++) {
          if (fds[j] == target_fd) {
            do {

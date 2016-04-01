@@ -3,33 +3,34 @@ Section: gnome
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: @GNOME_TEAM@
-Standards-Version: 3.9.5
+Standards-Version: 3.9.7
 Build-Depends: cdbs (>= 0.4.41),
-               debhelper (>= 8),
+               debhelper (>= 9),
                dh-autoreconf,
                gnome-common,
                autotools-dev,
                intltool (>= 0.50.0),
                libx11-dev,
                libdconf-dev (>= 0.14.0),
-               libgtk-3-dev (>= 3.10.0),
-               libglib2.0-dev (>= 2.40.0),
-               libvte-2.91-dev (>= 0.38.0),
+               libgtk-3-dev (>= 3.12.0),
+               libglib2.0-dev (>= 2.42.0),
+               libpcre2-dev (>= 10.00),
+               libvte-2.91-dev (>= 0.44.0),
                libsm-dev,
                gnome-pkg-tools (>= 0.10),
                docbook-to-man,
                gnome-doc-utils,
-               valac (>= 0.24),
+               valac (>= 0.26),
                uuid-dev,
                yelp-tools,
                libgconf2-dev (>= 2.31.3),
                desktop-file-utils,
-               appdata-tools,
                gsettings-desktop-schemas-dev (>= 0.1.0),
                gnome-shell [linux-any],
                libnautilus-extension-dev
 Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/gnome-terminal/
-Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/gnome-terminal/
+Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/gnome-terminal/
+Homepage: https://wiki.gnome.org/Apps/Terminal
 
 Package: gnome-terminal
 Architecture: any
@@ -39,11 +40,12 @@ Depends: ${shlibs:Depends},
          gsettings-desktop-schemas (>= 0.1.0),
          gnome-terminal-data (>= ${gnome:Version}),
          gnome-terminal-data (<< ${gnome:NextVersion})
-Replaces: gnome-terminal-data (<< 2.26.2-3)
 Provides: x-terminal-emulator
 Recommends: yelp,
             gvfs,
             dbus-x11
+Conflicts: nautilus-open-terminal
+Replaces: nautilus-open-terminal
 Description: GNOME terminal emulator application
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:

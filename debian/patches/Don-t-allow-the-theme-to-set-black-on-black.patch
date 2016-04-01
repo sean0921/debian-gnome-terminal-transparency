@@ -25,9 +25,9 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=683744
 
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -828,6 +828,17 @@
-   gtk_style_context_get_color (context, GTK_STATE_FLAG_NORMAL, &theme_fg);
-   gtk_style_context_get_background_color (context, GTK_STATE_FLAG_NORMAL, &theme_bg);
+@@ -945,6 +945,17 @@
+   gtk_style_context_get_color (context, gtk_style_context_get_state (context), &theme_fg);
+   gtk_style_context_get_background_color (context, gtk_style_context_get_state (context), &theme_bg);
  
 +  if (theme_fg.red == 0.0 && theme_fg.green == 0.0 && theme_fg.blue == 0.0 &&
 +      theme_bg.red == 0.0 && theme_bg.green == 0.0 && theme_bg.blue == 0.0)
@@ -40,6 +40,6 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=683744
 +      theme_bg.blue = 1.0;
 +    }
 +
-   if (g_settings_get_boolean (profile, TERMINAL_PROFILE_USE_THEME_COLORS_KEY) ||
+   use_theme_colors = g_settings_get_boolean (profile, TERMINAL_PROFILE_USE_THEME_COLORS_KEY);
+   if (use_theme_colors ||
        (!terminal_g_settings_get_rgba (profile, TERMINAL_PROFILE_FOREGROUND_COLOR_KEY, &fg) ||
-        !terminal_g_settings_get_rgba (profile, TERMINAL_PROFILE_BACKGROUND_COLOR_KEY, &bg)))
