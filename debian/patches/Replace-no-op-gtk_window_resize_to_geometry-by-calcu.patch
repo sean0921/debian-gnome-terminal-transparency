@@ -1,0 +1,39 @@
+From: Simon McVittie <smcv@debian.org>
+Date: Fri, 1 Apr 2016 08:22:31 +0100
+Subject: Replace no-op gtk_window_resize_to_geometry by calculating
+ new size
+
+Together with the previous commit, this fixes a regression in
+GNOME 3.20: anything that would alter the Terminal size, for example
+a font size change or the 80x24, 80x43 etc. menu items, did nothing.
+
+Signed-off-by: Simon McVittie <smcv@debian.org>
+Bug: https://bugzilla.gnome.org/show_bug.cgi?id=760944
+---
+ src/terminal-window.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/src/terminal-window.c b/src/terminal-window.c
+index ccfceaa..646e01a 100644
+--- a/src/terminal-window.c
++++ b/src/terminal-window.c
+@@ -3200,13 +3200,18 @@ terminal_window_update_size (TerminalWindow *window)
+ {
+   TerminalWindowPrivate *priv = window->priv;
+   int grid_width, grid_height;
++  int pixel_width, pixel_height;
+ 
+   /* be sure our geometry is up-to-date */
+   terminal_window_update_geometry (window);
+ 
+   terminal_screen_get_size (priv->active_screen, &grid_width, &grid_height);
+ 
+-  gtk_window_resize_to_geometry (GTK_WINDOW (window), grid_width, grid_height);
++  /* the "old" struct members were updated by update_geometry */
++  pixel_width = priv->old_base_width + grid_width * priv->old_char_width;
++  pixel_height = priv->old_base_height + grid_height * priv->old_char_height;
++
++  gtk_window_resize (GTK_WINDOW (window), pixel_width, pixel_height);
+ }
+ 
+ void
