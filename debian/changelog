@@ -1,3 +1,14 @@
+gnome-terminal (3.20.0-2) experimental; urgency=medium
+
+  * Team upload.
+  * Add patches restoring the ability for the terminal to resize itself
+    (Closes: #819712)
+  * Depend on vte from experimental to enforce having a vte version that
+    was compiled against Gtk 3.20, avoiding miscounting the padding and
+    sizing windows 1 column x 1 row too small
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 01 Apr 2016 09:34:13 +0100
+
 gnome-terminal (3.20.0-1) unstable; urgency=medium
 
   * New upstream release.
