@@ -1,3 +1,11 @@
+gnome-terminal (3.20.0-3) experimental; urgency=medium
+
+  * Team upload.
+  * Improve patch for #819712 to account for client-side decorations
+    under Wayland or with GTK_CSD=1 under X11 (Closes: #819732)
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 04 Apr 2016 10:04:39 +0100
+
 gnome-terminal (3.20.0-2) experimental; urgency=medium
 
   * Team upload.
