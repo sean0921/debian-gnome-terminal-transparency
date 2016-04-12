@@ -1,5 +1,5 @@
 From: Simon McVittie <smcv@debian.org>
-Date: Mon, 4 Apr 2016 09:09:13 +0100
+Date: Mon, 4 Apr 2016 11:10:38 +0100
 Subject: Replace no-op gtk_window_resize_to_geometry by calculating new size
 
 Together with the previous commit, this fixes a regression in
@@ -9,11 +9,11 @@ a font size change or the 80x24, 80x43 etc. menu items, did nothing.
 Signed-off-by: Simon McVittie <smcv@debian.org>
 Bug: https://bugzilla.gnome.org/show_bug.cgi?id=760944
 ---
- src/terminal-window.c | 136 +++++++++++++++++++++++++++++++++++++-------------
- 1 file changed, 102 insertions(+), 34 deletions(-)
+ src/terminal-window.c | 148 ++++++++++++++++++++++++++++++++++++++------------
+ 1 file changed, 114 insertions(+), 34 deletions(-)
 
 diff --git a/src/terminal-window.c b/src/terminal-window.c
-index ccfceaa..a306ff6 100644
+index ccfceaa..adef2b3 100644
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
 @@ -72,11 +72,26 @@ struct _TerminalWindowPrivate
@@ -111,12 +111,24 @@ index ccfceaa..a306ff6 100644
  		      priv->menubar,
  		      FALSE, FALSE, 0);
  
-@@ -3200,13 +3223,29 @@ terminal_window_update_size (TerminalWindow *window)
+@@ -3200,13 +3223,41 @@ terminal_window_update_size (TerminalWindow *window)
  {
    TerminalWindowPrivate *priv = window->priv;
    int grid_width, grid_height;
 +  int pixel_width, pixel_height;
++  GdkWindow *gdk_window;
 +
++  gdk_window = gtk_widget_get_window (GTK_WIDGET (window));
++
++  if (gdk_window != NULL &&
++      (gdk_window_get_state (gdk_window) &
++       (GDK_WINDOW_STATE_MAXIMIZED | GDK_WINDOW_STATE_TILED)))
++    {
++      /* Don't adjust the size of maximized or tiled (snapped, half-maximized)
++       * windows: if we do, there will be ugly gaps of up to 1 character cell
++       * around otherwise tiled windows. */
++      return;
++    }
  
    /* be sure our geometry is up-to-date */
    terminal_window_update_geometry (window);
@@ -142,7 +154,7 @@ index ccfceaa..a306ff6 100644
  }
  
  void
-@@ -3560,12 +3599,13 @@ terminal_window_update_geometry (TerminalWindow *window)
+@@ -3560,12 +3611,13 @@ terminal_window_update_geometry (TerminalWindow *window)
  {
    TerminalWindowPrivate *priv = window->priv;
    GtkWidget *widget;
@@ -160,7 +172,7 @@ index ccfceaa..a306ff6 100644
    if (priv->active_screen == NULL)
      return;
  
-@@ -3577,25 +3617,48 @@ terminal_window_update_geometry (TerminalWindow *window)
+@@ -3577,25 +3629,48 @@ terminal_window_update_geometry (TerminalWindow *window)
     * window, but that doesn't make too much sense.
     */
    terminal_screen_get_cell_size (priv->active_screen, &char_width, &char_height);
@@ -225,7 +237,7 @@ index ccfceaa..a306ff6 100644
  
  #define MIN_WIDTH_CHARS 4
  #define MIN_HEIGHT_CHARS 1
-@@ -3623,11 +3686,9 @@ terminal_window_update_geometry (TerminalWindow *window)
+@@ -3623,11 +3698,9 @@ terminal_window_update_geometry (TerminalWindow *window)
                               hints.min_height,
                               hints.width_inc,
                               hints.height_inc);
@@ -240,7 +252,7 @@ index ccfceaa..a306ff6 100644
        priv->old_geometry_widget = widget;
      }
    else
-@@ -3636,6 +3697,13 @@ terminal_window_update_geometry (TerminalWindow *window)
+@@ -3636,6 +3709,13 @@ terminal_window_update_geometry (TerminalWindow *window)
                               "[window %p] hints: increment unchanged, not setting\n",
                               window);
      }

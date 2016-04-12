@@ -2,6 +2,9 @@ gnome-terminal (3.20.1-1) UNRELEASED; urgency=medium
 
   * New upstream release
     - updated translations
+  * Update patch for #819712 to make the window fill the screen
+    properly when maximized, and when snapped to left/right half of
+    screen in GNOME Shell (the latter doesn't work in Wayland yet)
 
  -- Simon McVittie <smcv@debian.org>  Tue, 12 Apr 2016 21:51:44 +0100
 
