@@ -1,3 +1,10 @@
+gnome-terminal (3.20.1-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+    - updated translations
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 12 Apr 2016 21:51:44 +0100
+
 gnome-terminal (3.20.0-3) experimental; urgency=medium
 
   * Team upload.
