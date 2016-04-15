@@ -1,5 +1,6 @@
-gnome-terminal (3.20.1-1) UNRELEASED; urgency=medium
+gnome-terminal (3.20.1-1) experimental; urgency=medium
 
+  * Team upload.
   * New upstream release
     - updated translations
   * Update patch for #819712 to make the window fill the screen
@@ -8,7 +9,7 @@ gnome-terminal (3.20.1-1) UNRELEASED; urgency=medium
   * Add a systemd --user service for the D-Bus session service,
     which is used if dbus-user-session is installed
 
- -- Simon McVittie <smcv@debian.org>  Tue, 12 Apr 2016 21:51:44 +0100
+ -- Simon McVittie <smcv@debian.org>  Fri, 15 Apr 2016 18:01:01 +0100
 
 gnome-terminal (3.20.0-3) experimental; urgency=medium
 
