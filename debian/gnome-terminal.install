@@ -1,5 +1,6 @@
 usr/bin
 usr/lib/gnome-terminal
+usr/lib/systemd/user
 usr/share/appdata
 usr/share/applications
 usr/share/dbus-1/services

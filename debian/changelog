@@ -1,3 +1,35 @@
+gnome-terminal (3.20.1-1) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream release
+    - updated translations
+  * Update patch for #819712 to make the window fill the screen
+    properly when maximized, and when snapped to left/right half of
+    screen in GNOME Shell (the latter doesn't work in Wayland yet)
+  * Add a systemd --user service for the D-Bus session service,
+    which is used if dbus-user-session is installed
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 15 Apr 2016 18:01:01 +0100
+
+gnome-terminal (3.20.0-3) experimental; urgency=medium
+
+  * Team upload.
+  * Improve patch for #819712 to account for client-side decorations
+    under Wayland or with GTK_CSD=1 under X11 (Closes: #819732)
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 04 Apr 2016 10:04:39 +0100
+
+gnome-terminal (3.20.0-2) experimental; urgency=medium
+
+  * Team upload.
+  * Add patches restoring the ability for the terminal to resize itself
+    (Closes: #819712)
+  * Depend on vte from experimental to enforce having a vte version that
+    was compiled against Gtk 3.20, avoiding miscounting the padding and
+    sizing windows 1 column x 1 row too small
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 01 Apr 2016 09:34:13 +0100
+
 gnome-terminal (3.20.0-1) unstable; urgency=medium
 
   * New upstream release.
