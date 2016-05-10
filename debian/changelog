@@ -1,3 +1,14 @@
+gnome-terminal (3.20.2-0ubuntu1) UNRELEASED; urgency=medium
+
+  * New upstream release
+  * debian/control:
+    - Bump build-depends on libgtk-3-dev, libvte-2.91-dev
+    - Add build-depends on libpcre2-dev
+  * debian/rules:
+    - Install compatibility version of gnome-terminal.desktop
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Tue, 10 May 2016 16:15:30 +1200
+
 gnome-terminal (3.18.3-1ubuntu1) xenial; urgency=low
 
   * Merge with Debian, remaining Ubuntu changes:

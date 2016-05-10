@@ -3,37 +3,35 @@ Author: Marc Deslauriers <marc.deslauriers@canonical.com>
 Forwarded: yes, https://bugzilla.gnome.org/show_bug.cgi?id=709087
 Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1232589
 
-Index: b/src/terminal-screen.c
+Index: gnome-terminal-3.20.2/src/terminal-screen.c
 ===================================================================
---- a/src/terminal-screen.c
-+++ b/src/terminal-screen.c
-@@ -171,6 +171,7 @@
+--- gnome-terminal-3.20.2.orig/src/terminal-screen.c
++++ gnome-terminal-3.20.2/src/terminal-screen.c
+@@ -178,6 +178,7 @@ static const TerminalRegexPattern url_re
    { REGEX_URL_VOIP,  FLAVOR_VOIP_CALL },
    { REGEX_EMAIL,     FLAVOR_EMAIL },
    { REGEX_NEWS_MAN,  FLAVOR_AS_IS },
 +  { REGEX_LP,        FLAVOR_LP },
  };
  
- static GRegex **url_regexes;
-Index: b/src/terminal-screen.h
+ static const TerminalRegexPattern extra_regex_patterns[] = {
+Index: gnome-terminal-3.20.2/src/terminal-screen.h
 ===================================================================
---- a/src/terminal-screen.h
-+++ b/src/terminal-screen.h
-@@ -30,7 +30,8 @@
-   FLAVOR_AS_IS,
-   FLAVOR_DEFAULT_TO_HTTP,
+--- gnome-terminal-3.20.2.orig/src/terminal-screen.h
++++ gnome-terminal-3.20.2/src/terminal-screen.h
+@@ -32,6 +32,7 @@ typedef enum {
    FLAVOR_VOIP_CALL,
--  FLAVOR_EMAIL
-+  FLAVOR_EMAIL,
+   FLAVOR_EMAIL,
+   FLAVOR_NUMBER,
 +  FLAVOR_LP
- } TerminalURLFlavour;
+ } TerminalURLFlavor;
  
  /* Forward decls */
-Index: b/src/terminal-util.c
+Index: gnome-terminal-3.20.2/src/terminal-util.c
 ===================================================================
---- a/src/terminal-util.c
-+++ b/src/terminal-util.c
-@@ -301,6 +301,9 @@
+--- gnome-terminal-3.20.2.orig/src/terminal-util.c
++++ gnome-terminal-3.20.2/src/terminal-util.c
+@@ -302,6 +302,9 @@ terminal_util_open_url (GtkWidget *paren
      case FLAVOR_AS_IS:
        uri = g_strdup (orig_url);
        break;
@@ -43,7 +41,7 @@ Index: b/src/terminal-util.c
      default:
        uri = NULL;
        g_assert_not_reached ();
-@@ -314,6 +317,20 @@
+@@ -315,6 +318,20 @@ terminal_util_open_url (GtkWidget *paren
      }
  }
  
@@ -64,47 +62,47 @@ Index: b/src/terminal-util.c
  /**
   * terminal_util_transform_uris_to_quoted_fuse_paths:
   * @uris:
-Index: b/src/terminal-window.c
+Index: gnome-terminal-3.20.2/src/terminal-window.c
 ===================================================================
---- a/src/terminal-window.c
-+++ b/src/terminal-window.c
-@@ -1924,7 +1924,18 @@
+--- gnome-terminal-3.20.2.orig/src/terminal-window.c
++++ gnome-terminal-3.20.2/src/terminal-window.c
+@@ -1980,7 +1980,18 @@ popup_copy_url_callback (GtkAction *acti
      return;
  
    clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
--  gtk_clipboard_set_text (clipboard, info->string, -1);
+-  gtk_clipboard_set_text (clipboard, info->url, -1);
 +
-+  if (info->flavour == FLAVOR_LP)
++  if (info->url_flavor == FLAVOR_LP)
 +    {
 +      char *uri;
-+      uri = terminal_util_get_lp_url (info->string);
++      uri = terminal_util_get_lp_url (info->url);
 +      gtk_clipboard_set_text (clipboard, uri, -1);
 +      g_free (uri);
 +    }
 +  else
 +    {
-+      gtk_clipboard_set_text (clipboard, info->string, -1);
++      gtk_clipboard_set_text (clipboard, info->url, -1);
 +    }
  }
  
  static void
-@@ -2017,7 +2028,9 @@
+@@ -2073,7 +2084,9 @@ popup_clipboard_targets_received_cb (Gtk
  
    can_paste = targets != NULL && gtk_targets_include_text (targets, n_targets);
    can_paste_uris = targets != NULL && gtk_targets_include_uri (targets, n_targets);
--  show_link = info->string != NULL && (info->flavour == FLAVOR_AS_IS || info->flavour == FLAVOR_DEFAULT_TO_HTTP);
-+  show_link = info->string != NULL && (info->flavour == FLAVOR_AS_IS ||
-+                                       info->flavour == FLAVOR_DEFAULT_TO_HTTP ||
-+                                       info->flavour == FLAVOR_LP);
-   show_email_link = info->string != NULL && info->flavour == FLAVOR_EMAIL;
-   show_call_link = info->string != NULL && info->flavour == FLAVOR_VOIP_CALL;
- 
-Index: b/src/terminal-util.h
+-  show_link = info->url != NULL && (info->url_flavor == FLAVOR_AS_IS || info->url_flavor == FLAVOR_DEFAULT_TO_HTTP);
++  show_link = info->url != NULL && (info->url_flavor == FLAVOR_AS_IS ||
++                                    info->url_flavor == FLAVOR_DEFAULT_TO_HTTP ||
++                                    info->url_flavor == FLAVOR_LP);
+   show_email_link = info->url != NULL && info->url_flavor == FLAVOR_EMAIL;
+   show_call_link = info->url != NULL && info->url_flavor == FLAVOR_VOIP_CALL;
+   show_number_info = info->number_info != NULL;
+Index: gnome-terminal-3.20.2/src/terminal-util.h
 ===================================================================
---- a/src/terminal-util.h
-+++ b/src/terminal-util.h
-@@ -46,6 +46,8 @@
-                              TerminalURLFlavour flavor,
+--- gnome-terminal-3.20.2.orig/src/terminal-util.h
++++ gnome-terminal-3.20.2/src/terminal-util.h
+@@ -46,6 +46,8 @@ void terminal_util_open_url (GtkWidget *
+                              TerminalURLFlavor flavor,
                               guint32 user_time);
  
 +char *terminal_util_get_lp_url (const char *orig_url);
@@ -112,10 +110,10 @@ Index: b/src/terminal-util.h
  void terminal_util_transform_uris_to_quoted_fuse_paths (char **uris);
  
  char *terminal_util_concat_uris (char **uris,
-Index: b/src/terminal-regex.h
+Index: gnome-terminal-3.20.2/src/terminal-regex.h
 ===================================================================
---- a/src/terminal-regex.h
-+++ b/src/terminal-regex.h
+--- gnome-terminal-3.20.2.orig/src/terminal-regex.h
++++ gnome-terminal-3.20.2/src/terminal-regex.h
 @@ -141,5 +141,6 @@
  #define REGEX_URL_VOIP   DEFS "(?i:h323:|sips?:)" USERPASS URL_HOST PORT VOIP_PATH
  #define REGEX_EMAIL      DEFS "(?i:mailto:)?" USER "@" EMAIL_HOST

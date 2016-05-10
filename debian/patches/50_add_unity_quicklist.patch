@@ -2,10 +2,10 @@ Description: Add Unity static quicklist support to gnome-terminal
 Forwarded: https://bugzilla.gnome.org/show_bug.cgi?id=651531
 Author: Didier Roche <didrocks@ubuntu.com>
 
-Index: b/gnome-terminal.desktop.in.in
+Index: b/org.gnome.Terminal.desktop.in.in
 ===================================================================
---- a/gnome-terminal.desktop.in.in
-+++ b/gnome-terminal.desktop.in.in
+--- a/org.gnome.Terminal.desktop.in.in
++++ b/org.gnome.Terminal.desktop.in.in
 @@ -15,3 +15,9 @@
  StartupNotify=true
  X-GNOME-SingleWindow=false
