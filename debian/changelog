@@ -1,3 +1,40 @@
+gnome-terminal (3.18.3-1ubuntu1) xenial; urgency=low
+
+  * Merge with Debian, remaining Ubuntu changes:
+    + debian/control:
+      - Don't depend on gnome-shell - it is in Universe. (See patch below).
+      - gnome-terminal depends on python3, python3-gi and gir1.2-glib-2.0 for
+        the wrapper script.
+    + gnome-terminal.wrap, debian/rules:
+      - Add a wrapper script to restore command line compatibility.
+    + debian/patches/0001-Restore-transparency.patch:
+      - Restore transparency support
+    + debian/patches/50_add_unity_quicklist.patch:
+      - Add Unity quicklist menu item.
+    + debian/patches/52_support_apturl.patch:
+      - Support apt: urls.
+    + debian/patches/60_add_lp_handler.patch:
+      - Add a handler for launchpad bug URLs.
+    + Add gnome-shell_search_provider.patch:
+      - Provide a local copy of the dbus interface so can build shell search
+        provider without depending on gnome-shell which is in universe.
+    + debian/patches/scrollbar-background-theming.patch:
+      - Draw background under the scrollbar that matches the actual terminal
+        background color. This allows proper theming.
+  * debian/patches/52_support_apturl.patch,
+    debian/patches/60_add_lp_handler.patch: Update to apply with the regex
+    refactoring in 3.18.3
+
+ -- Iain Lane <iain@orangesquash.org.uk>  Tue, 15 Mar 2016 12:03:08 +0000
+
+gnome-terminal (3.18.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Refresh patches.
+  * Bump Standards-Version to 3.9.7.
+
+ -- Michael Biebl <biebl@debian.org>  Sun, 06 Mar 2016 22:18:26 +0100
+
 gnome-terminal (3.18.2-1ubuntu3) xenial; urgency=medium
 
   * 0001-window-Make-the-drawing-robust-across-all-themes.patch: Merge into
@@ -2372,3 +2409,4 @@ gnome-core (0.13-1) unstable; urgency=low
   * Initial Release.
 
  -- Jim Pick <jim@jimpick.com>  Mon, 16 Mar 1998 15:27:43 -0800
+
