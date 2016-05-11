@@ -2,6 +2,7 @@ gnome-terminal (3.20.2-1) UNRELEASED; urgency=medium
 
   * New upstream release.
   * Drop Build-Depends on gnome-doc-utils, no longer needed.
+  * Refresh patches.
 
  -- Michael Biebl <biebl@debian.org>  Wed, 20 Apr 2016 02:50:59 +0200
 

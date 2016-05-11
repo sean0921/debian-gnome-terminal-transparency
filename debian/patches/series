@@ -5,4 +5,3 @@ Don-t-allow-the-theme-to-set-black-on-black.patch
 Provide-fallback-for-reading-current-directory-if-OS.patch
 Fix-chunked-resize-and-geometry-option.patch
 Replace-no-op-gtk_window_resize_to_geometry-by-calcu.patch
-Add-a-systemd-user-service-for-the-terminal-server.patch
