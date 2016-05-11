@@ -1,5 +1,6 @@
-gnome-terminal (3.20.1-3) UNRELEASED; urgency=medium
+gnome-terminal (3.20.2-1) UNRELEASED; urgency=medium
 
+  * New upstream release.
   * Drop Build-Depends on gnome-doc-utils, no longer needed.
 
  -- Michael Biebl <biebl@debian.org>  Wed, 20 Apr 2016 02:50:59 +0200
