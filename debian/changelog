@@ -1,4 +1,4 @@
-gnome-terminal (3.20.2-1) UNRELEASED; urgency=medium
+gnome-terminal (3.20.2-1) unstable; urgency=medium
 
   * New upstream release.
   * Drop Build-Depends on gnome-doc-utils, no longer needed.
@@ -7,7 +7,7 @@ gnome-terminal (3.20.2-1) UNRELEASED; urgency=medium
     file.
   * Bump Standards-Version to 3.9.8.
 
- -- Michael Biebl <biebl@debian.org>  Wed, 20 Apr 2016 02:50:59 +0200
+ -- Michael Biebl <biebl@debian.org>  Wed, 11 May 2016 17:04:39 +0200
 
 gnome-terminal (3.20.1-2) unstable; urgency=medium
 
