@@ -5,6 +5,7 @@ gnome-terminal (3.20.2-1) UNRELEASED; urgency=medium
   * Refresh patches.
   * Use dh-exec to install the Linux specific gnome-shell search provider ini
     file.
+  * Bump Standards-Version to 3.9.8.
 
  -- Michael Biebl <biebl@debian.org>  Wed, 20 Apr 2016 02:50:59 +0200
 
