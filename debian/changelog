@@ -1,3 +1,10 @@
+gnome-terminal (3.20.2-2) unstable; urgency=medium
+
+  * Add debian/patches/git_notebook-avoid-crash-on-tab-DND.patch
+    from upstream git. (Closes: #825818)
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 25 Jul 2016 20:47:13 +0200
+
 gnome-terminal (3.20.2-1) unstable; urgency=medium
 
   * New upstream release.
