@@ -7,30 +7,31 @@ Section: gnome
 Priority: optional
 Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Michael Biebl <biebl@debian.org>
-Standards-Version: 3.9.7
+Uploaders: Andreas Henriksson <andreas@fatal.se>, Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>, Michael Biebl <biebl@debian.org>
+Standards-Version: 3.9.8
 Build-Depends: cdbs (>= 0.4.41),
                debhelper (>= 9),
                dh-autoreconf,
+               dh-exec,
                gnome-common,
                autotools-dev,
                intltool (>= 0.50.0),
                libx11-dev,
                libdconf-dev (>= 0.14.0),
-               libgtk-3-dev (>= 3.12.0),
+               libgtk-3-dev (>= 3.20),
                libglib2.0-dev (>= 2.42.0),
                libpcre2-dev (>= 10.00),
-               libvte-2.91-dev (>= 0.45.0),
+               libvte-2.91-dev (>= 0.44.0-2~),
                libsm-dev,
                gnome-pkg-tools (>= 0.10),
                docbook-to-man,
-               gnome-doc-utils,
                valac (>= 0.26),
                uuid-dev,
                yelp-tools,
                libgconf2-dev (>= 2.31.3),
                desktop-file-utils,
                gsettings-desktop-schemas-dev (>= 0.1.0),
+               gnome-shell [linux-any],
                libnautilus-extension-dev
 Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/gnome-terminal/
 Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/gnome-terminal/

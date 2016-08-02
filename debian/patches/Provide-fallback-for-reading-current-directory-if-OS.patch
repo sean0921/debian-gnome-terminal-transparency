@@ -7,11 +7,9 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=712628
  src/terminal-screen.c | 66 +++++++++++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 66 insertions(+)
 
-Index: gnome-terminal-3.18.3/src/terminal-screen.c
-===================================================================
---- gnome-terminal-3.18.3.orig/src/terminal-screen.c	2016-03-06 22:14:14.820245526 +0100
-+++ gnome-terminal-3.18.3/src/terminal-screen.c	2016-03-06 22:14:14.820245526 +0100
-@@ -209,6 +209,63 @@
+--- a/src/terminal-screen.c
++++ b/src/terminal-screen.c
+@@ -228,6 +228,63 @@
  
  G_DEFINE_TYPE (TerminalScreen, terminal_screen, VTE_TYPE_TERMINAL)
  
@@ -75,7 +73,7 @@ Index: gnome-terminal-3.18.3/src/terminal-screen.c
  static void
  free_tag_data (TagData *tagdata)
  {
-@@ -1540,12 +1597,21 @@
+@@ -1677,12 +1734,21 @@
  char *
  terminal_screen_get_current_dir (TerminalScreen *screen)
  {

@@ -11,11 +11,11 @@ include /usr/share/gnome-pkg-tools/1/rules/gnome-version.mk
 
 include /usr/share/gnome-pkg-tools/1/rules/make-compat-desktop-file.mk
 
-DEB_MK_COMPAT_DESKTOP_gnome-terminal := $(CURDIR)/debian/gnome-terminal/usr/share/applications/org.gnome.Terminal.desktop $(CURDIR)/debian/cheese/usr/share/applications/gnome-terminal.desktop
+DEB_MK_COMPAT_DESKTOP_gnome-terminal := $(CURDIR)/debian/gnome-terminal/usr/share/applications/org.gnome.Terminal.desk
 
 LDFLAGS += -Wl,-z,defs -Wl,-O1 -Wl,--as-needed
 
-DEB_CONFIGURE_EXTRA_FLAGS += --enable-distro-packaging
+DEB_CONFIGURE_EXTRA_FLAGS += --enable-distro-packaging --enable-debug
 
 ifneq ($(DEB_HOST_ARCH_OS),linux)
     DEB_CONFIGURE_EXTRA_FLAGS += --disable-search-provider
@@ -30,11 +30,6 @@ build/gnome-terminal::
 
 clean::
 	rm -f debian/gnome-terminal.1
-
-install/gnome-terminal::
-ifeq ($(DEB_HOST_ARCH_OS),linux)
-	dh_install -pgnome-terminal debian/tmp/usr/share/gnome-shell/search-providers/gnome-terminal-search-provider.ini
-endif
 
 binary-post-install/gnome-terminal::
 	mv $(CURDIR)/debian/gnome-terminal/usr/bin/gnome-terminal \

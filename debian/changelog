@@ -1,13 +1,104 @@
-gnome-terminal (3.20.2-0ubuntu1) UNRELEASED; urgency=medium
+gnome-terminal (3.20.2-1ubuntu1) UNRELEASED; urgency=medium
 
-  * New upstream release
-  * debian/control:
-    - Bump build-depends on libgtk-3-dev, libvte-2.91-dev
-    - Add build-depends on libpcre2-dev
+  [ Tim Lunn ]
+  * Merge with Debian, remaining Ubuntu changes:
+    + debian/control:
+      - gnome-terminal depends on python3, python3-gi and gir1.2-glib-2.0 for
+        the wrapper script.
+    + gnome-terminal.wrap, debian/rules:
+      - Add a wrapper script to restore command line compatibility.
+    + debian/patches/0001-Restore-transparency.patch:
+      - Restore transparency support
+    + debian/patches/50_add_unity_quicklist.patch:
+      - Add Unity quicklist menu item.
+    + debian/patches/52_support_apturl.patch:
+      - Support apt: urls.
+    + debian/patches/60_add_lp_handler.patch:
+      - Add a handler for launchpad bug URLs.
+    + debian/patches/scrollbar-background-theming.patch:
+      - Draw background under the scrollbar that matches the actual terminal
+        background color. This allows proper theming.
+  * debian/patches/60_add_lp_handler.patch: Update to apply with the regex
+    refactoring in 3.20
+  * debian/control.in: Add build-dep on gnome-shell, this is a build time only
+    dependency so universe dep is ok now.
+  * debian/patches/gnome-shell_search_provider.patch: Drop not needed with 
+    above change
+
+  [ Iain Lane ]
+  * d/p/0001-Restore-transparency.patch: Restore a commit which was
+    missed.
+  * d/p/0001-Add-style-classes-and-CSS-names-to-some-of-our-widge.patch:
+    Add CSS names and style classes so we can theme things more easily.
+
+  [ Robert Ancell ]
   * debian/rules:
     - Install compatibility version of gnome-terminal.desktop
 
- -- Robert Ancell <robert.ancell@canonical.com>  Tue, 10 May 2016 16:15:30 +1200
+ -- Tim Lunn <tim@feathertop.org>  Wed, 29 Jun 2016 14:14:24 +0100
+
+gnome-terminal (3.20.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop Build-Depends on gnome-doc-utils, no longer needed.
+  * Refresh patches.
+  * Use dh-exec to install the Linux specific gnome-shell search provider ini
+    file.
+  * Bump Standards-Version to 3.9.8.
+
+ -- Michael Biebl <biebl@debian.org>  Wed, 11 May 2016 17:04:39 +0200
+
+gnome-terminal (3.20.1-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Michael Biebl <biebl@debian.org>  Sat, 16 Apr 2016 22:43:10 +0200
+
+gnome-terminal (3.20.1-1) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream release
+    - updated translations
+  * Update patch for #819712 to make the window fill the screen
+    properly when maximized, and when snapped to left/right half of
+    screen in GNOME Shell (the latter doesn't work in Wayland yet)
+  * Add a systemd --user service for the D-Bus session service,
+    which is used if dbus-user-session is installed
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 15 Apr 2016 18:01:01 +0100
+
+gnome-terminal (3.20.0-3) experimental; urgency=medium
+
+  * Team upload.
+  * Improve patch for #819712 to account for client-side decorations
+    under Wayland or with GTK_CSD=1 under X11 (Closes: #819732)
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 04 Apr 2016 10:04:39 +0100
+
+gnome-terminal (3.20.0-2) experimental; urgency=medium
+
+  * Team upload.
+  * Add patches restoring the ability for the terminal to resize itself
+    (Closes: #819712)
+  * Depend on vte from experimental to enforce having a vte version that
+    was compiled against Gtk 3.20, avoiding miscounting the padding and
+    sizing windows 1 column x 1 row too small
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 01 Apr 2016 09:34:13 +0100
+
+gnome-terminal (3.20.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update build-dependencies according to configure.ac changes:
+    - bump libgtk-3-dev to >= 3.12.0
+    - bump libvte-2.91-dev to >= 0.44.0
+    - add libpcre2-dev (>= 10.00)
+  * Fix Don-t-allow-the-theme-to-set-black-on-black.patch to apply again.
+    Note: this patch could possibly be dropped since raleigh is no longer
+          the default theme.
+  * Have quilt refresh remaining patches.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Fri, 25 Mar 2016 09:48:50 +0100
 
 gnome-terminal (3.18.3-1ubuntu1) xenial; urgency=low
 

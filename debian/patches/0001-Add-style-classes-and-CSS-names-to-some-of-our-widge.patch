@@ -1,0 +1,92 @@
+From 7294dbc3c04321ff718f197c9793fb954007c8e7 Mon Sep 17 00:00:00 2001
+From: Iain Lane <iain@orangesquash.org.uk>
+Date: Fri, 24 Jun 2016 14:51:22 +0100
+Subject: [PATCH] Add style classes and CSS names to some of our widgets
+
+---
+ src/terminal-notebook.c         | 6 ++++++
+ src/terminal-screen-container.c | 6 ++++++
+ src/terminal-screen.c           | 7 ++++++-
+ 3 files changed, 18 insertions(+), 1 deletion(-)
+
+Index: b/src/terminal-notebook.c
+===================================================================
+--- a/src/terminal-notebook.c
++++ b/src/terminal-notebook.c
+@@ -32,6 +32,8 @@
+ #include "terminal-schemas.h"
+ #include "terminal-libgsystem.h"
+ 
++#define TERMINAL_NOTEBOOK_STYLE_CLASS "terminal-notebook"
++
+ #define TERMINAL_NOTEBOOK_GET_PRIVATE(notebook)(G_TYPE_INSTANCE_GET_PRIVATE ((notebook), TERMINAL_TYPE_NOTEBOOK, TerminalNotebookPrivate))
+ 
+ struct _TerminalNotebookPrivate
+@@ -446,11 +448,15 @@
+ terminal_notebook_init (TerminalNotebook *notebook)
+ {
+   TerminalNotebookPrivate *priv;
++  GtkStyleContext *context;
+ 
+   priv = notebook->priv = TERMINAL_NOTEBOOK_GET_PRIVATE (notebook);
+ 
+   priv->active_screen = NULL;
+   priv->policy = GTK_POLICY_AUTOMATIC;
++
++  context = gtk_widget_get_style_context (GTK_WIDGET (notebook));
++  gtk_style_context_add_class (context, TERMINAL_NOTEBOOK_STYLE_CLASS);
+ }
+ 
+ static void
+Index: b/src/terminal-screen-container.c
+===================================================================
+--- a/src/terminal-screen-container.c
++++ b/src/terminal-screen-container.c
+@@ -43,6 +43,8 @@
+   PROP_WINDOW_PLACEMENT_SET
+ };
+ 
++#define TERMINAL_SCREEN_CONTAINER_CSS_NAME "terminal-screen-container"
++
+ G_DEFINE_TYPE (TerminalScreenContainer, terminal_screen_container, GTK_TYPE_OVERLAY)
+ 
+ /* helper functions */
+@@ -214,6 +216,10 @@
+                         G_PARAM_READWRITE |
+                         G_PARAM_STATIC_STRINGS));
+ 
++#if GTK_CHECK_VERSION(3, 19, 5)
++  gtk_widget_class_set_css_name(widget_class, TERMINAL_SCREEN_CONTAINER_CSS_NAME);
++#endif
++
+    gtk_widget_class_install_style_property (widget_class,
+                                             g_param_spec_enum ("window-placement", NULL, NULL,
+                                                                GTK_TYPE_CORNER_TYPE,
+Index: b/src/terminal-screen.c
+===================================================================
+--- a/src/terminal-screen.c
++++ b/src/terminal-screen.c
+@@ -123,6 +123,8 @@
+   TARGET_TAB
+ };
+ 
++#define TERMINAL_SCREEN_STYLE_CLASS "terminal-screen"
++
+ static void terminal_screen_constructed (GObject             *object);
+ static void terminal_screen_dispose     (GObject             *object);
+ static void terminal_screen_finalize    (GObject             *object);
+@@ -369,9 +371,14 @@
+   guint i;
+   uuid_t u;
+   char uuidstr[37];
++  GtkStyleContext *context;
+ 
+   priv = screen->priv = G_TYPE_INSTANCE_GET_PRIVATE (screen, TERMINAL_TYPE_SCREEN, TerminalScreenPrivate);
+ 
++  context = gtk_widget_get_style_context (GTK_WIDGET (screen));
++
++  gtk_style_context_add_class (context, TERMINAL_SCREEN_STYLE_CLASS);
++
+   uuid_generate (u);
+   uuid_unparse (u, uuidstr);
+   priv->uuid = g_strdup (uuidstr);
