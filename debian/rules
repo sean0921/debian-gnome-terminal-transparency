@@ -11,7 +11,7 @@ include /usr/share/gnome-pkg-tools/1/rules/gnome-version.mk
 
 include /usr/share/gnome-pkg-tools/1/rules/make-compat-desktop-file.mk
 
-DEB_MK_COMPAT_DESKTOP_gnome-terminal := $(CURDIR)/debian/gnome-terminal/usr/share/applications/org.gnome.Terminal.desk
+DEB_MK_COMPAT_DESKTOP_gnome-terminal := $(CURDIR)/debian/gnome-terminal/usr/share/applications/org.gnome.Terminal.desktop $(CURDIR)/debian/gnome-terminal/usr/share/applications/gnome-terminal.desktop
 
 LDFLAGS += -Wl,-z,defs -Wl,-O1 -Wl,--as-needed
 
