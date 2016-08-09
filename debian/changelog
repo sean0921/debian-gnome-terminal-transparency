@@ -1,3 +1,10 @@
+gnome-terminal (3.20.2-1ubuntu2) UNRELEASED; urgency=medium
+
+  * debian/patches/0001-Restore-transparency.patch: Don't crash if the alpha
+    has a weird value. (LP: #1611358)
+
+ -- Iain Lane <iain@orangesquash.org.uk>  Tue, 09 Aug 2016 13:43:22 +0100
+
 gnome-terminal (3.20.2-1ubuntu1) yakkety; urgency=medium
 
   [ Tim Lunn ]

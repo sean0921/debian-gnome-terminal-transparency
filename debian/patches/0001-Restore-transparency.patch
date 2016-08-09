@@ -300,7 +300,7 @@ Index: b/src/terminal-screen.c
 ===================================================================
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -591,6 +591,11 @@
+@@ -606,6 +606,11 @@
  
    g_type_class_add_private (object_class, sizeof (TerminalScreenPrivate));
  
@@ -312,7 +312,7 @@ Index: b/src/terminal-screen.c
    n_url_regexes = G_N_ELEMENTS (url_regex_patterns);
    precompile_regexes (url_regex_patterns, n_url_regexes, &url_regexes, &url_regex_flavors);
    n_extra_regexes = G_N_ELEMENTS (extra_regex_patterns);
-@@ -855,7 +860,10 @@
+@@ -870,7 +875,10 @@
        prop_name == I_(TERMINAL_PROFILE_HIGHLIGHT_COLORS_SET_KEY) ||
        prop_name == I_(TERMINAL_PROFILE_HIGHLIGHT_BACKGROUND_COLOR_KEY) ||
        prop_name == I_(TERMINAL_PROFILE_HIGHLIGHT_FOREGROUND_COLOR_KEY) ||
@@ -324,7 +324,7 @@ Index: b/src/terminal-screen.c
      update_color_scheme (screen);
  
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_AUDIBLE_BELL_KEY))
-@@ -926,6 +934,9 @@
+@@ -941,6 +949,9 @@
    GdkRGBA *highlight_bgp = NULL, *highlight_fgp = NULL;
    GtkStyleContext *context;
    gboolean use_theme_colors;
@@ -334,7 +334,7 @@ Index: b/src/terminal-screen.c
  
    context = gtk_widget_get_style_context (widget);
    gtk_style_context_get_color (context, gtk_style_context_get_state (context), &theme_fg);
-@@ -966,6 +977,27 @@
+@@ -992,6 +1003,31 @@
      }
  
    colors = terminal_g_settings_get_rgba_palette (priv->profile, TERMINAL_PROFILE_PALETTE_KEY, &n_colors);
@@ -359,10 +359,14 @@ Index: b/src/terminal-screen.c
 +  else
 +      bg.alpha = 1.0;
 +
++  /* If this gets out of range, let's not crash */
++  if (bg.alpha < 0.0 || bg.alpha > 1.0)
++      bg.alpha = 1.0;
++
    vte_terminal_set_colors (VTE_TERMINAL (screen), &fg, &bg,
                             colors, n_colors);
    vte_terminal_set_color_bold (VTE_TERMINAL (screen), boldp);
-@@ -973,6 +1005,10 @@
+@@ -999,6 +1035,10 @@
    vte_terminal_set_color_cursor_foreground (VTE_TERMINAL (screen), cursor_fgp);
    vte_terminal_set_color_highlight (VTE_TERMINAL (screen), highlight_bgp);
    vte_terminal_set_color_highlight_foreground (VTE_TERMINAL (screen), highlight_fgp);
@@ -377,7 +381,7 @@ Index: b/src/terminal-window.c
 ===================================================================
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -2290,6 +2290,26 @@
+@@ -2303,6 +2303,26 @@
  }
  
  static gboolean
@@ -404,7 +408,7 @@ Index: b/src/terminal-window.c
  terminal_window_state_event (GtkWidget            *widget,
                               GdkEventWindowState  *event)
  {
-@@ -2618,6 +2638,8 @@
+@@ -2631,6 +2651,8 @@
    TerminalWindowPrivate *priv;
    TerminalApp *app;
    TerminalSettingsList *profiles_list;
@@ -413,7 +417,7 @@ Index: b/src/terminal-window.c
    GtkActionGroup *action_group;
    GtkAction *action;
    GtkUIManager *manager;
-@@ -2632,6 +2654,11 @@
+@@ -2645,6 +2667,11 @@
  
    gtk_widget_init_template (GTK_WIDGET (window));
  
@@ -425,7 +429,7 @@ Index: b/src/terminal-window.c
    uuid_generate (u);
    uuid_unparse (u, uuidstr);
    priv->uuid = g_strdup (uuidstr);
-@@ -2811,6 +2838,7 @@
+@@ -2824,6 +2851,7 @@
  
    widget_class->show = terminal_window_show;
    widget_class->realize = terminal_window_realize;
