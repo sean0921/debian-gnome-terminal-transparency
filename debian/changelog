@@ -1,3 +1,11 @@
+gnome-terminal (3.20.2-3) unstable; urgency=medium
+
+  * debian/patches/window-Fix-CSD-size-calculations-with-long-titles.patch
+    - Added. Fix terminal window unintentially resizing when using long titles
+      and CSD (bgo#769898)
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Mon, 15 Aug 2016 09:04:09 +0200
+
 gnome-terminal (3.20.2-2) unstable; urgency=medium
 
   * Add debian/patches/git_notebook-avoid-crash-on-tab-DND.patch
