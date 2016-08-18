@@ -10,11 +10,11 @@ Bug: https://bugzilla.gnome.org/show_bug.cgi?id=760944
  src/terminal-window.c  | 19 +++++++++++++------
  2 files changed, 13 insertions(+), 10 deletions(-)
 
-diff --git a/src/terminal-options.c b/src/terminal-options.c
-index cc51cf6..723ecfe 100644
+Index: b/src/terminal-options.c
+===================================================================
 --- a/src/terminal-options.c
 +++ b/src/terminal-options.c
-@@ -583,10 +583,6 @@ option_geometry_callback (const gchar *option_name,
+@@ -583,10 +583,6 @@
  {
    TerminalOptions *options = data;
  
@@ -25,11 +25,11 @@ index cc51cf6..723ecfe 100644
    if (options->initial_windows)
      {
        InitialWindow *iw;
-diff --git a/src/terminal-window.c b/src/terminal-window.c
-index 8b78849..ccfceaa 100644
+Index: b/src/terminal-window.c
+===================================================================
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -3562,8 +3562,9 @@ terminal_window_update_geometry (TerminalWindow *window)
+@@ -3571,8 +3571,9 @@
    GtkWidget *widget;
    GdkGeometry hints;
    GtkBorder padding;
@@ -41,7 +41,7 @@ index 8b78849..ccfceaa 100644
    
    if (priv->active_screen == NULL)
      return;
-@@ -3587,8 +3588,14 @@ terminal_window_update_geometry (TerminalWindow *window)
+@@ -3596,8 +3597,14 @@
        padding.top + padding.bottom != priv->old_base_height ||
        widget != (GtkWidget*) priv->old_geometry_widget)
      {
@@ -58,7 +58,7 @@ index 8b78849..ccfceaa 100644
  
  #define MIN_WIDTH_CHARS 4
  #define MIN_HEIGHT_CHARS 1
-@@ -3596,12 +3603,12 @@ terminal_window_update_geometry (TerminalWindow *window)
+@@ -3605,12 +3612,12 @@
        hints.width_inc = char_width;
        hints.height_inc = char_height;
  

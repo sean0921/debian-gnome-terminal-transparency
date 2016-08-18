@@ -12,11 +12,11 @@ Bug: https://bugzilla.gnome.org/show_bug.cgi?id=760944
  src/terminal-window.c | 148 ++++++++++++++++++++++++++++++++++++++------------
  1 file changed, 114 insertions(+), 34 deletions(-)
 
-diff --git a/src/terminal-window.c b/src/terminal-window.c
-index ccfceaa..adef2b3 100644
+Index: b/src/terminal-window.c
+===================================================================
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -72,11 +72,26 @@ struct _TerminalWindowPrivate
+@@ -72,11 +72,26 @@
  
    GtkWidget *menubar;
    TerminalMdiContainer *mdi_container;
@@ -45,7 +45,7 @@ index ccfceaa..adef2b3 100644
    void *old_geometry_widget; /* only used for pointer value as it may be freed */
  
    GtkWidget *confirm_close_dialog;
-@@ -87,6 +102,7 @@ struct _TerminalWindowPrivate
+@@ -87,6 +102,7 @@
  
    guint disposed : 1;
    guint present_on_insert : 1;
@@ -53,7 +53,7 @@ index ccfceaa..adef2b3 100644
  
    /* Workaround until gtk+ bug #535557 is fixed */
    guint icon_title_set : 1;
-@@ -2285,6 +2301,12 @@ terminal_window_realize (GtkWidget *widget)
+@@ -2287,6 +2303,12 @@
    /* Need to do this now since this requires the window to be realized */
    if (priv->active_screen != NULL)
      sync_screen_icon_title (priv->active_screen, NULL, window);
@@ -66,7 +66,7 @@ index ccfceaa..adef2b3 100644
  }
  
  static gboolean
-@@ -2619,7 +2641,6 @@ terminal_window_init (TerminalWindow *window)
+@@ -2621,7 +2643,6 @@
    GtkActionGroup *action_group;
    GtkAction *action;
    GtkUIManager *manager;
@@ -74,7 +74,7 @@ index ccfceaa..adef2b3 100644
    GError *error;
    GtkWindowGroup *window_group;
    GtkAccelGroup *accel_group;
-@@ -2649,7 +2670,7 @@ terminal_window_init (TerminalWindow *window)
+@@ -2651,7 +2672,7 @@
  
    priv->active_screen = NULL;
  
@@ -83,7 +83,7 @@ index ccfceaa..adef2b3 100644
  
    priv->mdi_container = TERMINAL_MDI_CONTAINER (terminal_notebook_new ());
  
-@@ -2684,13 +2705,15 @@ terminal_window_init (TerminalWindow *window)
+@@ -2686,13 +2707,15 @@
      g_signal_connect (priv->mdi_container, "create-window",
                        G_CALLBACK (handle_tab_droped_on_desktop), window);
  
@@ -102,7 +102,7 @@ index ccfceaa..adef2b3 100644
    priv->old_geometry_widget = NULL;
  
    /* GAction setup */
-@@ -2751,7 +2774,7 @@ terminal_window_init (TerminalWindow *window)
+@@ -2753,7 +2776,7 @@
  #endif
  
    priv->menubar = gtk_ui_manager_get_widget (manager, "/menubar");
@@ -111,7 +111,7 @@ index ccfceaa..adef2b3 100644
  		      priv->menubar,
  		      FALSE, FALSE, 0);
  
-@@ -3200,13 +3223,41 @@ terminal_window_update_size (TerminalWindow *window)
+@@ -3209,13 +3232,41 @@
  {
    TerminalWindowPrivate *priv = window->priv;
    int grid_width, grid_height;
@@ -138,8 +138,7 @@ index ccfceaa..adef2b3 100644
 +                         "[window %p] size is %dx%d cells of %dx%d px\n",
 +                         window, grid_width, grid_height,
 +                         priv->old_char_width, priv->old_char_height);
- 
--  gtk_window_resize_to_geometry (GTK_WINDOW (window), grid_width, grid_height);
++
 +  /* the "old" struct members were updated by update_geometry */
 +  pixel_width = priv->old_chrome_width + grid_width * priv->old_char_width;
 +  pixel_height = priv->old_chrome_height + grid_height * priv->old_char_height;
@@ -149,12 +148,13 @@ index ccfceaa..adef2b3 100644
 +                         grid_height * priv->old_char_height,
 +                         priv->old_chrome_width, priv->old_chrome_height,
 +                         pixel_width, pixel_height);
-+
+ 
+-  gtk_window_resize_to_geometry (GTK_WINDOW (window), grid_width, grid_height);
 +  gtk_window_resize (GTK_WINDOW (window), pixel_width, pixel_height);
  }
  
  void
-@@ -3560,12 +3611,13 @@ terminal_window_update_geometry (TerminalWindow *window)
+@@ -3569,12 +3620,13 @@
  {
    TerminalWindowPrivate *priv = window->priv;
    GtkWidget *widget;
@@ -172,7 +172,7 @@ index ccfceaa..adef2b3 100644
    if (priv->active_screen == NULL)
      return;
  
-@@ -3577,25 +3629,48 @@ terminal_window_update_geometry (TerminalWindow *window)
+@@ -3586,25 +3638,48 @@
     * window, but that doesn't make too much sense.
     */
    terminal_screen_get_cell_size (priv->active_screen, &char_width, &char_height);
@@ -237,7 +237,7 @@ index ccfceaa..adef2b3 100644
  
  #define MIN_WIDTH_CHARS 4
  #define MIN_HEIGHT_CHARS 1
-@@ -3623,11 +3698,9 @@ terminal_window_update_geometry (TerminalWindow *window)
+@@ -3632,11 +3707,9 @@
                               hints.min_height,
                               hints.width_inc,
                               hints.height_inc);
@@ -252,7 +252,7 @@ index ccfceaa..adef2b3 100644
        priv->old_geometry_widget = widget;
      }
    else
-@@ -3636,6 +3709,13 @@ terminal_window_update_geometry (TerminalWindow *window)
+@@ -3645,6 +3718,13 @@
                               "[window %p] hints: increment unchanged, not setting\n",
                               window);
      }

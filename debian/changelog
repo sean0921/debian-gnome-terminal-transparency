@@ -1,3 +1,42 @@
+gnome-terminal (3.20.2-4) unstable; urgency=medium
+
+  * debian/patches/window-Fix-CSD-size-calculations-with-long-titles.patch
+    - Disabled. Fixes things on wayland, causes regressions on X11, grumble.
+      (Closes: #834455)
+
+ -- Sjoerd Simons <sjoerd.simons@collabora.co.uk>  Thu, 18 Aug 2016 08:46:38 +0200
+gnome-terminal (3.20.2-3) unstable; urgency=medium
+
+  * debian/patches/window-Fix-CSD-size-calculations-with-long-titles.patch
+    - Added. Fix terminal window unintentially resizing when using long titles
+      and CSD (bgo#769898)
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Mon, 15 Aug 2016 09:04:09 +0200
+
+gnome-terminal (3.20.2-2) unstable; urgency=medium
+
+  * Add debian/patches/git_notebook-avoid-crash-on-tab-DND.patch
+    from upstream git. (Closes: #825818)
+
+ -- Andreas Henriksson <andreas@fatal.se>  Mon, 25 Jul 2016 20:47:13 +0200
+
+gnome-terminal (3.20.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop Build-Depends on gnome-doc-utils, no longer needed.
+  * Refresh patches.
+  * Use dh-exec to install the Linux specific gnome-shell search provider ini
+    file.
+  * Bump Standards-Version to 3.9.8.
+
+ -- Michael Biebl <biebl@debian.org>  Wed, 11 May 2016 17:04:39 +0200
+
+gnome-terminal (3.20.1-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Michael Biebl <biebl@debian.org>  Sat, 16 Apr 2016 22:43:10 +0200
+
 gnome-terminal (3.20.1-1) experimental; urgency=medium
 
   * Team upload.
