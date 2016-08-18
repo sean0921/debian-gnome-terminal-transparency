@@ -1,3 +1,10 @@
+gnome-terminal (3.20.2-4) unstable; urgency=medium
+
+  * debian/patches/window-Fix-CSD-size-calculations-with-long-titles.patch
+    - Disabled. Fixes things on wayland, causes regressions on X11, grumble.
+      (Closes: #834455)
+
+ -- Sjoerd Simons <sjoerd.simons@collabora.co.uk>  Thu, 18 Aug 2016 08:46:38 +0200
 gnome-terminal (3.20.2-3) unstable; urgency=medium
 
   * debian/patches/window-Fix-CSD-size-calculations-with-long-titles.patch
