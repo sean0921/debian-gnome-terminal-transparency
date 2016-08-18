@@ -9,7 +9,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=712628
 
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -228,6 +228,63 @@
+@@ -220,6 +220,63 @@
  
  G_DEFINE_TYPE (TerminalScreen, terminal_screen, VTE_TYPE_TERMINAL)
  
@@ -73,7 +73,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=712628
  static void
  free_tag_data (TagData *tagdata)
  {
-@@ -1677,12 +1734,21 @@
+@@ -1649,12 +1706,21 @@
  char *
  terminal_screen_get_current_dir (TerminalScreen *screen)
  {

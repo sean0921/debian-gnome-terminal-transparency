@@ -1,3 +1,16 @@
+gnome-terminal (3.21.90-1) experimental; urgency=medium
+
+  * New upstream beta release.
+  * Update build-dependencies according to configure.ac changes:
+    - bump libvte-2.91-dev to >= 0.45.90
+  * Drop following debian/patches superseeded/included in current release:
+    - Fix-chunked-resize-and-geometry-option.patch
+    - Replace-no-op-gtk_window_resize_to_geometry-by-calcu.patch
+    - git_notebook-avoid-crash-on-tab-DND.patch
+  * Have quilt refresh remaining patches.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Thu, 18 Aug 2016 17:07:09 +0200
+
 gnome-terminal (3.20.2-4) unstable; urgency=medium
 
   * debian/patches/window-Fix-CSD-size-calculations-with-long-titles.patch

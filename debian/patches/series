@@ -3,7 +3,4 @@ nautilus-x11.patch
 10_kfreebsd-f_dupfd_cloexec.patch
 Don-t-allow-the-theme-to-set-black-on-black.patch
 Provide-fallback-for-reading-current-directory-if-OS.patch
-Fix-chunked-resize-and-geometry-option.patch
-Replace-no-op-gtk_window_resize_to_geometry-by-calcu.patch
-git_notebook-avoid-crash-on-tab-DND.patch
 #window-Fix-CSD-size-calculations-with-long-titles.patch
