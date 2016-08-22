@@ -1,3 +1,10 @@
+gnome-terminal (3.20.2-1ubuntu3) UNRELEASED; urgency=medium
+
+  * debian/patches/60_add_lp_handler.patch: Update - move the regex to the
+    right struct so that it's actually used.
+
+ -- Iain Lane <iain@orangesquash.org.uk>  Mon, 22 Aug 2016 11:34:32 +0100
+
 gnome-terminal (3.20.2-1ubuntu2) yakkety; urgency=medium
 
   * debian/patches/0001-Restore-transparency.patch: Don't crash if the alpha

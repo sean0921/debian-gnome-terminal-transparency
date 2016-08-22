@@ -3,23 +3,23 @@ Author: Marc Deslauriers <marc.deslauriers@canonical.com>
 Forwarded: yes, https://bugzilla.gnome.org/show_bug.cgi?id=709087
 Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1232589
 
-Index: gnome-terminal/src/terminal-screen.c
+Index: b/src/terminal-screen.c
 ===================================================================
---- gnome-terminal.orig/src/terminal-screen.c
-+++ gnome-terminal/src/terminal-screen.c
-@@ -182,6 +182,7 @@ static const TerminalRegexPattern url_re
- 
- static const TerminalRegexPattern extra_regex_patterns[] = {
-   { "(0[Xx][[:xdigit:]]+|[[:digit:]]+)", FLAVOR_NUMBER },
-+  { "(?:lp: #)[[:digit:]]+", FLAVOR_LP },
+--- a/src/terminal-screen.c
++++ b/src/terminal-screen.c
+@@ -178,6 +178,7 @@
+   { REGEX_URL_VOIP,  FLAVOR_VOIP_CALL },
+   { REGEX_EMAIL,     FLAVOR_EMAIL },
+   { REGEX_NEWS_MAN,  FLAVOR_AS_IS },
++  { REGEX_LP,        FLAVOR_LP },
  };
  
- #ifdef WITH_PCRE2
-Index: gnome-terminal/src/terminal-screen.h
+ static const TerminalRegexPattern extra_regex_patterns[] = {
+Index: b/src/terminal-screen.h
 ===================================================================
---- gnome-terminal.orig/src/terminal-screen.h
-+++ gnome-terminal/src/terminal-screen.h
-@@ -32,6 +32,7 @@ typedef enum {
+--- a/src/terminal-screen.h
++++ b/src/terminal-screen.h
+@@ -32,6 +32,7 @@
    FLAVOR_VOIP_CALL,
    FLAVOR_EMAIL,
    FLAVOR_NUMBER,
@@ -27,11 +27,11 @@ Index: gnome-terminal/src/terminal-screen.h
  } TerminalURLFlavor;
  
  /* Forward decls */
-Index: gnome-terminal/src/terminal-util.c
+Index: b/src/terminal-util.c
 ===================================================================
---- gnome-terminal.orig/src/terminal-util.c
-+++ gnome-terminal/src/terminal-util.c
-@@ -302,6 +302,9 @@ terminal_util_open_url (GtkWidget *paren
+--- a/src/terminal-util.c
++++ b/src/terminal-util.c
+@@ -302,6 +302,9 @@
      case FLAVOR_AS_IS:
        uri = g_strdup (orig_url);
        break;
@@ -41,7 +41,7 @@ Index: gnome-terminal/src/terminal-util.c
      default:
        uri = NULL;
        g_assert_not_reached ();
-@@ -315,6 +318,20 @@ terminal_util_open_url (GtkWidget *paren
+@@ -315,6 +318,20 @@
      }
  }
  
@@ -62,11 +62,11 @@ Index: gnome-terminal/src/terminal-util.c
  /**
   * terminal_util_transform_uris_to_quoted_fuse_paths:
   * @uris:
-Index: gnome-terminal/src/terminal-window.c
+Index: b/src/terminal-window.c
 ===================================================================
---- gnome-terminal.orig/src/terminal-window.c
-+++ gnome-terminal/src/terminal-window.c
-@@ -1980,7 +1980,18 @@ popup_copy_url_callback (GtkAction *acti
+--- a/src/terminal-window.c
++++ b/src/terminal-window.c
+@@ -1980,7 +1980,18 @@
      return;
  
    clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
@@ -86,7 +86,7 @@ Index: gnome-terminal/src/terminal-window.c
  }
  
  static void
-@@ -2073,7 +2084,9 @@ popup_clipboard_targets_received_cb (Gtk
+@@ -2073,7 +2084,9 @@
  
    can_paste = targets != NULL && gtk_targets_include_text (targets, n_targets);
    can_paste_uris = targets != NULL && gtk_targets_include_uri (targets, n_targets);
@@ -97,11 +97,11 @@ Index: gnome-terminal/src/terminal-window.c
    show_email_link = info->url != NULL && info->url_flavor == FLAVOR_EMAIL;
    show_call_link = info->url != NULL && info->url_flavor == FLAVOR_VOIP_CALL;
    show_number_info = info->number_info != NULL;
-Index: gnome-terminal/src/terminal-util.h
+Index: b/src/terminal-util.h
 ===================================================================
---- gnome-terminal.orig/src/terminal-util.h
-+++ gnome-terminal/src/terminal-util.h
-@@ -46,6 +46,8 @@ void terminal_util_open_url (GtkWidget *
+--- a/src/terminal-util.h
++++ b/src/terminal-util.h
+@@ -46,6 +46,8 @@
                               TerminalURLFlavor flavor,
                               guint32 user_time);
  
@@ -110,3 +110,14 @@ Index: gnome-terminal/src/terminal-util.h
  void terminal_util_transform_uris_to_quoted_fuse_paths (char **uris);
  
  char *terminal_util_concat_uris (char **uris,
+Index: b/src/terminal-regex.h
+===================================================================
+--- a/src/terminal-regex.h
++++ b/src/terminal-regex.h
+@@ -141,5 +141,6 @@
+ #define REGEX_URL_VOIP   DEFS "(?i:h323:|sips?:)" USERPASS URL_HOST PORT VOIP_PATH
+ #define REGEX_EMAIL      DEFS "(?i:mailto:)?" USER "@" EMAIL_HOST
+ #define REGEX_NEWS_MAN   "(?i:news:|man:|info:|apt:)[-[:alnum:]\\Q^_{|}~!\"#$%&'()*+,./;:=?`\\E]+"
++#define REGEX_LP         "(?i:lp: #)[[:digit:]]+"
+ 
+ #endif /* !TERMINAL_REGEX_H */
