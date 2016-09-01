@@ -4,3 +4,4 @@ nautilus-x11.patch
 Don-t-allow-the-theme-to-set-black-on-black.patch
 Provide-fallback-for-reading-current-directory-if-OS.patch
 #window-Fix-CSD-size-calculations-with-long-titles.patch
+Revert-window-Fix-CSD-size-calculations-with-long-ti.patch
