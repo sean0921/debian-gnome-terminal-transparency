@@ -1,6 +1,7 @@
 gnome-terminal (3.21.90-2) UNRELEASED; urgency=medium
 
   * Upload to unstable.
+  * Convert from cdbs to dh.
 
  -- Michael Biebl <biebl@debian.org>  Thu, 01 Sep 2016 15:30:22 +0200
 
