@@ -25,7 +25,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=683744
 
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -945,6 +945,17 @@
+@@ -917,6 +917,17 @@
    gtk_style_context_get_color (context, gtk_style_context_get_state (context), &theme_fg);
    gtk_style_context_get_background_color (context, gtk_style_context_get_state (context), &theme_bg);
  
