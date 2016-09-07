@@ -1,10 +1,13 @@
-gnome-terminal (3.21.90-3) UNRELEASED; urgency=medium
+gnome-terminal (3.21.90-3) unstable; urgency=medium
 
+  * Team upload
+
+  [ Sjoerd Simons ]
   * debian/patches/window-Fix-CSD-size-calculations-with-long-titles.patch
     - Added. Fix terminal window unintentially resizing when using long titles
       and CSD (bgo#769898c9)
 
- -- Sjoerd Simons <sjoerd@debian.org>  Fri, 02 Sep 2016 23:25:23 +0200
+ -- Simon McVittie <smcv@debian.org>  Wed, 07 Sep 2016 13:25:38 +0100
 
 gnome-terminal (3.21.90-2) unstable; urgency=medium
 
