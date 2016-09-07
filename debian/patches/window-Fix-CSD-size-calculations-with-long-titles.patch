@@ -14,8 +14,8 @@ the preferred size otherwise as those values get used for resizing
 calculations.
 
 Signed-off-by: Sjoerd Simons <sjoerd@luon.net>
-
-https://bugzilla.gnome.org/show_bug.cgi?id=769898
+Applied-upstream: 3.21.91, commit:cae04637f696e30f9054482411eb0fabd6064a84
+Bug: https://bugzilla.gnome.org/show_bug.cgi?id=769898
 ---
  src/terminal-window.c | 39 +++++++++++++++++++++++++++------------
  1 file changed, 27 insertions(+), 12 deletions(-)
