@@ -5,6 +5,7 @@ gnome-terminal (3.21.92-1) UNRELEASED; urgency=medium
   * Drop Revert-window-Fix-CSD-size-calculations-with-long-ti.patch and
     window-Fix-CSD-size-calculations-with-long-titles.patch, merged upstream.
   * Bump debhelper compat level to 10.
+  * Install nautilus extension into multiarch path.
 
  -- Michael Biebl <biebl@debian.org>  Wed, 14 Sep 2016 18:03:55 +0200
 
