@@ -1,4 +1,4 @@
-gnome-terminal (3.21.92-1) UNRELEASED; urgency=medium
+gnome-terminal (3.21.92-1) unstable; urgency=medium
 
   * New upstream development release.
   * Bump Build-Depends on libvte-2.91-dev to (>= 0.45.92) as per configure.ac.
@@ -7,7 +7,7 @@ gnome-terminal (3.21.92-1) UNRELEASED; urgency=medium
   * Bump debhelper compat level to 10.
   * Install nautilus extension into multiarch path.
 
- -- Michael Biebl <biebl@debian.org>  Wed, 14 Sep 2016 18:03:55 +0200
+ -- Michael Biebl <biebl@debian.org>  Wed, 14 Sep 2016 18:42:34 +0200
 
 gnome-terminal (3.21.90-3) unstable; urgency=medium
 
