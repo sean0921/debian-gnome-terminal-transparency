@@ -3,5 +3,3 @@ nautilus-x11.patch
 10_kfreebsd-f_dupfd_cloexec.patch
 Don-t-allow-the-theme-to-set-black-on-black.patch
 Provide-fallback-for-reading-current-directory-if-OS.patch
-Revert-window-Fix-CSD-size-calculations-with-long-ti.patch
-window-Fix-CSD-size-calculations-with-long-titles.patch

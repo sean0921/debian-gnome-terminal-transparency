@@ -2,6 +2,8 @@ gnome-terminal (3.21.92-1) UNRELEASED; urgency=medium
 
   * New upstream development release.
   * Bump Build-Depends on libvte-2.91-dev to (>= 0.45.92) as per configure.ac.
+  * Drop Revert-window-Fix-CSD-size-calculations-with-long-ti.patch and
+    window-Fix-CSD-size-calculations-with-long-titles.patch, merged upstream.
 
  -- Michael Biebl <biebl@debian.org>  Wed, 14 Sep 2016 18:03:55 +0200
 
