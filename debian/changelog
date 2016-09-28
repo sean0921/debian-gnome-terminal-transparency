@@ -1,4 +1,4 @@
-gnome-terminal (3.20.2-1ubuntu4) UNRELEASED; urgency=medium
+gnome-terminal (3.20.2-1ubuntu4) yakkety; urgency=medium
 
   * Add git_allow-inspector-without-debug.patch:
     - Add Inspector item to Help menu if GTK's enable-inspector-keybinding
@@ -9,7 +9,7 @@ gnome-terminal (3.20.2-1ubuntu4) UNRELEASED; urgency=medium
   * debian/rules:
     - Don't build with --enable-debug
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Fri, 09 Sep 2016 12:36:31 -0400
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Tue, 27 Sep 2016 20:10:52 -0400
 
 gnome-terminal (3.20.2-1ubuntu3) yakkety; urgency=medium
 
