@@ -1,3 +1,16 @@
+gnome-terminal (3.20.2-1ubuntu4) UNRELEASED; urgency=medium
+
+  * Add git_allow-inspector-without-debug.patch:
+    - Add Inspector item to Help menu if GTK's enable-inspector-keybinding
+      gsettings is true instead of requiring gnome-terminal to be recompiled
+      with --enable-debug. The usual Ctrl+Shift+I or Ctrl+Shift+D keyboard
+      shortcuts are not enabled so that they are available for command-line
+      apps. Backported from 3.22.
+  * debian/rules:
+    - Don't build with --enable-debug
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Fri, 09 Sep 2016 12:36:31 -0400
+
 gnome-terminal (3.20.2-1ubuntu3) yakkety; urgency=medium
 
   * debian/patches/60_add_lp_handler.patch: Update - move the regex to the

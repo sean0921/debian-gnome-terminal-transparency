@@ -15,7 +15,7 @@ DEB_MK_COMPAT_DESKTOP_gnome-terminal := $(CURDIR)/debian/gnome-terminal/usr/shar
 
 LDFLAGS += -Wl,-z,defs -Wl,-O1 -Wl,--as-needed
 
-DEB_CONFIGURE_EXTRA_FLAGS += --enable-distro-packaging --enable-debug
+DEB_CONFIGURE_EXTRA_FLAGS += --enable-distro-packaging
 
 ifneq ($(DEB_HOST_ARCH_OS),linux)
     DEB_CONFIGURE_EXTRA_FLAGS += --disable-search-provider

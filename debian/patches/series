@@ -11,3 +11,4 @@ Fix-chunked-resize-and-geometry-option.patch
 Replace-no-op-gtk_window_resize_to_geometry-by-calcu.patch
 scrollbar-background-theming.patch
 0001-Add-style-classes-and-CSS-names-to-some-of-our-widge.patch
+git_allow-inspector-without-debug.patch

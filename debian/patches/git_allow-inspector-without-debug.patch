@@ -1,0 +1,336 @@
+From bd9cb2797d15c8f19f2f24db90ec0d7d8c8ac03c Mon Sep 17 00:00:00 2001
+From: Christian Persch <chpe@src.gnome.org>
+Date: Sun, 4 Sep 2016 14:10:54 +0200
+Subject: window: Make inspector available in non-debug builds
+
+We disable the stock keybindings for the inspector because we want
+all keys to go to the terminal instead of performing random actions,
+and instead install a menu item in the Help menu to show the
+inspector.
+
+Previously this menu item was only present in a debug build. Since
+gtk now has a settings schema that enables the inspector, use it to
+show the menu item also in non-debug builds when the key is enabled.
+
+Since this is a foreign settings schema that could be considered to
+be internal to gtk+, be extra careful in instantiating it only if
+it exists, and the expected key exists with the expected value type.
+
+https://bugzilla.gnome.org/show_bug.cgi?id=770245
+---
+ src/terminal-app.c        | 17 +++++++++++++++++
+ src/terminal-app.h        |  2 ++
+ src/terminal-libgsystem.h | 25 +++++++++++++++++++++++--
+ src/terminal-util.c       | 40 ++++++++++++++++++++++++++++++++++++++++
+ src/terminal-util.h       |  4 ++++
+ src/terminal-window.c     | 36 ++++++++++++++++--------------------
+ src/terminal.xml          |  2 ++
+ 7 files changed, 104 insertions(+), 22 deletions(-)
+
+diff --git a/src/terminal-app.c b/src/terminal-app.c
+index 95a06e2..6c783bc 100644
+--- a/src/terminal-app.c
++++ b/src/terminal-app.c
+@@ -58,6 +58,10 @@
+ 
+ #define GTK_SETTING_PREFER_DARK_THEME           "gtk-application-prefer-dark-theme"
+ 
++#define GTK_DEBUG_SETTING_SCHEMA                "org.gtk.Settings.Debug"
++#define GTK_DEBUG_ENABLE_INSPECTOR_KEY          "enable-inspector-keybinding"
++#define GTK_DEBUG_ENABLE_INSPECTOR_TYPE         G_VARIANT_TYPE_BOOLEAN
++
+ /*
+  * Session state is stored entirely in the RestartCommand command line.
+  *
+@@ -89,6 +93,7 @@ struct _TerminalApp
+   GSettings *global_settings;
+   GSettings *desktop_interface_settings;
+   GSettings *system_proxy_settings;
++  GSettings *gtk_debug_settings;
+ 
+ #ifdef ENABLE_SEARCH_PROVIDER
+   TerminalSearchProvider *search_provider;
+@@ -426,6 +431,11 @@ terminal_app_init (TerminalApp *app)
+   /* Terminal global settings */
+   app->global_settings = g_settings_new (TERMINAL_SETTING_SCHEMA);
+ 
++  /* Gtk debug settings */
++  app->gtk_debug_settings = terminal_g_settings_new (GTK_DEBUG_SETTING_SCHEMA,
++                                                     GTK_DEBUG_ENABLE_INSPECTOR_KEY,
++                                                     GTK_DEBUG_ENABLE_INSPECTOR_TYPE);
++
+ #if GTK_CHECK_VERSION (3, 19, 0)
+   {
+   GtkSettings *gtk_settings;
+@@ -474,6 +484,7 @@ terminal_app_finalize (GObject *object)
+   g_object_unref (app->global_settings);
+   g_object_unref (app->desktop_interface_settings);
+   g_object_unref (app->system_proxy_settings);
++  g_clear_object (&app->gtk_debug_settings);
+ 
+   terminal_accels_shutdown ();
+ 
+@@ -812,6 +823,12 @@ terminal_app_get_proxy_settings (TerminalApp *app)
+   return app->system_proxy_settings;
+ }
+ 
++GSettings *
++terminal_app_get_gtk_debug_settings (TerminalApp *app)
++{
++  return app->gtk_debug_settings;
++}
++
+ /**
+  * terminal_app_get_system_font:
+  * @app:
+diff --git a/src/terminal-app.h b/src/terminal-app.h
+index 1348dcc..39d6768 100644
+--- a/src/terminal-app.h
++++ b/src/terminal-app.h
+@@ -112,6 +112,8 @@ GSettings *terminal_app_get_desktop_interface_settings (TerminalApp *app);
+ 
+ GSettings *terminal_app_get_proxy_settings (TerminalApp *app);
+ 
++GSettings *terminal_app_get_gtk_debug_settings (TerminalApp *app);
++
+ PangoFontDescription *terminal_app_get_system_font (TerminalApp *app);
+ 
+ G_END_DECLS
+diff --git a/src/terminal-libgsystem.h b/src/terminal-libgsystem.h
+index 4736068..90d61b9 100644
+--- a/src/terminal-libgsystem.h
++++ b/src/terminal-libgsystem.h
+@@ -58,6 +58,8 @@ GS_DEFINE_CLEANUP_FUNCTION0(GMatchInfo*, gs_local_match_info_free, g_match_info_
+ GS_DEFINE_CLEANUP_FUNCTION0(GObject*, gs_local_obj_unref, g_object_unref)
+ GS_DEFINE_CLEANUP_FUNCTION0(GPtrArray*, gs_local_ptrarray_unref, g_ptr_array_unref)
+ GS_DEFINE_CLEANUP_FUNCTION0(GRegex*, gs_local_regex_unref, g_regex_unref)
++GS_DEFINE_CLEANUP_FUNCTION0(GSettingsSchema*, gs_local_settings_schema_unref, g_settings_schema_unref)
++GS_DEFINE_CLEANUP_FUNCTION0(GSettingsSchemaKey*, gs_local_settings_schema_key_unref, g_settings_schema_key_unref)
+ GS_DEFINE_CLEANUP_FUNCTION0(GVariant*, gs_local_variant_unref, g_variant_unref)
+ GS_DEFINE_CLEANUP_FUNCTION0(GVariantBuilder*, gs_local_variant_builder_unref, g_variant_builder_unref)
+ GS_DEFINE_CLEANUP_FUNCTION0(GVariantIter*, gs_local_variant_iter_free, g_variant_iter_free)
+@@ -184,9 +186,8 @@ GS_DEFINE_CLEANUP_FUNCTION(void*, gs_local_free, g_free)
+  */
+ #define gs_unref_regex __attribute__ ((cleanup(gs_local_regex_unref)))
+ 
+-
+ /**
+- * gs_unref_regex:
++ * gs_free_match_info:
+  *
+  * Call g_regex_unref() on a variable location when it goes out of
+  * scope.  Note that unlike g_regex_unref(), the variable may be
+@@ -195,6 +196,26 @@ GS_DEFINE_CLEANUP_FUNCTION(void*, gs_local_free, g_free)
+  */
+ #define gs_free_match_info __attribute__ ((cleanup(gs_local_match_info_free)))
+ 
++/**
++ * gs_unref_settings_schema:
++ *
++ * Call g_settings_schema_unref() on a variable location when it goes out of
++ * scope.  Note that unlike g_settings_schema_unref(), the variable may be
++ * %NULL.
++
++ */
++#define gs_unref_settings_schema __attribute__ ((cleanup(gs_local_settings_schema_unref)))
++
++/**
++ * gs_unref_settings_schema_key:
++ *
++ * Call g_settings_schema_key_unref() on a variable location when it goes out of
++ * scope.  Note that unlike g_settings_schema_key_unref(), the variable may be
++ * %NULL.
++
++ */
++#define gs_unref_settings_schema_key __attribute__ ((cleanup(gs_local_settings_schema_key_unref)))
++
+ G_END_DECLS
+ 
+ #endif
+diff --git a/src/terminal-util.c b/src/terminal-util.c
+index 4f34f61..c3c718a 100644
+--- a/src/terminal-util.c
++++ b/src/terminal-util.c
+@@ -801,6 +801,46 @@ s_to_rgba (GVariant *variant,
+ }
+ 
+ /**
++ * terminal_g_settings_new:
++ * @schema_id: a settings schema ID
++ * @mandatory_key: the name of a key that must exist in the schema
++ * @mandatory_key_type: the expected value type of @mandatory_key
++ *
++ * Creates a #GSettings for @schema_id, if this schema exists and
++ * has a key named @mandatory_key (if non-%NULL) with the value type
++ * @mandatory_key_type.
++ *
++ * Returns: (transfer full): a new #GSettings, or %NULL
++ */
++GSettings *
++terminal_g_settings_new (const char *schema_id,
++                         const char *mandatory_key,
++                         const GVariantType *mandatory_key_type)
++{
++  gs_unref_settings_schema GSettingsSchema *schema;
++
++  schema = g_settings_schema_source_lookup (g_settings_schema_source_get_default (),
++                                            schema_id,
++                                            TRUE);
++  if (schema == NULL)
++    return NULL;
++
++  if (mandatory_key) {
++    gs_unref_settings_schema_key GSettingsSchemaKey *key;
++
++    key = g_settings_schema_get_key (schema, mandatory_key);
++    if (key == NULL)
++      return NULL;
++
++    if (!g_variant_type_equal (g_settings_schema_key_get_value_type (key),
++                               mandatory_key_type))
++      return NULL;
++  }
++
++  return g_settings_new_full (schema, NULL, NULL);
++}
++
++/**
+  * terminal_g_settings_get_rgba:
+  * @settings: a #GSettings
+  * @key: a valid key in @settings of type "s"
+diff --git a/src/terminal-util.h b/src/terminal-util.h
+index b8447f7..c5e6184 100644
+--- a/src/terminal-util.h
++++ b/src/terminal-util.h
+@@ -72,6 +72,10 @@ char **terminal_util_get_etc_shells (void);
+ 
+ gboolean terminal_util_get_is_shell (const char *command);
+ 
++GSettings *terminal_g_settings_new (const char *schema_id,
++                                    const char *mandatory_key,
++                                    const GVariantType *mandatory_key_type);
++
+ const GdkRGBA *terminal_g_settings_get_rgba (GSettings  *settings,
+                                              const char *key,
+                                              GdkRGBA    *rgba);
+diff --git a/src/terminal-window.c b/src/terminal-window.c
+index 46676a5..4207fb1 100644
+--- a/src/terminal-window.c
++++ b/src/terminal-window.c
+@@ -146,10 +146,6 @@ struct _TerminalWindowPrivate
+ #endif
+ #endif
+ 
+-#if defined (ENABLE_DEBUG) && GTK_CHECK_VERSION (3, 14, 0)
+-#define ENABLE_INSPECTOR
+-#endif
+-
+ static void terminal_window_dispose     (GObject             *object);
+ static void terminal_window_finalize    (GObject             *object);
+ static gboolean terminal_window_state_event (GtkWidget            *widget,
+@@ -224,10 +220,8 @@ static void help_contents_callback
+                                            TerminalWindow *window);
+ static void help_about_callback           (GtkAction *action,
+                                            TerminalWindow *window);
+-#ifdef ENABLE_INSPECTOR
+ static void help_inspector_callback       (GtkAction *action,
+                                            TerminalWindow *window);
+-#endif
+ 
+ static gboolean find_larger_zoom_factor  (double  current,
+                                           double *found);
+@@ -2563,11 +2557,9 @@ terminal_window_init (TerminalWindow *window)
+       { "HelpAbout", "help-about", N_("_About"), NULL,
+         NULL,
+         G_CALLBACK (help_about_callback) },
+-#ifdef ENABLE_INSPECTOR
+       { "HelpInspector", NULL, N_("_Inspector"), NULL,
+         NULL,
+         G_CALLBACK (help_inspector_callback) },
+-#endif
+ 
+       /* Popup menu */
+       { "PopupSendEmail", NULL, N_("_Send Mail To…"), NULL,
+@@ -2675,6 +2667,7 @@ terminal_window_init (TerminalWindow *wi
+   TerminalSettingsList *profiles_list;
+   GdkScreen *screen;
+   GdkVisual *visual;
++  GSettings *gtk_debug_settings;
+   GtkActionGroup *action_group;
+   GtkAction *action;
+   GtkUIManager *manager;
+@@ -2638,6 +2631,8 @@ terminal_window_init (TerminalWindow *window)
+   uuid_t u;
+   char uuidstr[37], role[64];
+ 
++  app = terminal_app_get ();
++
+   priv = window->priv = G_TYPE_INSTANCE_GET_PRIVATE (window, TERMINAL_TYPE_WINDOW, TerminalWindowPrivate);
+ 
+   gtk_widget_init_template (GTK_WIDGET (window));
+@@ -2759,24 +2754,27 @@ terminal_window_init (TerminalWindow *window)
+                                                      &error);
+   g_assert_no_error (error);
+ 
+-#ifdef ENABLE_INSPECTOR
+-  gtk_ui_manager_add_ui (manager, priv->ui_id,
+-                         "/menubar/Help", NULL, NULL,
+-                         GTK_UI_MANAGER_SEPARATOR, FALSE);
+-  gtk_ui_manager_add_ui (manager, priv->ui_id,
+-                         "/menubar/Help", "HelpInspector", "HelpInspector",
+-                         GTK_UI_MANAGER_MENUITEM, FALSE);
+-#endif
+-
+   priv->menubar = gtk_ui_manager_get_widget (manager, "/menubar");
+   gtk_box_pack_start (GTK_BOX (priv->main_vbox),
+ 		      priv->menubar,
+ 		      FALSE, FALSE, 0);
+ 
++
++  /* Maybe make Inspector available */
++  action = gtk_action_group_get_action (priv->action_group, "HelpInspector");
++  gtk_debug_settings = terminal_app_get_gtk_debug_settings (app);
++  if (gtk_debug_settings != NULL)
++    g_settings_bind (gtk_debug_settings,
++                     "enable-inspector-keybinding",
++                     action,
++                     "visible",
++                     G_SETTINGS_BIND_GET | G_SETTINGS_BIND_NO_SENSITIVITY);
++  else
++    gtk_action_set_visible (action, FALSE);
++
+   /* Add tabs menu */
+   priv->tabs_menu = terminal_tabs_menu_new (window);
+ 
+-  app = terminal_app_get ();
+   profiles_list = terminal_app_get_profiles_list (app);
+   terminal_window_profile_list_changed_cb (profiles_list, window);
+   g_signal_connect (profiles_list, "children-changed",
+@@ -4030,14 +4028,12 @@ help_about_callback (GtkAction *action,
+   terminal_util_show_about (NULL);
+ }
+ 
+-#ifdef ENABLE_INSPECTOR
+ static void
+ help_inspector_callback (GtkAction *action,
+                          TerminalWindow *window)
+ {
+   gtk_window_set_interactive_debugging (TRUE);
+ }
+-#endif
+ 
+ GtkUIManager *
+ terminal_window_get_ui_manager (TerminalWindow *window)
+diff --git a/src/terminal.xml b/src/terminal.xml
+index 5e67bd9..d830149 100644
+--- a/src/terminal.xml
++++ b/src/terminal.xml
+@@ -72,6 +72,8 @@
+     <menu action="Help">
+       <menuitem action="HelpContents" />
+       <menuitem action="HelpAbout" />
++      <separator />
++      <menuitem action="HelpInspector" />
+     </menu>
+   </menubar>
+ 
