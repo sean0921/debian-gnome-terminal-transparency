@@ -43,9 +43,9 @@ Depends: ${shlibs:Depends},
          gnome-terminal-data (>= ${gnome:Version}),
          gnome-terminal-data (<< ${gnome:NextVersion})
 Provides: x-terminal-emulator
-Recommends: yelp,
+Recommends: default-dbus-session-bus | dbus-session-bus,
             gvfs,
-            dbus-x11
+            yelp
 Conflicts: nautilus-open-terminal
 Replaces: nautilus-open-terminal
 Description: GNOME terminal emulator application
