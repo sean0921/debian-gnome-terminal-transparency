@@ -1,4 +1,4 @@
-gnome-terminal (3.22.0-3) UNRELEASED; urgency=medium
+gnome-terminal (3.22.0-3) unstable; urgency=medium
 
   * debian/control.in:
     - Recommend default-dbus-session-bus | dbus-session-bus instead of
