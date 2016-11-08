@@ -7,6 +7,8 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=712628
  src/terminal-screen.c | 66 +++++++++++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 66 insertions(+)
 
+Index: b/src/terminal-screen.c
+===================================================================
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
 @@ -220,6 +220,63 @@
@@ -73,7 +75,7 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=712628
  static void
  free_tag_data (TagData *tagdata)
  {
-@@ -1649,12 +1706,21 @@
+@@ -1651,12 +1708,21 @@
  char *
  terminal_screen_get_current_dir (TerminalScreen *screen)
  {
