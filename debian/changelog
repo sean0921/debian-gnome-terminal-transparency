@@ -1,10 +1,10 @@
-gnome-terminal (3.22.1-1) UNRELEASED; urgency=medium
+gnome-terminal (3.22.1-1) unstable; urgency=medium
 
   * New upstream release.
   * Bump Build-Depends on libvte-2.91-dev to (>= 0.46.1) as per configure.ac.
   * Refresh patches.
 
- -- Michael Biebl <biebl@debian.org>  Tue, 08 Nov 2016 15:54:02 +0100
+ -- Michael Biebl <biebl@debian.org>  Tue, 08 Nov 2016 16:01:25 +0100
 
 gnome-terminal (3.22.0-3) unstable; urgency=medium
 
