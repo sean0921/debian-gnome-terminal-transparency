@@ -20,6 +20,7 @@ override_dh_auto_configure:
 	dh_auto_configure -- \
 		--libexecdir=\$${prefix}/lib/gnome-terminal \
 		--enable-distro-packaging \
+		--disable-migration \
 		$(CONFFLAGS)
 
 override_dh_auto_build:
