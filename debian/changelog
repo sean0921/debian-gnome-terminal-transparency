@@ -1,11 +1,11 @@
-gnome-terminal (3.20.2-1ubuntu6) UNRELEASED; urgency=medium
+gnome-terminal (3.20.2-1ubuntu6) zesty; urgency=medium
 
   * Merge change from Debian's 3.22.1-2:
    - Disable prefs migration from GConf to GSettings. This was already
      available for the migration from wheezy to jessie and we don't want to
      pull in the deprecated gconf library in stretch.
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 01 Mar 2017 11:40:36 -0500
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 01 Mar 2017 11:53:01 -0500
 
 gnome-terminal (3.20.2-1ubuntu5) yakkety; urgency=medium
 
