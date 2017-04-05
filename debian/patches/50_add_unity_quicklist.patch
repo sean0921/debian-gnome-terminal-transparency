@@ -6,13 +6,12 @@ Index: b/org.gnome.Terminal.desktop.in.in
 ===================================================================
 --- a/org.gnome.Terminal.desktop.in.in
 +++ b/org.gnome.Terminal.desktop.in.in
-@@ -15,3 +15,9 @@
+@@ -15,3 +15,8 @@
  StartupNotify=true
  X-GNOME-SingleWindow=false
- OnlyShowIn=GNOME;Unity;
-+Actions=New
+ OnlyShowIn=GNOME;Unity7;
++Actions=new-window
 +
-+[Desktop Action New]
++[Desktop Action new-window]
 +_Name=New Terminal
 +Exec=gnome-terminal
-+OnlyShowIn=Unity
