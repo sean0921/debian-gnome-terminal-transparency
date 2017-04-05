@@ -6,4 +6,4 @@ Only show gnome-terminal in GNOME menus
  Categories=GNOME;GTK;System;TerminalEmulator;
  StartupNotify=true
  X-GNOME-SingleWindow=false
-+OnlyShowIn=GNOME;Unity;
++OnlyShowIn=GNOME;Unity7;

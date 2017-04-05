@@ -1,3 +1,10 @@
+gnome-terminal (3.20.2-1ubuntu7) UNRELEASED; urgency=medium
+
+  * Update 01_onlyshowin.patch to show in unity7 but not unity8
+    (See bug 1680111)
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 05 Apr 2017 09:21:41 -0400
+
 gnome-terminal (3.20.2-1ubuntu6) zesty; urgency=medium
 
   * Merge change from Debian's 3.22.1-2:
