@@ -1,3 +1,10 @@
+gnome-terminal (3.20.2-1ubuntu8) zesty; urgency=medium
+
+  * window-fix-csd-size-calculations-with-long-titles.patch: correctly resize
+    csd size with long titles (LP: #1681585)
+
+ -- Jamie Strandboge <jamie@ubuntu.com>  Mon, 10 Apr 2017 21:27:37 +0000
+
 gnome-terminal (3.20.2-1ubuntu7) zesty; urgency=medium
 
   * Update 01_onlyshowin.patch to show in unity7 but not unity8
