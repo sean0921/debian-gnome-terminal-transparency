@@ -5,7 +5,6 @@ Subject: [PATCH] Add style classes and CSS names to some of our widgets
 
 ---
  src/terminal-notebook.c         | 6 ++++++
- src/terminal-screen-container.c | 6 ++++++
  src/terminal-screen.c           | 7 ++++++-
  3 files changed, 18 insertions(+), 1 deletion(-)
 
@@ -38,30 +37,6 @@ Index: b/src/terminal-notebook.c
  }
  
  static void
-Index: b/src/terminal-screen-container.c
-===================================================================
---- a/src/terminal-screen-container.c
-+++ b/src/terminal-screen-container.c
-@@ -43,6 +43,8 @@
-   PROP_WINDOW_PLACEMENT_SET
- };
- 
-+#define TERMINAL_SCREEN_CONTAINER_CSS_NAME "terminal-screen-container"
-+
- G_DEFINE_TYPE (TerminalScreenContainer, terminal_screen_container, GTK_TYPE_OVERLAY)
- 
- /* helper functions */
-@@ -214,6 +216,10 @@
-                         G_PARAM_READWRITE |
-                         G_PARAM_STATIC_STRINGS));
- 
-+#if GTK_CHECK_VERSION(3, 19, 5)
-+  gtk_widget_class_set_css_name(widget_class, TERMINAL_SCREEN_CONTAINER_CSS_NAME);
-+#endif
-+
-    gtk_widget_class_install_style_property (widget_class,
-                                             g_param_spec_enum ("window-placement", NULL, NULL,
-                                                                GTK_TYPE_CORNER_TYPE,
 Index: b/src/terminal-screen.c
 ===================================================================
 --- a/src/terminal-screen.c

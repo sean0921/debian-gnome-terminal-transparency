@@ -7,9 +7,11 @@ kfreebsd doesn't have F_DUPFD_CLOEXEC, so use it conditionally.
 As mentioned in the bug report, it will have support for it in
 jessie, so we can drop it in jessie+1.
 
+Index: b/src/terminal-screen.c
+===================================================================
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -196,6 +196,20 @@
+@@ -188,6 +188,20 @@
  static guint n_url_regexes;
  static guint n_extra_regexes;
  
@@ -30,7 +32,7 @@ jessie, so we can drop it in jessie+1.
  /* See bug #697024 */
  #ifndef __linux__
  
-@@ -1333,7 +1347,7 @@
+@@ -1307,7 +1321,7 @@
        for (j = 0; j < n_fds; j++) {
          if (fds[j] == target_fd) {
            do {

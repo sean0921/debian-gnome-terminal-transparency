@@ -5,9 +5,7 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: @GNOME_TEAM@
 Standards-Version: 3.9.8
-Build-Depends: cdbs (>= 0.4.41),
-               debhelper (>= 9),
-               dh-autoreconf,
+Build-Depends: debhelper (>= 10),
                dh-exec,
                gnome-common,
                autotools-dev,
@@ -16,8 +14,8 @@ Build-Depends: cdbs (>= 0.4.41),
                libdconf-dev (>= 0.14.0),
                libgtk-3-dev (>= 3.20),
                libglib2.0-dev (>= 2.42.0),
-               libpcre2-dev (>= 10.00),
-               libvte-2.91-dev (>= 0.44.0-2~),
+#               libpcre2-dev (>= 10.00),
+               libvte-2.91-dev (>= 0.48.2),
                libsm-dev,
                gnome-pkg-tools (>= 0.10),
                docbook-to-man,
@@ -27,7 +25,7 @@ Build-Depends: cdbs (>= 0.4.41),
                desktop-file-utils,
                gsettings-desktop-schemas-dev (>= 0.1.0),
                gnome-shell [linux-any],
-               libnautilus-extension-dev
+               libnautilus-extension-dev (>= 3.21.92-3~)
 Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/gnome-terminal/
 Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/gnome-terminal/
 Homepage: https://wiki.gnome.org/Apps/Terminal

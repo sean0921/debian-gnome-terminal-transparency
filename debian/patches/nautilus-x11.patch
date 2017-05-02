@@ -13,11 +13,9 @@ libtool: link:  gcc -shared  -fPIC -DPIC  .libs/libterminal_nautilus_la-terminal
 collect2: error: ld returned 1 exit status
 
 
-Index: b/configure.ac
-===================================================================
 --- a/configure.ac
 +++ b/configure.ac
-@@ -257,7 +257,8 @@
+@@ -247,7 +247,8 @@
    PKG_CHECK_MODULES([NAUTILUS],[
      libnautilus-extension >= $NAUTILUS_REQUIRED
      gio-2.0

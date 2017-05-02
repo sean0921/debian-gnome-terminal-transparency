@@ -408,15 +408,15 @@ Index: b/src/terminal-window.c
  terminal_window_state_event (GtkWidget            *widget,
                               GdkEventWindowState  *event)
  {
-@@ -2631,6 +2651,8 @@
+@@ -2634,6 +2654,8 @@ terminal_window_init (TerminalWindow *wi
    TerminalWindowPrivate *priv;
    TerminalApp *app;
    TerminalSettingsList *profiles_list;
 +  GdkScreen *screen;
 +  GdkVisual *visual;
+   GSettings *gtk_debug_settings;
    GtkActionGroup *action_group;
    GtkAction *action;
-   GtkUIManager *manager;
 @@ -2645,6 +2667,11 @@
  
    gtk_widget_init_template (GTK_WIDGET (window));
