@@ -9,7 +9,7 @@ Index: b/org.gnome.Terminal.desktop.in.in
 @@ -15,3 +15,8 @@
  StartupNotify=true
  X-GNOME-SingleWindow=false
- OnlyShowIn=GNOME;Unity7;
+ OnlyShowIn=GNOME;Unity;
 +Actions=new-window
 +
 +[Desktop Action new-window]

@@ -1,4 +1,4 @@
-gnome-terminal (3.24.1-0ubuntu2) UNRELEASED; urgency=medium
+gnome-terminal (3.24.1-0ubuntu2) artful; urgency=medium
 
   * Revert 01_onlyshowin.patch to use Unity instead of Unity7
     to fix test failure triggered by desktop-file-validate
