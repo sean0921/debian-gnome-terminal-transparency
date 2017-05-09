@@ -1,3 +1,9 @@
+gnome-terminal (3.24.2-0ubuntu1) artful; urgency=medium
+
+  * New upstream translation release.
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Tue, 09 May 2017 19:37:02 -0400
+
 gnome-terminal (3.24.1-0ubuntu2) artful; urgency=medium
 
   * Revert 01_onlyshowin.patch to use Unity instead of Unity7
