@@ -26,8 +26,10 @@ Build-Depends: debhelper (>= 10),
                gsettings-desktop-schemas-dev (>= 0.1.0),
                gnome-shell [linux-any],
                libnautilus-extension-dev (>= 3.21.92-3~)
-Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/gnome-terminal/
-Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/gnome-terminal/
+Vcs-Svn: bzr://bazaar.launchpad.net/~ubuntu-desktop/gnome-terminal/ubuntu/
+Vcs-Browser: https://bazaar.launchpad.net/~ubuntu-desktop/gnome-terminal/ubuntu/files
+XS-Debian-Vcs-Svn: svn://anonscm.debian.org/pkg-gnome/desktop/unstable/gnome-terminal/
+XS-Debian-Vcs-Browser: https://anonscm.debian.org/viewvc/pkg-gnome/desktop/unstable/gnome-terminal/
 Homepage: https://wiki.gnome.org/Apps/Terminal
 
 Package: gnome-terminal
