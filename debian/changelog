@@ -1,11 +1,11 @@
-gnome-terminal (3.24.2-0ubuntu3) UNRELEASED; urgency=medium
+gnome-terminal (3.24.2-0ubuntu3) artful; urgency=medium
 
   * debian/patches/0001-Restore-transparency.patch: Fix a crash when accessing
     the preferences from the app menu - get the active window and pass that
     down into the profile editor, so we can get colours out of it. (LP:
     #1690200)
 
- -- Iain Lane <iain.lane@canonical.com>  Tue, 13 Jun 2017 12:43:00 +0100
+ -- Iain Lane <iain.lane@canonical.com>  Tue, 13 Jun 2017 12:51:01 +0100
 
 gnome-terminal (3.24.2-0ubuntu2) artful; urgency=medium
 
