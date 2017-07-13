@@ -4,6 +4,7 @@ gnome-terminal (3.24.2-0ubuntu4) UNRELEASED; urgency=medium
     Fix transparency on Wayland. Patch by Owen Taylor, via Debarshi Ray @
     Fedora, thanks! (LP: #1650395)
   * Rearrange the patches a bit.
+  * debian/control{,.in}: Fix Vcs-Svn to Vcs-Bzr
 
  -- Iain Lane <iain@orangesquash.org.uk>  Thu, 13 Jul 2017 14:51:22 +0100
 
