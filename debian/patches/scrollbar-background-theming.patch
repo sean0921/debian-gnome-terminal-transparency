@@ -9,9 +9,11 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/149396
  src/terminal-screen.h           |    2 +
  3 files changed, 83 insertions(+), 3 deletions(-)
 
+Index: b/src/terminal-screen-container.c
+===================================================================
 --- a/src/terminal-screen-container.c
 +++ b/src/terminal-screen-container.c
-@@ -109,9 +109,25 @@ terminal_screen_container_init (Terminal
+@@ -109,9 +109,25 @@
    priv->vscrollbar_policy = GTK_POLICY_AUTOMATIC;
  }
  
@@ -37,7 +39,7 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/149396
    TerminalScreenContainer *container = TERMINAL_SCREEN_CONTAINER (object);
    TerminalScreenContainerPrivate *priv = container->priv;
  
-@@ -139,9 +155,12 @@ terminal_screen_container_constructed (G
+@@ -139,9 +155,12 @@
  }
  #else
    priv->hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
@@ -52,7 +54,7 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/149396
  
    gtk_box_pack_start (GTK_BOX (priv->hbox), GTK_WIDGET (priv->screen), TRUE, TRUE, 0);
    gtk_box_pack_start (GTK_BOX (priv->hbox), priv->vscrollbar, FALSE, FALSE, 0);
-@@ -151,6 +170,11 @@ terminal_screen_container_constructed (G
+@@ -151,6 +170,11 @@
  #endif
  
    _terminal_screen_update_scrollbar (priv->screen);
@@ -64,9 +66,11 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/149396
  }
  
  static void
+Index: b/src/terminal-screen.c
+===================================================================
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -92,6 +92,8 @@ struct _TerminalScreenPrivate
+@@ -92,6 +92,8 @@
    int child_pid;
    GSList *match_tags;
    guint launch_child_source_id;
@@ -75,7 +79,7 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/149396
  };
  
  enum
-@@ -109,7 +111,9 @@ enum {
+@@ -109,7 +111,9 @@
    PROP_ICON_TITLE,
    PROP_ICON_TITLE_SET,
    PROP_TITLE,
@@ -86,7 +90,7 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/149396
  };
  
  enum
-@@ -505,6 +509,12 @@ terminal_screen_get_property (GObject *o
+@@ -457,6 +461,12 @@
        case PROP_TITLE:
          g_value_set_string (value, terminal_screen_get_title (screen));
          break;
@@ -99,7 +103,7 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/149396
        default:
          G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
          break;
-@@ -530,6 +540,8 @@ terminal_screen_set_property (GObject *o
+@@ -482,6 +492,8 @@
        case PROP_ICON_TITLE:
        case PROP_ICON_TITLE_SET:
        case PROP_TITLE:
@@ -108,7 +112,7 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/149396
          /* not writable */
        default:
          G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-@@ -635,6 +647,20 @@ terminal_screen_class_init (TerminalScre
+@@ -588,6 +600,20 @@
                           G_TYPE_STRV,
                           G_PARAM_READWRITE | G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB));
  
@@ -129,7 +133,7 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/149396
    g_type_class_add_private (object_class, sizeof (TerminalScreenPrivate));
  
    gtk_widget_class_install_style_property (widget_class,
-@@ -845,6 +871,22 @@ terminal_screen_get_icon_title_set (Term
+@@ -798,6 +824,22 @@
    return vte_terminal_get_icon_title (VTE_TERMINAL (screen)) != NULL;
  }
  
@@ -152,7 +156,7 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/149396
  static void
  terminal_screen_profile_changed_cb (GSettings     *profile,
                                      const char    *prop_name,
-@@ -1067,6 +1109,18 @@ update_color_scheme (TerminalScreen *scr
+@@ -1046,6 +1088,18 @@
    vte_terminal_set_color_highlight (VTE_TERMINAL (screen), highlight_bgp);
    vte_terminal_set_color_highlight_foreground (VTE_TERMINAL (screen), highlight_fgp);
  
@@ -168,12 +172,14 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/149396
 +      g_object_notify (G_OBJECT (screen), "fg-color");
 +    }
 +
-   toplevel = gtk_widget_get_toplevel (GTK_WIDGET (screen));
-   if (toplevel != NULL && gtk_widget_is_toplevel (toplevel))
-     gtk_widget_set_app_paintable (toplevel, transparent);
+   update_toplevel_transparency (screen);
+ }
+ 
+Index: b/src/terminal-screen.h
+===================================================================
 --- a/src/terminal-screen.h
 +++ b/src/terminal-screen.h
-@@ -107,6 +107,8 @@ char **      terminal_screen_get_initial
+@@ -107,6 +107,8 @@
  const char* terminal_screen_get_title          (TerminalScreen *screen);
  const char* terminal_screen_get_icon_title     (TerminalScreen *screen);
  gboolean    terminal_screen_get_icon_title_set (TerminalScreen *screen);

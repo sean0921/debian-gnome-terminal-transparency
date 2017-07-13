@@ -1,3 +1,6 @@
+0001-Restore-transparency.patch
+0001-Add-style-classes-and-CSS-names-to-some-of-our-widge.patch
+0001-screen-window-Extra-padding-around-transparent-termi.patch
 nautilus-x11.patch
 01_onlyshowin.patch
 10_kfreebsd-f_dupfd_cloexec.patch
@@ -5,8 +8,6 @@ Don-t-allow-the-theme-to-set-black-on-black.patch
 50_add_unity_quicklist.patch
 52_support_apturl.patch
 60_add_lp_handler.patch
-0001-Restore-transparency.patch
-Provide-fallback-for-reading-current-directory-if-OS.patch
 scrollbar-background-theming.patch
-0001-Add-style-classes-and-CSS-names-to-some-of-our-widge.patch
+Provide-fallback-for-reading-current-directory-if-OS.patch
 revert-pcre2.patch

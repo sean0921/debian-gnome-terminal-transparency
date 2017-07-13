@@ -1,3 +1,12 @@
+gnome-terminal (3.24.2-0ubuntu4) UNRELEASED; urgency=medium
+
+  * debian/patches/0001-screen-window-Extra-padding-around-transparent-termi.patch:
+    Fix transparency on Wayland. Patch by Owen Taylor, via Debarshi Ray @
+    Fedora, thanks! (LP: #1650395)
+  * Rearrange the patches a bit.
+
+ -- Iain Lane <iain@orangesquash.org.uk>  Thu, 13 Jul 2017 14:51:22 +0100
+
 gnome-terminal (3.24.2-0ubuntu3) artful; urgency=medium
 
   * debian/patches/0001-Restore-transparency.patch: Fix a crash when accessing
