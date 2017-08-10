@@ -34,12 +34,12 @@ Architecture: any
 Multi-Arch: foreign
 Depends: ${shlibs:Depends},
          ${misc:Depends},
+         default-dbus-session-bus | dbus-session-bus,
          gsettings-desktop-schemas (>= 0.1.0),
          gnome-terminal-data (>= ${gnome:Version}),
          gnome-terminal-data (<< ${gnome:NextVersion})
 Provides: x-terminal-emulator
-Recommends: default-dbus-session-bus | dbus-session-bus,
-            gvfs,
+Recommends: gvfs,
             yelp
 Conflicts: nautilus-open-terminal
 Replaces: nautilus-open-terminal

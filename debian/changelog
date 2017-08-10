@@ -1,3 +1,11 @@
+gnome-terminal (3.22.2-2) UNRELEASED; urgency=medium
+
+  * Bump Recommends on a D-Bus session bus up to Depends. gnome-terminal
+    has a client/server architecture which relies on D-Bus.
+    (Closes: #871618)
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 10 Aug 2017 10:12:54 -0400
+
 gnome-terminal (3.22.2-1) unstable; urgency=medium
 
   * New upstream release.
