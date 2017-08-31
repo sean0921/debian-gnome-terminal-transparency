@@ -1,4 +1,4 @@
-gnome-terminal (3.24.2-1) UNRELEASED; urgency=medium
+gnome-terminal (3.24.2-1) unstable; urgency=medium
 
   [ Simon McVittie ]
   * Bump Recommends on a D-Bus session bus up to Depends. gnome-terminal
@@ -13,7 +13,7 @@ gnome-terminal (3.24.2-1) UNRELEASED; urgency=medium
     - Update for new appstream data location
   * Bump Standards-Version to 4.1.0
 
- -- Simon McVittie <smcv@debian.org>  Thu, 10 Aug 2017 10:12:54 -0400
+ -- Simon McVittie <smcv@debian.org>  Wed, 30 Aug 2017 20:12:54 -0400
 
 gnome-terminal (3.22.2-1) unstable; urgency=medium
 
