@@ -7,7 +7,6 @@ Standards-Version: 4.1.0
 Build-Depends: debhelper (>= 10),
                dh-exec,
                gnome-common,
-               autotools-dev,
                intltool (>= 0.50.0),
                libx11-dev,
                libdconf-dev (>= 0.14.0),
