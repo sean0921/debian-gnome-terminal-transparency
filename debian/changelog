@@ -9,6 +9,8 @@ gnome-terminal (3.24.2-1) UNRELEASED; urgency=medium
   * New upstream release
   * debian/control.in:
     - Bump Build-Depends on libvte-2.91-dev to (>= 0.48.2)
+  * debian/gnome-terminal.install:
+    - Update for new appstream data location
 
  -- Simon McVittie <smcv@debian.org>  Thu, 10 Aug 2017 10:12:54 -0400
 
