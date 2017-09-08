@@ -1,3 +1,11 @@
+gnome-terminal (3.25.92-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/control.in:
+    - Bump Build-Depends on libvte-2.91-dev to (>= 0.49.92)
+
+ -- Jeremy Bicha <jbicha@debian.org>  Fri, 08 Sep 2017 17:53:54 -0400
+
 gnome-terminal (3.24.2-1) unstable; urgency=medium
 
   [ Simon McVittie ]
