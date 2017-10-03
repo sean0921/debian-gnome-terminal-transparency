@@ -2,6 +2,7 @@ gnome-terminal (3.26.1-1) UNRELEASED; urgency=medium
 
   * New upstream translations release (Closes: #877293)
   * Bump Build-Depends on libvte-2.91-dev to (>= 0.50.1) as per configure.ac.
+  * Bump Standards-Version to 4.1.1
 
  -- Jeremy Bicha <jbicha@debian.org>  Mon, 02 Oct 2017 22:09:46 -0400
 
