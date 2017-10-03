@@ -1,3 +1,9 @@
+gnome-terminal (3.26.1-1) UNRELEASED; urgency=medium
+
+  * New upstream translations release (Closes: #877293)
+
+ -- Jeremy Bicha <jbicha@debian.org>  Mon, 02 Oct 2017 22:09:46 -0400
+
 gnome-terminal (3.26.0-1) unstable; urgency=medium
 
   * Team upload
