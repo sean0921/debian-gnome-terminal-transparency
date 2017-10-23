@@ -1,3 +1,16 @@
+gnome-terminal (3.26.1-2) unstable; urgency=medium
+
+  * Team upload
+  * debian/gnome-terminal.wrapper: Improve emulation of xterm -e.
+    Run gnome-terminal -- EXECUTABLE [ARGS] instead of deprecated
+    gnome-terminal -e QUOTED_STRING or gnome-terminal -x EXECUTABLE [ARGS],
+    and emulate xterm's fallback-to-shell behaviour more precisely.
+  * d/p/window-Fix-tiled-check.patch: Use non-character-cell-based
+    sizing whenever at least one edge is tiled, partially addressing
+    a regression with GTK+ >= 3.22.23 (partial fix for: #879566)
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 23 Oct 2017 23:26:48 +0100
+
 gnome-terminal (3.26.1-1) unstable; urgency=medium
 
   * New upstream translations release (Closes: #877293)
