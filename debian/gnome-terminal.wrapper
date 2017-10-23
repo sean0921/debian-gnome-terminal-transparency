@@ -2,6 +2,19 @@
 
 my $login=0;
 
+sub exists_in_path {
+    my $command = shift;
+    my @path = split ':', $ENV{PATH};
+
+    foreach my $dir (@path) {
+	if (-x "$dir/$command") {
+	    return 1;
+	}
+    }
+
+    return 0;
+}
+
 while ($opt = shift(@ARGV))
 {
     if ($opt eq '-display')
@@ -57,15 +70,43 @@ while ($opt = shift(@ARGV))
     }
     elsif ($opt eq '-e')
     {
+	# Debian Policy says we would be free to translate this into:
+	# push(@args, '--', @ARGV);
+	# but let's be nice to people with local scripts that rely on
+	# xterm -e having a special case for a singular argument.
 	$arg = shift(@ARGV);
 	if (@ARGV)
 	{
-	    push(@args, '-x', $arg, @ARGV);
+	    push(@args, '--', $arg, @ARGV);
 	    last;
 	}
 	else
 	{
-	    push(@args, '-e', $arg);
+	    # Emulate xterm's special case for a single argument: if it
+	    # isn't something we can execute directly, pass it to a shell
+	    my $executable;
+
+	    if ($arg =~ m{/})
+	    {
+		$executable = -x $arg;
+	    }
+	    else
+	    {
+		$executable = exists_in_path($arg);
+	    }
+
+	    if ($executable)
+	    {
+		push(@args, '--', $arg);
+	    }
+	    else
+	    {
+		# Historically, we used the now-deprecated gnome-terminal -e
+		# for this case, which would split the command line up as if
+		# by a shell, but didn't support shell constructs like "if"
+		# and pipes. But this is easier, and matches what xterm does.
+		push(@args, '--', 'sh', '-c', $arg);
+	    }
 	}
 	last;
     }
