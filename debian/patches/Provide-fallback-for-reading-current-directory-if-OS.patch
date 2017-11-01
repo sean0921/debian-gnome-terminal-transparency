@@ -11,7 +11,7 @@ Index: b/src/terminal-screen.c
 ===================================================================
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -220,6 +220,63 @@
+@@ -224,6 +224,63 @@
  
  G_DEFINE_TYPE (TerminalScreen, terminal_screen, VTE_TYPE_TERMINAL)
  
@@ -75,7 +75,7 @@ Index: b/src/terminal-screen.c
  static void
  free_tag_data (TagData *tagdata)
  {
-@@ -1651,12 +1708,21 @@
+@@ -1693,12 +1750,21 @@
  char *
  terminal_screen_get_current_dir (TerminalScreen *screen)
  {
