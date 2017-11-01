@@ -32,4 +32,9 @@ override_dh_auto_clean:
 	rm -f debian/gnome-terminal.1
 
 override_dh_install:
-	dh_install --list-missing
+	find debian/tmp -name '*.a' -print -delete
+	find debian/tmp -name '*.la' -print -delete
+	dh_install
+	
+override_dh_missing:
+	dh_missing --fail-missing

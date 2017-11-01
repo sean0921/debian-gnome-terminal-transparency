@@ -3,6 +3,7 @@ gnome-terminal (3.26.2-1) UNRELEASED; urgency=medium
   * New upstream release
   * Bump Build-Depends on libvte-2.91-dev to (>= 0.50.2)
   * Refresh patches
+  * Switch to dh_missing and abort on uninstalled files
 
  -- Michael Biebl <biebl@debian.org>  Wed, 01 Nov 2017 19:40:40 +0100
 

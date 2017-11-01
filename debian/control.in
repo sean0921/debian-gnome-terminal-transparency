@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: @GNOME_TEAM@
 Standards-Version: 4.1.1
-Build-Depends: debhelper (>= 10),
+Build-Depends: debhelper (>= 10.3),
                dh-exec,
                gnome-common,
                intltool (>= 0.50.0),
