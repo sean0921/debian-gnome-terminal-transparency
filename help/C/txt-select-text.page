@@ -1,0 +1,48 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="txt-select-text">
+
+  <info>
+    <revision version="0.1" date="2013-03-03" status="review"/>
+    <link type="guide" xref="index#textoutput"/>
+    <link type="guide" xref="profile"/>
+    <link type="seealso" xref="txt-copy-paste"/>
+
+    <credit type="author copyright">
+      <name>Sindhu S</name>
+      <email>sindhus@live.in</email>
+      <years>2013</years>
+    </credit>
+    <credit type="copyright editor">
+      <name>Ekaterina Gerasimova</name>
+      <email>kittykat3756@gmail.com</email>
+      <years>2013</years>
+    </credit>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <desc>Specify which characters should be considered as part of a word.</desc>
+
+  </info>
+
+  <title>Text selection</title>
+
+  <p>You can select a word or a sentence from your terminal output.</p>
+
+  <p>To select a word in <app>Terminal</app> output:</p>
+
+  <steps>
+    <item>
+      <p>Double click on the desired word.</p>
+    </item>
+  </steps>
+
+  <p>To select a line in <app>Terminal</app> output:</p>
+
+  <steps>
+    <item>
+      <p>Triple click on the desired line.</p>
+    </item>
+  </steps>
+
+</page>
