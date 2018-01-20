@@ -3,7 +3,6 @@ Section: gnome
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: @GNOME_TEAM@
-Standards-Version: 4.1.2
 Build-Depends: debhelper (>= 10.3),
                dh-exec,
                gnome-common,
@@ -24,8 +23,9 @@ Build-Depends: debhelper (>= 10.3),
                gsettings-desktop-schemas-dev (>= 0.1.0),
                gnome-shell [linux-any],
                libnautilus-extension-dev (>= 3.21.92-3~)
-Vcs-Git: https://anonscm.debian.org/git/pkg-gnome/gnome-terminal.git
-Vcs-Browser: https://anonscm.debian.org/git/pkg-gnome/gnome-terminal.git
+Standards-Version: 4.1.2
+Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-terminal
+Vcs-Git: https://salsa.debian.org/gnome-team/gnome-terminal.git
 Homepage: https://wiki.gnome.org/Apps/Terminal
 
 Package: gnome-terminal
