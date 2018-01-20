@@ -3,7 +3,7 @@ Section: gnome
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: @GNOME_TEAM@
-Build-Depends: debhelper (>= 10.3),
+Build-Depends: debhelper (>= 11),
                dh-exec,
                gnome-common,
                intltool (>= 0.50.0),

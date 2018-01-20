@@ -1,6 +1,7 @@
 gnome-terminal (3.26.2-3) UNRELEASED; urgency=medium
 
   * Update Vcs fields for migration to https://salsa.debian.org/
+  * Bump debhelper compat to 11
 
  -- Jeremy Bicha <jbicha@debian.org>  Fri, 19 Jan 2018 20:51:53 -0500
 
