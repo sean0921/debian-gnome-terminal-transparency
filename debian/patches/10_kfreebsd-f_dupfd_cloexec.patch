@@ -11,7 +11,7 @@ Index: b/src/terminal-screen.c
 ===================================================================
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -188,6 +188,20 @@
+@@ -192,6 +192,20 @@
  static guint n_url_regexes;
  static guint n_extra_regexes;
  
@@ -32,7 +32,7 @@ Index: b/src/terminal-screen.c
  /* See bug #697024 */
  #ifndef __linux__
  
-@@ -1307,7 +1321,7 @@
+@@ -1311,7 +1325,7 @@
        for (j = 0; j < n_fds; j++) {
          if (fds[j] == target_fd) {
            do {

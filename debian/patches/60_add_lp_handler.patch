@@ -1,13 +1,34 @@
-Description: add a handler for launchpad bug URLs.
-Author: Marc Deslauriers <marc.deslauriers@canonical.com>
+From: Marc Deslauriers <marc.deslauriers@canonical.com>
+Date: Sat, 20 Jan 2018 18:54:33 -0500
+Subject: add a handler for launchpad bug URLs.
+
 Forwarded: yes, https://bugzilla.gnome.org/show_bug.cgi?id=709087
 Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1232589
+---
+ src/terminal-regex.h  |  1 +
+ src/terminal-screen.c |  1 +
+ src/terminal-screen.h |  1 +
+ src/terminal-util.c   | 17 +++++++++++++++++
+ src/terminal-util.h   |  2 ++
+ src/terminal-window.c | 17 +++++++++++++++--
+ 6 files changed, 37 insertions(+), 2 deletions(-)
 
-Index: b/src/terminal-screen.c
-===================================================================
+diff --git a/src/terminal-regex.h b/src/terminal-regex.h
+index 3264b86..8059e5e 100644
+--- a/src/terminal-regex.h
++++ b/src/terminal-regex.h
+@@ -146,5 +146,6 @@
+ #define REGEX_URL_VOIP   DEFS "(?i:h323:|sips?:)" USERPASS URL_HOST PORT VOIP_PATH
+ #define REGEX_EMAIL      DEFS "(?i:mailto:)?" USER "@" EMAIL_HOST
+ #define REGEX_NEWS_MAN   "(?i:news:|man:|info:|apt:)[-[:alnum:]\\Q^_{|}~!\"#$%&'()*+,./;:=?`\\E]+"
++#define REGEX_LP         "(?i:lp: #)[[:digit:]]+"
+ 
+ #endif /* !TERMINAL_REGEX_H */
+diff --git a/src/terminal-screen.c b/src/terminal-screen.c
+index 6b33368..adb0722 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -178,6 +178,7 @@
+@@ -183,6 +183,7 @@ static const TerminalRegexPattern url_regex_patterns[] = {
    { REGEX_URL_VOIP,  FLAVOR_VOIP_CALL },
    { REGEX_EMAIL,     FLAVOR_EMAIL },
    { REGEX_NEWS_MAN,  FLAVOR_AS_IS },
@@ -15,11 +36,11 @@ Index: b/src/terminal-screen.c
  };
  
  static const TerminalRegexPattern extra_regex_patterns[] = {
-Index: b/src/terminal-screen.h
-===================================================================
+diff --git a/src/terminal-screen.h b/src/terminal-screen.h
+index 2e8f6dc..3df7eba 100644
 --- a/src/terminal-screen.h
 +++ b/src/terminal-screen.h
-@@ -32,6 +32,7 @@
+@@ -32,6 +32,7 @@ typedef enum {
    FLAVOR_VOIP_CALL,
    FLAVOR_EMAIL,
    FLAVOR_NUMBER,
@@ -27,11 +48,11 @@ Index: b/src/terminal-screen.h
  } TerminalURLFlavor;
  
  /* Forward decls */
-Index: b/src/terminal-util.c
-===================================================================
+diff --git a/src/terminal-util.c b/src/terminal-util.c
+index b0c73e0..ff25017 100644
 --- a/src/terminal-util.c
 +++ b/src/terminal-util.c
-@@ -302,6 +302,9 @@
+@@ -314,6 +314,9 @@ terminal_util_open_url (GtkWidget *parent,
      case FLAVOR_AS_IS:
        uri = g_strdup (orig_url);
        break;
@@ -41,7 +62,7 @@ Index: b/src/terminal-util.c
      default:
        uri = NULL;
        g_assert_not_reached ();
-@@ -315,6 +318,20 @@
+@@ -327,6 +330,20 @@ terminal_util_open_url (GtkWidget *parent,
      }
  }
  
@@ -62,11 +83,24 @@ Index: b/src/terminal-util.c
  /**
   * terminal_util_transform_uris_to_quoted_fuse_paths:
   * @uris:
-Index: b/src/terminal-window.c
-===================================================================
+diff --git a/src/terminal-util.h b/src/terminal-util.h
+index 040f487..3d99233 100644
+--- a/src/terminal-util.h
++++ b/src/terminal-util.h
+@@ -46,6 +46,8 @@ void terminal_util_open_url (GtkWidget *parent,
+                              TerminalURLFlavor flavor,
+                              guint32 user_time);
+ 
++char *terminal_util_get_lp_url (const char *orig_url);
++
+ void terminal_util_transform_uris_to_quoted_fuse_paths (char **uris);
+ 
+ char *terminal_util_concat_uris (char **uris,
+diff --git a/src/terminal-window.c b/src/terminal-window.c
+index ee15026..c12b4da 100644
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -1980,7 +1980,18 @@
+@@ -2048,7 +2048,18 @@ popup_copy_url_callback (GtkAction *action,
      return;
  
    clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
@@ -86,38 +120,14 @@ Index: b/src/terminal-window.c
  }
  
  static void
-@@ -2073,7 +2084,9 @@
- 
+@@ -2144,7 +2155,9 @@ popup_clipboard_targets_received_cb (GtkClipboard *clipboard,
    can_paste = targets != NULL && gtk_targets_include_text (targets, n_targets);
    can_paste_uris = targets != NULL && gtk_targets_include_uri (targets, n_targets);
--  show_link = info->url != NULL && (info->url_flavor == FLAVOR_AS_IS || info->url_flavor == FLAVOR_DEFAULT_TO_HTTP);
-+  show_link = info->url != NULL && (info->url_flavor == FLAVOR_AS_IS ||
+   show_hyperlink = info->hyperlink != NULL;
+-  show_link = !show_hyperlink && info->url != NULL && (info->url_flavor == FLAVOR_AS_IS || info->url_flavor == FLAVOR_DEFAULT_TO_HTTP);
++  show_link = !show_hyperlink && info->url != NULL && (info->url_flavor == FLAVOR_AS_IS ||
 +                                    info->url_flavor == FLAVOR_DEFAULT_TO_HTTP ||
 +                                    info->url_flavor == FLAVOR_LP);
-   show_email_link = info->url != NULL && info->url_flavor == FLAVOR_EMAIL;
-   show_call_link = info->url != NULL && info->url_flavor == FLAVOR_VOIP_CALL;
+   show_email_link = !show_hyperlink && info->url != NULL && info->url_flavor == FLAVOR_EMAIL;
+   show_call_link = !show_hyperlink && info->url != NULL && info->url_flavor == FLAVOR_VOIP_CALL;
    show_number_info = info->number_info != NULL;
-Index: b/src/terminal-util.h
-===================================================================
---- a/src/terminal-util.h
-+++ b/src/terminal-util.h
-@@ -46,6 +46,8 @@
-                              TerminalURLFlavor flavor,
-                              guint32 user_time);
- 
-+char *terminal_util_get_lp_url (const char *orig_url);
-+
- void terminal_util_transform_uris_to_quoted_fuse_paths (char **uris);
- 
- char *terminal_util_concat_uris (char **uris,
-Index: b/src/terminal-regex.h
-===================================================================
---- a/src/terminal-regex.h
-+++ b/src/terminal-regex.h
-@@ -141,5 +141,6 @@
- #define REGEX_URL_VOIP   DEFS "(?i:h323:|sips?:)" USERPASS URL_HOST PORT VOIP_PATH
- #define REGEX_EMAIL      DEFS "(?i:mailto:)?" USER "@" EMAIL_HOST
- #define REGEX_NEWS_MAN   "(?i:news:|man:|info:|apt:)[-[:alnum:]\\Q^_{|}~!\"#$%&'()*+,./;:=?`\\E]+"
-+#define REGEX_LP         "(?i:lp: #)[[:digit:]]+"
- 
- #endif /* !TERMINAL_REGEX_H */

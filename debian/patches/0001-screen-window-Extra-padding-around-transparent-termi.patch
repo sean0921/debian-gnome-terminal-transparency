@@ -1,8 +1,7 @@
-From 03de8db87d764a6c2d97af433b1616897116e35c Mon Sep 17 00:00:00 2001
 From: "Owen W. Taylor" <otaylor@fishsoup.net>
 Date: Fri, 13 Nov 2015 15:16:42 +0100
-Subject: [PATCH] screen, window: Extra padding around transparent terminals in
- Wayland
+Subject: [PATCH] screen,
+ window: Extra padding around transparent terminals in Wayland
 
 https://bugzilla.redhat.com/show_bug.cgi?id=1207943
 ---
@@ -11,10 +10,10 @@ https://bugzilla.redhat.com/show_bug.cgi?id=1207943
  2 files changed, 49 insertions(+), 9 deletions(-)
 
 diff --git a/src/terminal-screen.c b/src/terminal-screen.c
-index 6209dee5..043a7ae9 100644
+index cba283a..bacd666 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -139,6 +139,8 @@ static void terminal_screen_system_font_changed_cb (GSettings *,
+@@ -141,6 +141,8 @@ static void terminal_screen_system_font_changed_cb (GSettings *,
  static gboolean terminal_screen_popup_menu (GtkWidget *widget);
  static gboolean terminal_screen_button_press (GtkWidget *widget,
                                                GdkEventButton *event);
@@ -23,7 +22,7 @@ index 6209dee5..043a7ae9 100644
  static gboolean terminal_screen_do_exec (TerminalScreen *screen,
                                           FDSetupData    *data,
                                           GError **error);
-@@ -484,6 +486,7 @@ terminal_screen_class_init (TerminalScreenClass *klass)
+@@ -495,6 +497,7 @@ terminal_screen_class_init (TerminalScreenClass *klass)
    widget_class->drag_data_received = terminal_screen_drag_data_received;
    widget_class->button_press_event = terminal_screen_button_press;
    widget_class->popup_menu = terminal_screen_popup_menu;
@@ -31,10 +30,11 @@ index 6209dee5..043a7ae9 100644
  
    terminal_class->child_exited = terminal_screen_child_exited;
  
-@@ -887,6 +890,32 @@ terminal_screen_profile_changed_cb (GSettings     *profile,
+@@ -903,6 +906,32 @@ terminal_screen_profile_changed_cb (GSettings     *profile,
+   g_object_thaw_notify (object);
  }
  
- static void
++static void
 +update_toplevel_transparency (TerminalScreen *screen)
 +{
 +  GtkWidget *widget = GTK_WIDGET (screen);
@@ -60,11 +60,10 @@ index 6209dee5..043a7ae9 100644
 +    }
 +}
 +
-+static void
+ static void
  update_color_scheme (TerminalScreen *screen)
  {
-   GtkWidget *widget = GTK_WIDGET (screen);
-@@ -964,9 +993,7 @@ update_color_scheme (TerminalScreen *screen)
+@@ -995,9 +1024,7 @@ update_color_scheme (TerminalScreen *screen)
    vte_terminal_set_color_highlight (VTE_TERMINAL (screen), highlight_bgp);
    vte_terminal_set_color_highlight_foreground (VTE_TERMINAL (screen), highlight_fgp);
  
@@ -75,7 +74,7 @@ index 6209dee5..043a7ae9 100644
  }
  
  static void
-@@ -1585,6 +1612,13 @@ terminal_screen_do_popup (TerminalScreen *screen,
+@@ -1619,6 +1646,13 @@ terminal_screen_do_popup (TerminalScreen *screen,
    terminal_screen_popup_info_unref (info);
  }
  
@@ -90,10 +89,10 @@ index 6209dee5..043a7ae9 100644
  terminal_screen_button_press (GtkWidget      *widget,
                                GdkEventButton *event)
 diff --git a/src/terminal-window.c b/src/terminal-window.c
-index fb64fa89..f1b1c7d1 100644
+index aaa34bf..ee15026 100644
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -2300,15 +2300,21 @@ terminal_window_draw (GtkWidget *widget,
+@@ -2380,15 +2380,21 @@ terminal_window_draw (GtkWidget *widget,
  {
    if (gtk_widget_get_app_paintable (widget))
      {
@@ -121,6 +120,3 @@ index fb64fa89..f1b1c7d1 100644
      }
  
    return GTK_WIDGET_CLASS (terminal_window_parent_class)->draw (widget, cr);
--- 
-2.11.0
-
