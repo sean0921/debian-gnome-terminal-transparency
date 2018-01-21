@@ -1,4 +1,4 @@
-gnome-terminal (3.26.2-3ubuntu1) UNRELEASED; urgency=medium
+gnome-terminal (3.26.2-3ubuntu1) bionic; urgency=medium
 
   * Merge with Debian (LP: #1721412). Remaining changes:
     + debian/rules:
