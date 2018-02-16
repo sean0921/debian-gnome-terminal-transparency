@@ -220,6 +220,13 @@ main (int argc, char **argv)
   assert_match_anchored (DEFS URLPATH, "/().", "/()");
   assert_match_anchored (DEFS URLPATH, "/", ENTIRE);
   assert_match_anchored (DEFS URLPATH, "", ENTIRE);
+  assert_match_anchored (DEFS URLPATH, "/php?param[]=value1&param[]=value2", ENTIRE);
+  assert_match_anchored (DEFS URLPATH, "/foo?param1[index1]=value1&param2[index2]=value2", ENTIRE);
+  assert_match_anchored (DEFS URLPATH, "/[[[]][]]", ENTIRE);
+  assert_match_anchored (DEFS URLPATH, "/[([])]([()])", ENTIRE);
+  assert_match_anchored (DEFS URLPATH, "/([()])[([])]", ENTIRE);
+  assert_match_anchored (DEFS URLPATH, "/[(])", "/");
+  assert_match_anchored (DEFS URLPATH, "/([)]", "/");
 
 
   /* Put the components together and test the big picture */
@@ -228,6 +235,8 @@ main (int argc, char **argv)
   assert_match (REGEX_URL_AS_IS, "Visit http://example.com for details",        "http://example.com");
   assert_match (REGEX_URL_AS_IS, "Trailing dot http://foo/bar.html.",           "http://foo/bar.html");
   assert_match (REGEX_URL_AS_IS, "Trailing ellipsis http://foo/bar.html...",    "http://foo/bar.html");
+  assert_match (REGEX_URL_AS_IS, "Trailing comma http://foo/bar,baz,",          "http://foo/bar,baz");
+  assert_match (REGEX_URL_AS_IS, "Trailing semicolon http://foo/bar;baz;",      "http://foo/bar;baz");
   assert_match (REGEX_URL_AS_IS, "See <http://foo/bar>",                        "http://foo/bar");
   assert_match (REGEX_URL_AS_IS, "<http://foo.bar/asdf.qwer.html>",             "http://foo.bar/asdf.qwer.html");
   assert_match (REGEX_URL_AS_IS, "Go to http://192.168.1.1.",                   "http://192.168.1.1");
@@ -278,6 +287,13 @@ main (int argc, char **argv)
   assert_match (REGEX_URL_AS_IS, "[markdown](https://en.wikipedia.org/wiki/The_Offspring_(album))", "https://en.wikipedia.org/wiki/The_Offspring_(album)");
   assert_match (REGEX_URL_AS_IS, "[markdown](http://foo.bar/(a(b)c)d)e)f", "http://foo.bar/(a(b)c)d");
   assert_match (REGEX_URL_AS_IS, "[markdown](http://foo.bar/a)b(c", "http://foo.bar/a");
+
+  /* Apostrophes are allowed, except at trailing position if the URL is preceded by an apostrophe, see bug 448044. */
+  assert_match (REGEX_URL_AS_IS, "https://en.wikipedia.org/wiki/Moore's_law", ENTIRE);
+  assert_match (REGEX_URL_AS_IS, "<a href=\"https://en.wikipedia.org/wiki/Moore's_law\">", "https://en.wikipedia.org/wiki/Moore's_law");
+  assert_match (REGEX_URL_AS_IS, "https://en.wikipedia.org/wiki/Cryin'", ENTIRE);
+  assert_match (REGEX_URL_AS_IS, "<a href=\"https://en.wikipedia.org/wiki/Cryin'\">", "https://en.wikipedia.org/wiki/Cryin'");
+  assert_match (REGEX_URL_AS_IS, "<a href='https://en.wikipedia.org/wiki/Aerosmith'>", "https://en.wikipedia.org/wiki/Aerosmith");
 
   /* No scheme */
   assert_match (REGEX_URL_HTTP, "www.foo.bar/baz",     ENTIRE);

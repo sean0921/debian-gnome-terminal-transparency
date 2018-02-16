@@ -22,6 +22,7 @@
 #include "config.h"
 
 #include "terminal-client-utils.h"
+#include "terminal-defines.h"
 #include "terminal-libgsystem.h"
 
 #include <string.h>
@@ -47,7 +48,7 @@
  *
  * Appends common options to @builder.
  */
-void 
+void
 terminal_client_append_create_instance_options (GVariantBuilder *builder,
                                                 const char      *display_name,
                                                 const char      *startup_id,
@@ -61,8 +62,9 @@ terminal_client_append_create_instance_options (GVariantBuilder *builder,
                                                 gboolean         fullscreen_window)
 {
   /* Bytestring options */
-  g_variant_builder_add (builder, "{sv}",
-                         "display", g_variant_new_bytestring (display_name));
+  if (display_name != NULL)
+    g_variant_builder_add (builder, "{sv}",
+                           "display", g_variant_new_bytestring (display_name));
   if (startup_id)
     g_variant_builder_add (builder, "{sv}",
                            "desktop-startup-id", g_variant_new_bytestring (startup_id));
@@ -105,7 +107,7 @@ terminal_client_append_create_instance_options (GVariantBuilder *builder,
  *
  * Appends the environment and the working directory to @builder.
  */
-void 
+void
 terminal_client_append_exec_options (GVariantBuilder *builder,
                                      const char      *working_directory,
                                      PassFdElement   *fd_array,
@@ -126,6 +128,8 @@ terminal_client_append_exec_options (GVariantBuilder *builder,
   envv = g_environ_unsetenv (envv, "TERM");
   envv = g_environ_unsetenv (envv, "VTE_VERSION");
   envv = g_environ_unsetenv (envv, "WINDOWID");
+  envv = g_environ_unsetenv (envv, TERMINAL_ENV_SERVICE_NAME);
+  envv = g_environ_unsetenv (envv, TERMINAL_ENV_SCREEN);
 
   g_variant_builder_add (builder, "{sv}",
                          "environ",
@@ -173,7 +177,7 @@ terminal_client_get_fallback_startup_id  (void)
   XEvent event;
 
   display = gdk_display_get_default ();
-  if (!GDK_IS_X11_DISPLAY (display))
+  if (display == NULL || !GDK_IS_X11_DISPLAY (display))
     goto out;
 
   xdisplay = GDK_DISPLAY_XDISPLAY (display);

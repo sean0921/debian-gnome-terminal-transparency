@@ -271,8 +271,24 @@ terminal_settings_list_ref_child_internal (TerminalSettingsList *list,
 }
 
 static char *
+new_child (TerminalSettingsList *list,
+           const char *name)
+{
+  char *new_uuid = new_list_entry ();
+
+  if (name != NULL) {
+    gs_free char *new_path = path_new (list, new_uuid);
+    gs_unref_object GSettings *child = g_settings_new_with_path (list->child_schema_id, new_path);
+    g_settings_set_string (child, TERMINAL_PROFILE_VISIBLE_NAME_KEY, name);
+  }
+
+  return new_uuid;
+}
+
+static char *
 clone_child (TerminalSettingsList *list,
-             const char *uuid)
+             const char *uuid,
+             const char *name)
 {
   char *new_uuid;
   gs_free char *path;
@@ -305,10 +321,19 @@ clone_child (TerminalSettingsList *list,
 
     rkey = g_strconcat (path, keys[i], NULL);
     value = dconf_client_read (client, rkey);
-
     if (value) {
       gs_free char *wkey;
       wkey = g_strconcat (new_path, keys[i], NULL);
+      dconf_changeset_set (changeset, wkey, value);
+    }
+  }
+
+  if (name != NULL) {
+    GVariant *value;
+    value = g_variant_new_string (name);
+    if (value) {
+      gs_free char *wkey;
+      wkey = g_strconcat (new_path, TERMINAL_PROFILE_VISIBLE_NAME_KEY, NULL);
       dconf_changeset_set (changeset, wkey, value);
     }
   }
@@ -321,15 +346,16 @@ clone_child (TerminalSettingsList *list,
 
 static char *
 terminal_settings_list_add_child_internal (TerminalSettingsList *list,
-                                           const char *uuid)
+                                           const char *uuid,
+                                           const char *name)
 {
   char *new_uuid;
   gs_strfreev char **new_uuids;
 
   if (uuid && settings_backend_is_dconf ())
-    new_uuid = clone_child (list, uuid);
+    new_uuid = clone_child (list, uuid, name);
   else
-    new_uuid = new_list_entry ();
+    new_uuid = new_child (list, name);
 
   _terminal_debug_print (TERMINAL_DEBUG_SETTINGS_LIST,
                          "%s NEW UUID %s\n", G_STRFUNC, new_uuid);
@@ -762,23 +788,26 @@ terminal_settings_list_ref_default_child (TerminalSettingsList *list)
 /**
  * terminal_settings_list_add_child:
  * @list: a #TerminalSettingsList
+ * @name: the name of the new profile
  *
  * Adds a new child to the list, and returns a reference to its #GSettings.
  *
  * Returns: (transfer full): the UUID of new child
  */
 char *
-terminal_settings_list_add_child (TerminalSettingsList *list)
+terminal_settings_list_add_child (TerminalSettingsList *list,
+                                  const char *name)
 {
   g_return_val_if_fail (TERMINAL_IS_SETTINGS_LIST (list), NULL);
 
-  return terminal_settings_list_add_child_internal (list, NULL);
+  return terminal_settings_list_add_child_internal (list, NULL, name);
 }
 
 /**
  * terminal_settings_list_clone_child:
  * @list: a #TerminalSettingsList
  * @uuid: the UUID of the child to clone
+ * @name: the name of the new child
  *
  * Adds a new child to the list, and returns a reference to its #GSettings.
  * All keys of the new child will have the same value as @uuid's.
@@ -787,12 +816,13 @@ terminal_settings_list_add_child (TerminalSettingsList *list)
  */
 char *
 terminal_settings_list_clone_child (TerminalSettingsList *list,
-                                    const char *uuid)
+                                    const char *uuid,
+                                    const char *name)
 {
   g_return_val_if_fail (TERMINAL_IS_SETTINGS_LIST (list), NULL);
   g_return_val_if_fail (terminal_settings_list_valid_uuid (uuid), NULL);
 
-  return terminal_settings_list_add_child_internal (list, uuid);
+  return terminal_settings_list_add_child_internal (list, uuid, name);
 }
 
 /**
@@ -817,7 +847,7 @@ terminal_settings_list_remove_child (TerminalSettingsList *list,
  * @list: a #TerminalSettingsList
  * @child: a #GSettings of a child in the list
  *
- * Returns the UUID of @child in the list, or %NULL if @child is in the list.
+ * Returns the UUID of @child in the list, or %NULL if @child is not in the list.
  *
  * Returns: (transfer full): the UUID of the child in the settings list, or %NULL
  */
@@ -837,6 +867,7 @@ terminal_settings_list_dup_uuid_from_child (TerminalSettingsList *list,
   g_return_val_if_fail (p[0] == ':', NULL);
   p++;
   g_return_val_if_fail (strlen (p) == 37, NULL);
+  g_return_val_if_fail (p[36] == '/', NULL);
   p[36] = '\0';
   g_assert (terminal_settings_list_valid_uuid (p));
 
@@ -850,7 +881,7 @@ terminal_settings_list_dup_uuid_from_child (TerminalSettingsList *list,
  *
  * Sets @uuid as the default child.
  */
-void 
+void
 terminal_settings_list_set_default_child (TerminalSettingsList *list,
                                           const char *uuid)
 {
@@ -861,4 +892,44 @@ terminal_settings_list_set_default_child (TerminalSettingsList *list,
     return;
 
   g_settings_set_string (&list->parent, TERMINAL_SETTINGS_LIST_DEFAULT_KEY, uuid);
+}
+
+/**
+ * terminal_settings_list_foreach_child:
+ * @list: a #TerminalSettingsList
+ * @callback: a #TerminalSettingsListForeachFunc
+ * @user_data: user data for @callback
+ *
+ * Calls @callback for each child of @list.
+ *
+ * NOTE: No changes to @list must be made from @callback.
+ */
+void
+terminal_settings_list_foreach_child (TerminalSettingsList *list,
+                                      TerminalSettingsListForeachFunc callback,
+                                      gpointer user_data)
+{
+  g_return_if_fail (TERMINAL_IS_SETTINGS_LIST (list));
+  g_return_if_fail (callback);
+
+  for (char **p = list->uuids; *p; p++) {
+    const char *uuid = *p;
+    gs_unref_object GSettings *child = terminal_settings_list_ref_child_internal (list, uuid);
+    if (child != NULL)
+      callback (list, uuid, child, user_data);
+  }
+}
+
+/**
+ * terminal_settings_list_foreach_child:
+ * @list: a #TerminalSettingsList
+ *
+ * Returns: the number of children of @list.
+ */
+guint
+terminal_settings_list_get_n_children (TerminalSettingsList *list)
+{
+  g_return_val_if_fail (TERMINAL_IS_SETTINGS_LIST (list), 0);
+
+  return g_hash_table_size (list->children);
 }

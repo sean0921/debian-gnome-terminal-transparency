@@ -242,6 +242,18 @@ search_button_clicked_cb (GtkWidget *button,
   perform_search (popover, button == priv->search_prev_button);
 }
 
+static gboolean
+key_press_cb (GtkWidget *popover,
+              GdkEventKey *event,
+              gpointer user_data G_GNUC_UNUSED)
+{
+  if (event->keyval == GDK_KEY_Escape) {
+    gtk_widget_hide (popover);
+    return TRUE;
+  }
+  return FALSE;
+}
+
 static void
 update_regex (TerminalSearchPopover *popover)
 {
@@ -367,10 +379,10 @@ terminal_search_popover_init (TerminalSearchPopover *popover)
 
 #if 0 // GTK_CHECK_VERSION (3, 17, 2)
   G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-  gtk_popover_set_default_widget (GTK_POPOVER (popover), priv->search_next_button);
+  gtk_popover_set_default_widget (GTK_POPOVER (popover), priv->search_prev_button);
   G_GNUC_END_IGNORE_DEPRECATIONS
 #else
-  gtk_window_set_default (GTK_WINDOW (popover), priv->search_next_button);
+  gtk_window_set_default (GTK_WINDOW (popover), priv->search_prev_button);
 #endif
 
 #if GTK_CHECK_VERSION (3, 16, 0)
@@ -395,6 +407,8 @@ terminal_search_popover_init (TerminalSearchPopover *popover)
   g_signal_connect (priv->regex_checkbutton, "toggled", G_CALLBACK (search_parameters_changed_cb), popover);
 
   g_signal_connect (priv->wrap_around_checkbutton, "toggled", G_CALLBACK (wrap_around_toggled_cb), popover);
+
+  g_signal_connect (popover, "key-press-event", G_CALLBACK (key_press_cb), NULL);
 }
 
 static void

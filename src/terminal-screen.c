@@ -17,7 +17,6 @@
  */
 
 #include "config.h"
-#define _GNU_SOURCE /* for dup3 */
 
 #include "terminal-pcre2.h"
 #include "terminal-regex.h"
@@ -49,6 +48,8 @@
 #include "terminal-accels.h"
 #include "terminal-app.h"
 #include "terminal-debug.h"
+#include "terminal-defines.h"
+#include "terminal-encoding.h"
 #include "terminal-enums.h"
 #include "terminal-intl.h"
 #include "terminal-marshal.h"
@@ -81,6 +82,7 @@ typedef struct
 struct _TerminalScreenPrivate
 {
   char *uuid;
+  gboolean registered; /* D-Bus interface is registered */
 
   GSettings *profile; /* never NULL */
   guint profile_changed_id;
@@ -585,12 +587,12 @@ static void
 terminal_screen_constructed (GObject *object)
 {
   TerminalScreen *screen = TERMINAL_SCREEN (object);
-  TerminalApp *app;
+  TerminalScreenPrivate *priv = screen->priv;
 
   G_OBJECT_CLASS (terminal_screen_parent_class)->constructed (object);
 
-  app = terminal_app_get ();
-  terminal_app_register_screen (app, screen);
+  terminal_app_register_screen (terminal_app_get (), screen);
+  priv->registered = TRUE;
 }
 
 static void
@@ -611,6 +613,11 @@ terminal_screen_dispose (GObject *object)
       priv->launch_child_source_id = 0;
     }
 
+  if (priv->registered) {
+    terminal_app_unregister_screen (terminal_app_get (), screen);
+    priv->registered = FALSE;
+  }
+
   G_OBJECT_CLASS (terminal_screen_parent_class)->dispose (object);
 }
 
@@ -619,10 +626,6 @@ terminal_screen_finalize (GObject *object)
 {
   TerminalScreen *screen = TERMINAL_SCREEN (object);
   TerminalScreenPrivate *priv = screen->priv;
-  TerminalApp *app;
-
-  app = terminal_app_get ();
-  terminal_app_unregister_screen (app, screen);
 
   g_signal_handlers_disconnect_by_func (terminal_app_get_desktop_interface_settings (terminal_app_get ()),
                                         G_CALLBACK (terminal_screen_system_font_changed_cb),
@@ -644,7 +647,7 @@ terminal_screen_finalize (GObject *object)
 
 TerminalScreen *
 terminal_screen_new (GSettings       *profile,
-                     const char      *encoding,
+                     const char      *charset,
                      char           **override_command,
                      const char      *title,
                      const char      *working_dir,
@@ -665,12 +668,11 @@ terminal_screen_new (GSettings       *profile,
    * override the profile encoding; otherwise use the profile
    * encoding.
    */
-  if (encoding != NULL && override_command != NULL) {
-    TerminalEncoding *enc;
-
-    enc = terminal_app_ensure_encoding (terminal_app_get (), encoding);
+  if (charset != NULL &&
+      terminal_encodings_is_known_charset (charset) &&
+      override_command != NULL) {
     vte_terminal_set_encoding (VTE_TERMINAL (screen),
-                               terminal_encoding_get_charset (enc),
+                               charset,
                                NULL);
   }
 
@@ -797,14 +799,9 @@ terminal_screen_profile_changed_cb (GSettings     *profile,
 
   if (!prop_name || prop_name == I_(TERMINAL_PROFILE_ENCODING_KEY))
     {
-      TerminalEncoding *encoding;
-      gs_free char *str;
-
-      str = g_settings_get_string (profile, TERMINAL_PROFILE_ENCODING_KEY);
-      encoding = terminal_app_ensure_encoding (terminal_app_get (), str);
-      vte_terminal_set_encoding (vte_terminal,
-                                 terminal_encoding_get_charset (encoding),
-                                 NULL);
+      gs_free char *charset = g_settings_get_string (profile, TERMINAL_PROFILE_ENCODING_KEY);
+      g_warn_if_fail (terminal_encodings_is_known_charset (charset));
+      vte_terminal_set_encoding (vte_terminal, charset, NULL);
     }
 
   if (!prop_name || prop_name == I_(TERMINAL_PROFILE_CJK_UTF8_AMBIGUOUS_WIDTH_KEY))
@@ -818,7 +815,9 @@ terminal_screen_profile_changed_cb (GSettings     *profile,
   if (gtk_widget_get_realized (GTK_WIDGET (screen)) &&
       (!prop_name ||
        prop_name == I_(TERMINAL_PROFILE_USE_SYSTEM_FONT_KEY) ||
-       prop_name == I_(TERMINAL_PROFILE_FONT_KEY)))
+       prop_name == I_(TERMINAL_PROFILE_FONT_KEY) ||
+       prop_name == I_(TERMINAL_PROFILE_CELL_WIDTH_SCALE_KEY) ||
+       prop_name == I_(TERMINAL_PROFILE_CELL_HEIGHT_SCALE_KEY)))
     terminal_screen_set_font (screen);
 
   if (!prop_name ||
@@ -865,6 +864,9 @@ terminal_screen_profile_changed_cb (GSettings     *profile,
   if (!prop_name || prop_name == I_(TERMINAL_PROFILE_ALLOW_BOLD_KEY))
     vte_terminal_set_allow_bold (vte_terminal,
                                  g_settings_get_boolean (profile, TERMINAL_PROFILE_ALLOW_BOLD_KEY));
+  if (!prop_name || prop_name == I_(TERMINAL_PROFILE_BOLD_IS_BRIGHT_KEY))
+    vte_terminal_set_bold_is_bright (vte_terminal,
+                                     g_settings_get_boolean (profile, TERMINAL_PROFILE_BOLD_IS_BRIGHT_KEY));
 
   if (!prop_name || prop_name == I_(TERMINAL_PROFILE_CURSOR_BLINK_MODE_KEY))
     vte_terminal_set_cursor_blink_mode (vte_terminal,
@@ -877,6 +879,10 @@ terminal_screen_profile_changed_cb (GSettings     *profile,
   if (!prop_name || prop_name == I_(TERMINAL_PROFILE_REWRAP_ON_RESIZE_KEY))
     vte_terminal_set_rewrap_on_resize (vte_terminal,
                                        g_settings_get_boolean (profile, TERMINAL_PROFILE_REWRAP_ON_RESIZE_KEY));
+
+  if (!prop_name || prop_name == I_(TERMINAL_PROFILE_TEXT_BLINK_MODE_KEY))
+    vte_terminal_set_text_blink_mode (vte_terminal,
+                                      g_settings_get_enum (profile, TERMINAL_PROFILE_TEXT_BLINK_MODE_KEY));
 
   if (!prop_name || prop_name == I_(TERMINAL_PROFILE_WORD_CHAR_EXCEPTIONS_KEY))
     {
@@ -984,6 +990,11 @@ terminal_screen_set_font (TerminalScreen *screen)
   vte_terminal_set_font (VTE_TERMINAL (screen), desc);
 
   pango_font_description_free (desc);
+
+  vte_terminal_set_cell_width_scale (VTE_TERMINAL (screen),
+                                     g_settings_get_double (profile, TERMINAL_PROFILE_CELL_WIDTH_SCALE_KEY));
+  vte_terminal_set_cell_height_scale (VTE_TERMINAL (screen),
+                                      g_settings_get_double (profile, TERMINAL_PROFILE_CELL_HEIGHT_SCALE_KEY));
 }
 
 static void
@@ -1044,7 +1055,6 @@ terminal_screen_get_profile (TerminalScreen *screen)
 {
   TerminalScreenPrivate *priv = screen->priv;
 
-  g_assert (priv->profile != NULL);
   return priv->profile;
 }
 
@@ -1053,8 +1063,9 @@ terminal_screen_ref_profile (TerminalScreen *screen)
 {
   TerminalScreenPrivate *priv = screen->priv;
 
-  g_assert (priv->profile != NULL);
-  return g_object_ref (priv->profile);
+  if (priv->profile != NULL)
+    return g_object_ref (priv->profile);
+  return NULL;
 }
 
 static void
@@ -1172,19 +1183,14 @@ get_child_environment (TerminalScreen *screen,
                        const char *cwd,
                        char **shell)
 {
+  TerminalApp *app = terminal_app_get ();
   TerminalScreenPrivate *priv = screen->priv;
-  GtkWidget *term = GTK_WIDGET (screen);
-  GtkWidget *window;
   char **env;
   char *e, *v;
   GHashTable *env_table;
   GHashTableIter iter;
   GPtrArray *retval;
   guint i;
-
-  window = gtk_widget_get_toplevel (term);
-  g_assert (window != NULL);
-  g_assert (gtk_widget_is_toplevel (window));
 
   env_table = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
@@ -1204,17 +1210,17 @@ get_child_environment (TerminalScreen *screen,
   g_hash_table_remove (env_table, "COLUMNS");
   g_hash_table_remove (env_table, "LINES");
   g_hash_table_remove (env_table, "GNOME_DESKTOP_ICON");
- 
-#ifdef GDK_WINDOWING_X11
-  if (GDK_IS_X11_SCREEN (gtk_widget_get_screen (window)))
-    {
-      /* FIXME: moving the tab between windows, or the window between displays will make the next two invalid... */
-      g_hash_table_replace (env_table, g_strdup ("WINDOWID"),
-			    g_strdup_printf ("%lu",
-					     GDK_WINDOW_XID (gtk_widget_get_window (window))));
-      g_hash_table_replace (env_table, g_strdup ("DISPLAY"), g_strdup (gdk_display_get_name (gtk_widget_get_display (window))));
-    }
-#endif
+
+  /* WINDOWID does not work correctly ever since we don't use a native
+   * GdkWindow anymore, and it also becomes incorrect if the screen is
+   * moved to a different window, or the window unrealized and re-realized.
+   * Additionally, it cannot ever work on non-X11 displays like wayland.
+   * And on X11, the only use for this is broken foreign drawing on the
+   * window (w3m etc), and trying to find the focused screen (brltty),
+   * which can now be done correctly using DECSET 1004.
+   * Therefore we do not set WINDOWID, and remove an existing variable.
+   */
+  g_hash_table_remove (env_table, "WINDOWID");
 
   /* We need to put the working directory also in PWD, so that
    * e.g. bash starts in the right directory if @cwd is a symlink.
@@ -1224,6 +1230,15 @@ get_child_environment (TerminalScreen *screen,
 
   terminal_util_add_proxy_env (env_table);
 
+  /* Add gnome-terminal private env vars used to communicate back to g-t-server */
+  GDBusConnection *connection = g_application_get_dbus_connection (G_APPLICATION (app));
+  g_hash_table_replace (env_table, g_strdup (TERMINAL_ENV_SERVICE_NAME),
+                        g_strdup (g_dbus_connection_get_unique_name (connection)));
+
+  g_hash_table_replace (env_table, g_strdup (TERMINAL_ENV_SCREEN),
+                        terminal_app_dup_screen_object_path (app, screen));
+
+  /* Convert to strv */
   retval = g_ptr_array_sized_new (g_hash_table_size (env_table));
   g_hash_table_iter_init (&iter, env_table);
   while (g_hash_table_iter_next (&iter, (gpointer *) &e, (gpointer *) &v))
@@ -1238,7 +1253,7 @@ get_child_environment (TerminalScreen *screen,
 
 enum {
   RESPONSE_RELAUNCH,
-  RESPONSE_EDIT_PROFILE
+  RESPONSE_EDIT_PREFERENCES
 };
 
 static void
@@ -1257,11 +1272,10 @@ info_bar_response_cb (GtkWidget *info_bar,
       gtk_widget_destroy (info_bar);
       _terminal_screen_launch_child_on_idle (screen);
       break;
-    case RESPONSE_EDIT_PROFILE:
-      terminal_app_edit_profile (terminal_app_get (),
-                                 terminal_screen_get_profile (screen),
-                                 GTK_WINDOW (terminal_screen_get_window (screen)),
-                                 "custom-command-entry");
+    case RESPONSE_EDIT_PREFERENCES:
+      terminal_app_edit_preferences (terminal_app_get (),
+                                     terminal_screen_get_profile (screen),
+                                     "custom-command-entry");
       break;
     default:
       gtk_widget_destroy (info_bar);
@@ -1375,7 +1389,7 @@ spawn_result_cb (VteTerminal *terminal,
 
     vte_terminal_set_pty (terminal, NULL);
     info_bar = terminal_info_bar_new (GTK_MESSAGE_ERROR,
-                                      _("_Profile Preferences"), RESPONSE_EDIT_PROFILE,
+                                      _("_Preferences"), RESPONSE_EDIT_PREFERENCES,
                                       _("_Relaunch"), RESPONSE_RELAUNCH,
                                       NULL);
     terminal_info_bar_format_text (TERMINAL_INFO_BAR (info_bar),
@@ -1487,9 +1501,6 @@ terminal_screen_popup_info_new (TerminalScreen *screen)
 
   info = g_slice_new0 (TerminalScreenPopupInfo);
   info->ref_count = 1;
-  info->screen = g_object_ref (screen);
-
-  g_weak_ref_init (&info->window_weak_ref, terminal_screen_get_window (screen));
 
   return info;
 }
@@ -1511,26 +1522,10 @@ terminal_screen_popup_info_unref (TerminalScreenPopupInfo *info)
   if (--info->ref_count > 0)
     return;
 
-  g_object_unref (info->screen);
-  g_weak_ref_clear (&info->window_weak_ref);
   g_free (info->hyperlink);
   g_free (info->url);
   g_free (info->number_info);
   g_slice_free (TerminalScreenPopupInfo, info);
-}
-
-/**
- * terminal_screen_popup_info_ref_window:
- * @info: a #TerminalScreenPopupInfo
- *
- * Returns: the window, or %NULL
- */
-TerminalWindow *
-terminal_screen_popup_info_ref_window (TerminalScreenPopupInfo *info)
-{
-  g_return_val_if_fail (info != NULL, NULL);
-
-  return g_weak_ref_get (&info->window_weak_ref);
 }
 
 static gboolean
