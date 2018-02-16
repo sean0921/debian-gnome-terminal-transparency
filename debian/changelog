@@ -1,6 +1,7 @@
-gnome-terminal (3.26.2-3ubuntu1) bionic; urgency=medium
+gnome-terminal (3.27.90-1ubuntu1) UNRELEASED; urgency=medium
 
-  * Merge with Debian (LP: #1721412). Remaining changes:
+  [ Jeremy Bicha ]
+  * Merge with Debian (LP: #1744711). Remaining changes:
     + debian/rules:
       - Install compatibility version of gnome-terminal.desktop
     + gnome-terminal.wrap, debian/rules:
@@ -28,9 +29,21 @@ gnome-terminal (3.26.2-3ubuntu1) bionic; urgency=medium
     + Add debian/patches/revert-pcre2.patch:
       - Revert changes that require PCRE2 since it's not in main
         (see MIR #163666)
-  * Refresh patches
+ 
+  [ Egmont Koblinger ]
+  * Update patches to apply against new version
+  * Always show "Use transparency from system theme" checkbox (LP: #1745825)
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 20 Jan 2018 18:26:29 -0500
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Fri, 16 Feb 2018 13:09:20 -0500
+
+gnome-terminal (3.27.90-1) experimental; urgency=medium
+
+  * New upstream development release
+    - Unified preferences dialog
+  * Bump minimum libvte-2.91-dev to 2.51.3
+  * Drop obsolete vala build-dependency
+
+ -- Jeremy Bicha <jbicha@debian.org>  Fri, 16 Feb 2018 13:06:35 -0500
 
 gnome-terminal (3.26.2-3) unstable; urgency=medium
 

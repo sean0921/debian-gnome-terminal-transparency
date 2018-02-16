@@ -14,10 +14,10 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/123258
  6 files changed, 37 insertions(+), 2 deletions(-)
 
 diff --git a/src/terminal-regex.h b/src/terminal-regex.h
-index 3264b86..8059e5e 100644
+index 83ad4174..f0ee427a 100644
 --- a/src/terminal-regex.h
 +++ b/src/terminal-regex.h
-@@ -146,5 +146,6 @@
+@@ -150,5 +150,6 @@
  #define REGEX_URL_VOIP   DEFS "(?i:h323:|sips?:)" USERPASS URL_HOST PORT VOIP_PATH
  #define REGEX_EMAIL      DEFS "(?i:mailto:)?" USER "@" EMAIL_HOST
  #define REGEX_NEWS_MAN   "(?i:news:|man:|info:|apt:)[-[:alnum:]\\Q^_{|}~!\"#$%&'()*+,./;:=?`\\E]+"
@@ -25,10 +25,10 @@ index 3264b86..8059e5e 100644
  
  #endif /* !TERMINAL_REGEX_H */
 diff --git a/src/terminal-screen.c b/src/terminal-screen.c
-index 6b33368..adb0722 100644
+index 7d059f1d..8eeb12cf 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -183,6 +183,7 @@ static const TerminalRegexPattern url_regex_patterns[] = {
+@@ -185,6 +185,7 @@ static const TerminalRegexPattern url_regex_patterns[] = {
    { REGEX_URL_VOIP,  FLAVOR_VOIP_CALL },
    { REGEX_EMAIL,     FLAVOR_EMAIL },
    { REGEX_NEWS_MAN,  FLAVOR_AS_IS },
@@ -37,7 +37,7 @@ index 6b33368..adb0722 100644
  
  static const TerminalRegexPattern extra_regex_patterns[] = {
 diff --git a/src/terminal-screen.h b/src/terminal-screen.h
-index 2e8f6dc..3df7eba 100644
+index 743071d5..ff19f7eb 100644
 --- a/src/terminal-screen.h
 +++ b/src/terminal-screen.h
 @@ -32,6 +32,7 @@ typedef enum {
@@ -49,10 +49,10 @@ index 2e8f6dc..3df7eba 100644
  
  /* Forward decls */
 diff --git a/src/terminal-util.c b/src/terminal-util.c
-index b0c73e0..ff25017 100644
+index b40e100f..61750228 100644
 --- a/src/terminal-util.c
 +++ b/src/terminal-util.c
-@@ -314,6 +314,9 @@ terminal_util_open_url (GtkWidget *parent,
+@@ -309,6 +309,9 @@ terminal_util_open_url (GtkWidget *parent,
      case FLAVOR_AS_IS:
        uri = g_strdup (orig_url);
        break;
@@ -62,7 +62,7 @@ index b0c73e0..ff25017 100644
      default:
        uri = NULL;
        g_assert_not_reached ();
-@@ -327,6 +330,20 @@ terminal_util_open_url (GtkWidget *parent,
+@@ -322,6 +325,20 @@ terminal_util_open_url (GtkWidget *parent,
      }
  }
  
@@ -84,10 +84,10 @@ index b0c73e0..ff25017 100644
   * terminal_util_transform_uris_to_quoted_fuse_paths:
   * @uris:
 diff --git a/src/terminal-util.h b/src/terminal-util.h
-index 040f487..3d99233 100644
+index abd34fd7..a7de59f1 100644
 --- a/src/terminal-util.h
 +++ b/src/terminal-util.h
-@@ -46,6 +46,8 @@ void terminal_util_open_url (GtkWidget *parent,
+@@ -44,6 +44,8 @@ void terminal_util_open_url (GtkWidget *parent,
                               TerminalURLFlavor flavor,
                               guint32 user_time);
  
@@ -97,37 +97,33 @@ index 040f487..3d99233 100644
  
  char *terminal_util_concat_uris (char **uris,
 diff --git a/src/terminal-window.c b/src/terminal-window.c
-index ee15026..c12b4da 100644
+index 1b49ea66..2906babd 100644
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -2048,7 +2048,18 @@ popup_copy_url_callback (GtkAction *action,
+@@ -1021,7 +1021,17 @@ action_copy_match_cb (GSimpleAction *action,
+   if (info->url == NULL)
      return;
  
-   clipboard = gtk_widget_get_clipboard (GTK_WIDGET (window), GDK_SELECTION_CLIPBOARD);
--  gtk_clipboard_set_text (clipboard, info->url, -1);
-+
+-  gtk_clipboard_set_text (priv->clipboard, info->url, -1);
 +  if (info->url_flavor == FLAVOR_LP)
 +    {
 +      char *uri;
 +      uri = terminal_util_get_lp_url (info->url);
-+      gtk_clipboard_set_text (clipboard, uri, -1);
++      gtk_clipboard_set_text (priv->clipboard, uri, -1);
 +      g_free (uri);
 +    }
 +  else
 +    {
-+      gtk_clipboard_set_text (clipboard, info->url, -1);
++      gtk_clipboard_set_text (priv->clipboard, info->url, -1);
 +    }
  }
  
  static void
-@@ -2144,7 +2155,9 @@ popup_clipboard_targets_received_cb (GtkClipboard *clipboard,
-   can_paste = targets != NULL && gtk_targets_include_text (targets, n_targets);
-   can_paste_uris = targets != NULL && gtk_targets_include_uri (targets, n_targets);
-   show_hyperlink = info->hyperlink != NULL;
--  show_link = !show_hyperlink && info->url != NULL && (info->url_flavor == FLAVOR_AS_IS || info->url_flavor == FLAVOR_DEFAULT_TO_HTTP);
-+  show_link = !show_hyperlink && info->url != NULL && (info->url_flavor == FLAVOR_AS_IS ||
-+                                    info->url_flavor == FLAVOR_DEFAULT_TO_HTTP ||
-+                                    info->url_flavor == FLAVOR_LP);
-   show_email_link = !show_hyperlink && info->url != NULL && info->url_flavor == FLAVOR_EMAIL;
-   show_call_link = !show_hyperlink && info->url != NULL && info->url_flavor == FLAVOR_VOIP_CALL;
-   show_number_info = info->number_info != NULL;
+@@ -1785,6 +1795,7 @@ screen_show_popup_menu_cb (TerminalScreen *screen,
+       break;
+     case FLAVOR_AS_IS:
+     case FLAVOR_DEFAULT_TO_HTTP:
++    case FLAVOR_LP:
+     default:
+       open_label = _("_Open Link");
+       copy_label = _("Copy _Link");

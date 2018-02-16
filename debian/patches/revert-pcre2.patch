@@ -17,10 +17,10 @@ https://git.gnome.org/browse/gnome-terminal/commit/?id=45bcfb8d
  5 files changed, 120 insertions(+), 6 deletions(-)
 
 diff --git a/configure.ac b/configure.ac
-index 75ae6ef..adba9f4 100644
+index cca6d97d..7c5f4608 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -77,6 +77,27 @@ for target in $($PKG_CONFIG --variable targets gdk-$GTK_API_VERSION); do
+@@ -81,6 +81,27 @@ for target in $($PKG_CONFIG --variable targets gdk-$GTK_API_VERSION); do
    esac
  done
  
@@ -48,7 +48,7 @@ index 75ae6ef..adba9f4 100644
  # pkg-config checks
  
  PKG_CHECK_MODULES([TERM],
-@@ -87,8 +108,8 @@ PKG_CHECK_MODULES([TERM],
+@@ -91,8 +112,8 @@ PKG_CHECK_MODULES([TERM],
     gsettings-desktop-schemas >= $GSETTINGS_DESKTOP_SCHEMAS_REQUIRED
     dconf >= $DCONF_REQUIRED
     uuid
@@ -58,8 +58,8 @@ index 75ae6ef..adba9f4 100644
 +   $PCRE2_PKGS])
  
  # ****
- # Vala
-@@ -389,6 +410,7 @@ gnome-terminal-$VERSION:
+ # DBus
+@@ -343,6 +364,7 @@ gnome-terminal-$VERSION:
        prefix:                 ${prefix}
        source code location:   ${srcdir}
        compiler:               ${CC}
@@ -68,12 +68,12 @@ index 75ae6ef..adba9f4 100644
        DBus interface dir:     ${dbusinterfacedir}
        DBus service dir:       ${dbusservicedir}
 diff --git a/src/terminal-screen.c b/src/terminal-screen.c
-index 384d7f0..3f9f0c4 100644
+index a13e1bac..f94cd91d 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -19,7 +19,10 @@
+@@ -18,7 +18,10 @@
+ 
  #include "config.h"
- #define _GNU_SOURCE /* for dup3 */
  
 +#ifdef WITH_PCRE2
  #include "terminal-pcre2.h"
@@ -82,7 +82,7 @@ index 384d7f0..3f9f0c4 100644
  #include "terminal-regex.h"
  #include "terminal-screen.h"
  
-@@ -194,8 +197,13 @@ static const TerminalRegexPattern extra_regex_patterns[] = {
+@@ -196,8 +199,13 @@ static const TerminalRegexPattern extra_regex_patterns[] = {
    { "(0[Xx][[:xdigit:]]+|[[:digit:]]+)", FLAVOR_NUMBER },
  };
  
@@ -96,7 +96,7 @@ index 384d7f0..3f9f0c4 100644
  static TerminalURLFlavor *url_regex_flavors;
  static TerminalURLFlavor *extra_regex_flavors;
  static guint n_url_regexes;
-@@ -299,18 +307,27 @@ free_tag_data (TagData *tagdata)
+@@ -301,18 +309,27 @@ free_tag_data (TagData *tagdata)
  static void
  precompile_regexes (const TerminalRegexPattern *regex_patterns,
                      guint n_regexes,
@@ -124,7 +124,7 @@ index 384d7f0..3f9f0c4 100644
        (*regexes)[i] = vte_regex_new_for_match (regex_patterns[i].pattern, -1,
                                                 PCRE2_UTF | PCRE2_NO_UTF_CHECK | PCRE2_MULTILINE,
                                                 &error);
-@@ -321,6 +338,13 @@ precompile_regexes (const TerminalRegexPattern *regex_patterns,
+@@ -323,6 +340,13 @@ precompile_regexes (const TerminalRegexPattern *regex_patterns,
          g_printerr ("Failed to JIT regex '%s': %s\n", regex_patterns[i].pattern, error->message);
          g_clear_error (&error);
        }
@@ -138,7 +138,7 @@ index 384d7f0..3f9f0c4 100644
  
        (*regex_flavors)[i] = regex_patterns[i].flavor;
      }
-@@ -453,7 +477,11 @@ terminal_screen_init (TerminalScreen *screen)
+@@ -455,7 +479,11 @@ terminal_screen_init (TerminalScreen *screen)
  
        tag_data = g_slice_new (TagData);
        tag_data->flavor = url_regex_flavors[i];
@@ -150,7 +150,7 @@ index 384d7f0..3f9f0c4 100644
        vte_terminal_match_set_cursor_type (terminal, tag_data->tag, URL_MATCH_CURSOR);
  
        priv->match_tags = g_slist_prepend (priv->match_tags, tag_data);
-@@ -2252,7 +2280,12 @@ terminal_screen_check_extra (TerminalScreen *screen,
+@@ -2247,7 +2275,12 @@ terminal_screen_check_extra (TerminalScreen *screen,
    memset(matches, 0, sizeof(char*) * n_extra_regexes);
  
    if (
@@ -165,7 +165,7 @@ index 384d7f0..3f9f0c4 100644
                                               extra_regexes,
                                               n_extra_regexes,
 diff --git a/src/terminal-search-popover.c b/src/terminal-search-popover.c
-index 1fde569..198dc64 100644
+index 81979b21..ea57e2c7 100644
 --- a/src/terminal-search-popover.c
 +++ b/src/terminal-search-popover.c
 @@ -23,7 +23,10 @@
@@ -193,7 +193,7 @@ index 1fde569..198dc64 100644
  };
  
  enum {
-@@ -247,7 +255,7 @@ update_regex (TerminalSearchPopover *popover)
+@@ -259,7 +267,7 @@ update_regex (TerminalSearchPopover *popover)
  {
    TerminalSearchPopoverPrivate *priv = PRIV (popover);
    const char *search_text;
@@ -202,7 +202,7 @@ index 1fde569..198dc64 100644
    gs_free char *pattern;
    gs_free_error GError *error = NULL;
  
-@@ -257,6 +265,7 @@ update_regex (TerminalSearchPopover *popover)
+@@ -269,6 +277,7 @@ update_regex (TerminalSearchPopover *popover)
  
    if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (priv->regex_checkbutton))) {
      pattern = g_strdup (search_text);
@@ -210,7 +210,7 @@ index 1fde569..198dc64 100644
    } else {
      pattern = g_regex_escape_string (search_text, -1);
    }
-@@ -269,29 +278,47 @@ update_regex (TerminalSearchPopover *popover)
+@@ -281,29 +290,47 @@ update_regex (TerminalSearchPopover *popover)
    }
  
    if (priv->regex_caseless == caseless &&
@@ -259,7 +259,7 @@ index 1fde569..198dc64 100644
      if (priv->regex != NULL)
        gs_transfer_out_value (&priv->regex_pattern, &pattern);
    } else {
-@@ -338,7 +365,7 @@ terminal_search_popover_init (TerminalSearchPopover *popover)
+@@ -350,7 +377,7 @@ terminal_search_popover_init (TerminalSearchPopover *popover)
    GtkWidget *widget = GTK_WIDGET (popover);
  
    priv->regex_pattern = 0;
@@ -268,7 +268,7 @@ index 1fde569..198dc64 100644
  
    gtk_widget_init_template (widget);
  
-@@ -404,7 +431,11 @@ terminal_search_popover_finalize (GObject *object)
+@@ -418,7 +445,11 @@ terminal_search_popover_finalize (GObject *object)
    TerminalSearchPopoverPrivate *priv = PRIV (popover);
  
    if (priv->regex) {
@@ -280,7 +280,7 @@ index 1fde569..198dc64 100644
    }
  
    g_free (priv->regex_pattern);
-@@ -473,7 +504,11 @@ terminal_search_popover_class_init (TerminalSearchPopoverClass *klass)
+@@ -487,7 +518,11 @@ terminal_search_popover_class_init (TerminalSearchPopoverClass *klass)
  
    pspecs[PROP_REGEX] =
      g_param_spec_boxed ("regex", NULL, NULL,
@@ -292,7 +292,7 @@ index 1fde569..198dc64 100644
                          G_PARAM_READABLE | G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB);
  
    pspecs[PROP_WRAP_AROUND] =
-@@ -521,7 +556,11 @@ terminal_search_popover_new (GtkWidget *relative_to_widget)
+@@ -535,7 +570,11 @@ terminal_search_popover_new (GtkWidget *relative_to_widget)
   *
   * Returns: (transfer none): the search regex, or %NULL
   */
@@ -305,7 +305,7 @@ index 1fde569..198dc64 100644
  {
    g_return_val_if_fail (TERMINAL_IS_SEARCH_POPOVER (popover), NULL);
 diff --git a/src/terminal-search-popover.h b/src/terminal-search-popover.h
-index 10771d9..813f0f3 100644
+index 10771d9a..813f0f34 100644
 --- a/src/terminal-search-popover.h
 +++ b/src/terminal-search-popover.h
 @@ -39,7 +39,11 @@ GType terminal_search_popover_get_type (void);
@@ -321,10 +321,10 @@ index 10771d9..813f0f3 100644
  
  gboolean terminal_search_popover_get_wrap_around (TerminalSearchPopover *popover);
 diff --git a/src/terminal-window.c b/src/terminal-window.c
-index c12b4da..36c5005 100644
+index 2906babd..f3d4f03c 100644
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -937,13 +937,21 @@ search_popover_notify_regex_cb (TerminalSearchPopover *popover,
+@@ -1110,13 +1110,21 @@ search_popover_notify_regex_cb (TerminalSearchPopover *popover,
                                  TerminalWindow *window)
  {
    TerminalWindowPrivate *priv = window->priv;
@@ -346,27 +346,27 @@ index c12b4da..36c5005 100644
  
    terminal_window_update_search_sensitivity (priv->active_screen, window);
  }
-@@ -1018,7 +1026,11 @@ action_find_cb (GSimpleAction *action,
-   } else if (g_str_equal (mode, "previous")) {
-     vte_terminal_search_find_previous (VTE_TERMINAL (priv->active_screen));
-   } else if (g_str_equal (mode, "clear")) {
-+#ifdef WITH_PCRE2
-     vte_terminal_search_set_regex (VTE_TERMINAL (priv->active_screen), NULL, 0);
-+#else
-+    vte_terminal_search_set_gregex (VTE_TERMINAL (priv->active_screen), NULL, 0);
-+#endif
-   } else
+@@ -1212,7 +1220,11 @@ action_find_clear_cb (GSimpleAction *action,
+   if (priv->active_screen == NULL)
      return;
+ 
++#ifdef WITH_PCRE2
+   vte_terminal_search_set_regex (VTE_TERMINAL (priv->active_screen), NULL, 0);
++#else
++  vte_terminal_search_set_gregex (VTE_TERMINAL (priv->active_screen), NULL, 0);
++#endif
  }
-@@ -1830,7 +1842,11 @@ terminal_window_update_search_sensitivity (TerminalScreen *screen,
+ 
+ static void
+@@ -1606,7 +1618,11 @@ terminal_window_update_search_sensitivity (TerminalScreen *screen,
    if (screen != priv->active_screen)
      return;
  
 +#ifdef WITH_PCRE2
-   can_search = vte_terminal_search_get_regex (VTE_TERMINAL (screen)) != NULL;
+   gboolean can_search = vte_terminal_search_get_regex (VTE_TERMINAL (screen)) != NULL;
 +#else
-+  can_search = vte_terminal_search_get_gregex (VTE_TERMINAL (screen)) != NULL;
++  gboolean can_search = vte_terminal_search_get_gregex (VTE_TERMINAL (screen)) != NULL;
 +#endif
  
-   action = gtk_action_group_get_action (priv->action_group, "SearchFindNext");
-   gtk_action_set_sensitive (action, can_search);
+   g_simple_action_set_enabled (lookup_action (window, "find-forward"), can_search);
+   g_simple_action_set_enabled (lookup_action (window, "find-backward"), can_search);
