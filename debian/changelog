@@ -1,4 +1,4 @@
-gnome-terminal (3.27.90-1ubuntu1) UNRELEASED; urgency=medium
+gnome-terminal (3.27.90-1ubuntu1) bionic; urgency=medium
 
   [ Jeremy Bicha ]
   * Merge with Debian (LP: #1744711). Remaining changes:
@@ -34,7 +34,7 @@ gnome-terminal (3.27.90-1ubuntu1) UNRELEASED; urgency=medium
   * Update patches to apply against new version
   * Always show "Use transparency from system theme" checkbox (LP: #1745825)
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Fri, 16 Feb 2018 13:09:20 -0500
+ -- Egmont Koblinger <egmont@gmail.com>  Fri, 16 Feb 2018 13:09:20 -0500
 
 gnome-terminal (3.27.90-1) experimental; urgency=medium
 
