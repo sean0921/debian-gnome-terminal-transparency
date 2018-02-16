@@ -1,10 +1,11 @@
-gnome-terminal (3.27.90-1) UNRELEASED; urgency=medium
+gnome-terminal (3.27.90-1) experimental; urgency=medium
 
   * New upstream development release
+    - Unified preferences dialog
   * Bump minimum libvte-2.91-dev to 2.51.3
   * Drop obsolete vala build-dependency
 
- -- Jeremy Bicha <jbicha@debian.org>  Fri, 16 Feb 2018 12:33:10 -0500
+ -- Jeremy Bicha <jbicha@debian.org>  Fri, 16 Feb 2018 13:06:35 -0500
 
 gnome-terminal (3.26.2-3) unstable; urgency=medium
 
