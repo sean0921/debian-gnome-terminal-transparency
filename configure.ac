@@ -1,6 +1,6 @@
 m4_define([gt_version_major],[3])
-m4_define([gt_version_minor],[26])
-m4_define([gt_version_micro],[2])
+m4_define([gt_version_minor],[27])
+m4_define([gt_version_micro],[90])
 m4_define([gt_version_extra],[])
 m4_define([gt_version],[gt_version_major().gt_version_minor().gt_version_micro()gt_version_extra])
 
@@ -12,6 +12,8 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
 AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-bzip2])
+
+AC_USE_SYSTEM_EXTENSIONS
 
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
 
@@ -26,7 +28,7 @@ AM_MAINTAINER_MODE([enable])
 
 PKG_PROG_PKG_CONFIG
 AC_PROG_MKDIR_P
-AC_PROG_CC
+AC_PROG_CC_C99
 AC_ISC_POSIX
 AC_HEADER_STDC
 AM_PROG_LIBTOOL
@@ -34,9 +36,11 @@ IT_PROG_INTLTOOL([0.50.0])
 
 AM_GLIB_GNU_GETTEXT
 
+AX_PTHREAD([],[AC_MSG_ERROR([pthreads are required])])
+
 GLIB_REQUIRED=2.42.0
 GLIB_MIN_REQUIRED=2.42
-GLIB_MAX_ALLOWED=2.42
+GLIB_MAX_ALLOWED=2.50
 
 GIO_REQUIRED=2.34.0
 GSETTINGS_DESKTOP_SCHEMAS_REQUIRED=0.1.0
@@ -58,9 +62,9 @@ case "$with_gtk" in
   3.0) GTK_API_VERSION=3.0
        GTK_REQUIRED=3.12.0
        GTK_MIN_REQUIRED=3.8
-       GTK_MAX_ALLOWED=3.20
+       GTK_MAX_ALLOWED=3.22
        VTE_API_VERSION=2.91
-       VTE_REQUIRED=0.50.2
+       VTE_REQUIRED=0.51.3
        ;;
 esac
 
@@ -89,31 +93,6 @@ PKG_CHECK_MODULES([TERM],
    uuid
    libpcre2-8 >= $PCRE2_REQUIRED
    $PLATFORM_DEPS])
-
-# ****
-# Vala
-# ****
-
-AC_MSG_CHECKING([whether gterminal is requested])
-AC_ARG_ENABLE([gterminal],[AS_HELP_STRING([--disable-gterminal],[Disable gterminal])],
-  [],[enable_gterminal=yes])
-AC_MSG_RESULT([$enable_gterminal])
-
-AS_IF([test "$enable_gterminal" = "yes"],[
-  AM_PROG_VALAC([0.26])
-
-  VALA_CHECK_PACKAGES([glib-2.0 gio-2.0 gio-unix-2.0 linux posix])
-  PKG_CHECK_MODULES([GTERMINAL],
-    [glib-2.0 >= $GLIB_REQUIRED
-     gio-2.0 >= $GIO_REQUIRED
-     gio-unix-2.0 >= $GIO_REQUIRED
-     gtk+-$GTK_API_VERSION >= $GTK_REQUIRED
-     dconf >= $DCONF_REQUIRED
-     uuid
-     $PLATFORM_DEPS])
-])
-
-AM_CONDITIONAL([ENABLE_GTERMINAL],[test "$enable_gterminal" = "yes"])
 
 # ****
 # DBus
@@ -259,30 +238,6 @@ fi
 
 AM_CONDITIONAL([WITH_NAUTILUS_EXTENSION],[test "$with_nautilus_extension" = "yes"])
 
-# **********************
-# Distribution specifics
-# **********************
-
-if test -f /etc/os-release; then
-  DISTRO="$(. /etc/os-release && echo $ID)"
-else
-  DISTRO="unknown"
-fi
-
-case "$DISTRO" in
-  ubuntu) AC_DEFINE([HAVE_UBUNTU],[1],[Define if building under ubuntu]) ;;
-esac
-
-AC_MSG_CHECKING([whether building a distro package])
-AC_ARG_ENABLE([distro-packaging],
-  [AS_HELP_STRING([--enable-distro-packaging],[enable when building a distro package])],
-  [],[enable_distro_packaging=no])
-AC_MSG_RESULT([$enable_distro_packaging])
-
-if test "$enable_distro_packaging" = "yes"; then
-  AC_DEFINE([ENABLE_DISTRO_PACKAGING],[1],[Define if building a distro package])
-fi
-
 # ***********
 # Compilation
 # ***********
@@ -294,7 +249,6 @@ CC_CHECK_FLAGS_APPEND([WARN_CFLAGS],[CFLAGS],[ \
   -Wall \
   -Wcast-align \
   -Wendif-labels \
-  -Werror=declaration-after-statement \
   "-Werror=format=2 -Werror=format-nonliteral -Werror=format-security" \
   -Werror=implicit-function-declaration \
   -Werror=init-self \

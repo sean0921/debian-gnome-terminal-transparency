@@ -51,10 +51,12 @@ gboolean terminal_settings_list_has_child (TerminalSettingsList *list,
 GSettings *terminal_settings_list_ref_child (TerminalSettingsList *list,
                                              const char *uuid);
 
-char *terminal_settings_list_add_child (TerminalSettingsList *list);
+char *terminal_settings_list_add_child (TerminalSettingsList *list,
+                                        const char *name);
 
 char *terminal_settings_list_clone_child (TerminalSettingsList *list,
-                                          const char *uuid);
+                                          const char *uuid,
+                                          const char *name);
 
 void terminal_settings_list_remove_child (TerminalSettingsList *list,
                                           const char *uuid);
@@ -68,6 +70,17 @@ char *terminal_settings_list_dup_default_child (TerminalSettingsList *list);
 
 void terminal_settings_list_set_default_child (TerminalSettingsList *list,
                                                const char *uuid);
+
+typedef void (* TerminalSettingsListForeachFunc) (TerminalSettingsList *list,
+                                                  const char *uuid,
+                                                  GSettings *child,
+                                                  gpointer user_data);
+
+void terminal_settings_list_foreach_child (TerminalSettingsList *list,
+                                           TerminalSettingsListForeachFunc callback,
+                                           gpointer user_data);
+
+guint terminal_settings_list_get_n_children (TerminalSettingsList *list);
 
 gboolean terminal_settings_list_valid_uuid (const char *str);
 

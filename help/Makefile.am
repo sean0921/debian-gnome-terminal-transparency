@@ -29,6 +29,7 @@ HELP_FILES = \
 	pref-custom-command.page \
 	pref-encoding.page \
 	pref-keyboard-access.page \
+	pref-login-shell.page \
 	pref-menubar.page \
 	pref-profiles.page \
 	pref-profile-char-width.page \
@@ -36,14 +37,14 @@ HELP_FILES = \
 	pref-scrolling.page \
 	pref-tab-window.page \
 	pref-user-input.page \
-	profile.page \
 	prob-reset.page \
 	txt-copy-paste.page \
 	txt-links.page \
+	txt-save-text.page \
 	txt-search.page \
 	txt-select-text.page \
 	$(NULL)
 
-HELP_LINGUAS = ca cs de el es fi fr gl hu ko pt_BR ru sv
+HELP_LINGUAS = ca cs de el es fi fr gl hu ko pl pt_BR ru sv
 
 -include $(top_srcdir)/git.mk

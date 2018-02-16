@@ -30,6 +30,8 @@ gnome_terminal_server_built = \
 	terminal-gdbus-generated.h \
 	terminal-resources.c \
 	terminal-resources.h \
+	terminal-menubar-with-mnemonics.ui \
+	terminal-menubar-without-mnemonics.ui \
 	$(NULL)
 BUILT_SOURCES += $(gnome_terminal_server_built)
 
@@ -61,6 +63,8 @@ gnome_terminal_server_SOURCES = \
 	terminal-libgsystem.h \
 	terminal-mdi-container.c \
 	terminal-mdi-container.h \
+	terminal-menu-button.h \
+	terminal-menu-button.c \
 	terminal-notebook.c \
 	terminal-notebook.h \
 	terminal-pcre2.h \
@@ -80,8 +84,6 @@ gnome_terminal_server_SOURCES = \
 	terminal-search-popover.h \
 	terminal-tab-label.c \
 	terminal-tab-label.h \
-	terminal-tabs-menu.c \
-	terminal-tabs-menu.h \
 	terminal-util.c \
 	terminal-util.h \
 	terminal-version.h \
@@ -94,12 +96,12 @@ nodist_gnome_terminal_server_SOURCES = $(gnome_terminal_server_built)
 gnome_terminal_server_CPPFLAGS = \
 	-DTERMINAL_COMPILATION \
 	-DTERM_LOCALEDIR="\"$(datadir)/locale\"" \
-	-DTERM_HELPDIR="\"$(HELP_DIR)\"" \
 	-DTERM_LIBEXECDIR="\"$(libexecdir)\"" \
 	$(AM_CPPFLAGS)
 
 gnome_terminal_server_CFLAGS = \
 	$(TERM_CFLAGS) \
+	$(PTHREAD_CFLAGS) \
 	$(WARN_CFLAGS) \
 	$(AM_CFLAGS)
 
@@ -107,7 +109,9 @@ gnome_terminal_server_LDFLAGS = \
 	$(AM_LDFLAGS)
 
 gnome_terminal_server_LDADD = \
-	$(TERM_LIBS)
+	$(TERM_LIBS) \
+	$(PTHREAD_LIBS) \
+	$(NULL)
 
 TYPES_H_FILES = \
 	terminal-enums.h \
@@ -165,8 +169,14 @@ terminal-gdbus-generated.c terminal-gdbus-generated.h: org.gnome.Terminal.xml Ma
 			--generate-c-code terminal-gdbus-generated \
 			$<
 
-terminal-resources.h terminal-resources.c: terminal.gresource.xml Makefile $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir $(srcdir) $(srcdir)/terminal.gresource.xml)
-	$(AM_V_GEN) XMLLINT=$(XMLLINT) $(GLIB_COMPILE_RESOURCES) --target $@ --sourcedir $(srcdir) --generate --c-name terminal $<
+terminal-menubar-with-mnemonics.ui: terminal-menubar.ui.in
+	sed -e 's|<WITH_MNEMONIC>||g' -e 's|</WITH_MNEMONIC>||g' -e 's|<WITHOUT_MNEMONIC>|<!-- |g' -e 's|</WITHOUT_MNEMONIC>| -->|g' $< > $@
+
+terminal-menubar-without-mnemonics.ui: terminal-menubar.ui.in
+	sed -e 's|<WITH_MNEMONIC>|<!-- |g' -e 's|</WITH_MNEMONIC>| -->|g' -e 's|<WITHOUT_MNEMONIC>||g' -e 's|</WITHOUT_MNEMONIC>||g' $< > $@
+
+terminal-resources.h terminal-resources.c: terminal.gresource.xml Makefile $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir $(srcdir) --sourcedir $(builddir) $(srcdir)/terminal.gresource.xml)
+	$(AM_V_GEN) XMLLINT=$(XMLLINT) $(GLIB_COMPILE_RESOURCES) --target $@ --sourcedir $(builddir) --sourcedir $(srcdir) --generate --c-name terminal $<
 
 # Checks
 
@@ -191,71 +201,6 @@ terminal_regex_LDFLAGS = \
 	$(AM_LDFLAGS)
 terminal_regex_LDADD = \
 	$(TERM_LIBS)
-
-# Terminal client
-
-if ENABLE_GTERMINAL
-
-noinst_PROGRAMS += gterminal
-
-gterminal_SOURCES = \
-	gterminal.vala \
-	client.vapi \
-	config.vapi \
-	profiles.vapi \
-	terminal-client-utils.c \
-	terminal-client-utils.h \
-	terminal-debug.c \
-	terminal-debug.h \
-	terminal-profiles-list.c \
-	terminal-profiles-list.h \
-	terminal-settings-list.c \
-	terminal-settings-list.h \
-	$(NULL)
-
-nodist_gterminal_SOURCES = \
-	terminal-type-builtins.c \
-	terminal-type-builtins.h \
-	$(NULL)
-
-gterminal_VALAFLAGS = \
-	--vapidir=. \
-	--pkg=glib-2.0 \
-	--pkg=gio-2.0 \
-	--pkg=gio-unix-2.0 \
-	--pkg=posix \
-	--pkg=gtk+-$(GTK_API_VERSION) \
-	$(GTERMINAL_VALAFLAGS) \
-	$(AM_VALAFLAGS)
-
-gterminal_CPPFLAGS = \
-	-I$(top_builddir) \
-	-DTERMINAL_COMPILATION \
-	-DTERMINAL_CLIENT \
-	-DLOCALEDIR="\"$(datadir)/locale\"" \
-	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
-	$(AM_CPPFLAGS)
-
-# See bug #710862 about -Wsuggest-attribute=format
-gterminal_CFLAGS = \
-	--include config.h \
-	$(GTERMINAL_CFLAGS) \
-	$(AM_CFLAGS) \
-	-Wno-cast-qual \
-	-Wno-format-nonliteral \
-	-Wno-suggest-attribute=format \
-	-Wno-unused-but-set-variable \
-	-Wno-unused-function \
-	-Wno-unused-variable \
-	-Wno-write-strings \
-	$(NULL)
-gterminal_LDFLAGS = \
-	$(AM_LDFLAGS)
-gterminal_LDADD = \
-	$(GTERMINAL_LIBS) \
-	$(NULL)
-
-endif # ENABLE_GTERMINAL
 
 # Legacy terminal client
 
@@ -416,8 +361,9 @@ CLEANFILES = \
 
 EXTRA_DIST = \
 	terminal.about \
-	terminal.xml \
-	terminal-menus.ui \
+	terminal-appmenu.ui \
+	terminal-menubar.ui.in \
+	terminal-notebook-menu.ui \
 	terminal-window.ui \
 	terminal.gresource.xml \
 	terminal-marshal.list \
@@ -427,10 +373,8 @@ EXTRA_DIST = \
 	nautilus.symbols \
 	search-popover.ui \
 	preferences.ui \
-	profile-preferences.ui \
 	terminal.common.css \
 	$(about_DATA) \
-	$(uimanager_DATA) \
 	$(builder_DATA) \
 	$(gsettings_SCHEMAS) \
 	$(NULL)

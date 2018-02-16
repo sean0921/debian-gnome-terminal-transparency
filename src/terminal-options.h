@@ -23,6 +23,9 @@
 #define TERMINAL_OPTIONS_H
 
 #include <glib.h>
+#include <stdio.h>
+
+#include <gio/gunixfdlist.h>
 
 #include "terminal-profiles-list.h"
 
@@ -62,11 +65,14 @@ typedef struct
 {
   TerminalSettingsList *profiles_list; /* may be NULL */
 
+  gboolean print_environment;
+
+  char    *server_unique_name;
+  char    *parent_screen_object_path;
+
   char    *server_app_id;
-  gboolean remote_arguments;
   char    *startup_id;
   char    *display_name;
-  int      screen_number;
   gboolean show_preferences;
   GList   *initial_windows;
   gboolean default_window_menubar_forced;
@@ -89,6 +95,7 @@ typedef struct
   char *sm_config_prefix;
 
   guint zoom_set : 1;
+  guint any_wait : 1;
 } TerminalOptions;
 
 typedef struct
@@ -99,13 +106,17 @@ typedef struct
   char *title;
   char *working_dir;
   double zoom;
+  GUnixFDList *fd_list;
+  GArray *fd_array;
   guint zoom_set : 1;
   guint active : 1;
+  guint wait : 1;
 } InitialTab;
 
 typedef struct
 {
   guint source_tag;
+  gboolean implicit_first_window;
 
   GList *tabs; /* list of InitialTab */
 
@@ -130,9 +141,7 @@ typedef enum {
   TERMINAL_OPTION_ERROR_INCOMPATIBLE_CONFIG_FILE
 } TerminalOptionError;
 
-TerminalOptions *terminal_options_parse (const char *working_directory,
-                                         const char *startup_id,
-                                         int *argcp,
+TerminalOptions *terminal_options_parse (int *argcp,
                                          char ***argvp,
                                          GError **error);
 
@@ -143,7 +152,41 @@ gboolean terminal_options_merge_config (TerminalOptions *options,
 
 void terminal_options_ensure_window (TerminalOptions *options);
 
+const char *terminal_options_get_service_name (TerminalOptions *options);
+
+const char *terminal_options_get_parent_screen_object_path (TerminalOptions *options);
+
 void terminal_options_free (TerminalOptions *options);
+
+typedef enum {
+  TERMINAL_VERBOSITY_QUIET  = 0,
+  TERMINAL_VERBOSITY_NORMAL = 1,
+  TERMINAL_VERBOSITY_DETAIL = 2,
+  TERMINAL_VERBOSITY_DEBUG  = 3
+} TerminalVerbosity;
+
+void terminal_fprintf (FILE* fp,
+                       int verbosity_level,
+                       const char* format,
+                       ...) G_GNUC_PRINTF(3, 4);
+
+#define terminal_print_level(level,...) terminal_fprintf(stdout, TERMINAL_VERBOSITY_ ## level, __VA_ARGS__)
+#define terminal_printerr_level(level,...) terminal_fprintf(stderr, TERMINAL_VERBOSITY_ ## level, __VA_ARGS__)
+
+#define terminal_print(...) terminal_print_level(NORMAL, __VA_ARGS__)
+#define terminal_print_detail(...) terminal_print_level(DETAIL, __VA_ARGS__)
+#define terminal_print_debug(...) terminal_print_level(DEBUG, __VA_ARGS__)
+
+#define terminal_printerr_detail(...) terminal_print_level(DETAIL, __VA_ARGS__)
+#define terminal_printerr(...) terminal_print_level(NORMAL, __VA_ARGS__)
+#define terminal_printerr_debug(...) terminal_print_level(DEBUG, __VA_ARGS__)
+
+#if GLIB_CHECK_VERSION (2, 50, 0)
+GLogWriterOutput terminal_log_writer (GLogLevelFlags log_level,
+                                      const GLogField *fields,
+                                      gsize n_fields,
+                                      gpointer user_data);
+#endif
 
 G_END_DECLS
 

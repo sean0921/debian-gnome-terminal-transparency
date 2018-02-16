@@ -89,11 +89,11 @@ build_triplet = @build@
 host_triplet = @host@
 subdir = help
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/intltool.m4 \
-	$(top_srcdir)/m4/libtool.m4 $(top_srcdir)/m4/ltoptions.m4 \
-	$(top_srcdir)/m4/ltsugar.m4 $(top_srcdir)/m4/ltversion.m4 \
-	$(top_srcdir)/m4/lt~obsolete.m4 $(top_srcdir)/acinclude.m4 \
-	$(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/m4/ax_pthread.m4 \
+	$(top_srcdir)/m4/intltool.m4 $(top_srcdir)/m4/libtool.m4 \
+	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
+	$(top_srcdir)/m4/ltversion.m4 $(top_srcdir)/m4/lt~obsolete.m4 \
+	$(top_srcdir)/acinclude.m4 $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 DIST_COMMON = $(srcdir)/Makefile.am $(am__DIST_COMMON)
@@ -166,8 +166,6 @@ GMOFILES = @GMOFILES@
 GMSGFMT = @GMSGFMT@
 GREP = @GREP@
 GSETTINGS_DISABLE_SCHEMAS_COMPILE = @GSETTINGS_DISABLE_SCHEMAS_COMPILE@
-GTERMINAL_CFLAGS = @GTERMINAL_CFLAGS@
-GTERMINAL_LIBS = @GTERMINAL_LIBS@
 GTK_API_VERSION = @GTK_API_VERSION@
 HELP_DIR = @HELP_DIR@
 INSTALL = @INSTALL@
@@ -229,6 +227,9 @@ POFILES = @POFILES@
 POSUB = @POSUB@
 PO_IN_DATADIR_FALSE = @PO_IN_DATADIR_FALSE@
 PO_IN_DATADIR_TRUE = @PO_IN_DATADIR_TRUE@
+PTHREAD_CC = @PTHREAD_CC@
+PTHREAD_CFLAGS = @PTHREAD_CFLAGS@
+PTHREAD_LIBS = @PTHREAD_LIBS@
 RANLIB = @RANLIB@
 SED = @SED@
 SET_MAKE = @SET_MAKE@
@@ -241,7 +242,6 @@ TERMINAL_MINOR_VERSION = @TERMINAL_MINOR_VERSION@
 TERM_CFLAGS = @TERM_CFLAGS@
 TERM_LIBS = @TERM_LIBS@
 USE_NLS = @USE_NLS@
-VALAC = @VALAC@
 VERSION = @VERSION@
 WARN_CFLAGS = @WARN_CFLAGS@
 XGETTEXT = @XGETTEXT@
@@ -260,6 +260,7 @@ am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
 am__tar = @am__tar@
 am__untar = @am__untar@
+ax_pthread_config = @ax_pthread_config@
 bindir = @bindir@
 build = @build@
 build_alias = @build_alias@
@@ -333,6 +334,7 @@ HELP_FILES = \
 	pref-custom-command.page \
 	pref-encoding.page \
 	pref-keyboard-access.page \
+	pref-login-shell.page \
 	pref-menubar.page \
 	pref-profiles.page \
 	pref-profile-char-width.page \
@@ -340,15 +342,15 @@ HELP_FILES = \
 	pref-scrolling.page \
 	pref-tab-window.page \
 	pref-user-input.page \
-	profile.page \
 	prob-reset.page \
 	txt-copy-paste.page \
 	txt-links.page \
+	txt-save-text.page \
 	txt-search.page \
 	txt-select-text.page \
 	$(NULL)
 
-HELP_LINGUAS = ca cs de el es fi fr gl hu ko pt_BR ru sv
+HELP_LINGUAS = ca cs de el es fi fr gl hu ko pl pt_BR ru sv
 all: all-am
 
 .SUFFIXES:
