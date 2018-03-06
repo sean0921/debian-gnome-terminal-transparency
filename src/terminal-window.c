@@ -485,8 +485,7 @@ action_save_contents_cb (GSimpleAction *action,
                                         NULL);
 
   gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER (dialog), TRUE);
-  /* XXX where should we save to? */
-  gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog), g_get_user_special_dir (G_USER_DIRECTORY_DESKTOP));
+  gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog), g_get_user_special_dir (G_USER_DIRECTORY_DOCUMENTS));
 
   gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (window));
   gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
@@ -1203,6 +1202,7 @@ action_find_clear_cb (GSimpleAction *action,
     return;
 
   vte_terminal_search_set_regex (VTE_TERMINAL (priv->active_screen), NULL, 0);
+  vte_terminal_unselect_all (VTE_TERMINAL (priv->active_screen));
 }
 
 static void

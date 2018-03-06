@@ -1,3 +1,402 @@
+commit a17b4061be60d901c89b4fce02787be473526ad3
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Mar 5 22:00:51 2018 +0100
+
+    Version 3.27.92
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 22dd5dd57a08208abced8d1cfc940b3c8200b6bd
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Mon Mar 5 13:57:09 2018 +0100
+
+    window: Fix Clear Highlight to actually clear the highlight
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=792885
+
+ src/terminal-window.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 50b3db5ed2ec025571a179e29f9607b88e7d0606
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Mar 5 13:39:57 2018 +0100
+
+    appdata: Use "or" instead of "|"
+
+ org.gnome.Terminal.Nautilus.metainfo.xml.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 8a3f0414bcdc53a464fdfbec1c17ff0ee3dbada2
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Mar 5 13:37:36 2018 +0100
+
+    appdata: Use "or" instead of "|"
+
+ org.gnome.Terminal.appdata.xml.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a4a823c6489a2646ef7d54d46ccf0328dbcae970
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Mar 3 20:38:11 2018 +0100
+
+    appdata: Use https links
+
+ org.gnome.Terminal.Nautilus.metainfo.xml.in | 2 +-
+ org.gnome.Terminal.appdata.xml.in           | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 652d6ce4a9f7b92d956f5cd47450d3fbdb65285e
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Mar 3 20:28:28 2018 +0100
+
+    appdata: Add GFDL option
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=731462
+
+ COPYING.GFDL                                | 451 ++++++++++++++++++++++++++++
+ Makefile.am                                 |   2 +
+ org.gnome.Terminal.Nautilus.metainfo.xml.in |  28 +-
+ org.gnome.Terminal.appdata.xml.in           |  28 +-
+ 4 files changed, 493 insertions(+), 16 deletions(-)
+
+commit 50fe8bb9c2493379032501d23af188d8b3ef3970
+Author: Aurimas Černius <aurisc4@gmail.com>
+Date:   Sat Mar 3 14:36:55 2018 +0200
+
+    Updated Lithuanian translation
+
+ po/lt.po | 1209 +++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 611 insertions(+), 598 deletions(-)
+
+commit a532e729d24fb384f597bd8e5ad70882b2e55827
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Sat Mar 3 07:51:28 2018 +0100
+
+    Fixes to Catalan translation
+
+ help/ca/ca.po | 34 +++++++++++++++++-----------------
+ 1 file changed, 17 insertions(+), 17 deletions(-)
+
+commit 4c794f0784236e8ebf7b41a0e63fed0bad90f433
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Sat Mar 3 07:43:48 2018 +0100
+
+    Update Catalan translation
+
+ po/ca.po | 328 +++++----------------------------------------------------------
+ 1 file changed, 26 insertions(+), 302 deletions(-)
+
+commit ba655024c5f998ddf1dde130db3d889b56f728ed
+Author: GNOME Translation Robot <gnome-sysadmin@gnome.org>
+Date:   Fri Mar 2 11:24:14 2018 +0000
+
+    Update Scottish Gaelic translation
+    
+    (cherry picked from commit 34068000564e3c4bea8faa3a4fba7eab516742a6)
+
+ po/gd.po | 1031 +++++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 576 insertions(+), 455 deletions(-)
+
+commit b2f598b5e3f27865a6fa2fee0bca333c9f08fb89
+Author: Marcos Lans <marcoslansgarza@gmail.com>
+Date:   Thu Mar 1 21:35:34 2018 +0000
+
+    Update Galician translation
+
+ po/gl.po | 255 +++++++++++++++++++++++++++++----------------------------------
+ 1 file changed, 116 insertions(+), 139 deletions(-)
+
+commit 971f3ba5fde91c31b08c55be9c307682429188d0
+Author: Joe Hansen <joedalton2@yahoo.dk>
+Date:   Tue Feb 27 17:50:20 2018 +0100
+
+    Updated Danish translation
+
+ po/da.po | 2188 +++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 1101 insertions(+), 1087 deletions(-)
+
+commit 3fe36ddd876ff2c4a18869155c5daf3b5fd5034e
+Author: Trần Ngọc Quân <vnwildman@gmail.com>
+Date:   Tue Feb 27 08:00:08 2018 +0700
+
+    Updated Vietnamese translation
+    
+    Signed-off-by: Trần Ngọc Quân <vnwildman@gmail.com>
+
+ po/vi.po | 2446 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 1327 insertions(+), 1119 deletions(-)
+
+commit 56d07b79e74b6737a733022c38fc53a13ea36fef
+Author: Guillaume Bernard <associations@guillaume-bernard.fr>
+Date:   Mon Feb 26 20:36:52 2018 +0000
+
+    Update French translation
+
+ po/fr.po | 2432 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 1334 insertions(+), 1098 deletions(-)
+
+commit 06094e64c8d333e96cf2f695d1b623a9fda1bbae
+Author: Jinho Bang <zino@chromium.org>
+Date:   Mon Feb 26 11:32:44 2018 +0000
+
+    Update Korean translation
+
+ po/ko.po | 2337 ++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 1138 insertions(+), 1199 deletions(-)
+
+commit 8c2b8b2efd2062670521b17d10cde6b07a80470a
+Author: Dušan Kazik <prescott66@gmail.com>
+Date:   Mon Feb 26 10:41:44 2018 +0000
+
+    Update Slovak translation
+
+ po/sk.po | 2666 +++++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 1512 insertions(+), 1154 deletions(-)
+
+commit c80f7059954c8bfcf59de36caca31c337e962779
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Mon Feb 26 00:45:34 2018 +0100
+
+    Update Polish translation
+
+ help/pl/pl.po | 24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
+
+commit a2bb902afcfbfd320d14c114a6731456dcc5e41e
+Author: Christian Kirbach <christian.kirbach@gmail.com>
+Date:   Sun Feb 25 23:03:49 2018 +0100
+
+    help: Fix various grammar issues and missing words
+
+ help/C/overview.page | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+commit 07a944dcd211216b44777fea75fcec626e12b2d0
+Author: Christian Kirbach <christian.kirbach@gmail.com>
+Date:   Sun Feb 25 22:04:37 2018 +0100
+
+    Add German translation screenshot
+
+ help/de/figures/gnome-terminal.png | Bin 0 -> 14096 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit c43f5119e7b2eab1ff25dbfb6987f7bbf2542b73
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Sun Feb 25 08:33:54 2018 +0100
+
+    Update Catalan translation
+
+ po/ca.po | 1842 +++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 989 insertions(+), 853 deletions(-)
+
+commit 163bc0cf4f4248f27df9e06217773bef8b594d05
+Author: GNOME Translation Robot <gnome-sysadmin@gnome.org>
+Date:   Sat Feb 24 16:28:14 2018 +0000
+
+    Update Dutch translation
+
+ po/nl.po | 2452 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 1351 insertions(+), 1101 deletions(-)
+
+commit 5a9ab0412a5e4865a6323407a5fa87c9c33b28c2
+Author: Baurzhan Muftakhidinov <baurthefirst@gmail.com>
+Date:   Sat Feb 24 08:54:43 2018 +0000
+
+    Update Kazakh translation
+
+ po/kk.po | 2415 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 1325 insertions(+), 1090 deletions(-)
+
+commit 42ba5066af6f7635d3e8f375420817c4a257e228
+Author: Милош Поповић <gpopac@gmail.com>
+Date:   Fri Feb 23 10:42:57 2018 +0000
+
+    Update Serbian Latin translation
+
+ po/sr@latin.po | 2453 ++++++++++++++++++++++++++++++--------------------------
+ 1 file changed, 1335 insertions(+), 1118 deletions(-)
+
+commit 26dea42b74de6aca6394f6de293ead1b56668da4
+Author: Милош Поповић <gpopac@gmail.com>
+Date:   Fri Feb 23 10:40:59 2018 +0000
+
+    Update Serbian translation
+
+ po/sr.po | 2453 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 1335 insertions(+), 1118 deletions(-)
+
+commit 9637c3a5b5d4a27b78a061a4ada7d969a15cc7bc
+Author: gogo <trebelnik2@gmail.com>
+Date:   Tue Feb 20 12:13:40 2018 +0000
+
+    Update Croatian translation
+
+ po/hr.po | 1378 +++++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 776 insertions(+), 602 deletions(-)
+
+commit f610ae666cd17e0a7a80f081ebda8de1852e2e02
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Sun Feb 18 17:13:03 2018 +0100
+
+    prefs: editor: Remove translatable placeholder
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=793558
+
+ src/preferences.ui | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit 303c6e83f65ee9b903213b9051742705533e87ef
+Author: Bruce Cowan <bruce@bcowan.eu>
+Date:   Sun Feb 18 11:15:48 2018 +0000
+
+    Update British English translation
+
+ po/en_GB.po | 2727 +++++++++++++++++++++++++++++++++--------------------------
+ 1 file changed, 1550 insertions(+), 1177 deletions(-)
+
+commit 21f0b4f4e6ed0e4c41e811273f17156cae4dad10
+Author: Fran Dieguez <frandieguez@gnome.org>
+Date:   Fri Feb 16 23:35:01 2018 +0000
+
+    Update Galician translation
+
+ po/gl.po | 1093 ++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 563 insertions(+), 530 deletions(-)
+
+commit 1f22bfa061a57c1328525ab4ad73e192d797c564
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Fri Feb 16 22:31:31 2018 +0100
+
+    window: Save contents to the Documents folder by default
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=793519
+
+ src/terminal-window.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit cb3240851e6839d7689f717ce025db04459593ad
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Tue Feb 13 20:24:43 2018 +0100
+
+    client: legacy: Make --wait respect the pref whether to open a window or tab
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=793382
+
+ src/terminal-options.c | 57 +++++++++++++++++++++++++++++++++++++-------------
+ src/terminal-options.h |  2 +-
+ 2 files changed, 43 insertions(+), 16 deletions(-)
+
+commit ccc1b32fd7a6361378bad6d62412a5584e150430
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Feb 12 19:53:08 2018 +0100
+
+    client: legacy: Error out when calling --preferences from within gnome-terminal
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=792622
+
+ src/terminal.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit 7bf099c1a5ba5eaf53a8e4fc49d10b499f48e551
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Feb 12 19:39:00 2018 +0100
+
+    client: legacy: Remove double comment output
+    
+    One '#' is enough.
+
+ src/terminal-options.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 6f25e1e53f0c58f0acd9d6dae02f3661c9b26b83
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Mon Feb 12 17:50:25 2018 +0100
+
+    Update Polish translation
+
+ help/pl/pl.po | 24 ++++++++++++------------
+ po/pl.po      | 10 +++++-----
+ 2 files changed, 17 insertions(+), 17 deletions(-)
+
+commit 2c5bd9526e6317e241d2c3ac825799ccb3f60646
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Mon Feb 12 03:35:25 2018 +0100
+
+    Update Polish translation
+
+ help/pl/pl.po | 1817 ++++++++++++++++++++++++---------------------
+ po/pl.po      | 2306 +++++++++++++++++++++++++++++----------------------------
+ 2 files changed, 2141 insertions(+), 1982 deletions(-)
+
+commit ffdfb3d89756227332576e7f79daae35cb07bca2
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Mon Feb 12 03:32:08 2018 +0100
+
+    help: Assorted typo fixes
+
+ help/C/app-colors.page    | 6 +++---
+ help/C/app-fonts.page     | 2 +-
+ help/C/prob-reset.page    | 2 +-
+ help/C/txt-save-text.page | 2 +-
+ 4 files changed, 6 insertions(+), 6 deletions(-)
+
+commit e7902c81a2fe079afe20311a4c348298fb02f758
+Author: Emin Tufan Çetin <etcetin@gmail.com>
+Date:   Sat Feb 10 08:47:05 2018 +0000
+
+    Update Turkish translation
+
+ po/tr.po | 526 +++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 296 insertions(+), 230 deletions(-)
+
+commit 1cdd78da9798a661c22640675f410f56938aa2ed
+Author: Enrico Nicoletto <liverig@gmail.com>
+Date:   Fri Feb 9 23:29:31 2018 +0000
+
+    Update Brazilian Portuguese translation
+
+ po/pt_BR.po | 1017 ++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 518 insertions(+), 499 deletions(-)
+
+commit dbd9e88837c2f48730d1fcbf1c48ef4c821b0a85
+Author: Kukuh Syafaat <syafaatkukuh@gmail.com>
+Date:   Fri Feb 9 09:26:36 2018 +0000
+
+    Update Indonesian translation
+
+ po/id.po | 1149 +++++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 650 insertions(+), 499 deletions(-)
+
+commit 6516f6766933954c4d6566c6fead23fba1d3a876
+Author: Jiri Grönroos <jiri.gronroos@iki.fi>
+Date:   Tue Feb 6 21:38:01 2018 +0000
+
+    Update Finnish translation
+
+ po/fi.po | 935 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 504 insertions(+), 431 deletions(-)
+
+commit 33890237e312fc8cbc7d395ce7843e80f8e37003
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Tue Feb 6 19:23:19 2018 +0100
+
+    screen: No need to set PWD anymore, it's done by VTE now
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=758452
+
+ src/terminal-screen.c | 6 ------
+ 1 file changed, 6 deletions(-)
+
+commit 25b6dc04672652b1af6f5dc0481fe253e6bf6a4e
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Feb 5 21:24:13 2018 +0100
+
+    Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit 95e9ad799727df9bc2f4ddec94c19be66a3daaab
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Mon Feb 5 21:20:28 2018 +0100
