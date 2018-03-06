@@ -1,17 +1,21 @@
-Author: Emilio Pozuelo Monfort <pochu@debian.org>
-Author: Petr Salinger <Petr.Salinger@seznam.cz>
-Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=711529
-Description: Fix build on kfreebsd
+From: Petr Salinger <Petr.Salinger@seznam.cz>
+Date: Tue, 11 Jun 2013 20:02:20 +0000
+Subject: Fix build on kfreebsd
 
 kfreebsd doesn't have F_DUPFD_CLOEXEC, so use it conditionally.
 As mentioned in the bug report, it will have support for it in
 jessie, so we can drop it in jessie+1.
 
-Index: b/src/terminal-screen.c
-===================================================================
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=711529
+---
+ src/terminal-screen.c | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+
+diff --git a/src/terminal-screen.c b/src/terminal-screen.c
+index f67f8a2..2b1f825 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -192,6 +192,20 @@
+@@ -194,6 +194,20 @@ static TerminalURLFlavor *extra_regex_flavors;
  static guint n_url_regexes;
  static guint n_extra_regexes;
  
@@ -32,7 +36,7 @@ Index: b/src/terminal-screen.c
  /* See bug #697024 */
  #ifndef __linux__
  
-@@ -1311,7 +1325,7 @@
+@@ -1319,7 +1333,7 @@ terminal_screen_child_setup (FDSetupData *data)
        for (j = 0; j < n_fds; j++) {
          if (fds[j] == target_fd) {
            do {

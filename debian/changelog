@@ -2,6 +2,8 @@ gnome-terminal (3.27.92-1) UNRELEASED; urgency=medium
 
   * New upstream release candidate
   * Bump minimum libvte-2.91-dev to 0.51.92
+  * Add 0006-fix-invalid-appstream-metadata.patch:
+    - Adjust the AppStream metadata file so that it works with GNOME Software
 
  -- Jeremy Bicha <jbicha@debian.org>  Tue, 06 Mar 2018 10:22:48 -0500
 
