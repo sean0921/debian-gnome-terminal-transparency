@@ -1,3 +1,9 @@
+gnome-terminal (3.27.92-1) UNRELEASED; urgency=medium
+
+  * New upstream release candidate
+
+ -- Jeremy Bicha <jbicha@debian.org>  Tue, 06 Mar 2018 10:22:48 -0500
+
 gnome-terminal (3.27.90-1) experimental; urgency=medium
 
   * New upstream development release
