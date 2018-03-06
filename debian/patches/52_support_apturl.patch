@@ -8,10 +8,10 @@ Subject: _support_apturl
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/terminal-regex.h b/src/terminal-regex.h
-index ddf75e0..3264b86 100644
+index 3a3e89a..83ad417 100644
 --- a/src/terminal-regex.h
 +++ b/src/terminal-regex.h
-@@ -145,6 +145,6 @@
+@@ -149,6 +149,6 @@
  #define REGEX_URL_HTTP   DEFS "(?<!(?:" HOSTNAMESEGMENTCHARS_CLASS "|[.]))(?=(?i:www|ftp))" HOSTNAME1 PORT URLPATH
  #define REGEX_URL_VOIP   DEFS "(?i:h323:|sips?:)" USERPASS URL_HOST PORT VOIP_PATH
  #define REGEX_EMAIL      DEFS "(?i:mailto:)?" USER "@" EMAIL_HOST

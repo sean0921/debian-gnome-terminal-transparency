@@ -23,11 +23,11 @@ Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=683744
  src/terminal-screen.c | 11 +++++++++++
  1 file changed, 11 insertions(+)
 
-Index: b/src/terminal-screen.c
-===================================================================
+diff --git a/src/terminal-screen.c b/src/terminal-screen.c
+index 2b1f825..9965171 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -923,6 +923,17 @@
+@@ -929,6 +929,17 @@ update_color_scheme (TerminalScreen *screen)
    gtk_style_context_get_color (context, gtk_style_context_get_state (context), &theme_fg);
    gtk_style_context_get_background_color (context, gtk_style_context_get_state (context), &theme_bg);
  

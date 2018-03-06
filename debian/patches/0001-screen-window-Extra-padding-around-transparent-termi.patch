@@ -10,10 +10,10 @@ https://bugzilla.redhat.com/show_bug.cgi?id=1207943
  2 files changed, 49 insertions(+), 9 deletions(-)
 
 diff --git a/src/terminal-screen.c b/src/terminal-screen.c
-index cba283a..bacd666 100644
+index c36f3d9..b5ae0da 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -141,6 +141,8 @@ static void terminal_screen_system_font_changed_cb (GSettings *,
+@@ -143,6 +143,8 @@ static void terminal_screen_system_font_changed_cb (GSettings *,
  static gboolean terminal_screen_popup_menu (GtkWidget *widget);
  static gboolean terminal_screen_button_press (GtkWidget *widget,
                                                GdkEventButton *event);
@@ -22,7 +22,7 @@ index cba283a..bacd666 100644
  static gboolean terminal_screen_do_exec (TerminalScreen *screen,
                                           FDSetupData    *data,
                                           GError **error);
-@@ -495,6 +497,7 @@ terminal_screen_class_init (TerminalScreenClass *klass)
+@@ -568,6 +570,7 @@ terminal_screen_class_init (TerminalScreenClass *klass)
    widget_class->drag_data_received = terminal_screen_drag_data_received;
    widget_class->button_press_event = terminal_screen_button_press;
    widget_class->popup_menu = terminal_screen_popup_menu;
@@ -30,7 +30,7 @@ index cba283a..bacd666 100644
  
    terminal_class->child_exited = terminal_screen_child_exited;
  
-@@ -903,6 +906,32 @@ terminal_screen_profile_changed_cb (GSettings     *profile,
+@@ -980,6 +983,32 @@ terminal_screen_profile_changed_cb (GSettings     *profile,
    g_object_thaw_notify (object);
  }
  
@@ -63,7 +63,7 @@ index cba283a..bacd666 100644
  static void
  update_color_scheme (TerminalScreen *screen)
  {
-@@ -995,9 +1024,7 @@ update_color_scheme (TerminalScreen *screen)
+@@ -1083,9 +1112,7 @@ update_color_scheme (TerminalScreen *screen)
    vte_terminal_set_color_highlight (VTE_TERMINAL (screen), highlight_bgp);
    vte_terminal_set_color_highlight_foreground (VTE_TERMINAL (screen), highlight_fgp);
  
@@ -74,7 +74,7 @@ index cba283a..bacd666 100644
  }
  
  static void
-@@ -1619,6 +1646,13 @@ terminal_screen_do_popup (TerminalScreen *screen,
+@@ -1690,6 +1717,13 @@ terminal_screen_do_popup (TerminalScreen *screen,
    terminal_screen_popup_info_unref (info);
  }
  
@@ -89,10 +89,10 @@ index cba283a..bacd666 100644
  terminal_screen_button_press (GtkWidget      *widget,
                                GdkEventButton *event)
 diff --git a/src/terminal-window.c b/src/terminal-window.c
-index aaa34bf..ee15026 100644
+index 3caccb6..a9de5d5 100644
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -2380,15 +2380,21 @@ terminal_window_draw (GtkWidget *widget,
+@@ -2019,15 +2019,21 @@ terminal_window_draw (GtkWidget *widget,
  {
    if (gtk_widget_get_app_paintable (widget))
      {

@@ -10,11 +10,11 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/123258
  src/terminal-screen.h |  1 +
  src/terminal-util.c   | 17 +++++++++++++++++
  src/terminal-util.h   |  2 ++
- src/terminal-window.c | 17 +++++++++++++++--
- 6 files changed, 37 insertions(+), 2 deletions(-)
+ src/terminal-window.c | 13 ++++++++++++-
+ 6 files changed, 34 insertions(+), 1 deletion(-)
 
 diff --git a/src/terminal-regex.h b/src/terminal-regex.h
-index 83ad4174..f0ee427a 100644
+index 83ad417..f0ee427 100644
 --- a/src/terminal-regex.h
 +++ b/src/terminal-regex.h
 @@ -150,5 +150,6 @@
@@ -25,7 +25,7 @@ index 83ad4174..f0ee427a 100644
  
  #endif /* !TERMINAL_REGEX_H */
 diff --git a/src/terminal-screen.c b/src/terminal-screen.c
-index 7d059f1d..8eeb12cf 100644
+index b5ae0da..9d9bc83 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
 @@ -185,6 +185,7 @@ static const TerminalRegexPattern url_regex_patterns[] = {
@@ -37,7 +37,7 @@ index 7d059f1d..8eeb12cf 100644
  
  static const TerminalRegexPattern extra_regex_patterns[] = {
 diff --git a/src/terminal-screen.h b/src/terminal-screen.h
-index 743071d5..ff19f7eb 100644
+index 743071d..ff19f7e 100644
 --- a/src/terminal-screen.h
 +++ b/src/terminal-screen.h
 @@ -32,6 +32,7 @@ typedef enum {
@@ -49,10 +49,10 @@ index 743071d5..ff19f7eb 100644
  
  /* Forward decls */
 diff --git a/src/terminal-util.c b/src/terminal-util.c
-index b40e100f..61750228 100644
+index 30cc136..ea3e39d 100644
 --- a/src/terminal-util.c
 +++ b/src/terminal-util.c
-@@ -309,6 +309,9 @@ terminal_util_open_url (GtkWidget *parent,
+@@ -310,6 +310,9 @@ terminal_util_open_url (GtkWidget *parent,
      case FLAVOR_AS_IS:
        uri = g_strdup (orig_url);
        break;
@@ -62,7 +62,7 @@ index b40e100f..61750228 100644
      default:
        uri = NULL;
        g_assert_not_reached ();
-@@ -322,6 +325,20 @@ terminal_util_open_url (GtkWidget *parent,
+@@ -323,6 +326,20 @@ terminal_util_open_url (GtkWidget *parent,
      }
  }
  
@@ -84,7 +84,7 @@ index b40e100f..61750228 100644
   * terminal_util_transform_uris_to_quoted_fuse_paths:
   * @uris:
 diff --git a/src/terminal-util.h b/src/terminal-util.h
-index abd34fd7..a7de59f1 100644
+index abd34fd..a7de59f 100644
 --- a/src/terminal-util.h
 +++ b/src/terminal-util.h
 @@ -44,6 +44,8 @@ void terminal_util_open_url (GtkWidget *parent,
@@ -97,10 +97,10 @@ index abd34fd7..a7de59f1 100644
  
  char *terminal_util_concat_uris (char **uris,
 diff --git a/src/terminal-window.c b/src/terminal-window.c
-index 1b49ea66..2906babd 100644
+index a9de5d5..6470347 100644
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -1021,7 +1021,17 @@ action_copy_match_cb (GSimpleAction *action,
+@@ -1020,7 +1020,17 @@ action_copy_match_cb (GSimpleAction *action,
    if (info->url == NULL)
      return;
  

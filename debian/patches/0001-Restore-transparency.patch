@@ -26,8 +26,18 @@ can lead to transparent menubars or notebook tabs in some themes. We
 can avoid this by ensuring that the window always renders a background.
 
 https://bugzilla.gnome.org/show_bug.cgi?id=730016
+---
+ src/migration.c                    |  43 ++++++++++++-
+ src/org.gnome.Terminal.gschema.xml |  14 +++++
+ src/preferences.ui                 | 121 +++++++++++++++++++++++++++++++++++++
+ src/profile-editor.c               |  19 ++++++
+ src/terminal-schemas.h             |   4 ++
+ src/terminal-screen.c              |  42 ++++++++++++-
+ src/terminal-window.c              |  28 +++++++++
+ 7 files changed, 268 insertions(+), 3 deletions(-)
+
 diff --git a/src/migration.c b/src/migration.c
-index e3ae04b1..31064b19 100644
+index e3ae04b..31064b1 100644
 --- a/src/migration.c
 +++ b/src/migration.c
 @@ -331,6 +331,9 @@ migrate_global_prefs (GSettings *settings,
@@ -117,7 +127,7 @@ index e3ae04b1..31064b19 100644
                         gconf_value_get_string (l->data),
                         default_profile);
 diff --git a/src/org.gnome.Terminal.gschema.xml b/src/org.gnome.Terminal.gschema.xml
-index 2edeceac..c8cac4b9 100644
+index 2edecea..c8cac4b 100644
 --- a/src/org.gnome.Terminal.gschema.xml
 +++ b/src/org.gnome.Terminal.gschema.xml
 @@ -400,6 +400,20 @@
@@ -142,7 +152,7 @@ index 2edeceac..c8cac4b9 100644
  
    <!-- Keybinding settings -->
 diff --git a/src/preferences.ui b/src/preferences.ui
-index d68b5656..b72b8059 100644
+index 6259aac..95aeb84 100644
 --- a/src/preferences.ui
 +++ b/src/preferences.ui
 @@ -95,6 +95,11 @@
@@ -157,7 +167,7 @@ index d68b5656..b72b8059 100644
    <object class="GtkListStore" id="model1">
      <columns>
        <!-- column-name gchararray -->
-@@ -1321,6 +1326,122 @@
+@@ -1317,6 +1322,122 @@
                                              <property name="position">1</property>
                                            </packing>
                                          </child>
@@ -281,10 +291,10 @@ index d68b5656..b72b8059 100644
                                      </child>
                                    </object>
 diff --git a/src/profile-editor.c b/src/profile-editor.c
-index de128e19..fd034fa9 100644
+index c93a191..6229cb0 100644
 --- a/src/profile-editor.c
 +++ b/src/profile-editor.c
-@@ -1312,6 +1312,25 @@ profile_prefs_load (const char *uuid, GSettings *profile)
+@@ -1325,6 +1325,25 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                 w,
                                 "active-id",
                                 G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
@@ -311,7 +321,7 @@ index de128e19..fd034fa9 100644
  
  /* Called once per Preferences window, to destroy stuff that doesn't depend on the profile being edited */
 diff --git a/src/terminal-schemas.h b/src/terminal-schemas.h
-index 46ed321d..24cf4abf 100644
+index 46ed321..24cf4ab 100644
 --- a/src/terminal-schemas.h
 +++ b/src/terminal-schemas.h
 @@ -73,6 +73,10 @@ G_BEGIN_DECLS
@@ -326,10 +336,10 @@ index 46ed321d..24cf4abf 100644
  #define TERMINAL_SETTING_DEFAULT_SHOW_MENUBAR_KEY       "default-show-menubar"
  #define TERMINAL_SETTING_ENABLE_MENU_BAR_ACCEL_KEY      "menu-accelerator-enabled"
 diff --git a/src/terminal-screen.c b/src/terminal-screen.c
-index 5f78de93..286ba37b 100644
+index d104e30..e3bce1a 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -571,6 +571,11 @@ terminal_screen_class_init (TerminalScreenClass *klass)
+@@ -642,6 +642,11 @@ terminal_screen_class_init (TerminalScreenClass *klass)
  
    g_type_class_add_private (object_class, sizeof (TerminalScreenPrivate));
  
@@ -341,7 +351,7 @@ index 5f78de93..286ba37b 100644
    n_url_regexes = G_N_ELEMENTS (url_regex_patterns);
    precompile_regexes (url_regex_patterns, n_url_regexes, &url_regexes, &url_regex_flavors);
    n_extra_regexes = G_N_ELEMENTS (extra_regex_patterns);
-@@ -832,7 +837,10 @@ terminal_screen_profile_changed_cb (GSettings     *profile,
+@@ -903,7 +908,10 @@ terminal_screen_profile_changed_cb (GSettings     *profile,
        prop_name == I_(TERMINAL_PROFILE_HIGHLIGHT_COLORS_SET_KEY) ||
        prop_name == I_(TERMINAL_PROFILE_HIGHLIGHT_BACKGROUND_COLOR_KEY) ||
        prop_name == I_(TERMINAL_PROFILE_HIGHLIGHT_FOREGROUND_COLOR_KEY) ||
@@ -353,7 +363,7 @@ index 5f78de93..286ba37b 100644
      update_color_scheme (screen);
  
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_AUDIBLE_BELL_KEY))
-@@ -910,6 +918,9 @@ update_color_scheme (TerminalScreen *screen)
+@@ -981,6 +989,9 @@ update_color_scheme (TerminalScreen *screen)
    GdkRGBA *highlight_bgp = NULL, *highlight_fgp = NULL;
    GtkStyleContext *context;
    gboolean use_theme_colors;
@@ -363,7 +373,7 @@ index 5f78de93..286ba37b 100644
  
    context = gtk_widget_get_style_context (widget);
    gtk_style_context_get_color (context, gtk_style_context_get_state (context), &theme_fg);
-@@ -950,6 +961,31 @@ update_color_scheme (TerminalScreen *screen)
+@@ -1032,6 +1043,31 @@ update_color_scheme (TerminalScreen *screen)
      }
  
    colors = terminal_g_settings_get_rgba_palette (priv->profile, TERMINAL_PROFILE_PALETTE_KEY, &n_colors);
@@ -395,7 +405,7 @@ index 5f78de93..286ba37b 100644
    vte_terminal_set_colors (VTE_TERMINAL (screen), &fg, &bg,
                             colors, n_colors);
    vte_terminal_set_color_bold (VTE_TERMINAL (screen), boldp);
-@@ -957,6 +993,10 @@ update_color_scheme (TerminalScreen *screen)
+@@ -1039,6 +1075,10 @@ update_color_scheme (TerminalScreen *screen)
    vte_terminal_set_color_cursor_foreground (VTE_TERMINAL (screen), cursor_fgp);
    vte_terminal_set_color_highlight (VTE_TERMINAL (screen), highlight_bgp);
    vte_terminal_set_color_highlight_foreground (VTE_TERMINAL (screen), highlight_fgp);
@@ -407,7 +417,7 @@ index 5f78de93..286ba37b 100644
  
  static void
 diff --git a/src/terminal-window.c b/src/terminal-window.c
-index a8ff746c..6972ecb0 100644
+index 461ceb5..3caccb6 100644
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
 @@ -2013,6 +2013,26 @@ terminal_window_realize (GtkWidget *widget)

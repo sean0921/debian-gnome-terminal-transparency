@@ -17,7 +17,7 @@ https://git.gnome.org/browse/gnome-terminal/commit/?id=45bcfb8d
  5 files changed, 120 insertions(+), 6 deletions(-)
 
 diff --git a/configure.ac b/configure.ac
-index cca6d97d..7c5f4608 100644
+index 081857f..3bd58f9 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -81,6 +81,27 @@ for target in $($PKG_CONFIG --variable targets gdk-$GTK_API_VERSION); do
@@ -68,7 +68,7 @@ index cca6d97d..7c5f4608 100644
        DBus interface dir:     ${dbusinterfacedir}
        DBus service dir:       ${dbusservicedir}
 diff --git a/src/terminal-screen.c b/src/terminal-screen.c
-index a13e1bac..f94cd91d 100644
+index 1c677a0..71ef761 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
 @@ -18,7 +18,10 @@
@@ -150,7 +150,7 @@ index a13e1bac..f94cd91d 100644
        vte_terminal_match_set_cursor_type (terminal, tag_data->tag, URL_MATCH_CURSOR);
  
        priv->match_tags = g_slist_prepend (priv->match_tags, tag_data);
-@@ -2247,7 +2275,12 @@ terminal_screen_check_extra (TerminalScreen *screen,
+@@ -2241,7 +2269,12 @@ terminal_screen_check_extra (TerminalScreen *screen,
    memset(matches, 0, sizeof(char*) * n_extra_regexes);
  
    if (
@@ -165,7 +165,7 @@ index a13e1bac..f94cd91d 100644
                                               extra_regexes,
                                               n_extra_regexes,
 diff --git a/src/terminal-search-popover.c b/src/terminal-search-popover.c
-index 81979b21..ea57e2c7 100644
+index 81979b2..ea57e2c 100644
 --- a/src/terminal-search-popover.c
 +++ b/src/terminal-search-popover.c
 @@ -23,7 +23,10 @@
@@ -305,7 +305,7 @@ index 81979b21..ea57e2c7 100644
  {
    g_return_val_if_fail (TERMINAL_IS_SEARCH_POPOVER (popover), NULL);
 diff --git a/src/terminal-search-popover.h b/src/terminal-search-popover.h
-index 10771d9a..813f0f34 100644
+index 10771d9..813f0f3 100644
 --- a/src/terminal-search-popover.h
 +++ b/src/terminal-search-popover.h
 @@ -39,7 +39,11 @@ GType terminal_search_popover_get_type (void);
@@ -321,10 +321,10 @@ index 10771d9a..813f0f34 100644
  
  gboolean terminal_search_popover_get_wrap_around (TerminalSearchPopover *popover);
 diff --git a/src/terminal-window.c b/src/terminal-window.c
-index 2906babd..f3d4f03c 100644
+index 6470347..e15dfa7 100644
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -1110,13 +1110,21 @@ search_popover_notify_regex_cb (TerminalSearchPopover *popover,
+@@ -1109,13 +1109,21 @@ search_popover_notify_regex_cb (TerminalSearchPopover *popover,
                                  TerminalWindow *window)
  {
    TerminalWindowPrivate *priv = window->priv;
@@ -346,7 +346,7 @@ index 2906babd..f3d4f03c 100644
  
    terminal_window_update_search_sensitivity (priv->active_screen, window);
  }
-@@ -1212,7 +1220,11 @@ action_find_clear_cb (GSimpleAction *action,
+@@ -1211,7 +1219,11 @@ action_find_clear_cb (GSimpleAction *action,
    if (priv->active_screen == NULL)
      return;
  
@@ -355,9 +355,9 @@ index 2906babd..f3d4f03c 100644
 +#else
 +  vte_terminal_search_set_gregex (VTE_TERMINAL (priv->active_screen), NULL, 0);
 +#endif
+   vte_terminal_unselect_all (VTE_TERMINAL (priv->active_screen));
  }
  
- static void
 @@ -1606,7 +1618,11 @@ terminal_window_update_search_sensitivity (TerminalScreen *screen,
    if (screen != priv->active_screen)
      return;

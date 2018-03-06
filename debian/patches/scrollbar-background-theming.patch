@@ -11,7 +11,7 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/149396
  3 files changed, 83 insertions(+), 3 deletions(-)
 
 diff --git a/src/terminal-screen-container.c b/src/terminal-screen-container.c
-index e1d0942..4a6382b 100644
+index 73d9b06..5a9b8de 100644
 --- a/src/terminal-screen-container.c
 +++ b/src/terminal-screen-container.c
 @@ -109,9 +109,25 @@ terminal_screen_container_init (TerminalScreenContainer *container)
@@ -68,10 +68,10 @@ index e1d0942..4a6382b 100644
  
  static void
 diff --git a/src/terminal-screen.c b/src/terminal-screen.c
-index adb0722..3dd2812 100644
+index 9d9bc83..1c677a0 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -92,6 +92,8 @@ struct _TerminalScreenPrivate
+@@ -94,6 +94,8 @@ struct _TerminalScreenPrivate
    int child_pid;
    GSList *match_tags;
    guint launch_child_source_id;
@@ -80,7 +80,7 @@ index adb0722..3dd2812 100644
  };
  
  enum
-@@ -109,7 +111,9 @@ enum {
+@@ -111,7 +113,9 @@ enum {
    PROP_ICON_TITLE,
    PROP_ICON_TITLE_SET,
    PROP_TITLE,
@@ -91,7 +91,7 @@ index adb0722..3dd2812 100644
  };
  
  enum
-@@ -461,6 +465,12 @@ terminal_screen_get_property (GObject *object,
+@@ -520,6 +524,12 @@ terminal_screen_get_property (GObject *object,
        case PROP_TITLE:
          g_value_set_string (value, terminal_screen_get_title (screen));
          break;
@@ -104,7 +104,7 @@ index adb0722..3dd2812 100644
        default:
          G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
          break;
-@@ -486,6 +496,8 @@ terminal_screen_set_property (GObject *object,
+@@ -545,6 +555,8 @@ terminal_screen_set_property (GObject *object,
        case PROP_ICON_TITLE:
        case PROP_ICON_TITLE_SET:
        case PROP_TITLE:
@@ -113,7 +113,7 @@ index adb0722..3dd2812 100644
          /* not writable */
        default:
          G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-@@ -592,6 +604,20 @@ terminal_screen_class_init (TerminalScreenClass *klass)
+@@ -651,6 +663,20 @@ terminal_screen_class_init (TerminalScreenClass *klass)
                           G_TYPE_STRV,
                           G_PARAM_READWRITE | G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB));
  
@@ -134,7 +134,7 @@ index adb0722..3dd2812 100644
    g_type_class_add_private (object_class, sizeof (TerminalScreenPrivate));
  
    gtk_widget_class_install_style_property (widget_class,
-@@ -802,6 +828,22 @@ terminal_screen_get_icon_title_set (TerminalScreen *screen)
+@@ -861,6 +887,22 @@ terminal_screen_get_icon_title_set (TerminalScreen *screen)
    return vte_terminal_get_icon_title (VTE_TERMINAL (screen)) != NULL;
  }
  
@@ -157,7 +157,7 @@ index adb0722..3dd2812 100644
  static void
  terminal_screen_profile_changed_cb (GSettings     *profile,
                                      const char    *prop_name,
-@@ -1050,6 +1092,18 @@ update_color_scheme (TerminalScreen *screen)
+@@ -1113,6 +1155,18 @@ update_color_scheme (TerminalScreen *screen)
    vte_terminal_set_color_highlight (VTE_TERMINAL (screen), highlight_bgp);
    vte_terminal_set_color_highlight_foreground (VTE_TERMINAL (screen), highlight_fgp);
  
@@ -177,7 +177,7 @@ index adb0722..3dd2812 100644
  }
  
 diff --git a/src/terminal-screen.h b/src/terminal-screen.h
-index 3df7eba..80150a6 100644
+index ff19f7e..ae45e76 100644
 --- a/src/terminal-screen.h
 +++ b/src/terminal-screen.h
 @@ -107,6 +107,8 @@ char **      terminal_screen_get_initial_environment (TerminalScreen  *screen);
