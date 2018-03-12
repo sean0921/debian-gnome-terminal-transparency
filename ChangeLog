@@ -1,3 +1,167 @@
+commit ab439ff679a0ff2607a3ebb746f54281c439700b
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Mar 12 21:47:44 2018 +0100
+
+    Version 3.28.0
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a29ff5ca5dc498c590c5df3bd79dc4bacbccabc6
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Mar 12 21:48:52 2018 +0100
+
+    i18n: Fix translations yet again
+
+ po/nl.po | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 86b8959af161ebd041687c83d70dee21e5226650
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Mon Mar 12 12:37:00 2018 +0100
+
+    Fix xml in Hungarian translation
+
+ help/hu/hu.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 59d97644ed18b6b6138709d6a5852845342424dd
+Author: Gábor Kelemen <kelemeng@openscope.org>
+Date:   Mon Mar 12 06:59:57 2018 +0000
+
+    Update Hungarian translation
+
+ help/hu/hu.po | 2462 +++++++++++++++++++++++++++++++++++++--------------------
+ 1 file changed, 1585 insertions(+), 877 deletions(-)
+
+commit d1acb7f1816052472979cf66a0fa3a60c7e6a33b
+Author: Anders Jonsson <anders.jonsson@norsjovallen.se>
+Date:   Sun Mar 11 20:18:02 2018 +0000
+
+    Update Swedish translation
+
+ po/sv.po | 2431 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 1333 insertions(+), 1098 deletions(-)
+
+commit d99e5820c639dc71677b486f5094540f91352162
+Author: Emin Tufan Çetin <etcetin@gmail.com>
+Date:   Sun Mar 11 07:10:18 2018 +0000
+
+    Update Turkish translation
+
+ po/tr.po | 1158 ++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 607 insertions(+), 551 deletions(-)
+
+commit 68fc2e962ffb950a5ab3e5c452bee74bb8608af5
+Author: Daniel Șerbănescu <daniel@serbanescu.dk>
+Date:   Sat Mar 10 20:10:33 2018 +0100
+
+    Added Romanian Translation for the Documentation
+
+ help/Makefile.am |    2 +-
+ help/ro/ro.po    | 3339 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 3340 insertions(+), 1 deletion(-)
+
+commit 2dcf6f0f30d787cbbc9801a1cf85d120f03d65c4
+Author: Gianvito Cavasoli <gianvito@gmx.it>
+Date:   Sat Mar 10 17:22:01 2018 +0000
+
+    Update Italian translation
+
+ po/it.po | 2208 +++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 1112 insertions(+), 1096 deletions(-)
+
+commit 9c8c014901ea5afe1418e704f08be72ee796a0e1
+Author: Daniel Șerbănescu <daniel@serbanescu.dk>
+Date:   Sat Mar 10 17:20:39 2018 +0000
+
+    Update Romanian translation
+
+ po/ro.po | 2618 +++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 1412 insertions(+), 1206 deletions(-)
+
+commit 526ee84bff5838c3b64e22689154d510e1ab01a5
+Author: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>
+Date:   Sat Mar 10 11:52:06 2018 +0000
+
+    Update Chinese (Taiwan) translation
+
+ po/zh_TW.po | 2439 ++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 1315 insertions(+), 1124 deletions(-)
+
+commit a7ceca0aea01a3e812f68c26cc3af64816155679
+Author: Christian Kirbach <Christian.Kirbach@gmail.com>
+Date:   Thu Mar 8 12:53:38 2018 +0000
+
+    Update German translation
+
+ help/de/de.po | 2432 ++-------------------------------------------------------
+ 1 file changed, 61 insertions(+), 2371 deletions(-)
+
+commit e4bb1c8ff10e610e6ab8abd72f21cb4c2b48de13
+Author: Rūdolfs Mazurs <rudolfsm@src.gnome.org>
+Date:   Wed Mar 7 21:30:39 2018 +0200
+
+    Update Latvian translation
+
+ po/lv.po | 2487 +++++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 1391 insertions(+), 1096 deletions(-)
+
+commit 4d7798d0b64ac43518952171b89f4a1fdf07d35c
+Author: gogo <trebelnik2@gmail.com>
+Date:   Wed Mar 7 14:10:23 2018 +0000
+
+    Update Croatian translation
+
+ po/hr.po | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 8aebb58ff1dcc414a3dd377f44546d9dc145b856
+Author: Rafael Fontenelle <rafaelff@gnome.org>
+Date:   Wed Mar 7 00:48:41 2018 +0000
+
+    Update Brazilian Portuguese translation
+
+ po/pt_BR.po | 234 ++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 116 insertions(+), 118 deletions(-)
+
+commit 76ce27650e00a44f645e011553da1af7308eb2fd
+Author: Isaac F. Ferreira Filho <isaacmob@riseup.net>
+Date:   Wed Mar 7 00:47:16 2018 +0000
+
+    Update Brazilian Portuguese translation
+
+ help/pt_BR/pt_BR.po | 2408 +++++++++++++++++++++++++++++++--------------------
+ 1 file changed, 1456 insertions(+), 952 deletions(-)
+
+commit ffbf6d79302d69d44f232234bdc592c45ad49ef7
+Author: Christian Kirbach <Christian.Kirbach@gmail.com>
+Date:   Wed Mar 7 00:18:20 2018 +0000
+
+    Update German translation
+
+ help/de/de.po | 2264 ++++++++++++++++++++++++++++++++++-----------------------
+ 1 file changed, 1373 insertions(+), 891 deletions(-)
+
+commit 732e9cd108fe1f84cfbb6a2c1a2040fa71ab8b57
+Author: Marek Cernocky <marek_cernocky@conel.cz>
+Date:   Tue Mar 6 21:04:10 2018 +0100
+
+    Updated Czech translation
+
+ help/cs/cs.po | 1942 +++++++++++++++++++++++++++++++--------------------------
+ po/cs.po      | 1246 ++++++++++++++++++------------------
+ 2 files changed, 1644 insertions(+), 1544 deletions(-)
+
+commit 80b31d268cc49416cfbf2079ff694405eb3b1f04
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Mar 5 22:04:44 2018 +0100
+
+    build: Post release version bump
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
 commit a17b4061be60d901c89b4fce02787be473526ad3
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Mon Mar 5 22:00:51 2018 +0100
