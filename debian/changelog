@@ -1,11 +1,11 @@
-gnome-terminal (3.28.0-1) UNRELEASED; urgency=medium
+gnome-terminal (3.28.0-1) unstable; urgency=medium
 
   * New upstream release
   * Bump minimum libvte-2.91-dev to 0.52.0
   * Split nautilus-extension-gnome-terminal into a separate package so that
     it can be individually installed or uninstalled by appstream clients
 
- -- Jeremy Bicha <jbicha@debian.org>  Thu, 08 Mar 2018 09:39:36 -0500
+ -- Jeremy Bicha <jbicha@debian.org>  Mon, 12 Mar 2018 18:16:20 -0400
 
 gnome-terminal (3.27.92-1) unstable; urgency=medium
 
