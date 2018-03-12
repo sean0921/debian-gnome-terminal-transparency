@@ -1,5 +1,6 @@
-gnome-terminal (3.27.92-2) UNRELEASED; urgency=medium
+gnome-terminal (3.28.0-1) UNRELEASED; urgency=medium
 
+  * New upstream release
   * Split nautilus-extension-gnome-terminal into a separate package so that
     it can be individually installed or uninstalled by appstream clients
 
