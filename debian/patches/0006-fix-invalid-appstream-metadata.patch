@@ -6,6 +6,8 @@ The GNOME Software app won't use this metadata if it
 doesn't recognize the metadata_license
 
 https://bugzilla.gnome.org/show_bug.cgi?id=779434
+https://github.com/hughsie/appstream-glib/issues/225
+https://github.com/hughsie/appstream-glib/issues/226
 ---
  org.gnome.Terminal.Nautilus.metainfo.xml.in | 3 ++-
  org.gnome.Terminal.appdata.xml.in           | 3 ++-
