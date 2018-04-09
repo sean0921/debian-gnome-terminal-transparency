@@ -22,7 +22,7 @@ Build-Depends: debhelper (>= 11),
                gsettings-desktop-schemas-dev (>= 0.1.0),
                gnome-shell [linux-any],
                libnautilus-extension-dev (>= 3.21.92-3~)
-Standards-Version: 4.1.2
+Standards-Version: 4.1.4
 Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-terminal
 Vcs-Git: https://salsa.debian.org/gnome-team/gnome-terminal.git
 Homepage: https://wiki.gnome.org/Apps/Terminal
