@@ -325,7 +325,6 @@ context_menu_new (GMenuModel *menu,
   popup_menu = gtk_menu_new_from_model (menu);
   gtk_style_context_add_class (gtk_widget_get_style_context (popup_menu),
                                GTK_STYLE_CLASS_CONTEXT_MENU);
-  gtk_menu_set_screen (GTK_MENU (popup_menu), gtk_widget_get_screen (widget));
   gtk_menu_attach_to_widget (GTK_MENU (popup_menu), widget,
                              (GtkMenuDetachFunc)popup_menu_detach_cb);
 
@@ -373,11 +372,9 @@ action_new_terminal_cb (GSimpleAction *action,
     GdkEvent *event = gtk_get_current_event ();
     if (event != NULL) {
       GdkModifierType modifiers;
-      guint button;
 
       if ((gdk_event_get_state (event, &modifiers) &&
-           (modifiers & gtk_accelerator_get_default_mod_mask () & GDK_CONTROL_MASK)) ||
-          (gdk_event_get_button (event, &button) && (button == GDK_BUTTON_SECONDARY))) {
+           (modifiers & gtk_accelerator_get_default_mod_mask () & GDK_CONTROL_MASK))) {
         /* Invert */
         if (mode == TERMINAL_NEW_TERMINAL_MODE_WINDOW)
           mode = TERMINAL_NEW_TERMINAL_MODE_TAB;
@@ -1454,60 +1451,6 @@ find_tab_num_at_pos (GtkNotebook *notebook,
 }
 
 static void
-position_menu_under_widget (GtkMenu *menu,
-                            int *x,
-                            int *y,
-                            gboolean *push_in,
-                            gpointer user_data)
-{
-  /* Adapted from gtktoolbar.c */
-  GtkWidget *widget = GTK_WIDGET (user_data);
-  GdkWindow *widget_window;
-  GtkWidget *container;
-  GtkRequisition req;
-  GtkRequisition menu_req;
-  GdkRectangle monitor;
-  int monitor_num;
-  GdkScreen *screen;
-  GtkAllocation widget_allocation;
-
-  widget_window = gtk_widget_get_window (widget);
-  gtk_widget_get_allocation (widget, &widget_allocation);
-  container = gtk_widget_get_ancestor (widget, GTK_TYPE_CONTAINER);
-
-  gtk_widget_get_preferred_size (widget, NULL, &req);
-  gtk_widget_get_preferred_size (GTK_WIDGET (menu), NULL, &menu_req);
-
-  screen = gtk_widget_get_screen (GTK_WIDGET (menu));
-  monitor_num = gdk_screen_get_monitor_at_window (screen, widget_window);
-  if (monitor_num < 0)
-    monitor_num = 0;
-  gdk_screen_get_monitor_geometry (screen, monitor_num, &monitor);
-
-  gdk_window_get_origin (widget_window, x, y);
-  if (!gtk_widget_get_has_window (widget))
-    {
-      *x += widget_allocation.x;
-      *y += widget_allocation.y;
-    }
-  if (gtk_widget_get_direction (container) == GTK_TEXT_DIR_LTR)
-    *x += widget_allocation.width - req.width;
-  else
-    *x += req.width - menu_req.width;
-
-  if ((*y + widget_allocation.height + menu_req.height) <= monitor.y + monitor.height)
-    *y += widget_allocation.height;
-  else if ((*y - menu_req.height) >= monitor.y)
-    *y -= menu_req.height;
-  else if (monitor.y + monitor.height - (*y + widget_allocation.height) > *y)
-    *y += widget_allocation.height;
-  else
-    *y -= menu_req.height;
-
-  *push_in = FALSE;
-}
-
-static void
 terminal_window_update_set_profile_menu_active_profile (TerminalWindow *window)
 {
   TerminalWindowPrivate *priv = window->priv;
@@ -2045,7 +1988,6 @@ terminal_window_screen_update (TerminalWindow *window,
 {
   GSettings *settings;
   GtkSettings *gtk_settings;
-  char *value;
 
   if (GPOINTER_TO_INT (g_object_get_data (G_OBJECT (screen), "GT::HasSettingsConnection")))
     return;
@@ -2063,8 +2005,9 @@ terminal_window_screen_update (TerminalWindow *window,
                    "gtk-enable-accels",
                    G_SETTINGS_BIND_GET);
 
-  g_object_get (gtk_settings, "gtk-menu-bar-accel", &value, NULL);
 #if !GTK_CHECK_VERSION (3, 20, 0)
+  char *value;
+  g_object_get (gtk_settings, "gtk-menu-bar-accel", &value, NULL);
   g_object_set_data_full (G_OBJECT (gtk_settings), "GT::gtk-menu-bar-accel",
                           value, (GDestroyNotify) g_free);
 #endif
@@ -2763,15 +2706,6 @@ notebook_show_context_menu (TerminalWindow *window,
                             guint button,
                             guint32 timestamp)
 {
-  TerminalWindowPrivate *priv = window->priv;
-  GtkNotebook *notebook = GTK_NOTEBOOK (priv->mdi_container);
-  int page_num;
-  GtkWidget *tab, *tab_label;
-
-  page_num = gtk_notebook_get_current_page (notebook);
-  tab = gtk_notebook_get_nth_page (notebook, page_num);
-  tab_label = gtk_notebook_get_tab_label (notebook, tab);
-
   /* Load the UI */
   gs_unref_object GMenu *menu;
   terminal_util_load_objects_resource ("/org/gnome/terminal/ui/notebook-menu.ui",
@@ -2782,7 +2716,7 @@ notebook_show_context_menu (TerminalWindow *window,
 
   gtk_widget_set_halign (popup_menu, GTK_ALIGN_START);
   gtk_menu_popup (GTK_MENU (popup_menu), NULL, NULL,
-                  position_menu_under_widget, tab_label,
+                  NULL, NULL,
                   button, timestamp);
 
   if (button == 0)

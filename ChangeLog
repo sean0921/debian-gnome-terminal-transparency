@@ -1,3 +1,214 @@
+commit 07f2f4fcbe70e8afbd88e7cbe0a08ab9422a1d87
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Apr 9 21:51:25 2018 +0200
+
+    Version 3.28.1
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 84b94b0dd053f200ff982a87b6ea68e6005b3004
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Apr 9 21:39:29 2018 +0200
+
+    app: Plug a mem leak
+
+ src/terminal-app.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+commit 89b974fc6559a1cbe52875464106be4c777dc9f6
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Apr 9 21:39:29 2018 +0200
+
+    prefs: editor: Plug a mem leak
+
+ src/terminal-prefs.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+commit 5adcab5f6e3cba58d865e4a4eb7d4802aad37716
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Apr 9 21:39:29 2018 +0200
+
+    window: Plug a mem leak
+
+ src/terminal-window.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit d5ef4e6ec8a1e83e8f23b15670eaa009731c0ce3
+Author: Gábor Kelemen <kelemeng@openscope.org>
+Date:   Thu Apr 5 23:20:24 2018 +0000
+
+    Update Hungarian translation
+
+ help/hu/hu.po | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 90b49fc33d3999fe2237fef360ab5959f7e2e71d
+Author: Gábor Kelemen <kelemeng@openscope.org>
+Date:   Thu Apr 5 23:18:40 2018 +0000
+
+    Update Hungarian translation
+
+ help/hu/hu.po | 206 ++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 106 insertions(+), 100 deletions(-)
+
+commit 8b0b6cbe219166c28ec8639f8a1e8cdda9122a8d
+Author: Debarshi Ray <debarshir@gnome.org>
+Date:   Tue Apr 3 18:59:11 2018 +0200
+
+    window: Remove redundant function call
+    
+    Setting GtkMenu:attach-widget will also set the GdkScreen. There's no
+    need to set it separately.
+    
+    For what it's worth, the previous GtkUIManager based code wasn't
+    explicitly setting the GdkScreen either.
+    
+    Fallout from 0820b3853a3b7c629a93fa820d5372eac1760686
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=794935
+    (cherry picked from commit ea8776e7713221e31c9b62c9157db8bbe7e3c694)
+
+ src/terminal-window.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit e3540e59942bb600eb4913636096e792327677b4
+Author: Debarshi Ray <debarshir@gnome.org>
+Date:   Tue Apr 3 18:51:30 2018 +0200
+
+    window: Don't misplace the notebook popup on Wayland
+    
+    Fallout from 0820b3853a3b7c629a93fa820d5372eac1760686
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=794935
+    (cherry picked from commit ebc2db30526c9a033c7d1de6292044cac1105b1c)
+
+ src/terminal-window.c | 65 +--------------------------------------------------
+ 1 file changed, 1 insertion(+), 64 deletions(-)
+
+commit 746a066098a67bc7c92a6fdcc9fffd0b1cec0553
+Author: Anders Jonsson <anders.jonsson@norsjovallen.se>
+Date:   Thu Mar 29 20:36:48 2018 +0000
+
+    Update Swedish translation
+
+ help/sv/sv.po | 3350 +++++++++++++++++++++++++++++++++------------------------
+ 1 file changed, 1945 insertions(+), 1405 deletions(-)
+
+commit 2ec43ee2f1ef70e88e7b491334fe032747bc26af
+Author: Daniel Mustieles <daniel.mustieles.contractor@bbva.com>
+Date:   Tue Mar 27 11:57:04 2018 +0200
+
+    Updated Spanish translation
+
+ help/es/es.po | 111 +++++++++++++++++++++-------------------------------------
+ 1 file changed, 39 insertions(+), 72 deletions(-)
+
+commit 5e3be7126bf69205ca5efcd7e3f110234bf0db09
+Author: Stas Solovey <whats_up@tut.by>
+Date:   Mon Mar 26 20:38:40 2018 +0000
+
+    Update Russian translation
+
+ po/ru.po | 2399 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 1317 insertions(+), 1082 deletions(-)
+
+commit 3e0b0d477c109952626c9f4ddf573c1e94a38507
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Mon Mar 26 05:58:57 2018 +0200
+
+    Update Polish translation
+
+ help/pl/figures/gnome-terminal.png | Bin 10086 -> 10700 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d363b7a572e83c4740ef70a2141588bd25cfed68
+Author: Khaled Hosny <khaledhosny@eglug.org>
+Date:   Sun Mar 25 23:10:01 2018 +0200
+
+    Update Arabic translation
+
+ po/ar.po | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 9e0cf22bc04645b21aedae913f53d79808714269
+Author: Khaled Hosny <khaledhosny@eglug.org>
+Date:   Sun Mar 25 22:57:49 2018 +0200
+
+    Update Arabic translation
+
+ po/ar.po | 2440 +++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 1301 insertions(+), 1139 deletions(-)
+
+commit 0e515476e9040e9b9cfc3ded59fbdd84d525ccb8
+Author: Cheng-Chia Tseng <pswo10680@gmail.com>
+Date:   Tue Mar 20 14:42:21 2018 +0000
+
+    Update Chinese (Taiwan) translation
+
+ po/zh_TW.po | 134 ++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 67 insertions(+), 67 deletions(-)
+
+commit 1223ec2a2c7154f249a2cadc972c9d5ab52d9582
+Author: Dušan Kazik <prescott66@gmail.com>
+Date:   Sat Mar 17 22:09:09 2018 +0000
+
+    Update Slovak translation
+
+ po/sk.po | 79 +++++++++++++++++++++++++++++-----------------------------------
+ 1 file changed, 36 insertions(+), 43 deletions(-)
+
+commit 10291e23bb7e483f8d7b7368cba5c605c0f37cf2
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Mar 17 19:55:20 2018 +0100
+
+    client: legacy: Fix prgname
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=793775
+    (cherry picked from commit 0bee0d96140116eade848c23922d0920b612c787)
+
+ src/terminal.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 0f3bf6fe4bf72f00e9da78c3b9d85a620b087fc0
+Author: Dušan Kazik <prescott66@gmail.com>
+Date:   Sat Mar 17 10:45:08 2018 +0000
+
+    Update Slovak translation
+
+ po/sk.po | 231 +++++++++++++++++++++++----------------------------------------
+ 1 file changed, 82 insertions(+), 149 deletions(-)
+
+commit 276e6ef6935075da1c906bca32ad8619bc7a047e
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Fri Mar 16 21:16:19 2018 +0100
+
+    window: Do not change New Terminal's behavior on right click
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=794402
+    (cherry picked from commit d6885c2a77eb48ba8c0d410139a7b49120b15bb8)
+
+ src/terminal-window.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+commit db6a2e85b157e6ec11f8f13ed97132a8e65633df
+Author: Nathan Follens <nathan@anche.no>
+Date:   Tue Mar 13 19:21:29 2018 +0000
+
+    Update Dutch translation
+
+ po/nl.po | 128 +++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 63 insertions(+), 65 deletions(-)
+
+commit d1b6f18eb6128d0a49b72d03fb42a07cec5de8ec
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Mar 12 21:53:44 2018 +0100
+
+    Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit ab439ff679a0ff2607a3ebb746f54281c439700b
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Mon Mar 12 21:47:44 2018 +0100
