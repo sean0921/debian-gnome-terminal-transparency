@@ -1,4 +1,4 @@
-gnome-terminal (3.28.1-1ubuntu1) UNRELEASED; urgency=medium
+gnome-terminal (3.28.1-1ubuntu1) bionic; urgency=medium
 
   * Merge with Debian. Remaining changes:
     + debian/rules:
@@ -32,7 +32,7 @@ gnome-terminal (3.28.1-1ubuntu1) UNRELEASED; urgency=medium
     - Ubuntu's AppStream versions and http://appstream.ubuntu.com/
       don't support gnome-terminal's syntax yet
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Tue, 10 Apr 2018 14:12:40 -0400
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Tue, 10 Apr 2018 14:17:12 -0400
 
 gnome-terminal (3.28.1-1) unstable; urgency=medium
 
