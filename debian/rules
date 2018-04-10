@@ -31,6 +31,13 @@ override_dh_install:
 	find debian/tmp -name '*.a' -print -delete
 	find debian/tmp -name '*.la' -print -delete
 	dh_install
+	mv $(CURDIR)/debian/gnome-terminal/usr/bin/gnome-terminal \
+		$(CURDIR)/debian/gnome-terminal/usr/bin/gnome-terminal.real
+	install -m0755 $(CURDIR)/debian/gnome-terminal.wrap \
+		$(CURDIR)/debian/gnome-terminal/usr/bin/gnome-terminal
+	pkg-gnome-compat-desktop-file \
+                $(CURDIR)/debian/gnome-terminal/usr/share/applications/org.gnome.Terminal.desktop \
+		$(CURDIR)/debian/gnome-terminal/usr/share/applications/gnome-terminal.desktop
 
 override_dh_missing:
 	dh_missing --fail-missing

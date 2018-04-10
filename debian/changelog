@@ -1,3 +1,39 @@
+gnome-terminal (3.28.1-1ubuntu1) bionic; urgency=medium
+
+  * Merge with Debian. Remaining changes:
+    + debian/rules:
+      - Install compatibility version of gnome-terminal.desktop
+    + gnome-terminal.wrap, debian/rules:
+      - Add a wrapper script to restore command line compatibility.
+    + debian/control.in:
+      - gnome-terminal depends on python3, python3-gi and gir1.2-glib-2.0 for
+        the wrapper script.
+      - Don't Build-Depend on PCRE2
+    + Add 0001-Restore-transparency.patch:
+      - Restore transparency support
+    + Add 0001-Add-style-classes-and-CSS-names-to-some-of-our-widge.patch:
+      - Add CSS names and style classes so we can theme things more easily.
+    + Add 0001-screen-window-Extra-padding-around-transparent-termi.patch:
+      - Fix transparency on Wayland. Patch by Owen Taylor, via Debarshi Ray @
+        Fedora (LP: #1650395)
+    + Add 50_add_unity_quicklist.patch:
+      - Add Unity quicklist menu item.
+    + Add 52_support_apturl.patch:
+      - Support apt: urls.
+    + Add 60_add_lp_handler.patch:
+      - Add a handler for launchpad bug URLs.
+    + Add scrollbar-background-theming.patch:
+      - Draw background under the scrollbar that matches the actual terminal
+        background color. This allows proper theming.
+    + Add debian/patches/revert-pcre2.patch:
+      - Revert changes that require PCRE2 since it's not in main
+        (see MIR #163666)
+  * Keep 006-fix-invalid-appstream-metadata.patch:
+    - Ubuntu's AppStream versions and http://appstream.ubuntu.com/
+      don't support gnome-terminal's syntax yet
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Tue, 10 Apr 2018 14:17:12 -0400
+
 gnome-terminal (3.28.1-1) unstable; urgency=medium
 
   * New upstream release
@@ -8,6 +44,39 @@ gnome-terminal (3.28.1-1) unstable; urgency=medium
 
  -- Jeremy Bicha <jbicha@debian.org>  Mon, 09 Apr 2018 18:21:41 -0400
 
+gnome-terminal (3.28.0-1ubuntu1) bionic; urgency=medium
+
+  * Merge with Debian. Remaining changes:
+    + debian/rules:
+      - Install compatibility version of gnome-terminal.desktop
+    + gnome-terminal.wrap, debian/rules:
+      - Add a wrapper script to restore command line compatibility.
+    + debian/control.in:
+      - gnome-terminal depends on python3, python3-gi and gir1.2-glib-2.0 for
+        the wrapper script.
+      - Don't Build-Depend on PCRE2
+    + Add 0001-Restore-transparency.patch:
+      - Restore transparency support
+    + Add 0001-Add-style-classes-and-CSS-names-to-some-of-our-widge.patch:
+      - Add CSS names and style classes so we can theme things more easily.
+    + Add 0001-screen-window-Extra-padding-around-transparent-termi.patch:
+      - Fix transparency on Wayland. Patch by Owen Taylor, via Debarshi Ray @
+        Fedora (LP: #1650395)
+    + Add 50_add_unity_quicklist.patch:
+      - Add Unity quicklist menu item.
+    + Add 52_support_apturl.patch:
+      - Support apt: urls.
+    + Add 60_add_lp_handler.patch:
+      - Add a handler for launchpad bug URLs.
+    + Add scrollbar-background-theming.patch:
+      - Draw background under the scrollbar that matches the actual terminal
+        background color. This allows proper theming.
+    + Add debian/patches/revert-pcre2.patch:
+      - Revert changes that require PCRE2 since it's not in main
+        (see MIR #163666)
+ 
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 21 Mar 2018 14:05:46 -0400
+
 gnome-terminal (3.28.0-1) unstable; urgency=medium
 
   * New upstream release
@@ -16,6 +85,39 @@ gnome-terminal (3.28.0-1) unstable; urgency=medium
     it can be individually installed or uninstalled by appstream clients
 
  -- Jeremy Bicha <jbicha@debian.org>  Mon, 12 Mar 2018 18:16:20 -0400
+
+gnome-terminal (3.27.92-1ubuntu1) bionic; urgency=medium
+
+  * Merge with Debian. Remaining changes:
+    + debian/rules:
+      - Install compatibility version of gnome-terminal.desktop
+    + gnome-terminal.wrap, debian/rules:
+      - Add a wrapper script to restore command line compatibility.
+    + debian/control.in:
+      - gnome-terminal depends on python3, python3-gi and gir1.2-glib-2.0 for
+        the wrapper script.
+      - Don't Build-Depend on PCRE2
+    + Add 0001-Restore-transparency.patch:
+      - Restore transparency support
+    + Add 0001-Add-style-classes-and-CSS-names-to-some-of-our-widge.patch:
+      - Add CSS names and style classes so we can theme things more easily.
+    + Add 0001-screen-window-Extra-padding-around-transparent-termi.patch:
+      - Fix transparency on Wayland. Patch by Owen Taylor, via Debarshi Ray @
+        Fedora (LP: #1650395)
+    + Add 50_add_unity_quicklist.patch:
+      - Add Unity quicklist menu item.
+    + Add 52_support_apturl.patch:
+      - Support apt: urls.
+    + Add 60_add_lp_handler.patch:
+      - Add a handler for launchpad bug URLs.
+    + Add scrollbar-background-theming.patch:
+      - Draw background under the scrollbar that matches the actual terminal
+        background color. This allows proper theming.
+    + Add debian/patches/revert-pcre2.patch:
+      - Revert changes that require PCRE2 since it's not in main
+        (see MIR #163666)
+ 
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Tue, 06 Mar 2018 12:09:33 -0500
 
 gnome-terminal (3.27.92-1) unstable; urgency=medium
 
@@ -28,6 +130,44 @@ gnome-terminal (3.27.92-1) unstable; urgency=medium
   * Release to unstable
 
  -- Jeremy Bicha <jbicha@debian.org>  Tue, 06 Mar 2018 11:56:33 -0500
+
+gnome-terminal (3.27.90-1ubuntu1) bionic; urgency=medium
+
+  [ Jeremy Bicha ]
+  * Merge with Debian (LP: #1744711). Remaining changes:
+    + debian/rules:
+      - Install compatibility version of gnome-terminal.desktop
+    + gnome-terminal.wrap, debian/rules:
+      - Add a wrapper script to restore command line compatibility.
+    + debian/control.in:
+      - gnome-terminal depends on python3, python3-gi and gir1.2-glib-2.0 for
+        the wrapper script.
+      - Don't Build-Depend on PCRE2
+    + Add 0001-Restore-transparency.patch:
+      - Restore transparency support
+    + Add 0001-Add-style-classes-and-CSS-names-to-some-of-our-widge.patch:
+      - Add CSS names and style classes so we can theme things more easily.
+    + Add 0001-screen-window-Extra-padding-around-transparent-termi.patch:
+      - Fix transparency on Wayland. Patch by Owen Taylor, via Debarshi Ray @
+        Fedora (LP: #1650395)
+    + Add 50_add_unity_quicklist.patch:
+      - Add Unity quicklist menu item.
+    + Add 52_support_apturl.patch:
+      - Support apt: urls.
+    + Add 60_add_lp_handler.patch:
+      - Add a handler for launchpad bug URLs.
+    + Add scrollbar-background-theming.patch:
+      - Draw background under the scrollbar that matches the actual terminal
+        background color. This allows proper theming.
+    + Add debian/patches/revert-pcre2.patch:
+      - Revert changes that require PCRE2 since it's not in main
+        (see MIR #163666)
+ 
+  [ Egmont Koblinger ]
+  * Update patches to apply against new version
+  * Always show "Use transparency from system theme" checkbox (LP: #1745825)
+
+ -- Egmont Koblinger <egmont@gmail.com>  Fri, 16 Feb 2018 13:09:20 -0500
 
 gnome-terminal (3.27.90-1) experimental; urgency=medium
 
@@ -323,7 +463,7 @@ gnome-terminal (3.18.0-1) unstable; urgency=medium
   * Remove Debian menu entry.
 
   [ Pedro Beja ]
-  * Remove obsolete flags --disable-factory, --title and --usage from manpage.
+  * Remove obsolete flags --disable-factory, --title and --usage from manpage. 
 
   [ Andreas Henriksson ]
   * New upstream release.
@@ -538,7 +678,7 @@ gnome-terminal (3.8.2-1) unstable; urgency=low
 gnome-terminal (3.8.0.1-1) experimental; urgency=low
 
   [ Jeremy Bicha ]
-  * 01_onlyshowin.patch: Show in Unity too
+  * 01_onlyshowin.patch: Show in Unity too 
 
   [ Emilio Pozuelo Monfort ]
   * New upstream release.
@@ -608,7 +748,7 @@ gnome-terminal (3.4.0.1-1) unstable; urgency=low
 
 gnome-terminal (3.2.1-2) unstable; urgency=low
 
-  * Reintroduce gtk2 build-dependency, it’s required for
+  * Reintroduce gtk2 build-dependency, it’s required for 
     gtk-builder-convert.
 
  -- Josselin Mouette <joss@debian.org>  Sun, 20 Nov 2011 00:25:02 +0100
@@ -760,9 +900,9 @@ gnome-terminal (2.26.2-3) UNRELEASED; urgency=low
 
 gnome-terminal (2.26.2-2) unstable; urgency=low
 
-  * 02_let_gconf_autostart.patch: Don’t exit if there is no GConf daemon
-    running. Instead, let dbus-daemon and gconfd be autostarted as they
-    should be if this is needed. Thanks to Sean Finney for the
+  * 02_let_gconf_autostart.patch: Don’t exit if there is no GConf daemon 
+    running. Instead, let dbus-daemon and gconfd be autostarted as they 
+    should be if this is needed. Thanks to Sean Finney for the 
     suggestion. Closes: #531734 and some duplicates.
 
  -- Josselin Mouette <joss@debian.org>  Sat, 27 Jun 2009 14:53:33 +0200
@@ -788,8 +928,8 @@ gnome-terminal (2.26.2-1) unstable; urgency=low
 
   [ Josselin Mouette ]
   * Drop unnecessary build-deps, add libsm-dev.
-  * 01_onlyshowin.patch: new patch. Only show gnome-terminal in GNOME
-    menus, other desktop environments already have their terminal
+  * 01_onlyshowin.patch: new patch. Only show gnome-terminal in GNOME 
+    menus, other desktop environments already have their terminal 
     emulators.
 
  -- Josselin Mouette <joss@debian.org>  Mon, 01 Jun 2009 11:28:01 +0200
@@ -797,9 +937,9 @@ gnome-terminal (2.26.2-1) unstable; urgency=low
 gnome-terminal (2.24.3-3) unstable; urgency=low
 
   * Recommend gvfs. Closes: #519159.
-  * 01_tabs_shortcuts.patch: restore the ability to set shortcuts to
+  * 01_tabs_shortcuts.patch: restore the ability to set shortcuts to 
     each tab. Closes: #519523.
-  * 02_tabs_shortcuts_translations.patch: restore translations from
+  * 02_tabs_shortcuts_translations.patch: restore translations from 
     version 2.22 for this functionality.
     + Thanks to Mart Raudsepp for preparing the patches.
 
@@ -837,14 +977,14 @@ gnome-terminal (2.24.1.1-1) experimental; urgency=low
 
 gnome-terminal (2.22.3-3) unstable; urgency=low
 
-  * 01_error_crash.patch: stolen from upstream (r2948). Fixes crash when
+  * 01_error_crash.patch: stolen from upstream (r2948). Fixes crash when 
     passing incorrect arguments to the command line. Closes: #477259.
 
  -- Josselin Mouette <joss@debian.org>  Thu, 18 Sep 2008 16:17:00 +0200
 
 gnome-terminal (2.22.3-2) unstable; urgency=low
 
-  * gnome-terminal.wrapper: correctly emulate the completely brain-dead
+  * gnome-terminal.wrapper: correctly emulate the completely brain-dead 
     argument parsing of the -e option in xterm. Closes: #488974.
 
  -- Josselin Mouette <joss@debian.org>  Fri, 18 Jul 2008 11:57:11 +0200
@@ -987,7 +1127,7 @@ gnome-terminal (2.16.1-3) experimental; urgency=low
 
 gnome-terminal (2.16.1-2) experimental; urgency=low
 
-  * 01_terminal-window_resize.patch: stolen from upstream CVS. Avoid
+  * 01_terminal-window_resize.patch: stolen from upstream CVS. Avoid 
     spurious window resizing when opening new tabs.
 
  -- Josselin Mouette <joss@debian.org>  Tue, 26 Dec 2006 20:58:36 +0100
@@ -1069,7 +1209,7 @@ gnome-terminal (2.13.93-1) experimental; urgency=low
     - translation_warning.patch: dropped; fixed upstream.
   * debian/gnome-terminal-data.install:
     - do not install /usr/share/application-registry, it has been
-      dropped and deprecated upstream.
+      dropped and deprecated upstream.  
 
  -- Guilherme de S. Pastore <guilherme.pastore@terra.com.br>  Sat,  4 Mar 2006 15:46:20 -0300
 
@@ -1142,7 +1282,7 @@ gnome-terminal (2.8.2-1) unstable; urgency=medium
 
   * New upstream release (translation updates).
   * [debian/patches/update-config-guess-sub.patch] Dropped; upstream now
-    includes a newer config.guess and config.sub than are available in
+    includes a newer config.guess and config.sub than are available in 
     autotools-dev.
   * [debian/rules] Have binary-post-install clean up scrollkeeper's droppings.
 
@@ -1179,7 +1319,7 @@ gnome-terminal (2.7.3-1) experimental; urgency=low
     - new patch to not display obnoxious characters on next/previous tab
       (Closes: #256207).
   * debian/postinst:
-    - set an higher priority (40) on the x-terminal-emulator alternative, so
+    - set an higher priority (40) on the x-terminal-emulator alternative, so 
       gnome-terminal has the priority over xterm and uxterm (Closes: #252345).
 
  -- Sebastien Bacher <seb128@debian.org>  Wed, 30 Jun 2004 16:23:21 +0200
@@ -2146,7 +2286,7 @@ gnome-core (1.0.53-2) unstable; urgency=low
 
 gnome-core (1.0.53-1) unstable; urgency=low
 
-  * New upstream version.
+  * New upstream version. 
   * gnome-session does now depend on gnome-panel and recommends
     gmc (both are needed for a full Gnome desktop).
   * gnome-terminal does not have a border. Closes: #38972
@@ -2158,7 +2298,7 @@ gnome-core (1.0.52-1) unstable; urgency=low
   * New maintainer. Steve said that he wanted to give away some of
     his packages. I've asked to take gnome-core, he never replied, so
     I'm taking it but I will give it back to him if he wanted to
-    keep it. In the meantime I can better manage bugs with my name
+    keep it. In the meantime I can better manage bugs with my name 
     in the Maintainer field.
   * New upstream version.
 
@@ -2199,11 +2339,11 @@ gnome-core (1.0.9-0.1) unstable; urgency=low
   * cdplayer_applet works again. Closes: #42192
   * gnome pager works well: Closes: #42499, #42610
   * modem_lights draws itself correctly. Closes: #43861, #45055
-  * The dialer applets doesn't exit when stopping while
+  * The dialer applets doesn't exit when stopping while 
     not yet connected. Closes: #45287
   * No more Debian menu in the panel. Closes: #41040
   * GnomeICU works with this panel. Closes: #39626, #39515
-  * gnome-panel-data conflicts with asclock.
+  * gnome-panel-data conflicts with asclock. 
     Closes: #40712, #40715, #40808, #41430
     A better solution will be needed. Maybe put asclock in his own
     package or create a asclock-data package that will be shared.
@@ -2224,7 +2364,7 @@ gnome-core (1.0.9-0.1) unstable; urgency=low
   * The terminal keeps its size when dragging the manu bar in and out.
     Closes: #44762
   * The menu section of gnome-terminal corrected. Closes: #37635
-
+    
  -- Raphael Hertzog <hertzog@debian.org>  Wed, 22 Sep 1999 13:24:34 +0200
 
 gnome-core (1.0.7-1) unstable; urgency=low

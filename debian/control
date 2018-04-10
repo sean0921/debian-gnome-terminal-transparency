@@ -5,7 +5,8 @@
 Source: gnome-terminal
 Section: gnome
 Priority: optional
-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: Jeremy Bicha <jbicha@debian.org>, Michael Biebl <biebl@debian.org>
 Build-Depends: debhelper (>= 11),
                dh-exec,
@@ -15,8 +16,8 @@ Build-Depends: debhelper (>= 11),
                libdconf-dev (>= 0.14.0),
                libgtk-3-dev (>= 3.20),
                libglib2.0-dev (>= 2.42.0),
-               libpcre2-dev (>= 10.00),
-               libvte-2.91-dev (>= 0.52.1),
+#               libpcre2-dev (>= 10.00),
+               libvte-2.91-dev (>= 0.52.0),
                libsm-dev,
                gnome-pkg-tools (>= 0.10),
                docbook-to-man,
@@ -27,8 +28,10 @@ Build-Depends: debhelper (>= 11),
                gnome-shell [linux-any],
                libnautilus-extension-dev (>= 3.21.92-3~)
 Standards-Version: 4.1.4
-Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-terminal
-Vcs-Git: https://salsa.debian.org/gnome-team/gnome-terminal.git
+Vcs-Bzr: lp:~ubuntu-desktop/gnome-terminal/ubuntu
+Vcs-Browser: https://bazaar.launchpad.net/~ubuntu-desktop/gnome-terminal/ubuntu/files
+XS-Debian-Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-terminal
+XS-Debian-Vcs-Git: https://salsa.debian.org/gnome-team/gnome-terminal.git
 Homepage: https://wiki.gnome.org/Apps/Terminal
 
 Package: gnome-terminal
@@ -37,6 +40,9 @@ Multi-Arch: foreign
 Depends: ${shlibs:Depends},
          ${misc:Depends},
          default-dbus-session-bus | dbus-session-bus,
+         python3,
+         python3-gi,
+         gir1.2-glib-2.0,
          gsettings-desktop-schemas (>= 0.1.0),
          gnome-terminal-data (>= ${gnome:Version}),
          gnome-terminal-data (<< ${gnome:NextVersion})
