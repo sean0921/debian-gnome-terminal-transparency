@@ -3,6 +3,9 @@
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,-z,defs -Wl,--as-needed
 
+# Needed for File > New Tab menu item https://launchpad.net/bugs/1747171
+export DEB_CFLAGS_MAINT_APPEND = -DDISUNIFY_NEW_TERMINAL_SECTION
+
 %:
 	dh $@ --with gnome
 
