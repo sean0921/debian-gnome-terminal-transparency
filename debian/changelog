@@ -1,3 +1,10 @@
+gnome-terminal (3.28.1-1ubuntu1.1) bionic; urgency=medium
+
+  * Restore File > New Tab menu item. Thanks Debarshi Ray for the suggestion.
+    (LP: #1747171)
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Fri, 11 May 2018 17:15:21 -0400
+
 gnome-terminal (3.28.1-1ubuntu1) bionic; urgency=medium
 
   * Merge with Debian. Remaining changes:
