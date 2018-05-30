@@ -1,4 +1,4 @@
-gnome-terminal (3.28.2-1) UNRELEASED; urgency=medium
+gnome-terminal (3.28.2-1) unstable; urgency=medium
 
   [ Iain Lane ]
   * New upstream release 3.28.2 (LP: #1774167)
@@ -8,7 +8,7 @@ gnome-terminal (3.28.2-1) UNRELEASED; urgency=medium
     + [1828cb6] prefs: editor: Translate encoding names (LP: #1771290)
   * Bump required vte to 2.52.2, per upstream.
 
- -- Iain Lane <laney@debian.org>  Wed, 30 May 2018 11:28:34 +0100
+ -- Iain Lane <laney@debian.org>  Wed, 30 May 2018 11:48:43 +0100
 
 gnome-terminal (3.28.1-2) unstable; urgency=medium
 
