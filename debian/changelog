@@ -1,3 +1,66 @@
+gnome-terminal (3.28.2-1ubuntu1) cosmic; urgency=medium
+
+  * Merge with Debian. Remaining changes:
+    + debian/rules:
+      - Install compatibility version of gnome-terminal.desktop
+    + gnome-terminal.wrap, debian/rules:
+      - Add a wrapper script to restore command line compatibility.
+    + debian/control.in:
+      - gnome-terminal depends on python3, python3-gi and gir1.2-glib-2.0 for
+        the wrapper script.
+      - Don't Build-Depend on PCRE2
+    + Add 0001-Restore-transparency.patch:
+      - Restore transparency support
+    + Add 0001-Add-style-classes-and-CSS-names-to-some-of-our-widge.patch:
+      - Add CSS names and style classes so we can theme things more easily.
+    + Add 0001-screen-window-Extra-padding-around-transparent-termi.patch:
+      - Fix transparency on Wayland. Patch by Owen Taylor, via Debarshi Ray @
+        Fedora (LP: #1650395)
+    + Add 50_add_unity_quicklist.patch:
+      - Add Unity quicklist menu item.
+    + Add 52_support_apturl.patch:
+      - Support apt: urls.
+    + Add 60_add_lp_handler.patch:
+      - Add a handler for launchpad bug URLs.
+    + Add scrollbar-background-theming.patch:
+      - Draw background under the scrollbar that matches the actual terminal
+        background color. This allows proper theming.
+    + Add debian/patches/revert-pcre2.patch:
+      - Revert changes that require PCRE2 since it's not in main
+        (see MIR #163666)
+  * Keep 006-fix-invalid-appstream-metadata.patch:
+    - Ubuntu's AppStream versions and http://appstream.ubuntu.com/
+      don't support gnome-terminal's syntax yet
+  * debian/{gbp.conf,control{,.in}}: Update for Ubuntu
+
+ -- Iain Lane <laney@debian.org>  Wed, 30 May 2018 13:47:09 +0100
+
+gnome-terminal (3.28.2-1) unstable; urgency=medium
+
+  [ Iain Lane ]
+  * New upstream release 3.28.2 (LP: #1774167)
+    + [47a9491] client: legacy: Fix output commenting.
+      Make sure each line starts with '#' even if the message contains
+      embedded newlines.
+    + [1828cb6] prefs: editor: Translate encoding names (LP: #1771290)
+  * Bump required vte to 2.52.2, per upstream.
+
+ -- Iain Lane <laney@debian.org>  Wed, 30 May 2018 11:48:43 +0100
+
+gnome-terminal (3.28.1-2) unstable; urgency=medium
+
+  * Restore File > New Tab menu item. Thanks Debarshi Ray for the suggestion.
+    (LP: #1747171) (Closes: #783903)
+
+ -- Jeremy Bicha <jbicha@debian.org>  Fri, 11 May 2018 19:37:03 -0400
+
+gnome-terminal (3.28.1-1ubuntu2) cosmic; urgency=medium
+
+  * Restore File > New Tab menu item. Thanks Debarshi Ray for the suggestion.
+    (LP: #1747171)
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Fri, 11 May 2018 17:15:21 -0400
+
 gnome-terminal (3.28.1-1ubuntu1) bionic; urgency=medium
 
   * Merge with Debian. Remaining changes:
