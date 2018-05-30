@@ -1,4 +1,4 @@
-gnome-terminal (3.28.2-1ubuntu1) UNRELEASED; urgency=medium
+gnome-terminal (3.28.2-1ubuntu1) cosmic; urgency=medium
 
   * Merge with Debian. Remaining changes:
     + debian/rules:
@@ -33,7 +33,7 @@ gnome-terminal (3.28.2-1ubuntu1) UNRELEASED; urgency=medium
       don't support gnome-terminal's syntax yet
   * debian/{gbp.conf,control{,.in}}: Update for Ubuntu
 
- -- Iain Lane <laney@debian.org>  Wed, 30 May 2018 13:45:57 +0100
+ -- Iain Lane <laney@debian.org>  Wed, 30 May 2018 13:47:09 +0100
 
 gnome-terminal (3.28.2-1) unstable; urgency=medium
 
