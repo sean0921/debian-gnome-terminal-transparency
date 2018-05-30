@@ -1,9 +1,9 @@
-gnome-terminal (3.28.2-1ubuntu1~18.04.1) UNRELEASED; urgency=medium
+gnome-terminal (3.28.2-1ubuntu1~18.04.1) bionic; urgency=medium
 
   * debian/{gbp.conf,control{,.in}}: Update for Ubuntu bionic
   * Backport from cosmic to bionic.
 
- -- Iain Lane <laney@debian.org>  Wed, 30 May 2018 14:02:37 +0100
+ -- Iain Lane <laney@debian.org>  Wed, 30 May 2018 14:03:45 +0100
 
 gnome-terminal (3.28.2-1ubuntu1) cosmic; urgency=medium
 
