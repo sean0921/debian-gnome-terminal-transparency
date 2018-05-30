@@ -1,3 +1,92 @@
+commit 4b4a14abdd047b55b5940afa11aa9b2004eb76d6
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon May 21 20:56:25 2018 +0200
+
+    Version 3.28.2
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 3f41703ba18836195afe93a6819ca89a4c7bce5b
+Author: Dz Chen <wsxy162@gmail.com>
+Date:   Mon May 21 16:30:52 2018 +0000
+
+    Update Chinese (China) translation
+
+ po/zh_CN.po | 2487 ++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 1339 insertions(+), 1148 deletions(-)
+
+commit 47a949167af299e40b47fb6caf08ec06373b33d5
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Wed May 2 19:32:52 2018 +0200
+
+    client: legacy: Fix output commenting
+    
+    Make sure each line starts with '#' even if the message
+    contains embedded newlines.
+    
+    (cherry picked from commit d62c6ee988371cdf2af84a7898cee686c484aff8)
+
+ src/terminal-options.c | 26 ++++++++++++--------------
+ 1 file changed, 12 insertions(+), 14 deletions(-)
+
+commit 1828cb6d523f80c2aad69b8d452825ab9f737db0
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Wed Apr 18 22:02:05 2018 +0200
+
+    prefs: editor: Translate encoding names
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=795358
+    (cherry picked from commit 8fe4a989c5a518e16aabf9b5ea310d3b23a37e94)
+
+ src/terminal-encoding.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 4faa26443bd698e1b4c9349f5996ac042cdde28e
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Fri Apr 13 21:44:34 2018 +0200
+
+    Update Polish translation
+
+ po/pl.po | 203 +++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 101 insertions(+), 102 deletions(-)
+
+commit 7f6ad2c4e305eec8277acc1a1070261bcd9181c6
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:   Thu Apr 12 18:48:35 2018 +0200
+
+    Updated Slovenian translation
+
+ po/sl.po | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+commit 7de21fbfd0f1b08b0539e6608524abc9ed4a591b
+Author: Efstathios Iosifidis <eiosifidis@gnome.org>
+Date:   Wed Apr 11 23:26:43 2018 +0000
+
+    Update Greek translation
+
+ po/el.po | 2521 +++++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 1407 insertions(+), 1114 deletions(-)
+
+commit ce5a199721c06d6e1d6cde1a083d4db9a916ba08
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:   Tue Apr 10 17:56:56 2018 +0200
+
+    Updated Slovenian translation
+
+ po/sl.po | 2442 +++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 1320 insertions(+), 1122 deletions(-)
+
+commit bc18406b41631cb8be6d3020299184cce12a5d1f
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Apr 9 21:55:31 2018 +0200
+
+    Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit 07f2f4fcbe70e8afbd88e7cbe0a08ab9422a1d87
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Mon Apr 9 21:51:25 2018 +0200
