@@ -1,3 +1,14 @@
+gnome-terminal (3.28.2-1) UNRELEASED; urgency=medium
+
+  [ Iain Lane ]
+  * New upstream release 3.28.2 (LP: #1774167)
+    + [47a9491] client: legacy: Fix output commenting.
+      Make sure each line starts with '#' even if the message contains
+      embedded newlines.
+    + [1828cb6] prefs: editor: Translate encoding names (LP: #1771290)
+
+ -- Iain Lane <laney@debian.org>  Wed, 30 May 2018 11:28:34 +0100
+
 gnome-terminal (3.28.1-2) unstable; urgency=medium
 
   * Restore File > New Tab menu item. Thanks Debarshi Ray for the suggestion.
