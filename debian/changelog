@@ -1,3 +1,10 @@
+gnome-terminal (3.30.0-1) UNRELEASED; urgency=medium
+
+  * New upstream release 3.30 (LP: #1791373)
+  * Refresh patches
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Fri, 07 Sep 2018 15:24:22 -0500
+
 gnome-terminal (3.28.2-1) unstable; urgency=medium
 
   [ Iain Lane ]
