@@ -187,13 +187,13 @@ static const TerminalColorScheme color_schemes[] = {
   },
   /* Translators: "Solarized" is the name of a colour scheme, "light" can be translated */
   { N_("Solarized light"),
-    COLOR (0x65, 0x7B, 0x83),
-    COLOR (0xfd, 0xf6, 0xe3)
+    COLOR (0x65, 0x7b, 0x83),  /* 11: base00 */
+    COLOR (0xfd, 0xf6, 0xe3)   /* 15: base3  */
   },
   /* Translators: "Solarized" is the name of a colour scheme, "dark" can be translated */
   { N_("Solarized dark"),
-    COLOR (0x83, 0x94, 0x96),
-    COLOR (0x00, 0x2b, 0x36)
+    COLOR (0x83, 0x94, 0x96),  /* 12: base0  */
+    COLOR (0x00, 0x2b, 0x36)   /*  8: base03 */
   },
 };
 
@@ -293,22 +293,22 @@ static const GdkRGBA terminal_palettes[TERMINAL_PALETTE_N_BUILTINS][TERMINAL_PAL
 
   /* Solarized palette (1.0.0beta2): http://ethanschoonover.com/solarized */
   {
-    COLOR (0x07, 0x36, 0x42),
-    COLOR (0xdc, 0x32, 0x2f),
-    COLOR (0x85, 0x99, 0x00),
-    COLOR (0xb5, 0x89, 0x00),
-    COLOR (0x26, 0x8b, 0xd2),
-    COLOR (0xd3, 0x36, 0x82),
-    COLOR (0x2a, 0xa1, 0x98),
-    COLOR (0xee, 0xe8, 0xd5),
-    COLOR (0x00, 0x2b, 0x36),
-    COLOR (0xcb, 0x4b, 0x16),
-    COLOR (0x58, 0x6e, 0x75),
-    COLOR (0x65, 0x7b, 0x83),
-    COLOR (0x83, 0x94, 0x96),
-    COLOR (0x6c, 0x71, 0xc4),
-    COLOR (0x93, 0xa1, 0xa1),
-    COLOR (0xfd, 0xf6, 0xe3)
+    COLOR (0x07, 0x36, 0x42),  /*  0: base02  */
+    COLOR (0xdc, 0x32, 0x2f),  /*  1: red     */
+    COLOR (0x85, 0x99, 0x00),  /*  2: green   */
+    COLOR (0xb5, 0x89, 0x00),  /*  3: yellow  */
+    COLOR (0x26, 0x8b, 0xd2),  /*  4: blue    */
+    COLOR (0xd3, 0x36, 0x82),  /*  5: magenta */
+    COLOR (0x2a, 0xa1, 0x98),  /*  6: cyan    */
+    COLOR (0xee, 0xe8, 0xd5),  /*  7: base2   */
+    COLOR (0x00, 0x2b, 0x36),  /*  8: base03  */
+    COLOR (0xcb, 0x4b, 0x16),  /*  9: orange  */
+    COLOR (0x58, 0x6e, 0x75),  /* 10: base01  */
+    COLOR (0x65, 0x7b, 0x83),  /* 11: base00  */
+    COLOR (0x83, 0x94, 0x96),  /* 12: base0   */
+    COLOR (0x6c, 0x71, 0xc4),  /* 13: violet  */
+    COLOR (0x93, 0xa1, 0xa1),  /* 14: base1   */
+    COLOR (0xfd, 0xf6, 0xe3)   /* 15: base3   */
   },
 };
 
@@ -639,73 +639,6 @@ init_encodings_combo (GtkWidget *widget)
                                   "text", ENCODINGS_COLUMN_TEXT, NULL);
 }
 
-/* Tab scrolling was removed from GtkNotebook in gtk 3, so reimplement it here */
-static gboolean
-scroll_event_cb (GtkWidget      *widget,
-                 GdkEventScroll *event,
-                 gpointer        user_data)
-{
-  GtkNotebook *notebook = GTK_NOTEBOOK (widget);
-  GtkWidget *child, *event_widget, *action_widget;
-
-  if ((event->state & gtk_accelerator_get_default_mod_mask ()) != 0)
-    return FALSE;
-
-  child = gtk_notebook_get_nth_page (notebook, gtk_notebook_get_current_page (notebook));
-  if (child == NULL)
-    return FALSE;
-
-  event_widget = gtk_get_event_widget ((GdkEvent *) event);
-
-  /* Ignore scroll events from the content of the page */
-  if (event_widget == NULL ||
-      event_widget == child ||
-      gtk_widget_is_ancestor (event_widget, child))
-    return FALSE;
-
-  /* And also from the action widgets */
-  action_widget = gtk_notebook_get_action_widget (notebook, GTK_PACK_START);
-  if (event_widget == action_widget ||
-      (action_widget != NULL && gtk_widget_is_ancestor (event_widget, action_widget)))
-    return FALSE;
-  action_widget = gtk_notebook_get_action_widget (notebook, GTK_PACK_END);
-  if (event_widget == action_widget ||
-      (action_widget != NULL && gtk_widget_is_ancestor (event_widget, action_widget)))
-    return FALSE;
-
-  switch (event->direction) {
-    case GDK_SCROLL_RIGHT:
-    case GDK_SCROLL_DOWN:
-      gtk_notebook_next_page (notebook);
-      return TRUE;
-    case GDK_SCROLL_LEFT:
-    case GDK_SCROLL_UP:
-      gtk_notebook_prev_page (notebook);
-      return TRUE;
-    case GDK_SCROLL_SMOOTH:
-      switch (gtk_notebook_get_tab_pos (notebook)) {
-        case GTK_POS_LEFT:
-        case GTK_POS_RIGHT:
-          if (event->delta_y > 0)
-            gtk_notebook_next_page (notebook);
-          else if (event->delta_y < 0)
-            gtk_notebook_prev_page (notebook);
-          break;
-        case GTK_POS_TOP:
-        case GTK_POS_BOTTOM:
-          if (event->delta_x > 0)
-            gtk_notebook_next_page (notebook);
-          else if (event->delta_x < 0)
-            gtk_notebook_prev_page (notebook);
-          break;
-      }
-      return TRUE;
-  }
-
-  return FALSE;
-}
-
-
 static gboolean
 s_to_rgba (GValue *value,
            GVariant *variant,
@@ -884,10 +817,6 @@ profile_prefs_init (void)
 #if !GTK_CHECK_VERSION (3, 19, 8)
   fixup_color_chooser_button ();
 #endif
-
-  w = (GtkWidget *) gtk_builder_get_object (builder, "profile-editor-notebook");
-  gtk_widget_add_events (w, GDK_BUTTON_PRESS_MASK | GDK_SCROLL_MASK);
-  g_signal_connect (w, "scroll-event", G_CALLBACK (scroll_event_cb), NULL);
 
   w = (GtkWidget *) gtk_builder_get_object (builder, "color-scheme-combobox");
   init_color_scheme_menu (w);

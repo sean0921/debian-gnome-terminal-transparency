@@ -71,15 +71,6 @@ msgstr ""
 msgid "shell;prompt;command;commandline;cmd;"
 msgstr "طرفية;صدفة;سطر;أوامر;أمر;"
 
-#. Cursor blink mode
-#: ../src/migration.c:403 ../src/preferences.ui.h:19
-msgid "Default"
-msgstr "المبدئي"
-
-#: ../src/migration.c:403
-msgid "Unnamed"
-msgstr "بلا اسم"
-
 #. Translators: Keep single quote please!
 #: ../src/org.gnome.Terminal.gschema.xml.h:2
 msgctxt "visible-name"
@@ -307,9 +298,9 @@ msgid ""
 "terminal by this number of lines; lines that don’t fit in the scrollback are "
 "discarded. If scrollback_unlimited is true, this value is ignored."
 msgstr ""
-"عدد سطور سجل الرجوع التي سيبقى عليها. يمكنك اللف إلى الوراء في الشاشة "
-"الطرفيّة بحسب هذا العدد من السطور. السطور الزائدة عن هذا ستُمحى. إذا ضبط سجل "
-"الرجوع ليكون غير محدود فستُتجاهل هذه القيمة."
+"عدد سطور سجل الرجوع التي سيبقى عليها. يمكنك اللف إلى الوراء في الشاشة الطرفيّ"
+"ة بحسب هذا العدد من السطور. السطور الزائدة عن هذا ستُمحى. إذا ضبط سجل الرجوع "
+"ليكون غير محدود فستُتجاهل هذه القيمة."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:42
 msgid "Whether an unlimited number of lines should be kept in scrollback"
@@ -714,6 +705,11 @@ msgstr "شرطة رأسية"
 #: ../src/preferences.ui.h:17
 msgid "Underline"
 msgstr "شرطة تحتية"
+
+#. Cursor blink mode
+#: ../src/preferences.ui.h:19
+msgid "Default"
+msgstr "المبدئي"
 
 #. Cursor blink mode
 #: ../src/preferences.ui.h:21
@@ -1353,19 +1349,19 @@ msgstr "الإ_جراء"
 msgid "Shortcut _Key"
 msgstr "مفتاح الا_ختصار"
 
-#: ../src/terminal-app.c:491 ../src/terminal-window.c:1838
+#: ../src/terminal-app.c:434 ../src/terminal-window.c:1838
 msgid "New _Terminal"
 msgstr "_طرفية جديدة"
 
-#: ../src/terminal-app.c:493 ../src/terminal-window.c:1847
+#: ../src/terminal-app.c:436 ../src/terminal-window.c:1847
 msgid "New _Tab"
 msgstr "_لسان جديد"
 
-#: ../src/terminal-app.c:494 ../src/terminal-window.c:1843
+#: ../src/terminal-app.c:437 ../src/terminal-window.c:1843
 msgid "New _Window"
 msgstr "_نافذة جديدة"
 
-#: ../src/terminal-app.c:543
+#: ../src/terminal-app.c:486
 msgid "Change _Profile"
 msgstr "غيّر ال_تشكيلة"
 
@@ -1708,58 +1704,33 @@ msgstr "الم_حتويات"
 msgid "_Inspector"
 msgstr "ال_فاحص"
 
-#: ../src/terminal-nautilus.c:592
+#: ../src/terminal-nautilus.c:534
 msgid "Open in _Remote Terminal"
 msgstr "افتح في طرفيّة ب_عيدة"
 
-#: ../src/terminal-nautilus.c:594
+#: ../src/terminal-nautilus.c:536
 msgid "Open in _Local Terminal"
 msgstr "افتح في طرفيّة م_حلية"
 
-#: ../src/terminal-nautilus.c:598 ../src/terminal-nautilus.c:609
+#: ../src/terminal-nautilus.c:540 ../src/terminal-nautilus.c:551
 msgid "Open the currently selected folder in a terminal"
 msgstr "افتح المجلد المحدّد حاليا في طرفيّة"
 
-#: ../src/terminal-nautilus.c:600 ../src/terminal-nautilus.c:611
-#: ../src/terminal-nautilus.c:621
+#: ../src/terminal-nautilus.c:542 ../src/terminal-nautilus.c:553
 msgid "Open the currently open folder in a terminal"
 msgstr "افتح المجلد المفتوح حاليا في طرفية"
 
-#: ../src/terminal-nautilus.c:606 ../src/terminal-nautilus.c:620
+#: ../src/terminal-nautilus.c:548
 msgid "Open in T_erminal"
 msgstr "افتح في ال_طرفيّة"
 
-#: ../src/terminal-nautilus.c:617
+#: ../src/terminal-nautilus.c:558
 msgid "Open T_erminal"
 msgstr "افتح ال_طرفيّة"
 
-#: ../src/terminal-nautilus.c:618
+#: ../src/terminal-nautilus.c:559
 msgid "Open a terminal"
 msgstr "افتح طرفيّة"
-
-#: ../src/terminal-nautilus.c:636 ../src/terminal-nautilus.c:649
-msgid "Open in _Midnight Commander"
-msgstr "افتح في _Midnight Commander"
-
-#: ../src/terminal-nautilus.c:638
-msgid ""
-"Open the currently selected folder in the terminal file manager Midnight "
-"Commander"
-msgstr "افتح المجلد المحدّد حاليا في مدير ملفات سطر الأوامر Midnight Commander"
-
-#: ../src/terminal-nautilus.c:640 ../src/terminal-nautilus.c:650
-msgid ""
-"Open the currently open folder in the terminal file manager Midnight "
-"Commander"
-msgstr "افتح المجلد المفتوح حاليا في مدير ملفات سطر الأوامر Midnight Commander"
-
-#: ../src/terminal-nautilus.c:646
-msgid "Open _Midnight Commander"
-msgstr "افتح _Midnight Commander"
-
-#: ../src/terminal-nautilus.c:647
-msgid "Open the terminal file manager Midnight Commander"
-msgstr "افتح مدير ملفات سطر الأوامر Midnight Commander"
 
 #: ../src/terminal-notebook-menu.ui.h:1
 msgid "Move Terminal _Left"
@@ -2355,6 +2326,9 @@ msgstr "أغ_لق النافذة"
 #~ msgid "Error processing arguments: %s\n"
 #~ msgstr "خطأ أثناء تحليل المعطيات: %s\n"
 
+#~ msgid "Unnamed"
+#~ msgstr "بلا اسم"
+
 #~ msgid "Keyboard shortcut to create a new profile"
 #~ msgstr "اختصار لوحة المفاتيح لإنشاء طور جديدة"
 
@@ -2426,6 +2400,27 @@ msgstr "أغ_لق النافذة"
 
 #~ msgid "User Defined"
 #~ msgstr "معَرّف من المستخدم"
+
+#~ msgid "Open in _Midnight Commander"
+#~ msgstr "افتح في _Midnight Commander"
+
+#~ msgid ""
+#~ "Open the currently selected folder in the terminal file manager Midnight "
+#~ "Commander"
+#~ msgstr ""
+#~ "افتح المجلد المحدّد حاليا في مدير ملفات سطر الأوامر Midnight Commander"
+
+#~ msgid ""
+#~ "Open the currently open folder in the terminal file manager Midnight "
+#~ "Commander"
+#~ msgstr ""
+#~ "افتح المجلد المفتوح حاليا في مدير ملفات سطر الأوامر Midnight Commander"
+
+#~ msgid "Open _Midnight Commander"
+#~ msgstr "افتح _Midnight Commander"
+
+#~ msgid "Open the terminal file manager Midnight Commander"
+#~ msgstr "افتح مدير ملفات سطر الأوامر Midnight Commander"
 
 #~ msgid "Click button to choose profile"
 #~ msgstr "انقر الزر لاختيار طور"
