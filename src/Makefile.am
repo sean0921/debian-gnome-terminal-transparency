@@ -95,8 +95,8 @@ nodist_gnome_terminal_server_SOURCES = $(gnome_terminal_server_built)
 
 gnome_terminal_server_CPPFLAGS = \
 	-DTERMINAL_COMPILATION \
+	-DVTE_DISABLE_DEPRECATION_WARNINGS \
 	-DTERM_LOCALEDIR="\"$(datadir)/locale\"" \
-	-DTERM_LIBEXECDIR="\"$(libexecdir)\"" \
 	$(AM_CPPFLAGS)
 
 gnome_terminal_server_CFLAGS = \
@@ -170,10 +170,10 @@ terminal-gdbus-generated.c terminal-gdbus-generated.h: org.gnome.Terminal.xml Ma
 			$<
 
 terminal-menubar-with-mnemonics.ui: terminal-menubar.ui.in
-	sed -e 's|<WITH_MNEMONIC>||g' -e 's|</WITH_MNEMONIC>||g' -e 's|<WITHOUT_MNEMONIC>|<!-- |g' -e 's|</WITHOUT_MNEMONIC>| -->|g' $< > $@
+	$(AM_V_GEN)$(SED) -e 's|<WITH_MNEMONIC>||g' -e 's|</WITH_MNEMONIC>||g' -e 's|<WITHOUT_MNEMONIC>|<!-- |g' -e 's|</WITHOUT_MNEMONIC>| -->|g' $< > $@
 
 terminal-menubar-without-mnemonics.ui: terminal-menubar.ui.in
-	sed -e 's|<WITH_MNEMONIC>|<!-- |g' -e 's|</WITH_MNEMONIC>| -->|g' -e 's|<WITHOUT_MNEMONIC>||g' -e 's|</WITHOUT_MNEMONIC>||g' $< > $@
+	$(AM_V_GEN)$(SED) -e 's|<WITH_MNEMONIC>|<!-- |g' -e 's|</WITH_MNEMONIC>| -->|g' -e 's|<WITHOUT_MNEMONIC>||g' -e 's|</WITHOUT_MNEMONIC>||g' $< > $@
 
 terminal-resources.h terminal-resources.c: terminal.gresource.xml Makefile $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir $(srcdir) --sourcedir $(builddir) $(srcdir)/terminal.gresource.xml)
 	$(AM_V_GEN) XMLLINT=$(XMLLINT) $(GLIB_COMPILE_RESOURCES) --target $@ --sourcedir $(builddir) --sourcedir $(srcdir) --generate --c-name terminal $<
@@ -284,42 +284,6 @@ libterminal_nautilus_la_LDFLAGS = \
 
 libterminal_nautilus_la_LIBADD = \
 	$(NAUTILUS_LIBS)
-
-# Pref migrator
-
-if ENABLE_MIGRATION
-libexec_PROGRAMS += gnome-terminal-migration
-
-gnome_terminal_migration_SOURCES = \
-	migration.c \
-	terminal-debug.c \
-	terminal-debug.h \
-	terminal-libgsystem.h \
-	terminal-profiles-list.c \
-	terminal-profiles-list.h \
-	terminal-schemas.h \
-	terminal-settings-list.c \
-	terminal-settings-list.h \
-	$(NULL)
-
-nodist_gnome_terminal_migration_SOURCES = \
-	terminal-type-builtins.c \
-	terminal-type-builtins.h \
-	$(NULL)
-
-gnome_terminal_migration_CPPFLAGS = \
-	$(AM_CPPFLAGS)
-gnome_terminal_migration_CFLAGS = \
-	$(MIGRATOR_CFLAGS) \
-	$(WARN_CFLAGS) \
-	$(AM_CFLAGS)
-gnome_terminal_migration_LDFLAGS = \
-	$(AM_LDFLAGS)
-gnome_terminal_migration_LDADD = \
-	$(MIGRATOR_LIBS) \
-	$(INTLLIBS)
-
-endif # ENABLE_MIGRATION
 
 # GNOME Shell search provider
 

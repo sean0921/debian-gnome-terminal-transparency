@@ -1,6 +1,6 @@
 m4_define([gt_version_major],[3])
-m4_define([gt_version_minor],[28])
-m4_define([gt_version_micro],[2])
+m4_define([gt_version_minor],[30])
+m4_define([gt_version_micro],[0])
 m4_define([gt_version_extra],[])
 m4_define([gt_version],[gt_version_major().gt_version_minor().gt_version_micro()gt_version_extra])
 
@@ -64,7 +64,7 @@ case "$with_gtk" in
        GTK_MIN_REQUIRED=3.8
        GTK_MAX_ALLOWED=3.22
        VTE_API_VERSION=2.91
-       VTE_REQUIRED=0.52.2
+       VTE_REQUIRED=0.54.0
        ;;
 esac
 
@@ -115,30 +115,6 @@ AC_SUBST([dbusservicedir])
 # *********
 
 GLIB_GSETTINGS
-
-# *************************
-# GConf-GSettings Migration
-# *************************
-
-GCONF_REQUIRED=2.31.3
-
-AC_MSG_CHECKING([whether to build the GConf to GSettings migrator])
-AC_ARG_ENABLE([migration],
-        [AS_HELP_STRING([--disable-migration],[Disable prefs migration from GConf to GSettings])],
-        [],[enable_migration=yes])
-AC_MSG_RESULT([$enable_migration])
-
-if test "$enable_migration" = "yes"; then
- PKG_CHECK_MODULES([MIGRATOR],[
-   gio-2.0 >= $GIO_REQUIRED
-   vte-$VTE_API_VERSION >= $VTE_REQUIRED
-   gconf-2.0 >= $GCONF_REQUIRED
-   dconf >= $DCONF_REQUIRED
-   uuid])
-  AC_DEFINE([ENABLE_MIGRATION],[1],[Define to 1 to enable prefs migration from GConf to GSettings])
-fi
-
-AM_CONDITIONAL([ENABLE_MIGRATION],[test "$enable_migration" = "yes"])
 
 # ***********
 # Build tools
@@ -346,7 +322,6 @@ gnome-terminal-$VERSION:
       DBus interface dir:     ${dbusinterfacedir}
       DBus service dir:       ${dbusservicedir}
       Debug:                  ${enable_debug}
-      Prefs migration:        ${enable_migration}
       Search provider:        ${enable_search_provider}
       Nautilus extension:     ${with_nautilus_extension}
       Nautilus extension dir: ${nautilusextensiondir}
