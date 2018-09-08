@@ -1,9 +1,19 @@
-gnome-terminal (3.30.0-1) UNRELEASED; urgency=medium
+gnome-terminal (3.30.0-1) unstable; urgency=medium
 
+  [ Marco Trevisan (Treviño) ]
   * New upstream release 3.30 (LP: #1791373)
   * Refresh patches
 
- -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Fri, 07 Sep 2018 15:24:22 -0500
+  [ Jeremy Bicha ]
+  * Bump minimum libvte-2.91-dev to 0.54.0
+  * Cherry-pick app-Make-new-terminal-menu-a-hidden-pref.patch
+    - unified New Terminal menu item can be set via gsettings (LP: #1747171)
+  * Add debian/gnome-shell.gsettings-override to disable unified New Terminal
+  * debian/rules: Drop obsolete build option to disable unified New Terminal
+  * debian/rules: Drop obsolete --disable-migration configure flag
+  * Update debian/gbp.conf
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sat, 08 Sep 2018 11:20:13 -0400
 
 gnome-terminal (3.28.2-1) unstable; urgency=medium
 
