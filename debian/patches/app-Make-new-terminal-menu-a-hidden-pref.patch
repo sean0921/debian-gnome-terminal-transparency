@@ -1,0 +1,195 @@
+From: Christian Persch <chpe@src.gnome.org>
+Date: Fri, 7 Sep 2018 21:10:37 +0200
+Subject: app: Make new-terminal menu a hidden pref
+
+Some distributions ship a gnome-terminal that changes the
+new-terminal menu via conditionally compiled code. That makes
+it impossible for the user to change back to the upstream
+behaviour.
+
+Instead, add a hidden pref that distributions can set
+via a gsettings override, and users can change back to
+the default.
+
+https://gitlab.gnome.org/GNOME/gnome-terminal/issues/30
+(cherry picked from commit 30efce621ad04276771aa311f52731b468c4adfd)
+---
+ src/org.gnome.Terminal.gschema.xml |  4 ++++
+ src/terminal-app.c                 | 38 +++++++++++++++++++++++++++++---------
+ src/terminal-app.h                 |  2 ++
+ src/terminal-schemas.h             |  1 +
+ src/terminal-window.c              | 30 +++++++++++++++---------------
+ 5 files changed, 51 insertions(+), 24 deletions(-)
+
+diff --git a/src/org.gnome.Terminal.gschema.xml b/src/org.gnome.Terminal.gschema.xml
+index a4adc66..945b0bd 100644
+--- a/src/org.gnome.Terminal.gschema.xml
++++ b/src/org.gnome.Terminal.gschema.xml
+@@ -741,6 +741,10 @@
+       <summary>Which theme variant to use</summary>
+     </key>
+ 
++    <key name="unified-menu" type="b">
++      <default>true</default>
++    </key>
++
+    <!-- <child name="profiles" schema="org.gnome.Terminal.ProfilesList" /> -->
+ 
+    <child name="keybindings" schema="org.gnome.Terminal.Legacy.Keybindings" />
+diff --git a/src/terminal-app.c b/src/terminal-app.c
+index 1c251f5..f8e290d 100644
+--- a/src/terminal-app.c
++++ b/src/terminal-app.c
+@@ -65,6 +65,10 @@
+ #define GTK_DEBUG_ENABLE_INSPECTOR_KEY          "enable-inspector-keybinding"
+ #define GTK_DEBUG_ENABLE_INSPECTOR_TYPE         G_VARIANT_TYPE_BOOLEAN
+ 
++#ifdef DISUNIFY_NEW_TERMINAL_SECTION
++#error Use a gsettings override instead
++#endif
++
+ /*
+  * Session state is stored entirely in the RestartCommand command line.
+  *
+@@ -109,6 +113,8 @@ struct _TerminalApp
+   GtkClipboard *clipboard;
+   GdkAtom *clipboard_targets;
+   int n_clipboard_targets;
++
++  gboolean unified_menu;
+ };
+ 
+ enum
+@@ -426,16 +432,17 @@ append_new_terminal_item (GMenu *section,
+ }
+ 
+ static void
+-fill_new_terminal_section (GMenu *section,
++fill_new_terminal_section (TerminalApp *app,
++                           GMenu *section,
+                            ProfileData *profiles,
+                            guint n_profiles)
+ {
+-#ifndef DISUNIFY_NEW_TERMINAL_SECTION
+-  append_new_terminal_item (section, _("New _Terminal"), "default", profiles, n_profiles);
+-#else
+-  append_new_terminal_item (section, _("New _Tab"), "tab", profiles, n_profiles);
+-  append_new_terminal_item (section, _("New _Window"), "window", profiles, n_profiles);
+-#endif
++  if (terminal_app_get_menu_unified (app)) {
++    append_new_terminal_item (section, _("New _Terminal"), "default", profiles, n_profiles);
++  } else {
++    append_new_terminal_item (section, _("New _Tab"), "tab", profiles, n_profiles);
++    append_new_terminal_item (section, _("New _Window"), "window", profiles, n_profiles);
++  }
+ }
+ 
+ static GMenu *
+@@ -477,7 +484,7 @@ terminal_app_update_profile_menus (TerminalApp *app)
+   ProfileData *profiles = (ProfileData*) array->data;
+   guint n_profiles = array->len;
+ 
+-  fill_new_terminal_section (app->menubar_new_terminal_section, profiles, n_profiles);
++  fill_new_terminal_section (app, app->menubar_new_terminal_section, profiles, n_profiles);
+ 
+   app->set_profile_menu = set_profile_submenu_new (profiles, n_profiles);
+ 
+@@ -641,7 +648,7 @@ terminal_app_startup (GApplication *application)
+   /* App menu */
+   GMenu *appmenu_new_terminal_section = gtk_application_get_menu_by_id (gtk_application,
+                                                                         "new-terminal-section");
+-  fill_new_terminal_section (appmenu_new_terminal_section, NULL, 0); /* no submenu */
++  fill_new_terminal_section (app, appmenu_new_terminal_section, NULL, 0); /* no submenu */
+ 
+   /* Menubar */
+   /* If the menubar is shown by the shell, omit mnemonics for the submenus. This is because Alt+F etc.
+@@ -703,6 +710,11 @@ terminal_app_init (TerminalApp *app)
+                                                      GTK_DEBUG_ENABLE_INSPECTOR_KEY,
+                                                      GTK_DEBUG_ENABLE_INSPECTOR_TYPE);
+ 
++  /* This is an internal setting that exists only for distributions
++   * to override, so we cache it on startup and don't react to changes.
++   */
++  app->unified_menu = g_settings_get_boolean (app->global_settings, TERMINAL_SETTING_UNIFIED_MENU);
++
+ #if GTK_CHECK_VERSION (3, 19, 0)
+   GtkSettings *gtk_settings = gtk_settings_get_default ();
+   terminal_app_theme_variant_changed_cb (app->global_settings,
+@@ -1152,3 +1164,11 @@ terminal_app_get_object_manager (TerminalApp *app)
+   g_warn_if_fail (app->object_manager != NULL);
+   return app->object_manager;
+ }
++
++gboolean
++terminal_app_get_menu_unified (TerminalApp *app)
++{
++  g_return_val_if_fail (TERMINAL_IS_APP (app), TRUE);
++
++  return app->unified_menu;
++}
+diff --git a/src/terminal-app.h b/src/terminal-app.h
+index f29d766..efceda9 100644
+--- a/src/terminal-app.h
++++ b/src/terminal-app.h
+@@ -103,6 +103,8 @@ GMenuModel *terminal_app_get_menubar (TerminalApp *app);
+ 
+ GMenuModel *terminal_app_get_profile_section (TerminalApp *app);
+ 
++gboolean terminal_app_get_menu_unified (TerminalApp *app);
++
+ /* GSettings */
+ 
+ GSettings *terminal_app_get_global_settings (TerminalApp *app);
+diff --git a/src/terminal-schemas.h b/src/terminal-schemas.h
+index 46ed321..5b0d8c3 100644
+--- a/src/terminal-schemas.h
++++ b/src/terminal-schemas.h
+@@ -84,6 +84,7 @@ G_BEGIN_DECLS
+ #define TERMINAL_SETTING_TAB_POLICY_KEY                 "tab-policy"
+ #define TERMINAL_SETTING_TAB_POSITION_KEY               "tab-position"
+ #define TERMINAL_SETTING_THEME_VARIANT_KEY              "theme-variant"
++#define TERMINAL_SETTING_UNIFIED_MENU                   "unified-menu"
+ 
+ #define TERMINAL_SETTINGS_LIST_LIST_KEY                 "list"
+ #define TERMINAL_SETTINGS_LIST_DEFAULT_KEY              "default"
+diff --git a/src/terminal-window.c b/src/terminal-window.c
+index 91fa09d..4ed3647 100644
+--- a/src/terminal-window.c
++++ b/src/terminal-window.c
+@@ -1771,21 +1771,21 @@ screen_show_popup_menu_cb (TerminalScreen *screen,
+ 
+   /* New Terminal section */
+   gs_unref_object GMenu *section6 = g_menu_new ();
+-#ifndef DISUNIFY_NEW_TERMINAL_SECTION
+-  gs_unref_object GMenuItem *item6 = g_menu_item_new (_("New _Terminal"), NULL);
+-  g_menu_item_set_action_and_target (item6, "win.new-terminal",
+-                                     "(ss)", "default", "current");
+-  g_menu_append_item (section6, item6);
+-#else
+-  gs_unref_object GMenuItem *item61 = g_menu_item_new (_("New _Window"), NULL);
+-  g_menu_item_set_action_and_target (item61, "win.new-terminal",
+-                                     "(ss)", "window", "current");
+-  g_menu_append_item (section6, item61);
+-  gs_unref_object GMenuItem *item62 = g_menu_item_new (_("New _Tab"), NULL);
+-  g_menu_item_set_action_and_target (item62, "win.new-terminal",
+-                                     "(ss)", "tab", "current");
+-  g_menu_append_item (section6, item62);
+-#endif
++  if (terminal_app_get_menu_unified (app)) {
++    gs_unref_object GMenuItem *item6 = g_menu_item_new (_("New _Terminal"), NULL);
++    g_menu_item_set_action_and_target (item6, "win.new-terminal",
++                                       "(ss)", "default", "current");
++    g_menu_append_item (section6, item6);
++  } else {
++    gs_unref_object GMenuItem *item61 = g_menu_item_new (_("New _Window"), NULL);
++    g_menu_item_set_action_and_target (item61, "win.new-terminal",
++                                       "(ss)", "window", "current");
++    g_menu_append_item (section6, item61);
++    gs_unref_object GMenuItem *item62 = g_menu_item_new (_("New _Tab"), NULL);
++    g_menu_item_set_action_and_target (item62, "win.new-terminal",
++                                       "(ss)", "tab", "current");
++    g_menu_append_item (section6, item62);
++  }
+   g_menu_append_section (menu, NULL, G_MENU_MODEL (section6));
+ 
+   /* Window section */

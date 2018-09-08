@@ -2,3 +2,4 @@ nautilus-x11.patch
 01_onlyshowin.patch
 Don-t-allow-the-theme-to-set-black-on-black.patch
 Provide-fallback-for-reading-current-directory-if-OS.patch
+app-Make-new-terminal-menu-a-hidden-pref.patch
