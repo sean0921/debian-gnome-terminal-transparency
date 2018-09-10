@@ -3,9 +3,6 @@
 /* Define to 1 to enable special debug support */
 #undef ENABLE_DEBUG
 
-/* Define to 1 to enable prefs migration from GConf to GSettings */
-#undef ENABLE_MIGRATION
-
 /* always defined to indicate that i18n is enabled */
 #undef ENABLE_NLS
 

@@ -16,10 +16,10 @@ collect2: error: ld returned 1 exit status
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/configure.ac b/configure.ac
-index 696c757..081857f 100644
+index d51740e..0751868 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -226,7 +226,8 @@ if test "$with_nautilus_extension" = "yes"; then
+@@ -202,7 +202,8 @@ if test "$with_nautilus_extension" = "yes"; then
    PKG_CHECK_MODULES([NAUTILUS],[
      libnautilus-extension >= $NAUTILUS_REQUIRED
      gio-2.0

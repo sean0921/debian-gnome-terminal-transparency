@@ -108,8 +108,6 @@ enum
 enum {
   PROP_0,
   PROP_PROFILE,
-  PROP_ICON_TITLE,
-  PROP_ICON_TITLE_SET,
   PROP_TITLE,
   PROP_INITIAL_ENVIRONMENT
 };
@@ -148,8 +146,6 @@ static void terminal_screen_child_exited  (VteTerminal *terminal,
                                            int status);
 
 static void terminal_screen_window_title_changed      (VteTerminal *vte_terminal,
-                                                       TerminalScreen *screen);
-static void terminal_screen_icon_title_changed        (VteTerminal *vte_terminal,
                                                        TerminalScreen *screen);
 
 static void update_color_scheme                      (TerminalScreen *screen);
@@ -397,9 +393,6 @@ terminal_screen_init (TerminalScreen *screen)
   g_signal_connect (screen, "window-title-changed",
                     G_CALLBACK (terminal_screen_window_title_changed),
                     screen);
-  g_signal_connect (screen, "icon-title-changed",
-                    G_CALLBACK (terminal_screen_icon_title_changed),
-                    screen);
 
   app = terminal_app_get ();
   g_signal_connect (terminal_app_get_desktop_interface_settings (app), "changed::" MONOSPACE_FONT_KEY_NAME,
@@ -426,12 +419,6 @@ terminal_screen_get_property (GObject *object,
     {
       case PROP_PROFILE:
         g_value_set_object (value, terminal_screen_get_profile (screen));
-        break;
-      case PROP_ICON_TITLE:
-        g_value_set_string (value, terminal_screen_get_icon_title (screen));
-        break;
-      case PROP_ICON_TITLE_SET:
-        g_value_set_boolean (value, terminal_screen_get_icon_title_set (screen));
         break;
       case PROP_INITIAL_ENVIRONMENT:
         g_value_set_boxed (value, terminal_screen_get_initial_environment (screen));
@@ -461,8 +448,6 @@ terminal_screen_set_property (GObject *object,
       case PROP_INITIAL_ENVIRONMENT:
         terminal_screen_set_initial_environment (screen, g_value_get_boxed (value));
         break;
-      case PROP_ICON_TITLE:
-      case PROP_ICON_TITLE_SET:
       case PROP_TITLE:
         /* not writable */
       default:
@@ -543,20 +528,6 @@ terminal_screen_class_init (TerminalScreenClass *klass)
 
   g_object_class_install_property
     (object_class,
-     PROP_ICON_TITLE,
-     g_param_spec_string ("icon-title", NULL, NULL,
-                          NULL,
-                          G_PARAM_READABLE | G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB));
-
-  g_object_class_install_property
-    (object_class,
-     PROP_ICON_TITLE_SET,
-     g_param_spec_boolean ("icon-title-set", NULL, NULL,
-                           FALSE,
-                           G_PARAM_READABLE | G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB));
-
-  g_object_class_install_property
-    (object_class,
      PROP_TITLE,
      g_param_spec_string ("title", NULL, NULL,
                           NULL,
@@ -602,6 +573,11 @@ terminal_screen_dispose (GObject *object)
   TerminalScreenPrivate *priv = screen->priv;
   GtkSettings *settings;
 
+  /* Unset child PID so that when an eventual child-exited signal arrives,
+   * we don't emit "close".
+   */
+  priv->child_pid = -1;
+
   settings = gtk_widget_get_settings (GTK_WIDGET (screen));
   g_signal_handlers_disconnect_matched (settings, G_SIGNAL_MATCH_DATA,
                                         0, 0, NULL, NULL,
@@ -613,12 +589,17 @@ terminal_screen_dispose (GObject *object)
       priv->launch_child_source_id = 0;
     }
 
+  G_OBJECT_CLASS (terminal_screen_parent_class)->dispose (object);
+
+  /* Unregister *after* chaining up to the parent's dispose,
+   * since that will terminate the child process if there still
+   * is any, and we need to get the dbus signal out
+   * from the TerminalReceiver.
+   */
   if (priv->registered) {
     terminal_app_unregister_screen (terminal_app_get (), screen);
     priv->registered = FALSE;
   }
-
-  G_OBJECT_CLASS (terminal_screen_parent_class)->dispose (object);
 }
 
 static void
@@ -637,8 +618,7 @@ terminal_screen_finalize (GObject *object)
   g_strfreev (priv->override_command);
   g_strfreev (priv->initial_env);
 
-  g_slist_foreach (priv->match_tags, (GFunc) free_tag_data, NULL);
-  g_slist_free (priv->match_tags);
+  g_slist_free_full (priv->match_tags, (GDestroyNotify) free_tag_data);
 
   g_free (priv->uuid);
 
@@ -760,18 +740,6 @@ const char*
 terminal_screen_get_title (TerminalScreen *screen)
 {
   return vte_terminal_get_window_title (VTE_TERMINAL (screen));
-}
-
-const char*
-terminal_screen_get_icon_title (TerminalScreen *screen)
-{
-  return vte_terminal_get_icon_title (VTE_TERMINAL (screen));
-}
-
-gboolean
-terminal_screen_get_icon_title_set (TerminalScreen *screen)
-{
-  return vte_terminal_get_icon_title (VTE_TERMINAL (screen)) != NULL;
 }
 
 static void
@@ -1677,20 +1645,16 @@ terminal_screen_window_title_changed (VteTerminal *vte_terminal,
 }
 
 static void
-terminal_screen_icon_title_changed (VteTerminal *vte_terminal,
-                                    TerminalScreen *screen)
-{
-  g_object_notify (G_OBJECT (screen), "icon-title");
-  g_object_notify (G_OBJECT (screen), "icon-title-set");
-}
-
-static void
 terminal_screen_child_exited (VteTerminal *terminal,
                               int status)
 {
   TerminalScreen *screen = TERMINAL_SCREEN (terminal);
   TerminalScreenPrivate *priv = screen->priv;
   TerminalExitAction action;
+
+  /* Don't do anything if we don't have a child */
+  if (priv->child_pid == -1)
+    return;
 
   /* No need to chain up to VteTerminalClass::child_exited since it's NULL */
 
@@ -2134,8 +2098,7 @@ terminal_screen_has_foreground_process (TerminalScreen *screen,
   if (!process_name && !cmdline)
     return TRUE;
 
-  if (process_name)
-    gs_transfer_out_value (process_name, &name);
+  gs_transfer_out_value (process_name, &name);
 
   if (len > 0 && data[len - 1] == '\0')
     len--;
@@ -2149,8 +2112,7 @@ terminal_screen_has_foreground_process (TerminalScreen *screen,
   if (!command)
     return TRUE;
 
-  if (cmdline)
-    gs_transfer_out_value (cmdline, &command);
+  gs_transfer_out_value (cmdline, &command);
 
   return TRUE;
 }

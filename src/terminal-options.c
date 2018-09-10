@@ -184,8 +184,7 @@ initial_window_new (guint source_tag)
 static void
 initial_window_free (InitialWindow *iw)
 {
-  g_list_foreach (iw->tabs, (GFunc) initial_tab_free, NULL);
-  g_list_free (iw->tabs);
+  g_list_free_full (iw->tabs, (GDestroyNotify) initial_tab_free);
   g_free (iw->geometry);
   g_free (iw->role);
   g_slice_free (InitialWindow, iw);
@@ -994,7 +993,11 @@ terminal_options_parse (int *argcp,
   options->execute = FALSE;
 
   const char *startup_id = g_getenv ("DESKTOP_STARTUP_ID");
-  options->startup_id = g_strdup (startup_id && startup_id[0] ? startup_id : NULL);
+  if (startup_id && startup_id[0] &&
+      g_utf8_validate (startup_id, -1, NULL))
+    options->startup_id = g_strdup (startup_id);
+  else
+    options->startup_id = NULL;
   options->display_name = NULL;
   options->initial_windows = NULL;
   options->default_role = NULL;
@@ -1099,6 +1102,7 @@ terminal_options_parse (int *argcp,
     return FALSE;
   }
 
+  options->wait = wait != 0;
   return options;
 }
 
@@ -1216,8 +1220,7 @@ terminal_options_merge_config (TerminalOptions *options,
 
   if (have_error)
     {
-      g_list_foreach (initial_windows, (GFunc) initial_window_free, NULL);
-      g_list_free (initial_windows);
+      g_list_free_full (initial_windows, (GDestroyNotify) initial_window_free);
       return FALSE;
     }
 
@@ -1254,8 +1257,7 @@ terminal_options_ensure_window (TerminalOptions *options)
 void
 terminal_options_free (TerminalOptions *options)
 {
-  g_list_foreach (options->initial_windows, (GFunc) initial_window_free, NULL);
-  g_list_free (options->initial_windows);
+  g_list_free_full (options->initial_windows, (GDestroyNotify) initial_window_free);
 
   g_free (options->default_role);
   g_free (options->default_geometry);
@@ -1277,7 +1279,7 @@ terminal_options_free (TerminalOptions *options)
 
   g_clear_object (&options->profiles_list);
 
-  g_slice_free (TerminalOptions, options);
+  g_free (options);
 }
 
 static GOptionContext *
