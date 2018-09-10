@@ -25,10 +25,10 @@ index 83ad417..f0ee427 100644
  
  #endif /* !TERMINAL_REGEX_H */
 diff --git a/src/terminal-screen.c b/src/terminal-screen.c
-index b5ae0da..9d9bc83 100644
+index bc5e36e..e42c401 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -185,6 +185,7 @@ static const TerminalRegexPattern url_regex_patterns[] = {
+@@ -181,6 +181,7 @@ static const TerminalRegexPattern url_regex_patterns[] = {
    { REGEX_URL_VOIP,  FLAVOR_VOIP_CALL },
    { REGEX_EMAIL,     FLAVOR_EMAIL },
    { REGEX_NEWS_MAN,  FLAVOR_AS_IS },
@@ -37,7 +37,7 @@ index b5ae0da..9d9bc83 100644
  
  static const TerminalRegexPattern extra_regex_patterns[] = {
 diff --git a/src/terminal-screen.h b/src/terminal-screen.h
-index 743071d..ff19f7e 100644
+index ff77fcf..501d2ce 100644
 --- a/src/terminal-screen.h
 +++ b/src/terminal-screen.h
 @@ -32,6 +32,7 @@ typedef enum {
@@ -97,10 +97,10 @@ index abd34fd..a7de59f 100644
  
  char *terminal_util_concat_uris (char **uris,
 diff --git a/src/terminal-window.c b/src/terminal-window.c
-index a9de5d5..6470347 100644
+index ae60543..f09227d 100644
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -1020,7 +1020,17 @@ action_copy_match_cb (GSimpleAction *action,
+@@ -1009,7 +1009,17 @@ action_copy_match_cb (GSimpleAction *action,
    if (info->url == NULL)
      return;
  
@@ -119,7 +119,7 @@ index a9de5d5..6470347 100644
  }
  
  static void
-@@ -1785,6 +1795,7 @@ screen_show_popup_menu_cb (TerminalScreen *screen,
+@@ -1720,6 +1730,7 @@ screen_show_popup_menu_cb (TerminalScreen *screen,
        break;
      case FLAVOR_AS_IS:
      case FLAVOR_DEFAULT_TO_HTTP:

@@ -27,107 +27,16 @@ can avoid this by ensuring that the window always renders a background.
 
 https://bugzilla.gnome.org/show_bug.cgi?id=730016
 ---
- src/migration.c                    |  43 ++++++++++++-
  src/org.gnome.Terminal.gschema.xml |  14 +++++
  src/preferences.ui                 | 121 +++++++++++++++++++++++++++++++++++++
  src/profile-editor.c               |  19 ++++++
  src/terminal-schemas.h             |   4 ++
  src/terminal-screen.c              |  42 ++++++++++++-
  src/terminal-window.c              |  28 +++++++++
- 7 files changed, 268 insertions(+), 3 deletions(-)
+ 6 files changed, 227 insertions(+), 1 deletion(-)
 
-diff --git a/src/migration.c b/src/migration.c
-index e3ae04b..31064b1 100644
---- a/src/migration.c
-+++ b/src/migration.c
-@@ -331,6 +331,9 @@ migrate_global_prefs (GSettings *settings,
-                 settings, TERMINAL_SETTING_ENABLE_MENU_BAR_ACCEL_KEY,
-                 FALSE);
- 
-+  if (verbose)
-+      g_printerr("Migrating global\n");
-+
-   g_object_unref (client);
- 
-   return TRUE;
-@@ -378,6 +381,8 @@ migrate_profile (TerminalSettingsList *list,
- {
-   GSettings *settings;
-   char *child_name, *path;
-+  gchar *background_type = NULL, *bg_type_key, *bg_darkness_key;
-+  gdouble background_darkness;
-   gs_free char *name;
-   gboolean is_default;
- 
-@@ -394,6 +399,31 @@ migrate_profile (TerminalSettingsList *list,
- 
-   path = gconf_concat_dir_and_key (GCONF_PROFILES_PREFIX, gconf_id);
- 
-+  bg_type_key = gconf_concat_dir_and_key (path, KEY_BACKGROUND_TYPE);
-+  background_type = gconf_client_get_string (client, bg_type_key, NULL);
-+  g_free (bg_type_key);
-+  if (background_type)
-+      g_settings_set_boolean (settings, TERMINAL_PROFILE_USE_TRANSPARENT_BACKGROUND,
-+                              g_strcmp0(background_type, "transparent") == 0);
-+  g_free (background_type);
-+
-+  // If we're migrating, set the 'use theme transparency' key to false, this
-+  // will be copied from the old profile into transparency.
-+  g_settings_set_boolean (settings, TERMINAL_PROFILE_USE_THEME_TRANSPARENCY,
-+                          FALSE);
-+
-+  bg_darkness_key = gconf_concat_dir_and_key (path, KEY_BACKGROUND_DARKNESS);
-+  background_darkness = gconf_client_get_float (client,
-+                                                bg_darkness_key, NULL);
-+
-+  g_free (bg_darkness_key);
-+  if (background_darkness) {
-+      // Need to invert, the key has changed sense
-+      g_settings_set_int (settings,
-+                          TERMINAL_PROFILE_BACKGROUND_TRANSPARENCY_PERCENT,
-+                          1 - (int) (background_darkness * 100));
-+  }
-+
-   migrate_string (client, path, KEY_VISIBLE_NAME,
-                   settings, TERMINAL_PROFILE_VISIBLE_NAME_KEY);
- 
-@@ -481,7 +511,7 @@ migrate_profiles (GSettings *global_settings,
-   TerminalSettingsList *list;
-   GConfClient *client;
-   GConfValue *value, *dvalue;
--  GSList *l;
-+  GSList *l, *def = NULL;
-   const char *default_profile;
- 
-   client = gconf_client_get_default ();
-@@ -491,15 +521,24 @@ migrate_profiles (GSettings *global_settings,
-       dvalue->type == GCONF_VALUE_STRING)
-     default_profile = gconf_value_get_string (dvalue);
-   else
--    default_profile = NULL;
-+    default_profile = "Default";
- 
-   list = terminal_profiles_list_new ();
- 
-   value = gconf_client_get (client, GCONF_GLOBAL_PREFIX "/profile_list", NULL);
-+  if (value == NULL) {
-+      value = gconf_value_new (GCONF_VALUE_LIST);
-+      gconf_value_set_list_type (value, GCONF_VALUE_STRING);
-+      def = g_slist_append(def, gconf_value_new_from_string(GCONF_VALUE_STRING,
-+                                                            "Default", NULL));
-+      gconf_value_set_list_nocopy (value, def);
-+  }
-   if (value != NULL &&
-       value->type == GCONF_VALUE_LIST &&
-       gconf_value_get_list_type (value) == GCONF_VALUE_STRING) {
-     for (l = gconf_value_get_list (value); l != NULL; l = l->next) {
-+      if (verbose)
-+          g_printerr ("Migrating %s\n", gconf_value_get_string (l->data));
-       migrate_profile (list, client,
-                        gconf_value_get_string (l->data),
-                        default_profile);
 diff --git a/src/org.gnome.Terminal.gschema.xml b/src/org.gnome.Terminal.gschema.xml
-index 2edecea..c8cac4b 100644
+index a4adc66..fef54da 100644
 --- a/src/org.gnome.Terminal.gschema.xml
 +++ b/src/org.gnome.Terminal.gschema.xml
 @@ -400,6 +400,20 @@
@@ -291,10 +200,10 @@ index 6259aac..95aeb84 100644
                                      </child>
                                    </object>
 diff --git a/src/profile-editor.c b/src/profile-editor.c
-index c93a191..6229cb0 100644
+index eaad918..72759a1 100644
 --- a/src/profile-editor.c
 +++ b/src/profile-editor.c
-@@ -1325,6 +1325,25 @@ profile_prefs_load (const char *uuid, GSettings *profile)
+@@ -1254,6 +1254,25 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                 w,
                                 "active-id",
                                 G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
@@ -336,10 +245,10 @@ index 46ed321..24cf4ab 100644
  #define TERMINAL_SETTING_DEFAULT_SHOW_MENUBAR_KEY       "default-show-menubar"
  #define TERMINAL_SETTING_ENABLE_MENU_BAR_ACCEL_KEY      "menu-accelerator-enabled"
 diff --git a/src/terminal-screen.c b/src/terminal-screen.c
-index d104e30..e3bce1a 100644
+index 7f99718..76a7c06 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -642,6 +642,11 @@ terminal_screen_class_init (TerminalScreenClass *klass)
+@@ -599,6 +599,11 @@ terminal_screen_class_init (TerminalScreenClass *klass)
  
    g_type_class_add_private (object_class, sizeof (TerminalScreenPrivate));
  
@@ -351,7 +260,7 @@ index d104e30..e3bce1a 100644
    n_url_regexes = G_N_ELEMENTS (url_regex_patterns);
    precompile_regexes (url_regex_patterns, n_url_regexes, &url_regexes, &url_regex_flavors);
    n_extra_regexes = G_N_ELEMENTS (extra_regex_patterns);
-@@ -903,7 +908,10 @@ terminal_screen_profile_changed_cb (GSettings     *profile,
+@@ -857,7 +862,10 @@ terminal_screen_profile_changed_cb (GSettings     *profile,
        prop_name == I_(TERMINAL_PROFILE_HIGHLIGHT_COLORS_SET_KEY) ||
        prop_name == I_(TERMINAL_PROFILE_HIGHLIGHT_BACKGROUND_COLOR_KEY) ||
        prop_name == I_(TERMINAL_PROFILE_HIGHLIGHT_FOREGROUND_COLOR_KEY) ||
@@ -363,7 +272,7 @@ index d104e30..e3bce1a 100644
      update_color_scheme (screen);
  
    if (!prop_name || prop_name == I_(TERMINAL_PROFILE_AUDIBLE_BELL_KEY))
-@@ -981,6 +989,9 @@ update_color_scheme (TerminalScreen *screen)
+@@ -935,6 +943,9 @@ update_color_scheme (TerminalScreen *screen)
    GdkRGBA *highlight_bgp = NULL, *highlight_fgp = NULL;
    GtkStyleContext *context;
    gboolean use_theme_colors;
@@ -373,7 +282,7 @@ index d104e30..e3bce1a 100644
  
    context = gtk_widget_get_style_context (widget);
    gtk_style_context_get_color (context, gtk_style_context_get_state (context), &theme_fg);
-@@ -1032,6 +1043,31 @@ update_color_scheme (TerminalScreen *screen)
+@@ -986,6 +997,31 @@ update_color_scheme (TerminalScreen *screen)
      }
  
    colors = terminal_g_settings_get_rgba_palette (priv->profile, TERMINAL_PROFILE_PALETTE_KEY, &n_colors);
@@ -405,7 +314,7 @@ index d104e30..e3bce1a 100644
    vte_terminal_set_colors (VTE_TERMINAL (screen), &fg, &bg,
                             colors, n_colors);
    vte_terminal_set_color_bold (VTE_TERMINAL (screen), boldp);
-@@ -1039,6 +1075,10 @@ update_color_scheme (TerminalScreen *screen)
+@@ -993,6 +1029,10 @@ update_color_scheme (TerminalScreen *screen)
    vte_terminal_set_color_cursor_foreground (VTE_TERMINAL (screen), cursor_fgp);
    vte_terminal_set_color_highlight (VTE_TERMINAL (screen), highlight_bgp);
    vte_terminal_set_color_highlight_foreground (VTE_TERMINAL (screen), highlight_fgp);
@@ -417,10 +326,10 @@ index d104e30..e3bce1a 100644
  
  static void
 diff --git a/src/terminal-window.c b/src/terminal-window.c
-index 461ceb5..3caccb6 100644
+index 91fa09d..ea4b667 100644
 --- a/src/terminal-window.c
 +++ b/src/terminal-window.c
-@@ -2013,6 +2013,26 @@ terminal_window_realize (GtkWidget *widget)
+@@ -1944,6 +1944,26 @@ terminal_window_realize (GtkWidget *widget)
    terminal_window_update_size (window);
  }
  
@@ -447,7 +356,7 @@ index 461ceb5..3caccb6 100644
  static gboolean
  terminal_window_state_event (GtkWidget            *widget,
                               GdkEventWindowState  *event)
-@@ -2157,6 +2177,8 @@ terminal_window_init (TerminalWindow *window)
+@@ -2088,6 +2108,8 @@ terminal_window_init (TerminalWindow *window)
    };
    TerminalWindowPrivate *priv;
    TerminalApp *app;
@@ -456,7 +365,7 @@ index 461ceb5..3caccb6 100644
    GSettings *gtk_debug_settings;
    GtkWindowGroup *window_group;
    //  GtkAccelGroup *accel_group;
-@@ -2171,6 +2193,11 @@ terminal_window_init (TerminalWindow *window)
+@@ -2102,6 +2124,11 @@ terminal_window_init (TerminalWindow *window)
  
    gtk_widget_init_template (GTK_WIDGET (window));
  
@@ -468,7 +377,7 @@ index 461ceb5..3caccb6 100644
    uuid_generate (u);
    uuid_unparse (u, uuidstr);
    priv->uuid = g_strdup (uuidstr);
-@@ -2317,6 +2344,7 @@ terminal_window_class_init (TerminalWindowClass *klass)
+@@ -2248,6 +2275,7 @@ terminal_window_class_init (TerminalWindowClass *klass)
  
    widget_class->show = terminal_window_show;
    widget_class->realize = terminal_window_realize;
