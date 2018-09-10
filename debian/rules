@@ -34,9 +34,6 @@ override_dh_install:
 		$(CURDIR)/debian/gnome-terminal/usr/bin/gnome-terminal.real
 	install -m0755 $(CURDIR)/debian/gnome-terminal.wrap \
 		$(CURDIR)/debian/gnome-terminal/usr/bin/gnome-terminal
-	pkg-gnome-compat-desktop-file \
-                $(CURDIR)/debian/gnome-terminal/usr/share/applications/org.gnome.Terminal.desktop \
-		$(CURDIR)/debian/gnome-terminal/usr/share/applications/gnome-terminal.desktop
 
 override_dh_missing:
 	dh_missing --fail-missing

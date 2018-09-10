@@ -1,8 +1,6 @@
 gnome-terminal (3.30.0-1ubuntu1) UNRELEASED; urgency=medium
 
   * Merge with debian, remaining changes:
-    + debian/rules:
-      - Install compatibility version of gnome-terminal.desktop
     + gnome-terminal.wrap, debian/rules:
       - Add a wrapper script to restore command line compatibility.
     + debian/control.in:
@@ -32,6 +30,9 @@ gnome-terminal (3.30.0-1ubuntu1) UNRELEASED; urgency=medium
   * Refreshed Patches:
     + debian/patches/50_add_unity_quicklist.patch:
       - Dropped as upstream includes this feature now
+  * debian/rules:
+    - Stop installing compatibility version of gnome-terminal.desktop
+      (LP: #1739263)
 
  -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Mon, 10 Sep 2018 10:39:04 -0500
 
