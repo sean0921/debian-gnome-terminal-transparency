@@ -1,4 +1,4 @@
-gnome-terminal (3.30.0-1ubuntu1) UNRELEASED; urgency=medium
+gnome-terminal (3.30.0-1ubuntu1) cosmic; urgency=medium
 
   * Merge with debian (LP: #1791373), remaining changes:
     + gnome-terminal.wrap, debian/rules:
@@ -34,7 +34,7 @@ gnome-terminal (3.30.0-1ubuntu1) UNRELEASED; urgency=medium
     - Stop installing compatibility version of gnome-terminal.desktop
       (LP: #1739263)
 
- -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Mon, 10 Sep 2018 10:39:04 -0500
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Wed, 12 Sep 2018 15:30:08 +0100
 
 gnome-terminal (3.30.0-1) unstable; urgency=medium
 
