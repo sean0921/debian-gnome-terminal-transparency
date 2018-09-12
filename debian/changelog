@@ -1,6 +1,6 @@
 gnome-terminal (3.30.0-1ubuntu1) UNRELEASED; urgency=medium
 
-  * Merge with debian, remaining changes:
+  * Merge with debian (LP: #1791373), remaining changes:
     + gnome-terminal.wrap, debian/rules:
       - Add a wrapper script to restore command line compatibility.
     + debian/control.in:
