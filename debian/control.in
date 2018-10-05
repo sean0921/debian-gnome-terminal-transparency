@@ -20,7 +20,7 @@ Build-Depends: debhelper (>= 11),
                yelp-tools,
                desktop-file-utils,
                gsettings-desktop-schemas-dev (>= 0.1.0),
-               gnome-shell [linux-any],
+               gnome-shell [!hurd-any !kfreebsd-any !s390x],
                libnautilus-extension-dev (>= 3.21.92-3~)
 Standards-Version: 4.1.4
 Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-terminal
