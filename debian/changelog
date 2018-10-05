@@ -1,10 +1,11 @@
-gnome-terminal (3.30.0-3) UNRELEASED; urgency=medium
+gnome-terminal (3.30.1-1) UNRELEASED; urgency=medium
 
   * d/rules: Really don't build GNOME Shell search integration on s390x
   * d/copyright: Add a missing copyright entry
   * Standards-Version: 4.2.1
+  * New upstream release
 
- -- Simon McVittie <smcv@debian.org>  Fri, 05 Oct 2018 13:29:02 +0100
+ -- Simon McVittie <smcv@debian.org>  Fri, 05 Oct 2018 13:59:46 +0100
 
 gnome-terminal (3.30.0-2) unstable; urgency=medium
 
