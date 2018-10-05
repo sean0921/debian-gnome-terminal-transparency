@@ -1,3 +1,13 @@
+gnome-terminal (3.30.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Don't build GNOME Shell search integration on s390x.
+    mozjs60 doesn't work on s390x (#909536) and removing search integration
+    means we don't have to remove gnome-terminal:s390x entirely when
+    transitioning from gjs built with mozjs52 to gjs built with mozjs60.
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 05 Oct 2018 10:06:38 +0100
+
 gnome-terminal (3.30.0-1) unstable; urgency=medium
 
   [ Marco Trevisan (Treviño) ]
