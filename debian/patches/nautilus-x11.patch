@@ -16,7 +16,7 @@ collect2: error: ld returned 1 exit status
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/configure.ac b/configure.ac
-index d51740e..0751868 100644
+index d53dcf1..9df72da 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -202,7 +202,8 @@ if test "$with_nautilus_extension" = "yes"; then
