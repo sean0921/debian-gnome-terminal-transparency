@@ -2,6 +2,7 @@ gnome-terminal (3.30.0-3) UNRELEASED; urgency=medium
 
   * d/rules: Really don't build GNOME Shell search integration on s390x
   * d/copyright: Add a missing copyright entry
+  * Standards-Version: 4.2.1
 
  -- Simon McVittie <smcv@debian.org>  Fri, 05 Oct 2018 13:29:02 +0100
 
