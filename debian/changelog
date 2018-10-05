@@ -6,6 +6,7 @@ gnome-terminal (3.30.1-1) UNRELEASED; urgency=medium
   * d/rules: Really don't build GNOME Shell search integration on s390x
   * d/copyright: Add a missing copyright entry
   * Standards-Version: 4.2.1
+  * Bump vte dependency to 0.54.1 as per configure.ac
 
  -- Simon McVittie <smcv@debian.org>  Fri, 05 Oct 2018 13:59:46 +0100
 
