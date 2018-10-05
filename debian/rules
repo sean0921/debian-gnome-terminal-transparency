@@ -9,7 +9,11 @@ export DEB_LDFLAGS_MAINT_APPEND = -Wl,-z,defs -Wl,--as-needed
 override_dh_autoreconf:
 	dh_autoreconf --as-needed
 
+# s390x and non-Linux don't have GNOME Shell
 ifneq ($(DEB_HOST_ARCH_OS),linux)
+CONFFLAGS = --disable-search-provider
+endif
+ifeq ($(DEB_HOST_ARCH_CPU),s390x)
 CONFFLAGS = --disable-search-provider
 endif
 
