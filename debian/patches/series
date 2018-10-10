@@ -10,4 +10,3 @@ Provide-fallback-for-reading-current-directory-if-OS.patch
 60_add_lp_handler.patch
 scrollbar-background-theming.patch
 revert-pcre2.patch
-app-Make-new-terminal-menu-a-hidden-pref.patch

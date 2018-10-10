@@ -1,3 +1,58 @@
+commit e6aba82fb4e97fd6edfd2feb1057aeaae7c0ece5
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Tue Sep 11 18:10:51 2018 +0200
+
+    accels: Use correct action name to set menubar visibility
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/33
+    (cherry picked from commit 4b77237463e3cde75aed55fecacc0208e1f21dd9)
+
+ src/terminal-accels.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+commit b0457d4bdcb9e67718f2a5b6727778912ceb43f0
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Fri Sep 7 21:10:37 2018 +0200
+
+    app: Make new-terminal menu a hidden pref
+    
+    Some distributions ship a gnome-terminal that changes the
+    new-terminal menu via conditionally compiled code. That makes
+    it impossible for the user to change back to the upstream
+    behaviour.
+    
+    Instead, add a hidden pref that distributions can set
+    via a gsettings override, and users can change back to
+    the default.
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/30
+    (cherry picked from commit 30efce621ad04276771aa311f52731b468c4adfd)
+
+ src/org.gnome.Terminal.gschema.xml |  4 ++++
+ src/terminal-app.c                 | 38 +++++++++++++++++++++++++++++---------
+ src/terminal-app.h                 |  2 ++
+ src/terminal-schemas.h             |  1 +
+ src/terminal-window.c              | 30 +++++++++++++++---------------
+ 5 files changed, 51 insertions(+), 24 deletions(-)
+
+commit e8d85bc657be52b5443d99cadfcd30262a57b4ca
+Author: Efstathios Iosifidis <eiosifidis@gnome.org>
+Date:   Wed Sep 5 22:17:59 2018 +0000
+
+    Update Greek translation
+
+ po/el.po | 124 +++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 62 insertions(+), 62 deletions(-)
+
+commit 436aad00fddd6c90f2d5f468ba2d66e3f46ce10a
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sun Sep 2 11:52:24 2018 +0200
+
+    Post branch version bump
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
 commit 4b2638a4c99b991ff8a07dfd52b4397d6636fdd9
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Sun Sep 2 11:44:47 2018 +0200
