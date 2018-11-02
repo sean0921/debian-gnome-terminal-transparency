@@ -1,3 +1,42 @@
+commit 27aac75535f4be1a8ec998d2f79bbc02caca317b
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Fri Oct 19 22:37:37 2018 +0200
+
+    Update Polish translation
+
+ help/pl/pl.po | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 34cabf10a3337fe83bd23ecde451ac861dc88ffc
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:   Tue Oct 9 10:34:12 2018 +0000
+
+    Update Norwegian Bokmål translation
+
+ po/nb.po | 1392 +++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 735 insertions(+), 657 deletions(-)
+
+commit 62becaedb7ad21bd9c4306ed57aca718650994bf
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Fri Oct 5 19:56:26 2018 +0200
+
+    prefs: Hide the new terminal mode setting when disunified
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/37
+    (cherry picked from commit b41700af0ffcc99298bcf18d7ccba18623cac7b6)
+
+ src/terminal-prefs.c | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+commit 20f20a21534a5324baa91e3989ece1bde939b5c3
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Sep 24 21:02:09 2018 +0200
+
+    Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit e6aba82fb4e97fd6edfd2feb1057aeaae7c0ece5
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Tue Sep 11 18:10:51 2018 +0200
@@ -29186,7 +29225,7 @@ Date:   Mon May 3 21:43:20 2010 -0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 commit bf4ac37ca3a684ab2f2cefce2c267e9049cdab3c
-Merge: 05c54ef 89e2381
+Merge: 05c54efd 89e2381f
 Author: Behdad Esfahbod <behdad@behdad.org>
 Date:   Mon May 3 21:43:09 2010 -0400
 
