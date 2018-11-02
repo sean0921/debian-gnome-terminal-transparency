@@ -1,6 +1,7 @@
 gnome-terminal (3.30.2-1) UNRELEASED; urgency=medium
 
   * New upstream release
+  * Set Rules-Requires-Root to no
 
  -- Simon McVittie <smcv@debian.org>  Fri, 02 Nov 2018 11:08:02 +0000
 
