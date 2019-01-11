@@ -1,4 +1,4 @@
-gnome-terminal (3.30.2-2ubuntu1) UNRELEASED; urgency=medium
+gnome-terminal (3.30.2-2ubuntu1) disco; urgency=medium
 
   * Merge with debian, remaining changes:
     + gnome-terminal.wrap, debian/rules:
@@ -25,7 +25,7 @@ gnome-terminal (3.30.2-2ubuntu1) UNRELEASED; urgency=medium
       - Revert changes that require PCRE2 since it's not in main
         (see MIR #163666)
 
- -- Iain Lane <iain.lane@canonical.com>  Fri, 11 Jan 2019 12:42:19 +0000
+ -- Iain Lane <iain.lane@canonical.com>  Fri, 11 Jan 2019 13:04:46 +0000
 
 gnome-terminal (3.30.2-2) unstable; urgency=medium
 
