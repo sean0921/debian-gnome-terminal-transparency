@@ -27,7 +27,8 @@ Build-Depends: debhelper (>= 11),
                gsettings-desktop-schemas-dev (>= 0.1.0),
                gnome-shell [!hurd-any !kfreebsd-any !s390x],
                libnautilus-extension-dev (>= 3.21.92-3~)
-Standards-Version: 4.2.1
+Rules-Requires-Root: no
+Standards-Version: 4.3.0
 Vcs-Browser: https://git.launchpad.net/~ubuntu-desktop/ubuntu/+source/gnome-terminal
 Vcs-Git: https://git.launchpad.net/~ubuntu-desktop/ubuntu/+source/gnome-terminal
 XS-Debian-Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-terminal
