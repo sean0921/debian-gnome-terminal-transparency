@@ -9,4 +9,3 @@ Provide-fallback-for-reading-current-directory-if-OS.patch
 52_support_apturl.patch
 60_add_lp_handler.patch
 scrollbar-background-theming.patch
-revert-pcre2.patch
