@@ -1,3 +1,10 @@
+gnome-terminal (3.30.2-2ubuntu2) disco; urgency=medium
+
+  * Build-Depend on libpcre2-dev now that pcre2 is in Ubuntu main
+  * Drop revert-pcre2.patch
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 23 Jan 2019 13:18:54 -0500
+
 gnome-terminal (3.30.2-2ubuntu1) disco; urgency=medium
 
   * Merge with debian, remaining changes:
