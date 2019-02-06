@@ -1,16 +1,12 @@
 [Desktop Entry]
+# VERSION=@VERSION@
 _Name=Terminal
 _Comment=Use the command line
 _Keywords=shell;prompt;command;commandline;cmd;
 TryExec=gnome-terminal
 Exec=gnome-terminal
-Icon=utilities-terminal
+Icon=org.gnome.Terminal
 Type=Application
-X-GNOME-DocPath=gnome-terminal/index.html
-X-GNOME-Bugzilla-Bugzilla=GNOME
-X-GNOME-Bugzilla-Product=gnome-terminal
-X-GNOME-Bugzilla-Component=BugBuddyBugs
-X-GNOME-Bugzilla-Version=@VERSION@
 Categories=GNOME;GTK;System;TerminalEmulator;
 StartupNotify=true
 X-GNOME-SingleWindow=false

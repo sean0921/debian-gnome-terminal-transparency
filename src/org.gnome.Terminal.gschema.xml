@@ -189,7 +189,7 @@
       <description>If true, allow applications in the terminal to make text boldface.</description>
     </key>
     <key name="bold-is-bright" type="b">
-      <default>true</default>
+      <default>false</default>
       <summary>Whether bold is also bright</summary>
       <description>If true, setting bold on the first 8 colors also switches to their bright variants.</description>
     </key>
@@ -200,11 +200,6 @@
     <key name="word-char-exceptions" type="ms">
       <default>nothing</default>
       <summary>List of ASCII punctuation characters that are not to be treated as part of a word when doing word-wise selection</summary>
-    </key>
-    <key name="default-show-menubar" type="b">
-      <default>true</default>
-      <summary>Whether to show menubar in new windows/tabs</summary>
-      <description>True if the menubar should be shown in new window</description>
     </key>
     <key name="default-size-columns" type="i">
       <range min="16" max="511" />
@@ -669,6 +664,10 @@
       <default>'&lt;Ctrl&gt;0'</default>
       <summary>Keyboard shortcut to make font normal-size</summary>
     </key>
+    <key name="header-menu" type="s">
+      <default>'disabled'</default>
+      <summary>Keyboard shortcut to show the primary menu</summary>
+    </key>
   </schema>
 
   <!-- Global settings -->
@@ -739,6 +738,14 @@
     <key name="theme-variant" enum="org.gnome.Terminal.ThemeVariant">
       <default>'system'</default>
       <summary>Which theme variant to use</summary>
+    </key>
+
+    <!-- Note that changing the following settings will only take effect
+         when gnome-terminal-server is restarted.
+    -->
+
+    <key name="headerbar" type="b">
+      <default>false</default>
     </key>
 
     <key name="unified-menu" type="b">

@@ -1,6 +1,6 @@
 m4_define([gt_version_major],[3])
-m4_define([gt_version_minor],[30])
-m4_define([gt_version_micro],[2])
+m4_define([gt_version_minor],[31])
+m4_define([gt_version_micro],[90])
 m4_define([gt_version_extra],[])
 m4_define([gt_version],[gt_version_major().gt_version_minor().gt_version_micro()gt_version_extra])
 
@@ -64,7 +64,7 @@ case "$with_gtk" in
        GTK_MIN_REQUIRED=3.8
        GTK_MAX_ALLOWED=3.22
        VTE_API_VERSION=2.91
-       VTE_REQUIRED=0.54.1
+       VTE_REQUIRED=0.55.90
        ;;
 esac
 
@@ -252,6 +252,7 @@ CC_CHECK_FLAGS_APPEND([WARN_CFLAGS],[CFLAGS],[ \
   -Wundef \
   -Wuninitialized \
   -Wunsafe-loop-optimizations \
+  -Wvla \
   -Wwrite-strings \
   -Wformat-signedness \
   -fno-common \
@@ -303,6 +304,8 @@ AC_DEFINE_UNQUOTED([GDK_VERSION_MAX_ALLOWED],[G_ENCODE_VERSION($(echo $GTK_MAX_A
 AC_CONFIG_FILES([
 Makefile
 org.gnome.Terminal.desktop.in
+data/Makefile
+data/icons/Makefile
 src/Makefile
 src/terminal-version.h
 help/Makefile
