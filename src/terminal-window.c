@@ -32,6 +32,7 @@
 #include "terminal-debug.h"
 #include "terminal-enums.h"
 #include "terminal-encoding.h"
+#include "terminal-headerbar.h"
 #include "terminal-icon-button.h"
 #include "terminal-intl.h"
 #include "terminal-mdi-container.h"
@@ -344,6 +345,7 @@ action_new_terminal_cb (GSimpleAction *action,
   TerminalSettingsList *profiles_list;
   gs_unref_object GSettings *profile = NULL;
   gs_free char *new_working_directory = NULL;
+  gboolean can_toggle = FALSE;
 
   g_assert (TERMINAL_IS_WINDOW (window));
 
@@ -357,10 +359,16 @@ action_new_terminal_cb (GSimpleAction *action,
     mode = TERMINAL_NEW_TERMINAL_MODE_TAB;
   else if (g_str_equal (mode_str, "window"))
     mode = TERMINAL_NEW_TERMINAL_MODE_WINDOW;
-  else {
+  else if (g_str_equal (mode_str, "tab-default")) {
+    mode = TERMINAL_NEW_TERMINAL_MODE_TAB;
+    can_toggle = TRUE;
+  } else {
     mode = g_settings_get_enum (terminal_app_get_global_settings (app),
                                 TERMINAL_SETTING_NEW_TERMINAL_MODE_KEY);
+    can_toggle = TRUE;
+  }
 
+  if (can_toggle) {
     GdkEvent *event = gtk_get_current_event ();
     if (event != NULL) {
       GdkModifierType modifiers;
@@ -1048,6 +1056,17 @@ action_copy_hyperlink_cb (GSimpleAction *action,
 }
 
 static void
+action_enter_fullscreen_cb (GSimpleAction *action,
+                            GVariant      *parameter,
+                            gpointer       user_data)
+{
+  TerminalWindow *window = user_data;
+
+  g_action_group_change_action_state (G_ACTION_GROUP (window), "fullscreen",
+                                      g_variant_new_boolean (TRUE));
+}
+
+static void
 action_leave_fullscreen_cb (GSimpleAction *action,
                             GVariant      *parameter,
                             gpointer       user_data)
@@ -1514,12 +1533,14 @@ terminal_window_update_zoom_sensitivity (TerminalWindow *window)
   if (screen == NULL)
     return;
 
-  double zoom = vte_terminal_get_font_scale (VTE_TERMINAL (screen));
-
+  double v;
+  double zoom = v = vte_terminal_get_font_scale (VTE_TERMINAL (screen));
   g_simple_action_set_enabled (lookup_action (window, "zoom-in"),
-                               find_larger_zoom_factor (&zoom));
+                               find_larger_zoom_factor (&v));
+
+  v = zoom;
   g_simple_action_set_enabled (lookup_action (window, "zoom-out"),
-                               find_smaller_zoom_factor (&zoom));
+                               find_smaller_zoom_factor (&v));
 }
 
 static void
@@ -1873,7 +1894,8 @@ notebook_update_tabs_menu_cb (GtkMenuButton *button,
 }
 
 static void
-terminal_window_fill_notebook_action_box (TerminalWindow *window)
+terminal_window_fill_notebook_action_box (TerminalWindow *window,
+                                          gboolean add_new_tab_button)
 {
   TerminalWindowPrivate *priv = window->priv;
   GtkWidget *box, *new_tab_button, *tabs_menu_button;
@@ -1881,11 +1903,14 @@ terminal_window_fill_notebook_action_box (TerminalWindow *window)
   box = terminal_notebook_get_action_box (TERMINAL_NOTEBOOK (priv->mdi_container), GTK_PACK_END);
 
   /* Create the NewTerminal button */
-  new_tab_button = terminal_icon_button_new ("tab-new-symbolic");
-  gtk_actionable_set_action_name (GTK_ACTIONABLE (new_tab_button), "win.new-terminal");
-  gtk_actionable_set_action_target (GTK_ACTIONABLE (new_tab_button), "(ss)", "tab", "current");
-  gtk_box_pack_start (GTK_BOX (box), new_tab_button, FALSE, FALSE, 0);
-  gtk_widget_show (new_tab_button);
+  if (add_new_tab_button)
+    {
+      new_tab_button = terminal_icon_button_new ("tab-new-symbolic");
+      gtk_actionable_set_action_name (GTK_ACTIONABLE (new_tab_button), "win.new-terminal");
+      gtk_actionable_set_action_target (GTK_ACTIONABLE (new_tab_button), "(ss)", "tab", "current");
+      gtk_box_pack_start (GTK_BOX (box), new_tab_button, FALSE, FALSE, 0);
+      gtk_widget_show (new_tab_button);
+    }
 
   /* Create Tabs menu button */
   tabs_menu_button = terminal_menu_button_new ();
@@ -2040,6 +2065,7 @@ terminal_window_init (TerminalWindow *window)
     { "copy-hyperlink",      action_copy_hyperlink_cb,   NULL,   NULL, NULL },
     { "copy-match",          action_copy_match_cb,       NULL,   NULL, NULL },
     { "edit-preferences",    action_edit_preferences_cb, NULL,   NULL, NULL },
+    { "enter-fullscreen",    action_enter_fullscreen_cb, NULL,   NULL, NULL },
     { "find",                action_find_cb,             NULL,   NULL, NULL },
     { "find-backward",       action_find_backward_cb,    NULL,   NULL, NULL },
     { "find-clear",          action_find_clear_cb,       NULL,   NULL, NULL },
@@ -2081,6 +2107,7 @@ terminal_window_init (TerminalWindow *window)
     /* Actions with state */
     { "active-tab",          action_active_tab_set_cb,   "i",  "@i 0",    action_active_tab_state_cb      },
     { "encoding",            NULL /* changes state */,   "s",  "'UTF-8'", action_encoding_state_cb        },
+    { "header-menu",         NULL /* toggles state */,   NULL, "false",   NULL },
     { "fullscreen",          NULL /* toggles state */,   NULL, "false",   action_fullscreen_state_cb      },
     { "menubar-visible",     NULL /* toggles state */,   NULL, "true",    action_menubar_visible_state_cb },
     { "profile",             NULL /* changes state */,   "s",  "''",      action_profile_state_cb         },
@@ -2094,6 +2121,7 @@ terminal_window_init (TerminalWindow *window)
   uuid_t u;
   char uuidstr[37], role[64];
   gboolean shell_shows_menubar;
+  gboolean use_headerbar;
   GSimpleAction *action;
 
   app = terminal_app_get ();
@@ -2116,6 +2144,14 @@ terminal_window_init (TerminalWindow *window)
       g_signal_connect_after (window, "size-allocate", G_CALLBACK (terminal_window_size_allocate_cb), NULL);
     }
 #endif
+
+  use_headerbar = terminal_app_get_use_headerbar (app);
+  if (use_headerbar) {
+    GtkWidget *headerbar;
+
+    headerbar = terminal_headerbar_new ();
+    gtk_window_set_titlebar (GTK_WINDOW (window), headerbar);
+  }
 
   gtk_window_set_title (GTK_WINDOW (window), _("Terminal"));
 
@@ -2191,8 +2227,8 @@ terminal_window_init (TerminalWindow *window)
                         priv->menubar,
                         FALSE, FALSE, 0);
 
-    terminal_window_set_menubar_visible (window, TRUE);
-    priv->use_default_menubar_visibility = TRUE;
+    terminal_window_set_menubar_visible (window, !use_headerbar);
+    priv->use_default_menubar_visibility = !use_headerbar;
   }
 
   /* Maybe make Inspector available */
@@ -2212,7 +2248,7 @@ terminal_window_init (TerminalWindow *window)
   g_signal_connect (app, "clipboard-targets-changed",
                     G_CALLBACK (clipboard_targets_changed_cb), window);
 
-  terminal_window_fill_notebook_action_box (window);
+  terminal_window_fill_notebook_action_box (window, !use_headerbar);
 
   /* We have to explicitly call this, since screen-changed is NOT
    * emitted for the toplevel the first time!

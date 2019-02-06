@@ -26,7 +26,7 @@
 
 G_BEGIN_DECLS
 
-#define GNOME_TERMINAL_ICON_NAME "utilities-terminal"
+#define GNOME_TERMINAL_ICON_NAME "org.gnome.Terminal"
 
 #define TERMINAL_RESOURCES_PATH_PREFIX "/org/gnome/terminal"
 
@@ -101,9 +101,17 @@ TerminalSettingsList *terminal_app_get_profiles_list (TerminalApp *app);
 
 GMenuModel *terminal_app_get_menubar (TerminalApp *app);
 
+GMenuModel *terminal_app_get_headermenu (TerminalApp *app);
+
+GMenuModel *terminal_app_get_profilemenu (TerminalApp *app);
+
 GMenuModel *terminal_app_get_profile_section (TerminalApp *app);
 
 gboolean terminal_app_get_menu_unified (TerminalApp *app);
+
+gboolean terminal_app_get_use_headerbar (TerminalApp *app);
+
+gboolean terminal_app_get_dialog_use_headerbar (TerminalApp *app);
 
 /* GSettings */
 
