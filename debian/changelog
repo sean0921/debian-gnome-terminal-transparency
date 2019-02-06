@@ -1,4 +1,4 @@
-gnome-terminal (3.31.90-1ubuntu1) UNRELEASED; urgency=medium
+gnome-terminal (3.31.90-1ubuntu1) disco; urgency=medium
 
   * Merge with debian, remaining changes:
     + gnome-terminal.wrap, debian/rules:
@@ -21,7 +21,7 @@ gnome-terminal (3.31.90-1ubuntu1) UNRELEASED; urgency=medium
       - Draw background under the scrollbar that matches the actual terminal
         background color. This allows proper theming.
 
- -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 06 Feb 2019 09:42:07 -0500
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 06 Feb 2019 10:03:58 -0500
 
 gnome-terminal (3.31.90-1) experimental; urgency=medium
 
