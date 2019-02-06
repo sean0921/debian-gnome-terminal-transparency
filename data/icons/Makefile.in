@@ -13,6 +13,7 @@
 # PARTICULAR PURPOSE.
 
 @SET_MAKE@
+
 VPATH = @srcdir@
 am__is_gnu_make = { \
   if test -z '$(MAKELEVEL)'; then \
@@ -87,7 +88,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-subdir = help
+subdir = data/icons
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_pthread.m4 \
 	$(top_srcdir)/m4/intltool.m4 $(top_srcdir)/m4/libtool.m4 \
@@ -96,7 +97,8 @@ am__aclocal_m4_deps = $(top_srcdir)/m4/ax_pthread.m4 \
 	$(top_srcdir)/acinclude.m4 $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
-DIST_COMMON = $(srcdir)/Makefile.am $(am__DIST_COMMON)
+DIST_COMMON = $(srcdir)/Makefile.am $(dist_noinst_DATA) \
+	$(am__DIST_COMMON)
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
@@ -120,6 +122,7 @@ am__can_run_installinfo = \
     n|no|NO) false;; \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
+DATA = $(dist_noinst_DATA)
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
 am__DIST_COMMON = $(srcdir)/Makefile.in
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -306,49 +309,16 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 NULL = 
-HELP_ID = gnome-terminal
-HELP_MEDIA = \
-	figures/gnome-terminal.png \
-	figures/gnome-terminal-icon.png \
+public_icons_themes = hicolor
+dist_noinst_DATA = \
+	hicolor_apps_scalable_org.gnome.Terminal.svg \
+	hicolor_apps_symbolic_org.gnome.Terminal-symbolic.svg \
 	$(NULL)
 
-HELP_FILES = \
-	adv-keyboard-shortcuts.page \
-	app-colors.page \
-	app-cursor.page \
-	app-fonts.page \
-	app-fullscreen.page \
-	app-terminal-sizes.page \
-	app-zoom.page \
-	gs-execute-commands.page \
-	gs-tabs.page \
-	index.page \
-	introduction.page \
-	legal.xml \
-	overview.page \
-	pref.page \
-	pref-bell.page \
-	pref-custom-exit.page \
-	pref-custom-command.page \
-	pref-encoding.page \
-	pref-keyboard-access.page \
-	pref-login-shell.page \
-	pref-menubar.page \
-	pref-profiles.page \
-	pref-profile-char-width.page \
-	pref-profile-encoding.page \
-	pref-scrolling.page \
-	pref-tab-window.page \
-	pref-user-input.page \
-	prob-reset.page \
-	txt-copy-paste.page \
-	txt-links.page \
-	txt-save-text.page \
-	txt-search.page \
-	txt-select-text.page \
+EXTRA_DIST = \
 	$(NULL)
 
-HELP_LINGUAS = ca cs de el es fi fr gl hu ko pl pt_BR ro ru sv
+gtk_update_icon_cache = gtk-update-icon-cache -f -t
 all: all-am
 
 .SUFFIXES:
@@ -361,9 +331,9 @@ $(srcdir)/Makefile.in: @MAINTAINER_MODE_TRUE@ $(srcdir)/Makefile.am  $(am__confi
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign help/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign data/icons/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign help/Makefile
+	  $(AUTOMAKE) --foreign data/icons/Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
 	  *config.status*) \
@@ -429,7 +399,7 @@ distdir-am: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile
+all-am: Makefile $(DATA)
 installdirs:
 install: install-am
 install-exec: install-exec-am
@@ -481,8 +451,9 @@ info: info-am
 
 info-am:
 
-install-data-am:
-
+install-data-am: install-data-local
+	@$(NORMAL_INSTALL)
+	$(MAKE) $(AM_MAKEFLAGS) install-data-hook
 install-dvi: install-dvi-am
 
 install-dvi-am:
@@ -525,25 +496,64 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am:
-
-.MAKE: install-am install-strip
+uninstall-am: uninstall-local
+	@$(NORMAL_INSTALL)
+	$(MAKE) $(AM_MAKEFLAGS) uninstall-hook
+.MAKE: install-am install-data-am install-strip uninstall-am
 
 .PHONY: all all-am check check-am clean clean-generic clean-libtool \
 	cscopelist-am ctags-am distclean distclean-generic \
 	distclean-libtool distdir dvi dvi-am html html-am info info-am \
-	install install-am install-data install-data-am install-dvi \
+	install install-am install-data install-data-am \
+	install-data-hook install-data-local install-dvi \
 	install-dvi-am install-exec install-exec-am install-html \
 	install-html-am install-info install-info-am install-man \
 	install-pdf install-pdf-am install-ps install-ps-am \
 	install-strip installcheck installcheck-am installdirs \
 	maintainer-clean maintainer-clean-generic mostlyclean \
 	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	tags-am uninstall uninstall-am
+	tags-am uninstall uninstall-am uninstall-hook uninstall-local
 
 .PRECIOUS: Makefile
 
-@YELP_HELP_RULES@
+
+install-public-icons:
+	for icon in $(dist_noinst_DATA); do \
+		THEME=`echo $$icon | cut -d_ -f1`; \
+		CONTEXT=`echo $$icon | cut -d_ -f2`; \
+		SIZE=`echo $$icon | cut -d_ -f3`; \
+		ICONFILE=`echo $$icon | cut -d_ -f4`; \
+		$(MKDIR_P) $(DESTDIR)$(datadir)/icons/$$THEME/$$SIZE/$$CONTEXT; \
+		$(INSTALL_DATA) $(srcdir)/$$icon $(DESTDIR)$(datadir)/icons/$$THEME/$$SIZE/$$CONTEXT/$$ICONFILE; \
+	done
+
+uninstall-public-icons:
+	-for icon in $(dist_noinst_DATA); do \
+		THEME=`echo $$icon | cut -d_ -f1`; \
+		CONTEXT=`echo $$icon | cut -d_ -f2`; \
+		SIZE=`echo $$icon | cut -d_ -f3`; \
+		ICONFILE=`echo $$icon | cut -d_ -f4`; \
+		rm -f $(DESTDIR)$(datadir)/icons/$$THEME/$$SIZE/$$CONTEXT/$$ICONFILE; \
+	done
+
+install-data-local: install-public-icons
+uninstall-local: uninstall-public-icons
+
+install-data-hook: update-icon-cache
+uninstall-hook: update-icon-cache
+
+update-icon-cache:
+	@-if test -z "$(DESTDIR)"; then \
+		echo "Updating Gtk icon cache."; \
+		for theme in $(public_icons_themes); do \
+			$(gtk_update_icon_cache) $(datadir)/icons/$$theme; \
+		done; \
+	else \
+		echo "*** Icon cache not updated.  After (un)install, run this:"; \
+		for theme in $(public_icons_themes); do \
+			echo "***   $(gtk_update_icon_cache) $(datadir)/icons/$$theme"; \
+		done; \
+	fi
 
 -include $(top_srcdir)/git.mk
 

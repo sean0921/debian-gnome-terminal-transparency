@@ -1,4 +1,525 @@
-commit 27aac75535f4be1a8ec998d2f79bbc02caca317b
+commit 5ed514f07154fcc832cdc6ecb5a7b0f6c0095725
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Feb 4 23:49:11 2019 +0100
+
+    Version 3.31.90
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 978a2f9ec958790f4936436a979de41d07eac030
+Author: Kukuh Syafaat <kukuhsyafaat@gnome.org>
+Date:   Fri Feb 1 08:43:34 2019 +0000
+
+    Update Indonesian translation
+
+ po/id.po | 725 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 368 insertions(+), 357 deletions(-)
+
+commit 93d9770f318c97d1f9a03344fafca887a87f06a8
+Author: Daniel Șerbănescu <daniel@serbanescu.dk>
+Date:   Thu Jan 31 10:50:56 2019 +0000
+
+    Update Romanian translation
+
+ po/ro.po | 712 +++++++++++++++++++++++++++++----------------------------------
+ 1 file changed, 329 insertions(+), 383 deletions(-)
+
+commit bf801094bb263377f59d950acc8e7555c2a1f3dd
+Author: Fran Dieguez <frandieguez@gnome.org>
+Date:   Mon Jan 28 22:58:41 2019 +0000
+
+    Update Galician translation
+
+ po/gl.po | 642 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 330 insertions(+), 312 deletions(-)
+
+commit 78cc827f29a1365ce17d51a148500fbdfea3e757
+Author: Julien Humbert <julroy67@gmail.com>
+Date:   Mon Jan 28 08:10:44 2019 +0000
+
+    Update French translation
+
+ po/fr.po | 498 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 260 insertions(+), 238 deletions(-)
+
+commit 9cdb5c5341dc6d1bdf38cdff65885b6bf0f80fb2
+Author: Balázs Úr <balazs@urbalazs.hu>
+Date:   Sun Jan 27 16:31:34 2019 +0000
+
+    Update Hungarian translation
+
+ po/hu.po | 804 +++++++++++++++++++++++++++++----------------------------------
+ 1 file changed, 368 insertions(+), 436 deletions(-)
+
+commit 1e1ad7069c09d44f8f88d1ed1c770c94eb5c0b28
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:   Fri Jan 25 21:45:18 2019 +0100
+
+    Added Slovenian translation
+
+ po/sl.po | 541 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 279 insertions(+), 262 deletions(-)
+
+commit 555764555fd7ff12325fd6b88c2b2d04afff5d14
+Author: Bernd Homuth <dev@hmt.im>
+Date:   Tue Jan 22 17:07:24 2019 +0000
+
+    Update German translation
+
+ po/de.po | 570 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 296 insertions(+), 274 deletions(-)
+
+commit f466a338002039bde7728f2db0bdbedd4a7c6a2c
+Author: Carmen Bianca BAKKER <carmen@carmenbianca.eu>
+Date:   Mon Jan 14 21:21:42 2019 +0000
+
+    Update Esperanto translation
+
+ po/eo.po | 610 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 331 insertions(+), 279 deletions(-)
+
+commit 8e160a81a3e7ab117035a76a9f1f22ff916a21db
+Author: Ryuta Fujii <translation@sicklylife.jp>
+Date:   Fri Jan 4 19:24:29 2019 +0000
+
+    Update Japanese translation
+
+ po/ja.po | 2785 ++++++++++++++++++++++++++++++++++++--------------------------
+ 1 file changed, 1612 insertions(+), 1173 deletions(-)
+
+commit 79f8f523251ba723f9830f7df884140f60db4b94
+Author: Daniel Mustieles <daniel.mustieles.contractor@bbva.com>
+Date:   Fri Jan 4 13:13:46 2019 +0100
+
+    Updated Spanish translation
+
+ po/es.po | 771 +++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 384 insertions(+), 387 deletions(-)
+
+commit 39c30b33431af4305ddb6819fb7333afe54a46aa
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Thu Jan 3 13:51:38 2019 +0100
+
+    build: Add -Wvla
+
+ configure.ac | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit e92837d0c4eeba888803fd63204cb3b8ca097b53
+Author: Sabri Ünal <yakushabb@gmail.com>
+Date:   Wed Jan 2 16:37:00 2019 +0000
+
+    Update Turkish translation
+
+ po/tr.po | 638 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 325 insertions(+), 313 deletions(-)
+
+commit 3db1b52160e4170cce69da3e3410d523335b48ce
+Author: Anders Jonsson <anders.jonsson@norsjovallen.se>
+Date:   Sun Dec 30 17:53:29 2018 +0000
+
+    Update Swedish translation
+
+ po/sv.po | 742 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 376 insertions(+), 366 deletions(-)
+
+commit f624ba89afa5c1bc39cfb8f5a6da8be77ac161f6
+Author: Fabio Tomat <f.t.public@gmail.com>
+Date:   Mon Dec 24 12:33:25 2018 +0000
+
+    Update Friulian translation
+
+ po/fur.po | 798 +++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 404 insertions(+), 394 deletions(-)
+
+commit 8448a7fc251bea73ba4dc6590844837376e416cd
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Dec 15 23:27:30 2018 +0100
+
+    Replace Bugzilla by Gitlab URL in DOAP file
+
+ gnome-terminal.doap | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 4ad1bb9725e783ebcd2b746d492f5f9d499ce1dc
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Tue Dec 11 01:05:51 2018 +0100
+
+    prefs: Remove extra frames when using headerbars
+
+ src/preferences.ui   | 4 ++--
+ src/terminal-prefs.c | 8 ++++++--
+ 2 files changed, 8 insertions(+), 4 deletions(-)
+
+commit 8cd5ee6841c53fd0133a137da31ab9cab05a466c
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Dec 10 22:00:33 2018 +0100
+
+    app: Only use headerbars on dialogues when the corresponding gtk setting is set
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=756798
+
+ src/terminal-app.c            | 13 +++++++++++++
+ src/terminal-app.h            |  2 ++
+ src/terminal-prefs.c          |  2 +-
+ src/terminal-search-popover.c |  2 +-
+ 4 files changed, 17 insertions(+), 2 deletions(-)
+
+commit 453a894d3f499bc5e46c78ca4ee27af651939d5d
+Author: Florian Müllner <fmuellner@gnome.org>
+Date:   Mon Dec 10 22:00:33 2018 +0100
+
+    search-popover: Set titlebar when headerbars are used
+    
+    While there aren't any controls that make sense to move into the
+    titlebar, client- and server-side decorations are likely only
+    consistent under GNOME. So to ensure that all the app's windows
+    are consistent with each other, set up a default titlebar when
+    headerbars should be used.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=756798
+
+ src/terminal-search-popover.c | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
+
+commit 8a369d12f0e4f255cae3b00d21f4830220e0853d
+Author: Florian Müllner <fmuellner@gnome.org>
+Date:   Mon Dec 10 22:00:33 2018 +0100
+
+    prefs: Move action widgets into titlebar when using headerbars
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=756798
+
+ src/terminal-prefs.c | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+
+commit e9e27c9ec8cc4036f05e0992cead4d624ab351fd
+Author: Florian Müllner <fmuellner@gnome.org>
+Date:   Mon Dec 10 22:00:33 2018 +0100
+
+    headerbar: Allow opening new windows by control-clicking new-tab button
+    
+    New-terminal items open in a new tab or window, depending on the corre-
+    sponding preference. Users can temporarily toggle that by pressing CTRL
+    when activating the action. Extend that functionality to the new-tab
+    button in the headerbar as suggested by Egmont, so users can quickly
+    open new windows as well.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=756798
+
+ src/terminal-headerbar.ui | 2 +-
+ src/terminal-window.c     | 9 ++++++++-
+ 2 files changed, 9 insertions(+), 2 deletions(-)
+
+commit 42af3c894eb7bccb7a6473ee6a5c5ce63ec13642
+Author: Florian Müllner <fmuellner@gnome.org>
+Date:   Mon Dec 10 22:00:33 2018 +0100
+
+    headerbar: Add some spacing to primary menu
+    
+    The menu is generated by GTK+, so we don't have much control over
+    the final appearance, and in particular the width ends up being
+    determined by the longest string in the menu. Make sure it doesn't
+    get too cramped by adding some spacing to the zoom icons.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=756798
+
+ src/terminal.common.css | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+commit 30e56b31f5f0e04fbc88c13bafcbfbd615e558ed
+Author: Florian Müllner <fmuellner@gnome.org>
+Date:   Mon Dec 10 22:00:33 2018 +0100
+
+    accels: Add shortcut for toggling the primary menu
+    
+    When the headerbar is enabled, the primary menu is an important
+    entry point. Make it more accessible by adding a dedicated
+    shortcut.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=756798
+
+ src/org.gnome.Terminal.gschema.xml |  4 ++
+ src/terminal-accels.c              | 79 +++++++++++++++++++++++---------------
+ src/terminal-accels.h              |  5 ++-
+ src/terminal-app.c                 |  2 +-
+ src/terminal-headerbar.ui          |  1 +
+ src/terminal-window.c              |  1 +
+ 6 files changed, 58 insertions(+), 34 deletions(-)
+
+commit 402deb6a02ae1af3098c90c75719103fbb3b205f
+Author: Florian Müllner <fmuellner@gnome.org>
+Date:   Mon Dec 10 22:00:33 2018 +0100
+
+    window: Expose more actions in primary menu
+    
+    Unlike the old app menu, the primary window menu doesn't have to limit
+    itself to infrequently used application actions. So expose a couple
+    more of the available actions, so that the headerbar can fully replace
+    the traditional menubar for the majority of users.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=756798
+
+ src/terminal-headermenu.ui | 71 ++++++++++++++++++++++++++++++++++++++++++++++
+ src/terminal-window.c      | 12 ++++++++
+ 2 files changed, 83 insertions(+)
+
+commit 6bc48d93c07f165f149a5d10b4c68b0d1ec54340
+Author: Florian Müllner <fmuellner@gnome.org>
+Date:   Mon Dec 10 22:00:33 2018 +0100
+
+    window: Support profiles from headerbar
+    
+    The new-tab/new-window items cover a common case, but don't allow
+    to switch between profiles or start a terminal with a particular
+    one. Support both use cases by making appropriate actions available
+    in a primary menu section and a drop-down next to the new-tab button
+    if more than one profile has been set up.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=756798
+
+ src/terminal-app.c         | 77 ++++++++++++++++++++++++++++++++++++++++++++++
+ src/terminal-app.h         |  2 ++
+ src/terminal-headerbar.c   | 28 +++++++++++++++++
+ src/terminal-headerbar.ui  | 44 ++++++++++++++++++++------
+ src/terminal-headermenu.ui |  1 +
+ src/terminal-prefs.c       |  3 +-
+ src/terminal.common.css    |  7 +++++
+ 7 files changed, 152 insertions(+), 10 deletions(-)
+
+commit 9e9e7c21054998470d3d6022074a24c57b23111e
+Author: Florian Müllner <fmuellner@gnome.org>
+Date:   Mon Dec 10 22:00:33 2018 +0100
+
+    window: Add primary menu to headerbar
+    
+    Commit 4b9f6d398d removed the app menu in line with the corresponding
+    initiative[0]. The recommendation is to make the menu's action available
+    under a primary menu button in the headerbar, so do that now that we
+    have one.
+    
+    [0] https://gitlab.gnome.org/GNOME/Initiatives/wikis/App-Menu-Retirement
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=756798
+
+ po/POTFILES.in             |  1 +
+ src/Makefile.am            |  1 +
+ src/terminal-app.c         | 26 ++++++++++++++++++++++++++
+ src/terminal-app.h         |  2 ++
+ src/terminal-headerbar.c   | 10 ++++++++--
+ src/terminal-headerbar.ui  | 20 ++++++++++++++++++++
+ src/terminal-headermenu.ui | 42 ++++++++++++++++++++++++++++++++++++++++++
+ src/terminal.gresource.xml |  1 +
+ 8 files changed, 101 insertions(+), 2 deletions(-)
+
+commit 666c656dc24e680e997c8b36634cca0b9c3f2a9b
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Dec 10 22:00:33 2018 +0100
+
+    app: Refactor dynamic menu creation
+    
+    Profiles and encodings sections in the menubar are filled in
+    dynamically. We'll need similar code to expose those options
+    in the headerbar, prepare for that by shuffling the existing
+    code around a bit.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=756798
+
+ src/terminal-app.c | 74 ++++++++++++++++++++++++++++++++----------------------
+ 1 file changed, 44 insertions(+), 30 deletions(-)
+
+commit 2aaa29bd2d6d089dfb804162050db7406edabe30
+Author: Florian Müllner <fmuellner@gnome.org>
+Date:   Mon Dec 10 22:00:33 2018 +0100
+
+    window: Expose find action in headerbar
+    
+    Find is a useful standard action, and now that we are using client-side
+    decorations, we have a place to expose it more prominently than hiding
+    it in the menu.
+    
+    For now this simply opens the existing dialog, in the future it may be
+    worth considering to make the UI available in a popover as well.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=756798
+
+ src/terminal-headerbar.ui | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+commit 04d9400bbb5ea759a908713934f874800be84544
+Author: Florian Müllner <fmuellner@gnome.org>
+Date:   Mon Dec 10 22:00:33 2018 +0100
+
+    window: Move new-tab button into headerbar
+    
+    Opening a new tab is a very frequent action, which is currently
+    exposed in the tab bar itself. However that means that it only
+    becomes available when more than one tab is used. Moving the
+    control to the headerbar instead makes the action always readily
+    available and leaves a bit more space for tabs.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=756798
+
+ src/terminal-headerbar.ui | 22 ++++++++++++++++++++++
+ src/terminal-window.c     | 18 +++++++++++-------
+ 2 files changed, 33 insertions(+), 7 deletions(-)
+
+commit fe21577a5def391d3d535fc4c36320ce48749d11
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Dec 10 22:00:33 2018 +0100
+
+    app: Add env var to control headerbar setting
+    
+    This is useful for debugging.
+
+ src/terminal-app.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+commit b9027fbd4c5dbaca7c5007ba93fc8c7ff755229b
+Author: Charles Monzat <charles.monzat@numericable.fr>
+Date:   Wed Dec 5 08:23:51 2018 +0000
+
+    Update French translation
+    
+    (cherry picked from commit 062b247b2973af98caedebe06ea1024ee736b930)
+
+ po/fr.po | 290 +++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 142 insertions(+), 148 deletions(-)
+
+commit 9eaf72c720fcf3f58ec6fb1e872d03f400fbdf36
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sun Nov 25 23:58:31 2018 +0100
+
+    client: legacy: Print errors to stderr
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/42
+
+ src/terminal-options.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 1f24f05585bd8d186207e9439e5e1dd4bd4d9432
+Author: Carmen Bianca BAKKER <carmen@carmenbianca.eu>
+Date:   Tue Nov 20 13:07:00 2018 +0000
+
+    Update Esperanto translation
+    
+    (cherry picked from commit 9e9d8171cc38a437905390bb2d3f1522412b8e7b)
+
+ po/eo.po | 34 +++++++++++++++++++++++-----------
+ 1 file changed, 23 insertions(+), 11 deletions(-)
+
+commit 443a40bc68ecb0d3532eb3bbf3a77be190134584
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Nov 12 22:15:24 2018 +0100
+
+    Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 9c32e039bfb7902c136dc7aed3308e027325776c
+Author: Jakub Steiner <jimmac@gmail.com>
+Date:   Mon Nov 12 22:04:30 2018 +0100
+
+    icon: Update app icon
+    
+    https://gitlab.gnome.org/GNOME/Initiatives/issues/2
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/6
+
+ Makefile.am                                        |   2 +-
+ configure.ac                                       |   2 +
+ data/Makefile.am                                   |   3 +
+ data/icons/Makefile.am                             |  53 +++++
+ .../hicolor_apps_scalable_org.gnome.Terminal.svg   | 241 +++++++++++++++++++++
+ ...r_apps_symbolic_org.gnome.Terminal-symbolic.svg |  48 ++++
+ org.gnome.Terminal.desktop.in.in                   |   2 +-
+ src/terminal-app.h                                 |   2 +-
+ src/terminal-nautilus.c                            |   2 +-
+ 9 files changed, 351 insertions(+), 4 deletions(-)
+
+commit 6f9a806dd1f1627f6f3e946c9e534cda7f3174a4
+Author: Anish Sheela <aneesh.nl@gmail.com>
+Date:   Sun Nov 4 15:53:31 2018 +0000
+
+    Update Malayalam translation
+    
+    (cherry picked from commit d12707ef2e0cb186b0a2e7c61350f0f17615dc2a)
+
+ po/ml.po | 2734 ++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 1425 insertions(+), 1309 deletions(-)
+
+commit 7a57e7d3ca5468ebab92a080abf8159bf96e23e1
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Nov 3 21:07:02 2018 +0100
+
+    window: Fix zoom-out sensitivity
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/47
+
+ src/terminal-window.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+commit 7b6226aea299160338e6ab4e386c5099e9066da1
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Fri Nov 2 19:14:12 2018 +0100
+
+    window: Add headerbar infrastructure
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=756798
+
+ po/POTFILES.in                     |   2 +
+ src/Makefile.am                    |   3 +
+ src/org.gnome.Terminal.gschema.xml |   8 +++
+ src/terminal-app.c                 |  16 ++++-
+ src/terminal-app.h                 |   2 +
+ src/terminal-headerbar.c           | 135 +++++++++++++++++++++++++++++++++++++
+ src/terminal-headerbar.h           |  40 +++++++++++
+ src/terminal-headerbar.ui          |  24 +++++++
+ src/terminal-schemas.h             |   3 +-
+ src/terminal-window.c              |  14 +++-
+ src/terminal.gresource.xml         |   1 +
+ 11 files changed, 242 insertions(+), 6 deletions(-)
+
+commit 4b9f6d398d1f37fd9031a916d0782be1d33fa36d
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Fri Nov 2 18:41:36 2018 +0100
+
+    app: Remove app menu
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/39
+
+ org.gnome.Terminal.appdata.xml.in |  1 -
+ po/POTFILES.in                    |  1 -
+ src/Makefile.am                   |  1 -
+ src/terminal-app.c                | 20 +++++--------------
+ src/terminal-appmenu.ui           | 42 ---------------------------------------
+ src/terminal.gresource.xml        |  1 -
+ 6 files changed, 5 insertions(+), 61 deletions(-)
+
+commit 14d502fd3d12cf12b134c7e0e0553ad54f31cbe9
+Author: Carmen Bianca BAKKER <carmen@carmenbianca.eu>
+Date:   Mon Oct 29 23:04:48 2018 +0000
+
+    Update Esperanto translation
+    
+    (cherry picked from commit 8ad2f2f3ae90e33bffed57f4d4b952f0b3ae8653)
+
+ po/eo.po | 2806 +++++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 1583 insertions(+), 1223 deletions(-)
+
+commit adf7e5cf90907372cc7da878fcae302d5d6e4674
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Thu Oct 25 16:49:55 2018 +0200
+
+    help: Comment out tab dragging description
+    
+    Dragging tabs is currently disabled.
+
+ help/C/gs-tabs.page | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 8589e1eefdcbfd4371d9cbda3e08f3b6bf5e637a
 Author: Piotr Drąg <piotrdrag@gmail.com>
 Date:   Fri Oct 19 22:37:37 2018 +0200
 
@@ -7,49 +528,69 @@ Date:   Fri Oct 19 22:37:37 2018 +0200
  help/pl/pl.po | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
-commit 34cabf10a3337fe83bd23ecde451ac861dc88ffc
+commit 107ebbc3f0a3b71689c154765bf287fea421b701
 Author: Kjartan Maraas <kmaraas@gnome.org>
 Date:   Tue Oct 9 10:34:12 2018 +0000
 
     Update Norwegian Bokmål translation
+    
+    (cherry picked from commit 34cabf10a3337fe83bd23ecde451ac861dc88ffc)
 
  po/nb.po | 1392 +++++++++++++++++++++++++++++++++-----------------------------
  1 file changed, 735 insertions(+), 657 deletions(-)
 
-commit 62becaedb7ad21bd9c4306ed57aca718650994bf
+commit 663a4e231cedd87816c2c3d845ba89435de34a84
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Tue Oct 9 12:04:37 2018 +0200
+
+    gsettings: schema: Remove erroneous per-profile "default-show-menubar" key
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/40
+
+ src/org.gnome.Terminal.gschema.xml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+commit b41700af0ffcc99298bcf18d7ccba18623cac7b6
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Fri Oct 5 19:56:26 2018 +0200
 
     prefs: Hide the new terminal mode setting when disunified
     
     https://gitlab.gnome.org/GNOME/gnome-terminal/issues/37
-    (cherry picked from commit b41700af0ffcc99298bcf18d7ccba18623cac7b6)
 
  src/terminal-prefs.c | 20 ++++++++++----------
  1 file changed, 10 insertions(+), 10 deletions(-)
 
-commit 20f20a21534a5324baa91e3989ece1bde939b5c3
+commit 8973473cb362f1ac92f2a178f8a936b17e30e466
 Author: Christian Persch <chpe@src.gnome.org>
-Date:   Mon Sep 24 21:02:09 2018 +0200
+Date:   Fri Sep 28 12:59:27 2018 +0200
 
-    Post release version bump
+    prefs: Remove unused variable
 
- configure.ac | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ src/terminal-prefs.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-commit e6aba82fb4e97fd6edfd2feb1057aeaae7c0ece5
+commit 9f928c3a47f792ea3ac9f38942c669fb0370b32c
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Fri Sep 28 12:59:19 2018 +0200
+
+    profile: editor: Use correct enum
+
+ src/profile-editor.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 4b77237463e3cde75aed55fecacc0208e1f21dd9
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Tue Sep 11 18:10:51 2018 +0200
 
     accels: Use correct action name to set menubar visibility
     
     https://gitlab.gnome.org/GNOME/gnome-terminal/issues/33
-    (cherry picked from commit 4b77237463e3cde75aed55fecacc0208e1f21dd9)
 
  src/terminal-accels.c | 10 +++++-----
  1 file changed, 5 insertions(+), 5 deletions(-)
 
-commit b0457d4bdcb9e67718f2a5b6727778912ceb43f0
+commit 30efce621ad04276771aa311f52731b468c4adfd
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Fri Sep 7 21:10:37 2018 +0200
 
@@ -65,7 +606,6 @@ Date:   Fri Sep 7 21:10:37 2018 +0200
     the default.
     
     https://gitlab.gnome.org/GNOME/gnome-terminal/issues/30
-    (cherry picked from commit 30efce621ad04276771aa311f52731b468c4adfd)
 
  src/org.gnome.Terminal.gschema.xml |  4 ++++
  src/terminal-app.c                 | 38 +++++++++++++++++++++++++++++---------
@@ -74,18 +614,40 @@ Date:   Fri Sep 7 21:10:37 2018 +0200
  src/terminal-window.c              | 30 +++++++++++++++---------------
  5 files changed, 51 insertions(+), 24 deletions(-)
 
-commit e8d85bc657be52b5443d99cadfcd30262a57b4ca
+commit 7080f8fa78e45d0c35123f53ac9242e20b14afdd
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Fri Sep 7 21:10:37 2018 +0200
+
+    desktop: Remove obsolete Bugzilla entries from desktop file
+
+ org.gnome.Terminal.desktop.in.in | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+commit 334a1beb7b0574fcfd84ba8633456dca64133da7
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Fri Sep 7 17:51:12 2018 +0200
+
+    prefs: editor: Disable "Show bold text in bright colors" by default
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=762247#c25
+
+ src/org.gnome.Terminal.gschema.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 312fe981a364c69e364f022b4ecde8913592e0dc
 Author: Efstathios Iosifidis <eiosifidis@gnome.org>
 Date:   Wed Sep 5 22:17:59 2018 +0000
 
     Update Greek translation
+    
+    (cherry picked from commit e8d85bc657be52b5443d99cadfcd30262a57b4ca)
 
  po/el.po | 124 +++++++++++++++++++++++++++++++--------------------------------
  1 file changed, 62 insertions(+), 62 deletions(-)
 
-commit 436aad00fddd6c90f2d5f468ba2d66e3f46ce10a
+commit b1fbfa9a15f8c40a54816f8b29915b198c715584
 Author: Christian Persch <chpe@src.gnome.org>
-Date:   Sun Sep 2 11:52:24 2018 +0200
+Date:   Sun Sep 2 11:53:02 2018 +0200
 
     Post branch version bump
 
