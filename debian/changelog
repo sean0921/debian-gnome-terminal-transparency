@@ -1,3 +1,9 @@
+gnome-terminal (3.31.90-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Jeremy Bicha <jbicha@debian.org>  Wed, 06 Feb 2019 09:18:48 -0500
+
 gnome-terminal (3.30.2-2) unstable; urgency=medium
 
   * Restore -Wl,-O1 to our LDFLAGS
