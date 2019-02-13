@@ -5,7 +5,6 @@ Provide-fallback-for-reading-current-directory-if-OS.patch
 0001-Restore-transparency.patch
 0001-Add-style-classes-and-CSS-names-to-some-of-our-widge.patch
 0001-screen-window-Extra-padding-around-transparent-termi.patch
-0006-fix-invalid-appstream-metadata.patch
 52_support_apturl.patch
 60_add_lp_handler.patch
 scrollbar-background-theming.patch
