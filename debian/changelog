@@ -1,8 +1,11 @@
-gnome-terminal (3.32.0-1) UNRELEASED; urgency=medium
+gnome-terminal (3.32.0-1) experimental; urgency=medium
 
   * New upstream release
+  * Bump minimum libvte-2.91-dev to 0.56.0
+  * debian/gnome-terminal.gsettings-override: Drop unneeded headerbar=true
+    - The headerbar is now used automatically with GNOME.
 
- -- Jeremy Bicha <jbicha@debian.org>  Wed, 13 Mar 2019 19:01:33 -0400
+ -- Jeremy Bicha <jbicha@debian.org>  Wed, 13 Mar 2019 19:07:34 -0400
 
 gnome-terminal (3.31.90-1) experimental; urgency=medium
 
