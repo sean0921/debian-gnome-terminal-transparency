@@ -1,3 +1,294 @@
+commit 18926ee1cfbb76626e1cf337caa277f3a70c2d82
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Mar 11 22:13:11 2019 +0100
+
+    Version 3.32.0
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit bf2d5c6a7f2eab8fc04c9e4dfae6aa15d3194016
+Author: Asier Sarasua Garmendia <asier.sarasua@gmail.com>
+Date:   Sat Mar 9 17:02:58 2019 +0000
+
+    Update Basque translation
+
+ po/eu.po | 3467 +++++++++++++++++++++-----------------------------------------
+ 1 file changed, 1187 insertions(+), 2280 deletions(-)
+
+commit ef7a7aa5bc870fda6bf3c5535a2419d1409316f8
+Author: Changwoo Ryu <cwryu@debian.org>
+Date:   Fri Mar 8 05:52:00 2019 +0000
+
+    Update Korean translation
+
+ po/ko.po | 630 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 322 insertions(+), 308 deletions(-)
+
+commit 1f9012294afc5fdfe863b092332e73a1c5e1e537
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Mar 4 16:46:07 2019 +0100
+
+    Post release version bump
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit b19a57784e774cf0cdc458d015aa883ec5b52650
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Mar 4 16:40:42 2019 +0100
+
+    Version 3.31.92
+
+ configure.ac       | 4 ++--
+ src/terminal-app.c | 8 +-------
+ 2 files changed, 3 insertions(+), 9 deletions(-)
+
+commit ad31ce0c8a371fbee4749c28efae981e81090103
+Author: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>
+Date:   Sun Mar 3 10:33:28 2019 +0000
+
+    Update Latvian translation
+
+ po/lv.po | 721 +++++++++++++++++++++++++++++----------------------------------
+ 1 file changed, 335 insertions(+), 386 deletions(-)
+
+commit 63c701e5e684531123cdc8c81ff26547b929b3b6
+Author: Trần Ngọc Quân <vnwildman@gmail.com>
+Date:   Sun Mar 3 13:32:35 2019 +0700
+
+    Updated Vietnamese translation
+    
+    Signed-off-by: Trần Ngọc Quân <vnwildman@gmail.com>
+
+ po/vi.po | 629 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 321 insertions(+), 308 deletions(-)
+
+commit f5a3dd73e22484bdea298510673f215668d4930b
+Author: Марко Костић <marko.m.kostic@gmail.com>
+Date:   Thu Feb 28 20:09:34 2019 +0000
+
+    Update Serbian translation
+
+ po/sr.po | 634 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 324 insertions(+), 310 deletions(-)
+
+commit 122d2290e9fbaa9f9b94a9ad7765d8b4e09a9418
+Author: Gianvito Cavasoli <gianvito@gmx.it>
+Date:   Thu Feb 28 07:40:55 2019 +0000
+
+    Update Italian translation
+
+ po/it.po | 605 ++++++++++++++++++++++++++++++---------------------------------
+ 1 file changed, 292 insertions(+), 313 deletions(-)
+
+commit 81a197b5a2437a8d9498f93442d2a2dda8a31ff3
+Author: Fabio Tomat <f.t.public@gmail.com>
+Date:   Wed Feb 27 19:43:35 2019 +0000
+
+    Update Friulian translation
+
+ po/fur.po | 24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
+
+commit 98cfabbfffed9aacd220b410cf26d7e68f903a0e
+Author: Rafael Fontenelle <rafaelff@gnome.org>
+Date:   Wed Feb 27 02:38:44 2019 +0000
+
+    Update Brazilian Portuguese translation
+
+ po/pt_BR.po | 642 +++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 330 insertions(+), 312 deletions(-)
+
+commit 62c807a7433ae031085d69b9ead614e9ad14c5da
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Tue Feb 26 22:07:08 2019 +0100
+
+    app: Automatically determine if headerbars should be used
+    
+    If the XDG_CURRENT_DESKTOP env var contains either GNOME or GNOME-Classic,
+    use headerbars, unless the user has explicitly set the pref.
+    
+    NOTE! This makes it unnecessary for distributions to override the default
+    value of the headerbar pref.
+
+ src/org.gnome.Terminal.gschema.xml |  4 +--
+ src/terminal-app.c                 | 56 ++++++++++++++++++++++++++++++++++----
+ 2 files changed, 52 insertions(+), 8 deletions(-)
+
+commit f4340fc87b2e661425b10d4c46b8236f357a5bd0
+Author: Florian Müllner <fmuellner@gnome.org>
+Date:   Tue Feb 26 21:42:31 2019 +0100
+
+    prefs: Hide default-menubar setting when headerbars are used
+    
+    As headerbars combine the functionality of titlebar, toolbar and
+    menubar, they generally replace (not supplement) those elements.
+    
+    For that reasons, the default-show-menubar setting is ignored when
+    headerbars are enabled. However despite not having any effect, the
+    corresponding checkbox is still shown in the preferences. It doesn't
+    make sense to expose non-working settings, so hide it when headerbars
+    are used.
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/81
+
+ src/terminal-prefs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 171f83b989372e8c117b196928a061ccbf60479a
+Author: Stas Solovey <whats_up@tut.by>
+Date:   Tue Feb 26 17:46:49 2019 +0000
+
+    Update Russian translation
+
+ po/ru.po | 627 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 320 insertions(+), 307 deletions(-)
+
+commit e922e0c04420198ad0eefdb7954bacb4660ebe3d
+Author: Aurimas Černius <aurisc4@gmail.com>
+Date:   Sun Feb 24 19:09:56 2019 +0200
+
+    Updated Lithuanian translation
+
+ po/lt.po | 640 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 329 insertions(+), 311 deletions(-)
+
+commit ea10609343e5158b6d9b2a6363a893a717a0e1d7
+Author: Nathan Follens <nathan@anche.no>
+Date:   Sun Feb 24 16:16:53 2019 +0000
+
+    Update Dutch translation
+
+ po/nl.po | 722 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 367 insertions(+), 355 deletions(-)
+
+commit a9890f8fa464a9561209eac72a7778e2a367a9b3
+Author: Ask Hjorth Larsen <asklarsen@gmail.com>
+Date:   Sun Feb 24 14:42:01 2019 +0100
+
+    Updated Danish translation
+
+ po/da.po | 97 ++++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 48 insertions(+), 49 deletions(-)
+
+commit 06ff6ae51bdf5acce2650e36f1ef74214eaee552
+Author: Yuras Shumovich <shumovichy@gmail.com>
+Date:   Sat Feb 23 13:16:53 2019 +0000
+
+    Update Belarusian translation
+
+ po/be.po | 2471 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 1357 insertions(+), 1114 deletions(-)
+
+commit a693dc578a30f6b7114e905ee1385f9308578dc8
+Author: Ryuta Fujii <translation@sicklylife.jp>
+Date:   Sat Feb 23 09:40:00 2019 +0000
+
+    Update Japanese translation
+
+ po/ja.po | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+
+commit 7b09f998266534f18076a9d581941cabc675ad81
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Thu Feb 21 17:44:39 2019 +0100
+
+    Update Polish translation
+
+ po/pl.po | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 5f1f4c903d85e8b8d1f748fadf1b97ea23820245
+Author: Efstathios Iosifidis <eiosifidis@gnome.org>
+Date:   Sun Feb 17 18:06:43 2019 +0000
+
+    Update Greek translation
+
+ po/el.po | 483 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 254 insertions(+), 229 deletions(-)
+
+commit 67a71db7261b972de6614ba2afb5bd7b6fb7b505
+Author: Yi-Jyun Pan <pan93412@gmail.com>
+Date:   Sun Feb 17 16:32:36 2019 +0000
+
+    Update Chinese (Taiwan) translation
+
+ po/zh_TW.po | 634 +++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 328 insertions(+), 306 deletions(-)
+
+commit 9ae1df632b14fab7609b91d776a3ff3a298dd0b6
+Author: Alan Mortensen <alanmortensen.am@gmail.com>
+Date:   Sat Feb 16 20:56:40 2019 +0100
+
+    Updated Danish translation
+
+ po/da.po | 693 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 354 insertions(+), 339 deletions(-)
+
+commit 45fea0d9294eba2fb0d9b915313a6645dc0c3023
+Author: Baurzhan Muftakhidinov <baurthefirst@gmail.com>
+Date:   Sat Feb 16 14:37:38 2019 +0000
+
+    Update Kazakh translation
+
+ po/kk.po | 632 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 321 insertions(+), 311 deletions(-)
+
+commit f44a4e2dc219091f68312bffc05e8072464bd190
+Author: Ryuta Fujii <translation@sicklylife.jp>
+Date:   Sat Feb 9 10:09:52 2019 +0000
+
+    Update Japanese translation
+
+ po/ja.po | 49 ++++++++++++++++++-------------------------------
+ 1 file changed, 18 insertions(+), 31 deletions(-)
+
+commit 7c88a3b837490183596736bb12b4ae057b0c6e01
+Author: Jiri Grönroos <jiri.gronroos@iki.fi>
+Date:   Thu Feb 7 20:26:00 2019 +0000
+
+    Update Finnish translation
+
+ po/fi.po | 744 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 373 insertions(+), 371 deletions(-)
+
+commit f40240f1931472ac47cdeeee0d42daab0f4bdcfd
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Thu Feb 7 13:03:28 2019 +0100
+
+    Update Catalan translation
+
+ po/ca.po | 556 ++++++++++++++++++++++++++++++---------------------------------
+ 1 file changed, 269 insertions(+), 287 deletions(-)
+
+commit 68a9170f26d5187d43babe63122fcb9e3568f1bb
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Wed Feb 6 22:52:36 2019 +0100
+
+    Update Polish translation
+
+ po/pl.po | 587 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 299 insertions(+), 288 deletions(-)
+
+commit 14b05dfa7d625c8c1f100860be2fad21f6b4ecd4
+Author: Marek Cernocky <marek_cernocky@conel.cz>
+Date:   Wed Feb 6 11:44:20 2019 +0100
+
+    Updated Czech translation
+
+ po/cs.po | 593 ++++++++++++++++++++++++++++++---------------------------------
+ 1 file changed, 285 insertions(+), 308 deletions(-)
+
+commit f6906dfda1bc20ac11777d71616ac19fe52a2fa4
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Feb 4 23:52:17 2019 +0100
+
+    Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit 5ed514f07154fcc832cdc6ecb5a7b0f6c0095725
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Mon Feb 4 23:49:11 2019 +0100

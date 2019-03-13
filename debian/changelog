@@ -1,3 +1,37 @@
+gnome-terminal (3.32.0-1ubuntu1) UNRELEASED; urgency=medium
+
+  * Merge with debian, remaining changes:
+    + gnome-terminal.wrap, debian/rules:
+      - Add a wrapper script to restore command line compatibility.
+    + debian/control.in:
+      - gnome-terminal depends on python3, python3-gi and gir1.2-glib-2.0 for
+        the wrapper script.
+    + Add 0001-Restore-transparency.patch:
+      - Restore transparency support
+    + Add 0001-Add-style-classes-and-CSS-names-to-some-of-our-widge.patch:
+      - Add CSS names and style classes so we can theme things more easily.
+    + Add 0001-screen-window-Extra-padding-around-transparent-termi.patch:
+      - Fix transparency on Wayland. Patch by Owen Taylor, via Debarshi Ray @
+        Fedora (LP: #1650395)
+    + Add 52_support_apturl.patch:
+      - Support apt: urls.
+    + Add 60_add_lp_handler.patch:
+      - Add a handler for launchpad bug URLs.
+    + Add scrollbar-background-theming.patch:
+      - Draw background under the scrollbar that matches the actual terminal
+        background color. This allows proper theming.
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 06 Feb 2019 10:03:58 -0500
+
+gnome-terminal (3.32.0-1) experimental; urgency=medium
+
+  * New upstream release
+  * Bump minimum libvte-2.91-dev to 0.56.0
+  * debian/gnome-terminal.gsettings-override: Drop unneeded headerbar=true
+    - The headerbar is now used automatically with GNOME.
+
+ -- Jeremy Bicha <jbicha@debian.org>  Wed, 13 Mar 2019 19:07:34 -0400
+
 gnome-terminal (3.31.90-1ubuntu1) disco; urgency=medium
 
   * Merge with debian, remaining changes:
