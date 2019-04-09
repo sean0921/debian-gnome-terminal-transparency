@@ -1,3 +1,9 @@
+gnome-terminal (3.32.1-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Iain Lane <laney@debian.org>  Tue, 09 Apr 2019 12:59:32 +0100
+
 gnome-terminal (3.32.0-1) experimental; urgency=medium
 
   * New upstream release
