@@ -1,8 +1,15 @@
 gnome-terminal (3.32.1-1) UNRELEASED; urgency=medium
 
   * New upstream release
+    + headermenu: Add placeholder item for win.set-title
+    + help: Fix pref-profiles.page to validate
+    + help: Update application icon for 3.32
+    + help: Update application screenshot for 3.32; remove localized versions
+    + window: Fix tabs menu
+    + window: Show last tab's accel in the tab menu
+  * Bump vte BD per upstream
 
- -- Iain Lane <laney@debian.org>  Tue, 09 Apr 2019 12:59:32 +0100
+ -- Iain Lane <laney@debian.org>  Tue, 09 Apr 2019 13:01:45 +0100
 
 gnome-terminal (3.32.0-1) experimental; urgency=medium
 
