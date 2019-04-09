@@ -1,3 +1,180 @@
+commit da18671711031cf61bdceed0f66603fdc87f6cb8
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Apr 8 23:18:53 2019 +0200
+
+    build: Fix ChangeLog rule to work on a git worktree
+
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 75742bf35f56cfcdee9018d740884f58a5f1b65a
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Apr 8 23:13:41 2019 +0200
+
+    Version 3.32.1
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 55b486f626209dcec24506b3ad8a3f3dee0c1be0
+Author: Ask Hjorth Larsen <asklarsen@gmail.com>
+Date:   Mon Apr 8 21:00:17 2019 +0200
+
+    Updated Danish translation
+
+ po/da.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 3dae52e62e45e2ee8847112ec8c8fe6e6b9a8e3c
+Author: Balázs Úr <balazs@urbalazs.hu>
+Date:   Sun Apr 7 20:23:32 2019 +0000
+
+    Update Hungarian translation
+
+ help/hu/hu.po | 1159 +++++----------------------------------------------------
+ 1 file changed, 83 insertions(+), 1076 deletions(-)
+
+commit adaaf643ee3d79ad1f6c6bba49048e54503dc44c
+Author: Ask Hjorth Larsen <asklarsen@gmail.com>
+Date:   Sun Apr 7 03:44:20 2019 +0200
+
+    Updated Danish translation
+
+ po/da.po | 70 +++++++++++++++++++++++++++++++---------------------------------
+ 1 file changed, 34 insertions(+), 36 deletions(-)
+
+commit 23c65c964ac11c8f0b47e27ade8a304bc3b051fd
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Sat Apr 6 06:03:05 2019 +0200
+
+    Update Catalan translation
+
+ po/ca.po | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit bc7c6d43b31641776b3b678a763cb4cb74d9c66a
+Author: Debarshi Ray <debarshir@gnome.org>
+Date:   Fri Mar 29 18:36:02 2019 +0100
+
+    headermenu: Add placeholder item for win.set-title
+    
+    ... to match the ones in the main menubar and the notebook-menus.
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/97
+    (cherry picked from commit 79beb57a5f3e9f644ea3f3c78b2da277a5a349d4)
+
+ src/terminal-headermenu.ui | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit 57936606ff230669adde754167269dd7ad8c4178
+Author: Anders Jonsson <anders.jonsson@norsjovallen.se>
+Date:   Sun Mar 31 19:34:32 2019 +0000
+
+    Update Swedish translation
+
+ help/sv/sv.po | 119 ++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 54 insertions(+), 65 deletions(-)
+
+commit 2ad262ecf3ba479ef81c6590cdce8cc313adae1a
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Sun Mar 31 15:25:14 2019 +0200
+
+    Update Polish translation
+
+ help/pl/pl.po | 84 +++++++++++++----------------------------------------------
+ 1 file changed, 18 insertions(+), 66 deletions(-)
+
+commit 55006da31d02f079116bb48e1d3dcbc65778bc3a
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sun Mar 31 14:37:44 2019 +0200
+
+    help: Update application screenshot for 3.32; remove localized versions
+    
+    The 3.32 UI does not expose any translatable strings by default.
+    Hence localized versions of this screenshot are not needed.
+
+ help/C/figures/gnome-terminal.png     | Bin 12172 -> 10129 bytes
+ help/C/introduction.page              |   2 +-
+ help/de/figures/gnome-terminal.png    | Bin 14096 -> 0 bytes
+ help/el/figures/gnome-terminal.png    | Bin 8149 -> 0 bytes
+ help/hu/figures/gnome-terminal.png    | Bin 13714 -> 0 bytes
+ help/ko/figures/gnome-terminal.png    | Bin 9809 -> 0 bytes
+ help/pl/figures/gnome-terminal.png    | Bin 10700 -> 0 bytes
+ help/pt_BR/figures/gnome-terminal.png | Bin 12486 -> 0 bytes
+ help/ru/figures/gnome-terminal.png    | Bin 12292 -> 0 bytes
+ 9 files changed, 1 insertion(+), 1 deletion(-)
+
+commit 7bad4e9102fd3c12ae8784801dff20897e296ecc
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sun Mar 31 14:14:31 2019 +0200
+
+    help: Update application icon for 3.32
+
+ help/C/figures/gnome-terminal-icon.png | Bin 1486 -> 859 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 3d74551c21721c9877ab3a7b1812285b13965649
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sun Mar 31 14:02:37 2019 +0200
+
+    help: Fix pref-profiles.page to validate
+
+ help/C/pref-profiles.page | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit cfa61cdeb0e26d4fd6bf8c6f527d5b8569d39700
+Author: Goran Vidović <trebelnik2@gmail.com>
+Date:   Tue Mar 26 17:12:53 2019 +0000
+
+    Update Croatian translation
+
+ po/hr.po | 631 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 320 insertions(+), 311 deletions(-)
+
+commit def50721b0b18c2276cd7da26e09ef45d03d2c14
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Tue Mar 26 11:46:40 2019 +0100
+
+    window: Show last tab's accel in the tab menu
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/94
+    (cherry picked from commit a8ab25c16fe9cfdc96e6da411dba43e524255a8b)
+
+ src/terminal-window.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+commit f8f7d3be9047d9ba9a56f15d9ae36cbd71b0e0be
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Tue Mar 26 11:36:35 2019 +0100
+
+    window: Fix tabs menu
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/93
+    (cherry picked from commit 58b9488a46ab4265a4b3e00e26c577bcdeccb84f)
+
+ src/terminal-menu-button.c | 48 ++++++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 44 insertions(+), 4 deletions(-)
+
+commit dc2ba58d4f47d06637a8ce50e82425800ed3df4c
+Author: Khaled Hosny <khaledhosny@eglug.org>
+Date:   Fri Mar 15 23:37:17 2019 +0200
+
+    Update Arabic translation
+    
+    (cherry picked from commit e5e59c7af37856adc288166d1a7c44a0f19e5bd0)
+
+ po/ar.po | 555 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 288 insertions(+), 267 deletions(-)
+
+commit 9828e0be37dbbb3c587e96f15b1e59000298f6ba
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Mar 11 22:17:22 2019 +0100
+
+    Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit 18926ee1cfbb76626e1cf337caa277f3a70c2d82
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Mon Mar 11 22:13:11 2019 +0100
