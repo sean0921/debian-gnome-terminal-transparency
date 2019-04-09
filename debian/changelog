@@ -1,4 +1,4 @@
-gnome-terminal (3.32.1-1) UNRELEASED; urgency=medium
+gnome-terminal (3.32.1-1) experimental; urgency=medium
 
   * New upstream release
     + headermenu: Add placeholder item for win.set-title
@@ -9,7 +9,7 @@ gnome-terminal (3.32.1-1) UNRELEASED; urgency=medium
     + window: Show last tab's accel in the tab menu
   * Bump vte BD per upstream
 
- -- Iain Lane <laney@debian.org>  Tue, 09 Apr 2019 13:01:45 +0100
+ -- Iain Lane <laney@debian.org>  Tue, 09 Apr 2019 13:13:25 +0100
 
 gnome-terminal (3.32.0-1) experimental; urgency=medium
 
