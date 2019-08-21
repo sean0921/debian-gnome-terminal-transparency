@@ -1,20 +1,22 @@
-# Translation of gnome-terminal to Croatiann
-# Copyright (C) Croatiann team
-# Translators: Automatski Prijevod <>,Denis Lackovic <delacko@fly.srk.fer.hr>,Robert Sedak <robert.sedak@sk.tel.hr>,
+# Karbi translation for gnome-terminal.
+# Copyright (C) 2019 gnome-terminal's Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-terminal package.
+# Jor Teron <jor.teron@gmail.com>, 2019.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-terminal 0\n"
+"Project-Id-Version: gnome-terminal master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-terminal/issues\n"
-"POT-Creation-Date: 2019-06-30 13:34+0000\n"
-"PO-Revision-Date: 2019-07-19 23:58+0200\n"
-"Last-Translator: gogo <linux.hr@protonmail.com>\n"
-"Language-Team: Croatian <lokalizacija@linux.hr>\n"
-"Language: hr\n"
+"POT-Creation-Date: 2019-07-22 03:43+0000\n"
+"PO-Revision-Date: 2019-07-23 23:11+0530\n"
+"Last-Translator: Jor Teron <jor.teron@gmail.com>\n"
+"Language-Team: Karbi <karbi.translation@gmail.com>\n"
+"Language: mjw\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-09-15 11:20+0000\n"
-"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: n=2 ; ( n != 1 )\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #. VERSION=@VERSION@
 #: ../org.gnome.Terminal.appdata.xml.in.h:1
@@ -29,94 +31,83 @@ msgstr "Terminal"
 #: ../org.gnome.Terminal.appdata.xml.in.h:2
 #: ../org.gnome.Terminal.desktop.in.in.h:3
 msgid "Use the command line"
-msgstr "Koristite naredbeni redak"
+msgstr "Command line kirim"
 
 #: ../org.gnome.Terminal.appdata.xml.in.h:3
 msgid ""
 "GNOME Terminal is a terminal emulator application for accessing a UNIX shell "
 "environment which can be used to run programs available on your system."
 msgstr ""
-"GNOME Terminal je aplikacija terminalnog emulatora za pristup okruženju UNIX "
-"ljuske koja se može koristiti za pokretanje programa dostupnim na vašem "
-"sustavu."
 
 #: ../org.gnome.Terminal.appdata.xml.in.h:4
 msgid ""
 "It supports several profiles, multiple tabs and implements several keyboard "
 "shortcuts."
 msgstr ""
-"Podržava nekoliko profila, višestruke kartice i implementira nekoliko "
-"prečaca tipkovnice."
 
 #: ../org.gnome.Terminal.Nautilus.metainfo.xml.in.h:1
 msgid "Terminal plugin for Files"
-msgstr "Terminal priključak za Datoteke"
+msgstr ""
 
 #: ../org.gnome.Terminal.Nautilus.metainfo.xml.in.h:2
 msgid "Open a terminal from Files"
-msgstr "Otvori terminal iz Datoteka"
+msgstr ""
 
 #: ../org.gnome.Terminal.Nautilus.metainfo.xml.in.h:3
 msgid ""
 "Open Terminal is a plugin for the Files application that adds a menu item to "
 "the context menu to open a terminal in the currently browsed directory."
 msgstr ""
-"Otvori terminal je priključak za Datoteke aplikaciju koji dodaje stavku u "
-"sadržajni izbornik za otvaranje terminala u trenutno pregledanom direktoriju."
 
 #: ../org.gnome.Terminal.desktop.in.in.h:4
 msgid "shell;prompt;command;commandline;cmd;"
-msgstr "ljuska;prompt;naredba;naredbeni redak;cmd;"
+msgstr "shell;prompt;command;commandline;cmd;"
 
 #: ../org.gnome.Terminal.desktop.in.in.h:5 ../src/terminal-accels.c:127
 msgid "New Window"
-msgstr "Novi prozor"
+msgstr "New Window"
 
 #: ../org.gnome.Terminal.desktop.in.in.h:6 ../src/terminal-accels.c:146
 msgid "Preferences"
-msgstr "Osobitosti"
+msgstr "Preferences"
 
 #. Translators: Keep single quote please!
 #: ../src/org.gnome.Terminal.gschema.xml.h:2
 msgctxt "visible-name"
 msgid "'Unnamed'"
-msgstr "'Neimenovano'"
+msgstr "'COMMAND'"
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:3
 msgid "Human-readable name of the profile"
-msgstr "Ljudski-čitljiv naziv za profil"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:4
 msgid "Human-readable name of the profile."
-msgstr "Ljudski-čitljiv naziv profila."
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:5
 msgid "Default color of text in the terminal"
-msgstr "Uobičajena boja za tekst terminala"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:6
 msgid ""
 "Default color of text in the terminal, as a color specification (can be HTML-"
 "style hex digits, or a color name such as “red”)."
 msgstr ""
-"Uobičajena boja teksta terminala, kao specifikacija boje (može biti "
-"heksadecimalni broj u stilu HTML-a, ili naziv boje poput \"red\")."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:7
 msgid "Default color of terminal background"
-msgstr "Uobičajena boja pozadine terminala"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:8
 msgid ""
 "Default color of terminal background, as a color specification (can be HTML-"
 "style hex digits, or a color name such as “red”)."
 msgstr ""
-"Uobičajena boja pozadine terminala, kao specifikacija boje (može biti "
-"heksadecimalni broj u stilu HTML-a, ili naziv boje poput \"red\")."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:9
 msgid "Default color of bold text in the terminal"
-msgstr "Uobičajena boja podebljanog teksta u terminalu"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:10
 msgid ""
@@ -124,48 +115,39 @@ msgid ""
 "HTML-style hex digits, or a color name such as “red”). This is ignored if "
 "bold-color-same-as-fg is true."
 msgstr ""
-"Uobičajena boja podebljanog teksta u terminalu, boja može biti određena (kao "
-"HTML-stil heksadecimalni broj, ili naziv boje poput \"red\"). To je "
-"zanemareno ako je bold-color-same-as-fg postavljen na true."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:11
 msgid "Whether bold text should use the same color as normal text"
-msgstr "Trebali li podebljani tekst koristiti istu boju kao normalni tekst"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:12
 msgid ""
 "If true, boldface text will be rendered using the same color as normal text."
 msgstr ""
-"Ako je odabrano, podebljani tekst će se izvoditi iste boje kao i normalni "
-"tekst."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:13
 msgid ""
 "Scale factor for the cell height to increase line spacing. (Does not "
 "increase the font’s height.)"
 msgstr ""
-"Razmjer promjene veličine razmaka visine za povećanje razmaka između redaka. "
-"(Ne povećava visinu slova.)"
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:14
 msgid ""
 "Scale factor for the cell width to increase letter spacing. (Does not "
 "increase the font’s width.)"
 msgstr ""
-"Razmjer promjene veličine razmaka širine za povećanje razmaka između slova. "
-"(Ne povećava širinu slova.)"
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:15
 msgid "Whether to use custom cursor colors"
-msgstr "Treba li koristiti prilagođenu boju pokazivača"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:16
 msgid "If true, use the cursor colors from the profile."
-msgstr "Ako je odabrano, koristi boju pokazivača iz profila."
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:17
 msgid "Cursor background color"
-msgstr "Boja pozadine pokazivača"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:18
 msgid ""
@@ -173,13 +155,10 @@ msgid ""
 "specification (can be HTML-style hex digits, or a color name such as “red”). "
 "This is ignored if cursor-colors-set is false."
 msgstr ""
-"Prilagođena boja pozadine pokazivača u terminalu, boja može biti određena "
-"(kao HTML-stil heksadecimalni broj, ili naziv boje poput \"red\"). To je "
-"zanemareno ako je cursor-colors-set postavljen na false."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:19
 msgid "Cursor foreground colour"
-msgstr "Boja ispred pokazivača"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:20
 msgid ""
@@ -187,22 +166,18 @@ msgid ""
 "cursor position, as a color specification (can be HTML-style hex digits, or "
 "a color name such as “red”). This is ignored if cursor-colors-set is false."
 msgstr ""
-"Prilagođena boja ispred znaka teksta na položaju pokazivača u terminalu , "
-"boja može biti određena (kao HTML-stil heksadecimalni broj, ili naziv boje "
-"poput \"red\"). To je zanemareno ako je cursor-colors-set postavljen na "
-"false."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:21
 msgid "Whether to use custom highlight colors"
-msgstr "Treba li koristiti prilagođenu boju naglašavanja teksta"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:22
 msgid "If true, use the highlight colors from the profile."
-msgstr "Ako je odabrano, koristi boju naglašavanja iz profila."
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:23
 msgid "Highlight background color"
-msgstr "Naglasi boju pozadine"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:24
 msgid ""
@@ -210,13 +185,10 @@ msgid ""
 "specification (can be HTML-style hex digits, or a color name such as “red”). "
 "This is ignored if highlight-colors-set is false."
 msgstr ""
-"Prilagođena boja pozadine naglašavanja u terminalu, boja može biti određena "
-"(kao HTML-stil heksadecimalni broj, ili naziv boje poput \"red\"). To je "
-"zanemareno ako je highlight-colors-set postavljen na false."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:25
 msgid "Highlight foreground colour"
-msgstr "Naglasi boju ispred"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:26
 msgid ""
@@ -225,91 +197,78 @@ msgid ""
 "or a color name such as “red”). This is ignored if highlight-colors-set is "
 "false."
 msgstr ""
-"Prilagođena boja ispred znaka teksta na položaju ispred u terminalu , boja "
-"može biti određena (kao HTML-stil heksadecimalni broj, ili naziv boje poput "
-"\"red\"). To je zanemareno ako je highlight-colors-set postavljen na false."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:27
 msgid "Whether to perform bidirectional text rendering"
-msgstr "Treba li izvesti dvosmjerno prikazivanje teksta"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:28
 msgid "If true, perform bidirectional text rendering (“BiDi”)."
-msgstr "Ako je odabrano, izvedi dvosmjerno prikazivanje teksta (“BiDi”)."
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:29
 msgid "Whether to perform Arabic shaping"
-msgstr "Treba li izvesti arapsko oblikovanje"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:30
 msgid "If true, shape Arabic text."
-msgstr "Ako je odabrano, oblikuj arapski tekst."
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:31
 msgid "Whether to allow bold text"
-msgstr "Treba li dopustiti podebljani tekst"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:32
 msgid "If true, allow applications in the terminal to make text boldface."
 msgstr ""
-"Ako je postavljeno, dopusti aplikacijama postavljanje teksta podebljanim u "
-"terminalu."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:33
 msgid "Whether bold is also bright"
-msgstr "Treba li podebljani tekst biti svjetao"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:34
 msgid ""
 "If true, setting bold on the first 8 colors also switches to their bright "
 "variants."
 msgstr ""
-"Ako je odabrano, postavljanje debljine na prvih 8 boja isto mijenja njihove "
-"varijante svjetline."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:35
 msgid "Whether to ring the terminal bell"
-msgstr "Treba li zvoniti terminalno zvono"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:36
 msgid ""
 "List of ASCII punctuation characters that are not to be treated as part of a "
 "word when doing word-wise selection"
 msgstr ""
-"Popis ASCII pravopisnih znakova koji se ne mogu tretirati kao dio riječi "
-"kada se radi mudar odabir riječi"
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:37
 msgid "Default number of columns"
-msgstr "Zadani broj stupaca"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:38
 msgid ""
 "Number of columns in newly created terminal windows. Has no effect if "
 "use_custom_default_size is not enabled."
 msgstr ""
-"Broj stupaca u novostvorenim prozorima terminala. Nema učinka ako "
-"use_custom_default_size nije omogućeno."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:39
 msgid "Default number of rows"
-msgstr "Zadani broj redaka"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:40
 msgid ""
 "Number of rows in newly created terminal windows. Has no effect if "
 "use_custom_default_size is not enabled."
 msgstr ""
-"Broj redaka u novostvorenim prozorima terminala. Nema učinka ako "
-"use_custom_default_size nije omogućeno."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:41
 msgid "When to show the scrollbar"
-msgstr "Kada prikazati traku klizanja"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:42
 msgid "Number of lines to keep in scrollback"
-msgstr "Broj redaka za koji se pomiče traka klizanja"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:43
 msgid ""
@@ -317,14 +276,10 @@ msgid ""
 "terminal by this number of lines; lines that don’t fit in the scrollback are "
 "discarded. If scrollback_unlimited is true, this value is ignored."
 msgstr ""
-"Broj redaka koji ostaju spremljeni pri pomicanju unatrag. Možete pomicati "
-"unatrag u terminalu za ovaj broj redaka; redci koje nisu u okviru "
-"postavljenog ograničenja su odbačeni. Ako je mogućnost scrollback_unlimited "
-"postavljena na true, ova vrijednost se zanemaruje."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:44
 msgid "Whether an unlimited number of lines should be kept in scrollback"
-msgstr "Treba li se u klizanju unatrag sačuvati neograničen broj redaka"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:45
 msgid ""
@@ -332,282 +287,257 @@ msgid ""
 "stored on disk temporarily, so this may cause the system to run out of disk "
 "space if there is a lot of output to the terminal."
 msgstr ""
-"Ako je uključeno, prijašnjo redci nikada neće biti odbačeni. Povijest "
-"prijašnjih redaka je sačuvana privremeno na lokalnom disku, ovo može "
-"prouzročiti nestajanje slobodnog prostora na disku ukoliko je mnogo redaka u "
-"terminalu."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:46
 msgid "Whether to scroll to the bottom when a key is pressed"
-msgstr "Treba li pomicati do dna kada je tipka pritisnuta"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:47
 msgid "If true, pressing a key jumps the scrollbar to the bottom."
-msgstr "Ako je odabrano, pritisak na tipku postavlja klizač na dno."
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:48
 msgid "Whether to scroll to the bottom when there’s new output"
-msgstr "Treba li pomicati do dna kada postoji izlaz iz aplikacije"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:49
 msgid ""
 "If true, whenever there’s new output the terminal will scroll to the bottom."
 msgstr ""
-"Ako je postavljeno, svaki puta kad postoji izlaz terminal će otklizati "
-"klizač na dno."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:50
 msgid "What to do with the terminal when the child command exits"
-msgstr "Što treba napraviti s terminalom kada podređena naredba izlazi"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:51
 msgid ""
 "Possible values are “close” to close the terminal, “restart” to restart the "
 "command, and “hold” to keep the terminal open with no command running inside."
 msgstr ""
-"Moguće vrijednosti su \"close\" za zatvaranje terminala, \"restart\" za "
-"ponavljanje naredbe i \"hold\" za držanje terminala bez unutar pokrenutih "
-"naredbi."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:52
 msgid "Whether to launch the command in the terminal as a login shell"
-msgstr "Treba li pokrenuti naredbu u terminalu kao ljusku za prijavu"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:53
 msgid ""
 "If true, the command inside the terminal will be launched as a login shell "
 "(argv[0] will have a hyphen in front of it)."
 msgstr ""
-"Ako je odabrano, naredba unutar terminala će biti pokrenuta kao ljuska "
-"prijave (argv[0] će imati crticu ispred)."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:54
 msgid "Whether to run a custom command instead of the shell"
-msgstr "Treba li pokrenuti prilalagođenu naredbu umjesto ljuske"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:55
 msgid ""
 "If true, the value of the custom_command setting will be used in place of "
 "running a shell."
 msgstr ""
-"Ako je odabrano, vrijednost zadane naredbe biti će korištena umjesto ljuske "
-"koja radi."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:56
 msgid "Whether to blink the cursor"
-msgstr "Treba li pokazivač žmirkati"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:57
 msgid ""
 "The possible values are “system” to use the global cursor blinking settings, "
 "or “on” or “off” to set the mode explicitly."
 msgstr ""
-"Moguće vrijednosti su \"system\" za korištenje globalnih postavki treptanja "
-"pokazivača, ili \"on\" ili \"off\" za izričito postavljanje."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:58
 msgid "The cursor appearance"
-msgstr "Izgled pokazivača"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:59
 msgid ""
 "Possible values are “always” or “never” allow blinking text, or only when "
 "the terminal is “focused” or “unfocused”."
 msgstr ""
-"Moguće vrijednosti su \"uvijek\" ili \"nikada\" za treptanje teksta, ili "
-"samo kada je terminal \"pri fokusu\" ili \"nije fokusiran\"."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:60
 msgid "Custom command to use instead of the shell"
-msgstr "Prilagođena naredba za korištenje umjesto ljuske"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:61
 msgid "Run this command in place of the shell, if use_custom_command is true."
 msgstr ""
-"Pokretanje naredbe umjesto ljuske, ako je use_custom_command postavljeno."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:62
 msgid "Palette for terminal applications"
-msgstr "Paleta za aplikacije terminala"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:63
 msgid "A Pango font name and size"
-msgstr "Veličina i naziv Pango slova"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:64
 msgid "The code sequence the Backspace key generates"
-msgstr "Slijed kôda koji generira Backspace tipka"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:65
 msgid "The code sequence the Delete key generates"
-msgstr "Slijed kôda koji generira Delete tipka"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:66
 msgid "Whether to use the colors from the theme for the terminal widget"
-msgstr "Treba li koristiti boje iz teme za elemente terminala"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:67
 msgid "Whether to use the system monospace font"
-msgstr "Treba li koristiti monospace slova sustava"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:68
 msgid "Whether to rewrap the terminal contents on window resize"
 msgstr ""
-"Treba li ponvono prelomiti sadržaj terminala  pri promjeni veličine prozora"
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:69
 msgid "Which encoding to use"
-msgstr "Koje kôdiranje koristiti"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:70
 msgid ""
 "Whether ambiguous-width characters are narrow or wide when using UTF-8 "
 "encoding"
 msgstr ""
-"Trebaju li neodređeno široki znakovi biti uski ili široki kada se koristi "
-"UTF-8 kôdiranje"
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:71
 msgid "Keyboard shortcut to open a new tab"
-msgstr "Prečac tipkovnice za otvaranje nove kartice"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:72
 msgid "Keyboard shortcut to open a new window"
-msgstr "Prečac tipkovnice za otvaranje novog prozora"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:73
 msgid "Keyboard shortcut to save the current tab contents to file"
-msgstr "Prečac tipkovnice za spremanje sadržaja trenutne kartice u datoteku"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:74
 msgid ""
 "Keyboard shortcut to export the current tab contents to file in various "
 "formats"
 msgstr ""
-"Prečac tipkovnice za izvoz sadržaja trenutne kartice u datoteku raznih "
-"formata"
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:75
 msgid "Keyboard shortcut to print the current tab contents to printer or file"
 msgstr ""
-"Prečac tipkovnice za ispis sadržaja trenutne kartice u pisaču ili datototeci"
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:76
 msgid "Keyboard shortcut to close a tab"
-msgstr "Prečac tipkovnice za zatvaranje kartice"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:77
 msgid "Keyboard shortcut to close a window"
-msgstr "Prečac tipkovnice za zatvaranje prozora"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:78
 msgid "Keyboard shortcut to copy text"
-msgstr "Prečac tipkovnice za kopiranje teksta"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:79
 msgid "Keyboard shortcut to copy text as HTML"
-msgstr "Prečac tipkovnice za kopiranje teksta kao HTML-a"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:80
 msgid "Keyboard shortcut to paste text"
-msgstr "Prečac tipkovnice za umetanje teksta"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:81
 msgid "Keyboard shortcut to select all text"
-msgstr "Prečac tipkovnice za odabir svega teksta"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:82
 msgid "Keyboard shortcut to open the Preferences dialog"
-msgstr "Prečac tipkovnice za otvaranje dijaloga osobitosti"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:83
 msgid "Keyboard shortcut to toggle full screen mode"
-msgstr "Prečac tipkovnice za aktivaciju cjelozaslonskog prikaza"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:84
 msgid "Keyboard shortcut to toggle the visibility of the menubar"
 msgstr ""
-"Prečac tipkovnice za uključivanje/isključivanje vidljivosti trake izbornika"
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:85
 msgid "Keyboard shortcut to toggle the read-only state"
-msgstr "Prečac tipkovnice za uključivanje/isključivanje samo-za-čitanje stanja"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:86
 msgid "Keyboard shortcut to reset the terminal"
-msgstr "Prečac tipkovnice za vraćanje izvornih postavka terminala"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:87
 msgid "Keyboard shortcut to reset and clear the terminal"
-msgstr "Prečac tipkovnice za vraćanje izvornih postavki i brisanje  terminala"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:88
 msgid "Keyboard shortcut to open the search dialog"
-msgstr "Prečac tipkovnice za otvaranje dijaloga pretrage"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:89
 msgid "Keyboard shortcut to find the next occurrence of the search term"
-msgstr "Prečac tipkovnice za pronalazak sljedećeg podudaranja izraza pretrage"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:90
 msgid "Keyboard shortcut to find the previous occurrence of the search term"
-msgstr "Prečac tipkovnice za pronalazak prijašnjeg podudaranja izraza pretrage"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:91
 msgid "Keyboard shortcut to clear the find highlighting"
-msgstr "Prečac tipkovnice za brisanje pretrage"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:92
 msgid "Keyboard shortcut to switch to the previous tab"
-msgstr "Prečac tipkovnice za prebacivanje na prijašnju karticu"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:93
 msgid "Keyboard shortcut to switch to the next tab"
-msgstr "Prečac tipkovnice za prebacivanje na sljedeću karticu"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:94
 msgid "Keyboard shortcut to move the current tab to the left"
-msgstr "Prečac tipkovnice za prebacivanje trenutne kartice ulijevo"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:95
 msgid "Keyboard shortcut to move the current tab to the right"
-msgstr "Prečac tipkovnice za prebacivanje trenutne kartice udesno"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:96
 msgid "Keyboard shortcut to detach current tab"
-msgstr "Prečac tipkovnice za odvajanje trenutne kartice"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:97
 msgid "Keyboard shortcut to switch to the numbered tab"
-msgstr "Prečac tipkovnice za prebacivanje na karticu s brojevima"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:98
 msgid "Keyboard shortcut to switch to the last tab"
-msgstr "Prečac tipkovnice za prebacivanje na posljednju karticu"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:99
 msgid "Keyboard shortcut to launch help"
-msgstr "Prečac tipkovnice za pokretanje pomoći"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:100
 msgid "Keyboard shortcut to make font larger"
-msgstr "Prečac tipkovnice za povećanje slova"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:101
 msgid "Keyboard shortcut to make font smaller"
-msgstr "Prečac tipkovnice za smanjenje slova"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:102
 msgid "Keyboard shortcut to make font normal-size"
-msgstr "Prečac tipkovnice za vraćanje slova na uobičajenu veličinu"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:103
 msgid "Keyboard shortcut to show the primary menu"
-msgstr "Prečac tipkovnice za prikaz glavnog izbornika"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:104
 msgid "Whether the menubar has access keys"
-msgstr "Treba li traka izbornika imati pristupne tipke"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:105
 msgid ""
@@ -615,24 +545,20 @@ msgid ""
 "with some applications run inside the terminal so it’s possible to turn them "
 "off."
 msgstr ""
-"Treba li traka izbornika imati prečac Atl+slovo. Mogle bi dolaziti u sukob s "
-"aplikacijama koje su pokrenute u terminalu, pa ih je moguće isključiti."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:106
 msgid "Whether shortcuts are enabled"
-msgstr "Treba li omogućiti prečace"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:107
 msgid ""
 "Whether shortcuts are enabled. They may interfere with some applications run "
 "inside the terminal so it’s possible to turn them off."
 msgstr ""
-"Treba li omogućiti prečace. Mogli bi dolaziti u sukob s aplikacijama koje su "
-"pokrenute u terminalu, pa ih je moguće isključiti."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:108
 msgid "Whether the standard GTK shortcut for menubar access is enabled"
-msgstr "Treba li standardne GTK prečace za pristup traci izbornika omogućiti"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:109
 msgid ""
@@ -640,157 +566,154 @@ msgid ""
 "via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
 "standard menubar accelerator to be disabled."
 msgstr ""
-"Uobičajeno se traci izbornika može pristupiti s tipkom F10. Ovo može biti "
-"prilagođeno kroz gtkrc (gtk-menu-bar-accel = \"whatever\"). Ova postavka "
-"dopušta onemogućavanje standardnog prečaca za traku izbornika."
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:110
 msgid "Whether the shell integration is enabled"
-msgstr "Treba li omogućiti integraciju ljuske"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:111
 msgid "Whether to ask for confirmation before closing a terminal"
-msgstr "Treba li upitati za potvrdu prije zatvaranja terminala"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:112
 msgid "Whether to show the menubar in new windows"
-msgstr "Treba li prikazati traku izbornika u novim prozorima"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:113
 msgid "Whether to open new terminals as windows or tabs"
-msgstr "Treba li otvoriti terminale u prozoru ili karticama"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:114
 msgid "When to show the tabs bar"
-msgstr "Kada prikazati traku kartica"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:115
 msgid "The position of the tab bar"
-msgstr "Položaj trake kartica"
+msgstr ""
 
 #: ../src/org.gnome.Terminal.gschema.xml.h:116
 msgid "Which theme variant to use"
-msgstr "Koju varijantu teme koristiti"
+msgstr ""
 
 #. Open new terminal in new window
 #: ../src/preferences.ui.h:2
 msgid "Window"
-msgstr "Prozorima"
+msgstr "Window"
 
 #. Open new terminal in new tab
 #: ../src/preferences.ui.h:4
 msgid "Tab"
-msgstr "Karticama"
+msgstr "Tab"
 
 #: ../src/preferences.ui.h:5
 msgctxt "theme variant"
 msgid "Default"
-msgstr "Uobičajena"
+msgstr ""
 
 #: ../src/preferences.ui.h:6
 msgctxt "theme variant"
 msgid "Light"
-msgstr "Svjetlu"
+msgstr ""
 
 #: ../src/preferences.ui.h:7
 msgctxt "theme variant"
 msgid "Dark"
-msgstr "Tamnu"
+msgstr ""
 
 #. ambiguous-width characers are
 #: ../src/preferences.ui.h:9
 msgid "Narrow"
-msgstr "Usko"
+msgstr "Bihek"
 
 #. ambiguous-width characers are
 #: ../src/preferences.ui.h:11
 msgid "Wide"
-msgstr "Široko"
+msgstr "Thedung"
 
 #. Cursor shape
 #: ../src/preferences.ui.h:13
 msgid "Block"
-msgstr "Blok"
+msgstr ""
 
 #. Cursor shape
 #: ../src/preferences.ui.h:15
 msgid "I-Beam"
-msgstr "I-Beam"
+msgstr ""
 
 #. Cursor shape
 #: ../src/preferences.ui.h:17
 msgid "Underline"
-msgstr "Podcrtano"
+msgstr ""
 
 #. Cursor blink mode
 #: ../src/preferences.ui.h:19
 msgid "Default"
-msgstr "Zadano"
+msgstr ""
 
 #. Cursor blink mode
 #: ../src/preferences.ui.h:21
 msgid "Enabled"
-msgstr "Omogućeno"
+msgstr ""
 
 #. Cursor blink mode
 #: ../src/preferences.ui.h:23
 msgid "Disabled"
-msgstr "Onemogućeno"
+msgstr ""
 
 #. Text blink mode
 #: ../src/preferences.ui.h:25
 msgid "Never"
-msgstr "Nikada"
+msgstr ""
 
 #. Text blink mode
 #: ../src/preferences.ui.h:27
 msgid "When focused"
-msgstr "Pri fokusu"
+msgstr ""
 
 #. Text blink mode
 #: ../src/preferences.ui.h:29
 msgid "When unfocused"
-msgstr "Kada nije u fokusu"
+msgstr ""
 
 #. Text blink mode
 #: ../src/preferences.ui.h:31
 msgid "Always"
-msgstr "Uvijek"
+msgstr "Kai-ta"
 
 #. When terminal commands set their own titles
 #: ../src/preferences.ui.h:33
 msgid "Replace initial title"
-msgstr "Zamijeni početni naslov"
+msgstr ""
 
 #. When terminal commands set their own titles
 #: ../src/preferences.ui.h:35
 msgid "Append initial title"
-msgstr "Dodaj početnom naslovu na kraj"
+msgstr ""
 
 #. When terminal commands set their own titles
 #: ../src/preferences.ui.h:37
 msgid "Prepend initial title"
-msgstr "Dodaj početnom naslovu na početak"
+msgstr ""
 
 #. When terminal commands set their own titles
 #: ../src/preferences.ui.h:39
 msgid "Keep initial title"
-msgstr "Zadrži početni naslov"
+msgstr ""
 
 #. When command exits
 #: ../src/preferences.ui.h:41
 msgid "Exit the terminal"
-msgstr "Zatvori terminal"
+msgstr ""
 
 #. When command exits
 #: ../src/preferences.ui.h:43
 msgid "Restart the command"
-msgstr "Ponovno pokreni naredbu"
+msgstr ""
 
 #. When command exits
 #: ../src/preferences.ui.h:45
 msgid "Hold the terminal open"
-msgstr "Zadrži terminal otvorenim"
+msgstr ""
 
 #. This is the name of a colour scheme
 #: ../src/preferences.ui.h:47
@@ -800,7 +723,7 @@ msgstr "Tango"
 #. This is the name of a colour scheme
 #: ../src/preferences.ui.h:49
 msgid "Linux console"
-msgstr "Linux konzola"
+msgstr "Linux console"
 
 #. This is the name of a colour scheme
 #: ../src/preferences.ui.h:51
@@ -815,17 +738,17 @@ msgstr "Rxvt"
 #. This is the name of a colour scheme
 #: ../src/preferences.ui.h:55
 msgid "Solarized"
-msgstr "Solarno"
+msgstr "Solarized"
 
 #. This is the name of a colour scheme
 #: ../src/preferences.ui.h:57 ../src/profile-editor.c:606
 msgid "Custom"
-msgstr "Prilagođena"
+msgstr ""
 
 #. This refers to the Delete keybinding option
 #: ../src/preferences.ui.h:59
 msgid "Automatic"
-msgstr "Automatsko"
+msgstr ""
 
 #. This refers to the Delete keybinding option
 #: ../src/preferences.ui.h:61
@@ -840,743 +763,743 @@ msgstr "ASCII DEL"
 #. This refers to the Delete keybinding option
 #: ../src/preferences.ui.h:65
 msgid "Escape sequence"
-msgstr "Escape niz"
+msgstr ""
 
 #. This refers to the Delete keybinding option
 #: ../src/preferences.ui.h:67
 msgid "TTY Erase"
-msgstr "TTY brisanje"
+msgstr ""
 
 #: ../src/preferences.ui.h:68
 msgid "_Show menubar by default in new terminals"
-msgstr "_Prikaži alatnu traku po zadanom u novom terminalu"
+msgstr ""
 
 #: ../src/preferences.ui.h:69
 msgid "_Enable mnemonics (such as Alt+F to open the File menu)"
-msgstr "_Omogući mnemoniku (poput Alt+F za otvaranje  izbornika datoteka)"
+msgstr ""
 
 #: ../src/preferences.ui.h:70
 msgid "Enable the _menu accelerator key (F10 by default)"
-msgstr "Omogući _tipku prečaca izbornika (F10 uobičajeno)"
+msgstr ""
 
 #: ../src/preferences.ui.h:71
 msgid "Theme _variant:"
-msgstr "Varijanta _teme:"
+msgstr ""
 
 #: ../src/preferences.ui.h:72
 msgid "Open _new terminals in:"
-msgstr "Otvori _nove terminale u:"
+msgstr ""
 
 #: ../src/preferences.ui.h:73
 msgid "_Enable shortcuts"
-msgstr "_Omogući prečace"
+msgstr ""
 
 #: ../src/preferences.ui.h:74
 msgid "Text Appearance"
-msgstr "Izgled teksta"
+msgstr ""
 
 #: ../src/preferences.ui.h:75
 msgid "Initial terminal si_ze:"
-msgstr "Početna veličina te_rminala:"
+msgstr ""
 
 #: ../src/preferences.ui.h:76
 msgid "columns"
-msgstr "stupci"
+msgstr "columns"
 
 #: ../src/preferences.ui.h:77
 msgid "rows"
-msgstr "redci"
+msgstr "rows"
 
 #: ../src/preferences.ui.h:78
 msgid "Rese_t"
-msgstr "Vrat_i izvorno"
+msgstr ""
 
 #: ../src/preferences.ui.h:79
 msgid "Custom _font:"
-msgstr "Prilagođena _slova:"
+msgstr ""
 
 #: ../src/preferences.ui.h:80
 msgid "Choose A Terminal Font"
-msgstr "Odaberi slova za terminal"
+msgstr ""
 
 #: ../src/preferences.ui.h:81
 msgid "Cell spaci_ng:"
-msgstr "Promjena _razmaka:"
+msgstr ""
 
 #: ../src/preferences.ui.h:82
 msgid "Allow b_linking text:"
-msgstr "Dopusti _treptanje slova:"
+msgstr ""
 
 #: ../src/preferences.ui.h:83
 msgid "Cursor"
-msgstr "Pokazivač"
+msgstr "Cursor"
 
 #: ../src/preferences.ui.h:84
 msgid "Cursor _shape:"
-msgstr "Oblik _pokazivača:"
+msgstr ""
 
 #: ../src/preferences.ui.h:85
 msgid "Cursor blin_king:"
-msgstr "Treptanje _pokazivača:"
+msgstr ""
 
 #: ../src/preferences.ui.h:86
 msgid "Sound"
-msgstr "Zvuk"
+msgstr "Aseh"
 
 #: ../src/preferences.ui.h:87
 msgid "Terminal _bell"
-msgstr "Zvono _terminala"
+msgstr "Terminal _bell"
 
 #: ../src/preferences.ui.h:88
 msgid "Profile ID:"
-msgstr "ID profila:"
+msgstr "Profile ID:"
 
 #: ../src/preferences.ui.h:89
 msgid "Text"
-msgstr "Tekst"
+msgstr "Amek"
 
 #: ../src/preferences.ui.h:90
 msgid "Text and Background Color"
-msgstr "Boja teksta i pozadine"
+msgstr "Amek pen Anung Alir"
 
 #: ../src/preferences.ui.h:91
 msgid "_Use colors from system theme"
-msgstr "_Koristiti boje iz teme sustava"
+msgstr ""
 
 #: ../src/preferences.ui.h:92
 msgid "Built-in sche_mes:"
-msgstr "Ugrađene she_me:"
+msgstr ""
 
 #: ../src/preferences.ui.h:93
 msgid "Background"
-msgstr "Pozadina"
+msgstr "Anung"
 
 #: ../src/preferences.ui.h:94
 msgid "_Default color:"
-msgstr "_Zadana boja:"
+msgstr ""
 
 #: ../src/preferences.ui.h:95
 msgid "Choose Terminal Text Color"
-msgstr "Odaberi boju teksta u terminalu"
+msgstr "Terminal Amek Alir chongvai"
 
 #: ../src/preferences.ui.h:96
 msgid "Choose Terminal Background Color"
-msgstr "Odaberi boju pozadine terminala"
+msgstr "Terminal Anung Alir chongvai"
 
 #: ../src/preferences.ui.h:97
 msgid "Bo_ld color:"
-msgstr "Bo_ja podebljanja:"
+msgstr ""
 
 #: ../src/preferences.ui.h:98
 msgid "Choose Terminal Bold Text Color"
-msgstr "Odaberi boju podebljanog teksta u terminalu"
+msgstr ""
 
 #: ../src/preferences.ui.h:99
 msgid "_Underline color:"
-msgstr "_Boja podcrtavanja:"
+msgstr ""
 
 #: ../src/preferences.ui.h:100
 msgid "Choose Terminal Underlined Text Color"
-msgstr "Odaberi boju podvučenog teksta u terminalu"
+msgstr ""
 
 #: ../src/preferences.ui.h:101
 msgid "Cu_rsor color:"
-msgstr "Bo_ja pokazivača:"
+msgstr ""
 
 #: ../src/preferences.ui.h:102
 msgid "Choose Terminal Cursor Foreground Color"
-msgstr "Odaberi boju ispred pokazivača terminala"
+msgstr ""
 
 #: ../src/preferences.ui.h:103
 msgid "Choose Terminal Cursor Background Color"
-msgstr "Odaberi boju pozadine pokazivača terminala"
+msgstr ""
 
 #: ../src/preferences.ui.h:104
 msgid "_Highlight color:"
-msgstr "_Boja naglašavanja:"
+msgstr ""
 
 #: ../src/preferences.ui.h:105
 msgid "Choose Terminal Highlight Foreground Color"
-msgstr "Odaberi boju naglašavanja terminala"
+msgstr ""
 
 #: ../src/preferences.ui.h:106
 msgid "Choose Terminal Highlight Background Color"
-msgstr "Odaberi boju naglašavanja pozadine terminala"
+msgstr ""
 
 #: ../src/preferences.ui.h:107
 msgid "Palette"
-msgstr "Paleta"
+msgstr ""
 
 #: ../src/preferences.ui.h:108
 msgid "Built-in _schemes:"
-msgstr "Ugrađene _sheme:"
+msgstr ""
 
 #: ../src/preferences.ui.h:109
 msgid "Color p_alette:"
-msgstr "Paleta b_oja:"
+msgstr ""
 
 #: ../src/preferences.ui.h:110
 msgid "Show _bold text in bright colors"
-msgstr "Prikaži _podebljani tekst u svijetlim bojama"
+msgstr ""
 
 #: ../src/preferences.ui.h:111
 msgid "Colors"
-msgstr "Boje"
+msgstr "Alir"
 
 #: ../src/preferences.ui.h:112
 msgid "_Show scrollbar"
-msgstr "_Prikaži traku pomicanja"
+msgstr ""
 
 #: ../src/preferences.ui.h:113
 msgid "Scroll on _output"
-msgstr "Pomicanje pri _izlazu"
+msgstr ""
 
 #: ../src/preferences.ui.h:114
 msgid "Scroll on _keystroke"
-msgstr "Pomicanje na _udarac tipke"
+msgstr ""
 
 #: ../src/preferences.ui.h:115
 msgid "_Limit scrollback to:"
-msgstr "_Ograniči pomicanje na:"
+msgstr ""
 
 #: ../src/preferences.ui.h:116
 msgid "lines"
-msgstr "redka"
+msgstr ""
 
 #: ../src/preferences.ui.h:117
 msgid "Scrolling"
-msgstr "Pomicanje"
+msgstr ""
 
 #: ../src/preferences.ui.h:118
 msgid "_Run command as a login shell"
-msgstr "_Pokreni naredbu kao ljusku prijave"
+msgstr ""
 
 #: ../src/preferences.ui.h:119
 msgid "Ru_n a custom command instead of my shell"
-msgstr "Pokreni prilagođenu _naredbu umjesto ljuske"
+msgstr ""
 
 #: ../src/preferences.ui.h:120
 msgid "Custom co_mmand:"
-msgstr "Prilagođena na_redba:"
+msgstr ""
 
 #: ../src/preferences.ui.h:121
 msgid "When command _exits:"
-msgstr "Kada naredba _završi:"
+msgstr ""
 
 #: ../src/preferences.ui.h:122
 msgid "Command"
-msgstr "Naredba"
+msgstr "Command"
 
 #: ../src/preferences.ui.h:123
 msgid "_Backspace key generates:"
-msgstr "_Backspace tipka vraća:"
+msgstr ""
 
 #: ../src/preferences.ui.h:124
 msgid "_Delete key generates:"
-msgstr "_Delete tipka vraća:"
+msgstr ""
 
 #: ../src/preferences.ui.h:125
 msgid "_Encoding:"
-msgstr "_Kôdiranje:"
+msgstr "_Encoding:"
 
 #: ../src/preferences.ui.h:126
 msgid "Ambiguous-_width characters:"
-msgstr "Neodređeno _široki znakôvi:"
+msgstr ""
 
 #: ../src/preferences.ui.h:127
 msgid "_Reset Compatibility Options to Defaults"
-msgstr "_Vrati mogućnosti kompatibilnosti na uobičajeno"
+msgstr ""
 
 #: ../src/preferences.ui.h:128
 msgid "Compatibility"
-msgstr "Kompatibilnost"
+msgstr ""
 
 #: ../src/preferences.ui.h:129
 msgid "Clone…"
-msgstr "Kloniraj…"
+msgstr "Clone…"
 
 #: ../src/preferences.ui.h:130
 msgid "Rename…"
-msgstr "Preimenuj…"
+msgstr ""
 
 #: ../src/preferences.ui.h:131
 msgid "Delete…"
-msgstr "Obriši…"
+msgstr ""
 
 #: ../src/preferences.ui.h:132
 msgid "Set as default"
-msgstr "Postavi kao zadano"
+msgstr ""
 
 #: ../src/preferences.ui.h:133
 msgid "Cancel"
-msgstr "Odustani"
+msgstr ""
 
 #: ../src/profile-editor.c:158
 msgid "Black on light yellow"
-msgstr "Crno na svjetlo žutom"
+msgstr "Ke-ik amek ke-et anung"
 
 #: ../src/profile-editor.c:162
 msgid "Black on white"
-msgstr "Crno na bijelom"
+msgstr "Ke-ik amek Kelok anung"
 
 #: ../src/profile-editor.c:166
 msgid "Gray on black"
-msgstr "Sivo na crnom"
+msgstr "Ik-su amek Ke-ik anung"
 
 #: ../src/profile-editor.c:170
 msgid "Green on black"
-msgstr "Zeleno na crnom"
+msgstr "Ki-lir amek Ke-ik anung"
 
 #: ../src/profile-editor.c:174
 msgid "White on black"
-msgstr "Bijelo na crnom"
+msgstr "Ke-lok amek Ke-ik anung"
 
 #. Translators: "Tango" is the name of a colour scheme, "light" can be translated
 #: ../src/profile-editor.c:179
 msgid "Tango light"
-msgstr "Tango svjetla"
+msgstr "Tango light"
 
 #. Translators: "Tango" is the name of a colour scheme, "dark" can be translated
 #: ../src/profile-editor.c:184
 msgid "Tango dark"
-msgstr "Tango tamna"
+msgstr "Tango dark"
 
 #. Translators: "Solarized" is the name of a colour scheme, "light" can be translated
 #: ../src/profile-editor.c:189
 msgid "Solarized light"
-msgstr "Osunčano svijetlo"
+msgstr "Solarized light"
 
 #. Translators: "Solarized" is the name of a colour scheme, "dark" can be translated
 #: ../src/profile-editor.c:194
 msgid "Solarized dark"
-msgstr "Osunčano tamno"
+msgstr "Solarized dark"
 
 #: ../src/profile-editor.c:549
 #, c-format
 msgid "Error parsing command: %s"
-msgstr "Greška obrade naredbe: %s"
+msgstr ""
 
 #. Translators: Appears as: [numeric entry] × width
 #: ../src/profile-editor.c:828
 msgid "width"
-msgstr "širina"
+msgstr "Arpan"
 
 #. Translators: Appears as: [numeric entry] × height
 #: ../src/profile-editor.c:833
 msgid "height"
-msgstr "visina"
+msgstr "Arjon"
 
 #: ../src/profile-editor.c:885
 #, c-format
 msgid "Choose Palette Color %u"
-msgstr "Odaberi paletu boje %u"
+msgstr ""
 
 #: ../src/profile-editor.c:889
 #, c-format
 msgid "Palette entry %u"
-msgstr "Stavka palete %u"
+msgstr ""
 
 #: ../src/search-popover.ui.h:1 ../src/terminal-accels.c:150
 msgid "Find"
-msgstr "Pretraži"
+msgstr "Kiri"
 
 #: ../src/search-popover.ui.h:2
 msgid "Find previous occurrence"
-msgstr "Traži prijašnje podudaranje"
+msgstr ""
 
 #: ../src/search-popover.ui.h:3
 msgid "Find next occurrence"
-msgstr "Traži sljedeće podudaranje"
+msgstr ""
 
 #: ../src/search-popover.ui.h:4
 msgid "Toggle search options"
-msgstr "Uklj./Isklj. mogućnosti pretrage"
+msgstr ""
 
 #: ../src/search-popover.ui.h:5
 msgid "_Match case"
-msgstr "_Uspoređuj mala i velika slova"
+msgstr ""
 
 #: ../src/search-popover.ui.h:6
 msgid "Match _entire word only"
-msgstr "Podud_araj samo cijele riječi"
+msgstr ""
 
 #: ../src/search-popover.ui.h:7
 msgid "Match as _regular expression"
-msgstr "Podudaranje s _običnim izrazom"
+msgstr ""
 
 #: ../src/search-popover.ui.h:8
 msgid "_Wrap around"
-msgstr "_Omotaj oko"
+msgstr ""
 
 #: ../src/terminal-accels.c:126
 msgid "New Tab"
-msgstr "Nova kartica"
+msgstr "Tab kimi"
 
 #: ../src/terminal-accels.c:129
 msgid "Save Contents"
-msgstr "Spremi sadržaj"
+msgstr ""
 
 #: ../src/terminal-accels.c:132
 msgid "Export"
-msgstr "Izvoz"
+msgstr ""
 
 #: ../src/terminal-accels.c:135
 msgid "Print"
-msgstr "Ispis"
+msgstr "Print"
 
 #: ../src/terminal-accels.c:137
 msgid "Close Tab"
-msgstr "Zatvori karticu"
+msgstr "Tab kanghap"
 
 #: ../src/terminal-accels.c:138
 msgid "Close Window"
-msgstr "Zatvori prozor"
+msgstr "Window kanghap"
 
 #: ../src/terminal-accels.c:142
 msgid "Copy"
-msgstr "Kopiraj"
+msgstr "Copy"
 
 #: ../src/terminal-accels.c:143
 msgid "Copy as HTML"
-msgstr "Kopiraj kao HTML"
+msgstr ""
 
 #: ../src/terminal-accels.c:144
 msgid "Paste"
-msgstr "Zalijepi"
+msgstr "Paste"
 
 #: ../src/terminal-accels.c:145
 msgid "Select All"
-msgstr "Odaberi sve"
+msgstr ""
 
 #: ../src/terminal-accels.c:151
 msgid "Find Next"
-msgstr "Pretraži sljedeće"
+msgstr "Dunthu Kiri"
 
 #: ../src/terminal-accels.c:152
 msgid "Find Previous"
-msgstr "Pretraži prijašnje"
+msgstr "Aphi-thu Kiri"
 
 #: ../src/terminal-accels.c:153
 msgid "Clear Highlight"
-msgstr "Ukloni isticanje"
+msgstr ""
 
 #: ../src/terminal-accels.c:157
 msgid "Hide and Show Menubar"
-msgstr "Prikaži i sakrij traku izbornika"
+msgstr ""
 
 #: ../src/terminal-accels.c:158
 msgid "Full Screen"
-msgstr "Cijeli zaslon"
+msgstr ""
 
 #: ../src/terminal-accels.c:159
 msgid "Zoom In"
-msgstr "Približi"
+msgstr "Pathe"
 
 #: ../src/terminal-accels.c:160
 msgid "Zoom Out"
-msgstr "Udalji"
+msgstr "Pabi"
 
 #: ../src/terminal-accels.c:161
 msgid "Normal Size"
-msgstr "Normalna veličina"
+msgstr ""
 
 #: ../src/terminal-accels.c:165
 msgid "Read-Only"
-msgstr "Samo za čitanje"
+msgstr ""
 
 #: ../src/terminal-accels.c:166
 msgid "Reset"
-msgstr "Vrati izvorno"
+msgstr ""
 
 #: ../src/terminal-accels.c:167
 msgid "Reset and Clear"
-msgstr "Vračanje izvornog i čišćenje"
+msgstr ""
 
 #: ../src/terminal-accels.c:171
 msgid "Switch to Previous Tab"
-msgstr "Prebaci na prijašnju karticu"
+msgstr ""
 
 #: ../src/terminal-accels.c:172
 msgid "Switch to Next Tab"
-msgstr "Prebaci na sljedeću karticu"
+msgstr ""
 
 #: ../src/terminal-accels.c:173
 msgid "Move Tab to the Left"
-msgstr "Pomakni karticu ulijevo"
+msgstr ""
 
 #: ../src/terminal-accels.c:174
 msgid "Move Tab to the Right"
-msgstr "Pomakni karticu udesno"
+msgstr ""
 
 #: ../src/terminal-accels.c:175
 msgid "Detach Tab"
-msgstr "Odvoji karticu"
+msgstr ""
 
 #: ../src/terminal-accels.c:211
 msgid "Switch to Last Tab"
-msgstr "Prebaci na posljednju karticu"
+msgstr ""
 
 #: ../src/terminal-accels.c:215
 msgid "Contents"
-msgstr "Priručnik"
+msgstr "Contents"
 
 #: ../src/terminal-accels.c:219
 msgid "Show Primary Menu"
-msgstr "Prikaži glavni izbornik"
+msgstr ""
 
 #: ../src/terminal-accels.c:228 ../src/terminal-menubar.ui.in.h:2
 msgid "File"
-msgstr "Datoteka"
+msgstr "File"
 
 #: ../src/terminal-accels.c:229 ../src/terminal-menubar.ui.in.h:9
 msgid "Edit"
-msgstr "Uredi"
+msgstr ""
 
 #: ../src/terminal-accels.c:230 ../src/terminal-menubar.ui.in.h:17
 msgid "View"
-msgstr "Pogled"
+msgstr ""
 
 #: ../src/terminal-accels.c:231 ../src/terminal-menubar.ui.in.h:24
 msgid "Search"
-msgstr "Pretraga"
+msgstr "Kiri"
 
 #: ../src/terminal-accels.c:233 ../src/terminal-menubar.ui.in.h:41
 msgid "Tabs"
-msgstr "Kartice"
+msgstr "Tabs"
 
 #: ../src/terminal-accels.c:234 ../src/terminal-menubar.ui.in.h:48
 msgid "Help"
-msgstr "Pomoć"
+msgstr "Help"
 
 #: ../src/terminal-accels.c:235 ../src/terminal-prefs.c:673
 msgid "Global"
-msgstr "Globalno"
+msgstr ""
 
 #: ../src/terminal-accels.c:362
 #, c-format
 msgid "Switch to Tab %u"
-msgstr "Prebaci na %u karticu"
+msgstr ""
 
 #: ../src/terminal-accels.c:552
 msgid "_Action"
-msgstr "_Radnja"
+msgstr ""
 
 #: ../src/terminal-accels.c:571
 msgid "Shortcut _Key"
-msgstr "Tipka _prečaca"
+msgstr ""
 
 #: ../src/terminal-app.c:502
 msgid "New Terminal"
-msgstr "Novi terminal"
+msgstr "Terminal Kimi"
 
 #: ../src/terminal-app.c:512 ../src/terminal-window.c:1796
 msgid "New _Terminal"
-msgstr "Novi _terminal"
+msgstr "_Terminal Kimi"
 
 #: ../src/terminal-app.c:514 ../src/terminal-window.c:1805
 msgid "New _Tab"
-msgstr "Nova _kartica"
+msgstr "_Tab Kimi"
 
 #: ../src/terminal-app.c:515 ../src/terminal-headermenu.ui.h:3
 #: ../src/terminal-window.c:1801
 msgid "New _Window"
-msgstr "Novi _prozor"
+msgstr "_Window kimi"
 
 #: ../src/terminal-app.c:564
 msgid "Change _Profile"
-msgstr "Promijeni _profil"
+msgstr ""
 
 #: ../src/terminal-app.c:577
 msgid "_Profile"
-msgstr "_Profil"
+msgstr ""
 
 #: ../src/terminal.c:568
 #, c-format
 msgid "Failed to parse arguments: %s\n"
-msgstr "Greška u obradi argumenata: %s\n"
+msgstr ""
 
 #: ../src/terminal-encoding.c:66
 msgid "Armenian"
-msgstr "Armenski"
+msgstr "Armenian"
 
 #: ../src/terminal-encoding.c:67 ../src/terminal-encoding.c:68
 #: ../src/terminal-encoding.c:72
 msgid "Chinese Traditional"
-msgstr "Kineski tradicionalni"
+msgstr "Chinese Traditional"
 
 #: ../src/terminal-encoding.c:69
 msgid "Cyrillic/Russian"
-msgstr "Ćirilica/Ruski"
+msgstr "Cyrillic/Russian"
 
 #: ../src/terminal-encoding.c:70 ../src/terminal-encoding.c:83
 #: ../src/terminal-encoding.c:119
 msgid "Japanese"
-msgstr "Japanski"
+msgstr "Japanese"
 
 #. { "UCS-4",       N_("Unicode"),             GROUP_UNICODE },
 #: ../src/terminal-encoding.c:71 ../src/terminal-encoding.c:84
 #: ../src/terminal-encoding.c:124
 msgid "Korean"
-msgstr "Korejski"
+msgstr "Korean"
 
 #: ../src/terminal-encoding.c:73 ../src/terminal-encoding.c:74
 #: ../src/terminal-encoding.c:75
 msgid "Chinese Simplified"
-msgstr "Kineski pojednostavljeni"
+msgstr "Chinese Simplified"
 
 #: ../src/terminal-encoding.c:76
 msgid "Georgian"
-msgstr "Gruzijski"
+msgstr "Georgian"
 
 #: ../src/terminal-encoding.c:77 ../src/terminal-encoding.c:85
 #: ../src/terminal-encoding.c:89 ../src/terminal-encoding.c:115
 #: ../src/terminal-encoding.c:132
 msgid "Western"
-msgstr "Zapadni"
+msgstr "Western"
 
 #: ../src/terminal-encoding.c:78 ../src/terminal-encoding.c:91
 #: ../src/terminal-encoding.c:106 ../src/terminal-encoding.c:130
 msgid "Central European"
-msgstr "Srednjo europski"
+msgstr "Central European"
 
 #. { "JOHAB",      N_("Korean"),              GROUP_CJKV },
 #: ../src/terminal-encoding.c:79 ../src/terminal-encoding.c:94
 #: ../src/terminal-encoding.c:100 ../src/terminal-encoding.c:102
 #: ../src/terminal-encoding.c:104 ../src/terminal-encoding.c:131
 msgid "Cyrillic"
-msgstr "Ćirilica"
+msgstr "Cyrillic"
 
 #: ../src/terminal-encoding.c:80 ../src/terminal-encoding.c:99
 #: ../src/terminal-encoding.c:117 ../src/terminal-encoding.c:134
 msgid "Turkish"
-msgstr "Turski"
+msgstr "Turkish"
 
 #: ../src/terminal-encoding.c:81 ../src/terminal-encoding.c:98
 #: ../src/terminal-encoding.c:113 ../src/terminal-encoding.c:135
 msgid "Hebrew"
-msgstr "Hebrejski"
+msgstr "Hebrew"
 
 #: ../src/terminal-encoding.c:82 ../src/terminal-encoding.c:95
 #: ../src/terminal-encoding.c:105 ../src/terminal-encoding.c:136
 msgid "Arabic"
-msgstr "Arapski"
+msgstr "Arabic"
 
 #: ../src/terminal-encoding.c:86
 msgid "Nordic"
-msgstr "Nordijski"
+msgstr "Nordic"
 
 #: ../src/terminal-encoding.c:87 ../src/terminal-encoding.c:93
 #: ../src/terminal-encoding.c:137
 msgid "Baltic"
-msgstr "Baltički"
+msgstr "Baltic"
 
 #: ../src/terminal-encoding.c:88
 msgid "Celtic"
-msgstr "Keltski"
+msgstr "Celtic"
 
 #: ../src/terminal-encoding.c:90 ../src/terminal-encoding.c:116
 msgid "Romanian"
-msgstr "Rumunjski"
+msgstr "Romanian"
 
 #: ../src/terminal-encoding.c:92
 msgid "South European"
-msgstr "Južno europski"
+msgstr "South European"
 
 #: ../src/terminal-encoding.c:96 ../src/terminal-encoding.c:110
 #: ../src/terminal-encoding.c:133
 msgid "Greek"
-msgstr "Grčki"
+msgstr "Greek"
 
 #: ../src/terminal-encoding.c:97
 msgid "Hebrew Visual"
-msgstr "Hebrejski vizualni"
+msgstr "Hebrew Visual"
 
 #: ../src/terminal-encoding.c:103 ../src/terminal-encoding.c:118
 msgid "Cyrillic/Ukrainian"
-msgstr "Ćirilica/Ukrajinski"
+msgstr "Cyrillic/Ukrainian"
 
 #: ../src/terminal-encoding.c:107
 msgid "Croatian"
-msgstr "Hrvatski"
+msgstr "Croatian"
 
 #: ../src/terminal-encoding.c:108
 msgid "Hindi"
-msgstr "Hindski"
+msgstr "Hindi"
 
 #: ../src/terminal-encoding.c:109
 msgid "Persian"
-msgstr "Perzijski"
+msgstr "Persian"
 
 #: ../src/terminal-encoding.c:111
 msgid "Gujarati"
-msgstr "Gudžaratski"
+msgstr "Gujarati"
 
 #: ../src/terminal-encoding.c:112
 msgid "Gurmukhi"
-msgstr "Gurmuki"
+msgstr "Gurmukhi"
 
 #: ../src/terminal-encoding.c:114
 msgid "Icelandic"
-msgstr "Islandski"
+msgstr "Icelandic"
 
 #. This is TCVN-5712-1, not TCVN-5773:1993 which would be CJKV
 #: ../src/terminal-encoding.c:121 ../src/terminal-encoding.c:129
 #: ../src/terminal-encoding.c:138
 msgid "Vietnamese"
-msgstr "Vijetnamski"
+msgstr "Vietnamese"
 
 #: ../src/terminal-encoding.c:122
 msgid "Thai"
-msgstr "Tajlandski"
+msgstr "Thai"
 
 #. { "UTF-16",      N_("Unicode"),             GROUP_UNICODE },
 #. { "UTF-32",      N_("Unicode"),             GROUP_UNICODE },
 #. { "UTF-7",       N_("Unicode"),             GROUP_UNICODE },
 #: ../src/terminal-encoding.c:128 ../src/terminal-encoding.c:145
 msgid "Unicode"
-msgstr "Unikôdni"
+msgstr "Unicode"
 
 #: ../src/terminal-encoding.c:146
 msgid "Legacy CJK Encodings"
-msgstr "Zastarjelo CJK kôdiranje"
+msgstr "Legacy CJK Encodings"
 
 #: ../src/terminal-encoding.c:147
 msgid "Obsolete Encodings"
-msgstr "Zastarjelo kôdiranje"
+msgstr "Obsolete Encodings"
 
 #: ../src/terminal-headermenu.ui.h:1 ../src/terminal-menubar.ui.in.h:22
 msgid "Zoom _Out"
-msgstr "Uda_lji"
+msgstr "Pabi"
 
 #: ../src/terminal-headermenu.ui.h:2 ../src/terminal-menubar.ui.in.h:20
 msgid "Zoom _In"
-msgstr "Pribli_ži"
+msgstr "Pathe"
 
 #: ../src/terminal-headermenu.ui.h:4 ../src/terminal-menubar.ui.in.h:19
 msgid "_Full Screen"
-msgstr "_Cijeli zaslon"
+msgstr ""
 
 #: ../src/terminal-headermenu.ui.h:5 ../src/terminal-menubar.ui.in.h:33
 #: ../src/terminal-window.c:1777
 msgid "Read-_Only"
-msgstr "_Samo-za-čitanje"
+msgstr ""
 
 #: ../src/terminal-headermenu.ui.h:6 ../src/terminal-menubar.ui.in.h:31
 #: ../src/terminal-notebook-menu.ui.h:4
 msgid "Set _Title…"
-msgstr "Postavi _naslov…"
+msgstr "Men kibi"
 
 #: ../src/terminal-headermenu.ui.h:7
 msgid "_Advanced"
-msgstr "_Napredno"
+msgstr ""
 
 #: ../src/terminal-headermenu.ui.h:8 ../src/terminal-menubar.ui.in.h:34
 msgid "_Reset"
-msgstr "_Vrati izvorno"
+msgstr ""
 
 #: ../src/terminal-headermenu.ui.h:9 ../src/terminal-menubar.ui.in.h:35
 msgid "Reset and C_lear"
-msgstr "Vraćanje izvornog i b_risanje"
+msgstr ""
 
 #: ../src/terminal-headermenu.ui.h:10 ../src/terminal-menubar.ui.in.h:36
 msgid "_1. 80×24"
@@ -1596,104 +1519,104 @@ msgstr "_4. 132×43"
 
 #: ../src/terminal-headermenu.ui.h:14 ../src/terminal-menubar.ui.in.h:51
 msgid "_Inspector"
-msgstr "_Nadzornik"
+msgstr ""
 
 #: ../src/terminal-headermenu.ui.h:15 ../src/terminal-screen.c:1361
 #: ../src/terminal-window.c:1789
 msgid "_Preferences"
-msgstr "_Osobitosti"
+msgstr "_Preferences"
 
 #: ../src/terminal-headermenu.ui.h:16 ../src/terminal-menubar.ui.in.h:47
 msgid "_Help"
-msgstr "_Priručnik"
+msgstr "_Help"
 
 #: ../src/terminal-headermenu.ui.h:17 ../src/terminal-menubar.ui.in.h:50
 msgid "_About"
-msgstr "_O programu"
+msgstr "_Aputhak"
 
 #: ../src/terminal-menubar.ui.in.h:1
 msgid "_File"
-msgstr "_Datoteka"
+msgstr "_File"
 
 #: ../src/terminal-menubar.ui.in.h:3
 msgid "_Save Contents…"
-msgstr "_Spremi sadržaj…"
+msgstr ""
 
 #: ../src/terminal-menubar.ui.in.h:4
 msgid "_Export…"
-msgstr "_Izvoz…"
+msgstr ""
 
 #: ../src/terminal-menubar.ui.in.h:5
 msgid "_Print…"
-msgstr "_Ispis…"
+msgstr "_Print…"
 
 #: ../src/terminal-menubar.ui.in.h:6
 msgid "C_lose Tab"
-msgstr "Z_atvori karticu"
+msgstr "Tab kanghap"
 
 #: ../src/terminal-menubar.ui.in.h:7
 msgid "_Close Window"
-msgstr "_Zatvori prozor"
+msgstr "Window kanghap"
 
 #: ../src/terminal-menubar.ui.in.h:8
 msgid "_Edit"
-msgstr "_Uredi"
+msgstr ""
 
 #: ../src/terminal-menubar.ui.in.h:10 ../src/terminal-window.c:1767
 msgid "_Copy"
-msgstr "_Kopiraj"
+msgstr "_Copy"
 
 #: ../src/terminal-menubar.ui.in.h:11 ../src/terminal-window.c:1768
 msgid "Copy as _HTML"
-msgstr "Kopiraj kao _HTML"
+msgstr ""
 
 #: ../src/terminal-menubar.ui.in.h:12 ../src/terminal-window.c:1769
 msgid "_Paste"
-msgstr "_Zalijepi"
+msgstr "_Paste"
 
 #: ../src/terminal-menubar.ui.in.h:13 ../src/terminal-window.c:1771
 msgid "Paste as _Filenames"
-msgstr "Zalijepi kao _naziv datoteke"
+msgstr ""
 
 #: ../src/terminal-menubar.ui.in.h:14
 msgid "Select _All"
-msgstr "Odaberi _sve"
+msgstr ""
 
 #: ../src/terminal-menubar.ui.in.h:15
 msgid "P_references"
-msgstr "O_sobitosti"
+msgstr ""
 
 #: ../src/terminal-menubar.ui.in.h:16
 msgid "_View"
-msgstr "_Pogled"
+msgstr ""
 
 #: ../src/terminal-menubar.ui.in.h:18 ../src/terminal-window.c:1817
 msgid "Show _Menubar"
-msgstr "Prikaži traku _izbornika"
+msgstr ""
 
 #: ../src/terminal-menubar.ui.in.h:21
 msgid "_Normal Size"
-msgstr "_Normalna veličina"
+msgstr ""
 
 #: ../src/terminal-menubar.ui.in.h:23
 msgid "_Search"
-msgstr "_Pretraži"
+msgstr "Kiri"
 
 #: ../src/terminal-menubar.ui.in.h:25
 msgid "_Find…"
-msgstr "_Pretraži…"
+msgstr "Kiri…"
 
 #: ../src/terminal-menubar.ui.in.h:26
 msgid "Find _Next"
-msgstr "Pretraži _sljedeće"
+msgstr "Du_nthu kiri"
 
 #: ../src/terminal-menubar.ui.in.h:27
 msgid "Find _Previous"
-msgstr "Pretraži _prijašnje"
+msgstr "A_phi kiri"
 
 #: ../src/terminal-menubar.ui.in.h:28
 msgid "_Clear Highlight"
-msgstr "_Ukloni isticanje"
+msgstr ""
 
 #: ../src/terminal-menubar.ui.in.h:29
 msgid "_Terminal"
@@ -1701,79 +1624,79 @@ msgstr "_Terminal"
 
 #: ../src/terminal-menubar.ui.in.h:32
 msgid "Set _Character Encoding"
-msgstr "Postavi _kôdiranje znakova"
+msgstr ""
 
 #: ../src/terminal-menubar.ui.in.h:40
 msgid "Ta_bs"
-msgstr "_Kartice"
+msgstr "Ta_bs"
 
 #: ../src/terminal-menubar.ui.in.h:42
 msgid "_Previous Tab"
-msgstr "_Prijašnja kartica"
+msgstr "A_phi Tab"
 
 #: ../src/terminal-menubar.ui.in.h:43
 msgid "_Next Tab"
-msgstr "_Sljedeća kartica"
+msgstr "Du_nthu Tab"
 
 #: ../src/terminal-menubar.ui.in.h:44
 msgid "Move Tab _Left"
-msgstr "Pomakni karticu _ulijevo"
+msgstr "Tab Arvi hin terek"
 
 #: ../src/terminal-menubar.ui.in.h:45
 msgid "Move Tab _Right"
-msgstr "Pomakni karticu _udesno"
+msgstr "Tab Ar-eh hin terek"
 
 #: ../src/terminal-menubar.ui.in.h:46
 msgid "_Detach Tab"
-msgstr "_Otkvači karticu"
+msgstr ""
 
 #: ../src/terminal-menubar.ui.in.h:49
 msgid "_Contents"
-msgstr "_Priručnik"
+msgstr ""
 
 #: ../src/terminal-nautilus.c:534
 msgid "Open in _Remote Terminal"
-msgstr "Otvori u _udaljenom terminalu"
+msgstr ""
 
 #: ../src/terminal-nautilus.c:536
 msgid "Open in _Local Terminal"
-msgstr "Otvori u _lokalnom terminalu"
+msgstr ""
 
 #: ../src/terminal-nautilus.c:540 ../src/terminal-nautilus.c:551
 msgid "Open the currently selected folder in a terminal"
-msgstr "Otvori trenutno odabranu mapu u terminalu"
+msgstr ""
 
 #: ../src/terminal-nautilus.c:542 ../src/terminal-nautilus.c:553
 msgid "Open the currently open folder in a terminal"
-msgstr "Otvori trenutno otvorenu mapu u terminalu"
+msgstr ""
 
 #: ../src/terminal-nautilus.c:548
 msgid "Open in T_erminal"
-msgstr "Otvori u t_erminalu"
+msgstr ""
 
 #: ../src/terminal-nautilus.c:558
 msgid "Open T_erminal"
-msgstr "Otvori t_erminal"
+msgstr "T_erminal kangpu"
 
 #: ../src/terminal-nautilus.c:559
 msgid "Open a terminal"
-msgstr "Otvori terminal"
+msgstr "Terminal ingpu tha"
 
 #: ../src/terminal-notebook-menu.ui.h:1
 msgid "Move Terminal _Left"
-msgstr "Pomakni terminal _ulijevo"
+msgstr ""
 
 #: ../src/terminal-notebook-menu.ui.h:2
 msgid "Move Terminal _Right"
-msgstr "Pomakni terminal _udesno"
+msgstr ""
 
 #: ../src/terminal-notebook-menu.ui.h:3
 msgid "_Detach Terminal"
-msgstr "_Otkvači terminal"
+msgstr ""
 
 #: ../src/terminal-notebook-menu.ui.h:5 ../src/terminal-window.c:3256
 msgid "C_lose Terminal"
-msgstr "Z_atvori terminal"
+msgstr "Terminal kanghap"
 
 #: ../src/terminal-options.c:281
 #, c-format
@@ -1781,8 +1704,6 @@ msgid ""
 "Option “%s” is deprecated and might be removed in a later version of gnome-"
 "terminal."
 msgstr ""
-"Mogućnost \"%s\" je zastarjela i može biti uklonjena u novijim inačicama "
-"gnome-terminala."
 
 #. %s is being replaced with "-- " (without quotes), which must be used literally, not translatable
 #: ../src/terminal-options.c:292
@@ -1790,46 +1711,46 @@ msgstr ""
 msgid ""
 "Use “%s” to terminate the options and put the command line to execute after "
 "it."
-msgstr "Koristi \"%s\" za prekidanje mogućnosti i nakon toga pokreni naredbu."
+msgstr ""
 
 #: ../src/terminal-options.c:302 ../src/terminal-options.c:315
 #, c-format
 msgid "Option “%s” is no longer supported in this version of gnome-terminal."
-msgstr "Mogućnost \"%s\" više nije podržana u ovoj inačici gnome-terminala."
+msgstr ""
 
 #: ../src/terminal-options.c:387
 #, c-format
 msgid "Argument to “%s” is not a valid command: %s"
-msgstr "Argument za \"%s\" nije valjana naredba: %s"
+msgstr ""
 
 #: ../src/terminal-options.c:560
 msgid "Two roles given for one window"
-msgstr "Dvije namjene dane jednom prozoru"
+msgstr ""
 
 #: ../src/terminal-options.c:581 ../src/terminal-options.c:614
 #, c-format
 msgid "“%s” option given twice for the same window\n"
-msgstr "\"%s\" mogućnost je data dvaput za isti prozor\n"
+msgstr ""
 
 #: ../src/terminal-options.c:833
 #, c-format
 msgid "Cannot pass FD %d twice"
-msgstr "Nemoguć FD prolaz %d dva puta"
+msgstr ""
 
 #: ../src/terminal-options.c:895
 #, c-format
 msgid "“%s” is not a valid zoom factor"
-msgstr "\"%s\" nije valjan faktor približenja"
+msgstr ""
 
 #: ../src/terminal-options.c:902
 #, c-format
 msgid "Zoom factor “%g” is too small, using %g\n"
-msgstr "Faktor uvećanja \"%g\" je premalen, koristim %g\n"
+msgstr ""
 
 #: ../src/terminal-options.c:910
 #, c-format
 msgid "Zoom factor “%g” is too large, using %g\n"
-msgstr "Faktor uvećanja \"%g\" je prevelik, koristim %g\n"
+msgstr ""
 
 #: ../src/terminal-options.c:948
 #, c-format
@@ -1837,135 +1758,129 @@ msgid ""
 "Option “%s” requires specifying the command to run on the rest of the "
 "command line"
 msgstr ""
-"Mogućnost \"%s\"  zahtjeva navođenje naredbe za pokretanje na ostataku "
-"naredbenog retka"
 
 #: ../src/terminal-options.c:1101
 msgid "Can only use --wait once"
-msgstr "Može koristiti --wait samo jednom"
+msgstr ""
 
 #: ../src/terminal-options.c:1137
 msgid "Not a valid terminal config file."
-msgstr "Nevaljana config datoteka terminala."
+msgstr ""
 
 #: ../src/terminal-options.c:1150
 msgid "Incompatible terminal config file version."
-msgstr "Nekompatabilna inačica datoteke podešavanja terminala."
+msgstr ""
 
 #: ../src/terminal-options.c:1304
 msgid ""
 "Do not register with the activation nameserver, do not re-use an active "
 "terminal"
 msgstr ""
-"Bez registracije na poslužitelj naziva aktivacije, bez ponovnog korištenja "
-"aktivnog terminala"
 
 #: ../src/terminal-options.c:1313
 msgid "Load a terminal configuration file"
-msgstr "Učitaj datoteku podešavanja terminala"
+msgstr ""
 
 #: ../src/terminal-options.c:1314
 msgid "FILE"
-msgstr "DATOTEKA"
+msgstr "FILE"
 
 #: ../src/terminal-options.c:1330
 msgid "Show preferences window"
-msgstr "Prikaži prozor osobitosti"
+msgstr ""
 
 #: ../src/terminal-options.c:1339
 msgid "Print environment variables to interact with the terminal"
-msgstr "Prikaži varijable okruženja za interakciju s terminalom"
+msgstr ""
 
 #: ../src/terminal-options.c:1357
 msgid "Increase diagnostic verbosity"
-msgstr "Povećaj dijagnostičke pojedinosti"
+msgstr ""
 
 #: ../src/terminal-options.c:1366
 msgid "Suppress output"
-msgstr "Sažetiji izlaz"
+msgstr ""
 
 #: ../src/terminal-options.c:1379
 msgid "Open a new window containing a tab with the default profile"
-msgstr "Otvorite novi prozor s karticom koristeći uobičajeni profil"
+msgstr ""
 
 #: ../src/terminal-options.c:1388
 msgid "Open a new tab in the last-opened window with the default profile"
 msgstr ""
-"Otvorite novu karticu u zadnjem otvorenom prozoru sa uobičajenim profilom"
 
 #: ../src/terminal-options.c:1401
 msgid "Turn on the menubar"
-msgstr "Uključite traku izbornika"
+msgstr ""
 
 #: ../src/terminal-options.c:1410
 msgid "Turn off the menubar"
-msgstr "Isključite traku izbornika"
+msgstr ""
 
 #: ../src/terminal-options.c:1419
 msgid "Maximize the window"
-msgstr "Povećaj prozor"
+msgstr ""
 
 #: ../src/terminal-options.c:1428
 msgid "Full-screen the window"
-msgstr "Prozor preko cijelog zaslona"
+msgstr ""
 
 #: ../src/terminal-options.c:1437
 msgid ""
 "Set the window size; for example: 80x24, or 80x24+200+200 (COLSxROWS+X+Y)"
 msgstr ""
-"Postavi veličinu prozora;npr.: 80x24, ili 80x24+200+200 (STUPCIxRETCI+X+Y)"
 
 #: ../src/terminal-options.c:1438
 msgid "GEOMETRY"
-msgstr "GEOMETRIJA"
+msgstr "GEOMETRY"
 
 #: ../src/terminal-options.c:1446
 msgid "Set the window role"
-msgstr "Postavi namjenu prozora"
+msgstr ""
 
 #: ../src/terminal-options.c:1447
 msgid "ROLE"
-msgstr "NAMJENA"
+msgstr "ROLE"
 
 #: ../src/terminal-options.c:1455
 msgid "Set the last specified tab as the active one in its window"
-msgstr "Postavi zadnje navedenu karticu kao aktivnu u vlastitom prozoru"
+msgstr ""
 
 #: ../src/terminal-options.c:1468
 msgid "Execute the argument to this option inside the terminal"
-msgstr "Izvršite argument za ovu mogućnost unutar terminala"
+msgstr ""
 
 #: ../src/terminal-options.c:1477
 msgid "Use the given profile instead of the default profile"
-msgstr "Koristi zadani profil umjesto uobičajenog"
+msgstr ""
 
 #: ../src/terminal-options.c:1478
 msgid "PROFILE-NAME"
-msgstr "NASLOV-PROFILA"
+msgstr ""
 
 #: ../src/terminal-options.c:1486
 msgid "Set the initial terminal title"
-msgstr "Postavi početni naslov terminala"
+msgstr ""
 
 #: ../src/terminal-options.c:1487
 msgid "TITLE"
-msgstr "NASLOV"
+msgstr "TITLE"
 
 #: ../src/terminal-options.c:1495
 msgid "Set the working directory"
-msgstr "Postavi radni direktorij"
+msgstr ""
 
 #: ../src/terminal-options.c:1496
 msgid "DIRNAME"
-msgstr "NAZIV DIREKTORIJA"
+msgstr "DIRNAME"
 
 #: ../src/terminal-options.c:1504
 msgid "Wait until the child exits"
-msgstr "Čekaj dok sadržajni element postoji"
+msgstr ""
 
 #: ../src/terminal-options.c:1513
 msgid "Forward file descriptor"
-msgstr "Proslijedi opisivača datoteke"
+msgstr ""
 
 #. FD = file descriptor
 #: ../src/terminal-options.c:1515
@@ -1974,189 +1889,182 @@ msgstr "FD"
 
 #: ../src/terminal-options.c:1523
 msgid "Set the terminal’s zoom factor (1.0 = normal size)"
-msgstr "Postavi faktor približenja terminala (1.0 = normalna veličina)"
+msgstr ""
 
 #: ../src/terminal-options.c:1524
 msgid "ZOOM"
-msgstr "PRIBLIŽENJE"
+msgstr "ZOOM"
 
 #: ../src/terminal-options.c:1611
 msgid "COMMAND"
-msgstr "NAREDBA"
+msgstr "COMMAND"
 
 #: ../src/terminal-options.c:1619
 msgid "GNOME Terminal Emulator"
-msgstr "GNOME Emulator Terminala"
+msgstr "GNOME Terminal Emulator"
 
 #: ../src/terminal-options.c:1620
 msgid "Show GNOME Terminal options"
-msgstr "Prikaži GNOME mogućnosti terminala"
+msgstr ""
 
 #: ../src/terminal-options.c:1630
 msgid ""
 "Options to open new windows or terminal tabs; more than one of these may be "
 "specified:"
 msgstr ""
-"Mogućnosti za otvaranje novih prozora ili kartica u terminalu; možete "
-"odabrati više mogućnosti:"
 
 #: ../src/terminal-options.c:1631
 msgid "Show terminal options"
-msgstr "Prikaži mogućnosti terminala"
+msgstr ""
 
 #: ../src/terminal-options.c:1639
 msgid ""
 "Window options; if used before the first --window or --tab argument, sets "
 "the default for all windows:"
 msgstr ""
-"Mogućnosti prozora; ako je korišteno prije prvog --prozor ili --kartica "
-"argumenta, postavlja kao uobičajeno za sve prozore:"
 
 #: ../src/terminal-options.c:1640
 msgid "Show per-window options"
-msgstr "Prikaži mogućnosti za svaki prozor pojedinačno"
+msgstr ""
 
 #: ../src/terminal-options.c:1648
 msgid ""
 "Terminal options; if used before the first --window or --tab argument, sets "
 "the default for all terminals:"
 msgstr ""
-"Mogućnosti terminala; ako je korišteno prije prvog --prozor ili --kartica "
-"argumenta, postavlja kao uobičajeno za sve terminale:"
 
 #: ../src/terminal-options.c:1649
 msgid "Show per-terminal options"
-msgstr "Prikaži mogućnosti za svaki terminal pojedinačno"
+msgstr ""
 
 #: ../src/terminal-prefs.c:131
 #, c-format
 msgid "Profile “%s”"
-msgstr "Profil “%s”"
+msgstr "Profile “%s”"
 
 #: ../src/terminal-prefs.c:134
 #, c-format
 msgid "Preferences – %s"
-msgstr "Osobitosti – %s"
+msgstr ""
 
 #: ../src/terminal-prefs.c:377
 msgid "New Profile"
-msgstr "Novi profil"
+msgstr "Profile kimi"
 
 #: ../src/terminal-prefs.c:378
 msgid "Enter name for new profile with default settings:"
-msgstr "Upišite naziv novog profila sa zadanim postavkama:"
+msgstr ""
 
 #: ../src/terminal-prefs.c:380
 msgid "Create"
-msgstr "Stvori"
+msgstr ""
 
 #: ../src/terminal-prefs.c:392
 #, c-format
 msgid "Enter name for new profile based on “%s”:"
-msgstr "Upišite naziv novog profila temeljen na “%s”:"
+msgstr ""
 
 #: ../src/terminal-prefs.c:393
 #, c-format
 msgid "%s (Copy)"
-msgstr "%s (Kopiraj)"
+msgstr "%s (Copy)"
 
 #: ../src/terminal-prefs.c:396
 msgid "Clone Profile"
-msgstr "Kloniraj profil"
+msgstr ""
 
 #: ../src/terminal-prefs.c:399
 msgid "Clone"
-msgstr "Kloniraj"
+msgstr ""
 
 #: ../src/terminal-prefs.c:414
 #, c-format
 msgid "Enter new name for profile “%s”:"
-msgstr "Upišite novi naziv za profil “%s”:"
+msgstr ""
 
 #: ../src/terminal-prefs.c:417
 msgid "Rename Profile"
-msgstr "Preimenuj profil"
+msgstr ""
 
 #: ../src/terminal-prefs.c:420
 msgid "Rename"
-msgstr "Preimenuj"
+msgstr "Men kelar"
 
 #: ../src/terminal-prefs.c:435
 #, c-format
 msgid "Really delete profile “%s”?"
-msgstr "Sigurno želite obristi profil “%s”?"
+msgstr ""
 
 #: ../src/terminal-prefs.c:438
 msgid "Delete Profile"
-msgstr "Obriši profil"
+msgstr ""
 
 #: ../src/terminal-prefs.c:441
 msgid "Delete"
-msgstr "Obriši"
+msgstr ""
 
 #: ../src/terminal-prefs.c:519
 msgid "This is the default profile"
-msgstr "Ovo je zadani profil"
+msgstr ""
 
 #: ../src/terminal-prefs.c:543
 msgid "General"
-msgstr "Općenito"
+msgstr ""
 
 #: ../src/terminal-prefs.c:548
 msgid "Shortcuts"
-msgstr "Prečaci"
+msgstr "Shortcuts"
 
 #: ../src/terminal-prefs.c:685
 msgid "Profiles"
-msgstr "Profili"
+msgstr "Profiles"
 
 #: ../src/terminal-screen.c:1147
 msgid "No command supplied nor shell requested"
-msgstr "Nema isporučene naredbe ili zahtjevane ljuske"
+msgstr ""
 
 #: ../src/terminal-screen.c:1362 ../src/terminal-screen.c:1688
 msgid "_Relaunch"
-msgstr "_Pokreni ponovno"
+msgstr ""
 
 #: ../src/terminal-screen.c:1365
 msgid "There was an error creating the child process for this terminal"
 msgstr ""
-"Došlo je do greške prilikom stvaranja podređenog procesa za ovaj terminal"
 
 #: ../src/terminal-screen.c:1692
 #, c-format
 msgid "The child process exited normally with status %d."
-msgstr "Podproces se normalno okončao sa stanjem %d."
+msgstr ""
 
 #: ../src/terminal-screen.c:1695
 #, c-format
 msgid "The child process was aborted by signal %d."
-msgstr "Podređeni proces je prekinuo signal %d."
+msgstr ""
 
 #: ../src/terminal-screen.c:1698
 msgid "The child process was aborted."
-msgstr "Podređeni proces je prekinut."
+msgstr ""
 
 #: ../src/terminal-tab-label.c:206
 msgid "Close tab"
-msgstr "Zatvori karticu"
+msgstr "Tab kanghap"
 
 #: ../src/terminal-util.c:150
 msgid "There was an error displaying help"
-msgstr "Dogodila se greška pri prikazivanju pomoći"
+msgstr ""
 
 #: ../src/terminal-util.c:207
 msgid "Contributors:"
-msgstr "Doprinjeli:"
+msgstr ""
 
 #: ../src/terminal-util.c:223
 #, c-format
 msgid "Using VTE version %u.%u.%u"
-msgstr "Koristi se VTE inačica %u.%u.%u"
+msgstr ""
 
 #: ../src/terminal-util.c:229
 msgid "A terminal emulator for the GNOME desktop"
-msgstr "Emulator terminala za GNOME radnu površinu"
+msgstr ""
 
 #: ../src/terminal-util.c:236
 msgid "GNOME Terminal"
@@ -2164,24 +2072,12 @@ msgstr "GNOME Terminal"
 
 #: ../src/terminal-util.c:246
 msgid "translator-credits"
-msgstr ""
-"lokalizacija@linux.hr\n"
-"  Automatski Prijevod <>\n"
-"  Denis Lackovic <delacko@linux.hr>\n"
-"  Robert Sedak <robert.sedak@sk.t-com.hr>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Ante Karamatić https://launchpad.net/~ivoks\n"
-"  Igor Riger https://launchpad.net/~iriger\n"
-"  Miroslav Matejaš https://launchpad.net/~silverspace+amd64\n"
-"  Tomislav Marčinković https://launchpad.net/~tmarcink\n"
-"  antisa https://launchpad.net/~antisa\n"
-"  gogo https://launchpad.net/~trebelnik-stefina"
+msgstr "Jor Teron <jor.teron@gmail.com>"
 
 #: ../src/terminal-util.c:321
 #, c-format
 msgid "Could not open the address “%s”"
-msgstr "Nemoguće otvaranje adrese \"%s\""
+msgstr ""
 
 #: ../src/terminal-util.c:390
 msgid ""
@@ -2190,10 +2086,6 @@ msgid ""
 "Software Foundation, either version 3 of the License, or (at your option) "
 "any later version."
 msgstr ""
-"GNOME Terminal je slobodan softver: možete ga redistribuirati i/ili "
-"mijenjati pod uvjetima GNU Opće Javne Licence koja je objavljena od strane "
-"Zaklade slobodnog softvera, ili inačice 3 licence ili (po vašem izboru) "
-"svake nove inačice."
 
 #: ../src/terminal-util.c:394
 msgid ""
@@ -2202,392 +2094,93 @@ msgid ""
 "or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for "
 "more details."
 msgstr ""
-"GNOME Terminal se distribuira u nadi da će biti koristan, ali BEZ IKAKVIH "
-"JAMSTAVA; čak i bez podrazumijevanih jamstava UPORABLJIVOSTI ZA ODREĐENU "
-"SVRHU. Pogledajte GNU Opća Javna Licenca za više pojedinosti."
 
 #: ../src/terminal-util.c:398
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "GNOME Terminal.  If not, see <http://www.gnu.org/licenses/>."
 msgstr ""
-"Trebali ste primiti kopiju GNU Opće Javne Licence uz GNOME Terminal; ako "
-"niste, pogledajte <http://www.gnu.org/licenses/>."
 
 #: ../src/terminal-util.c:1149
 msgid "“file” scheme with remote hostname not supported"
-msgstr "“datoteka” shema s udaljenim nazivom računala nije podržana"
+msgstr ""
 
 #: ../src/terminal-window.c:457
 msgid "Could not save contents"
-msgstr "Nemoguće spremanje sadržaja"
+msgstr ""
 
 #: ../src/terminal-window.c:477
 msgid "Save as…"
-msgstr "Spremi kao…"
+msgstr ""
 
 #: ../src/terminal-window.c:480
 msgid "_Cancel"
-msgstr "_Odustani"
+msgstr ""
 
 #: ../src/terminal-window.c:481
 msgid "_Save"
-msgstr "_Spremi"
+msgstr ""
 
 #: ../src/terminal-window.c:1724
 msgid "Open _Hyperlink"
-msgstr "Otvori _hiperpoveznicu"
+msgstr ""
 
 #: ../src/terminal-window.c:1725
 msgid "Copy Hyperlink _Address"
-msgstr "Kopiraj adresu _hiperpoveznice"
+msgstr ""
 
 #: ../src/terminal-window.c:1735
 msgid "Send Mail _To…"
-msgstr "Pošalji _e-poštu…"
+msgstr ""
 
 #: ../src/terminal-window.c:1736
 msgid "Copy Mail _Address"
-msgstr "Kopiraj adresu _e-pošte"
+msgstr ""
 
 #: ../src/terminal-window.c:1739
 msgid "Call _To…"
-msgstr "P_ozovi…"
+msgstr ""
 
 #: ../src/terminal-window.c:1740
 msgid "Copy Call _Address "
-msgstr "Kopiraj adresu _poziva "
+msgstr ""
 
 #: ../src/terminal-window.c:1745
 msgid "_Open Link"
-msgstr "Otvori _poveznicu"
+msgstr "Link kangpu"
 
 #: ../src/terminal-window.c:1746
 msgid "Copy _Link"
-msgstr "Kopiraj _poveznicu"
+msgstr ""
 
 #: ../src/terminal-window.c:1784
 msgid "P_rofiles"
-msgstr "_Profili"
+msgstr "P_rofiles"
 
 #: ../src/terminal-window.c:1819
 msgid "L_eave Full Screen"
-msgstr "N_apusti cjelozaslonski prikaz"
+msgstr ""
 
 #: ../src/terminal-window.c:3243
 msgid "Close this window?"
-msgstr "Želite li zatvoriti ovaj prozor?"
+msgstr "Laso window inghap po?"
 
 #: ../src/terminal-window.c:3243
 msgid "Close this terminal?"
-msgstr "Želite li zatvoriti ovaj terminal?"
+msgstr "Laso terminal inghap po?"
 
 #: ../src/terminal-window.c:3247
 msgid ""
 "There are still processes running in some terminals in this window. Closing "
 "the window will kill all of them."
 msgstr ""
-"Neki procesi su još uvijek pokrenuti u nekim terminalima ovog prozora. "
-"Zatvaranje ovog prozora će ugasiti procese."
 
 #: ../src/terminal-window.c:3251
 msgid ""
 "There is still a process running in this terminal. Closing the terminal will "
 "kill it."
 msgstr ""
-"Neki procesi su još uvijek pokrenuti u ovom terminau. Zatvaranje ovog "
-"prozora će ugasiti procese."
 
 #: ../src/terminal-window.c:3256
 msgid "C_lose Window"
-msgstr "_Zatvori prozor"
-
-#~ msgid "Unnamed"
-#~ msgstr "Neimenovano"
-
-#~ msgid "Whether to show menubar in new windows/tabs"
-#~ msgstr "Treba li prikazivati traku izbornika u novim prozorima/karticama"
-
-#~ msgid "True if the menubar should be shown in new window"
-#~ msgstr ""
-#~ "Ako je odabrano, traka izbornika trebala bi biti prikazana u novom prozoru"
-
-#~ msgid "_Quit"
-#~ msgstr "_Zatvori"
-
-#~ msgid "Open in _Midnight Commander"
-#~ msgstr "Otvori u _Midnight upravitelju"
-
-#~ msgid ""
-#~ "Open the currently selected folder in the terminal file manager Midnight "
-#~ "Commander"
-#~ msgstr ""
-#~ "Otvori trenutno odabaranu mapu u terminalnom upravitelju datoteka "
-#~ "Midnight upravitelju"
-
-#~ msgid ""
-#~ "Open the currently open folder in the terminal file manager Midnight "
-#~ "Commander"
-#~ msgstr ""
-#~ "Otvori trenutno otvorenu mapu u terminalnom upravitelju datoteka Midnight "
-#~ "upravitelju"
-
-#~ msgid "Open _Midnight Commander"
-#~ msgstr "Otvori _Midnight upravitelja"
-
-#~ msgid "Open the terminal file manager Midnight Commander"
-#~ msgstr "Otvori terminalni upravitelj datoteka Midnight upravitelj"
-
-#~ msgid "Keyboard shortcut to create a new profile"
-#~ msgstr "Prečac tipkovnice za stavaranje novog profila"
-
-#~ msgid "Keyboard shortcut to open the current profile’s Preferences dialog"
-#~ msgstr ""
-#~ "Prečac tipkovnice za otvaranje dijaloga osobitosti trenutnog profila"
-
-#~ msgid "_Profile used when launching a new terminal:"
-#~ msgstr "_Profil korišten pri uključivanju novog terminala:"
-
-#~ msgid "Profile Editor"
-#~ msgstr "Uređivač profila"
-
-#~ msgid "_Profile name:"
-#~ msgstr "_Naziv profila:"
-
-#~ msgid "_Rewrap on resize"
-#~ msgstr "_Prelomi pri promjeni veličine"
-
-#~ msgid ""
-#~ "<b>Note:</b> Terminal applications have these colors available to them."
-#~ msgstr "<b>Napomena:</b> Terminal aplikacija ima ove dostupne boje."
-
-#~ msgid ""
-#~ "<b>Note:</b> These options may cause some applications to behave "
-#~ "incorrectly.  They are only here to allow you to work around certain "
-#~ "applications and operating systems that expect different terminal "
-#~ "behavior."
-#~ msgstr ""
-#~ "<b>Napomena:</b> Ove mogućnosti mogu uzrokovati neispravno ponašanje "
-#~ "nekih aplikacija.  One su samo tu kako bi vam omogućile rad s određenim "
-#~ "aplikacijama i operativnim sustavima koje očekuju drugačije ponašanje "
-#~ "terminala."
-
-#~ msgid "Profile Preferences"
-#~ msgstr "Osobitosti profila"
-
-#~ msgid "New _Profile…"
-#~ msgstr "Novi _profil…"
-
-#~ msgid "Pr_ofile Preferences…"
-#~ msgstr "Os_obitosti profila…"
-
-#~ msgid "_Find"
-#~ msgstr "_Pretraži"
-
-#~ msgid "Click button to choose profile"
-#~ msgstr "Kliknite na tipku odabira profila"
-
-#~ msgid "Profile list"
-#~ msgstr "Popis profila"
-
-#~ msgid "_Profile Preferences"
-#~ msgstr "Osobitosti _profila"
-
-#~ msgid "_Profile Preferences…"
-#~ msgstr "_Osobitosti profila…"
-
-#~ msgid "Verbose output"
-#~ msgstr "Opširniji izlaz"
-
-#~ msgid "Output options:"
-#~ msgstr "Izlazne mogućnosti:"
-
-#~ msgid "Show output options"
-#~ msgstr "Prikaži izlazne mogućnosti"
-
-#~ msgid "“%s” is not a valid application ID"
-#~ msgstr "\"%s\" nije valjani ID aplikacije"
-
-#~ msgid "Server application ID"
-#~ msgstr "ID aplikacije poslužitelja"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Show completions"
-#~ msgstr "Prikaži dovršavanje"
-
-#~ msgid "Global options:"
-#~ msgstr "Globalne mogućnosti:"
-
-#~ msgid "Show global options"
-#~ msgstr "Prikaži globalne mogućnosti"
-
-#~ msgid "FD passing of stdin is not supported"
-#~ msgstr "FD prolaz stdina nije podržan"
-
-#~ msgid "FD passing of stdout is not supported"
-#~ msgstr "FD prolaz stdouta nije podržan"
-
-#~ msgid "FD passing of stderr is not supported"
-#~ msgstr "FD prolaz sterra nije podržan"
-
-#~ msgid "Invalid argument “%s” to --fd option"
-#~ msgstr "Neispravan argument \"%s\" za --fd mogućnost"
-
-#~ msgid "Forward stdin"
-#~ msgstr "Proslijedi stdin"
-
-#~ msgid "Forward stdout"
-#~ msgstr "Proslijedi stdout"
-
-#~ msgid "Forward stderr"
-#~ msgstr "Proslijedi stderr"
-
-#~ msgid "Exec options:"
-#~ msgstr "Mogućnosti izvršenja:"
-
-#~ msgid "Show exec options"
-#~ msgstr "Prikaži mogućnosti izvršenja"
-
-#~ msgid "Maximise the window"
-#~ msgstr "Uvećaj prozor"
-
-#~ msgid "Window options:"
-#~ msgstr "Mogućnosti prozora:"
-
-#~ msgid "Show window options"
-#~ msgstr "Prikaži mogućnosti prozora"
-
-#~ msgid "Zoom value “%s” is outside allowed range"
-#~ msgstr "Vrijednost približenja \"%s\" je izvan dopuštenog raspona"
-
-#~ msgid "UUID"
-#~ msgstr "UUID"
-
-#~ msgid "Terminal options:"
-#~ msgstr "Mogućnosti terminala:"
-
-#~ msgid "Processing options:"
-#~ msgstr "Mogućnosti obrade:"
-
-#~ msgid "Show processing options"
-#~ msgstr "Prikaži mogućnosti obrade"
-
-#~ msgid "Missing argument"
-#~ msgstr "Argument nedostaje"
-
-#~ msgid "Unknown command “%s”"
-#~ msgstr "Nepoznata naredba \"%s\""
-
-#~ msgid "“%s” needs the command to run as arguments after “--”"
-#~ msgstr "“%s” treba naredbu za pokretanje kao argumenta nakon “--”"
-
-#~ msgid "Extraneous arguments after “--”"
-#~ msgstr "Stran argument nakon “--”"
-
-#~ msgid "GTerminal"
-#~ msgstr "GTerminal"
-
-#~ msgid "Error processing arguments: %s\n"
-#~ msgstr "Greška obrade argumenta: %s\n"
-
-#~ msgid "List of available encodings"
-#~ msgstr "Popis dostupnih kôdiranja"
-
-#~ msgid ""
-#~ "A subset of possible encodings are presented in the Encoding submenu. "
-#~ "This is a list of encodings to appear there."
-#~ msgstr ""
-#~ "Podskup mogućih kôdiranja je prikazan u podizborniku kôdiranja. Ovo je "
-#~ "popis kôdiranja koja će se pojaviti tamo."
-
-#~ msgid "E_ncodings shown in menu:"
-#~ msgstr "Kôdne _stranice prikazane u izborniku:"
-
-#~ msgid "New Terminal in New Tab"
-#~ msgstr "Novi terminal u novoj kartici"
-
-#~ msgid "New Terminal in New Window"
-#~ msgstr "Novi terminal u novom prozoru"
-
-#~ msgid "Close Terminal"
-#~ msgstr "Zatvori terminal"
-
-#~ msgid "Close All Terminals"
-#~ msgstr "Zatvori sve terminale"
-
-#~ msgid "Clear Find Highlight"
-#~ msgstr "Obriši istaknute pretrage"
-
-#~ msgid "User Defined"
-#~ msgstr "Korisnički definirano"
-
-#~ msgid "Show"
-#~ msgstr "Prikaži"
-
-#~ msgid "_Encoding"
-#~ msgstr "_Kôdne stranice"
-
-#~ msgid "_%u. %s"
-#~ msgstr "_%u. %s"
-
-#~ msgid "_%c. %s"
-#~ msgstr "_%c. %s"
-
-#~ msgid "Open _Terminal"
-#~ msgstr "Otvori _terminal"
-
-#~ msgid "Open Ta_b"
-#~ msgstr "_Otvori karticu"
-
-#~ msgid "_Close All Terminals"
-#~ msgstr "_Zatvori sve Terminale"
-
-#~ msgid "Pre_ferences"
-#~ msgstr "Oso_bitosti"
-
-#~ msgid "Find Ne_xt"
-#~ msgstr "Pretaži _sljedeće"
-
-#~ msgid "Find Pre_vious"
-#~ msgstr "Pretaži pri_jašnje"
-
-#~ msgid "Go to _Line…"
-#~ msgstr "Idi na _redak…"
-
-#~ msgid "_Incremental Search…"
-#~ msgstr "_Brzo pretraživanje…"
-
-#~ msgid "_Add or Remove…"
-#~ msgstr "_Dodaj ili ukloni…"
-
-#~ msgid "Whether to use a transparent background"
-#~ msgstr "Treba li korstiti prozirnu pozadinu"
-
-#~ msgid ""
-#~ "Whether to use the value of TerminalScreen-background-darkness, if "
-#~ "available, from the theme for the transparency value."
-#~ msgstr ""
-#~ "Treba li koristiti vrijednosti TerminalScreen-background-darkness, ako je "
-#~ "dostupno, iz teme za vrijednosti prozirnositi."
-
-#~ msgid "Adjust the amount of transparency"
-#~ msgstr "Odredite razinu prozirnosti"
-
-#~ msgid ""
-#~ "A value between 0 and 100, where 0 is opaque and 100 is fully transparent."
-#~ msgstr ""
-#~ "Vrijednosti između 0 i 100, gdje je 0 neprozirno a 100 potpuno prozirno"
-
-#~ msgid "Use t_ransparent background"
-#~ msgstr "Koristi p_rozirnu pozadinu"
-
-#~ msgid "none"
-#~ msgstr "ništa"
-
-#~ msgid "full"
-#~ msgstr "potpuno"
-
-#~ msgid "Use transparency from system theme"
-#~ msgstr "Koristi prozirnost iz teme sustava"
+msgstr "Window kanghap"
