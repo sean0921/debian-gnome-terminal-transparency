@@ -1,4 +1,4 @@
-gnome-terminal (3.34.0-1) UNRELEASED; urgency=medium
+gnome-terminal (3.34.0-1) unstable; urgency=medium
 
   * New upstream release
   * control: Bump vte Build-Depends version to 0.58 per configure.ac
@@ -7,7 +7,7 @@ gnome-terminal (3.34.0-1) UNRELEASED; urgency=medium
   * control, rules, gnome-terminal.install: Standards-Version 4.4.0 & FHS 3.0.
     This means we can stop overriding the libexecdir.
 
- -- Iain Lane <laney@debian.org>  Thu, 12 Sep 2019 10:59:05 +0100
+ -- Iain Lane <laney@debian.org>  Thu, 12 Sep 2019 11:30:16 +0100
 
 gnome-terminal (3.33.90-1) experimental; urgency=medium
 
