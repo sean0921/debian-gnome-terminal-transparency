@@ -1,3 +1,181 @@
+commit deb38d2dff498aa4f45d762f781ef70460938163
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Sep 9 21:43:52 2019 +0200
+
+    Version 3.34.0
+
+ configure.ac | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit f13928ff4c77eb691d07a526d35c5be183315828
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Sep 9 21:43:52 2019 +0200
+
+    build: Fix ChangeLog rule to work on a git worktree
+    
+    (cherry picked from commit da18671711031cf61bdceed0f66603fdc87f6cb8)
+
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit e0ed8421dae988b5f00abf313456b3ff3cef617c
+Author: Rafael Fontenelle <rafaelff@gnome.org>
+Date:   Sun Sep 8 23:13:20 2019 +0000
+
+    Update Brazilian Portuguese translation
+
+ help/pt_BR/pt_BR.po | 228 +++++++++++++++++++++++++---------------------------
+ 1 file changed, 109 insertions(+), 119 deletions(-)
+
+commit 0fbfe72c821ff6a9c3212e639921603a6d1753e5
+Author: Changwoo Ryu <cwryu@debian.org>
+Date:   Fri Aug 30 14:12:51 2019 +0000
+
+    Update Korean translation
+
+ po/ko.po | 253 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 135 insertions(+), 118 deletions(-)
+
+commit 1811d461f590aafbfdda54624835b394176f80b9
+Author: Trần Ngọc Quân <vnwildman@gmail.com>
+Date:   Wed Aug 28 08:53:23 2019 +0700
+
+    Updated Vietnamese translation
+    
+    Signed-off-by: Trần Ngọc Quân <vnwildman@gmail.com>
+
+ po/vi.po | 309 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 163 insertions(+), 146 deletions(-)
+
+commit 6f3652689a31d7282eb8fb42ff0644833f995d72
+Author: Sabri Ünal <libreajans@gmail.com>
+Date:   Tue Aug 27 20:32:21 2019 +0000
+
+    Update Turkish translation
+
+ po/tr.po | 291 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 154 insertions(+), 137 deletions(-)
+
+commit 8f893670c6172a6122d43f2c5630536ac31d25b9
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Mon Aug 26 08:58:26 2019 +0200
+
+    Update Catalan translation
+
+ po/ca.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 4d607c426726d95b9cd23bc6081a44e042c3ee9d
+Author: Fran Dieguez <frandieguez@gnome.org>
+Date:   Sun Aug 25 23:06:34 2019 +0000
+
+    Update Galician translation
+
+ po/gl.po | 285 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 149 insertions(+), 136 deletions(-)
+
+commit 90c300145284112bcd6172ce7c455cc41cca3f50
+Author: Balázs Úr <balazs@urbalazs.hu>
+Date:   Sat Aug 24 20:08:41 2019 +0000
+
+    Update Hungarian translation
+
+ po/hu.po | 274 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 145 insertions(+), 129 deletions(-)
+
+commit 3404e1661d0f3817026c45173edd7507fa54df85
+Author: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>
+Date:   Sat Aug 24 13:41:57 2019 +0000
+
+    Update Latvian translation
+
+ po/lv.po | 270 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 141 insertions(+), 129 deletions(-)
+
+commit d7c5eae27d46f80e4a6177af2876376f76d66f08
+Author: Anders Jonsson <anders.jonsson@norsjovallen.se>
+Date:   Thu Aug 22 13:59:21 2019 +0000
+
+    Update Swedish translation
+
+ po/sv.po | 271 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 144 insertions(+), 127 deletions(-)
+
+commit f87abaadc4f83d2cd287e544de93a895305eb7ec
+Author: Марко Костић <marko.m.kostic@gmail.com>
+Date:   Wed Aug 21 21:42:20 2019 +0000
+
+    Update Serbian translation
+
+ po/sr.po | 267 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 142 insertions(+), 125 deletions(-)
+
+commit 63b2a440e900f025e3a8de6dea61c6be7c0659ce
+Author: Danial Behzadi <dani.behzi@ubuntu.com>
+Date:   Wed Aug 21 18:41:11 2019 +0000
+
+    Update Persian translation
+
+ po/fa.po | 2725 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 1477 insertions(+), 1248 deletions(-)
+
+commit eb3c0fa425119f81f3773311c073270bb979ee07
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Tue Aug 20 20:28:34 2019 +0200
+
+    Update Polish translation
+
+ po/pl.po | 265 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 141 insertions(+), 124 deletions(-)
+
+commit fc3df90ea059e7ad06b92298c30d88f64cc54cdc
+Author: Aurimas Černius <aurisc4@gmail.com>
+Date:   Tue Aug 20 13:13:46 2019 +0300
+
+    Updated Lithuanian translation
+
+ po/lt.po | 272 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 142 insertions(+), 130 deletions(-)
+
+commit a8a88a6a852c6b43168997a75cd1f6c0ce49e72c
+Author: Tim Sabsch <tim@sabsch.com>
+Date:   Mon Aug 19 21:58:57 2019 +0000
+
+    Update German translation
+
+ po/de.po | 272 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 146 insertions(+), 126 deletions(-)
+
+commit c045b4d625091ecebc66f5e4e1b98fdba8b00f46
+Author: Sveinn í Felli <sv1@fellsnet.is>
+Date:   Fri Aug 16 06:39:15 2019 +0000
+
+    Update Icelandic translation
+    
+    (cherry picked from commit 6e07fea5afbdb4a9c3a7f48923cb474f60754c48)
+
+ po/is.po | 2549 +++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 1369 insertions(+), 1180 deletions(-)
+
+commit c947d069016fbd69acf05c53f95aeaaacccc9146
+Author: Marek Černocký <marek@manet.cz>
+Date:   Fri Aug 16 07:58:18 2019 +0200
+
+    Updated Czech translation
+
+ help/cs/cs.po | 104 ++++++++++-------------
+ po/cs.po      | 268 +++++++++++++++++++++++++++++++---------------------------
+ 2 files changed, 188 insertions(+), 184 deletions(-)
+
+commit 9f64a2a42d4aa09eaa5dca7a75c316c3568cbb9d
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Aug 5 20:15:17 2019 +0200
+
+    Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit 75df7d2f522723a7fd4c4d97c0cdf4dd09be9895
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Mon Aug 5 20:09:31 2019 +0200
