@@ -18,9 +18,7 @@ CONFFLAGS = --disable-search-provider
 endif
 
 override_dh_auto_configure:
-	dh_auto_configure -- \
-		--libexecdir=\$${prefix}/lib/gnome-terminal \
-		$(CONFFLAGS)
+	dh_auto_configure -- $(CONFFLAGS)
 
 override_dh_auto_build:
 	dh_auto_build

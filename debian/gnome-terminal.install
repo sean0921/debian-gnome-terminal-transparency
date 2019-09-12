@@ -1,6 +1,6 @@
 #! /usr/bin/dh-exec
 usr/bin
-usr/lib/gnome-terminal
+usr/libexec
 usr/lib/systemd/user
 usr/share/metainfo/org.gnome.Terminal.appdata.xml
 usr/share/applications
