@@ -45,7 +45,7 @@ class GnomeTerminal(object):
                              Gio.SubprocessFlags.NONE)
 
     def spawn_terminal_server(self, name, cls):
-        args = ['/usr/lib/gnome-terminal/gnome-terminal-server',
+        args = ['/usr/libexec/gnome-terminal-server',
                 '--app-id',
                  name]
         if cls is not None:
