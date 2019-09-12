@@ -1,6 +1,11 @@
 gnome-terminal (3.34.0-1) UNRELEASED; urgency=medium
 
   * New upstream release
+  * control: Bump vte Build-Depends version to 0.58 per configure.ac
+  * control, rules: Port to specifying compat level and sequences in
+    Build-Depends. Bump to compat 12
+  * control, rules, gnome-terminal.install: Standards-Version 4.4.0 & FHS 3.0.
+    This means we can stop overriding the libexecdir.
 
  -- Iain Lane <laney@debian.org>  Thu, 12 Sep 2019 10:59:05 +0100
 
