@@ -1,9 +1,9 @@
-gnome-terminal (3.34.0-1ubuntu2) UNRELEASED; urgency=medium
+gnome-terminal (3.34.0-1ubuntu2) eoan; urgency=medium
 
   * gnome-terminal.wrap: Update gnome-terminal-server path for libexec
     migration (LP: #1843872)
 
- -- Iain Lane <iain.lane@canonical.com>  Fri, 13 Sep 2019 09:39:17 +0100
+ -- Iain Lane <iain.lane@canonical.com>  Fri, 13 Sep 2019 09:43:11 +0100
 
 gnome-terminal (3.34.0-1ubuntu1) eoan; urgency=medium
 
