@@ -1,6 +1,6 @@
 m4_define([gt_version_major],[3])
 m4_define([gt_version_minor],[34])
-m4_define([gt_version_micro],[0])
+m4_define([gt_version_micro],[1])
 m4_define([gt_version_extra],[])
 m4_define([gt_version],[gt_version_major().gt_version_minor().gt_version_micro()gt_version_extra])
 
@@ -43,6 +43,7 @@ GLIB_MIN_REQUIRED=2.42
 GLIB_MAX_ALLOWED=2.50
 
 GIO_REQUIRED=2.34.0
+GIO_UNIX_REQUIRED=2.34.0
 GSETTINGS_DESKTOP_SCHEMAS_REQUIRED=0.1.0
 DCONF_REQUIRED=0.14.0
 PCRE2_REQUIRED=10.00
@@ -64,7 +65,7 @@ case "$with_gtk" in
        GTK_MIN_REQUIRED=3.8
        GTK_MAX_ALLOWED=3.22
        VTE_API_VERSION=2.91
-       VTE_REQUIRED=0.58.0
+       VTE_REQUIRED=0.58.1
        ;;
 esac
 
@@ -87,6 +88,7 @@ PKG_CHECK_MODULES([TERM],
   [vte-$VTE_API_VERSION >= $VTE_REQUIRED
    glib-2.0 >= $GLIB_REQUIRED
    gio-2.0 >= $GIO_REQUIRED
+   gio-unix-2.0 >= $GIO_UNIX_REQUIRED
    gtk+-$GTK_API_VERSION >= $GTK_REQUIRED
    gsettings-desktop-schemas >= $GSETTINGS_DESKTOP_SCHEMAS_REQUIRED
    dconf >= $DCONF_REQUIRED

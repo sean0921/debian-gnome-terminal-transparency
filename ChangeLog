@@ -1,3 +1,131 @@
+commit 85112274d980dc2aaafc7897c783fad9a46650b4
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Oct 7 22:10:08 2019 +0200
+
+    Version 3.34.1
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 8ee0c67dbeca43d0aa678892e921421d916df126
+Author: Ask Hjorth Larsen <asklarsen@gmail.com>
+Date:   Wed Oct 2 05:29:08 2019 +0200
+
+    Updated Danish translation
+
+ po/da.po | 252 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 133 insertions(+), 119 deletions(-)
+
+commit 499902cd11b5dbfc923e2e4d81100b48d8bf8b9b
+Author: Danial Behzadi <dani.behzi@ubuntu.com>
+Date:   Mon Sep 30 13:51:50 2019 +0000
+
+    Update Persian translation
+
+ po/fa.po | 370 ++++++++++++++++++++++++++++++---------------------------------
+ 1 file changed, 174 insertions(+), 196 deletions(-)
+
+commit a69865b9261419584bf00fb3f0f6fcd8188dad09
+Author: Danial Behzadi <dani.behzi@ubuntu.com>
+Date:   Mon Sep 30 13:46:52 2019 +0000
+
+    Update Persian translation
+
+ po/fa.po | 145 ++++++++++++++++++++++++++++++---------------------------------
+ 1 file changed, 70 insertions(+), 75 deletions(-)
+
+commit 5c061803650fe79902c85437e1320c4fc28d2113
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Fri Sep 20 13:50:03 2019 +0200
+
+    client: legacy: Block one more undesirable environment variable
+    
+    (cherry picked from commit 4cf749ab1c52ec5a07e7b8a79b377920912553cb)
+
+ src/terminal-client-utils.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 2b502f769eb2436f9bc525dcfa92bd637bef1268
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Wed Sep 18 10:27:13 2019 +0200
+
+    build: Add required gio-unix-2.0 dependency
+    
+    vte no longer has gio-unix-2.0 in its public pkg-config requires, so
+    we need to add this dependency here.
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/165
+    (cherry picked from commit ad56a3c32ad0911c067474d30a18b9d4b93050a8)
+
+ configure.ac | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 0382bd11c2b7627f457e0c78471b8e65924ddd61
+Author: Ryuta Fujii <translation@sicklylife.jp>
+Date:   Tue Sep 17 11:18:30 2019 +0000
+
+    Update Japanese translation
+
+ po/ja.po | 50 +++++++++++++++++++++++++-------------------------
+ 1 file changed, 25 insertions(+), 25 deletions(-)
+
+commit fe69b95493e9705f37e2e5dd45bc46d80d3cdcb0
+Author: Ryuta Fujii <translation@sicklylife.jp>
+Date:   Tue Sep 17 11:02:24 2019 +0000
+
+    Update Japanese translation
+
+ po/ja.po | 263 ++++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 140 insertions(+), 123 deletions(-)
+
+commit 41036e0beed598c0970955847dd05246d9624d88
+Author: Bruce Cowan <bruce@bcowan.me.uk>
+Date:   Sat Sep 14 09:21:12 2019 +0000
+
+    Update British English translation
+
+ po/en_GB.po | 1037 ++++++++++++++++++++++++++---------------------------------
+ 1 file changed, 464 insertions(+), 573 deletions(-)
+
+commit 2cbc9e6b9be7f4d6b2d92b40e37ec687d36ce98d
+Author: Olivier Fourdan <ofourdan@redhat.com>
+Date:   Wed Sep 11 17:54:21 2019 +0200
+
+    window: Ignore resize if fullscreen
+    
+    The terminal update size function will not change the window size if
+    maximized or tiled, but does not account for fullscreen window.
+    
+    As a result, if the terminal window is fullscreen, the size is updated
+    which cause the window to shrink because of size increments.
+    
+    Make sure `terminal_window_update_size()` accounts for fullscreen state
+    as well and return early in that case.
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/158
+    (cherry picked from commit b0d5d4a83fe223d419b824b191edaf05eb96b533)
+
+ src/terminal-window.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit fd86f056a122328d82e76bf5cce6c03522cea837
+Author: Gianvito Cavasoli <gianvito@gmx.it>
+Date:   Tue Sep 10 14:58:53 2019 +0000
+
+    Update Italian translation
+
+ po/it.po | 273 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 143 insertions(+), 130 deletions(-)
+
+commit 590a4224bdc075dbcdc4589462cc93370703e2c9
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Sep 9 21:47:46 2019 +0200
+
+    Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit deb38d2dff498aa4f45d762f781ef70460938163
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Mon Sep 9 21:43:52 2019 +0200
