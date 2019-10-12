@@ -1,3 +1,21 @@
+commit 158168347c4b647ff2feb4f84d5da7b6ff83baa4
+Author: Yi-Jyun Pan <pan93412@gmail.com>
+Date:   Tue Oct 8 11:32:05 2019 +0000
+
+    Update Chinese (Taiwan) translation
+
+ po/zh_TW.po | 274 +++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 143 insertions(+), 131 deletions(-)
+
+commit 1655dd857cdcf8a1e3c0d13a611d3860df8c4229
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Oct 7 22:19:45 2019 +0200
+
+    Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit 85112274d980dc2aaafc7897c783fad9a46650b4
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Mon Oct 7 22:10:08 2019 +0200
