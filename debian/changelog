@@ -1,3 +1,16 @@
+gnome-terminal (3.34.2-1) unstable; urgency=medium
+
+  * New upstream translations update
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sat, 12 Oct 2019 06:46:07 -0400
+
+gnome-terminal (3.34.1-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bump minimum libvte-2.91-dev to 0.58.1
+
+ -- Jeremy Bicha <jbicha@debian.org>  Thu, 10 Oct 2019 07:00:42 -0400
+
 gnome-terminal (3.34.0-1ubuntu2) eoan; urgency=medium
 
   * gnome-terminal.wrap: Update gnome-terminal-server path for libexec
