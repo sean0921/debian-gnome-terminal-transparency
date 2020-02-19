@@ -96,6 +96,6 @@ index a4da042..7f99718 100644
 +    }
 +  }
 +
-   if (screen->priv->initial_working_directory)
-     return g_strdup (screen->priv->initial_working_directory);
- 
+   ExecData *data = screen->priv->exec_data;
+   if (data && data->cwd)
+     return g_strdup (data->cwd);

@@ -28,8 +28,8 @@ index a85fcef..a4da042 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
 @@ -883,6 +883,17 @@ update_color_scheme (TerminalScreen *screen)
-   gtk_style_context_get_color (context, gtk_style_context_get_state (context), &theme_fg);
    gtk_style_context_get_background_color (context, gtk_style_context_get_state (context), &theme_bg);
+   G_GNUC_END_IGNORE_DEPRECATIONS
  
 +  if (theme_fg.red == 0.0 && theme_fg.green == 0.0 && theme_fg.blue == 0.0 &&
 +      theme_bg.red == 0.0 && theme_bg.green == 0.0 && theme_bg.blue == 0.0)

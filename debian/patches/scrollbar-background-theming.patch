@@ -72,20 +72,18 @@ index e42c401..2cbc4c2 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
 @@ -94,6 +94,8 @@ struct _TerminalScreenPrivate
-   int child_pid;
-   GSList *match_tags;
-   guint launch_child_source_id;
+   gboolean exec_on_realize;
+   guint idle_exec_source;
+   ExecData *exec_data;
 +  GdkRGBA bg_color;
 +  GdkRGBA fg_color;
  };
  
  enum
-@@ -109,7 +111,9 @@ enum {
+@@ -109,6 +111,8 @@ enum {
    PROP_0,
    PROP_PROFILE,
    PROP_TITLE,
--  PROP_INITIAL_ENVIRONMENT
-+  PROP_INITIAL_ENVIRONMENT,
 +  PROP_BG_COLOR,
 +  PROP_FG_COLOR
  };
@@ -105,7 +103,7 @@ index e42c401..2cbc4c2 100644
          G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
          break;
 @@ -516,6 +526,8 @@ terminal_screen_set_property (GObject *object,
-         terminal_screen_set_initial_environment (screen, g_value_get_boxed (value));
+         terminal_screen_set_profile (screen, g_value_get_object (value));
          break;
        case PROP_TITLE:
 +      case PROP_FG_COLOR:
@@ -114,8 +112,8 @@ index e42c401..2cbc4c2 100644
        default:
          G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
 @@ -608,6 +620,20 @@ terminal_screen_class_init (TerminalScreenClass *klass)
-                          G_TYPE_STRV,
-                          G_PARAM_READWRITE | G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB));
+                           NULL,
+                           G_PARAM_READABLE | G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB));
  
 +  g_object_class_install_property
 +    (object_class,
@@ -181,7 +179,7 @@ index 501d2ce..0ee07b1 100644
 --- a/src/terminal-screen.h
 +++ b/src/terminal-screen.h
 @@ -105,6 +105,8 @@ void         terminal_screen_set_initial_environment (TerminalScreen  *screen,
- char **      terminal_screen_get_initial_environment (TerminalScreen  *screen);
+ GSettings* terminal_screen_ref_profile (TerminalScreen *screen);
  
  const char* terminal_screen_get_title          (TerminalScreen *screen);
 +GdkRGBA*    terminal_screen_get_bg_color       (TerminalScreen *screen);

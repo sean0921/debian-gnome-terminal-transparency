@@ -1,3 +1,13 @@
+gnome-terminal (3.35.91-0ubuntu1) focal; urgency=medium
+
+  * New upstream release
+  * debian/control:
+    - Bump build-depends on libgtk-3-dev, libglib2.0-dev,
+      libnautilus-extension-dev
+    - Drop build-depends on intltool, add build-depends on gettext
+
+ -- Robert Ancell <robert.ancell@canonical.com>  Thu, 20 Feb 2020 12:22:52 +1300
+
 gnome-terminal (3.34.2-1ubuntu1) eoan; urgency=medium
 
   * Merge with debian as SRU (LP: #1849285), remaining changes:

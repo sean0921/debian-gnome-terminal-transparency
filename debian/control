@@ -11,12 +11,12 @@ Uploaders: Iain Lane <laney@debian.org>, Jeremy Bicha <jbicha@debian.org>
 Build-Depends: debhelper-compat (= 12),
                dh-sequence-gnome,
                dh-exec,
+               gettext (>= 0.19.8),
                gnome-common,
-               intltool (>= 0.50.0),
                libx11-dev,
                libdconf-dev (>= 0.14.0),
-               libgtk-3-dev (>= 3.20),
-               libglib2.0-dev (>= 2.42.0),
+               libgtk-3-dev (>= 3.22.27),
+               libglib2.0-dev (>= 2.50.0),
                libpcre2-dev (>= 10.00),
                libvte-2.91-dev (>= 0.58.1),
                libsm-dev,
@@ -27,7 +27,7 @@ Build-Depends: debhelper-compat (= 12),
                desktop-file-utils,
                gsettings-desktop-schemas-dev (>= 0.1.0),
                gnome-shell [!hurd-any !kfreebsd-any !s390x],
-               libnautilus-extension-dev (>= 3.21.92-3~)
+               libnautilus-extension-dev (>= 3.28.0)
 Rules-Requires-Root: no
 Standards-Version: 4.4.0
 Vcs-Browser: https://git.launchpad.net/~ubuntu-desktop/ubuntu/+source/gnome-terminal
