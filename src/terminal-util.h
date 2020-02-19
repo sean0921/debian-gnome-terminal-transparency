@@ -108,6 +108,11 @@ void terminal_util_load_print_settings (GtkPrintSettings **settings,
 void terminal_util_save_print_settings (GtkPrintSettings *settings,
                                         GtkPageSetup *page_setup);
 
+const char *terminal_util_translate_encoding (const char *encoding);
+
+char *terminal_util_find_program_in_path (const char *path,
+                                          const char *program);
+
 G_END_DECLS
 
 #endif /* TERMINAL_UTIL_H */

@@ -1,12 +1,12 @@
-m4_define([gt_version_major],[3])
-m4_define([gt_version_minor],[34])
-m4_define([gt_version_micro],[2])
-m4_define([gt_version_extra],[])
-m4_define([gt_version],[gt_version_major().gt_version_minor().gt_version_micro()gt_version_extra])
+m4_define([terminal_version_major],[3])
+m4_define([terminal_version_minor],[35])
+m4_define([terminal_version_micro],[91])
+m4_define([terminal_version_extra],[])
+m4_define([terminal_version],[terminal_version_major().terminal_version_minor().terminal_version_micro()terminal_version_extra])
 
-m4_define([gt_api_version],[0])
+m4_define([terminal_api_version],[0])
 
-AC_INIT([GNOME Terminal],[gt_version],[http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-terminal],[gnome-terminal])
+AC_INIT([GNOME Terminal],[terminal_version],[http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-terminal],[gnome-terminal])
 AC_CONFIG_SRCDIR([src/terminal.c])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
@@ -32,14 +32,13 @@ AC_PROG_CC_C99
 AC_ISC_POSIX
 AC_HEADER_STDC
 AM_PROG_LIBTOOL
-IT_PROG_INTLTOOL([0.50.0])
-
-AM_GLIB_GNU_GETTEXT
+AM_GNU_GETTEXT_VERSION([0.19.8])
+AM_GNU_GETTEXT([external])
 
 AX_PTHREAD([],[AC_MSG_ERROR([pthreads are required])])
 
-GLIB_REQUIRED=2.42.0
-GLIB_MIN_REQUIRED=2.42
+GLIB_REQUIRED=2.50.0
+GLIB_MIN_REQUIRED=2.50
 GLIB_MAX_ALLOWED=2.50
 
 GIO_REQUIRED=2.34.0
@@ -61,11 +60,11 @@ AC_MSG_RESULT([$with_gtk])
 
 case "$with_gtk" in
   3.0) GTK_API_VERSION=3.0
-       GTK_REQUIRED=3.12.0
-       GTK_MIN_REQUIRED=3.8
+       GTK_REQUIRED=3.22.27
+       GTK_MIN_REQUIRED=3.18
        GTK_MAX_ALLOWED=3.22
        VTE_API_VERSION=2.91
-       VTE_REQUIRED=0.58.1
+       VTE_REQUIRED=0.59.91
        ;;
 esac
 
@@ -199,7 +198,7 @@ AC_ARG_WITH([nautilus-extension],
   [with_nautilus_extension=yes])
 
 if test "$with_nautilus_extension" = "yes"; then
-  NAUTILUS_REQUIRED=3.0.0
+  NAUTILUS_REQUIRED=3.28.0
 
   PKG_CHECK_MODULES([NAUTILUS],[
     libnautilus-extension >= $NAUTILUS_REQUIRED
@@ -287,10 +286,10 @@ YELP_HELP_INIT([no-lc-media-links no-lc-dist])
 
 # ****************************
 
-AC_SUBST([TERMINAL_MAJOR_VERSION],[gt_version_major])
-AC_SUBST([TERMINAL_MINOR_VERSION],[gt_version_minor])
-AC_SUBST([TERMINAL_MICRO_VERSION],[gt_version_micro])
-AC_SUBST([TERMINAL_API_VERSION],[gt_api_version])
+AC_SUBST([TERMINAL_MAJOR_VERSION],[terminal_version_major])
+AC_SUBST([TERMINAL_MINOR_VERSION],[terminal_version_minor])
+AC_SUBST([TERMINAL_MICRO_VERSION],[terminal_version_micro])
+AC_SUBST([TERMINAL_API_VERSION],[terminal_api_version])
 AC_SUBST([GTK_API_VERSION])
 AC_SUBST([WARN_CFLAGS])
 AC_SUBST([AM_CPPFLAGS])

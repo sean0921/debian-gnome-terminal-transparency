@@ -29,6 +29,11 @@ typedef enum {
   TERMINAL_NEW_TERMINAL_MODE_TAB
 } TerminalNewTerminalMode;
 
+typedef enum {
+  TERMINAL_NEW_TAB_POSITION_LAST,
+  TERMINAL_NEW_TAB_POSITION_NEXT
+} TerminalNewTabPosition;
+
 typedef enum
 {
   TERMINAL_EXIT_CLOSE,
@@ -52,6 +57,12 @@ typedef enum {
   TERMINAL_THEME_VARIANT_LIGHT  = 1,
   TERMINAL_THEME_VARIANT_DARK   = 2
 } TerminalThemeVariant;
+
+typedef enum {
+  TERMINAL_PRESERVE_WORKING_DIRECTORY_NEVER  = 0,
+  TERMINAL_PRESERVE_WORKING_DIRECTORY_SAFE   = 1,
+  TERMINAL_PRESERVE_WORKING_DIRECTORY_ALWAYS = 2,
+} TerminalPreserveWorkingDirectory;
 
 G_END_DECLS
 

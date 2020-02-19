@@ -1,69 +1,1188 @@
-commit 158168347c4b647ff2feb4f84d5da7b6ff83baa4
-Author: Yi-Jyun Pan <pan93412@gmail.com>
-Date:   Tue Oct 8 11:32:05 2019 +0000
-
-    Update Chinese (Taiwan) translation
-
- po/zh_TW.po | 274 +++++++++++++++++++++++++++++++-----------------------------
- 1 file changed, 143 insertions(+), 131 deletions(-)
-
-commit 1655dd857cdcf8a1e3c0d13a611d3860df8c4229
+commit ad9c091088c9859fb56dd4b3ca8a0a1dd94d46a4
 Author: Christian Persch <chpe@src.gnome.org>
-Date:   Mon Oct 7 22:19:45 2019 +0200
+Date:   Sat Feb 15 21:01:28 2020 +0100
+
+    build: Version 3.35.91
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit f0307328135393cd3d9deb2fa151ad2bf0e988e9
+Author: Asier Sarasua Garmendia <asier.sarasua@gmail.com>
+Date:   Sat Feb 15 08:34:32 2020 +0000
+
+    Update Basque translation
+
+ po/eu.po | 1454 +++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 786 insertions(+), 668 deletions(-)
+
+commit a70517e4eda03f3654a7857725efd269b69147c6
+Author: Fran Dieguez <frandieguez@gnome.org>
+Date:   Fri Feb 14 21:46:41 2020 +0000
+
+    Update Galician translation
+
+ po/gl.po | 1132 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 616 insertions(+), 516 deletions(-)
+
+commit 99c67bab239ba973847a980dc2b4b5becad25eaa
+Author: sicklylife <translation@sicklylife.jp>
+Date:   Fri Feb 14 20:28:18 2020 +0000
+
+    Update Japanese translation
+
+ po/ja.po | 29 ++++++++++++-----------------
+ 1 file changed, 12 insertions(+), 17 deletions(-)
+
+commit 4d9a280e30717a81300ff67dfc33968378f57257
+Author: sicklylife <translation@sicklylife.jp>
+Date:   Fri Feb 14 20:20:32 2020 +0000
+
+    Update Japanese translation
+
+ po/ja.po | 1131 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 616 insertions(+), 515 deletions(-)
+
+commit 5298b59f2f69f67c3b0fa88821b5cf7a0ab284be
+Author: Emin Tufan Çetin <etcetin@gmail.com>
+Date:   Fri Feb 14 15:22:49 2020 +0000
+
+    Update Turkish translation
+
+ po/tr.po | 1141 +++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 616 insertions(+), 525 deletions(-)
+
+commit e2d4175cf733cfa7ba15d3e76e7be8937e0bb09d
+Author: Rafael Fontenelle <rafaelff@gnome.org>
+Date:   Fri Feb 14 12:12:56 2020 +0000
+
+    Update Brazilian Portuguese translation
+
+ po/pt_BR.po | 1143 ++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 617 insertions(+), 526 deletions(-)
+
+commit 21d5eb314605e8ecbd6d90c1a70086ba2dd358b8
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:   Fri Feb 14 10:00:27 2020 +0100
+
+    Updated Spanish translation
+
+ po/es.po | 1139 +++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 616 insertions(+), 523 deletions(-)
+
+commit 2d01dc732d30f689a6b3d960b5556862c610ed27
+Author: Martin Blanchard <tchaik@gmx.com>
+Date:   Thu Feb 13 23:31:16 2020 +0100
+
+    build: Migrate from intltool to gettext
+    
+    Drop the outdated intltool dependency, prefer recent gettext.
+    
+    https://wiki.gnome.org/Initiatives/GnomeGoals/GettextMigration
+    https://wiki.gnome.org/Projects/GnomeCommon/Migration
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/73
+
+ Makefile.am                                 |  7 ++-
+ autogen.sh                                  |  1 -
+ configure.ac                                | 27 +++++-----
+ org.gnome.Terminal.Nautilus.metainfo.xml.in |  6 +--
+ org.gnome.Terminal.appdata.xml.in           |  8 +--
+ org.gnome.Terminal.desktop.in.in            | 10 ++--
+ po/Makevars                                 | 78 +++++++++++++++++++++++++++++
+ po/POTFILES.in                              | 13 +++--
+ 8 files changed, 114 insertions(+), 36 deletions(-)
+
+commit 7b6c2e22d6fd92de5fcbf49e420e325cea28a996
+Author: Марко Костић <marko.m.kostic@gmail.com>
+Date:   Thu Feb 13 21:30:59 2020 +0000
+
+    Update Serbian translation
+
+ po/sr.po | 961 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 491 insertions(+), 470 deletions(-)
+
+commit 2786f91935196de7d7c423e741cf9577b9b434b7
+Author: Marek Černocký <marek@manet.cz>
+Date:   Tue Feb 11 12:29:10 2020 +0100
+
+    Updated Czech translation
+
+ po/cs.po | 783 +++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 380 insertions(+), 403 deletions(-)
+
+commit 7a9a55ff0cce884d858004c5665ffe044963f146
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:   Tue Feb 11 12:18:47 2020 +0100
+
+    Updated Spanish translation
+
+ help/es/es.po | 69 +++++++++++++++++++++++++++++++++++++++++++++--------------
+ 1 file changed, 53 insertions(+), 16 deletions(-)
+
+commit 90f5581cbef3fe4a70c1fe85eaf78b7f9947c5a1
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Mon Feb 10 22:53:26 2020 +0100
+
+    build: Remove an unused variable
+
+ src/terminal-window.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit b2951a0e4a325faed87ac6fcc162feadd8d4d51f
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Mon Feb 10 22:35:01 2020 +0100
+
+    help: Add section about "Show bold text in bright colors"
+
+ help/C/app-colors.page | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
+
+commit 89a26a986a04f9c671939a83c17eb2dff25b2f30
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Mon Feb 10 22:09:11 2020 +0100
+
+    help: Make txt-save-text.page pass "yelp-check validate"
+    
+    Content of <comment> must be surrounded by <p>, plus after <title>
+
+ help/C/txt-save-text.page | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit 37352c65c53548909753ed93b4bf738dbb1abeb0
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:   Mon Feb 10 14:49:34 2020 +0100
+
+    Updated Spanish translation
+
+ help/es/es.po | 141 +++++++++++++++++++---------------------------------------
+ 1 file changed, 46 insertions(+), 95 deletions(-)
+
+commit 82dcb74c31c6aa43fba6bf88b51ad21ea6634d3d
+Author: sicklylife <translation@sicklylife.jp>
+Date:   Sun Feb 9 15:49:18 2020 +0000
+
+    Update Japanese translation
+
+ po/ja.po | 140 ++++-----------------------------------------------------------
+ 1 file changed, 9 insertions(+), 131 deletions(-)
+
+commit 0a0efcf81b2eb298206d2bc31e7069d84762ed3c
+Author: sicklylife <translation@sicklylife.jp>
+Date:   Sun Feb 9 15:45:13 2020 +0000
+
+    Update Japanese translation
+
+ po/ja.po | 960 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 493 insertions(+), 467 deletions(-)
+
+commit 13a63e000f3519cb3e39e16e706c31d0f5fef9ce
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sun Feb 9 16:19:46 2020 +0100
+
+    help: Clarify how/when to use the 'Open new terminals in' preference
+    
+    See #202
+
+ help/C/pref-tab-window.page | 26 +++++++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
+
+commit 59ea48cd6c4363acce3a37eecf990e4737e9ddd4
+Author: Jiri Grönroos <jiri.gronroos@iki.fi>
+Date:   Sun Feb 9 12:51:17 2020 +0000
+
+    Update Finnish translation
+
+ po/fi.po | 1108 ++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 573 insertions(+), 535 deletions(-)
+
+commit 33d0196fb3e2dc74e4d91026c5610dbbe39daf1a
+Author: Aurimas Černius <aurisc4@gmail.com>
+Date:   Sat Feb 8 14:54:13 2020 +0200
+
+    Updated Lithuanian translation
+
+ po/lt.po | 965 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 494 insertions(+), 471 deletions(-)
+
+commit e8cdfb95c11c5d028cc3be85599700cf72e1d31f
+Author: Danial Behzadi <dani.behzi@ubuntu.com>
+Date:   Fri Feb 7 13:45:25 2020 +0000
+
+    Update Persian translation
+
+ po/fa.po | 1155 ++++++++++++++++++++++++++++++--------------------------------
+ 1 file changed, 563 insertions(+), 592 deletions(-)
+
+commit 8f6a54523eafb5aa5bd641de9c2091a309455b99
+Author: Emin Tufan Çetin <etcetin@gmail.com>
+Date:   Wed Feb 5 13:21:23 2020 +0000
+
+    Update Turkish translation
+
+ po/tr.po | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+commit 0be11b4db51b83f445a201e3cbec5412c5771037
+Author: Emin Tufan Çetin <etcetin@gmail.com>
+Date:   Wed Feb 5 13:15:38 2020 +0000
+
+    Update Turkish translation
+
+ po/tr.po | 1013 ++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 519 insertions(+), 494 deletions(-)
+
+commit def446bf0e558b4648fb9e40ece33d7fd282249f
+Author: Benjamin Berg <bberg@redhat.com>
+Date:   Tue Feb 4 18:28:09 2020 +0100
+
+    build: Stop terminal service together with graphical session
+    
+    There is no point in gnome-terminal-server to survive the graphical
+    session. It will generally die anyway because the connection to the
+    display server is lost, but it does not hurt to make this explicit.
+    
+    Also add a stop timeout to ensure the server gets killed if it refuses
+    to shut down.
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/206
+
+ src/Makefile.am | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit 7125551aa974278e4dae515ec60ca72e4b5576c5
+Author: Benjamin Berg <bberg@redhat.com>
+Date:   Tue Feb 4 18:28:09 2020 +0100
+
+    build: Group terminal processes into a slice
+    
+    This effectively changes the cgroup hierarchy making all terminal window
+    scope units and the main server unit be sibblings of
+    apps-org.gnome.Terminal.slice rather than being in the root slice.
+    
+    Note that using the apps prefix with the reverse domain name has not yet
+    been standardised on. But it is very likely that this will be the
+    standard that everything will converge on in the future.
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/206
+
+ src/Makefile.am | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 0135cfb6f307b8cb040be70d91c69a8d997ba76e
+Author: Benjamin Berg <bberg@redhat.com>
+Date:   Tue Feb 4 18:28:09 2020 +0100
+
+    build: Remove KillMode from gnome-terminal-server service file
+    
+    This was used so that child processes could survive the terminal server.
+    However, there is no need for it anymore, as the children are now inside
+    a separate scope.
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/206
+
+ src/Makefile.am | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 434d70e82c7ca7bbc7813eed7482300eeeb5fffa
+Author: Goran Vidović <trebelnik2@gmail.com>
+Date:   Mon Feb 3 16:49:40 2020 +0000
+
+    Update Croatian translation
+
+ po/hr.po | 962 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 493 insertions(+), 469 deletions(-)
+
+commit 27c04157422cd0e8ad9bd421079c0c7b49e8aba7
+Author: Umarzuki Bin Mochlis Moktar <umarzuki@gmail.com>
+Date:   Tue Jan 28 01:28:02 2020 +0000
+
+    Update Malay translation
+
+ po/ms.po | 5825 +++++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 3438 insertions(+), 2387 deletions(-)
+
+commit 6327b8ce5dc8b55a5d8d699b07f46005defa0bcf
+Author: Dušan Kazik <prescott66@gmail.com>
+Date:   Tue Jan 21 14:38:36 2020 +0000
+
+    Update Slovak translation
+
+ po/sk.po | 1429 ++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 736 insertions(+), 693 deletions(-)
+
+commit 76355980fe4398c055fab022554c506d5709288e
+Author: Kukuh Syafaat <kukuhsyafaat@gnome.org>
+Date:   Mon Jan 13 03:28:15 2020 +0000
+
+    Update Indonesian translation
+
+ po/id.po | 673 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 344 insertions(+), 329 deletions(-)
+
+commit 9b302e53e6018d25989a866fc3401df97ea31e49
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Tue Jan 7 22:30:40 2020 +0100
+
+    Update Catalan translation
+
+ po/ca.po | 975 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 499 insertions(+), 476 deletions(-)
+
+commit a0f58f6815c72e495990372162574eb788fe16e0
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:   Tue Jan 7 15:39:29 2020 +0100
+
+    Updated Spanish translation
+
+ help/es/es.po | 1572 +++++++++++++++++++++++++++++++--------------------------
+ 1 file changed, 844 insertions(+), 728 deletions(-)
+
+commit 66803e347f023b6324b9af4b3da3be2a791e15bd
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sun Jan 5 23:03:20 2020 +0100
+
+    client: legacy: Implicitly opened tab should become active
+
+ src/terminal-options.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit 71f5e20c372c0e485fa209f97a83ed39e06e463f
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sun Jan 5 23:03:20 2020 +0100
+
+    screen: container: Realize the screen when realizing the container
+    
+    Fixes: https://gitlab.gnome.org/GNOME/gnome-terminal/issues/203
+
+ src/terminal-screen-container.c | 18 ++++++++++++++----
+ 1 file changed, 14 insertions(+), 4 deletions(-)
+
+commit de6f5f13bcf7352c5a397bea177626ccf2b738f1
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sun Jan 5 00:30:13 2020 +0100
+
+    help: Update application screenshot for 3.34
+
+ help/C/figures/gnome-terminal.png | Bin 10129 -> 9334 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit e7aaa395097f80a776706c16c651e0992aabda8a
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sun Jan 5 00:23:53 2020 +0100
+
+    help: Correct instructions how to enable/disable the menubar
+    
+    After I finally found a setting in the context menu but not in Preferences
+
+ help/C/pref-keyboard-access.page |  5 ++---
+ help/C/pref-menubar.page         | 33 +++++++++++++--------------------
+ 2 files changed, 15 insertions(+), 23 deletions(-)
+
+commit 80e530a1c3c1f3f16097e2fcd705920b7f3d15de
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sun Jan 5 00:06:33 2020 +0100
+
+    help: No more 'View' menu to go full screen
+
+ help/C/app-fullscreen.page | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+commit 29834adf829ca49b4c1d5b08563ebba26b213650
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sun Jan 5 00:05:29 2020 +0100
+
+    help: No more 'Edit' menu to get to Preferences
+
+ help/C/app-colors.page | 27 ++++++++++++++-------------
+ help/C/app-cursor.page |  9 +++++----
+ help/C/app-fonts.page  | 28 ++++++++++++++++------------
+ 3 files changed, 35 insertions(+), 29 deletions(-)
+
+commit a33647fee08fdc5633c06c8971142e2cdf3430ab
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 23:39:22 2020 +0100
+
+    help: No more 'Terminal' or 'Edit' menu to set the terminal size
+
+ help/C/app-terminal-sizes.page | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+
+commit 473808816f029fb4656e15eb61721c2778ed1f3e
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 23:36:49 2020 +0100
+
+    help: No more 'View' menu to change zoom
+
+ help/C/app-zoom.page | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+
+commit 226fad193961bc8fd866bda97c35519b76193b31
+Author: Michael Catanzaro <mcatanzaro@gnome.org>
+Date:   Sat Jan 4 12:57:07 2020 -0600
+
+    Fix build
+
+ help/Makefile.am | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 6c729381e9c6bd6fb77365e788863fb7ede70d55
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 19:31:26 2020 +0100
+
+    help: Page 'Hide and restore the menubar' only makes sense when manually enabled
+
+ help/C/pref-menubar.page | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit 99171c093a2d6dc03fdc36ae6321569a2616cde6
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 19:30:26 2020 +0100
+
+    help: Split a sentence to reuse and save translators' time
+
+ help/C/pref-keyboard-access.page | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit 8458f8d020867053e802b8f472fab01841e9b733
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 19:26:25 2020 +0100
+
+    help: No more 'Edit' menu to get to Preferences
+
+ help/C/pref-scrolling.page | 41 +++++++++++++++++++++--------------------
+ 1 file changed, 21 insertions(+), 20 deletions(-)
+
+commit f88d793e04c442e800ff880a90b7d08a822a65a7
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 19:23:59 2020 +0100
+
+    help: No more 'Edit' menu to get to Preferences
+
+ help/C/pref-bell.page | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
+
+commit c8dbb72433107a3c0099656133a052d9911bb2aa
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 19:16:22 2020 +0100
+
+    help: No more option to change the character encoding of a terminal
+    
+    It's still available per profile, and that's covered in the docs.
+
+ help/C/pref-encoding.page | 64 -----------------------------------------------
+ help/Makefile.am          |  1 -
+ 2 files changed, 65 deletions(-)
+
+commit 7dbed597afe241598b978af136906472b8911e2c
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 19:10:44 2020 +0100
+
+    help: No more 'Edit' menu to get to Preferences
+
+ help/C/pref-custom-command.page | 9 +++++----
+ help/C/pref-custom-exit.page    | 9 +++++----
+ 2 files changed, 10 insertions(+), 8 deletions(-)
+
+commit 612051f815c392e8f57c9f9eb4ce1a0682bc1f30
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 19:04:01 2020 +0100
+
+    help: Cover how to enable menubar; No more 'Edit' menu to reach Preferences
+    
+    Given the situation this page does not make much sense at all though...
+
+ help/C/pref-keyboard-access.page | 21 +++++++++++++++------
+ 1 file changed, 15 insertions(+), 6 deletions(-)
+
+commit 6c6c89a7e67313cefe8b792fae56d841a820130e
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 18:47:22 2020 +0100
+
+    help: No more 'Edit' menu for command settings
+
+ help/C/pref-login-shell.page | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+commit 8fd599c9bef0c449b721cad20772054afdd869cf
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 17:49:17 2020 +0100
+
+    help: There are no 'Options under menu X' anymore in the UI
+
+ help/C/adv-keyboard-shortcuts.page | 14 +++++---------
+ 1 file changed, 5 insertions(+), 9 deletions(-)
+
+commit 74270171541dca0c6437a4e3294c605a1c772dfe
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 17:46:51 2020 +0100
+
+    help: 'Find' shortcut section is called 'Search' in UI
+
+ help/C/adv-keyboard-shortcuts.page | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d3f0536def997586790c8b05606598831a38f96d
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 17:46:02 2020 +0100
+
+    help: Remove duplicated sentence
+
+ help/C/adv-keyboard-shortcuts.page | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit f6909497468e272e65b1b23026d11aea60938f2d
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 17:45:44 2020 +0100
+
+    help: No more 'Edit' menu for shortcut settings
+
+ help/C/adv-keyboard-shortcuts.page | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+commit 82103ec70f3e1441975f6091e911d5c1ee55c6d5
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 17:41:03 2020 +0100
+
+    help: No more 'Edit' menu for encoding settings
+
+ help/C/pref-profile-encoding.page | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+
+commit b43f1b3973d318ae60851a5d1f45660331bfd38b
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 17:39:25 2020 +0100
+
+    help: Split a sentence to make steps more atomic
+
+ help/C/pref-profile-char-width.page | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+commit 1f4e72f515f300f94caea8aa62007e1ab1371594
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 14:57:31 2020 +0100
+
+    help: No more 'Edit' menu for ambiguous-width chars
+
+ help/C/pref-profile-char-width.page | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+
+commit f1315f0482c7e75c88623016b21263454f454897
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 14:53:51 2020 +0100
+
+    help: No more 'Terminal' menu for read-only
+
+ help/C/pref-user-input.page | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit 6e945bb90f65117008ebc8c5ad3208f390df2f69
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 14:49:11 2020 +0100
+
+    help: No more 'Terminal' menu to reset
+
+ help/C/prob-reset.page | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+commit dfcebccbcd18d658f04aecced9d41d57680176c5
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 14:32:07 2020 +0100
+
+    help: No more 'Search' menu
+
+ help/C/figures/keyboard-key-search.svg | 36 ++++++++++++++++++++++++++++++++++
+ help/C/txt-search.page                 |  7 +++++--
+ help/Makefile.am                       |  1 +
+ 3 files changed, 42 insertions(+), 2 deletions(-)
+
+commit 3b0637d697403a2a57acf89f54d3805bfce8942d
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 13:39:21 2020 +0100
+
+    help: Do not ship "Save Terminal output to a file" help page
+    
+    It is currently only available in development versions.
+    
+    See #71
+
+ help/C/txt-save-text.page | 5 +++++
+ help/Makefile.am          | 3 ++-
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+
+commit 5a63242e0362dcc41a32e8ef341eed26a3f7c57a
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 13:11:06 2020 +0100
+
+    help: No more 'Edit' menu for copying text
+
+ help/C/txt-copy-paste.page | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+commit eee0a2c8ae5af44df79d02ad445142e8c314568f
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Sat Jan 4 13:06:09 2020 +0100
+
+    help: No more 'File' menu for closing a tab
+
+ help/C/gs-tabs.page | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+commit c665af99af163843028a2f48d97c09afd3247a51
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Fri Dec 27 22:10:05 2019 +0100
+
+    Fixes to Catalan translation
+
+ help/ca/ca.po | 16 ++++++++--------
+ po/ca.po      |  6 +++---
+ 2 files changed, 11 insertions(+), 11 deletions(-)
+
+commit 22a8758565e22ba3b75baabd3277f74c03e41241
+Author: Fran Dieguez <frandieguez@gnome.org>
+Date:   Fri Dec 27 17:20:40 2019 +0000
+
+    Update Galician translation
+
+ help/gl/gl.po | 820 +---------------------------------------------------------
+ 1 file changed, 4 insertions(+), 816 deletions(-)
+
+commit c8898928ecfa86d489611dd1e0785d7c5862207e
+Author: Fran Dieguez <frandieguez@gnome.org>
+Date:   Fri Dec 27 16:55:42 2019 +0000
+
+    Update Galician translation
+
+ help/gl/gl.po | 3349 ++++++++++++++++++++++++++++++++++++---------------------
+ 1 file changed, 2145 insertions(+), 1204 deletions(-)
+
+commit 058c490187d062c8c8d63ca70410f50c12866c24
+Author: Fran Dieguez <frandieguez@gnome.org>
+Date:   Fri Dec 27 14:39:50 2019 +0000
+
+    Update Galician translation
+
+ po/gl.po | 1403 +++-----------------------------------------------------------
+ 1 file changed, 50 insertions(+), 1353 deletions(-)
+
+commit 33a103475158ff88f231bcac86eee9b0f4066578
+Author: Daniel Korostil <ted.korostiled@gmail.com>
+Date:   Thu Dec 26 11:51:30 2019 +0000
+
+    Update Ukrainian translation
+    
+    (cherry picked from commit 94342707b423ec82e3f7e4ba5d46d7d377e86204)
+
+ po/uk.po | 2690 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 1474 insertions(+), 1216 deletions(-)
+
+commit 64e893f645ae479cbd3c9baaf209f2bc593d1707
+Author: Rafael Fontenelle <rafaelff@gnome.org>
+Date:   Thu Dec 26 10:28:56 2019 +0000
+
+    Update Brazilian Portuguese translation
+
+ po/pt_BR.po | 963 +++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 493 insertions(+), 470 deletions(-)
+
+commit e27f6e85b61de8abfc33e099a393630500c4cf66
+Author: Fran Dieguez <frandieguez@gnome.org>
+Date:   Wed Dec 25 15:07:30 2019 +0000
+
+    Update Galician translation
+
+ po/gl.po | 978 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 499 insertions(+), 479 deletions(-)
+
+commit 0936da3adf3c84bfc32d2232b563cc5d07c85c97
+Author: Fabio Tomat <f.t.public@gmail.com>
+Date:   Sun Dec 22 18:36:41 2019 +0000
+
+    Update Friulian translation
+
+ po/fur.po | 703 +++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 354 insertions(+), 349 deletions(-)
+
+commit 66c2ec15fc08cc0cbcad303a3f39452e63927a5d
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Thu Dec 19 14:46:31 2019 +0100
+
+    help: Fix broken markup in Catalan help translation
+
+ help/ca/ca.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 5b61a9c350de0cf0a80a16eaad03a085bf7de941
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Mon Dec 16 21:48:12 2019 +0100
+
+    Update Catalan translation
+
+ help/ca/ca.po | 58 +++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 29 insertions(+), 29 deletions(-)
+
+commit b547651f4e6c168c1063d3f0fcdda12f09eb945f
+Author: Anders Jonsson <anders.jonsson@norsjovallen.se>
+Date:   Mon Dec 2 20:37:32 2019 +0000
+
+    Update Swedish translation
+
+ po/sv.po | 964 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 492 insertions(+), 472 deletions(-)
+
+commit 18939a24d21d6b7c6edd57a00a3a8a48f3aecec5
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Thu Nov 28 18:34:45 2019 +0100
+
+    prefs: Fix getting/setting the encodings combo box
+    
+    Using active-id with GtkComboBox only works for flat models;
+    so re-implement this for deeper models.
+    
+    https://gitlab.gnome.org/GNOME/vte/issues/40
+
+ src/profile-editor.c | 131 ++++++++++++++++++++++++++++++++++++++-------------
+ 1 file changed, 98 insertions(+), 33 deletions(-)
+
+commit ba1431442e68afdcbfd36c1c322d1a1769c7afd4
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Mon Nov 25 22:10:57 2019 +0100
+
+    Update Catalan translation
+
+ help/ca/ca.po | 104 +++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 52 insertions(+), 52 deletions(-)
+
+commit 4115d9793a655656325e557f38481447377efbbd
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:   Thu Nov 21 12:55:49 2019 +0100
+
+    Updated Spanish translation
+
+ po/es.po | 894 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 448 insertions(+), 446 deletions(-)
+
+commit 075b523da84799b0c19794ac006c22455c6e155d
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Thu Nov 21 00:00:53 2019 +0100
+
+    window: Fix menu item names
+    
+    Use the same terminology everywhere.
+    
+    Fixes https://gitlab.gnome.org/GNOME/gnome-terminal/issues/101
+
+ src/terminal-menubar.ui.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 147ba42e821d98534282beaa89eeaae291011d37
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Thu Nov 21 00:00:53 2019 +0100
+
+    window: Fix menu item names
+    
+    Use the same terminology everywhere.
+    
+    Fixes https://gitlab.gnome.org/GNOME/gnome-terminal/issues/101
+
+ src/terminal-menubar.ui.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 9a4a94ab4ab157c929ce81158fb899074560461f
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Wed Nov 20 23:38:33 2019 +0100
+
+    window: Make paste insensitive on read-only terminals
+    
+    Fixes https://gitlab.gnome.org/GNOME/gnome-terminal/issues/172
+
+ src/terminal-window.c | 32 +++++++++++++++++++++++++++-----
+ 1 file changed, 27 insertions(+), 5 deletions(-)
+
+commit 56cd640a2d7f861d537aa8dff65d12f312a1fb98
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Wed Nov 20 23:12:53 2019 +0100
+
+    all: Add pref for position of newly added tabs
+    
+    Add a setting and prefs UI for where to put newly opened tabs, instead
+    of always adding them to the end.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=709109
+
+ src/org.gnome.Terminal.gschema.xml | 10 ++++++++
+ src/preferences.ui                 | 50 ++++++++++++++++++++++++++++++++++++++
+ src/terminal-enums.h               |  5 ++++
+ src/terminal-mdi-container.c       |  5 ++--
+ src/terminal-mdi-container.h       |  6 +++--
+ src/terminal-notebook.c            |  4 +--
+ src/terminal-prefs.c               |  8 ++++++
+ src/terminal-schemas.h             |  1 +
+ src/terminal-window.c              | 27 ++++++++++++++++++--
+ src/terminal-window.h              |  2 ++
+ 10 files changed, 110 insertions(+), 8 deletions(-)
+
+commit 1de0a8a7d80efcb0aa7267091093bc26bd19fce5
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Wed Nov 20 23:12:53 2019 +0100
+
+    screen: Don't override the profile encoding
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=732128
+
+ src/terminal-gdbus.c  | 10 +---------
+ src/terminal-screen.c | 12 ------------
+ src/terminal-screen.h |  1 -
+ src/terminal-window.c |  1 -
+ src/terminal.c        |  1 -
+ 5 files changed, 1 insertion(+), 24 deletions(-)
+
+commit bc8a7f9422b123c078cd99fd147014547297b968
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Wed Nov 20 23:12:52 2019 +0100
+
+    all: Rework spawning
+    
+    There were two distinct code paths for spawning, one async when creating a new
+    terminal from within gnome-terminal, and one sync when creating a new terminal
+    from arguments received via dbus. Unify them, always using an async aproach.
+    This ensures that the TerminalScreen is realised (and has had its size set) by
+    the time the VtePty is created, so that the child process has the correct size
+    right from the start, instead of receiving a SIGWINCH shortly afterwards.
+    
+    https://gitlab.gnome.org/GNOME/vte/issues/188
+
+ src/terminal-app.c    |  47 ----
+ src/terminal-app.h    |  13 -
+ src/terminal-gdbus.c  |  73 +++---
+ src/terminal-screen.c | 686 +++++++++++++++++++++++++++++++++-----------------
+ src/terminal-screen.h |  41 +--
+ src/terminal-window.c |  28 ++-
+ 6 files changed, 538 insertions(+), 350 deletions(-)
+
+commit c91e6994aa78d52fc5c73ab0da145962044a4a0c
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Mon Nov 18 14:15:55 2019 +0100
+
+    Update POTFILES.in
+
+ po/POTFILES.in | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 0b509cb281e6eaabc87f2f85950a870e1caa13f3
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Nov 18 11:58:13 2019 +0100
+
+    prefs: Revert the last commit
+    
+    Go back to a hardcoded list, since ICU has too many encodings (not all of
+    which are even usable with the kernel line discipline on a PTY), making
+    the combo box unusable (and slow to open).
+
+ src/preferences.ui   |   2 +-
+ src/profile-editor.c | 165 +++++++++++++++++++++++++++++++++++++++++++--------
+ 2 files changed, 142 insertions(+), 25 deletions(-)
+
+commit c3cd5ef76247ac6bbca7fc2cccc8059550abec1a
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sun Nov 17 22:07:11 2019 +0100
+
+    prefs: Remove hard-coded list of legacy encodings
+    
+    Instead use the new vte_get_encodings() to get the list of
+    supported legacy encodings, and add a small table to translate
+    from iconv names to ICU names where ICU doesn't have an alias
+    for the iconv name.
+    
+    Curiously, some of the charsets in the old hard-coded list are
+    actually unknown to iconv.
+    
+    Blacklist any ISO-2022-* encoding; they cannot work correctly
+    as a legacy charset in vte, by design.
+
+ configure.ac                       |   2 +-
+ src/Makefile.am                    |   2 -
+ src/org.gnome.Terminal.gschema.xml |  74 ---------------
+ src/preferences.ui                 |   7 ++
+ src/profile-editor.c               |  71 +++++++++-----
+ src/terminal-app.c                 |   2 -
+ src/terminal-encoding.c            | 188 -------------------------------------
+ src/terminal-encoding.h            |  29 ------
+ src/terminal-screen.c              |  11 ++-
+ src/terminal-util.c                |  64 +++++++++++++
+ src/terminal-util.h                |   2 +
+ 11 files changed, 129 insertions(+), 323 deletions(-)
+
+commit 9207cf82160b2d2ed630e5d606e8dca7b511cb12
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Thu Nov 14 18:19:18 2019 +0100
+
+    Update Catalan translation
+
+ help/ca/ca.po | 58 +++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 29 insertions(+), 29 deletions(-)
+
+commit 8d5717a73bc2d42fcd8016b4e1974ea1ca2f2a02
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Tue Nov 12 21:45:38 2019 +0100
+
+    Update Catalan translation
+
+ help/ca/ca.po | 72 +++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 36 insertions(+), 36 deletions(-)
+
+commit 16d02016279191844befb6e03c90758ae0856e48
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Mon Nov 11 18:17:36 2019 +0100
+
+    Update Catalan translation
+
+ help/ca/ca.po | 2405 ++++++++++++++++++++++++++++++++++-----------------------
+ 1 file changed, 1451 insertions(+), 954 deletions(-)
+
+commit a475c389fc6824a1a6a34c3e6e1c112a5ba8d3e6
+Author: Andika Triwidada <atriwidada@gnome.org>
+Date:   Sun Nov 10 01:49:16 2019 +0000
+
+    Update Indonesian translation
+
+ po/id.po | 899 ++++++++++++++++++++++-----------------------------------------
+ 1 file changed, 313 insertions(+), 586 deletions(-)
+
+commit abf89f4cf3bc1de09388e3b411ee76e734e654c2
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Nov 2 19:38:19 2019 +0100
+
+    window: Remove encodings submenu
+    
+    Changing encoding is still supported by using the Compatibility section
+    in the profile Preferences.
+    
+    Fixes: https://gitlab.gnome.org/GNOME/gnome-terminal/issues/49
+
+ src/terminal-app.c         | 16 ----------
+ src/terminal-encoding.c    | 75 ----------------------------------------------
+ src/terminal-encoding.h    |  2 --
+ src/terminal-menubar.ui.in |  3 --
+ src/terminal-window.c      | 54 ---------------------------------
+ 5 files changed, 150 deletions(-)
+
+commit 01e4e6764e523db245f1770e59741729ea09a4be
+Author: Marek Černocký <marek@manet.cz>
+Date:   Sat Nov 2 12:29:51 2019 +0100
+
+    Updated Czech translation
+
+ po/cs.po | 475 ++++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 244 insertions(+), 231 deletions(-)
+
+commit 177e051f066e01a10d0595d70820460ddb742ec9
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sun Oct 20 20:52:37 2019 +0200
+
+    window: Disable size-to menu items when fullscreen
+
+ src/terminal-window.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 15d02b126eeebd4c48f2dda893d579283f0a8ec4
+Author: Danial Behzadi <dani.behzi@ubuntu.com>
+Date:   Sat Oct 19 16:01:03 2019 +0000
+
+    Update Persian translation
+
+ po/fa.po | 831 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 435 insertions(+), 396 deletions(-)
+
+commit 6278059accb3aa8dc41c5c94d82addc8459f9758
+Author: Fabio Tomat <f.t.public@gmail.com>
+Date:   Thu Oct 17 19:40:49 2019 +0000
+
+    Update Friulian translation
+
+ po/fur.po | 485 ++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 253 insertions(+), 232 deletions(-)
+
+commit bf40518368ff2e62ac61ad94384252ff0d6b5d77
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Fri Oct 11 21:35:44 2019 +0200
 
     Post release version bump
 
  configure.ac | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-commit 85112274d980dc2aaafc7897c783fad9a46650b4
+commit b15e5b919e2b458989f7c97d29671e143a27d805
 Author: Christian Persch <chpe@src.gnome.org>
-Date:   Mon Oct 7 22:10:08 2019 +0200
+Date:   Fri Oct 11 21:22:50 2019 +0200
 
-    Version 3.34.1
+    Version 3.35.1
 
  configure.ac | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-commit 8ee0c67dbeca43d0aa678892e921421d916df126
+commit 72dc2cf6972656da24f571d3bb314e17b73a7cf0
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Fri Oct 11 13:55:27 2019 +0200
+
+    prefs: Remove the "Allow bold text" hidden setting
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=762247#c36
+
+ src/org.gnome.Terminal.gschema.xml | 5 -----
+ src/terminal-schemas.h             | 1 -
+ src/terminal-screen.c              | 3 ---
+ 3 files changed, 9 deletions(-)
+
+commit 20e6f1ab5c0090028248dd94b872f7060e28ed39
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:   Thu Oct 10 13:59:17 2019 +0200
+
+    Updated Spanish translation
+
+ po/es.po | 565 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 292 insertions(+), 273 deletions(-)
+
+commit dd74ceab79fe372036eed2a16043a18317808451
+Author: Yi-Jyun Pan <pan93412@gmail.com>
+Date:   Tue Oct 8 11:37:45 2019 +0000
+
+    Update Chinese (Taiwan) translation
+
+ po/zh_TW.po | 566 +++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 293 insertions(+), 273 deletions(-)
+
+commit b410801055f457586542f236c30106ff27825f35
+Author: Yi-Jyun Pan <pan93412@gmail.com>
+Date:   Tue Oct 8 11:32:05 2019 +0000
+
+    Update Chinese (Taiwan) translation
+    
+    (cherry picked from commit 158168347c4b647ff2feb4f84d5da7b6ff83baa4)
+
+ po/zh_TW.po | 274 +++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 143 insertions(+), 131 deletions(-)
+
+commit 905c0ef7f0aedec8bdf76e3a9494d01254442d86
 Author: Ask Hjorth Larsen <asklarsen@gmail.com>
-Date:   Wed Oct 2 05:29:08 2019 +0200
+Date:   Wed Oct 2 05:17:04 2019 +0200
 
     Updated Danish translation
 
  po/da.po | 252 +++++++++++++++++++++++++++++++++------------------------------
  1 file changed, 133 insertions(+), 119 deletions(-)
 
-commit 499902cd11b5dbfc923e2e4d81100b48d8bf8b9b
+commit 22b85070483f1fef46beca023ae3b0f7dbbd0f06
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Tue Oct 1 22:42:58 2019 +0200
+
+    Revert "nautilus: Quote path"
+    
+    It's already quoted sufficiently.
+    
+    This reverts commit e0e67232d753b195428e005e80597fbb2c0b8945.
+
+ src/terminal-nautilus.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit e0e67232d753b195428e005e80597fbb2c0b8945
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Sep 30 22:51:43 2019 +0200
+
+    nautilus: Quote path
+
+ src/terminal-nautilus.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 381cfa12354fa468ea8397e83244f18c3cd4ea24
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Sep 30 22:51:43 2019 +0200
+
+    nautilus: Spawn login shell
+    
+    Spawn a login shell when opening a directory from nautilus. Using
+    "$SHELL -l" works for bash, fish, tcsh, and zsh, at least, but is
+    known not to work on (at least old) illumos.
+    
+    Reverts: https://bugzilla.gnome.org/show_bug.cgi?id=602141
+    Fixes: https://gitlab.gnome.org/GNOME/gnome-terminal/issues/151
+
+ src/terminal-nautilus.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 79b2291b12cfa106149437d63394deddddbc7dca
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Sep 30 22:03:55 2019 +0200
+
+    profile: editor: Add setting whether to preserve the working directory
+    
+    Add a setting to control whether newly opened terminals open in the
+    working directory of the parent terminal. By default, the working
+    directory is only preserved when the command is a shell (as per /etc/shells).
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=706927
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/126
+
+ src/org.gnome.Terminal.gschema.xml |  15 ++++-
+ src/preferences.ui                 |  60 ++++++++++++++++++-
+ src/profile-editor.c               |  10 ++++
+ src/terminal-enums.h               |   6 ++
+ src/terminal-schemas.h             |   1 +
+ src/terminal-screen.c              |  81 +++++++++++++++++--------
+ src/terminal-util.c                | 119 ++++++++++++++++++++++++++++++++++++-
+ src/terminal-util.h                |   3 +
+ 8 files changed, 265 insertions(+), 30 deletions(-)
+
+commit 121003ba6ea1c5da56487fa1fb69228f1a3623be
 Author: Danial Behzadi <dani.behzi@ubuntu.com>
 Date:   Mon Sep 30 13:51:50 2019 +0000
 
     Update Persian translation
+    
+    (cherry picked from commit 499902cd11b5dbfc923e2e4d81100b48d8bf8b9b)
 
  po/fa.po | 370 ++++++++++++++++++++++++++++++---------------------------------
  1 file changed, 174 insertions(+), 196 deletions(-)
 
-commit a69865b9261419584bf00fb3f0f6fcd8188dad09
+commit e84d88e914950c01666dccd635d381ab7c0e622b
 Author: Danial Behzadi <dani.behzi@ubuntu.com>
 Date:   Mon Sep 30 13:46:52 2019 +0000
 
     Update Persian translation
+    
+    (cherry picked from commit a69865b9261419584bf00fb3f0f6fcd8188dad09)
 
  po/fa.po | 145 ++++++++++++++++++++++++++++++---------------------------------
  1 file changed, 70 insertions(+), 75 deletions(-)
 
-commit 5c061803650fe79902c85437e1320c4fc28d2113
+commit 4cf749ab1c52ec5a07e7b8a79b377920912553cb
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Fri Sep 20 13:50:03 2019 +0200
 
     client: legacy: Block one more undesirable environment variable
-    
-    (cherry picked from commit 4cf749ab1c52ec5a07e7b8a79b377920912553cb)
 
  src/terminal-client-utils.c | 1 +
  1 file changed, 1 insertion(+)
 
-commit 2b502f769eb2436f9bc525dcfa92bd637bef1268
+commit 4201999ebb2b314fee548ffeb770e28a6fbae656
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Wed Sep 18 13:46:47 2019 +0200
+
+    build: Bump gtk min-req version to 3.18
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/162
+
+ configure.ac                  |  2 +-
+ src/terminal-accels.c         | 26 ++++++++++++--------------
+ src/terminal-info-bar.c       |  3 ++-
+ src/terminal-screen.c         |  2 ++
+ src/terminal-search-popover.c |  2 --
+ src/terminal-tab-label.c      |  6 +++++-
+ src/terminal-util.c           |  4 ++--
+ src/terminal-window.c         |  5 -----
+ 8 files changed, 24 insertions(+), 26 deletions(-)
+
+commit ad56a3c32ad0911c067474d30a18b9d4b93050a8
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Wed Sep 18 10:27:13 2019 +0200
 
@@ -73,39 +1192,126 @@ Date:   Wed Sep 18 10:27:13 2019 +0200
     we need to add this dependency here.
     
     https://gitlab.gnome.org/GNOME/gnome-terminal/issues/165
-    (cherry picked from commit ad56a3c32ad0911c067474d30a18b9d4b93050a8)
 
  configure.ac | 2 ++
  1 file changed, 2 insertions(+)
 
-commit 0382bd11c2b7627f457e0c78471b8e65924ddd61
+commit 49fa1e6973d242478faadd7179c86dc56f275f85
 Author: Ryuta Fujii <translation@sicklylife.jp>
 Date:   Tue Sep 17 11:18:30 2019 +0000
 
     Update Japanese translation
+    
+    (cherry picked from commit 0382bd11c2b7627f457e0c78471b8e65924ddd61)
 
  po/ja.po | 50 +++++++++++++++++++++++++-------------------------
  1 file changed, 25 insertions(+), 25 deletions(-)
 
-commit fe69b95493e9705f37e2e5dd45bc46d80d3cdcb0
+commit 48005b15dec43222e9ba380afe427032ea0ab162
 Author: Ryuta Fujii <translation@sicklylife.jp>
 Date:   Tue Sep 17 11:02:24 2019 +0000
 
     Update Japanese translation
+    
+    (cherry picked from commit fe69b95493e9705f37e2e5dd45bc46d80d3cdcb0)
 
  po/ja.po | 263 ++++++++++++++++++++++++++++++++++-----------------------------
  1 file changed, 140 insertions(+), 123 deletions(-)
 
-commit 41036e0beed598c0970955847dd05246d9624d88
+commit f5238ee82e9cd1002e2fd6544aa7aa5f82292ee6
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Sep 14 23:56:58 2019 +0200
+
+    build: Bump glib min-req version
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/161
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit dc4d9257e228db728de585acf361196a6b2033b1
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Sep 14 23:56:58 2019 +0200
+
+    profile: Use non-deprecated way to get list of keys in the settings schema
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/161
+
+ src/terminal-libgsystem.h    | 10 ++++++++++
+ src/terminal-settings-list.c | 15 +++++++++------
+ 2 files changed, 19 insertions(+), 6 deletions(-)
+
+commit c443242be7470f3a6dca1cdd9fcbce42cf92b310
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Sat Sep 14 22:11:52 2019 +0200
+
+    build: Require GLib 2.50, GTK 3.22.27 and Nautilus 3.28
+    
+    Also move the setting of some widget properties from .c to .ui file.
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/104
+
+ configure.ac                    |  6 +--
+ src/preferences.ui              | 29 +++++++++++++
+ src/profile-editor.c            | 96 +++--------------------------------------
+ src/terminal-app.c              |  4 --
+ src/terminal-nautilus.c         |  3 +-
+ src/terminal-notebook.c         |  2 -
+ src/terminal-options.c          |  4 --
+ src/terminal-options.h          |  2 -
+ src/terminal-prefs.c            | 35 ---------------
+ src/terminal-screen-container.c |  4 --
+ src/terminal-search-popover.c   |  6 +--
+ src/terminal-tab-label.c        |  4 --
+ src/terminal-window.c           | 31 -------------
+ src/terminal.c                  |  2 -
+ 14 files changed, 40 insertions(+), 188 deletions(-)
+
+commit 1cd55188653eb7e95bdadd2aaef06384eabe801b
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Sat Sep 14 22:09:56 2019 +0200
+
+    build: Avoid a warning about strncpy truncating its output
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/160
+
+ src/terminal-util.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit f664f75b07d35e0771797f806956687e548c4b19
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Sat Sep 14 22:06:48 2019 +0200
+
+    build: Suppress a warning about casting between incompatible function types
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/96
+
+ src/terminal-util.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 06c277694cefbda35dce9265b29c74e7635171cd
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Sat Sep 14 22:04:18 2019 +0200
+
+    build: Suppress a warning about ignored returned value
+    
+    https://gitlab.gnome.org/GNOME/vte/issues/167
+
+ src/server.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+commit a506bf88cdbaafbaa9e9eac8d54e87200b963fd5
 Author: Bruce Cowan <bruce@bcowan.me.uk>
 Date:   Sat Sep 14 09:21:12 2019 +0000
 
     Update British English translation
+    
+    (cherry picked from commit 41036e0beed598c0970955847dd05246d9624d88)
 
  po/en_GB.po | 1037 ++++++++++++++++++++++++++---------------------------------
  1 file changed, 464 insertions(+), 573 deletions(-)
 
-commit 2cbc9e6b9be7f4d6b2d92b40e37ec687d36ce98d
+commit b0d5d4a83fe223d419b824b191edaf05eb96b533
 Author: Olivier Fourdan <ofourdan@redhat.com>
 Date:   Wed Sep 11 17:54:21 2019 +0200
 
@@ -121,34 +1327,26 @@ Date:   Wed Sep 11 17:54:21 2019 +0200
     as well and return early in that case.
     
     https://gitlab.gnome.org/GNOME/gnome-terminal/issues/158
-    (cherry picked from commit b0d5d4a83fe223d419b824b191edaf05eb96b533)
 
  src/terminal-window.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-commit fd86f056a122328d82e76bf5cce6c03522cea837
+commit 63b0de12531a2287e1e758eb1e737ac08793ae03
 Author: Gianvito Cavasoli <gianvito@gmx.it>
 Date:   Tue Sep 10 14:58:53 2019 +0000
 
     Update Italian translation
+    
+    (cherry picked from commit fd86f056a122328d82e76bf5cce6c03522cea837)
 
  po/it.po | 273 +++++++++++++++++++++++++++++++++------------------------------
  1 file changed, 143 insertions(+), 130 deletions(-)
 
-commit 590a4224bdc075dbcdc4589462cc93370703e2c9
+commit dd5b4ac8410cbaf47a1790351b03829542440b86
 Author: Christian Persch <chpe@src.gnome.org>
-Date:   Mon Sep 9 21:47:46 2019 +0200
+Date:   Mon Sep 9 21:49:33 2019 +0200
 
-    Post release version bump
-
- configure.ac | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-commit deb38d2dff498aa4f45d762f781ef70460938163
-Author: Christian Persch <chpe@src.gnome.org>
-Date:   Mon Sep 9 21:43:52 2019 +0200
-
-    Version 3.34.0
+    Post branch version bump
 
  configure.ac | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
