@@ -393,7 +393,6 @@ handle_options (TerminalOptions *options,
                 const char *parent_screen_object_path,
                 TerminalReceiver **wait_for_receiver)
 {
-
   /* We need to forward the locale encoding to the server, see bug #732128 */
   const char *encoding;
   g_get_charset (&encoding);
@@ -550,9 +549,7 @@ main (int argc, char **argv)
 {
   int exit_code = EXIT_FAILURE;
 
-#if GLIB_CHECK_VERSION (2, 50, 0)
   g_log_set_writer_func (terminal_log_writer, NULL, NULL);
-#endif
 
   g_set_prgname ("gnome-terminal");
 
