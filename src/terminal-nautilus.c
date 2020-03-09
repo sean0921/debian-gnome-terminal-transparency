@@ -24,8 +24,7 @@
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 
-#include <libnautilus-extension/nautilus-menu-provider.h>
-#include <libnautilus-extension/nautilus-extension-types.h>
+#include <nautilus-extension.h>
 
 #include <errno.h>
 #include <fcntl.h>
@@ -232,7 +231,7 @@ ssh_argv (const char *uri,
   quoted_path = g_shell_quote (path);
 
   /* login shell */
-  argv[argc++] = g_strdup_printf ("cd %s && exec $SHELL -", quoted_path);
+  argv[argc++] = g_strdup_printf ("cd %s && exec $SHELL -l", quoted_path);
 
   g_free (path);
   g_free (quoted_path);

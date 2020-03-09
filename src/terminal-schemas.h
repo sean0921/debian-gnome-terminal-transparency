@@ -30,7 +30,6 @@ G_BEGIN_DECLS
 #define TERMINAL_SETTINGS_LIST_SCHEMA   "org.gnome.Terminal.SettingsList"
 #define TERMINAL_PROFILES_LIST_SCHEMA   "org.gnome.Terminal.ProfilesList"
 
-#define TERMINAL_PROFILE_ALLOW_BOLD_KEY                 "allow-bold"
 #define TERMINAL_PROFILE_AUDIBLE_BELL_KEY               "audible-bell"
 #define TERMINAL_PROFILE_BOLD_IS_BRIGHT_KEY             "bold-is-bright"
 #define TERMINAL_PROFILE_BACKGROUND_COLOR_KEY           "background-color"
@@ -61,6 +60,7 @@ G_BEGIN_DECLS
 #define TERMINAL_PROFILE_LOGIN_SHELL_KEY                "login-shell"
 #define TERMINAL_PROFILE_NAME_KEY                       "name"
 #define TERMINAL_PROFILE_PALETTE_KEY                    "palette"
+#define TERMINAL_PROFILE_PRESERVE_WORKING_DIRECTORY_KEY "preserve-working-directory"
 #define TERMINAL_PROFILE_REWRAP_ON_RESIZE_KEY           "rewrap-on-resize"
 #define TERMINAL_PROFILE_SCROLLBACK_LINES_KEY           "scrollback-lines"
 #define TERMINAL_PROFILE_SCROLLBACK_UNLIMITED_KEY       "scrollback-unlimited"
@@ -82,6 +82,7 @@ G_BEGIN_DECLS
 #define TERMINAL_SETTING_ENABLE_SHORTCUTS_KEY           "shortcuts-enabled"
 #define TERMINAL_SETTING_HEADERBAR_KEY                  "headerbar"
 #define TERMINAL_SETTING_NEW_TERMINAL_MODE_KEY          "new-terminal-mode"
+#define TERMINAL_SETTING_NEW_TAB_POSITION_KEY           "new-tab-position"
 #define TERMINAL_SETTING_SCHEMA_VERSION                 "schema-version"
 #define TERMINAL_SETTING_SHELL_INTEGRATION_KEY          "shell-integration-enabled"
 #define TERMINAL_SETTING_TAB_POLICY_KEY                 "tab-policy"

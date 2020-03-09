@@ -38,7 +38,6 @@
 #include "terminal-profiles-list.h"
 #include "terminal-util.h"
 #include "profile-editor.h"
-#include "terminal-encoding.h"
 #include "terminal-schemas.h"
 #include "terminal-gdbus.h"
 #include "terminal-defines.h"
@@ -107,12 +106,10 @@ struct _TerminalApp
   GMenuModel *menubar;
   GMenu *menubar_new_terminal_section;
   GMenu *menubar_set_profile_section;
-  GMenu *menubar_set_encoding_submenu;
 
   GMenuModel *profilemenu;
   GMenuModel *headermenu;
   GMenu *headermenu_set_profile_section;
-  GMenu *headermenu_set_encoding_submenu;
 
   GMenu *set_profile_menu;
 
@@ -354,7 +351,6 @@ terminal_app_remove_profile (TerminalApp *app,
   terminal_settings_list_remove_child (app->profiles_list, uuid);
 }
 
-#if GTK_CHECK_VERSION (3, 19, 0)
 static void
 terminal_app_theme_variant_changed_cb (GSettings   *settings,
                                        const char  *key,
@@ -371,7 +367,6 @@ terminal_app_theme_variant_changed_cb (GSettings   *settings,
                   theme == TERMINAL_THEME_VARIANT_DARK,
                   NULL);
 }
-#endif /* GTK+ 3.19 */
 
 /* Submenus for New Terminal per profile, and to change profiles */
 
@@ -598,11 +593,7 @@ terminal_app_create_menubar (TerminalApp *app,
                                        "menubar", &app->menubar,
                                        "new-terminal-section", &app->menubar_new_terminal_section,
                                        "set-profile-section", &app->menubar_set_profile_section,
-                                       "set-encoding-submenu", &app->menubar_set_encoding_submenu,
                                        NULL);
-
-  /* Install the encodings submenu */
-  terminal_encodings_append_menu (app->menubar_set_encoding_submenu);
 
   /* Install profile sections */
   terminal_app_update_profile_menus (app);
@@ -616,15 +607,7 @@ terminal_app_create_headermenu (TerminalApp *app)
   terminal_util_load_objects_resource ("/org/gnome/terminal/ui/headerbar-menu.ui",
                                        "headermenu", &app->headermenu,
                                        "set-profile-section", &app->headermenu_set_profile_section,
-#if 0
-                                       "set-encoding-submenu", &app->headermenu_set_encoding_submenu,
-#endif
                                        NULL);
-
-#if 0
-  /* Install the encodings submenu */
-  terminal_encodings_append_menu (app->headermenu_set_encoding_submenu);
-#endif
 
   /* Install profile sections */
   terminal_app_update_profile_menus (app);
@@ -833,7 +816,6 @@ terminal_app_init (TerminalApp *app)
   app->unified_menu = g_settings_get_boolean (app->global_settings, TERMINAL_SETTING_UNIFIED_MENU_KEY);
   app->use_headerbar = terminal_app_should_use_headerbar (app);
 
-#if GTK_CHECK_VERSION (3, 19, 0)
   GtkSettings *gtk_settings = gtk_settings_get_default ();
   terminal_app_theme_variant_changed_cb (app->global_settings,
                                          TERMINAL_SETTING_THEME_VARIANT_KEY, gtk_settings);
@@ -841,7 +823,6 @@ terminal_app_init (TerminalApp *app)
                     "changed::" TERMINAL_SETTING_THEME_VARIANT_KEY,
                     G_CALLBACK (terminal_app_theme_variant_changed_cb),
                     gtk_settings);
-#endif /* GTK+ 3.19 */
 
   /* Clipboard targets */
   GdkDisplay *display = gdk_display_get_default ();
@@ -885,11 +866,9 @@ terminal_app_finalize (GObject *object)
   g_clear_object (&app->menubar);
   g_clear_object (&app->menubar_new_terminal_section);
   g_clear_object (&app->menubar_set_profile_section);
-  g_clear_object (&app->menubar_set_encoding_submenu);
   g_clear_object (&app->profilemenu);
   g_clear_object (&app->headermenu);
   g_clear_object (&app->headermenu_set_profile_section);
-  g_clear_object (&app->headermenu_set_encoding_submenu);
   g_clear_object (&app->set_profile_menu);
 
   terminal_accels_shutdown ();
@@ -1001,54 +980,6 @@ terminal_app_new (const char *app_id)
                        "application-id", app_id ? app_id : TERMINAL_APPLICATION_ID,
                        "flags", flags,
                        NULL);
-}
-
-/**
- * terminal_app_new_window:
- * @app:
- * @monitor:
- *
- * Creates a new #TerminalWindow on the default display.
- */
-TerminalWindow *
-terminal_app_new_window (TerminalApp *app,
-                         int monitor)
-{
-  TerminalWindow *window;
-
-  window = terminal_window_new (G_APPLICATION (app));
-
-  return window;
-}
-
-TerminalScreen *
-terminal_app_new_terminal (TerminalApp     *app,
-                           TerminalWindow  *window,
-                           GSettings       *profile,
-                           const char      *charset,
-                           char           **override_command,
-                           const char      *title,
-                           const char      *working_dir,
-                           char           **child_env,
-                           double           zoom)
-{
-  TerminalScreen *screen;
-
-  g_return_val_if_fail (TERMINAL_IS_APP (app), NULL);
-  g_return_val_if_fail (TERMINAL_IS_WINDOW (window), NULL);
-  g_return_val_if_fail (charset == NULL || terminal_encodings_is_known_charset (charset), NULL);
-
-  screen = terminal_screen_new (profile, charset, override_command, title,
-                                working_dir, child_env, zoom);
-
-  terminal_window_add_screen (window, screen, -1);
-  terminal_window_switch_screen (window, screen);
-  gtk_widget_grab_focus (GTK_WIDGET (screen));
-
-  /* Launch the child on idle */
-  _terminal_screen_launch_child_on_idle (screen);
-
-  return screen;
 }
 
 TerminalScreen *

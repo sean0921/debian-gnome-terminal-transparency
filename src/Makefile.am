@@ -49,8 +49,6 @@ gnome_terminal_server_SOURCES = \
 	terminal-debug.h \
 	terminal-defines.h \
 	terminal-enums.h \
-	terminal-encoding.c \
-	terminal-encoding.h \
 	terminal-gdbus.c \
 	terminal-gdbus.h \
 	terminal-headerbar.c \
@@ -157,11 +155,13 @@ org.gnome.Terminal.service: Makefile
 gnome-terminal-server.service: Makefile
 	$(AM_V_GEN) ( echo "[Unit]"; \
 		      echo "Description=GNOME Terminal Server"; \
+		      echo "PartOf=graphical-session.target"; \
 		      echo "[Service]"; \
-		      echo "KillMode=process"; \
+		      echo "Slice=apps-org.gnome.Terminal.slice"; \
 		      echo "Type=dbus"; \
 		      echo "BusName=org.gnome.Terminal"; \
-		      echo "ExecStart=${libexecdir}/gnome-terminal-server") > $@
+		      echo "ExecStart=${libexecdir}/gnome-terminal-server"; \
+		      echo "TimeoutStopSec=5s") > $@
 
 terminal-gdbus-generated.c terminal-gdbus-generated.h: org.gnome.Terminal.xml Makefile
 	$(AM_V_GEN) $(GDBUS_CODEGEN) \

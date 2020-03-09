@@ -77,9 +77,7 @@ update_tab_visibility (TerminalNotebook *notebook,
     show_tabs = new_n_pages > 1;
     break;
   case GTK_POLICY_NEVER:
-#if GTK_CHECK_VERSION (3, 16, 0)
   case GTK_POLICY_EXTERNAL:
-#endif
   default:
     show_tabs = FALSE;
     break;
@@ -121,12 +119,12 @@ remove_reorder_bindings (GtkBindingSet    *binding_set,
 
 static void
 terminal_notebook_add_screen (TerminalMdiContainer *container,
-                              TerminalScreen *screen)
+                              TerminalScreen *screen,
+                              int position)
 {
   TerminalNotebook *notebook = TERMINAL_NOTEBOOK (container);
   GtkNotebook *gtk_notebook = GTK_NOTEBOOK (notebook);
   GtkWidget *screen_container, *tab_label;
-  const int position = -1;
 
   g_warn_if_fail (gtk_widget_get_parent (GTK_WIDGET (screen)) == NULL);
 

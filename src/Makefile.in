@@ -108,9 +108,13 @@ TESTS = terminal-regex$(EXEEXT) $(am__EXEEXT_1)
 subdir = src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_pthread.m4 \
-	$(top_srcdir)/m4/intltool.m4 $(top_srcdir)/m4/libtool.m4 \
-	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
-	$(top_srcdir)/m4/ltversion.m4 $(top_srcdir)/m4/lt~obsolete.m4 \
+	$(top_srcdir)/m4/gettext.m4 $(top_srcdir)/m4/iconv.m4 \
+	$(top_srcdir)/m4/intlmacosx.m4 $(top_srcdir)/m4/lib-ld.m4 \
+	$(top_srcdir)/m4/lib-link.m4 $(top_srcdir)/m4/lib-prefix.m4 \
+	$(top_srcdir)/m4/libtool.m4 $(top_srcdir)/m4/ltoptions.m4 \
+	$(top_srcdir)/m4/ltsugar.m4 $(top_srcdir)/m4/ltversion.m4 \
+	$(top_srcdir)/m4/lt~obsolete.m4 $(top_srcdir)/m4/nls.m4 \
+	$(top_srcdir)/m4/po.m4 $(top_srcdir)/m4/progtest.m4 \
 	$(top_srcdir)/acinclude.m4 $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
@@ -200,18 +204,18 @@ am__gnome_terminal_server_SOURCES_DIST = eggshell.c eggshell.h \
 	profile-editor.c profile-editor.h server.c terminal-accels.c \
 	terminal-accels.h terminal-app.c terminal-app.h \
 	terminal-debug.c terminal-debug.h terminal-defines.h \
-	terminal-enums.h terminal-encoding.c terminal-encoding.h \
-	terminal-gdbus.c terminal-gdbus.h terminal-headerbar.c \
-	terminal-headerbar.h terminal-icon-button.h \
-	terminal-icon-button.c terminal-info-bar.c terminal-info-bar.h \
-	terminal-intl.h terminal-i18n.c terminal-i18n.h \
-	terminal-libgsystem.h terminal-mdi-container.c \
-	terminal-mdi-container.h terminal-menu-button.h \
-	terminal-menu-button.c terminal-notebook.c terminal-notebook.h \
-	terminal-pcre2.h terminal-prefs.c terminal-prefs.h \
-	terminal-profiles-list.c terminal-profiles-list.h \
-	terminal-regex.h terminal-schemas.h terminal-settings-list.c \
-	terminal-settings-list.h terminal-screen.c terminal-screen.h \
+	terminal-enums.h terminal-gdbus.c terminal-gdbus.h \
+	terminal-headerbar.c terminal-headerbar.h \
+	terminal-icon-button.h terminal-icon-button.c \
+	terminal-info-bar.c terminal-info-bar.h terminal-intl.h \
+	terminal-i18n.c terminal-i18n.h terminal-libgsystem.h \
+	terminal-mdi-container.c terminal-mdi-container.h \
+	terminal-menu-button.h terminal-menu-button.c \
+	terminal-notebook.c terminal-notebook.h terminal-pcre2.h \
+	terminal-prefs.c terminal-prefs.h terminal-profiles-list.c \
+	terminal-profiles-list.h terminal-regex.h terminal-schemas.h \
+	terminal-settings-list.c terminal-settings-list.h \
+	terminal-screen.c terminal-screen.h \
 	terminal-screen-container.c terminal-screen-container.h \
 	terminal-search-popover.c terminal-search-popover.h \
 	terminal-tab-label.c terminal-tab-label.h terminal-util.c \
@@ -227,7 +231,6 @@ am_gnome_terminal_server_OBJECTS =  \
 	gnome_terminal_server-terminal-accels.$(OBJEXT) \
 	gnome_terminal_server-terminal-app.$(OBJEXT) \
 	gnome_terminal_server-terminal-debug.$(OBJEXT) \
-	gnome_terminal_server-terminal-encoding.$(OBJEXT) \
 	gnome_terminal_server-terminal-gdbus.$(OBJEXT) \
 	gnome_terminal_server-terminal-headerbar.$(OBJEXT) \
 	gnome_terminal_server-terminal-icon-button.$(OBJEXT) \
@@ -301,7 +304,6 @@ am__depfiles_remade =  \
 	./$(DEPDIR)/gnome_terminal_server-terminal-accels.Po \
 	./$(DEPDIR)/gnome_terminal_server-terminal-app.Po \
 	./$(DEPDIR)/gnome_terminal_server-terminal-debug.Po \
-	./$(DEPDIR)/gnome_terminal_server-terminal-encoding.Po \
 	./$(DEPDIR)/gnome_terminal_server-terminal-gdbus-generated.Po \
 	./$(DEPDIR)/gnome_terminal_server-terminal-gdbus.Po \
 	./$(DEPDIR)/gnome_terminal_server-terminal-headerbar.Po \
@@ -571,7 +573,6 @@ am__DIST_COMMON = $(srcdir)/Makefile.in \
 	$(top_srcdir)/test-driver
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
-ALL_LINGUAS = @ALL_LINGUAS@
 AMTAR = @AMTAR@
 AM_CFLAGS = @AM_CFLAGS@
 AM_CPPFLAGS = @AM_CPPFLAGS@
@@ -582,15 +583,12 @@ AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
 AWK = @AWK@
-CATALOGS = @CATALOGS@
-CATOBJEXT = @CATOBJEXT@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CYGPATH_W = @CYGPATH_W@
-DATADIRNAME = @DATADIRNAME@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DESKTOP_FILE_VALIDATE = @DESKTOP_FILE_VALIDATE@
@@ -604,13 +602,14 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 FGREP = @FGREP@
 GDBUS_CODEGEN = @GDBUS_CODEGEN@
+GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GLIB_COMPILE_RESOURCES = @GLIB_COMPILE_RESOURCES@
 GLIB_COMPILE_SCHEMAS = @GLIB_COMPILE_SCHEMAS@
 GLIB_GENMARSHAL = @GLIB_GENMARSHAL@
 GLIB_MKENUMS = @GLIB_MKENUMS@
-GMOFILES = @GMOFILES@
 GMSGFMT = @GMSGFMT@
+GMSGFMT_015 = @GMSGFMT_015@
 GREP = @GREP@
 GSETTINGS_DISABLE_SCHEMAS_COMPILE = @GSETTINGS_DISABLE_SCHEMAS_COMPILE@
 GTK_API_VERSION = @GTK_API_VERSION@
@@ -620,34 +619,28 @@ INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
-INSTOBJEXT = @INSTOBJEXT@
 INTLLIBS = @INTLLIBS@
-INTLTOOL_EXTRACT = @INTLTOOL_EXTRACT@
-INTLTOOL_MERGE = @INTLTOOL_MERGE@
-INTLTOOL_PERL = @INTLTOOL_PERL@
-INTLTOOL_UPDATE = @INTLTOOL_UPDATE@
-INTLTOOL_V_MERGE = @INTLTOOL_V_MERGE@
-INTLTOOL_V_MERGE_OPTIONS = @INTLTOOL_V_MERGE_OPTIONS@
-INTLTOOL__v_MERGE_ = @INTLTOOL__v_MERGE_@
-INTLTOOL__v_MERGE_0 = @INTLTOOL__v_MERGE_0@
 INTL_MACOSX_LIBS = @INTL_MACOSX_LIBS@
 ITSTOOL = @ITSTOOL@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
+LIBICONV = @LIBICONV@
+LIBINTL = @LIBINTL@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
 LN_S = @LN_S@
+LTLIBICONV = @LTLIBICONV@
+LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
 LT_SYS_LIBRARY_PATH = @LT_SYS_LIBRARY_PATH@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
 MANIFEST_TOOL = @MANIFEST_TOOL@
 MKDIR_P = @MKDIR_P@
-MKINSTALLDIRS = @MKINSTALLDIRS@
 MSGFMT = @MSGFMT@
-MSGFMT_OPTS = @MSGFMT_OPTS@
+MSGFMT_015 = @MSGFMT_015@
 MSGMERGE = @MSGMERGE@
 NAUTILUS_CFLAGS = @NAUTILUS_CFLAGS@
 NAUTILUS_LIBS = @NAUTILUS_LIBS@
@@ -668,10 +661,7 @@ PATH_SEPARATOR = @PATH_SEPARATOR@
 PKG_CONFIG = @PKG_CONFIG@
 PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
 PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
-POFILES = @POFILES@
 POSUB = @POSUB@
-PO_IN_DATADIR_FALSE = @PO_IN_DATADIR_FALSE@
-PO_IN_DATADIR_TRUE = @PO_IN_DATADIR_TRUE@
 PTHREAD_CC = @PTHREAD_CC@
 PTHREAD_CFLAGS = @PTHREAD_CFLAGS@
 PTHREAD_LIBS = @PTHREAD_LIBS@
@@ -690,6 +680,8 @@ USE_NLS = @USE_NLS@
 VERSION = @VERSION@
 WARN_CFLAGS = @WARN_CFLAGS@
 XGETTEXT = @XGETTEXT@
+XGETTEXT_015 = @XGETTEXT_015@
+XGETTEXT_EXTRA_OPTIONS = @XGETTEXT_EXTRA_OPTIONS@
 XMLLINT = @XMLLINT@
 YELP_LC_DIST = @YELP_LC_DIST@
 YELP_LC_MEDIA_LINKS = @YELP_LC_MEDIA_LINKS@
@@ -730,8 +722,6 @@ htmldir = @htmldir@
 includedir = @includedir@
 infodir = @infodir@
 install_sh = @install_sh@
-intltool__v_merge_options_ = @intltool__v_merge_options_@
-intltool__v_merge_options_0 = @intltool__v_merge_options_0@
 libdir = @libdir@
 libexecdir = @libexecdir@
 localedir = @localedir@
@@ -773,18 +763,17 @@ gnome_terminal_server_SOURCES = eggshell.c eggshell.h profile-editor.c \
 	profile-editor.h server.c terminal-accels.c terminal-accels.h \
 	terminal-app.c terminal-app.h terminal-debug.c \
 	terminal-debug.h terminal-defines.h terminal-enums.h \
-	terminal-encoding.c terminal-encoding.h terminal-gdbus.c \
-	terminal-gdbus.h terminal-headerbar.c terminal-headerbar.h \
-	terminal-icon-button.h terminal-icon-button.c \
-	terminal-info-bar.c terminal-info-bar.h terminal-intl.h \
-	terminal-i18n.c terminal-i18n.h terminal-libgsystem.h \
-	terminal-mdi-container.c terminal-mdi-container.h \
-	terminal-menu-button.h terminal-menu-button.c \
-	terminal-notebook.c terminal-notebook.h terminal-pcre2.h \
-	terminal-prefs.c terminal-prefs.h terminal-profiles-list.c \
-	terminal-profiles-list.h terminal-regex.h terminal-schemas.h \
-	terminal-settings-list.c terminal-settings-list.h \
-	terminal-screen.c terminal-screen.h \
+	terminal-gdbus.c terminal-gdbus.h terminal-headerbar.c \
+	terminal-headerbar.h terminal-icon-button.h \
+	terminal-icon-button.c terminal-info-bar.c terminal-info-bar.h \
+	terminal-intl.h terminal-i18n.c terminal-i18n.h \
+	terminal-libgsystem.h terminal-mdi-container.c \
+	terminal-mdi-container.h terminal-menu-button.h \
+	terminal-menu-button.c terminal-notebook.c terminal-notebook.h \
+	terminal-pcre2.h terminal-prefs.c terminal-prefs.h \
+	terminal-profiles-list.c terminal-profiles-list.h \
+	terminal-regex.h terminal-schemas.h terminal-settings-list.c \
+	terminal-settings-list.h terminal-screen.c terminal-screen.h \
 	terminal-screen-container.c terminal-screen-container.h \
 	terminal-search-popover.c terminal-search-popover.h \
 	terminal-tab-label.c terminal-tab-label.h terminal-util.c \
@@ -1181,7 +1170,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gnome_terminal_server-terminal-accels.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gnome_terminal_server-terminal-app.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gnome_terminal_server-terminal-debug.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gnome_terminal_server-terminal-encoding.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gnome_terminal_server-terminal-gdbus-generated.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gnome_terminal_server-terminal-gdbus.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gnome_terminal_server-terminal-headerbar.Po@am__quote@ # am--include-marker
@@ -1483,20 +1471,6 @@ gnome_terminal_server-terminal-debug.obj: terminal-debug.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='terminal-debug.c' object='gnome_terminal_server-terminal-debug.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gnome_terminal_server_CPPFLAGS) $(CPPFLAGS) $(gnome_terminal_server_CFLAGS) $(CFLAGS) -c -o gnome_terminal_server-terminal-debug.obj `if test -f 'terminal-debug.c'; then $(CYGPATH_W) 'terminal-debug.c'; else $(CYGPATH_W) '$(srcdir)/terminal-debug.c'; fi`
-
-gnome_terminal_server-terminal-encoding.o: terminal-encoding.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gnome_terminal_server_CPPFLAGS) $(CPPFLAGS) $(gnome_terminal_server_CFLAGS) $(CFLAGS) -MT gnome_terminal_server-terminal-encoding.o -MD -MP -MF $(DEPDIR)/gnome_terminal_server-terminal-encoding.Tpo -c -o gnome_terminal_server-terminal-encoding.o `test -f 'terminal-encoding.c' || echo '$(srcdir)/'`terminal-encoding.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/gnome_terminal_server-terminal-encoding.Tpo $(DEPDIR)/gnome_terminal_server-terminal-encoding.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='terminal-encoding.c' object='gnome_terminal_server-terminal-encoding.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gnome_terminal_server_CPPFLAGS) $(CPPFLAGS) $(gnome_terminal_server_CFLAGS) $(CFLAGS) -c -o gnome_terminal_server-terminal-encoding.o `test -f 'terminal-encoding.c' || echo '$(srcdir)/'`terminal-encoding.c
-
-gnome_terminal_server-terminal-encoding.obj: terminal-encoding.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gnome_terminal_server_CPPFLAGS) $(CPPFLAGS) $(gnome_terminal_server_CFLAGS) $(CFLAGS) -MT gnome_terminal_server-terminal-encoding.obj -MD -MP -MF $(DEPDIR)/gnome_terminal_server-terminal-encoding.Tpo -c -o gnome_terminal_server-terminal-encoding.obj `if test -f 'terminal-encoding.c'; then $(CYGPATH_W) 'terminal-encoding.c'; else $(CYGPATH_W) '$(srcdir)/terminal-encoding.c'; fi`
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/gnome_terminal_server-terminal-encoding.Tpo $(DEPDIR)/gnome_terminal_server-terminal-encoding.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='terminal-encoding.c' object='gnome_terminal_server-terminal-encoding.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gnome_terminal_server_CPPFLAGS) $(CPPFLAGS) $(gnome_terminal_server_CFLAGS) $(CFLAGS) -c -o gnome_terminal_server-terminal-encoding.obj `if test -f 'terminal-encoding.c'; then $(CYGPATH_W) 'terminal-encoding.c'; else $(CYGPATH_W) '$(srcdir)/terminal-encoding.c'; fi`
 
 gnome_terminal_server-terminal-gdbus.o: terminal-gdbus.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(gnome_terminal_server_CPPFLAGS) $(CPPFLAGS) $(gnome_terminal_server_CFLAGS) $(CFLAGS) -MT gnome_terminal_server-terminal-gdbus.o -MD -MP -MF $(DEPDIR)/gnome_terminal_server-terminal-gdbus.Tpo -c -o gnome_terminal_server-terminal-gdbus.o `test -f 'terminal-gdbus.c' || echo '$(srcdir)/'`terminal-gdbus.c
@@ -2220,7 +2194,6 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-accels.Po
 	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-app.Po
 	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-debug.Po
-	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-encoding.Po
 	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-gdbus-generated.Po
 	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-gdbus.Po
 	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-headerbar.Po
@@ -2313,7 +2286,6 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-accels.Po
 	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-app.Po
 	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-debug.Po
-	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-encoding.Po
 	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-gdbus-generated.Po
 	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-gdbus.Po
 	-rm -f ./$(DEPDIR)/gnome_terminal_server-terminal-headerbar.Po
@@ -2431,11 +2403,13 @@ org.gnome.Terminal.service: Makefile
 gnome-terminal-server.service: Makefile
 	$(AM_V_GEN) ( echo "[Unit]"; \
 		      echo "Description=GNOME Terminal Server"; \
+		      echo "PartOf=graphical-session.target"; \
 		      echo "[Service]"; \
-		      echo "KillMode=process"; \
+		      echo "Slice=apps-org.gnome.Terminal.slice"; \
 		      echo "Type=dbus"; \
 		      echo "BusName=org.gnome.Terminal"; \
-		      echo "ExecStart=${libexecdir}/gnome-terminal-server") > $@
+		      echo "ExecStart=${libexecdir}/gnome-terminal-server"; \
+		      echo "TimeoutStopSec=5s") > $@
 
 terminal-gdbus-generated.c terminal-gdbus-generated.h: org.gnome.Terminal.xml Makefile
 	$(AM_V_GEN) $(GDBUS_CODEGEN) \
