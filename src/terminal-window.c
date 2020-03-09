@@ -31,7 +31,6 @@
 #include "terminal-app.h"
 #include "terminal-debug.h"
 #include "terminal-enums.h"
-#include "terminal-encoding.h"
 #include "terminal-headerbar.h"
 #include "terminal-icon-button.h"
 #include "terminal-intl.h"
@@ -113,15 +112,11 @@ struct _TerminalWindowPrivate
 #endif
 
 /* See bug #789356 */
-#if GTK_CHECK_VERSION (3, 22, 23)
 #define WINDOW_STATE_TILED (GDK_WINDOW_STATE_TILED       | \
                             GDK_WINDOW_STATE_LEFT_TILED  | \
                             GDK_WINDOW_STATE_RIGHT_TILED | \
                             GDK_WINDOW_STATE_TOP_TILED   | \
                             GDK_WINDOW_STATE_BOTTOM_TILED)
-#else
-#define WINDOW_STATE_TILED (GDK_WINDOW_STATE_TILED)
-#endif
 
 static void terminal_window_dispose     (GObject             *object);
 static void terminal_window_finalize    (GObject             *object);
@@ -159,6 +154,7 @@ static gboolean find_smaller_zoom_factor (double *zoom);
 static void terminal_window_update_zoom_sensitivity (TerminalWindow *window);
 static void terminal_window_update_search_sensitivity (TerminalScreen *screen,
                                                        TerminalWindow *window);
+static void terminal_window_update_paste_sensitivity (TerminalWindow *window);
 
 static void terminal_window_show (GtkWidget *widget);
 
@@ -344,7 +340,6 @@ action_new_terminal_cb (GSimpleAction *action,
   TerminalApp *app;
   TerminalSettingsList *profiles_list;
   gs_unref_object GSettings *profile = NULL;
-  gs_free char *new_working_directory = NULL;
   gboolean can_toggle = FALSE;
 
   g_assert (TERMINAL_IS_WINDOW (window));
@@ -385,9 +380,11 @@ action_new_terminal_cb (GSimpleAction *action,
     }
   }
 
+  TerminalScreen *parent_screen = priv->active_screen;
+
   profiles_list = terminal_app_get_profiles_list (app);
   if (g_str_equal (uuid_str, "current"))
-    profile = terminal_screen_ref_profile (priv->active_screen);
+    profile = terminal_screen_ref_profile (parent_screen);
   else if (g_str_equal (uuid_str, "default"))
     profile = terminal_settings_list_ref_default_child (profiles_list);
   else
@@ -397,14 +394,19 @@ action_new_terminal_cb (GSimpleAction *action,
     return;
 
   if (mode == TERMINAL_NEW_TERMINAL_MODE_WINDOW)
-    window = terminal_app_new_window (app, 0);
+    window = terminal_window_new (G_APPLICATION (app));
 
-  new_working_directory = terminal_screen_get_current_dir (priv->active_screen);
-  terminal_app_new_terminal (app, window, profile, NULL /* use profile encoding */,
-                             NULL, NULL,
-                             new_working_directory,
-                             terminal_screen_get_initial_environment (priv->active_screen),
-                             1.0);
+  TerminalScreen *screen = terminal_screen_new (profile,
+                                                NULL /* title */,
+                                                1.0);
+
+  /* Now add the new screen to the window */
+  terminal_window_add_screen (window, screen, -1);
+  terminal_window_switch_screen (window, screen);
+  gtk_widget_grab_focus (GTK_WIDGET (screen));
+
+  /* Start child process, if possible by using the same args as the parent screen */
+  terminal_screen_reexec_from_screen (screen, parent_screen, NULL, NULL);
 
   if (mode == TERMINAL_NEW_TERMINAL_MODE_WINDOW)
     gtk_window_present (GTK_WINDOW (window));
@@ -924,7 +926,7 @@ action_tab_detach_cb (GSimpleAction *action,
   terminal_screen_get_size (screen, &width, &height);
   g_snprintf (geometry, sizeof (geometry), "%dx%d", width, height);
 
-  new_window = terminal_app_new_window (app, 0);
+  new_window = terminal_window_new (G_APPLICATION (app));
 
   terminal_window_move_screen (window, new_window, screen, -1);
 
@@ -1274,6 +1276,8 @@ action_read_only_state_cb (GSimpleAction *action,
 
   g_simple_action_set_state (action, state);
 
+  terminal_window_update_paste_sensitivity (window);
+
   if (priv->active_screen == NULL)
     return;
 
@@ -1303,28 +1307,6 @@ action_profile_state_cb (GSimpleAction *action,
   g_simple_action_set_state (action, state);
 
   terminal_screen_set_profile (priv->active_screen, profile);
-}
-
-static void
-action_encoding_state_cb (GSimpleAction *action,
-                          GVariant *state,
-                          gpointer user_data)
-{
-  TerminalWindow *window = user_data;
-  TerminalWindowPrivate *priv = window->priv;
-
-  g_assert_nonnull (state);
-
-  if (priv->active_screen == NULL)
-    return;
-
-  const char *charset = g_variant_get_string (state, NULL);
-  g_warn_if_fail (terminal_encodings_is_known_charset (charset));
-
-  /* Only change the state if changing encoding worked */
-  if (vte_terminal_set_encoding (VTE_TERMINAL (priv->active_screen), charset, NULL)) {
-    g_simple_action_set_state (action, state);
-  }
 }
 
 static void
@@ -1371,22 +1353,10 @@ enable_menubar_accel_changed_cb (GSettings *settings,
                                  const char *key,
                                  GtkSettings *gtk_settings)
 {
-#if GTK_CHECK_VERSION (3, 20, 0)
   if (g_settings_get_boolean (settings, key))
     gtk_settings_reset_property (gtk_settings, "gtk-menu-bar-accel");
   else
     g_object_set (gtk_settings, "gtk-menu-bar-accel", NULL, NULL);
-#else
-  const char *saved_menubar_accel;
-
-  /* Now this is a bad hack on so many levels. */
-  saved_menubar_accel = g_object_get_data (G_OBJECT (gtk_settings), "GT::gtk-menu-bar-accel");
-
-  if (g_settings_get_boolean (settings, key))
-    g_object_set (gtk_settings, "gtk-menu-bar-accel", saved_menubar_accel, NULL);
-  else
-    g_object_set (gtk_settings, "gtk-menu-bar-accel", NULL, NULL);
-#endif
 }
 
 /* The menubar is shown by the app, and the use of mnemonics (e.g. Alt+F for File) is toggled.
@@ -1482,19 +1452,6 @@ terminal_window_update_set_profile_menu_active_profile (TerminalWindow *window)
 }
 
 static void
-terminal_window_update_encoding_menu_active_encoding (TerminalWindow *window)
-{
-  TerminalWindowPrivate *priv = window->priv;
-
-  if (priv->active_screen == NULL)
-    return;
-
-  const char *charset = vte_terminal_get_encoding (VTE_TERMINAL (priv->active_screen));
-  g_simple_action_set_state (lookup_action (window, "encoding"),
-                             g_variant_new_string (charset));
-}
-
-static void
 terminal_window_update_terminal_menu (TerminalWindow *window)
 {
   TerminalWindowPrivate *priv = window->priv;
@@ -1569,15 +1526,32 @@ clipboard_targets_changed_cb (TerminalApp *app,
   if (clipboard != priv->clipboard)
     return;
 
+  terminal_window_update_paste_sensitivity (window);
+}
+
+static void
+terminal_window_update_paste_sensitivity (TerminalWindow *window)
+{
+  TerminalWindowPrivate *priv = window->priv;
+
   GdkAtom *targets;
   int n_targets;
-  targets = terminal_app_get_clipboard_targets (app, clipboard, &n_targets);
+  targets = terminal_app_get_clipboard_targets (terminal_app_get(), priv->clipboard, &n_targets);
 
-  gboolean can_paste = gtk_targets_include_text (targets, n_targets);
-  gboolean can_paste_uris = gtk_targets_include_uri (targets, n_targets);
+  gboolean can_paste;
+  gboolean can_paste_uris;
+  if (n_targets) {
+    can_paste = gtk_targets_include_text (targets, n_targets);
+    can_paste_uris = gtk_targets_include_uri (targets, n_targets);
+  } else {
+    can_paste = can_paste_uris = FALSE;
+  }
 
-  g_simple_action_set_enabled (lookup_action (window, "paste-text"), can_paste);
-  g_simple_action_set_enabled (lookup_action (window, "paste-uris"), can_paste_uris);
+  gs_unref_variant GVariant *ro_state = g_action_get_state (g_action_map_lookup_action (G_ACTION_MAP (window), "read-only"));
+  gboolean read_only = g_variant_get_boolean (ro_state);
+
+  g_simple_action_set_enabled (lookup_action (window, "paste-text"), can_paste && !read_only);
+  g_simple_action_set_enabled (lookup_action (window, "paste-uris"), can_paste_uris && !read_only);
 }
 
 static void
@@ -1666,7 +1640,7 @@ handle_tab_droped_on_desktop (GtkNotebook *source_notebook,
   source_window = TERMINAL_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (source_notebook)));
   g_return_val_if_fail (TERMINAL_IS_WINDOW (source_window), NULL);
 
-  new_window = terminal_app_new_window (terminal_app_get (), 0);
+  new_window = terminal_window_new (G_APPLICATION (terminal_app_get ()));
   new_priv = new_window->priv;
   new_priv->present_on_insert = TRUE;
 
@@ -1997,6 +1971,8 @@ terminal_window_state_event (GtkWidget            *widget,
                                  g_variant_new_boolean (is_fullscreen));
       g_simple_action_set_enabled (lookup_action (window, "leave-fullscreen"),
                                    is_fullscreen);
+      g_simple_action_set_enabled (lookup_action (window, "size-to"),
+                                   !is_fullscreen);
     }
 
   if (window_state_event)
@@ -2028,12 +2004,6 @@ terminal_window_screen_update (TerminalWindow *window,
                    "gtk-enable-accels",
                    G_SETTINGS_BIND_GET);
 
-#if !GTK_CHECK_VERSION (3, 20, 0)
-  char *value;
-  g_object_get (gtk_settings, "gtk-menu-bar-accel", &value, NULL);
-  g_object_set_data_full (G_OBJECT (gtk_settings), "GT::gtk-menu-bar-accel",
-                          value, (GDestroyNotify) g_free);
-#endif
   enable_menubar_accel_changed_cb (settings,
                                    TERMINAL_SETTING_ENABLE_MENU_BAR_ACCEL_KEY,
                                    gtk_settings);
@@ -2116,7 +2086,6 @@ terminal_window_init (TerminalWindow *window)
 
     /* Actions with state */
     { "active-tab",          action_active_tab_set_cb,   "i",  "@i 0",    action_active_tab_state_cb      },
-    { "encoding",            NULL /* changes state */,   "s",  "'UTF-8'", action_encoding_state_cb        },
     { "header-menu",         NULL /* toggles state */,   NULL, "false",   NULL },
     { "fullscreen",          NULL /* toggles state */,   NULL, "false",   action_fullscreen_state_cb      },
     { "menubar-visible",     NULL /* toggles state */,   NULL, "true",    action_menubar_visible_state_cb },
@@ -2298,8 +2267,6 @@ terminal_window_class_init (TerminalWindowClass *klass)
   widget_class->screen_changed = terminal_window_screen_changed;
   widget_class->style_updated = terminal_window_style_updated;
 
-#if GTK_CHECK_VERSION (3, 14, 0)
-{
   GtkWindowClass *window_klass;
   GtkBindingSet *binding_set;
 
@@ -2308,19 +2275,12 @@ terminal_window_class_init (TerminalWindowClass *klass)
   gtk_binding_entry_skip (binding_set, GDK_KEY_I, GDK_CONTROL_MASK|GDK_SHIFT_MASK);
   gtk_binding_entry_skip (binding_set, GDK_KEY_D, GDK_CONTROL_MASK|GDK_SHIFT_MASK);
   g_type_class_unref (window_klass);
-}
-#endif
 
   g_type_class_add_private (object_class, sizeof (TerminalWindowPrivate));
 
   gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/terminal/ui/window.ui");
 
-#if GTK_CHECK_VERSION(3, 19, 5)
   gtk_widget_class_set_css_name(widget_class, TERMINAL_WINDOW_CSS_NAME);
-#else
-  if (gtk_check_version(3, 19, 5) == NULL)
-    g_printerr("gnome-terminal needs to be recompiled against a newer gtk+ version.\n");
-#endif
 }
 
 static void
@@ -2488,16 +2448,6 @@ screen_hyperlink_hover_uri_changed (TerminalScreen *screen,
   gtk_widget_set_tooltip_text (GTK_WIDGET (screen), label);
 }
 
-static void
-screen_encoding_changed_cb (TerminalScreen *screen,
-                            GParamSpec     *psepc,
-                            gpointer        user_data)
-{
-  TerminalWindow *window = user_data;
-
-  terminal_window_update_encoding_menu_active_encoding (window);
-}
-
 /* MDI container callbacks */
 
 static void
@@ -2509,6 +2459,13 @@ screen_close_request_cb (TerminalMdiContainer *container,
     return;
 
   terminal_window_remove_screen (window, screen);
+}
+
+int
+terminal_window_get_active_screen_num (TerminalWindow *window)
+{
+  TerminalWindowPrivate *priv = window->priv;
+  return terminal_mdi_container_get_active_screen_num (priv->mdi_container);
 }
 
 void
@@ -2523,12 +2480,28 @@ terminal_window_add_screen (TerminalWindow *window,
   if (gtk_widget_is_toplevel (old_window) &&
       TERMINAL_IS_WINDOW (old_window) &&
       TERMINAL_WINDOW (old_window)== window)
-    return;  
+    return;
 
   if (TERMINAL_IS_WINDOW (old_window))
     terminal_window_remove_screen (TERMINAL_WINDOW (old_window), screen);
 
-  terminal_mdi_container_add_screen (priv->mdi_container, screen);
+  if (position == -1) {
+    GSettings *global_settings = terminal_app_get_global_settings (terminal_app_get ());
+    TerminalNewTabPosition position_pref = g_settings_get_enum (global_settings,
+                                                                TERMINAL_SETTING_NEW_TAB_POSITION_KEY);
+    switch (position_pref) {
+    case TERMINAL_NEW_TAB_POSITION_NEXT:
+      position = terminal_window_get_active_screen_num (window) + 1;
+      break;
+
+    default:
+    case TERMINAL_NEW_TAB_POSITION_LAST:
+      position = -1;
+      break;
+    }
+  }
+
+  terminal_mdi_container_add_screen (priv->mdi_container, screen, position);
 }
 
 void
@@ -2799,12 +2772,12 @@ mdi_screen_switched_cb (TerminalMdiContainer *container,
   terminal_window_update_size (window);
 
   terminal_window_update_tabs_actions_sensitivity (window);
-  terminal_window_update_encoding_menu_active_encoding (window);
   terminal_window_update_terminal_menu (window);
   terminal_window_update_set_profile_menu_active_profile (window);
   terminal_window_update_copy_sensitivity (screen, window);
   terminal_window_update_zoom_sensitivity (window);
   terminal_window_update_search_sensitivity (screen, window);
+  terminal_window_update_paste_sensitivity (window);
 }
 
 static void
@@ -2835,8 +2808,6 @@ mdi_screen_added_cb (TerminalMdiContainer *container,
                     G_CALLBACK (screen_font_any_changed_cb), window);
   g_signal_connect (screen, "notify::cell-width-scale",
                     G_CALLBACK (screen_font_any_changed_cb), window);
-  g_signal_connect (screen, "notify::encoding",
-                    G_CALLBACK (screen_encoding_changed_cb), window);
   g_signal_connect (screen, "selection-changed",
                     G_CALLBACK (terminal_window_update_copy_sensitivity), window);
   g_signal_connect (screen, "hyperlink-hover-uri-changed",
@@ -2854,6 +2825,7 @@ mdi_screen_added_cb (TerminalMdiContainer *container,
 
   terminal_window_update_tabs_actions_sensitivity (window);
   terminal_window_update_search_sensitivity (screen, window);
+  terminal_window_update_paste_sensitivity (window);
 
 #if 0
   /* FIXMEchpe: wtf is this doing? */
@@ -2910,10 +2882,6 @@ mdi_screen_removed_cb (TerminalMdiContainer *container,
 
   g_signal_handlers_disconnect_by_func (G_OBJECT (screen),
                                         G_CALLBACK (screen_font_any_changed_cb),
-                                        window);
-
-  g_signal_handlers_disconnect_by_func (G_OBJECT (screen),
-                                        G_CALLBACK (screen_encoding_changed_cb),
                                         window);
 
   g_signal_handlers_disconnect_by_func (G_OBJECT (screen),
@@ -3255,11 +3223,6 @@ confirm_close_window_or_tab (TerminalWindow *window,
 
   gtk_dialog_add_button (GTK_DIALOG (dialog), n_tabs > 1 ? _("C_lose Window") : _("C_lose Terminal"), GTK_RESPONSE_ACCEPT);
   gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT);
-
-  gtk_dialog_set_alternative_button_order (GTK_DIALOG (dialog),
-                                           GTK_RESPONSE_ACCEPT,
-                                           GTK_RESPONSE_CANCEL,
-                                           -1);
 
   g_object_set_data (G_OBJECT (dialog), "close-screen", screen);
 

@@ -27,7 +27,6 @@
 #include <gio/gio.h>
 
 #include "terminal-app.h"
-#include "terminal-encoding.h"
 #include "terminal-enums.h"
 #include "profile-editor.h"
 #include "terminal-prefs.h"
@@ -326,6 +325,14 @@ static void profile_palette_notify_colorpickers_cb (GSettings *profile,
                                                     const char *key,
                                                     gpointer user_data);
 
+static void profile_notify_encoding_combo_cb (GSettings *profile,
+                                              const char *key,
+                                              GtkComboBox *combo);
+
+enum {
+        ENCODINGS_COL_ID,
+        ENCODINGS_COL_TEXT
+};
 
 /* gdk_rgba_equal is too strict! */
 static gboolean
@@ -577,17 +584,91 @@ reset_compat_defaults_cb (GtkWidget *button,
   g_settings_reset (profile, TERMINAL_PROFILE_CJK_UTF8_AMBIGUOUS_WIDTH_KEY);
 }
 
+static gboolean
+tree_model_id_to_iter_recurse (GtkTreeModel *model,
+                               int id_column,
+                               const char *active_id,
+                               GtkTreeIter *iter,
+                               GtkTreeIter *result_iter)
+{
+  do {
+    /* Descend the tree */
+    GtkTreeIter child_iter;
+    if (gtk_tree_model_iter_children(model, &child_iter, iter) &&
+        tree_model_id_to_iter_recurse (model, id_column, active_id, &child_iter, result_iter))
+      return TRUE;
+
+    gs_free char *id = NULL;
+    gtk_tree_model_get (model, iter, id_column, &id, -1);
+    if (g_strcmp0 (id, active_id) == 0) {
+      *result_iter = *iter;
+      return TRUE;
+    }
+  } while (gtk_tree_model_iter_next (model, iter));
+
+  return FALSE;
+}
+
+static gboolean
+tree_model_id_to_iter (GtkTreeModel *model,
+                       int id_column,
+                       const char *active_id,
+                       GtkTreeIter *iter)
+{
+  GtkTreeIter first_iter;
+
+  return gtk_tree_model_get_iter_first(model, &first_iter) &&
+    tree_model_id_to_iter_recurse(model, id_column, active_id, &first_iter, iter);
+}
+
+static void
+profile_encoding_combo_changed_cb (GtkComboBox *combo,
+                                   GSettings *profile)
+{
+  GtkTreeIter iter;
+
+  if (!gtk_combo_box_get_active_iter(combo, &iter))
+    return;
+
+  gs_free char *encoding = NULL;
+  gtk_tree_model_get(gtk_combo_box_get_model(combo),
+                     &iter,
+                     ENCODINGS_COL_ID, &encoding,
+                     -1);
+  if (encoding == NULL)
+    return;
+
+  g_signal_handlers_block_by_func (profile, G_CALLBACK (profile_notify_encoding_combo_cb), combo);
+  g_settings_set_string(profile, TERMINAL_PROFILE_ENCODING_KEY, encoding);
+  g_signal_handlers_unblock_by_func (profile, G_CALLBACK (profile_notify_encoding_combo_cb), combo);
+}
+
+static void
+profile_notify_encoding_combo_cb (GSettings *profile,
+                                  const char *key,
+                                  GtkComboBox *combo)
+{
+  gs_free char *encoding = NULL;
+  g_settings_get(profile, key, "s", &encoding);
+
+  g_signal_handlers_block_by_func (combo, G_CALLBACK (profile_encoding_combo_changed_cb), profile);
+
+  GtkTreeIter iter;
+  if (tree_model_id_to_iter(gtk_combo_box_get_model(combo),
+                            ENCODINGS_COL_ID,
+                            encoding,
+                            &iter)) {
+    gtk_combo_box_set_active_iter(combo, &iter);
+  } else {
+    gtk_combo_box_set_active(combo, -1);
+  }
+
+  g_signal_handlers_unblock_by_func (combo, G_CALLBACK (profile_encoding_combo_changed_cb), profile);
+}
+
 /*
  * initialize widgets
  */
-
-static void
-set_input_hints(GtkWidget *entry)
-{
-#if GTK_CHECK_VERSION (3, 22, 20)
-  gtk_entry_set_input_hints (GTK_ENTRY (entry), GTK_INPUT_HINT_NO_EMOJI);
-#endif
-}
 
 static void
 init_color_scheme_menu (GtkWidget *widget)
@@ -613,30 +694,146 @@ init_color_scheme_menu (GtkWidget *widget)
   gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (widget), renderer, "text", 0, NULL);
 }
 
-enum {
-  ENCODINGS_COLUMN_ID = 0,
-  ENCODINGS_COLUMN_TEXT = 1
+typedef enum {
+        GROUP_UTF8,
+        GROUP_CJKV,
+        GROUP_OBSOLETE,
+        LAST_GROUP
+} EncodingGroup;
+
+typedef struct {
+  const char *charset;
+  const char *name;
+  EncodingGroup group;
+} EncodingEntry;
+
+/* These MUST be sorted by charset so that bsearch can work! */
+static const EncodingEntry encodings[] = {
+  { "ARMSCII-8",      N_("Armenian"),            GROUP_OBSOLETE },
+  { "BIG5",           N_("Chinese Traditional"), GROUP_CJKV },
+  { "BIG5-HKSCS",     N_("Chinese Traditional"), GROUP_CJKV },
+  { "CP866",          N_("Cyrillic/Russian"),    GROUP_OBSOLETE },
+  { "EUC-JP",         N_("Japanese"),            GROUP_CJKV },
+  { "EUC-KR",         N_("Korean"),              GROUP_CJKV },
+  { "EUC-TW",         N_("Chinese Traditional"), GROUP_CJKV },
+  { "GB18030",        N_("Chinese Simplified"),  GROUP_CJKV },
+  { "GB2312",         N_("Chinese Simplified"),  GROUP_CJKV },
+  { "GBK",            N_("Chinese Simplified"),  GROUP_CJKV },
+  { "GEORGIAN-PS",    N_("Georgian"),            GROUP_OBSOLETE },
+  { "IBM850",         N_("Western"),             GROUP_OBSOLETE },
+  { "IBM852",         N_("Central European"),    GROUP_OBSOLETE },
+  { "IBM855",         N_("Cyrillic"),            GROUP_OBSOLETE },
+  { "IBM857",         N_("Turkish"),             GROUP_OBSOLETE },
+  { "IBM862",         N_("Hebrew"),              GROUP_OBSOLETE },
+  { "IBM864",         N_("Arabic"),              GROUP_OBSOLETE },
+  { "ISO-2022-JP",    N_("Japanese"),            GROUP_CJKV },
+  { "ISO-2022-KR",    N_("Korean"),              GROUP_CJKV },
+  { "ISO-8859-1",     N_("Western"),             GROUP_OBSOLETE },
+  { "ISO-8859-10",    N_("Nordic"),              GROUP_OBSOLETE },
+  { "ISO-8859-13",    N_("Baltic"),              GROUP_OBSOLETE },
+  { "ISO-8859-14",    N_("Celtic"),              GROUP_OBSOLETE },
+  { "ISO-8859-15",    N_("Western"),             GROUP_OBSOLETE },
+  { "ISO-8859-16",    N_("Romanian"),            GROUP_OBSOLETE },
+  { "ISO-8859-2",     N_("Central European"),    GROUP_OBSOLETE },
+  { "ISO-8859-3",     N_("South European"),      GROUP_OBSOLETE },
+  { "ISO-8859-4",     N_("Baltic"),              GROUP_OBSOLETE },
+  { "ISO-8859-5",     N_("Cyrillic"),            GROUP_OBSOLETE },
+  { "ISO-8859-6",     N_("Arabic"),              GROUP_OBSOLETE },
+  { "ISO-8859-7",     N_("Greek"),               GROUP_OBSOLETE },
+  { "ISO-8859-8",     N_("Hebrew Visual"),       GROUP_OBSOLETE },
+  { "ISO-8859-8-I",   N_("Hebrew"),              GROUP_OBSOLETE },
+  { "ISO-8859-9",     N_("Turkish"),             GROUP_OBSOLETE },
+  { "ISO-IR-111",     N_("Cyrillic"),            GROUP_OBSOLETE },
+  { "KOI8-R",         N_("Cyrillic"),            GROUP_OBSOLETE },
+  { "KOI8-U",         N_("Cyrillic/Ukrainian"),  GROUP_OBSOLETE },
+  { "MAC-CYRILLIC",   N_("Cyrillic"),            GROUP_OBSOLETE },
+  { "MAC_ARABIC",     N_("Arabic"),              GROUP_OBSOLETE },
+  { "MAC_CE",         N_("Central European"),    GROUP_OBSOLETE },
+  { "MAC_CROATIAN",   N_("Croatian"),            GROUP_OBSOLETE },
+  { "MAC_GREEK",      N_("Greek"),               GROUP_OBSOLETE },
+  { "MAC_HEBREW",     N_("Hebrew"),              GROUP_OBSOLETE },
+  { "MAC_ROMAN",      N_("Western"),             GROUP_OBSOLETE },
+  { "MAC_ROMANIAN",   N_("Romanian"),            GROUP_OBSOLETE },
+  { "MAC_TURKISH",    N_("Turkish"),             GROUP_OBSOLETE },
+  { "MAC_UKRAINIAN",  N_("Cyrillic/Ukrainian"),  GROUP_OBSOLETE },
+  { "SHIFT_JIS",      N_("Japanese"),            GROUP_CJKV },
+  { "TIS-620",        N_("Thai"),                GROUP_OBSOLETE },
+  { "UHC",            N_("Korean"),              GROUP_CJKV },
+  { "UTF-8",          N_("Unicode"),             GROUP_UTF8 },
+  { "WINDOWS-1250",   N_("Central European"),    GROUP_OBSOLETE },
+  { "WINDOWS-1251",   N_("Cyrillic"),            GROUP_OBSOLETE },
+  { "WINDOWS-1252",   N_("Western"),             GROUP_OBSOLETE },
+  { "WINDOWS-1253",   N_("Greek"),               GROUP_OBSOLETE },
+  { "WINDOWS-1254",   N_("Turkish"),             GROUP_OBSOLETE },
+  { "WINDOWS-1255",   N_("Hebrew"),              GROUP_OBSOLETE},
+  { "WINDOWS-1256",   N_("Arabic"),              GROUP_OBSOLETE },
+  { "WINDOWS-1257",   N_("Baltic"),              GROUP_OBSOLETE },
+  { "WINDOWS-1258",   N_("Vietnamese"),          GROUP_OBSOLETE },
 };
+
+static const struct {
+  EncodingGroup group;
+  const char *name;
+} encodings_group_names[] = {
+  { GROUP_UTF8,     N_("Unicode") },
+  { GROUP_CJKV,     N_("Legacy CJK Encodings") },
+  { GROUP_OBSOLETE, N_("Obsolete Encodings") },
+};
+
+#define EM_DASH "—"
+
+static void
+append_encodings_for_group (GtkTreeStore *store,
+                            EncodingGroup group,
+                            gboolean submenu)
+{
+  GtkTreeIter parent_iter;
+
+  if (submenu) {
+    gtk_tree_store_insert_with_values (store,
+                                       &parent_iter,
+                                       NULL,
+                                       -1,
+                                       ENCODINGS_COL_ID, NULL,
+                                       ENCODINGS_COL_TEXT, _(encodings_group_names[group].name),
+                                       -1);
+  }
+
+  for (guint i = 0; i < G_N_ELEMENTS (encodings); i++) {
+    if (encodings[i].group != group)
+      continue;
+
+    gs_free char *name = g_strdup_printf ("%s " EM_DASH " %s",
+                                          _(encodings[i].name), encodings[i].charset);
+
+    GtkTreeIter iter;
+    gtk_tree_store_insert_with_values (store,
+                                       &iter,
+                                       submenu ? &parent_iter : NULL,
+                                       -1,
+                                       ENCODINGS_COL_ID, encodings[i].charset,
+                                       ENCODINGS_COL_TEXT, name,
+                                       -1);
+  }
+}
+
+static GtkTreeStore *
+encodings_tree_store_new (void)
+{
+  GtkTreeStore *store = gtk_tree_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
+
+  append_encodings_for_group(store, GROUP_UTF8, FALSE); /* UTF-8 in main menu */
+  append_encodings_for_group(store, GROUP_CJKV, TRUE);
+  append_encodings_for_group(store, GROUP_OBSOLETE, TRUE);
+
+  return store;
+}
 
 static void
 init_encodings_combo (GtkWidget *widget)
 {
-  gs_unref_object GtkListStore *store = terminal_encodings_list_store_new (ENCODINGS_COLUMN_ID,
-                                                                           ENCODINGS_COLUMN_TEXT);
-
-  /* Now turn on sorting */
-  gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (store),
-                                        ENCODINGS_COLUMN_TEXT,
-                                        GTK_SORT_ASCENDING);
-
-  gtk_combo_box_set_id_column (GTK_COMBO_BOX (widget), ENCODINGS_COLUMN_ID);
+  gs_unref_object GtkTreeStore *store = encodings_tree_store_new ();
   gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
-
-  /* Cell renderer */
-  GtkCellRenderer *renderer = gtk_cell_renderer_text_new ();
-  gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (widget), renderer, TRUE);
-  gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (widget), renderer,
-                                  "text", ENCODINGS_COLUMN_TEXT, NULL);
 }
 
 static gboolean
@@ -754,47 +951,6 @@ bool_to_scrollbar_policy (const GValue *value,
   return g_variant_new_string (g_value_get_boolean (value) ? "always" : "never");
 }
 
-#if !GTK_CHECK_VERSION (3, 19, 8)
-
-/* ATTENTION: HACK HACK HACK!
- * GtkColorButton usability is broken. It always pops up the
- * GtkColorChooserDialog with show-editor=FALSE, which brings
- * up the dialogue in palette mode, when all we want is pick
- * a colour. Since there is no way to get to the colour
- * dialogue of the button, and the dialogue always sets
- * show-editor=FALSE in its map anyway, we need to override
- * the map implementation, set show-editor=TRUE and chain to
- * the parent's map. This is reasonably safe to do since that's
- * all the map functiondoes, and we can change this for _all_
- * colour chooser buttons, since they are used only in our
- * profile preferences dialogue.
- */
-
-static void
-fixup_color_chooser_dialog_map (GtkWidget *widget)
-{
-  g_object_set (GTK_COLOR_CHOOSER_DIALOG (widget), "show-editor", TRUE, NULL);
-
-  GTK_WIDGET_CLASS (g_type_class_peek_parent (GTK_COLOR_CHOOSER_DIALOG_GET_CLASS (widget)))->map (widget);
-}
-
-static void
-fixup_color_chooser_button (void)
-{
-  static gboolean done = FALSE;
-
-  if (!done) {
-    GtkColorChooserDialogClass *klass;
-    klass = g_type_class_ref (GTK_TYPE_COLOR_CHOOSER_DIALOG);
-    g_assert (klass != NULL);
-    GTK_WIDGET_CLASS (klass)->map = fixup_color_chooser_dialog_map;
-    g_type_class_unref (klass);
-    done = TRUE;
-  }
-}
-
-#endif /* GTK+ < 3.19.8 HACK */
-
 static gboolean
 monospace_filter (const PangoFontFamily *family,
                   const PangoFontFace   *face,
@@ -813,10 +969,6 @@ profile_prefs_init (void)
 
   the_pref_data->profile_signals = g_array_new (FALSE, FALSE, sizeof (ProfilePrefsSignal));
   the_pref_data->profile_bindings = g_array_new (FALSE, FALSE, sizeof (ProfilePrefsBinding));
-
-#if !GTK_CHECK_VERSION (3, 19, 8)
-  fixup_color_chooser_button ();
-#endif
 
   w = (GtkWidget *) gtk_builder_get_object (builder, "color-scheme-combobox");
   init_color_scheme_menu (w);
@@ -876,10 +1028,6 @@ profile_prefs_load (const char *uuid, GSettings *profile)
       g_snprintf (name, sizeof (name), "palette-colorpicker-%u", i);
       w = (GtkWidget *) gtk_builder_get_object (builder, name);
 
-#if GTK_CHECK_VERSION (3, 19, 8)
-      g_object_set (w, "show-editor", TRUE, NULL);
-#endif
-
       g_object_set_data (G_OBJECT (w), "palette-entry-index", GUINT_TO_POINTER (i));
 
       text = g_strdup_printf (_("Choose Palette Color %u"), i);
@@ -934,13 +1082,10 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                 G_CALLBACK (reset_compat_defaults_cb),
                                 profile);
 
-  w = GTK_WIDGET (gtk_builder_get_object (builder, "background-colorpicker"));
-#if GTK_CHECK_VERSION (3, 19, 8)
-  g_object_set (w, "show-editor", TRUE, NULL);
-#endif
   profile_prefs_settings_bind_with_mapping (profile,
                                             TERMINAL_PROFILE_BACKGROUND_COLOR_KEY,
-                                            w,
+                                            gtk_builder_get_object (builder,
+                                                                    "background-colorpicker"),
                                             "rgba",
                                             G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET,
                                             (GSettingsBindGetMapping) s_to_rgba,
@@ -969,9 +1114,6 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                G_SETTINGS_BIND_SET);
 
   w = GTK_WIDGET (gtk_builder_get_object (builder, "bold-colorpicker"));
-#if GTK_CHECK_VERSION (3, 19, 8)
-  g_object_set (w, "show-editor", TRUE, NULL);
-#endif
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_BOLD_COLOR_SAME_AS_FG_KEY,
                                w,
                                "sensitive",
@@ -987,13 +1129,11 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                             NULL, NULL);
 
   w = GTK_WIDGET (gtk_builder_get_object (builder, "cell-height-scale-spinbutton"));
-  set_input_hints (w);
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_CELL_HEIGHT_SCALE_KEY,
                                gtk_spin_button_get_adjustment (GTK_SPIN_BUTTON (w)),
                                "value", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
 
   w = GTK_WIDGET (gtk_builder_get_object (builder, "cell-width-scale-spinbutton"));
-  set_input_hints (w);
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_CELL_WIDTH_SCALE_KEY,
                                gtk_spin_button_get_adjustment (GTK_SPIN_BUTTON (w)),
                                "value", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
@@ -1004,9 +1144,6 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                "active", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
 
   w = GTK_WIDGET (gtk_builder_get_object (builder, "cursor-foreground-colorpicker"));
-#if GTK_CHECK_VERSION (3, 19, 8)
-  g_object_set (w, "show-editor", TRUE, NULL);
-#endif
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_CURSOR_COLORS_SET_KEY,
                                w,
                                "sensitive",
@@ -1021,9 +1158,6 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                             NULL, NULL);
 
   w = GTK_WIDGET (gtk_builder_get_object (builder, "cursor-background-colorpicker"));
-#if GTK_CHECK_VERSION (3, 19, 8)
-  g_object_set (w, "show-editor", TRUE, NULL);
-#endif
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_CURSOR_COLORS_SET_KEY,
                                w,
                                "sensitive",
@@ -1043,9 +1177,6 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                "active", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
 
   w = GTK_WIDGET (gtk_builder_get_object (builder, "highlight-foreground-colorpicker"));
-#if GTK_CHECK_VERSION (3, 19, 8)
-  g_object_set (w, "show-editor", TRUE, NULL);
-#endif
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_HIGHLIGHT_COLORS_SET_KEY,
                                w,
                                "sensitive",
@@ -1060,9 +1191,6 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                             NULL, NULL);
 
   w = GTK_WIDGET (gtk_builder_get_object (builder, "highlight-background-colorpicker"));
-#if GTK_CHECK_VERSION (3, 19, 8)
-  g_object_set (w, "show-editor", TRUE, NULL);
-#endif
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_HIGHLIGHT_COLORS_SET_KEY,
                                w,
                                "sensitive",
@@ -1101,20 +1229,17 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                             (GSettingsBindSetMapping) enum_to_string,
                                             vte_text_blink_mode_get_type, NULL);
 
-  w = GTK_WIDGET (gtk_builder_get_object (builder, "custom-command-entry"));
-  set_input_hints (w);
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_CUSTOM_COMMAND_KEY,
-                               w,
+                               gtk_builder_get_object (builder,
+                                                       "custom-command-entry"),
                                "text", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
 
   w = GTK_WIDGET (gtk_builder_get_object (builder, "default-size-columns-spinbutton"));
-  set_input_hints (w);
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_DEFAULT_SIZE_COLUMNS_KEY,
                                gtk_spin_button_get_adjustment (GTK_SPIN_BUTTON (w)),
                                "value", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
 
   w = GTK_WIDGET (gtk_builder_get_object (builder, "default-size-rows-spinbutton"));
-  set_input_hints (w);
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_DEFAULT_SIZE_ROWS_KEY,
                                gtk_spin_button_get_adjustment (GTK_SPIN_BUTTON (w)),
                                "value", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
@@ -1141,13 +1266,10 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                w,
                                "font-name", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
 
-  w = GTK_WIDGET (gtk_builder_get_object (builder, "foreground-colorpicker"));
-#if GTK_CHECK_VERSION (3, 19, 8)
-      g_object_set (w, "show-editor", TRUE, NULL);
-#endif
   profile_prefs_settings_bind_with_mapping (profile,
                                             TERMINAL_PROFILE_FOREGROUND_COLOR_KEY,
-                                            w,
+                                            gtk_builder_get_object (builder,
+                                                                    "foreground-colorpicker"),
                                             "rgba",
                                             G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET,
                                             (GSettingsBindGetMapping) s_to_rgba,
@@ -1160,7 +1282,6 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                "active", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
 
   w = GTK_WIDGET (gtk_builder_get_object (builder, "scrollback-lines-spinbutton"));
-  set_input_hints (w);
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_SCROLLBACK_LINES_KEY,
                                gtk_spin_button_get_adjustment (GTK_SPIN_BUTTON (w)),
                                "value", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
@@ -1201,10 +1322,20 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                "active",
                                G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET |
                                G_SETTINGS_BIND_INVERT_BOOLEAN);
+
+  w = (GtkWidget *) gtk_builder_get_object (builder, "preserve-working-directory-combobox");
+  profile_prefs_settings_bind_with_mapping (profile, TERMINAL_PROFILE_PRESERVE_WORKING_DIRECTORY_KEY, w,
+                                            "active",
+                                            G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET,
+                                            (GSettingsBindGetMapping) string_to_enum,
+                                            (GSettingsBindSetMapping) enum_to_string,
+                                            terminal_preserve_working_directory_get_type, NULL);
+
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_USE_CUSTOM_COMMAND_KEY,
                                gtk_builder_get_object (builder,
                                                        "use-custom-command-checkbutton"),
                                "active", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
+
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_USE_THEME_COLORS_KEY,
                                gtk_builder_get_object (builder,
                                                        "use-theme-colors-checkbutton"),
@@ -1244,10 +1375,14 @@ profile_prefs_load (const char *uuid, GSettings *profile)
 
   /* Compatibility options */
   w = (GtkWidget *) gtk_builder_get_object (builder, "encoding-combobox");
-  profile_prefs_settings_bind (profile,
-                               TERMINAL_PROFILE_ENCODING_KEY,
-                               w,
-                               "active-id", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
+  profile_prefs_signal_connect (w, "changed",
+                                G_CALLBACK (profile_encoding_combo_changed_cb),
+                                profile);
+
+  profile_notify_encoding_combo_cb (profile, TERMINAL_PROFILE_ENCODING_KEY, GTK_COMBO_BOX (w));
+  profile_prefs_signal_connect (profile, "changed::" TERMINAL_PROFILE_ENCODING_KEY,
+                                G_CALLBACK (profile_notify_encoding_combo_cb),
+                                w);
 
   w = (GtkWidget *) gtk_builder_get_object (builder, "cjk-ambiguous-width-combobox");
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_CJK_UTF8_AMBIGUOUS_WIDTH_KEY,

@@ -5,6 +5,7 @@
 
   <info>
     <revision version="0.1" date="2013-02-17" status="candidate"/>
+    <revision version="0.2" pkgversion="3.34" date="2020-01-04" status="candidate"/>
     <link type="guide" xref="index#advanced"/>
     <link type="guide" xref="pref#global"/>
     <link type="seealso" xref="pref-keyboard-access" />
@@ -40,12 +41,11 @@
   <p>To change a keyboard shortcut:</p>
   <steps>
     <item>
-      <p>Select <guiseq><gui style="menu">Edit</gui>
-      <gui style="menuitem">Preferences</gui>
-      <gui style="tab">Shortcuts</gui></guiseq>.</p>
+      <p>Press the menu button in the top-right corner of the window and select
+      <gui style="menuitem">Preferences</gui>.</p>
     </item>
     <item>
-      <p>Make sure <gui style="checkbox">Enable shortcuts</gui> is selected.</p>
+      <p>In the sidebar, select <gui>Shortcuts</gui>.</p>
     </item>
     <item>
       <p>Make sure <gui style="checkbox">Enable shortcuts</gui> is selected.</p>
@@ -82,8 +82,7 @@
   <section id="file-shortcuts">
     <title><gui style="menu">File</gui> shortcuts</title>
 
-    <p>The default shortcuts for options under <gui style="menu">File</gui>
-    menu are:</p>
+    <p>The default shortcuts for options in this section are:</p>
 
     <table rules="rows" frame="top bottom" ui:expanded="true">
       <thead>
@@ -116,8 +115,7 @@
   <section id="edit-shortcuts">
     <title><gui style="menu">Edit</gui> shortcuts</title>
 
-    <p>The default shortcuts for options under <gui style="menu">Edit</gui>
-    menu are:</p>
+    <p>The default shortcuts for options in this section are:</p>
 
     <table rules="rows" frame="top bottom" ui:expanded="false">
       <thead>
@@ -142,8 +140,7 @@
   <section id="view-shortcuts">
     <title><gui style="menu">View</gui> shortcuts</title>
 
-    <p>The default shortcuts for options in the <gui style="menu">View</gui>
-    menu are:</p>
+    <p>The default shortcuts for options in this section are:</p>
 
     <table rules="rows" frame="top bottom" ui:expanded="false">
       <thead>
@@ -174,10 +171,9 @@
   </section>
 
   <section id="find-shortcuts">
-    <title><gui style="menu">Find</gui> shortcuts</title>
+    <title><gui style="menu">Search</gui> shortcuts</title>
 
-    <p>The default shortcuts for options under <gui style="menu">Find</gui>
-    menu are:</p>
+    <p>The default shortcuts for options in this section are:</p>
 
     <table rules="rows" frame="top bottom" ui:expanded="false">
       <thead>
@@ -210,7 +206,7 @@
   <section id="tab-shortcuts">
     <title>Tab shortcuts</title>
 
-    <p>The default shortcuts for working with tabs are:</p>
+    <p>The default shortcuts for options in this section are:</p>
 
     <table rules="rows" frame="top bottom" ui:expanded="false">
       <thead>
