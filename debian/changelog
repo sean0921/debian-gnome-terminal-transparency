@@ -7,8 +7,9 @@ gnome-terminal (3.36.0.1-1) UNRELEASED; urgency=medium
   * Drop debian/patches/nautilus-x11.patch, the package builds fine without it
   * Drop d/p/Don-t-allow-the-theme-to-set-black-on-black.patch, the default
     theme is now Adwaita not Raleigh anymore
+  * d/p/Provide-fallback-for-reading-current-directory-if-OS.patch: Refreshed
 
- -- Laurent Bigonville <bigon@debian.org>  Tue, 10 Mar 2020 18:16:25 +0100
+ -- Laurent Bigonville <bigon@debian.org>  Tue, 10 Mar 2020 18:40:58 +0100
 
 gnome-terminal (3.34.2-1) unstable; urgency=medium
 
