@@ -77,7 +77,7 @@ Depends: ${shlibs:Depends},
 Enhances: nautilus
 Breaks: gnome-terminal (<< 3.27.92-2~)
 Replaces: brasero (<< 3.27.92-2~)
-Description: GNOME terminal emulator application
+Description: GNOME terminal emulator application - Nautilus extension
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:
   - Access a UNIX shell in the GNOME environment.

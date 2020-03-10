@@ -2,8 +2,9 @@ gnome-terminal (3.36.0.1-1) UNRELEASED; urgency=medium
 
   * New upstream release
     - Adjust the build-dependencies
+  * debian/control.in: Update nautilus-extension-gnome-terminal description
 
- -- Laurent Bigonville <bigon@debian.org>  Tue, 10 Mar 2020 14:51:28 +0100
+ -- Laurent Bigonville <bigon@debian.org>  Tue, 10 Mar 2020 15:07:19 +0100
 
 gnome-terminal (3.34.2-1) unstable; urgency=medium
 
