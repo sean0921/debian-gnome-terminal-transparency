@@ -4,8 +4,9 @@ gnome-terminal (3.36.0.1-1) UNRELEASED; urgency=medium
     - Adjust the build-dependencies
   * debian/control.in: Update nautilus-extension-gnome-terminal description
   * debian/control.in: Bump Standards-Version to 4.5.0 (no further changes)
+  * Drop debian/patches/nautilus-x11.patch, the package builds fine without it
 
- -- Laurent Bigonville <bigon@debian.org>  Tue, 10 Mar 2020 15:08:24 +0100
+ -- Laurent Bigonville <bigon@debian.org>  Tue, 10 Mar 2020 18:15:16 +0100
 
 gnome-terminal (3.34.2-1) unstable; urgency=medium
 
