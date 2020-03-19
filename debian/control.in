@@ -26,10 +26,10 @@ Build-Depends: debhelper-compat (= 12),
                libnautilus-extension-dev (>= 3.28.0)
 Rules-Requires-Root: no
 Standards-Version: 4.4.0
-Vcs-Browser: https://git.launchpad.net/~ubuntu-desktop/ubuntu/+source/gnome-terminal
-Vcs-Git: https://git.launchpad.net/~ubuntu-desktop/ubuntu/+source/gnome-terminal
-XS-Debian-Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-terminal
 XS-Debian-Vcs-Git: https://salsa.debian.org/gnome-team/gnome-terminal.git
+XS-Debian-Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-terminal
+Vcs-Git: https://salsa.debian.org/gnome-team/gnome-terminal.git -b ubuntu/master
+Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-terminal/tree/ubuntu/master
 Homepage: https://wiki.gnome.org/Apps/Terminal
 
 Package: gnome-terminal
