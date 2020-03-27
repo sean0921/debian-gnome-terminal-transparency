@@ -1,3 +1,232 @@
+commit c428fb95b47a71743c166f89d1371e9ef327230d
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Fri Mar 27 20:48:23 2020 +0100
+
+    build: Version 3.36.1
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 9bb94e3aab84ecc4e7733d0ee001ee50256bd273
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Mon Mar 23 09:57:56 2020 +0100
+
+    screen: Use clean env when creating new tab
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/236
+    (cherry picked from commit fd5ac772154426e2da5afd633b336414bca33be9)
+
+ src/terminal-screen.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
+
+commit ad9ed3e7190d0446666f5b46b3b05655063d5ddb
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sun Mar 22 22:33:52 2020 +0100
+
+    screen: Start new tabs/windows with the profile settings
+    
+    ... not the client command line arguments.
+    
+    Fixes: https://gitlab.gnome.org/GNOME/gnome-terminal/issues/236
+    (cherry picked from commit 29cec2866150ae0aa14d28cf30bccfde53b1d111)
+
+ src/terminal-screen.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+commit dcc159665c5133c875f3006e249d97d6bad9cab1
+Author: Daniel Șerbănescu <daniel@serbanescu.dk>
+Date:   Sat Mar 21 21:18:32 2020 +0000
+
+    Update Romanian translation
+
+ po/ro.po | 1432 +++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 770 insertions(+), 662 deletions(-)
+
+commit 9f8405c6bbc6eaca9fff0c223ea8c6d1a97edeee
+Author: Anders Jonsson <anders.jonsson@norsjovallen.se>
+Date:   Sat Mar 21 21:05:38 2020 +0000
+
+    Update Swedish translation
+
+ help/sv/sv.po | 1593 ++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 846 insertions(+), 747 deletions(-)
+
+commit a1ea8c880091b128e2cd983a89796ce077b8ef8d
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Fri Mar 20 18:04:32 2020 +0100
+
+    Update Polish translation
+
+ help/pl/pl.po | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit c5de478575400dc699a48640953b9cedf4d43999
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:   Fri Mar 20 10:59:09 2020 +0100
+
+    Updated Spanish translation
+
+ help/es/es.po | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+commit f34fc32388e1b30094de50a4b4300fc5240f5bd9
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Thu Mar 19 21:50:34 2020 +0100
+
+    help: Fix a typo
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/issues/234
+    (cherry picked from commit 1de112ff4403f0f52fea1a2bf074714cf145d2f9)
+
+ help/C/app-zoom.page | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 4fffe6d1bc06e116ec18040c1a567026f6321a35
+Author: Peter Mráz <etkinator@gmail.com>
+Date:   Thu Mar 19 13:48:56 2020 +0000
+
+    Update Slovak translation
+
+ po/sk.po | 1297 +++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 693 insertions(+), 604 deletions(-)
+
+commit 40c8e6357e5a851ecf32e143647d4dbf2b9104f6
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sun Mar 15 20:39:21 2020 +0100
+
+    screen: Use the client cwd with the client command line
+    
+    Fixes: https://gitlab.gnome.org/GNOME/gnome-terminal/issues/231
+    (cherry picked from commit 8af7d01aa13b7fdbc5b8e6adb8137a0c2108ddaa)
+
+ src/terminal-screen.c | 40 +++++++++++++++++++++-------------------
+ 1 file changed, 21 insertions(+), 19 deletions(-)
+
+commit 581825bec990ab3ee54f4a63df40933a5e848ed4
+Author: Christian Kirbach <Christian.Kirbach@gmail.com>
+Date:   Sat Mar 14 23:56:14 2020 +0000
+
+    Update German translation
+
+ po/de.po | 1423 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 773 insertions(+), 650 deletions(-)
+
+commit 2b428284015f1eb8b1db776560cc3926788ca842
+Author: Egmont Koblinger <egmont@gmail.com>
+Date:   Fri Mar 13 16:39:54 2020 +0100
+
+    help: Fix broken markup in Czech help translation
+    
+    (cherry picked from commit a26890875c1d195afc93d435d89190228f420c0b)
+
+ help/cs/cs.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b1354ef1b2089cdf6e100cf18741ecca2001cead
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Mon Mar 2 13:51:23 2020 +0100
+
+    Fix broken markup in Xhosa UI translation
+    
+    (cherry picked from commit 492d13231f0ec4fcb80a189f7fe9e5b98a10ae01)
+
+ po/xh.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit acfc9120fc01e1b9ffc60147d09b51497eaf2dba
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Mon Mar 2 13:50:49 2020 +0100
+
+    Fix broken markup in Walloon UI translation
+    
+    (cherry picked from commit 6fa026f74e3ae079a902b40c5525cd05edab05f0)
+
+ po/wa.po | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a35b80302f2b4d11e1cde0ad4268b80a9b0641b6
+Author: Andre Klapper <a9016009@gmx.de>
+Date:   Mon Mar 2 13:50:17 2020 +0100
+
+    Fix broken markup in Georgian UI translation
+    
+    (cherry picked from commit febf7d162977fb408dc53419f0fe161bc118b77c)
+
+ po/ka.po | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit 278e60ec9a250e42a5976b90284691a638670006
+Author: Marek Černocký <marek@manet.cz>
+Date:   Wed Mar 11 16:01:12 2020 +0100
+
+    Updated Czech help translation
+
+ help/cs/cs.po | 1386 ++++++++++++++++++++++++++-------------------------------
+ po/cs.po      |    4 +-
+ 2 files changed, 632 insertions(+), 758 deletions(-)
+
+commit 3e49da20d5c913047545beb62f354dd681d753d0
+Author: Daniel Korostil <ted.korostiled@gmail.com>
+Date:   Tue Mar 10 21:58:14 2020 +0000
+
+    Update Ukrainian translation
+
+ po/uk.po | 2648 ++++++++++++++++++--------------------------------------------
+ 1 file changed, 760 insertions(+), 1888 deletions(-)
+
+commit 036627fb1700852a191e7f172a4e07d2a2f1746e
+Author: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
+Date:   Tue Mar 10 21:02:19 2020 +0000
+
+    screen: Fix non-preserved working dir
+    
+    If `preserve_cwd` is false, the code would leave `data->cwd` unset. This
+    resulted in VTE keeping the current pwd, which in the case of
+    `gnome-terminal-server` running as a systemd user service is `/`.
+    
+    Fixes https://gitlab.gnome.org/GNOME/gnome-terminal/issues/228
+    
+    (cherry picked from commit 01f4eb65212295c2ef081a873cb6f8aad3dde2de)
+
+ src/terminal-screen.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+commit 7c960f45d332ee190742ee61007d5b772d2a424f
+Author: Goran Vidović <trebelnik2@gmail.com>
+Date:   Mon Mar 9 12:17:37 2020 +0000
+
+    Update Croatian translation
+
+ po/hr.po | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+commit 94692777b9247f672f5433d6ae2cafd80954553d
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Sat Mar 7 13:42:37 2020 +0100
+
+    Update Catalan translation
+
+ help/ca/ca.po | 92 +++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 46 insertions(+), 46 deletions(-)
+
+commit f4206442044907f1f2cd3fec03ca5e6ed23b93b4
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Fri Mar 6 01:39:31 2020 +0100
+
+    build: Fix
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 8bd9f42819ccaf4445d0ec641899fe5a25856633
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Thu Mar 5 23:25:59 2020 +0100
+
+    build: Post release version bump
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
 commit 7d7b73d1005d8377e6f8303801e0da505f907611
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Thu Mar 5 23:23:33 2020 +0100
