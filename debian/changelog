@@ -1,10 +1,11 @@
-gnome-terminal (3.36.1.1-1) UNRELEASED; urgency=medium
+gnome-terminal (3.36.1.1-1) unstable; urgency=medium
 
+  * Team upload
   * New upstream stable release
     - When opening a new tab or window from a terminal started with -x,
       don't run the program from -x again (Closes: #954652)
 
- -- Simon McVittie <smcv@debian.org>  Sat, 28 Mar 2020 09:54:27 +0000
+ -- Simon McVittie <smcv@debian.org>  Sat, 28 Mar 2020 11:32:03 +0000
 
 gnome-terminal (3.36.0.1-1) unstable; urgency=medium
 
