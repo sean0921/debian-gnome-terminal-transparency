@@ -1,3 +1,33 @@
+commit 3c12e8978f815ec3f2b0f2b3e6a98d3569d4a2c8
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Fri Mar 27 23:49:48 2020 +0100
+
+    Version 3.36.1.1
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit bae3eab51ea5553150c3c3c28273495f0abb6f7d
+Author: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
+Date:   Fri Mar 27 21:59:16 2020 +0000
+
+    screen: Don't dereference data unchecked
+    
+    Fixes: https://gitlab.gnome.org/GNOME/gnome-terminal/issues/239
+    (cherry picked from commit d02ae557b24dee36c91324be9f9a3f80c207e2a7)
+
+ src/terminal-screen.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit dcbe83ea7c0e5c166b05f8b96aed9b12266017c9
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Fri Mar 27 20:51:53 2020 +0100
+
+    build: Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit c428fb95b47a71743c166f89d1371e9ef327230d
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Fri Mar 27 20:48:23 2020 +0100
