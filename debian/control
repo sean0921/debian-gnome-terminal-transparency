@@ -18,7 +18,7 @@ Build-Depends: debhelper-compat (= 12),
                libgtk-3-dev (>= 3.22.27),
                libglib2.0-dev (>= 2.50.0),
                libpcre2-dev (>= 10.00),
-               libvte-2.91-dev (>= 0.58.1),
+               libvte-2.91-dev (>= 0.60.1),
                libsm-dev,
                gnome-pkg-tools (>= 0.10),
                docbook-to-man,
@@ -29,7 +29,7 @@ Build-Depends: debhelper-compat (= 12),
                gnome-shell [!hurd-any !kfreebsd-any !s390x],
                libnautilus-extension-dev (>= 3.28.0)
 Rules-Requires-Root: no
-Standards-Version: 4.4.0
+Standards-Version: 4.5.0
 XS-Debian-Vcs-Git: https://salsa.debian.org/gnome-team/gnome-terminal.git
 XS-Debian-Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-terminal
 Vcs-Git: https://salsa.debian.org/gnome-team/gnome-terminal.git -b ubuntu/master
@@ -84,7 +84,7 @@ Depends: ${shlibs:Depends},
 Enhances: nautilus
 Breaks: gnome-terminal (<< 3.27.92-2~)
 Replaces: brasero (<< 3.27.92-2~)
-Description: GNOME terminal emulator application
+Description: GNOME terminal emulator application - Nautilus extension
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:
   - Access a UNIX shell in the GNOME environment.

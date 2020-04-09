@@ -1,6 +1,4 @@
-nautilus-x11.patch
 01_onlyshowin.patch
-Don-t-allow-the-theme-to-set-black-on-black.patch
 Provide-fallback-for-reading-current-directory-if-OS.patch
 0001-Restore-transparency.patch
 0001-Add-style-classes-and-CSS-names-to-some-of-our-widge.patch

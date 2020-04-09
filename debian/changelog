@@ -1,3 +1,25 @@
+gnome-terminal (3.36.1.1-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream stable release
+    - When opening a new tab or window from a terminal started with -x,
+      don't run the program from -x again (Closes: #954652)
+
+ -- Simon McVittie <smcv@debian.org>  Sat, 28 Mar 2020 11:32:03 +0000
+
+gnome-terminal (3.36.0.1-1) unstable; urgency=medium
+
+  * New upstream release
+    - Adjust the build-dependencies
+  * debian/control.in: Update nautilus-extension-gnome-terminal description
+  * debian/control.in: Bump Standards-Version to 4.5.0 (no further changes)
+  * Drop debian/patches/nautilus-x11.patch, the package builds fine without it
+  * Drop d/p/Don-t-allow-the-theme-to-set-black-on-black.patch, the default
+    theme is now Adwaita not Raleigh anymore
+  * d/p/Provide-fallback-for-reading-current-directory-if-OS.patch: Refreshed
+
+ -- Laurent Bigonville <bigon@debian.org>  Tue, 10 Mar 2020 18:53:11 +0100
+
 gnome-terminal (3.35.91-0ubuntu1) focal; urgency=medium
 
   * New upstream release
