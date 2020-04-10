@@ -1,0 +1,31 @@
+From: Christian Persch <chpe@src.gnome.org>
+Date: Sat, 4 Apr 2020 18:10:10 +0200
+Subject: server: systemd: Don't kill all remaining processes in the control
+ group
+
+Use KillMode=process to only kill the main g-t-server process, not every
+application that was launched by gnome-terminal (e.g. firefox via
+gtk_show_uri()).
+
+https://gitlab.gnome.org/GNOME/gnome-terminal/-/issues/242#note_760400
+(cherry picked from commit e456d6d896ece1fa303d56f7f9375521467bde6d)
+
+Origin: upstream, 3.36.2
+---
+ src/Makefile.am | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 9caea2d..a13df7a 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -161,7 +161,8 @@ gnome-terminal-server.service: Makefile
+ 		      echo "Type=dbus"; \
+ 		      echo "BusName=org.gnome.Terminal"; \
+ 		      echo "ExecStart=${libexecdir}/gnome-terminal-server"; \
+-		      echo "TimeoutStopSec=5s") > $@
++		      echo "TimeoutStopSec=5s"; \
++		      echo "KillMode=process") > $@
+ 
+ terminal-gdbus-generated.c terminal-gdbus-generated.h: org.gnome.Terminal.xml Makefile
+ 	$(AM_V_GEN) $(GDBUS_CODEGEN) \
