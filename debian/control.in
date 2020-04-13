@@ -5,7 +5,6 @@ Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.
 Uploaders: @GNOME_TEAM@
 Build-Depends: debhelper-compat (= 12),
                dh-sequence-gnome,
-               dh-exec,
                gnome-common,
                libx11-dev,
                libdconf-dev (>= 0.14.0),
@@ -20,7 +19,7 @@ Build-Depends: debhelper-compat (= 12),
                yelp-tools,
                desktop-file-utils,
                gsettings-desktop-schemas-dev (>= 0.1.0),
-               gnome-shell [!hurd-any !kfreebsd-any !s390x],
+               gnome-shell-common (>= 3.36.1-6~) [linux-any],
                libnautilus-extension-dev (>= 3.28.0)
 Rules-Requires-Root: no
 Standards-Version: 4.5.0
