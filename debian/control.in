@@ -19,7 +19,7 @@ Build-Depends: debhelper-compat (= 12),
                yelp-tools,
                desktop-file-utils,
                gsettings-desktop-schemas-dev (>= 0.1.0),
-               gnome-shell-common (>= 3.36.1-6~) [linux-any],
+               gnome-shell-common (>= 3.36.1-6~) | gnome-shell,
                libnautilus-extension-dev (>= 3.28.0)
 Rules-Requires-Root: no
 Standards-Version: 4.5.0
