@@ -77,6 +77,7 @@ typedef struct {
   GSpawnFlags spawn_flags;
 
   /* FD passing */
+  GUnixFDList *fd_list_obj;
   int *fd_list;
   int fd_list_len;
   const int *fd_array;
@@ -267,7 +268,8 @@ exec_data_new (void)
 }
 
 static ExecData *
-exec_data_clone (ExecData *data)
+exec_data_clone (ExecData *data,
+                 gboolean preserve_argv)
 {
   if (data == NULL)
     return NULL;
@@ -277,7 +279,8 @@ exec_data_clone (ExecData *data)
   clone->cwd = g_strdup (data->cwd);
 
   /* If FDs were passed, cannot repeat argv. Return data only for env and cwd */
-  if (data->fd_list != NULL) {
+  if (!preserve_argv ||
+      data->fd_list_obj != NULL) {
     clone->as_shell = TRUE;
     return clone;
   }
@@ -318,6 +321,7 @@ exec_data_unref (ExecData *data)
   g_strfreev (data->envv);
   g_free (data->cwd);
   g_free (data->fd_list);
+  g_clear_object (&data->fd_list_obj);
 
   if (data->callback_data_destroy_notify && data->callback_data)
     data->callback_data_destroy_notify (data->callback_data);
@@ -848,6 +852,7 @@ terminal_screen_reexec_from_screen (TerminalScreen *screen,
 
   g_return_val_if_fail (TERMINAL_IS_SCREEN (parent_screen), FALSE);
 
+  terminal_unref_exec_data ExecData* data = exec_data_clone (parent_screen->priv->exec_data, FALSE);
   gs_free char* cwd = terminal_screen_get_current_dir (parent_screen);
 
   _terminal_debug_print (TERMINAL_DEBUG_PROCESSES,
@@ -857,7 +862,7 @@ terminal_screen_reexec_from_screen (TerminalScreen *screen,
                          cwd);
 
   return terminal_screen_reexec_from_exec_data (screen,
-                                                NULL /* exec data */,
+                                                data,
                                                 NULL /* envv */,
                                                 cwd,
                                                 cancellable,
@@ -968,11 +973,12 @@ terminal_screen_exec (TerminalScreen *screen,
     envv = g_environ_unsetenv (envv, "PWD");
   }
 
+  data->fd_list_obj = fd_list ? g_object_ref(fd_list) : NULL;
   if (fd_list) {
     const int *fds;
 
     fds = g_unix_fd_list_peek_fds (fd_list, &data->fd_list_len);
-    data->fd_list = g_memdup (fds, (data->fd_list_len + 1) * sizeof (int));
+    data->fd_list = g_memdup (fds, data->fd_list_len * sizeof (int));
     data->fd_array = g_variant_get_fixed_array (fd_array, &data->fd_array_len, 2 * sizeof (int));
   }
 
@@ -1633,7 +1639,7 @@ spawn_result_cb (VteTerminal *terminal,
   }
 
   /* Retain info for reexec, if possible */
-  ExecData *new_exec_data = exec_data_clone (exec_data);
+  ExecData *new_exec_data = exec_data_clone (exec_data, TRUE);
   terminal_screen_clear_exec_data (screen, FALSE);
   priv->exec_data = new_exec_data;
 

@@ -1,3 +1,192 @@
+commit be754773e25f7b0f8ccfe0ed4b7e65711bcee1be
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Apr 25 22:13:00 2020 +0200
+
+    Version 3.36.2
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 57ea15c4bdf15247f1d403aa24fb18efe23cd8a7
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Apr 25 22:03:12 2020 +0200
+
+    Revert "screen: Use clean env when creating new tab"
+    
+    The patch is correct, but it exposes a deficiency in the desktop
+    environment in that the WM/shell's environment contains necessary
+    env vars (e.g. ssh-agent variables) that are missing from the
+    systemd --user / d-bus activation environment.  The desktop will
+    need to update the activation environment, but until that is done,
+    reverting the patch will revert gnome-terminal to the previous
+    behaviour of effectively using the environment of the client
+    of the first terminal created for all new terminals opened via
+    new terminal/tab/window.
+    
+    This reverts commit 9bb94e3aab84ecc4e7733d0ee001ee50256bd273.
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/-/issues/253
+
+ src/terminal-screen.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+commit 5ecb0ac8b0cf97c73b4b18ba74e5a220b420d942
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Apr 25 21:59:50 2020 +0200
+
+    screen: Fix memdup overrun
+    
+    The extra element was never accessed.
+    
+    (cherry picked from commit 5ae5b48b3f71dec024cd523b28f6bd2acbc8ced6)
+
+ src/terminal-screen.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a7ecf5c9df47d12ad2a4799219f485d087718ec3
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Apr 25 21:59:50 2020 +0200
+
+    server: Fix refcount leak
+    
+    Ownership of the GDBusMethodInvocation is passed to terminal_receiver_impl_exec,
+    and will be released by terminal_receiver_complete_exec. The extra reference
+    added to ExecData was leaked, causing the GUnixFDList passed from the client
+    (if any) also to be leaked, which meant that its file descriptors were never
+    closed, leading to FD exhaustion.
+    
+    (cherry picked from commit 1554c74da520db6dff65b9dbf4eb2de82b14e76f)
+
+ src/terminal-gdbus.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit c6f72400b39525ecd22def77ec117d924cc519fa
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Thu Apr 23 23:18:08 2020 +0200
+
+    screen: Take a ref to the FD list
+    
+    (cherry picked from commit dcd77201aade51bab925b8257d79766ca7acd714)
+
+ src/terminal-screen.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+commit 717f8d7dd5a1e6b4006429547b0e035e44d0a164
+Author: Mathieu Lovato Stumpf Guntz <psychoslave@culture-libre.org>
+Date:   Sun Apr 19 11:51:22 2020 +0000
+
+    Update Esperanto translation
+
+ po/eo.po | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+commit 930f14e611e438d6ea534442705b49ab343f0f4f
+Author: Peniel Vargas <tsuneake.kaemitsu@gmail.com>
+Date:   Sat Apr 18 13:54:29 2020 +0000
+
+    Update Japanese translation
+
+ po/ja.po | 63 +++++++++++++++++++++++++++++++++------------------------------
+ 1 file changed, 33 insertions(+), 30 deletions(-)
+
+commit 98a71e6ffbb2aebaf4c6ae09c5db152d6c12807c
+Author: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>
+Date:   Sun Apr 12 07:29:51 2020 +0000
+
+    Update Esperanto translation
+
+ po/eo.po | 1460 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 803 insertions(+), 657 deletions(-)
+
+commit 5d966ab4c56bd82a8f6f68cc8f8922bca373c346
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:   Fri Apr 10 22:21:18 2020 +0200
+
+    Updated Slovenian translation
+
+ po/sl.po | 1452 +++++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 781 insertions(+), 671 deletions(-)
+
+commit 11f0ad63587c3a9671fe7c4c6e49356da401f2de
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Thu Apr 9 21:04:32 2020 +0200
+
+    client: legacy: Suppress debug message spam
+    
+    The glib log writer API has a deficiency in that the filtering is
+    done in the default log writer, instead of only passing messages
+    that pass the filter. This is filed as glib#2087, but until that
+    is fixed, apply a simple log level filter to work around it.
+    
+    Patch by Kim Nguyen <https://gitlab.gnome.org/kim.nguyen>
+    
+    Fixes: https://gitlab.gnome.org/GNOME/gnome-terminal/-/issues/42
+    (cherry picked from commit f84316ec180e9b9515a0914e883a0585f6877c7e)
+
+ src/terminal-options.c | 27 ++++++++++++++++++++++++++-
+ 1 file changed, 26 insertions(+), 1 deletion(-)
+
+commit 65372d4590986a60e6a28533350fb78bc39cbee3
+Author: Charles Monzat <charles.monzat@free.fr>
+Date:   Sun Apr 5 17:24:18 2020 +0000
+
+    Update French translation
+
+ help/fr/fr.po | 1917 ++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 1018 insertions(+), 899 deletions(-)
+
+commit e52b8dcc9265756cf5681adb59adbbad277b27a3
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Apr 4 18:10:10 2020 +0200
+
+    server: systemd: Don't kill all remaining processes in the control group
+    
+    Use KillMode=process to only kill the main g-t-server process, not every
+    application that was launched by gnome-terminal (e.g. firefox via
+    gtk_show_uri()).
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/-/issues/242#note_760400
+    (cherry picked from commit e456d6d896ece1fa303d56f7f9375521467bde6d)
+
+ src/Makefile.am | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 96ed81405692a98eb984dea51f132762e47d7e02
+Author: Guillaume Bernard <associations@guillaume-bernard.fr>
+Date:   Wed Apr 1 15:45:28 2020 +0000
+
+    Update French translation
+
+ po/fr.po | 22 +++++++++++-----------
+ 1 file changed, 11 insertions(+), 11 deletions(-)
+
+commit 4dee4102cc07d6d1c416f62a62cc9e709a318aee
+Author: Daniel Șerbănescu <daniel@serbanescu.dk>
+Date:   Wed Apr 1 01:04:37 2020 +0000
+
+    Update Romanian translation
+
+ po/ro.po | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit f607729cdd692a64c33e5571916f55415fb0aadf
+Author: Yosef Or Boczko <yoseforb@gnome.org>
+Date:   Tue Mar 31 08:36:10 2020 +0000
+
+    Update Hebrew translation
+
+ po/he.po | 3076 ++++++++++++++++++++++++++++++++++++--------------------------
+ 1 file changed, 1793 insertions(+), 1283 deletions(-)
+
+commit 80b156322fcb65999e246291769c359ecf5cc41e
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Fri Mar 27 23:51:57 2020 +0100
+
+    build: Post release version bump
+
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
 commit 3c12e8978f815ec3f2b0f2b3e6a98d3569d4a2c8
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Fri Mar 27 23:49:48 2020 +0100
