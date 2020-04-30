@@ -1,8 +1,2 @@
-Update-Hebrew-translation.patch
-Update-Romanian-translation.patch
-Update-French-translation.patch
-server-systemd-Don-t-kill-all-remaining-processes-in-the-.patch
-Update-French-translation-1.patch
-client-legacy-Suppress-debug-message-spam.patch
 01_onlyshowin.patch
 Provide-fallback-for-reading-current-directory-if-OS.patch
