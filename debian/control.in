@@ -14,7 +14,7 @@ Build-Depends: debhelper-compat (= 12),
                libgtk-3-dev (>= 3.22.27),
                libglib2.0-dev (>= 2.50.0),
                libpcre2-dev (>= 10.00),
-               libvte-2.91-dev (>= 0.60.1),
+               libvte-2.91-dev (>= 0.60.2),
                libsm-dev,
                gnome-pkg-tools (>= 0.10),
                docbook-to-man,
@@ -22,7 +22,7 @@ Build-Depends: debhelper-compat (= 12),
                yelp-tools,
                desktop-file-utils,
                gsettings-desktop-schemas-dev (>= 0.1.0),
-               gnome-shell [!hurd-any !kfreebsd-any !s390x],
+               gnome-shell-common (>= 3.36.1-6~) | gnome-shell,
                libnautilus-extension-dev (>= 3.28.0)
 Rules-Requires-Root: no
 Standards-Version: 4.5.0

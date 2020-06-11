@@ -1,4 +1,3 @@
-#! /usr/bin/dh-exec
 usr/bin
 usr/libexec
 usr/lib/systemd/user
@@ -7,6 +6,6 @@ usr/share/applications
 usr/share/dbus-1/services
 usr/share/glib-2.0/schemas
 usr/share/icons
-[!hurd-any !kfreebsd-any !s390x] usr/share/gnome-shell/search-providers/gnome-terminal-search-provider.ini
+usr/share/gnome-shell/search-providers/gnome-terminal-search-provider.ini
 
 debian/gnome-terminal.wrapper /usr/bin
