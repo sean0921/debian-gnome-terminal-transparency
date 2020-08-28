@@ -6,18 +6,18 @@
 # Hendrik Brandt <heb@gnome-de.org>, 2006.
 # Andre Klapper <ak-47@gmx.net>, 2008.
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2009-2013, 2015-2018.
-# Christian Kirbach <Christian.Kirbach@googlemail.com>, 2008-2010, 2012.
+# Christian Kirbach <Christian.Kirbach@googlemail.com>, 2008-2020.
 # Paul Seyfert <pseyfert@mathphys.fsk.uni-heidelberg.de>, 2011-2012, 2015.
 # Benjamin Steinwender <b@stbe.at>, 2013.
 # Bernd Homuth <dev@hmt.im>, 2015, 2019.
-# Tim Sabsch <tim@sabsch.com>, 2017-2018.
+# Tim Sabsch <tim@sabsch.com>, 2017-2018, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-terminal master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-terminal/issues\n"
-"POT-Creation-Date: 2020-03-13 15:41+0000\n"
-"PO-Revision-Date: 2020-03-15 00:55+0100\n"
+"POT-Creation-Date: 2020-02-19 06:55+0000\n"
+"PO-Revision-Date: 2020-03-09 23:48+0100\n"
 "Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -95,7 +95,7 @@ msgstr "SearchProvider"
 
 #: org.gnome.Terminal.appdata.xml.in:52
 msgid "UserDocs"
-msgstr "BenutzerDokumentation"
+msgstr "UserDocs"
 
 #: org.gnome.Terminal.appdata.xml.in:54
 #: org.gnome.Terminal.Nautilus.metainfo.xml.in:44
@@ -856,7 +856,7 @@ msgstr "Letzte"
 #. New tab opens next to current tab
 #: src/preferences.ui:36
 msgid "Next"
-msgstr "Nächster"
+msgstr "Nächste"
 
 #: src/preferences.ui:50
 msgctxt "theme variant"
@@ -1762,7 +1762,7 @@ msgstr "_4. 132×43"
 msgid "_Inspector"
 msgstr "_Inspekteur"
 
-#: src/terminal-headermenu.ui:106 src/terminal-screen.c:1591
+#: src/terminal-headermenu.ui:106 src/terminal-screen.c:1592
 #: src/terminal-window.c:1763
 msgid "_Preferences"
 msgstr "_Einstellungen"
@@ -2266,31 +2266,31 @@ msgstr "Tastenkürzel"
 msgid "Profiles"
 msgstr "Profile"
 
-#: src/terminal-screen.c:1398
+#: src/terminal-screen.c:1399
 msgid "No command supplied nor shell requested"
 msgstr "Kein Befehl angegeben oder Shell angefordert"
 
-#: src/terminal-screen.c:1592 src/terminal-screen.c:1922
+#: src/terminal-screen.c:1593 src/terminal-screen.c:1923
 msgid "_Relaunch"
 msgstr "Erneut sta_rten"
 
-#: src/terminal-screen.c:1595
+#: src/terminal-screen.c:1596
 msgid "There was an error creating the child process for this terminal"
 msgstr ""
 "Beim Erzeugen des Kindprozesses für dieses Terminal ist ein Fehler "
 "aufgetreten"
 
-#: src/terminal-screen.c:1926
+#: src/terminal-screen.c:1927
 #, c-format
 msgid "The child process exited normally with status %d."
 msgstr "Der Kindprozess wurde normal mit Status %d beendet."
 
-#: src/terminal-screen.c:1929
+#: src/terminal-screen.c:1930
 #, c-format
 msgid "The child process was aborted by signal %d."
 msgstr "Der Kindprozess wurde mit Signal %d beendet."
 
-#: src/terminal-screen.c:1932
+#: src/terminal-screen.c:1933
 msgid "The child process was aborted."
 msgstr "Der Kindprozess wurde beendet."
 

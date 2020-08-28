@@ -135,12 +135,12 @@
       <description>Human-readable name of the profile.</description>
     </key>
     <key name="foreground-color" type="s">
-      <default>'#D3D7CF'</default>
+      <default>'#171421'</default>
       <summary>Default color of text in the terminal</summary>
       <description>Default color of text in the terminal, as a color specification (can be HTML-style hex digits, or a color name such as “red”).</description>
     </key>
     <key name="background-color" type="s">
-      <default>'#2E3436'</default>
+      <default>'#ffffff'</default>
       <summary>Default color of terminal background</summary>
       <description>Default color of terminal background, as a color specification (can be HTML-style hex digits, or a color name such as “red”).</description>
     </key>
@@ -203,6 +203,11 @@
       <default>true</default>
       <summary>Whether to perform Arabic shaping</summary>
       <description>If true, shape Arabic text.</description>
+    </key>
+    <key name="enable-sixel" type="b">
+      <default>false</default>
+      <summary>Whether to enable SIXEL images</summary>
+      <description>If true, SIXEL sequences are parsed and images are rendered.</description>
     </key>
     <key name="bold-is-bright" type="b">
       <default>false</default>
@@ -294,22 +299,22 @@
       <description>Run this command in place of the shell, if use_custom_command is true.</description>
     </key>
     <key name="palette" type="as">
-      <default>["#2E3436",
-                "#CC0000",
-                "#4E9A06",
-                "#C4A000",
-                "#3465A4",
-                "#75507B",
-                "#06989A",
-                "#D3D7CF",
-                "#555753",
-                "#EF2929",
-                "#8AE234",
-                "#FCE94F",
-                "#729FCF",
-                "#AD7FA8",
-                "#34E2E2",
-                "#EEEEEC"]</default>
+      <default>['#171421',
+                '#c01c28',
+                '#26a269',
+                '#a2734c',
+                '#12488b',
+                '#a347ba',
+                '#2aa1b3',
+                '#d0cfcc',
+                '#5e5c64',
+                '#f66151',
+                '#33da7a',
+                '#e9ad0c',
+                '#2a7bde',
+                '#c061cb',
+                '#33c7de',
+                '#ffffff']</default>
       <summary>Palette for terminal applications</summary>
     </key>
     <key name="font" type="s">

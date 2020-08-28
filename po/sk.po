@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-terminal\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-terminal/issues\n"
-"POT-Creation-Date: 2020-03-15 19:41+0000\n"
-"PO-Revision-Date: 2020-03-19 14:21+0100\n"
-"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
+"POT-Creation-Date: 2020-03-19 13:49+0000\n"
+"PO-Revision-Date: 2020-03-19 14:54+0100\n"
+"Last-Translator: Peter Mráz <etkinator@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -1628,8 +1628,8 @@ msgstr "Vietnamské"
 
 # tab
 # DK: Inde prekladame Legacy ako Zastaralé
+# PM: hned vedla je Obsolete
 #: src/profile-editor.c:779
-#, fuzzy
 msgid "Legacy CJK Encodings"
 msgstr "Zaužívané CJK kódovania"
 
