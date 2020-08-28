@@ -869,7 +869,7 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/app-colors.page:53 C/app-colors.page:82 C/app-colors.page:114
 msgid "Select <gui style=\"tab\">Colors</gui>."
-msgstr "Seleccioneu <gui style=\"menu\">Colors</gui>."
+msgstr "Seleccioneu <gui style=\"tab\">Colors</gui>."
 
 #. (itstool) path: item/p
 #: C/app-colors.page:56
@@ -896,8 +896,8 @@ msgid ""
 msgstr ""
 "Podeu escollir un dels esquemes integrats de color: <gui>Negre sobre groc "
 "clar</gui>, <gui>Negre sobre blanc</gui>, <gui>Gris sobre negre</gui>, "
-"<gui>Verd sobre negre</gui>, <gui>Blanc sobre negre</gui>, <gui>Solarized "
-"clar</gui>, <gui>Solarized fosc</gui>. Per establir qualsevol d'aquests "
+"<gui>Verd sobre negre</gui>, <gui>Blanc sobre negre</gui>, <gui>Assolellat "
+"clar</gui>, <gui>Assolellat fosc</gui>. Per establir qualsevol d'aquests "
 "esquemes integrats:"
 
 #. (itstool) path: item/p
@@ -1392,7 +1392,7 @@ msgstr "Augmenta o disminueix la mida del text."
 #. (itstool) path: page/title
 #: C/app-zoom.page:31
 msgid "Zoom in and zoom out"
-msgstr "Apropa i allunya"
+msgstr "Apropar i allunyar"
 
 #. (itstool) path: page/p
 #: C/app-zoom.page:33
@@ -1451,7 +1451,7 @@ msgstr "Llança programes o executa ordres usant el <app>Terminal</app>."
 #. (itstool) path: page/title
 #: C/gs-execute-commands.page:34
 msgid "Execute a command"
-msgstr "Executa una ordre"
+msgstr "Executar una ordre"
 
 #. (itstool) path: page/p
 #: C/gs-execute-commands.page:36
@@ -1670,7 +1670,7 @@ msgstr "Primers passos"
 #. (itstool) path: section/title
 #: C/index.page:44
 msgid "Working With Text"
-msgstr "Treball amb text"
+msgstr "Treballar amb text"
 
 #. (itstool) path: section/title
 #: C/index.page:48
@@ -2017,7 +2017,7 @@ msgstr "Habilita la notificació sonora al <app>Terminal</app>."
 #. (itstool) path: page/title
 #: C/pref-bell.page:32
 msgid "Set audible bell"
-msgstr "Configura la campana sonora"
+msgstr "Configurar la campana sonora"
 
 #. (itstool) path: page/p
 #: C/pref-bell.page:34
@@ -2303,14 +2303,14 @@ msgid ""
 "key</em>."
 msgstr ""
 "Podeu navegar pel menú del <app>Terminal</app> usant una combinació de "
-"tecles que s'anomenen <em>mnemonics</em> o una tecla especial que prem "
+"tecles que s'anomenen <em>mnemònics</em> o una tecla especial que prem "
 "directament el primer menú de la barra, la qual s'anomena <em>tecla "
 "acceleradora de menú</em>."
 
 #. (itstool) path: section/title
 #: C/pref-keyboard-access.page:45
 msgid "Mnemonics"
-msgstr "Mnemonics"
+msgstr "Mnemònics"
 
 #. (itstool) path: section/p
 #: C/pref-keyboard-access.page:47
@@ -2354,7 +2354,7 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/pref-keyboard-access.page:65
 msgid "Check <gui style=\"checkbox\">Enable mnemonics</gui>."
-msgstr "Marca <gui style=\"checkbox\">Habilita mnemonics</gui>."
+msgstr "Marca <gui style=\"checkbox\">Habilita els mnemònics</gui>."
 
 #. (itstool) path: section/title
 #: C/pref-keyboard-access.page:72
@@ -3638,7 +3638,7 @@ msgstr "Cerca la sortida del <app>Terminal</app>."
 #. (itstool) path: page/title
 #: C/txt-search.page:31
 msgid "Search for text"
-msgstr "Cerca de text"
+msgstr "Cercar text"
 
 #. (itstool) path: page/p
 #: C/txt-search.page:33
