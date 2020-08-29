@@ -114,4 +114,9 @@ while ($opt = shift(@ARGV))
     }
 }
 
+# GNOME Terminal now uses a dbus-activated service, so calling it would exit
+# immediately, while we're supposed to mimic xterm behavior and so to wait
+# until the terminal is explicitly closed, so always use the wait argument
+push(@args, '--wait');
+
 exec('gnome-terminal',@args);
