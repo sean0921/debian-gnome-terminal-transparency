@@ -1,7 +1,5 @@
 #! /usr/bin/perl -w
 
-my $login=0;
-
 sub exists_in_path {
     my $command = shift;
     my @path = split ':', $ENV{PATH};
@@ -37,11 +35,11 @@ while ($opt = shift(@ARGV))
     }
     elsif ($opt eq '-ls')
     {
-	$login = 1;
+	die "$0: Requested to be used as a login shell, but it's not supported\n"
     }
     elsif ($opt eq '+ls')
     {
-	$login = 0;
+	print STDERR "$0: gnome-terminal is always a non-login shell\n"
     }
     elsif ($opt eq '-geometry')
     {
@@ -115,8 +113,10 @@ while ($opt = shift(@ARGV))
 	push(@args, '--help');
     }
 }
-if ($login == 1)
-{
-    @args = ('--login', @args);
-}
+
+# GNOME Terminal now uses a dbus-activated service, so calling it would exit
+# immediately, while we're supposed to mimic xterm behavior and so to wait
+# until the terminal is explicitly closed, so always use the wait argument
+push(@args, '--wait');
+
 exec('gnome-terminal',@args);

@@ -1,3 +1,27 @@
+gnome-terminal (3.36.2-2) unstable; urgency=medium
+
+  * debian/gnome-terminal.wrapper:
+    - Always wait for terminal to exit:
+      GNOME Terminal now uses a dbus-activated service, so calling it would exit
+      immediately once it dbus-activates the server, while the wrapper is
+      supposed to mimic xterm behavior and so to wait until the terminal is
+      explicitly closed.
+      This is particularly relevant for the XSession file that gdm ships, as in
+      case of failures it calls x-terminal-emulator (which very likely points to
+      this script) to open a terminal for debugging purposes, that should stay
+      visible until the user closes it. But right now we just exit immediately
+      and the x session is closed, sending the user back to gdm screen.
+      As per this, always use the --wait (implemented in commit 42f9f797)
+      argument to call gnome-terminal, so that the behavior is preserved.
+    - Don't support -ls and ignore +ls args.
+      GNOME terminal never supported to be a login shell, it included such
+      option but was never implemented (see commit 22d79929) and removed
+      around 7 years ago (commit 3413b72).
+      So in case `-ls` is passed, just fail early (as it would gnome-terminal),
+      while ignore `+ls` argument but warning about it.
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Sat, 29 Aug 2020 19:24:35 +0200
+
 gnome-terminal (3.36.2-1ubuntu1) groovy; urgency=medium
 
   * Merge with debian, remaining changes:
