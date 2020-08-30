@@ -27,7 +27,7 @@ gnome-terminal (3.36.2-2ubuntu1) UNRELEASED; urgency=medium
 gnome-terminal (3.36.2-2) unstable; urgency=medium
 
   * debian/gnome-terminal.wrapper:
-    - Always wait for terminal to exit:
+    - Always wait for terminal to exit (LP: #1893555):
       GNOME Terminal now uses a dbus-activated service, so calling it would exit
       immediately once it dbus-activates the server, while the wrapper is
       supposed to mimic xterm behavior and so to wait until the terminal is
