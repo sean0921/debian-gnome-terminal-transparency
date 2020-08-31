@@ -13,6 +13,11 @@ sub exists_in_path {
     return 0;
 }
 
+# GNOME Terminal now uses a dbus-activated service, so calling it would exit
+# immediately, while we're supposed to mimic xterm behavior and so to wait
+# until the terminal is explicitly closed, so always use the wait argument
+push(@args, '--wait');
+
 while ($opt = shift(@ARGV))
 {
     if ($opt eq '-display')
@@ -113,10 +118,5 @@ while ($opt = shift(@ARGV))
 	push(@args, '--help');
     }
 }
-
-# GNOME Terminal now uses a dbus-activated service, so calling it would exit
-# immediately, while we're supposed to mimic xterm behavior and so to wait
-# until the terminal is explicitly closed, so always use the wait argument
-push(@args, '--wait');
 
 exec('gnome-terminal',@args);
