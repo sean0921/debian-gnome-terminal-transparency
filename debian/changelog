@@ -1,4 +1,4 @@
-gnome-terminal (3.36.2-2ubuntu1) UNRELEASED; urgency=medium
+gnome-terminal (3.36.2-3ubuntu1) UNRELEASED; urgency=medium
 
   * Merge with debian, remaining changes:
     - gnome-terminal.wrap, debian/rules:
@@ -23,6 +23,17 @@ gnome-terminal (3.36.2-2ubuntu1) UNRELEASED; urgency=medium
         background color. This allows proper theming.
 
  -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Sat, 29 Aug 2020 19:30:44 +0200
+
+gnome-terminal (3.36.2-3) unstable; urgency=medium
+
+  * Team upload
+  * d/gnome-terminal.wrapper: Pass --wait argument before -e.
+    If we put --wait last, then a command like "x-terminal-emulator -e irssi"
+    will turn into "gnome-terminal -- irssi --wait", passing the --wait
+    option to the command being run in the terminal (not usually valid)
+    instead of to the terminal itself.
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 31 Aug 2020 11:20:16 +0100
 
 gnome-terminal (3.36.2-2) unstable; urgency=medium
 
