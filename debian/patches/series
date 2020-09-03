@@ -1,2 +1,3 @@
 01_onlyshowin.patch
 Provide-fallback-for-reading-current-directory-if-OS.patch
+man-Document-the-various-ways-to-run-a-command-in-a-gnome.patch
