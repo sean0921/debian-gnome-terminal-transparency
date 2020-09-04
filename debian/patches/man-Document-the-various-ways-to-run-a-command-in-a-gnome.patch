@@ -20,7 +20,8 @@ Document the preferred form in the synopsis, and document -e and -x in
 terms of their replacements with the preferred form.
 
 Signed-off-by: Simon McVittie <smcv@debian.org>
-Forwarded: https://gitlab.gnome.org/GNOME/gnome-terminal/-/issues/296
+Bug: https://gitlab.gnome.org/GNOME/gnome-terminal/-/issues/296
+Applied-upstream: 3.37.91, commit:61389b21b9306a3fd5d8d45cda36ab029e33f094
 ---
  man/gnome-terminal.xml | 52 +++++++++++++++++++++++++++++++++++++++++++++++++-
  1 file changed, 51 insertions(+), 1 deletion(-)
