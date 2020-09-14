@@ -1,11 +1,18 @@
-gnome-terminal (3.38.0-1) UNRELEASED; urgency=medium
+gnome-terminal (3.38.0-1) unstable; urgency=medium
 
+  * Team upload
   * New upstream stable release
     - Fix URL drag-and-drop with variant x-moz-url type
     - Translation updates
     - Man page updates
+  * d/watch: Only watch for stable (even-numbered) releases
+  * Bump libvte build-dependency as per configure.ac
+  * Refresh patch series
+    - d/p/man-Document-the-various-ways-to-run-a-command-in-a-gnome.patch:
+      Drop, applied upstream
+  * Release to unstable
 
- -- Simon McVittie <smcv@debian.org>  Mon, 14 Sep 2020 10:13:41 +0100
+ -- Simon McVittie <smcv@debian.org>  Mon, 14 Sep 2020 10:18:22 +0100
 
 gnome-terminal (3.37.90-1) experimental; urgency=medium
 
