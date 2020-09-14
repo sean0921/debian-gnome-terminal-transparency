@@ -1,3 +1,12 @@
+gnome-terminal (3.38.0-1) UNRELEASED; urgency=medium
+
+  * New upstream stable release
+    - Fix URL drag-and-drop with variant x-moz-url type
+    - Translation updates
+    - Man page updates
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 14 Sep 2020 10:13:41 +0100
+
 gnome-terminal (3.37.90-1) experimental; urgency=medium
 
   * Team upload
