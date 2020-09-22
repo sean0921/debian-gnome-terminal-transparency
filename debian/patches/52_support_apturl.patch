@@ -7,10 +7,10 @@ Subject: _support_apturl
  src/terminal-regex.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Index: gnome-terminal/src/terminal-regex.h
-===================================================================
---- gnome-terminal.orig/src/terminal-regex.h
-+++ gnome-terminal/src/terminal-regex.h
+diff --git a/src/terminal-regex.h b/src/terminal-regex.h
+index 143a8fa..4e8acb3 100644
+--- a/src/terminal-regex.h
++++ b/src/terminal-regex.h
 @@ -157,6 +157,6 @@
  #define REGEX_URL_HTTP   APOS_START_DEF "(?<!(?:" HOSTNAMESEGMENTCHARS_CLASS "|[.]))(?=(?i:www|ftp))" HOSTNAME1 PORT PATH_INNER_DEF PATH_DEF URLPATH
  #define REGEX_URL_VOIP   DEFS "(?i:h323:|sips?:)" USERPASS URL_HOST PORT VOIP_PATH

@@ -9,11 +9,11 @@ https://bugzilla.redhat.com/show_bug.cgi?id=1207943
  src/terminal-window.c | 18 ++++++++++++------
  2 files changed, 49 insertions(+), 9 deletions(-)
 
-Index: gnome-terminal/src/terminal-screen.c
-===================================================================
---- gnome-terminal.orig/src/terminal-screen.c
-+++ gnome-terminal/src/terminal-screen.c
-@@ -157,6 +157,8 @@ static void terminal_screen_system_font_
+diff --git a/src/terminal-screen.c b/src/terminal-screen.c
+index 277e503..d3c0cf0 100644
+--- a/src/terminal-screen.c
++++ b/src/terminal-screen.c
+@@ -153,6 +153,8 @@ static void terminal_screen_system_font_changed_cb (GSettings *,
  static gboolean terminal_screen_popup_menu (GtkWidget *widget);
  static gboolean terminal_screen_button_press (GtkWidget *widget,
                                                GdkEventButton *event);
@@ -22,7 +22,7 @@ Index: gnome-terminal/src/terminal-screen.c
  static void terminal_screen_child_exited  (VteTerminal *terminal,
                                             int status);
  
-@@ -688,6 +690,7 @@ terminal_screen_class_init (TerminalScre
+@@ -682,6 +684,7 @@ terminal_screen_class_init (TerminalScreenClass *klass)
    widget_class->drag_data_received = terminal_screen_drag_data_received;
    widget_class->button_press_event = terminal_screen_button_press;
    widget_class->popup_menu = terminal_screen_popup_menu;
@@ -30,10 +30,11 @@ Index: gnome-terminal/src/terminal-screen.c
  
    terminal_class->child_exited = terminal_screen_child_exited;
  
-@@ -1203,6 +1206,32 @@ terminal_screen_profile_changed_cb (GSet
+@@ -1214,6 +1217,32 @@ terminal_screen_profile_changed_cb (GSettings     *profile,
+   g_object_thaw_notify (object);
  }
  
- static void
++static void
 +update_toplevel_transparency (TerminalScreen *screen)
 +{
 +  GtkWidget *widget = GTK_WIDGET (screen);
@@ -59,11 +60,10 @@ Index: gnome-terminal/src/terminal-screen.c
 +    }
 +}
 +
-+static void
+ static void
  update_color_scheme (TerminalScreen *screen)
  {
-   GtkWidget *widget = GTK_WIDGET (screen);
-@@ -1296,9 +1325,7 @@ update_color_scheme (TerminalScreen *scr
+@@ -1308,9 +1337,7 @@ update_color_scheme (TerminalScreen *screen)
    vte_terminal_set_color_highlight (VTE_TERMINAL (screen), highlight_bgp);
    vte_terminal_set_color_highlight_foreground (VTE_TERMINAL (screen), highlight_fgp);
  
@@ -74,7 +74,7 @@ Index: gnome-terminal/src/terminal-screen.c
  }
  
  static void
-@@ -1881,6 +1908,13 @@ terminal_screen_do_popup (TerminalScreen
+@@ -1829,6 +1856,13 @@ terminal_screen_do_popup (TerminalScreen *screen,
    terminal_screen_popup_info_unref (info);
  }
  
@@ -88,10 +88,10 @@ Index: gnome-terminal/src/terminal-screen.c
  static gboolean
  terminal_screen_button_press (GtkWidget      *widget,
                                GdkEventButton *event)
-Index: gnome-terminal/src/terminal-window.c
-===================================================================
---- gnome-terminal.orig/src/terminal-window.c
-+++ gnome-terminal/src/terminal-window.c
+diff --git a/src/terminal-window.c b/src/terminal-window.c
+index 36d155a..c0219d8 100644
+--- a/src/terminal-window.c
++++ b/src/terminal-window.c
 @@ -1959,15 +1959,21 @@ terminal_window_draw (GtkWidget *widget,
  {
    if (gtk_widget_get_app_paintable (widget))

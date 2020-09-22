@@ -13,10 +13,10 @@ Bug-Ubuntu: https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/123258
  src/terminal-window.c | 13 ++++++++++++-
  6 files changed, 34 insertions(+), 1 deletion(-)
 
-Index: gnome-terminal/src/terminal-regex.h
-===================================================================
---- gnome-terminal.orig/src/terminal-regex.h
-+++ gnome-terminal/src/terminal-regex.h
+diff --git a/src/terminal-regex.h b/src/terminal-regex.h
+index 4e8acb3..5d90039 100644
+--- a/src/terminal-regex.h
++++ b/src/terminal-regex.h
 @@ -158,5 +158,6 @@
  #define REGEX_URL_VOIP   DEFS "(?i:h323:|sips?:)" USERPASS URL_HOST PORT VOIP_PATH
  #define REGEX_EMAIL      DEFS "(?i:mailto:)?" USER "@" EMAIL_HOST
@@ -24,11 +24,11 @@ Index: gnome-terminal/src/terminal-regex.h
 +#define REGEX_LP         "(?i:lp: #)[[:digit:]]+"
  
  #endif /* !TERMINAL_REGEX_H */
-Index: gnome-terminal/src/terminal-screen.c
-===================================================================
---- gnome-terminal.orig/src/terminal-screen.c
-+++ gnome-terminal/src/terminal-screen.c
-@@ -212,6 +212,7 @@ static const TerminalRegexPattern url_re
+diff --git a/src/terminal-screen.c b/src/terminal-screen.c
+index d3c0cf0..ac9cc71 100644
+--- a/src/terminal-screen.c
++++ b/src/terminal-screen.c
+@@ -208,6 +208,7 @@ static const TerminalRegexPattern url_regex_patterns[] = {
    { REGEX_URL_VOIP,  FLAVOR_VOIP_CALL },
    { REGEX_EMAIL,     FLAVOR_EMAIL },
    { REGEX_NEWS_MAN,  FLAVOR_AS_IS },
@@ -36,10 +36,10 @@ Index: gnome-terminal/src/terminal-screen.c
  };
  
  static const TerminalRegexPattern extra_regex_patterns[] = {
-Index: gnome-terminal/src/terminal-screen.h
-===================================================================
---- gnome-terminal.orig/src/terminal-screen.h
-+++ gnome-terminal/src/terminal-screen.h
+diff --git a/src/terminal-screen.h b/src/terminal-screen.h
+index 8ea3378..695aeeb 100644
+--- a/src/terminal-screen.h
++++ b/src/terminal-screen.h
 @@ -32,6 +32,7 @@ typedef enum {
    FLAVOR_VOIP_CALL,
    FLAVOR_EMAIL,
@@ -48,11 +48,11 @@ Index: gnome-terminal/src/terminal-screen.h
  } TerminalURLFlavor;
  
  /* Forward decls */
-Index: gnome-terminal/src/terminal-util.c
-===================================================================
---- gnome-terminal.orig/src/terminal-util.c
-+++ gnome-terminal/src/terminal-util.c
-@@ -310,6 +310,9 @@ terminal_util_open_url (GtkWidget *paren
+diff --git a/src/terminal-util.c b/src/terminal-util.c
+index 3155e3f..c746a20 100644
+--- a/src/terminal-util.c
++++ b/src/terminal-util.c
+@@ -310,6 +310,9 @@ terminal_util_open_url (GtkWidget *parent,
      case FLAVOR_AS_IS:
        uri = g_strdup (orig_url);
        break;
@@ -62,7 +62,7 @@ Index: gnome-terminal/src/terminal-util.c
      default:
        uri = NULL;
        g_assert_not_reached ();
-@@ -323,6 +326,20 @@ terminal_util_open_url (GtkWidget *paren
+@@ -323,6 +326,20 @@ terminal_util_open_url (GtkWidget *parent,
      }
  }
  
@@ -83,11 +83,11 @@ Index: gnome-terminal/src/terminal-util.c
  /**
   * terminal_util_transform_uris_to_quoted_fuse_paths:
   * @uris:
-Index: gnome-terminal/src/terminal-util.h
-===================================================================
---- gnome-terminal.orig/src/terminal-util.h
-+++ gnome-terminal/src/terminal-util.h
-@@ -44,6 +44,8 @@ void terminal_util_open_url (GtkWidget *
+diff --git a/src/terminal-util.h b/src/terminal-util.h
+index 0f3e6bf..ec09f4d 100644
+--- a/src/terminal-util.h
++++ b/src/terminal-util.h
+@@ -44,6 +44,8 @@ void terminal_util_open_url (GtkWidget *parent,
                               TerminalURLFlavor flavor,
                               guint32 user_time);
  
@@ -96,11 +96,11 @@ Index: gnome-terminal/src/terminal-util.h
  void terminal_util_transform_uris_to_quoted_fuse_paths (char **uris);
  
  char *terminal_util_concat_uris (char **uris,
-Index: gnome-terminal/src/terminal-window.c
-===================================================================
---- gnome-terminal.orig/src/terminal-window.c
-+++ gnome-terminal/src/terminal-window.c
-@@ -1019,7 +1019,17 @@ action_copy_match_cb (GSimpleAction *act
+diff --git a/src/terminal-window.c b/src/terminal-window.c
+index c0219d8..3c19e3d 100644
+--- a/src/terminal-window.c
++++ b/src/terminal-window.c
+@@ -1019,7 +1019,17 @@ action_copy_match_cb (GSimpleAction *action,
    if (info->url == NULL)
      return;
  
@@ -119,7 +119,7 @@ Index: gnome-terminal/src/terminal-window.c
  }
  
  static void
-@@ -1715,6 +1725,7 @@ screen_show_popup_menu_cb (TerminalScree
+@@ -1715,6 +1725,7 @@ screen_show_popup_menu_cb (TerminalScreen *screen,
        break;
      case FLAVOR_AS_IS:
      case FLAVOR_DEFAULT_TO_HTTP:

@@ -7,10 +7,10 @@ Subject: [PATCH] Add style classes and CSS names to some of our widgets
  src/terminal-screen.c   | 7 +++++++
  2 files changed, 13 insertions(+)
 
-Index: gnome-terminal/src/terminal-notebook.c
-===================================================================
---- gnome-terminal.orig/src/terminal-notebook.c
-+++ gnome-terminal/src/terminal-notebook.c
+diff --git a/src/terminal-notebook.c b/src/terminal-notebook.c
+index 356a389..5f5670f 100644
+--- a/src/terminal-notebook.c
++++ b/src/terminal-notebook.c
 @@ -32,6 +32,8 @@
  #include "terminal-schemas.h"
  #include "terminal-libgsystem.h"
@@ -36,11 +36,11 @@ Index: gnome-terminal/src/terminal-notebook.c
  }
  
  static void
-Index: gnome-terminal/src/terminal-screen.c
-===================================================================
---- gnome-terminal.orig/src/terminal-screen.c
-+++ gnome-terminal/src/terminal-screen.c
-@@ -138,6 +138,8 @@ enum
+diff --git a/src/terminal-screen.c b/src/terminal-screen.c
+index 1280874..277e503 100644
+--- a/src/terminal-screen.c
++++ b/src/terminal-screen.c
+@@ -134,6 +134,8 @@ enum
    TARGET_TAB
  };
  
@@ -49,7 +49,7 @@ Index: gnome-terminal/src/terminal-screen.c
  static void terminal_screen_constructed (GObject             *object);
  static void terminal_screen_dispose     (GObject             *object);
  static void terminal_screen_finalize    (GObject             *object);
-@@ -559,9 +561,14 @@ terminal_screen_init (TerminalScreen *sc
+@@ -553,9 +555,14 @@ terminal_screen_init (TerminalScreen *screen)
    guint i;
    uuid_t u;
    char uuidstr[37];
