@@ -238,6 +238,7 @@ XGETTEXT = @XGETTEXT@
 XGETTEXT_015 = @XGETTEXT_015@
 XGETTEXT_EXTRA_OPTIONS = @XGETTEXT_EXTRA_OPTIONS@
 XMLLINT = @XMLLINT@
+XSLTPROC = @XSLTPROC@
 YELP_LC_DIST = @YELP_LC_DIST@
 YELP_LC_MEDIA_LINKS = @YELP_LC_MEDIA_LINKS@
 abs_builddir = @abs_builddir@
@@ -341,7 +342,7 @@ HELP_FILES = \
 
 #	https://gitlab.gnome.org/GNOME/gnome-terminal/issues/71 :
 #	txt-save-text.page
-HELP_LINGUAS = ca cs de el es fi fr gl hu ko pl pt_BR ro ru sv
+HELP_LINGUAS = ca cs de el es fi fr gl hu ko pl pt_BR ro ru sv uk
 all: all-am
 
 .SUFFIXES:

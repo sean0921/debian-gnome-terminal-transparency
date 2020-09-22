@@ -1,6 +1,6 @@
 m4_define([terminal_version_major],[3])
-m4_define([terminal_version_minor],[36])
-m4_define([terminal_version_micro],[2])
+m4_define([terminal_version_minor],[38])
+m4_define([terminal_version_micro],[0])
 m4_define([terminal_version_extra],[])
 m4_define([terminal_version],[terminal_version_major().terminal_version_minor().terminal_version_micro()terminal_version_extra])
 
@@ -37,9 +37,9 @@ AM_GNU_GETTEXT([external])
 
 AX_PTHREAD([],[AC_MSG_ERROR([pthreads are required])])
 
-GLIB_REQUIRED=2.50.0
-GLIB_MIN_REQUIRED=2.50
-GLIB_MAX_ALLOWED=2.50
+GLIB_REQUIRED=2.52.0
+GLIB_MIN_REQUIRED=2.52
+GLIB_MAX_ALLOWED=2.52
 
 GIO_REQUIRED=2.34.0
 GIO_UNIX_REQUIRED=2.34.0
@@ -62,9 +62,9 @@ case "$with_gtk" in
   3.0) GTK_API_VERSION=3.0
        GTK_REQUIRED=3.22.27
        GTK_MIN_REQUIRED=3.18
-       GTK_MAX_ALLOWED=3.22
+       GTK_MAX_ALLOWED=3.24
        VTE_API_VERSION=2.91
-       VTE_REQUIRED=0.60.2
+       VTE_REQUIRED=0.62.0
        ;;
 esac
 
@@ -166,6 +166,14 @@ if test -z "$DESKTOP_FILE_VALIDATE"; then
   AC_PATH_PROG([DESKTOP_FILE_VALIDATE],[desktop-file-validate],[])
   if test -z "$DESKTOP_FILE_VALIDATE"; then
     AC_MSG_ERROR([desktop-file-validate not found])
+  fi
+fi
+
+AC_ARG_VAR([XSLTPROC],[the xsltproc programme])
+if test -z "$XSLTPROC"; then
+  AC_PATH_PROG([XSLTPROC],[xsltproc],[])
+  if test -z "$XSLTPROC"; then
+    AC_MSG_ERROR([xsltproc not found])
   fi
 fi
 
@@ -307,6 +315,7 @@ Makefile
 org.gnome.Terminal.desktop.in
 data/Makefile
 data/icons/Makefile
+man/Makefile
 src/Makefile
 src/terminal-version.h
 help/Makefile

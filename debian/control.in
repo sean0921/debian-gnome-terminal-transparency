@@ -5,25 +5,26 @@ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
 Uploaders: @GNOME_TEAM@
 Build-Depends: debhelper-compat (= 12),
+               desktop-file-utils,
                dh-sequence-gnome,
                dh-exec,
+               docbook-to-man,
+               docbook-xsl,
                gettext (>= 0.19.8),
                gnome-common,
-               libx11-dev,
-               libdconf-dev (>= 0.14.0),
-               libgtk-3-dev (>= 3.22.27),
-               libglib2.0-dev (>= 2.50.0),
-               libpcre2-dev (>= 10.00),
-               libvte-2.91-dev (>= 0.60.2),
-               libsm-dev,
                gnome-pkg-tools (>= 0.10),
-               docbook-to-man,
-               uuid-dev,
-               yelp-tools,
-               desktop-file-utils,
-               gsettings-desktop-schemas-dev (>= 0.1.0),
                gnome-shell-common (>= 3.36.1-6~) | gnome-shell,
-               libnautilus-extension-dev (>= 3.28.0)
+               gsettings-desktop-schemas-dev (>= 0.1.0),
+               libdconf-dev (>= 0.14.0),
+               libglib2.0-dev (>= 2.52.0),
+               libgtk-3-dev (>= 3.22.27),
+               libnautilus-extension-dev (>= 3.28.0),
+               libpcre2-dev (>= 10.00),
+               libsm-dev,
+               libvte-2.91-dev (>= 0.62.0),
+               libx11-dev,
+               uuid-dev,
+               yelp-tools
 Rules-Requires-Root: no
 Standards-Version: 4.5.0
 XS-Debian-Vcs-Git: https://salsa.debian.org/gnome-team/gnome-terminal.git
@@ -35,15 +36,15 @@ Homepage: https://wiki.gnome.org/Apps/Terminal
 Package: gnome-terminal
 Architecture: any
 Multi-Arch: foreign
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
-         default-dbus-session-bus | dbus-session-bus,
+Depends: default-dbus-session-bus | dbus-session-bus,
+         gnome-terminal-data (<< ${gnome:NextVersion}),
+         gnome-terminal-data (>= ${gnome:Version}),
+         gsettings-desktop-schemas (>= 0.1.0),
          python3,
          python3-gi,
          gir1.2-glib-2.0,
-         gsettings-desktop-schemas (>= 0.1.0),
-         gnome-terminal-data (>= ${gnome:Version}),
-         gnome-terminal-data (<< ${gnome:NextVersion})
+         ${misc:Depends},
+         ${shlibs:Depends}
 Provides: x-terminal-emulator
 Recommends: gvfs,
             nautilus-extension-gnome-terminal,
@@ -74,9 +75,9 @@ Description: Data files for the GNOME terminal emulator
 
 Package: nautilus-extension-gnome-terminal
 Architecture: any
-Depends: ${shlibs:Depends},
+Depends: gnome-terminal (= ${binary:Version}),
          ${misc:Depends},
-         gnome-terminal (= ${binary:Version})
+         ${shlibs:Depends}
 Enhances: nautilus
 Breaks: gnome-terminal (<< 3.27.92-2~)
 Replaces: brasero (<< 3.27.92-2~)

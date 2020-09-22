@@ -174,6 +174,16 @@ static const TerminalColorScheme color_schemes[] = {
     COLOR (0xff, 0xff, 0xff),
     COLOR (0x00, 0x00, 0x00)
   },
+  /* Translators: "GNOME" is the name of a colour scheme, "light" can be translated */
+  { N_("GNOME light"),
+    COLOR (0x17, 0x14, 0x21), /* Palette entry 0 */
+    COLOR (0xff, 0xff, 0xff)  /* Palette entry 15 */
+  },
+  /* Translators: "GNOME" is the name of a colour scheme, "dark" can be translated */
+  { N_("GNOME dark"),
+    COLOR (0xd0, 0xcf, 0xcc), /* Palette entry 7 */
+    COLOR (0x17, 0x14, 0x21)  /* Palette entry 0 */
+  },
   /* Translators: "Tango" is the name of a colour scheme, "light" can be translated */
   { N_("Tango light"),
     COLOR (0x2e, 0x34, 0x36),
@@ -200,16 +210,37 @@ static const TerminalColorScheme color_schemes[] = {
 
 enum
 {
-  TERMINAL_PALETTE_TANGO     = 0,
-  TERMINAL_PALETTE_LINUX     = 1,
-  TERMINAL_PALETTE_XTERM     = 2,
-  TERMINAL_PALETTE_RXVT      = 3,
-  TERMINAL_PALETTE_SOLARIZED = 4,
+  TERMINAL_PALETTE_GNOME     = 0,
+  TERMINAL_PALETTE_TANGO     = 1,
+  TERMINAL_PALETTE_LINUX     = 2,
+  TERMINAL_PALETTE_XTERM     = 3,
+  TERMINAL_PALETTE_RXVT      = 4,
+  TERMINAL_PALETTE_SOLARIZED = 5,
   TERMINAL_PALETTE_N_BUILTINS
 };
 
 static const GdkRGBA terminal_palettes[TERMINAL_PALETTE_N_BUILTINS][TERMINAL_PALETTE_SIZE] =
 {
+  /* Based on GNOME 3.32 palette: https://developer.gnome.org/hig/stable/icon-design.html.en#palette */
+  {
+    COLOR (0x17, 0x14, 0x21),  /* Blend of Dark 4 and Black */
+    COLOR (0xc0, 0x1c, 0x28),  /* Red 4 */
+    COLOR (0x26, 0xa2, 0x69),  /* Green 5 */
+    COLOR (0xa2, 0x73, 0x4c),  /* Blend of Brown 2 and Brown 3 */
+    COLOR (0x12, 0x48, 0x8b),  /* Blend of Blue 5 and Dark 4 */
+    COLOR (0xa3, 0x47, 0xba),  /* Purple 3 */
+    COLOR (0x2a, 0xa1, 0xb3),  /* Linear addition Blue 5 + Green 5, darkened slightly */
+    COLOR (0xd0, 0xcf, 0xcc),  /* Blend of Light 3 and Light 4 */
+    COLOR (0x5e, 0x5c, 0x64),  /* Dark 2 */
+    COLOR (0xf6, 0x61, 0x51),  /* Red 1 */
+    COLOR (0x33, 0xd1, 0x7a),  /* Green 3 */
+    COLOR (0xe9, 0xad, 0x0c),  /* Blend of Yellow 4 and Yellow 5 */
+    COLOR (0x2a, 0x7b, 0xde),  /* Blend of Blue 3 and Blue 4 */
+    COLOR (0xc0, 0x61, 0xcb),  /* Purple 2 */
+    COLOR (0x33, 0xc7, 0xde),  /* Linear addition Blue 4 + Green 4, darkened slightly */
+    COLOR (0xff, 0xff, 0xff)   /* Light 1 */
+  },
+
   /* Tango palette */
   {
     COLOR (0x2e, 0x34, 0x36),
@@ -582,6 +613,7 @@ reset_compat_defaults_cb (GtkWidget *button,
   g_settings_reset (profile, TERMINAL_PROFILE_BACKSPACE_BINDING_KEY);
   g_settings_reset (profile, TERMINAL_PROFILE_ENCODING_KEY);
   g_settings_reset (profile, TERMINAL_PROFILE_CJK_UTF8_AMBIGUOUS_WIDTH_KEY);
+  g_settings_reset (profile, TERMINAL_PROFILE_ENABLE_SIXEL_KEY);
 }
 
 static gboolean
@@ -1262,6 +1294,11 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                             terminal_exit_action_get_type, NULL);
   w = (GtkWidget*) gtk_builder_get_object (builder, "font-selector");
   gtk_font_chooser_set_filter_func (GTK_FONT_CHOOSER (w), monospace_filter, NULL, NULL);
+#if GTK_CHECK_VERSION (3, 24, 0)
+  gtk_font_chooser_set_level (GTK_FONT_CHOOSER (w), GTK_FONT_CHOOSER_LEVEL_FAMILY |
+                                                    GTK_FONT_CHOOSER_LEVEL_SIZE);
+#endif
+
   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_FONT_KEY,
                                w,
                                "font-name", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
@@ -1389,6 +1426,11 @@ profile_prefs_load (const char *uuid, GSettings *profile)
                                w,
                                "active-id",
                                G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
+
+  w = (GtkWidget *) gtk_builder_get_object (builder, "enable-sixel-checkbutton");
+  profile_prefs_settings_bind (profile, TERMINAL_PROFILE_ENABLE_SIXEL_KEY, w,
+                               "active", G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
+  gtk_widget_set_visible (w, (vte_get_feature_flags() & VTE_FEATURE_FLAG_SIXEL) != 0);
 }
 
 /* Called once per Preferences window, to destroy stuff that doesn't depend on the profile being edited */

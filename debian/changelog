@@ -1,3 +1,32 @@
+gnome-terminal (3.38.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream stable release
+    - Fix URL drag-and-drop with variant x-moz-url type
+    - Translation updates
+    - Man page updates
+  * d/watch: Only watch for stable (even-numbered) releases
+  * Bump libvte build-dependency as per configure.ac
+  * Refresh patch series
+    - d/p/man-Document-the-various-ways-to-run-a-command-in-a-gnome.patch:
+      Drop, applied upstream
+  * Release to unstable
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 14 Sep 2020 10:18:22 +0100
+
+gnome-terminal (3.37.90-1) experimental; urgency=medium
+
+  * Team upload
+  * d/watch: Watch for development versions
+  * New upstream release
+  * Canonicalize order of dependency lists (wrap-and-sort -a)
+  * Canonicalize order of installed files (wrap-and-sort -a)
+  * Build-Depend on docbook-xsl, for the new upstream man page
+  * Use upstream's man page instead of Debian's
+  * Add a patch to improve the man page
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 03 Sep 2020 12:16:09 +0100
+
 gnome-terminal (3.36.2-3ubuntu1) UNRELEASED; urgency=medium
 
   * Merge with debian, remaining changes:

@@ -1,36 +1,27 @@
-# German translation of the gnome-terminal manual.
+# Ukrainian translation for gnome-terminal.
+# Copyright (C) 2020 gnome-terminal's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-terminal package.
 #
-# Jan Arne Petersen <jap@gnome.org>, 2007.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2008-2010, 2012-2013, 2018, 2020.
-# Christian Kirbach <christian.kirbach@gmail.com>, 2012, 2013.
-# Benjamin Steinwender <b@stbe.at>, 2014.
-# Tim Sabsch <tim@sabsch.com>, 2018.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-terminal help master\n"
-"POT-Creation-Date: 2020-06-01 20:12+0000\n"
-"PO-Revision-Date: 2020-09-04 18:28+0200\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
-"Language-Team: Deutsch <gnome-de@gnome.org>\n"
-"Language: de\n"
+"Project-Id-Version: gnome-terminal master\n"
+"POT-Creation-Date: 2020-04-28 15:49+0000\n"
+"PO-Revision-Date: 2020-05-01 12:27+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.08.0\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.07.70\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr ""
-"Jan Arne Petersen <jap@gnome.org>, 2007\n"
-"Mario Blättermann <mario.blaettermann@gmail.com>, 2008-2010, 2012-2013, "
-"2018, 2020\n"
-"Christian Kirbach <christian.kirbach@gmail.com>, 2012, 2013, 2014, 2015, "
-"2018\n"
-"Benjamin Steinwender <b@stbe.at>, 2014\n"
-"Bernd Homuth <dev@hmt.im>, 2014, 2015\n"
-"Tim Sabsch <tim@sabsch.com>, 2018"
+msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2020"
 
 #. (itstool) path: credit/name
 #: C/adv-keyboard-shortcuts.page:14 C/app-colors.page:12 C/app-cursor.page:13
@@ -85,7 +76,7 @@ msgstr "2013"
 #: C/prob-reset.page:17 C/txt-copy-paste.page:17 C/txt-links.page:15
 #: C/txt-search.page:17 C/txt-select-text.page:18
 msgid "Ekaterina Gerasimova"
-msgstr "Ekaterina Gerasimova"
+msgstr "Єкатерина Герасимова (Ekaterina Gerasimova)"
 
 #. (itstool) path: credit/name
 #: C/adv-keyboard-shortcuts.page:24 C/app-colors.page:22 C/app-cursor.page:23
@@ -96,17 +87,17 @@ msgstr "Ekaterina Gerasimova"
 #: C/pref-login-shell.page:23 C/pref-menubar.page:24 C/pref-profiles.page:22
 #: C/txt-copy-paste.page:22 C/txt-links.page:20 C/txt-search.page:22
 msgid "Michael Hill"
-msgstr "Michael Hill"
+msgstr "Майкл Гілл (Michael Hill)"
 
 #. (itstool) path: info/desc
 #: C/adv-keyboard-shortcuts.page:31
 msgid "View and edit keyboard shortcuts."
-msgstr "Tastenkombinationen betrachten und bearbeiten."
+msgstr "Перегляд і редагування клавіатурних скорочень."
 
 #. (itstool) path: page/title
 #: C/adv-keyboard-shortcuts.page:34
 msgid "Keyboard shortcuts"
-msgstr "Tastenkombinationen"
+msgstr "Клавіатурні скорочення"
 
 #. (itstool) path: page/p
 #: C/adv-keyboard-shortcuts.page:36
@@ -116,15 +107,15 @@ msgid ""
 "<app>Terminal</app> quickly. These shortcuts can be modified to suit your "
 "preferences."
 msgstr ""
-"Tastenkombinationen sind Kombinationen von Tasten, die es Ihnen ermöglichen, "
-"bestimmte Aktionen schnell auszuführen, wie z.B. das Öffnen des "
-"Einstellungen-Dialogs oder Zugriff auf Funktionen des <app>Terminals</app>. "
-"Die Tastenkombinationen können nach Ihren Wünschen angepasst werden."
+"Клавіатурні скорочення — комбінації клавіш, натисканням яких ви можете швидко"
+" виконувати певні дії, зокрема відкриття діалогового вікна параметрів або"
+" доступ до певної можливості у самому <app>Терміналі</app>. Клавіатурні"
+" скорочення можна змінювати так, щоб вони відповідали вашим потребам."
 
 #. (itstool) path: page/p
 #: C/adv-keyboard-shortcuts.page:41
 msgid "To change a keyboard shortcut:"
-msgstr "So ändern Sie eine Tastenkombination:"
+msgstr "Щоб змінити клавіатурне скорочення, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/adv-keyboard-shortcuts.page:44 C/app-colors.page:46 C/app-colors.page:75
@@ -137,36 +128,29 @@ msgstr "So ändern Sie eine Tastenkombination:"
 #: C/pref-scrolling.page:41 C/pref-scrolling.page:68 C/pref-scrolling.page:93
 #: C/pref-scrolling.page:117 C/pref-scrolling.page:141
 #: C/pref-tab-window.page:56
-#| msgid ""
-#| "Alternatively, you can click on the <gui style=\"button\">×</gui> in the "
-#| "top right corner of the tab or right click on the tab and select <gui "
-#| "style=\"menuitem\">Close Terminal</gui>."
 msgid ""
 "Press the menu button in the top-right corner of the window and select <gui "
 "style=\"menuitem\">Preferences</gui>."
 msgstr ""
-"Klicken Sie auf den Menüknopf in der oberen rechten Ecke des Fensters und"
-" wählen Sie <gui "
-"style=\"menuitem\">Einstellungen</gui>."
+"Натисніть кнопку меню у верхньому правому куті вікна і виберіть <gui"
+" style=\"menuitem\">Параметри</gui>."
 
 #. (itstool) path: item/p
 #: C/adv-keyboard-shortcuts.page:48
 msgid "In the sidebar, select <gui>Shortcuts</gui>."
-msgstr "Wählen Sie <gui>Tastenkürzel</gui> in der Seitenleiste."
+msgstr "На бічній панелі виберіть пункт <gui>Скорочення</gui>."
 
 #. (itstool) path: item/p
 #: C/adv-keyboard-shortcuts.page:51
 msgid "Make sure <gui style=\"checkbox\">Enable shortcuts</gui> is selected."
 msgstr ""
-"Stellen Sie sicher, dass <gui style=\"checkbox\">Tastenkombinationen "
-"aktivieren</gui> angewählt ist."
+"Переконайтеся, що позначено пункт <gui style=\"checkbox\">Увімкнути"
+" скорочення</gui>."
 
 #. (itstool) path: item/p
 #: C/adv-keyboard-shortcuts.page:54
 msgid "Select the shortcut that you wish to edit by clicking on it."
-msgstr ""
-"Wählen Sie per Mausklick die Tastenkombination, welche sie bearbeiten "
-"möchten."
+msgstr "Виберіть скорочення, яке ви хочете змінити, клацанням на його пункті."
 
 #. (itstool) path: item/p
 #: C/adv-keyboard-shortcuts.page:57
@@ -174,8 +158,8 @@ msgid ""
 "Once the shortcut is selected, click on the shortcut key combination to edit "
 "it."
 msgstr ""
-"Sobald die Tastenkombination gewählt ist, klicken Sie zum Bearbeiten auf die "
-"Tastenkombination."
+"Коли пункт скорочення буде позначено, клацніть на комбінації клавіш"
+" скорочення, щоб змінити її."
 
 #. (itstool) path: item/p
 #: C/adv-keyboard-shortcuts.page:61
@@ -184,10 +168,11 @@ msgid ""
 "The keys that you can use include <key>Alt</key>, <key>Alt Gr</key>, "
 "<key>Ctrl</key>, <key>Shift</key>, <key>Super</key>, number and letter keys."
 msgstr ""
-"Tippen Sie die gewünschte Tastenkombination ein, so als ob Sie diese "
-"ausführen möchten. Sie dürfen folgende Tasten verwenden: <key>Alt</key>, "
-"<key>Alt Gr</key>, <key>Strg</key>, <key>Umschalt</key>, Zahlen und "
-"Buchstaben."
+"Натисніть бажану комбінацію клавіш скорочення так, наче ви нею скористалися у"
+" терміналі. Клавішами, якими ви можете скористатися, є <key>Alt</key>, <key"
+">Alt Gr</key>, "
+"<key>Ctrl</key>, <key>Shift</key>, <key>Super</key>, клавіші із цифрами та"
+" літерами."
 
 #. (itstool) path: note/p
 #: C/adv-keyboard-shortcuts.page:66
@@ -195,8 +180,8 @@ msgid ""
 "Mnemonic key combinations, such as <keyseq><key>Alt</key> <key>F</key></"
 "keyseq> will not work."
 msgstr ""
-"Mnemonic-Tastenkombinationen wie z.B. <keyseq><key>Alt</key><key>F</key></"
-"keyseq> funktionieren nicht."
+"Мнемонічні комбінації клавіш, зокрема <keyseq><key>Alt</key> <key>F</key><"
+"/keyseq>, використовувати не можна."
 
 #. (itstool) path: item/p
 #: C/adv-keyboard-shortcuts.page:71
@@ -204,9 +189,9 @@ msgid ""
 "Once you have entered your new shortcut, it will automatically be saved and "
 "you should see it in the list next to the corresponding action."
 msgstr ""
-"Sobald Sie eine neue Tastenkombination eingegeben haben, wird diese "
-"automatisch gespeichert und sie erscheint in der Liste neben der zugehörigen "
-"Aktion."
+"Щойно ви введете ваше нове клавіатурне скорочення, його буде автоматично"
+" збережено, і ви зможете його побачити у списку поряд із пунктом відповідної"
+" дії."
 
 #. (itstool) path: note/p
 #: C/adv-keyboard-shortcuts.page:78
@@ -214,23 +199,20 @@ msgid ""
 "To disable a shortcut, edit it and press the <key>Backspace</key> instead of "
 "the new shortcut."
 msgstr ""
-"Um eine Tastenkombination zu deaktivieren, bearbeiten Sie diese und drücken "
-"Sie die <key>Rücktaste</key> anstatt einer neuen Kombination."
+"Щоб вимкнути скорочення, почніть його редагування і натисніть <key>Backspace<"
+"/key> замість нового скорочення."
 
 #. (itstool) path: section/title
 #: C/adv-keyboard-shortcuts.page:83
 msgid "<gui style=\"menu\">File</gui> shortcuts"
-msgstr "<gui style=\"menu\">Datei</gui>-Tastenkombinationen"
+msgstr "Клавіатурні скорочення меню <gui style=\"menu\">Файл</gui>"
 
 #. (itstool) path: section/p
 #: C/adv-keyboard-shortcuts.page:85 C/adv-keyboard-shortcuts.page:118
 #: C/adv-keyboard-shortcuts.page:143 C/adv-keyboard-shortcuts.page:176
 #: C/adv-keyboard-shortcuts.page:209
-#| msgid "The default shortcuts for working with tabs are:"
 msgid "The default shortcuts for options in this section are:"
-msgstr ""
-"Die voreingestellten Tastenkombinationen für die Optionen in diesem Abschnitt"
-" sind:"
+msgstr "Типовими клавіатурними скороченнями у цьому розділі є такі:"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:90 C/adv-keyboard-shortcuts.page:123
@@ -238,89 +220,89 @@ msgstr ""
 #: C/adv-keyboard-shortcuts.page:214 C/adv-keyboard-shortcuts.page:287
 #: C/adv-keyboard-shortcuts.page:336
 msgid "Action"
-msgstr "Aktion"
+msgstr "Дія"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:91 C/adv-keyboard-shortcuts.page:124
 #: C/adv-keyboard-shortcuts.page:149 C/adv-keyboard-shortcuts.page:182
 #: C/adv-keyboard-shortcuts.page:215 C/adv-keyboard-shortcuts.page:288
 msgid "Keyboard Shortcut"
-msgstr "Tastenkombination"
+msgstr "Клавіатурне скорочення"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:96
 msgid "New Tab"
-msgstr "Neuer Reiter"
+msgstr "Нова вкладка"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:97
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>T</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Umschalt</key><key>T</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>T</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:100
 msgid "New Window"
-msgstr "Neues Fenster"
+msgstr "Нове вікно"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:101
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Umschalt</key><key>N</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>N</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:104
 msgid "Close Tab"
-msgstr "Reiter schließen"
+msgstr "Закрити вкладку"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:105
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>W</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Umschalt</key><key>W</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>W</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:108
 msgid "Close Window"
-msgstr "Fenster schließen"
+msgstr "Закрити вікно"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:109
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>Q</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Umschalt</key><key>Q</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>Q</key></keyseq>"
 
 #. (itstool) path: section/title
 #: C/adv-keyboard-shortcuts.page:116
 msgid "<gui style=\"menu\">Edit</gui> shortcuts"
-msgstr "Tastenkombinationen <gui style=\"menu\">bearbeiten</gui>"
+msgstr "Клавіатурні скорочення меню <gui style=\"menu\">Зміни</gui>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:129
 msgid "Copy"
-msgstr "Kopieren"
+msgstr "Копіювати"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:130
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>C</key></keyseq>"
-msgstr "<keyseq><key>Umschalt</key><key>Strg</key><key>C</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>C</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:133
 msgid "Paste"
-msgstr "Einfügen"
+msgstr "Вставити"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:134
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>V</key></keyseq>"
-msgstr "<keyseq><key>Umschalt</key><key>Strg</key><key>V</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>V</key></keyseq>"
 
 #. (itstool) path: section/title
 #: C/adv-keyboard-shortcuts.page:141
 msgid "<gui style=\"menu\">View</gui> shortcuts"
-msgstr "Tastenkombinationen <gui style=\"menu\">ansehen</gui>"
+msgstr "Клавіатурні скорочення <gui style=\"menu\">перегляду</gui>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:154
 msgid "Full Screen"
-msgstr "Vollbild"
+msgstr "На весь екран"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:155
@@ -330,130 +312,127 @@ msgstr "<key>F11</key>"
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:158
 msgid "Zoom In"
-msgstr "Vergrößern"
+msgstr "Збільшити"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:159
 msgid "<keyseq><key>Ctrl</key><key>+</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>+</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>+</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:162
 msgid "Zoom Out"
-msgstr "Verkleinern"
+msgstr "Зменшити"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:163
 msgid "<keyseq><key>Ctrl</key><key>-</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>-</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>-</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:166
 msgid "Normal Size"
-msgstr "Normale Größe"
+msgstr "Звичайний розмір"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:167
 msgid "<keyseq><key>Ctrl</key><key>0</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>0</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>0</key></keyseq>"
 
 #. (itstool) path: section/title
 #: C/adv-keyboard-shortcuts.page:174
-#| msgid "<gui style=\"menu\">File</gui> shortcuts"
 msgid "<gui style=\"menu\">Search</gui> shortcuts"
-msgstr "<gui style=\"menu\">Suche</gui>-Tastenkombinationen"
+msgstr "Клавіатурні скорочення меню <gui style=\"menu\">Пошук</gui>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:187
 msgid "Find"
-msgstr "Suchen"
+msgstr "Знайти"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:188
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>F</key></keyseq>"
-msgstr "<keyseq><key>Umschalt</key><key>Strg</key><key>F</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>F</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:191
 msgid "Find Next"
-msgstr "Weitersuchen"
+msgstr "Знайти наступне"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:192
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>G</key></keyseq>"
-msgstr "<keyseq><key>Umschalt</key><key>Strg</key><key>G</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>G</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:195
 msgid "Find Previous"
-msgstr "Rückwärts suchen"
+msgstr "Знайти попереднє"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:196
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>H</key></keyseq>"
-msgstr "<keyseq><key>Umschalt</key><key>Strg</key><key>H</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>H</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:199
 msgid "Clear Highlight"
-msgstr "Hervorhebung löschen"
+msgstr "Очистити підсвічування"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:200
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>J</key></keyseq>"
-msgstr "<keyseq><key>Umschalt</key><key>Strg</key><key>J</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>J</key></keyseq>"
 
 #. (itstool) path: section/title
 #: C/adv-keyboard-shortcuts.page:207
 msgid "Tab shortcuts"
-msgstr "Tastenkombinationen für Reiter"
+msgstr "Клавіатурні скорочення для вкладок"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:220
 msgid "Switch to Previous Tab"
-msgstr "Zum vorherigen Reiter wechseln"
+msgstr "Перейти на попередню вкладку"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:221
 msgid "<keyseq><key>Ctrl</key><key>Page Up</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Bild↑-Taste</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>Page Up</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:224
 msgid "Switch to Next Tab"
-msgstr "Zum nächsten Reiter wechseln"
+msgstr "Перейти на наступну вкладку"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:225
 msgid "<keyseq><key>Ctrl</key><key>Page Down</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Bild↓-Taste</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>Page Down</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:228
 msgid "Move Tab to the Left"
-msgstr "Reiter nach links verschieben"
+msgstr "Перенести вкладку ліворуч"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:229
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>Page Up</key></keyseq>"
-msgstr ""
-"<keyseq><key>Strg</key><key>Umschalt</key><key>Bild↑-Taste</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>Page Up</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:232
 msgid "Move Tab to the Right"
-msgstr "Reiter nach rechts verschieben"
+msgstr "Перенести вкладку праворуч"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:233
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>Page Down</key></keyseq>"
-msgstr ""
-"<keyseq><key>Strg</key><key>Umschalt</key><key>Bild↓-Taste</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>Page Down</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:236
 msgid "Switch to Tab 1"
-msgstr "Zum 1. Reiter wechseln"
+msgstr "Перемкнутися на вкладку 1"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:237
@@ -463,7 +442,7 @@ msgstr "<keyseq><key>Alt</key><key>1</key></keyseq>"
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:240
 msgid "Switch to Tab 2"
-msgstr "Zu 2. Reiter wechseln"
+msgstr "Перемкнутися на вкладку 2"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:241
@@ -473,7 +452,7 @@ msgstr "<keyseq><key>Alt</key><key>2</key></keyseq>"
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:244
 msgid "Switch to Tab 3"
-msgstr "Zum 3. Reiter wechseln"
+msgstr "Перемкнутися на вкладку 3"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:245
@@ -483,7 +462,7 @@ msgstr "<keyseq><key>Alt</key><key>3</key></keyseq>"
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:248
 msgid "Switch to Tab 4"
-msgstr "Zum 4. Reiter wechseln"
+msgstr "Перемкнутися на вкладку 4"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:249
@@ -493,7 +472,7 @@ msgstr "<keyseq><key>Alt</key><key>4</key></keyseq>"
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:252
 msgid "Switch to Tab 5"
-msgstr "Zum 5. Reiter wechseln"
+msgstr "Перемкнутися на вкладку 5"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:253
@@ -503,7 +482,7 @@ msgstr "<keyseq><key>Alt</key><key>5</key></keyseq>"
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:256
 msgid "Switch to Tab 6"
-msgstr "Zum 6. Reiter wechseln"
+msgstr "Перемкнутися на вкладку 6"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:257
@@ -513,7 +492,7 @@ msgstr "<keyseq><key>Alt</key><key>6</key></keyseq>"
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:260
 msgid "Switch to Tab 7"
-msgstr "Zum 7. Reiter wechseln"
+msgstr "Перемкнутися на вкладку 7"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:261
@@ -523,7 +502,7 @@ msgstr "<keyseq><key>Alt</key><key>7</key></keyseq>"
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:264
 msgid "Switch to Tab 8"
-msgstr "Zum 8. Reiter wechseln"
+msgstr "Перемкнутися на вкладку 8"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:265
@@ -533,7 +512,7 @@ msgstr "<keyseq><key>Alt</key><key>8</key></keyseq>"
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:268
 msgid "Switch to Tab 9"
-msgstr "Zum 9. Reiter wechseln"
+msgstr "Перемкнутися на вкладку 9"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:269
@@ -543,7 +522,7 @@ msgstr "<keyseq><key>Alt</key><key>9</key></keyseq>"
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:272
 msgid "Switch to Tab 10"
-msgstr "Zum 10. Reiter wechseln"
+msgstr "Перемкнутися на вкладку 10"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:273
@@ -553,77 +532,77 @@ msgstr "<keyseq><key>Alt</key><key>0</key></keyseq>"
 #. (itstool) path: section/title
 #: C/adv-keyboard-shortcuts.page:280
 msgid "Other"
-msgstr "Weitere"
+msgstr "Інше"
 
 #. (itstool) path: section/p
 #: C/adv-keyboard-shortcuts.page:282
 msgid "There are also some shortcuts that cannot be edited:"
-msgstr "Es gibt einige Tastenkombinationen, die nicht verändert werden können:"
+msgstr "Існує також декілька клавіатурних скорочень, які не можна змінити:"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:293
 msgid "Scroll up by one line"
-msgstr "Eine Zeile nach oben rollen"
+msgstr "Гортати вгору на один рядок"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:294
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>Up</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Umschalt</key><key>Auf</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>↑</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:297
 msgid "Scroll down by one line"
-msgstr "Eine Zeile nach unten rollen"
+msgstr "Гортати вниз на один рядок"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:298
 msgid "<keyseq><key>Shift</key><key>Ctrl</key><key>Down</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Umschalt</key><key>Ab</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Ctrl</key><key>↓</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:301
 msgid "Scroll up by one page"
-msgstr "Eine Seite nach oben blättern"
+msgstr "Гортати вгору на одну сторінку"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:302
 msgid "<keyseq><key>Shift</key><key>Page Up</key></keyseq>"
-msgstr "<keyseq><key>Umschalt</key><key>Bild↑</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Page Up</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:305
 msgid "Scroll down by one page"
-msgstr "Eine Seite nach unten blättern"
+msgstr "Гортати вниз на одну сторінку"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:306
 msgid "<keyseq><key>Shift</key><key>Page Down</key></keyseq>"
-msgstr "<keyseq><key>Umschalt</key><key>Bild↓</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Page Down</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:309
 msgid "Scroll to the top"
-msgstr "Ganz nach oben springen"
+msgstr "Гортати до початку"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:310
 msgid "<keyseq><key>Shift</key><key>Home</key></keyseq>"
-msgstr "<keyseq><key>Umschalt</key><key>Pos1</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>Home</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:313
 msgid "Scroll to the bottom"
-msgstr "Ganz nach unten springen"
+msgstr "Гортати до кінця"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:314
 msgid "<keyseq><key>Shift</key><key>End</key></keyseq>"
-msgstr "<keyseq><key>Umschalt</key><key>Ende</key></keyseq>"
+msgstr "<keyseq><key>Shift</key><key>End</key></keyseq>"
 
 #. (itstool) path: section/title
 #: C/adv-keyboard-shortcuts.page:321
 msgid "Bash shortcuts"
-msgstr "Tastenkombinationen der Bash"
+msgstr "Клавіатурні скорочення Bash"
 
 #. (itstool) path: section/p
 #: C/adv-keyboard-shortcuts.page:323
@@ -631,73 +610,75 @@ msgid ""
 "These are <app>Bash</app> shortcuts. <app>Bash</app> is usually the default "
 "shell."
 msgstr ""
-"Diese sind Tastenkombinationen der <app>Bash</app>. <app>Bash</app> ist "
-"üblicherweise die voreingestellte Shell."
+"Є специфічні клавіатурні скорочення <app>Bash</app>. Зазвичай, <app>Bash</app"
+"> є типовою командною оболонкою."
 
 #. (itstool) path: section/p
 #: C/adv-keyboard-shortcuts.page:331
 msgid "<app>Bash</app> shell specific keyboard shortcuts are:"
-msgstr "Tastenkombinationen für die <app>Bash</app>-Shell sind:"
+msgstr ""
+"Специфічними для командної оболонки <app>Bash</app> клавіатурними"
+" скороченнями є такі:"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:337
 msgid "Keyboard shortcut"
-msgstr "Tastenkombination"
+msgstr "Клавіатурне скорочення"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:342
 msgid "Erase a word"
-msgstr "Ein Wort löschen"
+msgstr "Вилучити слово"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:343 C/adv-keyboard-shortcuts.page:383
 msgid "<keyseq><key>Ctrl</key><key>W</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>W</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>W</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:346
 msgid "Erase a line"
-msgstr "Eine Zeile löschen"
+msgstr "Витерти рядок"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:347
 msgid "<keyseq><key>Ctrl</key><key>U</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>U</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>U</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:350
 msgid "Move to the start of the line"
-msgstr "An den Anfang der Zeile springen"
+msgstr "Перейти до початку рядка"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:351
 msgid "<keyseq><key>Ctrl</key><key>A</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>A</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>A</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:354
 msgid "Move to the end of the line"
-msgstr "An das Ende der Zeile springen"
+msgstr "Перейти до кінця рядка"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:355
 msgid "<keyseq><key>Ctrl</key><key>E</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>E</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>E</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:358
 msgid "Move back one character"
-msgstr "Ein Zeichen zurück gehen"
+msgstr "Перейти назад на один символ"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:359
 msgid "<keyseq><key>Ctrl</key><key>B</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>B</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>B</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:362
 msgid "Move back one word"
-msgstr "Ein Wort vorgehen"
+msgstr "Перейти назад на одне слово"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:363
@@ -707,17 +688,17 @@ msgstr "<keyseq><key>Alt</key><key>B</key></keyseq>"
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:366
 msgid "Move forward one character"
-msgstr "Ein Zeichen vorwärts gehen"
+msgstr "Перейти вперед на один символ"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:367
 msgid "<keyseq><key>Ctrl</key><key>F</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>F</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>F</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:370
 msgid "Move forward one word"
-msgstr "Ein Wort vorwärts gehen"
+msgstr "Перейти вперед на один символ"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:371
@@ -727,74 +708,72 @@ msgstr "<keyseq><key>Alt</key><key>F</key></keyseq>"
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:374
 msgid "Delete from the cursor to the beginning of the line"
-msgstr "Von der Eingabemarke bis zum Anfang der Zeile löschen"
+msgstr "Вилучити дані від курсора до початку рядка"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:375
 msgid "<keyseq><key>Ctrl</key><key>u</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>u</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>U</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:378
 msgid "Delete from the cursor to the end of the line"
-msgstr "Von der Eingabemarke bis zum Ende der Zeile löschen"
+msgstr "Вилучити дані від курсора до кінця рядка"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:379
 msgid "<keyseq><key>Ctrl</key><key>K</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>K</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>K</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:382
 msgid "Delete from the cursor to the start of the word"
-msgstr "Von der Eingabemarke bis zum Anfang des Wortes löschen"
+msgstr "Вилучити дані від курсора до початку слова"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:386
 msgid "Delete previous word"
-msgstr "Vorhergehendes Wort löschen"
+msgstr "Вилучити попереднє слово"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:387
 msgid "<keyseq><key>Alt</key><key>Backspace</key></keyseq>"
-msgstr "<keyseq><key>Alt</key><key>Löschtaste</key></keyseq>"
+msgstr "<keyseq><key>Alt</key><key>Backspace</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:390
 msgid "Paste text from the clipboard"
-msgstr "Text aus der Zwischenablage einfügen"
+msgstr "Вставити текст з буфера обміну"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:391
 msgid "<keyseq><key>Ctrl</key><key>Y</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Y</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>Y</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:394
 msgid "Clear the screen leaving the current line at the top of the screen"
-msgstr ""
-"Den Bildschirm löschen, wobei die aktuelle Zeile oben auf den Bildschirm "
-"rutscht"
+msgstr "Очистити екран, лишивши поточний рядок на початку екрана"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:396
 msgid "<keyseq><key>Ctrl</key><key>L</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>L</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>L</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:399
 msgid "Reverse incremental search of history"
-msgstr "Umgekehrte inkrementelle Suche in der Chronik"
+msgstr "Зворотний нарощувальний пошук у журналі"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:400
 msgid "<keyseq><key>Ctrl</key><key>R</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>R</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>R</key></keyseq>"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:403
 msgid "Reverse non-incremental search of history"
-msgstr "Nicht-inkrementelle Rückwärtssuche in der Chronik"
+msgstr "Зворотний ненарощувальний пошук у журналі"
 
 #. (itstool) path: td/p
 #: C/adv-keyboard-shortcuts.page:404
@@ -804,12 +783,12 @@ msgstr "<keyseq><key>Alt</key><key>P</key></keyseq>"
 #. (itstool) path: info/desc
 #: C/app-colors.page:29
 msgid "Change colors and backgrounds."
-msgstr "Farben und Hintergründe wechseln."
+msgstr "Зміна кольорів і тла."
 
 #. (itstool) path: page/title
 #: C/app-colors.page:33
 msgid "Color schemes"
-msgstr "Farbschemata"
+msgstr "Схеми кольорів"
 
 #. (itstool) path: page/p
 #: C/app-colors.page:35
@@ -818,19 +797,21 @@ msgid ""
 "change the colors that are used for the text and background. You can use "
 "colors from your theme, select one of the presets or use a custom scheme."
 msgstr ""
-"Wenn Ihnen das voreingestellte <app>Terminal</app>-Thema nicht gefällt, so "
-"können Sie die Farben von Text und Hintergrund anpassen. Sie können Farben "
-"Ihres Themas, eine der Vorgaben oder ein eigenes Schema verwenden."
+"Якщо вам не подобається типова тема <app>Термінала</app>, ви можете змінити"
+" кольори, які буде використано для тексту та тла програми. Ви можете"
+" скористатися кольорами з вашої теми, вибрати один із визначених наборів або"
+" скористатися нетиповою схемою."
 
 #. (itstool) path: section/title
 #: C/app-colors.page:40
 msgid "Use colors from your system theme"
-msgstr "Farben des System-Themas verwenden"
+msgstr "Використання кольорів з вашої загальносистемної теми"
 
 #. (itstool) path: section/p
 #: C/app-colors.page:42
 msgid "To use colors from the system theme:"
-msgstr "So verwenden Sie Farben des System-Themas:"
+msgstr ""
+"Щоб скористатися кольорами із загальносистемної теми, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/app-colors.page:50 C/app-colors.page:79 C/app-colors.page:111
@@ -841,19 +822,17 @@ msgstr "So verwenden Sie Farben des System-Themas:"
 #: C/pref-profile-encoding.page:42 C/pref-scrolling.page:45
 #: C/pref-scrolling.page:72 C/pref-scrolling.page:97 C/pref-scrolling.page:121
 #: C/pref-scrolling.page:145
-#| msgid ""
-#| "In the sidebar select the profile on which your new profile should be "
-#| "based."
 msgid ""
 "In the sidebar, select your current profile in the <gui>Profiles</gui> "
 "section."
-msgstr "Wählen Sie im Abschnitt <gui>Profile</gui> Ihr aktuelles Profil aus."
+msgstr ""
+"На бічній панелі виберіть ваш поточний профіль у розділі <gui>Профілі</gui>."
 
 #. (itstool) path: item/p
 #: C/app-colors.page:54 C/app-colors.page:83 C/app-colors.page:115
 #: C/app-colors.page:184
 msgid "Select <gui style=\"tab\">Colors</gui>."
-msgstr "Wählen Sie <gui style=\"tab\">Farben</gui>."
+msgstr "Виберіть <gui style=\"tab\">Кольори</gui>."
 
 #. (itstool) path: item/p
 #: C/app-colors.page:57
@@ -861,13 +840,13 @@ msgid ""
 "Check <gui style=\"checkbox\">Use colors from system theme</gui>. The "
 "changes will be applied automatically."
 msgstr ""
-"Wählen Sie <gui style=\"checkbox\">Farben vom System-Thema verwenden</gui>. "
-"Die Änderungen werden automatisch umgesetzt."
+"Позначте пункт <gui style=\"checkbox\">Використовувати кольори системної"
+" теми</gui>. Зміни буде застосовано автоматично."
 
 #. (itstool) path: section/title
 #: C/app-colors.page:65
 msgid "Built-in schemes"
-msgstr "Integrierte Schemata"
+msgstr "Вбудовані схеми"
 
 #. (itstool) path: section/p
 #: C/app-colors.page:67
@@ -878,11 +857,12 @@ msgid ""
 "gui>, <gui>Tango dark</gui>, <gui>Solarized light</gui>, <gui>Solarized "
 "dark</gui>. To set any of the built-in schemes:"
 msgstr ""
-"Sie können eines der integrierten Farbschemata wählen: <gui>Schwarz auf "
-"hellgelb</gui>, <gui>Schwarz auf weiß</gui>, <gui>Grau auf schwarz</gui>, "
-"<gui>Grün auf schwarz</gui>, <gui>Weiß auf schwarz</gui>, <gui>Tango hell</"
-"gui>, <gui>Tango dunkel</gui>, <gui>Hell solarisiert</gui> und <gui>Dunkel "
-"solarisiert</gui>. So legen Sie eines der integrierten Schemata fest:"
+"Ви можете вибрати одну із вбудованих схем кольорів: <gui>Чорний на"
+" світло-жовтому</gui>, <gui>Чорний на білому</gui>, <gui>Сірий на чорному<"
+"/gui>, <gui>Зелений на чорному</gui>, <gui>Білий на чорному</gui>, <gui"
+">Світлий танго</gui>, <gui>Темний танго</gui>, <gui>Засвічена світла</gui>, <"
+"gui>Засвічена темна</gui>. Щоб встановити будь-яку із вбудованих схем,"
+" виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/app-colors.page:86
@@ -891,10 +871,9 @@ msgid ""
 "unchecked. Choose the desired color scheme from <gui>Built-in schemes</gui>. "
 "Color scheme choices are applied automatically."
 msgstr ""
-"Stellen Sie sicher, dass <gui style=\"checkbox\">Farben vom System-Thema "
-"verwenden</gui> nicht ausgewählt ist. Wählen Sie das gewünschte Farbschema "
-"aus den <gui>integrierten Schemata</gui>. Farbschemata werden automatisch "
-"angewendet."
+"Переконайтеся, що не позначено пункт <gui style=\"checkbox\">Використовувати"
+" кольори системної теми</gui>. Виберіть бажану схему кольорів зі списку <gui"
+">Вбудовані схеми</gui>. Вибрану схему кольорів буде застосовано автоматично."
 
 #. (itstool) path: note/p
 #: C/app-colors.page:91
@@ -902,21 +881,21 @@ msgid ""
 "Applications can choose to use a color from the palette rather than the "
 "specified bold color."
 msgstr ""
-"Anwendungen können aussuchen, ob sie eine Farbe von einer Farbpalette "
-"anstelle der angegebenen Farbe für fetten Text verwenden."
+"Програми можуть використовувати колір з палітри замість вказаного яскравого"
+" кольору."
 
 #. (itstool) path: section/title
 #: C/app-colors.page:100
 msgid "Custom color scheme"
-msgstr "Eigenes Farbschema"
+msgstr "Нетипова схема кольорів"
 
 #. (itstool) path: section/p
 #: C/app-colors.page:102
 msgid ""
 "You can use custom colors for the text and background in <app>Terminal</app>:"
 msgstr ""
-"Sie können eigene Farben für Text und Hintergrund im <app>Terminal</app> "
-"verwenden:"
+"Ви можете скористатися нетиповими кольорами для тексту і тла у <app"
+">Терміналі</app>:"
 
 #. (itstool) path: item/p
 #: C/app-colors.page:118
@@ -925,14 +904,14 @@ msgid ""
 "unchecked. Select <gui>Custom</gui> from the <gui>Built-in schemes</gui> "
 "drop-down list."
 msgstr ""
-"Stellen Sie sicher, dass <gui style=\"checkbox\">Farben vom System-Thema "
-"verwenden</gui> nicht ausgewählt ist. Wählen Sie <gui>Benutzerdefiniert</"
-"gui> in der Auswahlliste <gui>Integrierte Schemata</gui>."
+"Переконайтеся, що не позначено пункт <gui style=\"checkbox\">Використовувати"
+" кольори системної теми</gui>. Виберіть у спадному списку <gui>Вбудовані"
+" схеми</gui> пункт <gui>Інше</gui>."
 
 #. (itstool) path: item/p
 #: C/app-colors.page:123
 msgid "Click on the color you would like to change."
-msgstr "Klicken Sie auf die Farbe, die Sie ändern möchten."
+msgstr "Клацніть на пункті кольору, який ви хочете змінити."
 
 #. (itstool) path: item/p
 #: C/app-colors.page:126
@@ -940,18 +919,18 @@ msgid ""
 "Choose your desired color from the color sample and click <gui style=\"button"
 "\">Select</gui>."
 msgstr ""
-"Wählen Sie die gewünschte Farbe aus den Farbmustern und klicken Sie auf <gui "
-"style=\"button\">Auswählen</gui>."
+"Виберіть бажаний колір із пробника кольорів і натисніть кнопку <gui"
+" style=\"button\">Вибрати</gui>."
 
 #. (itstool) path: item/p
 #: C/app-colors.page:128
 msgid "You can choose the desired color in the following ways:"
-msgstr "Sie haben folgende Möglichkeiten, die gewünschte Farbe zu wählen:"
+msgstr "Ви можете вибрати бажаний колір в один з таких способів:"
 
 #. (itstool) path: item/p
 #: C/app-colors.page:131
 msgid "Input the hexadecimal color code in the input box."
-msgstr "Geben Sie den Farbcode hexadezimal in das Eingabefeld ein."
+msgstr "Ввести шістнадцятковий код кольору до поля для введення тексту."
 
 #. (itstool) path: item/p
 #: C/app-colors.page:134
@@ -959,13 +938,13 @@ msgid ""
 "Drag the slider on the left to adjust the colors and click on the desired "
 "color in the color selection area."
 msgstr ""
-"Verschieben Sie den Regler links, um die Farben anzupassen und klicken Sie "
-"auf die gewünschte Farbe im Farbwähler."
+"Перетягнути повзунок ліворуч для коригування кольорів і клацнути на бажаному"
+" кольорі в області вибору кольору."
 
 #. (itstool) path: item/p
 #: C/app-colors.page:138
 msgid "Your changes will be saved automatically."
-msgstr "Ihre Änderungen werden automatisch gespeichert."
+msgstr "Внесені вами зміни буде застосовано автоматично."
 
 #. (itstool) path: note/p
 #: C/app-colors.page:143
@@ -974,10 +953,9 @@ msgid ""
 "clicking on the color sample block. Once changed, your selection in the "
 "built-in scheme menu will change to <gui>Custom</gui>."
 msgstr ""
-"Sie können auch eine Farbe ändern, wenn Sie ein vorgegebenes Schema gewählt "
-"haben. Klicken Sie dazu auf den Farbmusterblock. Sobald Sie eine Änderung "
-"durchgeführt haben, wird die Auswahl im vorgegebenen Schema-Menü zu "
-"<gui>Benutzerdefiniert</gui> umspringen."
+"Ви також можете змінити певний колір, якщо вибрали вбудовану схему,"
+" натиснувши пункт кольору у блоці зразків кольорів. Після внесення зміни"
+" назву вбудованої схеми буде змінено на <gui>Інше</gui>."
 
 #. (itstool) path: note/p
 #: C/app-colors.page:149
@@ -986,10 +964,10 @@ msgid ""
 "you can alter here. <app>Terminal</app> supports an extended set of 256 "
 "colors, but the additional 240 colors cannot be edited here."
 msgstr ""
-"Traditionell bieten Terminal-Emulatoren eine Farbpalette mit 16 Farben. Dies "
-"können Sie hier ändern. <app>Terminal</app> unterstützt eine erweiterte "
-"Menge von 256 Farben. Die zusätzlichen 240 Farben können an dieser Stelle "
-"nicht bearbeitet werden."
+"Традиційно, у емуляторах термінала пропонується палітра із 16 кольорів. Саме"
+" стільки кольорів ви можете змінити за допомогою цього вікна. У <app"
+">Терміналі</app> передбачено підтримку розширеного набору з 256 кольорів, але"
+" додаткові 240 кольорів за допомогою цього вікна змінити не можна."
 
 #. (itstool) path: note/p
 #: C/app-colors.page:153
@@ -997,8 +975,9 @@ msgid ""
 "<app>Terminal</app> even offers direct access to over 16 million colors, "
 "this is called “true color” mode."
 msgstr ""
-"<app>Terminal</app> ermöglicht sogar direkten Zugriff auf über 16 Millionen "
-"Farben. Dies wird »true color« (Echtfarben)-Modus genannt."
+"<app>Термінал</app> пропонує навіть безпосередній доступ до понад 16"
+" мільйонів кольорів. Такий режим називається режимом «справжніх кольорів»"
+" («true color»)."
 
 #. (itstool) path: note/p
 #: C/app-colors.page:156
@@ -1007,16 +986,15 @@ msgid ""
 "presumably the contents you see consist of such extended palette colors or "
 "true colors, rather than the 16 base colors."
 msgstr ""
-"Wenn Ihre Änderungen an der Palette keine Auswirkungen zu scheinen haben, so "
-"besteht vermutlich der Inhalt, den Sie sehen, aus Farben einer erweiterten "
-"Palette oder »true colors« (Echtfarben) und nicht aus 16 Grundfarben."
+"Якщо внесення змін до палітри, здається не призводить ні до яких наслідків,"
+" ймовірно, те, що ви бачите, намальовано за допомогою розширеної палітри"
+" кольорів або справжніх кольорів, а не 16 базових кольорів."
 
 #. (itstool) path: section/title
 #: C/app-colors.page:164
 msgid "Bright colors for bold text"
-msgstr "Darstellung von fettem Text in hellen Farben"
+msgstr "Яскраві кольори для тексту напівжирним"
 
-# Das Original lässt leider True Colors ohne weitere Erklärung einfach so stehen. 
 #. (itstool) path: section/p
 #: C/app-colors.page:166
 msgid ""
@@ -1026,18 +1004,17 @@ msgid ""
 "color schemes (e.g. Solarized) made it desirable to separate the two "
 "concepts, that is, make the brightness independent from the font weight."
 msgstr ""
-"Traditionell entkoppeln Terminals fette Schriftdarstellung nicht strikt von"
-" kräftigen Farben; oft werden beide zusammen aktiviert. Die letzten"
-" Verbesserungen, wie die Einführung der Unterstützung für True Colors (16,7"
-" Millionen Farben) und bestimmte Farbschemata (zum Beispiel »Solarisiert«)"
-" machten es erforderlich, die zwei Konzepte voneinander zu trennen. Das"
-" bedeutet, dass die Helligkeit unabhängig von der Schriftstärke eingestellt"
-" werden kann."
+"Традиційно, у терміналах немає чіткого поділу між напівжирною вагою шрифту та"
+" інтенсивними кольорами — часто обидва варіанти використовуються разом."
+" Нещодавні удосконалення, зокрема впровадження підтримки справжніх кольорів,"
+" та деякі схеми кольорів (наприклад, схеми «засвічена») роблять бажаним"
+" відокремлення цих двох засобів виокремлення тексту, тобто використання"
+" яскравості незалежно від ваги шрифту."
 
 #. (itstool) path: section/p
 #: C/app-colors.page:172
 msgid "In order to choose your preferred behavior:"
-msgstr "So können Sie Ihr gewünschtes Verhalten wählen:"
+msgstr "Щоб вибрати бажану для вас поведінку програми, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/app-colors.page:187
@@ -1046,20 +1023,20 @@ msgid ""
 "behavior, the complete separation of color intensity and font weight; or "
 "enable this option for improved backward compatibility."
 msgstr ""
-"Deaktivieren Sie <gui>Fetten Text auch in helleren Farben darstellen</gui>,"
-" um das neue Verhalten, welches Farbintensität und Schriftstärke vollständig"
-" voneinander trennt, einstellen zu können. Alternativ können Sie diese Option"
-" aktivieren, um eine verbesserte Abwärtskompatibilität zu gewährleisten."
+"Зніміть позначку з пункту <gui>Показувати текст з жирним накресленням в"
+" яскравих кольорах</gui> для нової типової поведінки — повного відокремлення"
+" інтенсивності кольорів та ваги шрифту; або позначте цей пункт для поліпшення"
+" зворотної сумісності."
 
 #. (itstool) path: info/desc
 #: C/app-cursor.page:30
 msgid "Select different cursor style."
-msgstr "Verschiedene Erscheinungsformen für die Eingabemarke wählen."
+msgstr "Вибір іншого стилю курсора."
 
 #. (itstool) path: page/title
 #: C/app-cursor.page:34
 msgid "Change cursor"
-msgstr "Eingabemarke ändern"
+msgstr "Зміна курсора"
 
 #. (itstool) path: page/p
 #: C/app-cursor.page:36
@@ -1067,14 +1044,14 @@ msgid ""
 "<app>Terminal</app> has three cursors from which to choose. To select your "
 "preferred cursor:"
 msgstr ""
-"<app>Terminal</app> hat drei Eingabemarken, aus denen Sie wählen können. So "
-"wählen Sie die gewünschte Eingabemarke:"
+"У <app>Терміналі</app> передбачено три типи курсорів, один з яких ви можете"
+" вибрати. Щоб вибрати бажаний для вас тип курсора, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/app-cursor.page:49 C/app-fonts.page:54 C/app-fonts.page:78
 #: C/app-fonts.page:123 C/app-terminal-sizes.page:89 C/pref-bell.page:49
 msgid "Select <gui style=\"tab\">Text</gui>."
-msgstr "Wählen Sie <gui style=\"tab\">Text</gui>."
+msgstr "Виберіть <gui style=\"tab\">Текст</gui>."
 
 #. (itstool) path: item/p
 #: C/app-cursor.page:52
@@ -1082,39 +1059,40 @@ msgid ""
 "Choose your desired cursor shape from the drop down list next to <gui>Cursor "
 "shape</gui>. You can choose from the following options:"
 msgstr ""
-"Wählen Sie die gewünschte Erscheinungsform der Eingabemarke aus der "
-"Auswahlliste neben <gui>Form der Eingabemarke</gui>. Sie können eine der "
-"folgenden Optionen wählen:"
+"Виберіть бажану форму курсора зі спадного списку поряд із міткою <gui>Форма"
+" курсора</gui>. Можна вибрати один з таких варіантів:"
 
 #. (itstool) path: item/p
 #: C/app-cursor.page:57
 msgid "<gui>Block</gui>"
-msgstr "<gui>Rechteck</gui>"
+msgstr "<gui>Блок</gui>"
 
 #. (itstool) path: item/p
 #: C/app-cursor.page:61
 msgid "<gui>I-Beam</gui>"
-msgstr "<gui>Senkrechter Strich</gui>"
+msgstr "<gui>I-Beam</gui>"
 
 #. (itstool) path: item/p
 #: C/app-cursor.page:65
 msgid "<gui>Underline</gui>"
-msgstr "<gui>Unterstrich</gui>"
+msgstr "<gui>Підкреслення</gui>"
 
 #. (itstool) path: item/p
 #: C/app-cursor.page:68
 msgid "Upon selection of the cursor, your choice is saved automatically."
-msgstr "Bei Auswahl der Eingabemarke wird Ihre Wahl automatisch gespeichert."
+msgstr "Після вибору курсора зміни буде збережено автоматично."
 
 #. (itstool) path: info/desc
 #: C/app-fonts.page:29
 msgid "Use system fonts or choose a custom font for your terminal."
-msgstr "Systemschriften oder eigene Schriften für das Terminal wählen."
+msgstr ""
+"Використання загальносистемних шрифтів або вибір нетипового шрифту для"
+" термінала."
 
 #. (itstool) path: page/title
 #: C/app-fonts.page:33
 msgid "Change font and style"
-msgstr "Schrift und Schriftart ändern"
+msgstr "Зміна шрифту і стилю"
 
 #. (itstool) path: page/p
 #: C/app-fonts.page:35
@@ -1122,47 +1100,48 @@ msgid ""
 "When you work with a lot of <app>Terminal</app> text, you may want to change "
 "the default font to your preference. You have the following options:"
 msgstr ""
-"Wenn Sie mit viel Text im <app>Terminal</app> arbeiten, so können Sie die "
-"voreingestellte Schrift nach Ihrem Geschmack anpassen. Es gibt die folgenden "
-"Möglichkeiten:"
+"При значному обсягу роботи з текстом у <app>Терміналі</app> у вас може"
+" виникнути потреба у зміні типового шрифту на той, який вам подобається. Ви"
+" можете вибрати один з таких варіантів:"
 
 #. (itstool) path: section/title
 #: C/app-fonts.page:40
 msgid "System fixed width font"
-msgstr "Dicktengleiche Systemschrift"
+msgstr "Системний моноширинний шрифт"
 
 #. (itstool) path: section/p
 #: C/app-fonts.page:42
 msgid "To use system default fonts:"
-msgstr "So verwenden Sie im System voreingestellte Schriften:"
+msgstr "Щоб скористатися типовими шрифтами системи, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/app-fonts.page:57
 msgid "Unselect <gui style=\"checkbox\">Custom font</gui>."
-msgstr "Wählen Sie <gui style=\"checkbox\">Benutzerdefinierte Schrift</gui>."
+msgstr ""
+"Зніміть позначення з пункту <gui style=\"checkbox\">Користувацький шрифт</gui"
+">."
 
 #. (itstool) path: section/title
 #: C/app-fonts.page:64
 msgid "Set a custom font"
-msgstr "Eigene Schriftart festlegen"
+msgstr "Встановлення нетипового шрифту"
 
 #. (itstool) path: section/p
 #: C/app-fonts.page:66
 msgid "To set a custom font and size:"
-msgstr "So legen Sie eine eigene Schrift und deren Größe fest:"
+msgstr "Щоб встановити нетиповий шрифт і розмір шрифту, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/app-fonts.page:81
 msgid "Select <gui style=\"checkbox\">Custom font</gui>."
-msgstr ""
-"Wählen Sie <gui style=\"checkbox\">Benutzerdefinierte Schrift</gui> ab."
+msgstr "Позначте пункт <gui style=\"checkbox\">Користувацький шрифт</gui>."
 
 #. (itstool) path: item/p
 #: C/app-fonts.page:84
 msgid "Click on the button next to <gui style=\"checkbox\">Custom font</gui>."
 msgstr ""
-"Klicken Sie auf den Knopf neben <gui style=\"checkbox\">Benutzerdefinierte "
-"Schrift</gui>."
+"Натисніть кнопку, розташовану поруч із міткою <gui style=\"checkbox\""
+">Користувацький шрифт</gui>."
 
 #. (itstool) path: item/p
 #: C/app-fonts.page:87
@@ -1170,8 +1149,8 @@ msgid ""
 "Type the name of your desired font into the search field or browse the list "
 "of fonts."
 msgstr ""
-"Geben Sie den Namen der gesuchten Schrift in das Suchfeld ein oder "
-"durchsuchen Sie die Liste der Schriftarten."
+"Введіть назву бажаного шрифту до поля пошуку або виберіть пункт шрифту зі"
+" списку шрифтів."
 
 #. (itstool) path: item/p
 #: C/app-fonts.page:91
@@ -1181,11 +1160,11 @@ msgid ""
 "slider, or click on <gui style=\"button\">+</gui> to increase font size or "
 "<gui style=\"button\">-</gui> to decrease selected font size."
 msgstr ""
-"Verschieben Sie den Regler unter der Schriftenliste, um die Schriftgröße "
-"einzustellen. Alternativ können Sie die Schriftgröße in das Eingabefeld "
-"neben dem Regler eingeben oder auf <gui style=\"button\">+</gui> klicken, um "
-"die Schriftgröße zu erhöhen, oder auf <gui style=\"button\">-</gui>, um sie "
-"zu verringern."
+"Перетягніть повзунок під списком шрифтів для встановлення розміру шрифтів."
+" Крім того, ви можете ввести розмір шрифту до поля, розташованого поряд із"
+" повзунком, або натисніть кнопку <gui style=\"button\">+</gui> для збільшення"
+" розміру шрифту чи кнопку <gui style=\"button\">-</gui> для зменшення розміру"
+" шрифту."
 
 #. (itstool) path: item/p
 #: C/app-fonts.page:97
@@ -1194,14 +1173,14 @@ msgid ""
 "changes and go back to previous dialog, click <gui style=\"button\">Cancel</"
 "gui>."
 msgstr ""
-"Klicken Sie auf <gui style=\"button\">Auswählen</gui>, um die Änderungen "
-"anzuwenden. Klicken Sie auf <gui style=\"button\">Abbrechen</gui>, um die "
-"Änderungen zu verwerfen und zum letzten Dialog zurückzugehen."
+"Натисніть кнопку <gui style=\"button\">Вибрати</gui>, щоб застосувати внесені"
+" зміни. Щоб відкинути зміни і повернутися до попереднього вікна, натисніть"
+" кнопку <gui style=\"button\">Скасувати</gui>."
 
 #. (itstool) path: section/title
 #: C/app-fonts.page:106
 msgid "Line spacing and character spacing"
-msgstr "Zeilenabstand und Zeichenabstand"
+msgstr "Інтервал між рядками та символами"
 
 #. (itstool) path: section/p
 #: C/app-fonts.page:108
@@ -1211,15 +1190,15 @@ msgid ""
 "(the regular look) to 2.0 (“double spacing”), including fractional values in "
 "between."
 msgstr ""
-"<app>Terminal</app> kann einen Abstand zwischen Zeichen setzen, um die "
-"Lesbarkeit zu verbessern. Zeilenabstand und Zeichenabstand werden mit Werten "
-"in Form von Kommazahlen zwischen 1,0 (normaler Abstand) und 2,0 (doppelter "
-"Abstand) festgelegt."
+"<app>Термінал</app> надає вам змогу розставити символи так, щоб їх було"
+" найпростіше читати. Інтервал між рядками і символами можна скоригувати від"
+" значення 1.0 (звичайний вигляд) до 2.0 (подвійний інтервал), включено із"
+" усіма дробовими проміжними значеннями."
 
 #. (itstool) path: item/p
 #: C/app-fonts.page:126
 msgid "Go to the <gui>Cell spacing</gui> setting."
-msgstr "Gehen Sie zur Einstellung <gui>Zellenabstand</gui>."
+msgstr "Перейдіть до параметра <gui>Відстань між клітинками</gui>."
 
 #. (itstool) path: item/p
 #: C/app-fonts.page:129
@@ -1227,8 +1206,8 @@ msgid ""
 "To set the horizontal character spacing, adjust the multiplier number in "
 "front of <gui>width</gui>."
 msgstr ""
-"Passen Sie den Multiplikator vor <gui>Breite</gui> an, um den horizontalen "
-"Abstand zwischen Zeichen festzulegen."
+"Щоб визначити горизонтальний інтервал між символами, скоригуйте числовий"
+" коефіцієнт перед міткою <gui>ширина</gui>."
 
 #. (itstool) path: item/p
 #: C/app-fonts.page:133
@@ -1236,25 +1215,24 @@ msgid ""
 "To set the line spacing, adjust the multiplier number in front of "
 "<gui>height</gui>."
 msgstr ""
-"Passen Sie den Multiplikator vor <gui>Höhe</gui> an, um den Zeilenabstand "
-"festzulegen."
+"Щоб визначити інтервал між рядками, скоригуйте числовий коефіцієнт перед"
+" міткою <gui>висота</gui>."
 
 #. (itstool) path: info/desc
 #: C/app-fullscreen.page:29
 msgid "Enable fullscreen mode."
-msgstr "Vollbild-Modus aktivieren."
+msgstr "Вмикання повноекранного режиму."
 
 #. (itstool) path: page/title
 #: C/app-fullscreen.page:32
 msgid "Fullscreen session"
-msgstr "Sitzung im Vollbild-Modus"
+msgstr "Сеанс на увесь екран"
 
 #. (itstool) path: page/p
 #: C/app-fullscreen.page:34
 msgid "Fullscreen mode allows <app>Terminal</app> to use the entire screen."
 msgstr ""
-"Der Vollbild-Modus ermöglicht es <app>Terminal</app>, den ganzen Bildschirm "
-"zu verwenden."
+"У повноекранному режимі <app>Термінал</app> використовує усю площу екрана."
 
 #. (itstool) path: page/p
 #: C/app-fullscreen.page:36
@@ -1265,29 +1243,26 @@ msgid ""
 "decoration, allowing you to view more <link xref=\"pref-scrolling"
 "\">scrollback lines</link> on the screen."
 msgstr ""
-"Dieser Modus ist sinnvoll, wenn Sie ein Gerät mit kleiner Bildschirmgröße "
-"besitzen und über einen längeren Zeitraum mit <app>Terminal</app> arbeiten "
-"möchten oder mit langen Zeilen in der Textausgabe kämpfen. Er verbirgt "
-"zeitweise die Fensterdekoration, so dass Sie mehr vom <link xref=\"pref-"
-"scrolling\">Zeilenspeicher</link> sehen können."
+"Цей режим корисний, якщо ви працюєте за екраном обмеженого розміру із <app"
+">Терміналом</app> довгий час або працюєте із довгими рядками у виведених до"
+" термінала даних. У цьому режимі програма тимчасово приховує обрамлення"
+" вікна. Це надає вам змогу бачити на екрані більше рядків <link"
+" xref=\"pref-scrolling\">буфера гортання</link>."
 
 #. (itstool) path: page/p
 #: C/app-fullscreen.page:42
 msgid "To enable fullscreen mode:"
-msgstr "So aktivieren Sie den Vollbild-Modus:"
+msgstr "Щоб увімкнути повноекранний режим, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/app-fullscreen.page:46
-#| msgid ""
-#| "Select <gui style=\"menu\">View</gui> and check <gui style=\"menuitem"
-#| "\">Full Screen</gui>, or press <key>F11</key>."
 msgid ""
 "Press the menu button in the top-right corner of the window and select <gui "
 "style=\"menuitem\">Full Screen</gui>, or press <key>F11</key>."
 msgstr ""
-"Klicken Sie auf den Menüknopf in der oberen rechten Ecke des Fensters und"
-" wählen Sie <gui "
-"style=\"menuitem\">Vollbildmodus</gui> oder drücken Sie <key>F11</key>."
+"Натисніть кнопку меню у верхньому правому куті вікна і виберіть <gui"
+" style=\"menuitem\">На весь екран</gui> (або натисніть клавішу <key>F11</key"
+">)."
 
 #. (itstool) path: note/p
 #: C/app-fullscreen.page:52
@@ -1295,8 +1270,8 @@ msgid ""
 "The menubar will still be visible in fullscreen mode unless you have hidden "
 "it."
 msgstr ""
-"Die Menüleiste ist im Vollbild-Modus noch immer sichtbar, es sei denn Sie "
-"haben diese verborgen."
+"У повноекранному режимі програма все одно показуватиме смужку меню, якщо ви"
+" не приховаєте її явним чином."
 
 #. (itstool) path: note/p
 #: C/app-fullscreen.page:57
@@ -1304,35 +1279,33 @@ msgid ""
 "If you have more than one <app>Terminal</app> tab open, the tab bar will be "
 "visible in the fullscreen mode."
 msgstr ""
-"Wenn mehr als ein Reiter im <app>Terminal</app> geöffnet ist, so erscheint "
-"die Reiterleiste im Vollbild-Modus."
+"Якщо у вас відкрито декілька вкладок <app>Термінала</app>, у повноекранному"
+" режимі буде показано смужку вкладок."
 
 #. (itstool) path: page/p
 #: C/app-fullscreen.page:61
 msgid "To disable fullscreen mode:"
-msgstr "So deaktivieren Sie den Vollbild-Modus:"
+msgstr "Щоб вимкнути повноекранний режим, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/app-fullscreen.page:65
-#| msgid ""
-#| "Select <gui style=\"menu\">View</gui> and check <gui style=\"menuitem"
-#| "\">Full Screen</gui>, or press <key>F11</key>."
 msgid ""
 "Right click and select <gui style=\"menuitem\">Leave Full Screen</gui>. "
 "Alternatively, press <key>F11</key>."
 msgstr ""
-"Klicken Sie mit der rechten Maustaste und wählen Sie <gui style="
-"\"menuitem\">Vollbild verlassen</gui> oder drücken Sie <key>F11</key>."
+"Клацніть правою кнопкою миші і виберіть пункт <gui style=\"menuitem\""
+">Полишити повноекранний режим</gui>. Крім того, можете просто натиснути"
+" клавішу <key>F11</key>."
 
 #. (itstool) path: info/desc
 #: C/app-terminal-sizes.page:29
 msgid "Change the <app>Terminal</app> window size."
-msgstr "Ändern Sie die Fenstergröße des <app>Terminals</app>."
+msgstr "Зміна розміру вікна <app>Термінала</app>."
 
 #. (itstool) path: page/title
 #: C/app-terminal-sizes.page:33
 msgid "<app>Terminal</app> sizes"
-msgstr "<app>Terminal</app>-Größen"
+msgstr "Розміри <app>Термінала</app>"
 
 #. (itstool) path: page/p
 #: C/app-terminal-sizes.page:35
@@ -1342,38 +1315,34 @@ msgid ""
 "view long lines of terminal output with minimal line breaks on your display, "
 "you may require <app>Terminal</app> windows to be of a particular size."
 msgstr ""
-"Wenn Sie mit bestimmten Anwendungen auf der Befehlszeile arbeiten, die eine "
-"bestimmte Mindestgröße des Terminals für ordnungsgemäße Darstellung "
-"erfordern, oder wenn Sie sehr lange Zeilen in der Ausgabe mit nur wenigen "
-"Zeilenumbrüchen wünschen, so sind <app>Terminal</app>-Fenster einer "
-"bestimmten Größe erforderlich."
+"Якщо ви працюєте із певними програмами, які керуються за допомогою командного"
+" рядка і у яких передбачено певні вимоги щодо мінімального розміру термінала"
+" для коректного показу даних, або якщо ви хочете бачити довгі рядки у"
+" терміналі із мінімальним розбиттям на рядки на дисплеї, вам можуть"
+" знадобитися можливості зі встановлення певних розмірів для вікна <app"
+">Термінала</app>."
 
 #. (itstool) path: page/p
 #: C/app-terminal-sizes.page:41
 msgid ""
 "You can change the <app>Terminal</app> window size to some preset values:"
 msgstr ""
-"Sie können die Fenstergröße von <app>Terminal</app> auf einige vorgegebene "
-"Werte einstellen:"
+"Ви можете змінити розміри вікна <app>Термінала</app> до певного попередньо"
+" визначеного розміру, ось так:"
 
 #. (itstool) path: item/p
 #: C/app-terminal-sizes.page:46
-#| msgid ""
-#| "Alternatively, you can click on the <gui style=\"button\">×</gui> in the "
-#| "top right corner of the tab or right click on the tab and select <gui "
-#| "style=\"menuitem\">Close Terminal</gui>."
 msgid ""
 "Press the menu button in the top-right corner of the window and select <gui "
 "style=\"menuitem\">Advanced</gui>."
 msgstr ""
-"Klicken Sie auf den Menüknopf in der oberen rechten Ecke des Fensters und"
-" wählen Sie <gui "
-"style=\"menuitem\">Erweitert</gui>."
+"Натисніть кнопку меню у верхньому правому куті вікна і виберіть <gui"
+" style=\"menuitem\">Додаткове</gui>."
 
 #. (itstool) path: item/p
 #: C/app-terminal-sizes.page:50
 msgid "Choose one of the following options:"
-msgstr "Wählen Sie eine der folgenden Optionen aus:"
+msgstr "Виберіть один з таких варіантів:"
 
 #. (itstool) path: item/p
 #: C/app-terminal-sizes.page:53
@@ -1403,11 +1372,11 @@ msgid ""
 "key><key>T</key></keyseq> and then pressing <key>1</key> to switch the "
 "<app>Terminal</app> window to size <gui>80×24</gui> and so on."
 msgstr ""
-"Wenn Sie <link xref=\"pref-keyboard-access\"><gui>Menü-Tastenkombinationen</"
-"gui></link> aktiviert haben, können Sie dieses Menü durch Drücken von "
-"<keyseq><key>Alt</key><key>T</key></keyseq> gefolgt von <key>1</key> "
-"aktivieren, um die Fenstergröße des <app>Terminal</app>s auf <gui>80×24</"
-"gui> umzustellen, usw."
+"Якщо вами увімкнено <link xref=\"pref-keyboard-access\"><gui>клавіші доступу"
+" до меню</gui></link>, ви зможете отримувати доступ до меню натисканням <"
+"keyseq><key>Alt</key><key>T</key></keyseq> із наступним натисканням <key>1<"
+"/key> для перемикання вікна <app>Термінала</app> на розмір <gui>80×24</gui>"
+" тощо."
 
 #. (itstool) path: page/p
 #: C/app-terminal-sizes.page:76
@@ -1415,9 +1384,8 @@ msgid ""
 "If you require custom size <app>Terminal</app> windows, you can also set the "
 "default window size according to your requirements:"
 msgstr ""
-"Wenn Sie eine individuelle Größe des <app>Terminal</app>-Fensters "
-"bevorzugen, so können Sie die voreingestellte Fenstergröße entsprechend "
-"Ihrer Wünsche einstellen:"
+"Якщо вам потрібен якийсь нетиповий розмір вікна <app>Термінала</app>, ви"
+" можете також встановити типовий розмір вікна відповідно до ваших вимог:"
 
 #. (itstool) path: item/p
 #: C/app-terminal-sizes.page:92
@@ -1427,103 +1395,89 @@ msgid ""
 "\"button\">+</gui> to increase or <gui style=\"button\">-</gui> to decrease "
 "the size."
 msgstr ""
-"Legen Sie die <gui>Anfängliche Größe des Terminals</gui> durch Eingeben der "
-"gewünschten Anzahl Zeilen und Spalten in den entsprechenden Eingabefeldern "
-"fest. Klicken Sie auf <gui style=\"button\">+</gui> zum Erhöhen "
-"beziehungsweise <gui style=\"button\">-</gui> zum Verringern der Größe."
+"Встановіть <gui>Початковий розмір термінала</gui>, ввівши бажану кількість"
+" стовпчиків і рядків у відповідні поля для введення. Ви також можете"
+" скористатися натисканням кнопок <gui style=\"button\">+</gui> для збільшення"
+" або <gui style=\"button\">-</gui> для зменшення відповідних значень розмірів."
 
 #. (itstool) path: info/desc
 #: C/app-zoom.page:28
 msgid "Increase or decrease text size."
-msgstr "Die Textgröße erhöhen oder verringern."
+msgstr "Збільшення або зменшення розмірів тексту."
 
 #. (itstool) path: page/title
 #: C/app-zoom.page:32
 msgid "Zoom in and zoom out"
-msgstr "Vergrößern und verkleinern"
+msgstr "Збільшення і зменшення"
 
 #. (itstool) path: page/p
 #: C/app-zoom.page:34
 msgid "To increase <app>Terminal</app> text size:"
-msgstr "So vergrößern Sie den Text im <app>Terminal</app>:"
+msgstr ""
+"Щоб збільшити розмір символів тексту у <app>Терміналі</app>, виконайте такі"
+" дії:"
 
 #. (itstool) path: item/p
 #: C/app-zoom.page:38
-#| msgid ""
-#| "Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
-#| "\">Zoom In</gui></guiseq> or press <keyseq><key>Ctrl</key><key>+</key></"
-#| "keyseq>."
 msgid ""
 "Press the menu button in the top-right corner of the window and press <gui "
 "style=\"button\">+</gui>, or press <keyseq><key>Ctrl</key><key>+</key></"
 "keyseq>."
 msgstr ""
-"Klicken Sie auf den Menüknopf in der oberen rechten Ecke des Fensters und"
-" klicken Sie anschließend auf <gui "
-"style=\"button\">+</gui> oder drücken Sie <keyseq><key>Strg</key><key>+</key"
-"></"
-"keyseq>."
+"Натисніть кнопку меню у верхньому правому куті вікна і натисніть кнопку <gui"
+" style=\"button\">+</gui> або натисніть комбінацію клавіш <keyseq><key>Ctrl<"
+"/key><key>+</key></keyseq>."
 
 #. (itstool) path: page/p
 #: C/app-zoom.page:44
 msgid "To decrease <app>Terminal</app> text size:"
-msgstr "So verkleinern Sie den Text im <app>Terminal</app>:"
+msgstr ""
+"Щоб зменшити розмір символів тексту у <app>Терміналі</app>, виконайте такі"
+" дії:"
 
 #. (itstool) path: item/p
 #: C/app-zoom.page:48
-#| msgid ""
-#| "Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
-#| "\">Zoom In</gui></guiseq> or press <keyseq><key>Ctrl</key><key>+</key></"
-#| "keyseq>."
 msgid ""
 "Press the menu button in the top-right corner of the window and press <gui "
 "style=\"button\">-</gui>, or press <keyseq><key>Ctrl</key><key>-</key></"
 "keyseq>."
 msgstr ""
-"Klicken Sie auf den Menüknopf in der oberen rechten Ecke des Fensters und"
-" klicken Sie anschließend auf <gui "
-"style=\"button\">-</gui> oder drücken Sie <keyseq><key>Strg</key><key>-</key"
-"></"
-"keyseq>."
+"Натисніть кнопку меню у верхньому правому куті вікна і натисніть кнопку <gui"
+" style=\"button\">-</gui> або натисніть комбінацію клавіш <keyseq><key>Ctrl<"
+"/key><key>-</key></keyseq>."
 
 #. (itstool) path: page/p
 #: C/app-zoom.page:54
 msgid "To restore <app>Terminal</app> text to default size:"
 msgstr ""
-"So stellen Sie die voreingestellte Größe im <app>Terminal</app> wieder her:"
+"Щоб відновити типовий розмір символів тексту у <app>Терміналі</app>,"
+" виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/app-zoom.page:58
-#| msgid ""
-#| "Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
-#| "\">Zoom In</gui></guiseq> or press <keyseq><key>Ctrl</key><key>+</key></"
-#| "keyseq>."
 msgid ""
 "Press the menu button in the top-right corner of the window and press <gui "
 "style=\"button\">100%</gui>, or press <keyseq><key>Ctrl</key><key>0</key></"
 "keyseq>."
 msgstr ""
-"Klicken Sie auf den Menüknopf in der oberen rechten Ecke des Fensters und"
-" klicken Sie anschließend auf <gui "
-"style=\"button\">100%</gui> oder drücken Sie <keyseq><key>Strg</key><key>0<"
-"/key></"
-"keyseq>."
+"Натисніть кнопку меню у верхньому правому куті вікна і натисніть кнопку <gui"
+" style=\"button\">100%</gui> або натисніть комбінацію клавіш <keyseq><key"
+">Ctrl</key><key>0</key></keyseq>."
 
 #. (itstool) path: credit/years
 #: C/gs-execute-commands.page:21 C/gs-tabs.page:20 C/pref-scrolling.page:20
 msgid "2013–2014"
-msgstr "2013-2014"
+msgstr "2013–2014"
 
 #. (itstool) path: info/desc
 #: C/gs-execute-commands.page:31
 msgid "Launch programs or run commands using <app>Terminal</app>."
-msgstr ""
-"Ein Programm starten oder einen Befehl mit <app>Terminal</app> ausführen."
+msgstr "Запуск програм та виконання команд за допомогою <app>Термінала</app>."
 
 #. (itstool) path: page/title
 #: C/gs-execute-commands.page:34
 msgid "Execute a command"
-msgstr "Einen Befehl ausführen"
+msgstr "Виконати команду"
 
 #. (itstool) path: page/p
 #: C/gs-execute-commands.page:36
@@ -1532,26 +1486,24 @@ msgid ""
 "as a <em>command</em>. You can run both command line and graphical user "
 "interface (GUI) programs from the terminal."
 msgstr ""
-"Jegliche Eingabe, die ins <app>Terminal</app> zum Ausführen eingegeben wird, "
-"wird als ein <em>Befehl</em> angesehen. Sie können sowohl "
-"Befehlszeilenprogramme als auch Programme mit grafischer Benutzeroberfläche "
-"im Terminal ausführen."
+"Усі вхідні дані у <app>Терміналі</app>, які має бути виконано, називають <em"
+">командою</em>. З термінала ви можете користуватися командним рядком або"
+" запускати програми із графічним інтерфейсом."
 
 #. (itstool) path: page/p
 #: C/gs-execute-commands.page:40
 msgid "To execute commands:"
-msgstr "So führen Sie Befehle aus:"
+msgstr "Щоб віддати команди, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/gs-execute-commands.page:44
 msgid "Type the command in the <app>Terminal</app> prompt."
-msgstr ""
-"Geben Sie den Befehl in die Eingabeaufforderung von <app>Terminal</app> ein."
+msgstr "Введіть команду до рядка запиту <app>Термінала</app>."
 
 #. (itstool) path: item/p
 #: C/gs-execute-commands.page:47
 msgid "Press <key>Enter</key> to execute it."
-msgstr "Drücken Sie zum Ausführen die <key>Eingabetaste</key>."
+msgstr "Натисніть клавішу <key>Enter</key>, щоб система її виконала."
 
 #. (itstool) path: page/p
 #: C/gs-execute-commands.page:51
@@ -1561,11 +1513,11 @@ msgid ""
 "output any error or debugging messages to the <app>Terminal</app> window. "
 "This information can be helpful when filing a bug report."
 msgstr ""
-"Wenn es ein Programm gibt, dass abrupt ohne Warnung oder Fehler schließt, so "
-"wollen Sie es möglicherweise in <app>Terminal</app> ausführen. Dies "
-"ermöglicht, dass das Programm Fehler und Fehlerdiagnose-Nachrichten im "
-"<app>Terminal</app>-Fenster ausgibt. Diese Informationen sind oft hilfreich "
-"beim Erstellen eines neuen Fehlerberichts."
+"Якщо у вас є програма, яка раптово завершує роботу, ні про що не попереджаючи"
+" і не повідомляючи про помилку, у вас може виникнути потреба у запуску її у <"
+"app>Терміналі</app>. Це надасть змогу програмі вивести повідомлення про"
+" помилку або діагностичні повідомлення до вікна <app>Термінала</app>."
+" Отримані таким чином дані можуть бути корисним для створення звіту щодо вади."
 
 #. (itstool) path: note/p
 #: C/gs-execute-commands.page:57
@@ -1573,23 +1525,22 @@ msgid ""
 "Read about the <link href=\"https://www.gnu.org/software/bash/manual/\">Bash "
 "shell</link> for more information on what you can do in a terminal."
 msgstr ""
-"Lesen Sie mehr über die <link href=\"https://www.gnu.org/software/bash/"
-"manual/\">Bash-Shell</link> für weitergehende Informationen, was man in "
-"einem Terminal tun kann."
+"Ознайомтеся із матеріалами щодо <link href=\"https://www.gnu.org/software/bash"
+"/manual/\">оболонки Bash</link>, щоб дізнатися більше про те, які операції ви"
+" можете виконувати за допомогою термінала."
 
 #. (itstool) path: info/desc
 #: C/gs-tabs.page:30
 msgid "Enable, add, remove and reorder <app>Terminal</app> tabs."
 msgstr ""
-"<app>Terminal</app>-Reiter aktivieren, hinzufügen, entfernen und neu "
-"anordnen."
+"Вмикання, додавання, вилучення і переупорядковування вкладок <app>Термінала<"
+"/app>."
 
 #. (itstool) path: page/title
 #: C/gs-tabs.page:33
 msgid "Use tabs"
-msgstr "Reiter verwenden"
+msgstr "Користування вкладками"
 
-# top of a
 #. (itstool) path: page/p
 #: C/gs-tabs.page:35
 msgid ""
@@ -1600,50 +1551,52 @@ msgid ""
 "as running programs, browsing directories and editing text files in a single "
 "<app>Terminal</app> window."
 msgstr ""
-"Die Reiterleiste erscheint oben als eine Reihe von Knöpfen in allen "
-"<app>Terminal</app>-Fenstern, die mehrere Reiter offen haben. Klicken Sie "
-"auf einen Knopf, um zu dem entsprechenden Reitern zu wechseln. Es können "
-"mehrere Reiter geöffnet werden, um Ihr Arbeiten mit <app>Terminal</app> zu "
-"erleichtern. Dies ermöglicht es Ihnen, gleichzeitig mehrere Aufgaben wie das "
-"Ausführen von Programmen, Durchsuchen von Ordnern und Bearbeiten von "
-"Textdateien in einem einzigen <app>Terminal</app>-Fenster zu erledigen."
+"Смужку вкладок буде показано у верхній частині вікна <app>Термінала</app>, у"
+" якому відкрито декілька вкладок (ця смужка виглядає як рядок кнопок)."
+" Клацніть на вкладці, що перемкнутися на неї. Ви можете відкрити декілька"
+" вкладок для керування вашою роботою у <app>Терміналі</app>. Вкладки надають"
+" вам змогу одночасно виконувати декілька завдань, зокрема запускати програми,"
+" переглядати каталоги або редагувати текстові файли у одному вікні <app"
+">Термінала</app>."
 
 #. (itstool) path: section/title
 #: C/gs-tabs.page:43
 msgid "Open a new tab"
-msgstr "Einen neuen Reiter öffnen"
+msgstr "Відкрити нову вкладку"
 
 #. (itstool) path: section/p
 #: C/gs-tabs.page:45
 msgid "To open a new tab inside your current <app>Terminal</app> window:"
 msgstr ""
-"So öffnen Sie einen neuen Reiter im aktuellen <app>Terminal</app>fenster:"
+"Щоб відкрити нову вкладку у поточному вікні <app>Термінала</app>, виконайте"
+" такі дії:"
 
 #. (itstool) path: item/p
 #: C/gs-tabs.page:48
 msgid "Press <keyseq><key>Shift</key><key>Ctrl</key><key>T</key></keyseq>."
 msgstr ""
-"Drücken Sie <keyseq><key>Strg</key><key>Umschalt</key><key>T</key></keyseq>."
+"Натисніть комбінацію клавіш <keyseq><key>Shift</key><key>Ctrl</key><key>T<"
+"/key></keyseq>."
 
 #. (itstool) path: section/title
 #: C/gs-tabs.page:85
 msgid "Remove a tab"
-msgstr "Einen Reiter entfernen"
+msgstr "Вилучення вкладки"
 
 #. (itstool) path: section/p
 #: C/gs-tabs.page:87
 msgid ""
 "To close an existing tab inside your current <app>Terminal</app> window:"
 msgstr ""
-"So schließen Sie einen offenen Reiter im aktuellen <app>Terminal</app>-"
-"Fenster:"
+"Щоб закрити наявну вкладку всередині поточного вікна <app>Термінала</app>,"
+" виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/gs-tabs.page:92
-#| msgid "Press <keyseq><key>Shift</key><key>Ctrl</key><key>T</key></keyseq>."
 msgid "Press <keyseq><key>Shift</key><key>Ctrl</key><key>W</key></keyseq>."
 msgstr ""
-"Drücken Sie <keyseq><key>Umschalt</key><key>Strg</key><key>W</key></keyseq>."
+"Натисніть комбінацію клавіш <keyseq><key>Shift</key><key>Ctrl</key><key>W<"
+"/key></keyseq>."
 
 #. (itstool) path: section/p
 #: C/gs-tabs.page:96
@@ -1652,38 +1605,35 @@ msgid ""
 "right corner of the tab or right click on the tab and select <gui style="
 "\"menuitem\">Close Terminal</gui>."
 msgstr ""
-"Alternativ können Sie auf das <gui style=\"button\">×</gui> in der oberen "
-"rechten Ecke eines Reiters klicken, oder mit der rechten Maustaste auf den "
-"Reiter klicken und <gui style=\"menuitem\">Terminal schließen</gui> wählen."
+"Крім того, ви можете натиснути кнопку <gui style=\"button\">×</gui> у"
+" верхньому правому куті вкладки або клацнути правою кнопкою миші на вкладці і"
+" вибрати у контекстному меню пункт <gui style=\"menuitem\">Закрити вкладку<"
+"/gui>."
 
 #. (itstool) path: section/title
 #: C/gs-tabs.page:103
 msgid "Reorder tabs"
-msgstr "Reiter neu anordnen"
+msgstr "Переупорядковування вкладок"
 
 #. (itstool) path: section/p
 #: C/gs-tabs.page:105
 msgid "To change the ordering of tabs in a window:"
-msgstr "So ändern Sie die Reihenfolge von Reitern in einem Fenster:"
+msgstr "Щоб змінити порядок вкладок у вікні:"
 
 #. (itstool) path: item/p
 #: C/gs-tabs.page:108
 msgid "Click and hold the left mouse button on the tab."
-msgstr ""
-"Klicken Sie mit der linken Maustaste auf den Reiter und halten Sie diese "
-"gedrückt."
+msgstr "Натисніть і утримуйте натисненою ліву кнопку миші на вкладці."
 
 #. (itstool) path: item/p
 #: C/gs-tabs.page:111
 msgid "Drag the tab to the desired position among the other tabs."
-msgstr ""
-"Verschieben Sie den Reiter an die gewünschte Position zwischen die anderen "
-"Reiter."
+msgstr "Перетягніть вкладку до потрібної позиції між іншими вкладками."
 
 #. (itstool) path: item/p
 #: C/gs-tabs.page:114
 msgid "Release the mouse button."
-msgstr "Lassen Sie die Maustaste los."
+msgstr "Відпустіть кнопку миші."
 
 #. (itstool) path: section/p
 #: C/gs-tabs.page:118
@@ -1691,8 +1641,8 @@ msgid ""
 "The tab will be placed in the position closest to where you released the "
 "tab, immediately beside other open tabs."
 msgstr ""
-"Der Reiter wird am nächsten zu der Position platziert, wo Sie den Reiter "
-"ablegen, unmittelbar neben anderen geöffneten Reitern."
+"Вкладка розміститься в позиції, найближчій до тієї, де вона була відпущена, "
+"безпосередньо поруч з іншими відкритими вкладками."
 
 #. (itstool) path: section/p
 #: C/gs-tabs.page:121
@@ -1703,24 +1653,24 @@ msgid ""
 "tab to the right. This will reorder the tab position by moving it one place "
 "at a time."
 msgstr ""
-"Alternativ können Sie einen Reiter neu anordnen, indem Sie mit der rechten "
-"Maustaste auf den Reiter klicken und <gui style=\"menuitem\">Terminal nach "
-"links verschieben</gui> wählen, um den Reiter nach links zu verschieben, "
-"oder <gui style=\"menuitem\">Terminal nach rechts verschieben</gui> wählen, "
-"um den Reiter nach rechts zu verschieben. Dadurch wird die Position des "
-"Reiters jeweils um eine Position verschoben."
+"Крім того, ви можете змінити розташування вкладки, клацнувши правою кнопкою"
+" миші на вкладці і вибравши пункт меню <gui style=\"menuitem\">Перенести"
+" вкладку ліворуч</gui>, щоб пересунути вкладку ліворуч, або пункт меню <gui"
+" style=\"menuitem\">Пересунути вкладку праворуч</gui>, щоб пересунути вкладку"
+" праворуч. Так можна змінити позицію вкладки, пересуваючи її на один крок за"
+" раз."
 
 #. (itstool) path: info/title
 #: C/index.page:8
 msgctxt "link"
 msgid "Terminal"
-msgstr "Terminal"
+msgstr "Термінал"
 
 #. (itstool) path: info/title
 #: C/index.page:9
 msgctxt "text"
 msgid "Terminal"
-msgstr "Terminal"
+msgstr "Термінал"
 
 #. (itstool) path: credit/name
 #: C/index.page:22
@@ -1731,53 +1681,52 @@ msgstr "Jim Campbell"
 #: C/index.page:29
 msgid "Set up and use the highly customizable GNOME terminal emulator."
 msgstr ""
-"Den hochgradig anpassbaren GNOME Terminal-Emulator einrichten und "
-"ihn verwenden."
+"Налаштуйте і користуйтеся гнучким у налаштовуванні емулятором термінала GNOME."
 
 #. (itstool) path: page/title
 #: C/index.page:33
 msgid "<_:media-1/> Terminal Help"
-msgstr "<_:media-1/> Terminal-Handbuch"
+msgstr "<_:media-1/> Довідка з «Термінала»"
 
 #. (itstool) path: section/title
 #: C/index.page:40
 msgid "Getting Started"
-msgstr "Erste Schritte"
+msgstr "Початкові зауваження"
 
 #. (itstool) path: section/title
 #: C/index.page:44
 msgid "Working With Text"
-msgstr "Arbeiten mit Text"
+msgstr "Робота з текстом"
 
 #. (itstool) path: section/title
 #: C/index.page:48
 msgid "Customize Appearance"
-msgstr "Erscheinungsbild anpassen"
+msgstr "Налаштовування зовнішнього вигляду"
 
 #. (itstool) path: section/title
 #: C/index.page:52
 msgid "Customize Behavior"
-msgstr "Verhalten anpassen"
+msgstr "Налаштовування поведінки"
 
 #. (itstool) path: section/title
 #: C/index.page:56
 msgid "Advanced Settings"
-msgstr "Erweiterte Einstellungen"
+msgstr "Додаткові параметри"
 
 #. (itstool) path: section/title
 #: C/index.page:60
 msgid "Troubleshooting"
-msgstr "Fehlersuche"
+msgstr "Вирішення проблем"
 
 #. (itstool) path: info/desc
 #: C/introduction.page:29
 msgid "Learn about the GNOME terminal emulator."
-msgstr "Erfahren Sie mehr über den GNOME Terminal-Emulator."
+msgstr "Дізнайтеся більше про емулятор термінала GNOME."
 
 #. (itstool) path: page/title
 #: C/introduction.page:32
 msgid "Introduction"
-msgstr "Einführung"
+msgstr "Вступ"
 
 #. (itstool) path: page/p
 #: C/introduction.page:34
@@ -1785,9 +1734,10 @@ msgid ""
 "<app>Terminal</app> is a terminal emulator application for accessing a UNIX "
 "shell environment which can be used to run programs available on your system."
 msgstr ""
-"<app>Terminal</app> ist ein Terminal-Emulator zum Zugang zu einer UNIX-Shell-"
-"Umgebung, die dazu verwendet wird, um auf Ihrem System vorhandene Programme "
-"auszuführen."
+"<app>Термінал GNOME</app> — програма-емулятор термінала, яку призначено для"
+" доступу до середовища командної оболонки UNIX. Нею можна скористатися для"
+" запускання програм, що доступні на "
+"вашій системі."
 
 #. (itstool) path: page/p
 #: C/introduction.page:38
@@ -1795,18 +1745,18 @@ msgid ""
 "<app>Terminal</app> supports escape sequences that control cursor position "
 "and colors."
 msgstr ""
-"<app>Terminal</app> unterstützt Escape-Sequenzen, welche die Position der "
-"Eingabemarke und Farben steuern."
+"У <app>Терміналі</app> передбачено командні послідовності для керування"
+" позицією курсора та кольорами."
 
 #. (itstool) path: figure/title
 #: C/introduction.page:42
 msgid "GNOME Terminal"
-msgstr "GNOME-Terminal"
+msgstr "Термінал GNOME"
 
 #. (itstool) path: figure/desc
 #: C/introduction.page:43
 msgid "Screenshot of GNOME <app>Terminal</app>"
-msgstr "Bildschirmfoto eines GNOME <app>Terminal</app>s"
+msgstr "Знімок вікна <app>Термінала</app> GNOME"
 
 #. (itstool) path: figure/media
 #. This is a reference to an external file such as an image or video. When
@@ -1814,25 +1764,23 @@ msgstr "Bildschirmfoto eines GNOME <app>Terminal</app>s"
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/introduction.page:44
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/gnome-terminal.png' "
-#| "md5='9d9d04e06438b67ca403f9e56a6d28cc'"
 msgctxt "_"
 msgid ""
 "external ref='figures/gnome-terminal.png' "
 "md5='50826cb88874cf2c3d96ddf0c58d0c05'"
-msgstr "original'"
+msgstr ""
+"external ref='figures/gnome-terminal.png' "
+"md5='50826cb88874cf2c3d96ddf0c58d0c05'"
 
 #. (itstool) path: p/link
 #: C/legal.xml:4
 msgid "Creative Commons Attribution-Share Alike 3.0 Unported License"
-msgstr "Creative Commons Attribution-Share Alike 3.0 Unported License"
+msgstr "ліцензії Creative Commons Attribution-Share Alike 3.0 Unported"
 
 #. (itstool) path: p/link
 #: C/legal.xml:6
 msgid "GNU General Public License version 3"
-msgstr "GNU General Public License version 3"
+msgstr "Загальної громадської ліцензії GNU (GNU GPL) версії 3"
 
 #. (itstool) path: license/p
 #: C/legal.xml:3
@@ -1840,13 +1788,13 @@ msgid ""
 "This work is licensed under a <_:link-1/> and a <_:link-2/>. It may be "
 "redistributed and/or modified under either license."
 msgstr ""
-"Dieses Werk ist lizenziert unter einer <_:link-1/> und einer <_:link-2/>. Es "
-"darf unter beiden Lizenzen weitergegeben und/oder bearbeitet werden."
+"Цю роботу ліцензовано за умов дотримання <_:link-1/> та <_:link-2/>. Ви"
+" можете поширювати її і/або вносити зміни до неї, дотримуючись цих умов."
 
 #. (itstool) path: license/p
 #: C/legal.xml:9
 msgid "GPL 3 statement:"
-msgstr "GPL 3-Satzung:"
+msgstr "Оголошення GPL 3:"
 
 #. (itstool) path: license/p
 #: C/legal.xml:10
@@ -1855,10 +1803,9 @@ msgid ""
 "the terms of the GNU General Public License version 3 as published by the "
 "Free Software Foundation."
 msgstr ""
-"Dieses Programm ist freie Software. Sie können es weitergeben und/oder "
-"verändern, solange Sie sich an die Regeln der »GNU General Public License "
-"Version 3« halten, so wie sie von der Free Software Foundation festgelegt "
-"wurden."
+"Ця робота є вільним програмним забезпеченням; ви можете поширювати та/або "
+"змінювати її за умов дотримання GNU General Public License версії 3, текст "
+"якої оприлюднено Free Software Foundation."
 
 #. (itstool) path: license/p
 #: C/legal.xml:14
@@ -1868,10 +1815,10 @@ msgid ""
 "FOR A PARTICULAR PURPOSE. See the GNU General Public License for more "
 "details."
 msgstr ""
-"Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, dass es Ihnen "
-"von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die "
-"implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN "
-"BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License."
+"Ця робота поширюється з надією, що буде корисною, але БЕЗ БУДЬ_ЯКИХ "
+"ГАРАНТІЙ; навіть без неявної гарантії ПРИДАТНОСТІ ДО ПРОДАЖУ або "
+"ВІДПОВІДНОСТІ ПЕВНІЙ МЕТІ. Докладніше про це дивіться у GNU "
+"General Public License."
 
 #. (itstool) path: license/p
 #: C/legal.xml:19
@@ -1879,18 +1826,19 @@ msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "this program. If not, see http://www.gnu.org/licenses/."
 msgstr ""
-"Sie sollten eine Kopie der GNU General Public License erhalten haben. Wenn "
-"dem nicht so ist, so lesen Sie bitte http://www.gnu.org/licenses/."
+"Ви мали отримати копію GNU General Public License разом з цією програмою."
+" Якщо цього "
+"не сталося, дивіться http://www.gnu.org/licenses/."
 
 #. (itstool) path: info/desc
 #: C/overview.page:21
 msgid "What is a terminal?"
-msgstr "Was ist ein Terminal?"
+msgstr "Що таке термінал?"
 
 #. (itstool) path: page/title
 #: C/overview.page:24
 msgid "Overview of a terminal"
-msgstr "Überblick über ein Terminal"
+msgstr "Огляд термінала"
 
 #. (itstool) path: page/p
 #: C/overview.page:26
@@ -1899,14 +1847,14 @@ msgid ""
 "following terms and their descriptions will help you to be familiar with "
 "<app>Terminal</app> and its capabilities."
 msgstr ""
-"<app>Terminal</app> ist ein Terminal-Programm für <gui>GNOME</gui>. Die "
-"folgenden Begriffe und ihre Erklärungen helfen Ihnen dabei, sich mit "
-"<app>Terminal</app> und seinen Möglichkeiten vertraut zu machen."
+"<app>Термінал</app> є програмою-терміналом для <gui>GNOME</gui>. Наведені"
+" нижче терміни та їхнє визначення допоможуть вам ознайомитися із  <app"
+">Терміналом</app> та його можливостями."
 
 #. (itstool) path: item/title
 #: C/overview.page:32
 msgid "A terminal"
-msgstr "Ein Terminal"
+msgstr "Термінал"
 
 #. (itstool) path: item/p
 #: C/overview.page:33
@@ -1914,13 +1862,13 @@ msgid ""
 "A terminal is a text input point in a computer that is also called the "
 "Command Line Interface (CLI)."
 msgstr ""
-"Ein Terminal ist eine Umgebung zur Texteingabe in einem Rechner, auch "
-"bekannt als Befehlszeileneingabe (CLI)."
+"Термінал — тестова вхідна точка комп'ютера, яку також називають інтерфейсом"
+" командного рядка."
 
 #. (itstool) path: item/title
 #: C/overview.page:37
 msgid "Physical terminals"
-msgstr "Physische Terminals"
+msgstr "Фізичні термінали"
 
 #. (itstool) path: item/p
 #: C/overview.page:38
@@ -1929,14 +1877,14 @@ msgid ""
 "produced as physical devices. To emulate these terminals, there are terminal "
 "emulators."
 msgstr ""
-"IBM 3270, VT100 und viele andere sind Hardware-Terminals, die nicht mehr "
-"produziert werden. Zur Emulation dieser Terminals gibt es Terminal-"
-"Emulatoren."
+"IBM 3270, VT100 та багато інших апаратних терміналів, які вже не виробляють"
+" як фізичні пристрої. Для емуляції цих терміналів призначено програми —"
+" емулятори термінала."
 
 #. (itstool) path: item/title
 #: C/overview.page:43
 msgid "Terminal emulators"
-msgstr "Terminal-Emulatoren"
+msgstr "Емулятори термінала"
 
 #. (itstool) path: item/p
 #: C/overview.page:44
@@ -1944,8 +1892,8 @@ msgid ""
 "Emulation is the ability of a computer program to imitate another program or "
 "device."
 msgstr ""
-"Emulation ist die Fähigkeit eines Computerprogramms, ein anderes Programm "
-"oder Gerät nachzuahmen."
+"Емуляція — здатність комп'ютерної програми імітувати іншу програму або"
+" пристрій."
 
 #. (itstool) path: item/p
 #: C/overview.page:47
@@ -1957,12 +1905,12 @@ msgid ""
 "or on a different one via <app>telnet</app>, <app>ssh</app>, or <app>dial-"
 "up</app>."
 msgstr ""
-"Ein Terminal-Emulator (auch tty genannt) ist ein Programm, das ein Video-"
-"Terminal in modernen Rechnern nachahmt. Sie verwenden grafische "
-"Benutzeroberflächen und bieten interaktiven Zugang zu Anwendungen, die nur "
-"in Befehlszeilen funktionieren. Solche Anwendungen können entweder auf der "
-"selben oder einer anderen Maschine mittels <app>telnet</app>, <app>ssh</app> "
-"oder <app>Wählverbindung</app> laufen."
+"Емулятор термінала, який називають tty, є програмою, яка емулює відеотермінал"
+" на сучасних комп'ютерах, у яких використовується графічний інтерфейс"
+" користувача, та забезпечує інтерактивний доступ до програм, які запускаються"
+" лише у середовищах командного рядка. Ці програми можуть працювати на тому"
+" самому комп'ютері або на іншому комп'ютері через інтерфейси <app>telnet</app"
+">, <app>ssh</app> або <app>комутований інтерфейс</app>."
 
 #. (itstool) path: item/title
 #: C/overview.page:55
@@ -1977,16 +1925,16 @@ msgid ""
 "<app>Terminal</app> is largely based on the <app>VTE</app>. <app>VTE</app> "
 "has widgets that implement a fully functional terminal emulator."
 msgstr ""
-"Virtual Terminal Environment (VTE) ist ein Terminal-Emulator, der ein Text-"
-"Terminal in einer grafischen Benutzeroberfläche (GUI) emuliert. "
-"<app>Terminal</app> basiert größtenteils auf <app>VTE</app>. <app>VTE</app> "
-"hat Widgets, die einen voll funktionsfähigen Terminal-Emulator "
-"implementieren."
+"Віртуальне середовище термінала (Virtual Terminal Environment або VTE) є"
+" емулятором термінала, який емулює текстовий термінал у середовищі графічного"
+" інтерфейсу користувача. <app>Термінал</app> багато у чому засновано на <app"
+">VTE</app>. У <app>VTE</app> є віджети, які реалізують повноцінний емулятор"
+" термінала."
 
 #. (itstool) path: item/title
 #: C/overview.page:63
 msgid "Shell"
-msgstr "Shell"
+msgstr "Оболонка"
 
 #. (itstool) path: item/p
 #: C/overview.page:64
@@ -1996,16 +1944,15 @@ msgid ""
 "to view and browse the contents of directories. Popular shells include "
 "<app>bash</app>, <app>zsh</app>, <app>fish</app>."
 msgstr ""
-"Eine <app>Shell</app> ist ein Programm, dass eine Oberfläche zum Aufrufen "
-"oder »Starten« von Befehlen oder anderen Programmen in einem Terminal "
-"bietet. Sie ermöglicht es außerdem den Inhalt von Ordnern anzusehen und zu "
-"durchsuchen. Beliebte Shells sind unter anderen <app>bash</app>, <app>zsh</"
-"app> und <app>fish</app>."
+"Командна <em>оболонка</em> — програма, яка надає інтерфейс для виклику або"
+" «запуску» команд або іншої програми у терміналі. Ця програма надає вам змогу"
+" переглядати та здійснювати навігацію вмістом каталогів. Популярними"
+" оболонками є <app>bash</app>, <app>zsh</app>, <app>fish</app>."
 
 #. (itstool) path: item/title
 #: C/overview.page:70
 msgid "Escape Sequences"
-msgstr "Escape-Sequenzen"
+msgstr "Керівні послідовності"
 
 #. (itstool) path: item/p
 #: C/overview.page:71
@@ -2016,17 +1963,17 @@ msgid ""
 "to distinguish if data being sent is a command to be executed or information "
 "to be stored and displayed."
 msgstr ""
-"Eine Escape-Sequenz ist eine Reihe von Zeichen, die zum Ändern der Bedeutung "
-"von Daten in einem Terminal dient. Escape-Sequenzen werden eingesetzt, wenn "
-"ein Rechner nur einen einzigen Kanal zum Hin- und Zurücksenden von "
-"Informationen besitzt. Escape-Sequenzen werden genutzt, um zu unterscheiden, "
-"ob gesendete Daten einen Befehl zur Ausführung darstellen oder Informationen "
-"sind, die dargestellt werden sollen."
+"Керівна послідовність — послідовність символів, яку використовують для зміни"
+" значення даних у терміналі. Керівними послідовностями користуються, якщо у"
+" комп'ютера є лише один канал для надсилання інформації на вхід і на вихід."
+" Керівні послідовності використовують для того, щоб визначити, є надіслані"
+" дані командою, яку слід виконати, чи інформацією, яку слід зберегти і"
+" показати."
 
 #. (itstool) path: item/title
 #: C/overview.page:79
 msgid "Prompt"
-msgstr "Eingabeaufforderung"
+msgstr "Запит"
 
 #. (itstool) path: item/p
 #: C/overview.page:80
@@ -2035,9 +1982,9 @@ msgid ""
 "characters used in the command line environment to indicate the readiness of "
 "the shell to accept commands."
 msgstr ""
-"Eine Eingabeaufforderung wird auch <em>Eingabeprompt</em> genannt. Es ist "
-"eine Abfolge aus Zeichen, die in einer Befehlszeilenumgebung verwendet "
-"werden, um die Bereitschaft der Shell zum Annehmen von Befehlen anzuzeigen."
+"Запит також називають <em>командним запитом</em>. Це послідовність символів,"
+" яка використовується у середовищі командного рядка для позначення готовності"
+" оболонки до прийняття команд."
 
 #. (itstool) path: item/p
 #: C/overview.page:84
@@ -2049,18 +1996,17 @@ msgid ""
 "user role such as <sys>$</sys> for user and <sys>#</sys> for superuser (also "
 "called <sys>root</sys>)."
 msgstr ""
-"Eine Eingabeaufforderung endet üblicherweise mit den Zeichen <sys>$</sys>, "
-"<sys>%</sys>, <sys>#</sys> oder <sys>&gt;</sys> und enthält Informationen "
-"zum Pfad des aktuellen Arbeitsordners. Auf Unix-basierten Systemen endet die "
-"Eingabeaufforderung meist mit einem <sys>$</sys> oder <sys>#</sys>, abhängig "
-"von der Benutzerfunktion. Ein <sys>$</sys> steht für den gewöhnlichen "
-"Benutzer und <sys>#</sys> für den Systemverwalter (auch <sys>root</sys>-"
-"Benutzer genannt)."
+"Запит, зазвичай, завершується символом <sys>$</sys>, <sys>%</sys>, <sys>#<"
+"/sys> або <sys>&gt;</sys> і включає відомості щодо шляху до поточного"
+" робочого каталогу. У системах на основі Unix запит типово завершується"
+" символом <sys>$</sys> або <sys>#</sys>, залежно від ролі користувача — <sys"
+">$</sys> для звичайного користувача і <sys>#</sys> для суперкористувача"
+" (якого також називають <sys>root</sys>)."
 
 #. (itstool) path: item/title
 #: C/overview.page:93
 msgid "Command"
-msgstr "Befehl"
+msgstr "Команда"
 
 #. (itstool) path: item/p
 #: C/overview.page:94
@@ -2069,40 +2015,39 @@ msgid ""
 "It is a combination of the program name along with any other additional "
 "parameters passed as flags to alter the execution of the program."
 msgstr ""
-"Eine Eingabe, die in die Eingabeaufforderung eingetippt wird, nennt sich "
-"<em>Befehl</em>. Es ist eine Kombination des Programmnamens zusammen mit "
-"weiteren zusätzlichen Parametern, die als sogenannte Flags übergeben werden, "
-"um die Ausführung des Programms zu beeinflussen."
+"Вхідні дані, які введено на запит і які слід виконати, називають <em"
+">командою</em>. Команда є поєднанням назви програми та будь-яких інших"
+" параметрів, які передаються як прапорці для зміни сценарію роботи програми."
 
 #. (itstool) path: page/title
 #: C/pref.page:18
 msgid "<app>Terminal</app> preferences"
-msgstr "<app>Terminal</app>-Einstellungen"
+msgstr "Налаштування <app>Термінала</app>"
 
 #. (itstool) path: section/title
 #: C/pref.page:21
 msgid "Global Preferences"
-msgstr "Globale Einstellungen"
+msgstr "Загальні налаштування"
 
 #. (itstool) path: section/title
 #: C/pref.page:25
 msgid "Manage Profiles"
-msgstr "Profile verwalten"
+msgstr "Керування профілями"
 
 #. (itstool) path: section/title
 #: C/pref.page:29
 msgid "Profile Preferences"
-msgstr "Profileinstellungen"
+msgstr "Налаштування профілю"
 
 #. (itstool) path: info/desc
 #: C/pref-bell.page:29
 msgid "Enable audible notification in <app>Terminal</app>."
-msgstr "Hörbare Benachrichtigungen in <app>Terminal</app> aktivieren."
+msgstr "Вмикання звукового сповіщення у <app>Терміналі</app>."
 
 #. (itstool) path: page/title
 #: C/pref-bell.page:33
 msgid "Set audible bell"
-msgstr "Hörbare Glocke einstellen"
+msgstr "Встановлення звукового сигналу"
 
 #. (itstool) path: page/p
 #: C/pref-bell.page:35
@@ -2110,18 +2055,18 @@ msgid ""
 "<app>Terminal</app> can sound an audible bell to indicate events in "
 "<app>Terminal</app> windows and tabs."
 msgstr ""
-"<app>Terminal</app> kann eine Glocke erklingen lassen, um Ereignisse in "
-"Fenstern und Reitern von <app>Terminal</app> anzudeuten."
+"<app>Термінал</app> може видавати звук дзвіночка для позначення подій у"
+" вікнах і вкладках <app>Термінала</app>."
 
 #. (itstool) path: page/p
 #: C/pref-bell.page:38
 msgid "To be notified of these events:"
-msgstr "So können Sie über Ereignisse benachrichtigt werden:"
+msgstr "Щоб програма сповіщала вас про ці події, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/pref-bell.page:52
 msgid "Select <gui style=\"checkbox\">Terminal bell</gui>"
-msgstr "Wählen Sie <gui style=\"checkbox\">Terminalglocke</gui>"
+msgstr "Виберіть <gui style=\"checkbox\">Звуковий сигнал термінала</gui>"
 
 #. (itstool) path: note/p
 #: C/pref-bell.page:62
@@ -2129,8 +2074,8 @@ msgid ""
 "To preview the bell sound that your system produces, press "
 "<keyseq><key>Ctrl</key><key>G</key></keyseq>."
 msgstr ""
-"Drücken Sie <keyseq><key>Strg</key><key>G</key></keyseq>, um eine Vorschau "
-"des Glockenklangs zu hören, den Ihr System ausgibt."
+"Щоб прослухати звук дзвіночка, який видає ваша система, натисніть комбінацію"
+" клавіш <keyseq><key>Ctrl</key><key>G</key></keyseq>."
 
 #. (itstool) path: credit/years
 #: C/pref-custom-exit.page:21 C/pref-custom-command.page:22
@@ -2144,13 +2089,13 @@ msgid ""
 "Set the behavior of <app>Terminal</app> when a custom command or the default "
 "shell exits."
 msgstr ""
-"Das Verhalten von <app>Terminal</app> festlegen, wenn ein "
-"benutzerdefinierter Befehl oder die voreingestellte Shell beendet wird."
+"Встановлення поведінки <app>Термінала</app> при завершенні роботи нетипової"
+" команди або типової командної оболонки."
 
 #. (itstool) path: page/title
 #: C/pref-custom-exit.page:35
 msgid "Set behavior on command exit"
-msgstr "Verhalten beim Beenden von Befehlen"
+msgstr "Встановлення поведінки програми при завершення роботи команди"
 
 #. (itstool) path: page/p
 #: C/pref-custom-exit.page:37
@@ -2158,15 +2103,14 @@ msgid ""
 "You can set the terminal to exit, restart or remain open when the shell or a "
 "custom command exits:"
 msgstr ""
-"Sie können festlegen, dass das Terminal beendet, neu gestartet wird oder "
-"offen bleibt, wenn ein benutzerdefinierter Befehl oder eine Shell vorhanden "
-"ist:"
+"Ви можете наказати терміналу завершити роботу, перезапуститися або лишатися"
+" відкритим, якщо оболонка або нетипова команда завершує роботу:"
 
 #. (itstool) path: item/p
 #: C/pref-custom-exit.page:50 C/pref-custom-command.page:56
 #: C/pref-login-shell.page:85
 msgid "Select <gui style=\"tab\">Command</gui>."
-msgstr "Wählen Sie <gui style=\"menu\">Befehl</gui>."
+msgstr "Виберіть <gui style=\"tab\">Команда</gui>."
 
 #. (itstool) path: item/p
 #: C/pref-custom-exit.page:53
@@ -2174,29 +2118,28 @@ msgid ""
 "From the <gui>When command exits</gui> drop down list, select one of the "
 "following options:"
 msgstr ""
-"Wählen Sie aus der Auswahlliste <gui>Wenn Befehl beendet</gui> eine der "
-"folgenden Optionen:"
+"Зі спадного списку <gui>При завершенні команди</gui> виберіть один із таких"
+" варіантів:"
 
 #. (itstool) path: item/p
 #: C/pref-custom-exit.page:57
 msgid "<gui>Exit the terminal</gui>"
-msgstr "<gui>Das Terminal beenden</gui>"
+msgstr "<gui>Вийти з термінала</gui>"
 
 #. (itstool) path: item/p
 #: C/pref-custom-exit.page:60
 msgid "<gui>Restart the command</gui>"
-msgstr "<gui>Den Befehl neu starten</gui>"
+msgstr "<gui>Перезапустити команду</gui>"
 
 #. (itstool) path: item/p
 #: C/pref-custom-exit.page:63
 msgid "<gui>Hold the terminal open</gui>"
-msgstr "<gui>Das Terminal geöffnet halten</gui>"
+msgstr "<gui>Тримати термінал відкритим</gui>"
 
 #. (itstool) path: item/p
 #: C/pref-custom-exit.page:66
 msgid "The setting will be saved automatically when you select it."
-msgstr ""
-"Die Einstellung wird automatisch gespeichert, sobald Sie diese auswählen."
+msgstr "Значення параметр буде збережено автоматично, щойно ви його виберете."
 
 #. (itstool) path: note/p
 #: C/pref-custom-exit.page:71
@@ -2206,24 +2149,23 @@ msgid ""
 "terminal</gui>, and have set the profile to be the default profile, "
 "<app>Terminal</app> may exit before you can see the output of the command."
 msgstr ""
-"Wenn Sie einen <link xref=\"pref-custom-command\">benutzerdefinierten "
-"Befehl</link> festgelegt haben, der nicht-interaktiv ist, und das Verhalten "
-"beim Beenden auf <gui>Das Terminal beenden</gui> eingestellt ist und das "
-"Profil auf das Standard-Profil eingestellt ist, dann könnte <app>Terminal</"
-"app> sich beenden, bevor Sie die Ausgabe des Befehls gesehen haben."
+"Якщо вами <link xref=\"pref-custom-command\">встановлено нетипову команду<"
+"/link>, яка не є інтерактивною, встановлено поведінку при виході <gui>Вийти з"
+" термінала</gui> і визначено відповідний профіль як типовий, <app>Термінал<"
+"/app> може завершити роботу, перш ніж ви побачите виведені командою дані."
 
 #. (itstool) path: info/desc
 #: C/pref-custom-command.page:32
 msgid ""
 "Set <app>Terminal</app> to run a command or a different shell on startup."
 msgstr ""
-"Festlegen, dass <app>Terminal</app> einen Befehl oder eine andere Shell beim "
-"Start ausführt."
+"Налаштовування <app>Термінала</app> на запуск команди або іншої командної"
+" оболонки під час запуску."
 
 #. (itstool) path: page/title
 #: C/pref-custom-command.page:36
 msgid "Custom commands and shells"
-msgstr "Eigene Befehle und Shells"
+msgstr "Нетипові команди і оболонки"
 
 #. (itstool) path: page/p
 #: C/pref-custom-command.page:38
@@ -2233,10 +2175,10 @@ msgid ""
 "<app>top</app> or a command line shell. The default shell is usually "
 "<app>Bash</app>."
 msgstr ""
-"Eine <em>Shell</em> ist eine Software, die eine Schnittstelle für Benutzer "
-"eines Betriebssystems bereitstellt, um <em>Befehle</em> auszuführen, zum "
-"Beispiel Programme wie <app>top</app> oder Befehlszeilen-Shell. Die "
-"Standardshell ist üblicherweise <app>Bash</app>."
+"Командна <em>оболонка</em> — програмне забезпечення, яке надає інтерфейс для"
+" користувачів операційної системи для виконання <em>команд</em>, якими можуть"
+" бути програми, зокрема <app>top</app>, або оболонка командного рядка."
+" Типовою оболонкою, зазвичай є <app>Bash</app>."
 
 #. (itstool) path: page/p
 #: C/pref-custom-command.page:43
@@ -2244,20 +2186,18 @@ msgid ""
 "You can set <app>Terminal</app> to run a command when it starts up instead "
 "of awaiting input from you:"
 msgstr ""
-"Sie können festlegen, dass <app>Terminal</app> beim Programmstart einen "
-"Befehl ausführt, anstatt auf eine Eingabe von Ihnen zu warten:"
+"Ви можете налаштувати <app>Термінал</app> на виконання певної команди при"
+" запуску програми, замість очікування введення команди від вас:"
 
 #. (itstool) path: item/p
 #: C/pref-custom-command.page:59
 msgid "Check <gui>Run a custom command instead of my shell</gui>."
-msgstr ""
-"Wählen Sie <gui>Einen benutzerdefinierten Befehl statt meiner Befehlszeile "
-"starten</gui>."
+msgstr "Позначте пункт <gui>Запускати іншу команду замість оболонки</gui>."
 
 #. (itstool) path: item/p
 #: C/pref-custom-command.page:62
 msgid "In the text box, type the command or the desired shell."
-msgstr "Geben Sie den Befehl oder die gewünschte Shell in das Textfeld ein."
+msgstr "У поле для введення тексту введіть команду або бажану оболонку."
 
 #. (itstool) path: item/p
 #: C/pref-custom-command.page:63
@@ -2266,9 +2206,9 @@ msgid ""
 "including any arguments that you specify. Environment variables will be "
 "inherited from the terminal as it is a child process of the terminal."
 msgstr ""
-"Der Befehl wird genau so an das Terminal übergeben, wie Sie ihn eingeben, "
-"einschließlich der angegebenen Argumente. Umgebungsvariablen werden von dem "
-"Terminal vererbt, da es ein Unterprozess des Terminals ist."
+"Команду буде передано до термінала саме так, як ви її запишете, включно із"
+" усіма аргументами, які ви вкажете. Змінні середовища буде успадковано з"
+" термінала саме так, як вони успадковуються дочірніми процесами термінала."
 
 #. (itstool) path: item/p
 #: C/pref-custom-command.page:68
@@ -2276,9 +2216,8 @@ msgid ""
 "Open a new <app>Terminal</app> tab or window to see how the custom shell or "
 "command executes."
 msgstr ""
-"Öffnen Sie einen neuen Reiter in <app>Terminal</app> oder ein neues Fenster, "
-"um zu sehen, wie eine benutzerdefinierte Shell oder ein Befehl ausgeführt "
-"wird."
+"Відкрийте нову вкладку або вікно <app>Термінала</app>, щоб побачити, як"
+" виконується нетипова оболонка або команда."
 
 #. (itstool) path: page/p
 #: C/pref-custom-command.page:73
@@ -2286,10 +2225,9 @@ msgid ""
 "You can also <link xref=\"pref-custom-exit\">set the behavior</link> of the "
 "terminal once the command finishes executing."
 msgstr ""
-"Sie können auch <link xref=\"pref-custom-exit\">das Verhalten von Terminal "
-"festlegen</link>, sobald der Befehl endet."
+"Ви також можете <link xref=\"pref-custom-exit\">встановити поведінку</link>"
+" термінала у відповідь на завершення виконання команди."
 
-# the full path
 #. (itstool) path: note/p
 #: C/pref-custom-command.page:77
 msgid ""
@@ -2297,19 +2235,19 @@ msgid ""
 "where the command or shell resides is not in the <code>PATH</code> variable "
 "of your system."
 msgstr ""
-"Sie müssen eventuell den vollen Pfad zum Befehl oder der Shell angeben, "
-"falls der Ordner, in dem der Befehl oder die Shell liegt, nicht in der "
-"Variable <code>PATH</code> Ihres Systems enthalten ist."
+"Ймовірно, вам доведеться вказати повний шлях до команди або оболонки, якщо"
+" каталог, у якому зберігається виконуваний файл команди або оболонки, не"
+" записано до змінної <code>PATH</code> вашої операційної системи."
 
 #. (itstool) path: info/desc
 #: C/pref-keyboard-access.page:30
 msgid "Navigate around <app>Terminal</app> menus using keyboard keys."
-msgstr "In den Menüs von <app>Terminal</app> mit der Tastatur arbeiten."
+msgstr "Навігація меню <app>Термінала</app> за допомогою клавіатури."
 
 #. (itstool) path: page/title
 #: C/pref-keyboard-access.page:33
 msgid "Keyboard accessibility"
-msgstr "Barrierefreiheit der Tastatur"
+msgstr "Доступність з клавіатури"
 
 #. (itstool) path: note/p
 #: C/pref-keyboard-access.page:37
@@ -2317,22 +2255,18 @@ msgid ""
 "These keys will only have an effect in windows in which the menubar is set "
 "to be visible."
 msgstr ""
-"Diese Tasten haben nur in Fenstern einen Effekt, in denen die Menüleiste "
-"sichtbar eingestellt ist."
+"Цими комбінаціями клавіш можна буде скористатися лише у вікнах, де смужка"
+" меню є видимою."
 
 #. (itstool) path: note/p
 #: C/pref-keyboard-access.page:39
-#| msgid ""
-#| "Right click in <app>Terminal</app> and select <gui style=\"menuitem"
-#| "\">Show Menubar</gui>."
 msgid ""
 "Right click in the <app>Terminal</app> window and select <gui style="
 "\"checkbox\">Show Menubar</gui> to display the menubar."
 msgstr ""
-"Klicken Sie mit der rechten Maustaste in das <app>Terminal</app>-Fenster und"
-" wählen "
-"Sie <gui style=\"checkbox\">Menüleiste anzeigen</gui>, um die Menüleiste"
-" anzuzeigen."
+"Клацніть правою кнопкою миші у вікні <app>Термінала</app> і виберіть пункт <"
+"gui style=\"checkbox\">Показати панель меню</gui>, щоб програма показала"
+" смужку меню."
 
 #. (itstool) path: page/p
 #: C/pref-keyboard-access.page:43
@@ -2342,15 +2276,15 @@ msgid ""
 "to the first menu in the menubar which is called the <em>menu accelerator "
 "key</em>."
 msgstr ""
-"Sie können in dem Menü von <app>Terminal</app> mit einer Kombination von "
-"Tasten arbeiten, die <em>Mnemonic</em> genannt wird oder mit einer "
-"Sondertaste, welche sofort das erste Menü in der Menüleiste öffnet und "
-"<em>Menü-Tastenkürzel</em> genannt wird."
+"Ви можете здійснювати навігацію у меню <app>Термінала</app> за допомогою"
+" комбінацій клавіш, які називаються <em>мнемонічними</em> або спеціальними"
+" комбінаціями клавіш, які надають вам безпосередній доступ до першого пункту"
+" меню на смужці меню і які називають <em>клавішами-прискорювачами меню</em>."
 
 #. (itstool) path: section/title
 #: C/pref-keyboard-access.page:49
 msgid "Mnemonics"
-msgstr "Mnemonics"
+msgstr "Мнемоніка"
 
 #. (itstool) path: section/p
 #: C/pref-keyboard-access.page:51
@@ -2359,10 +2293,10 @@ msgid ""
 "and a letter of the menu item. The letter that you need to use to access the "
 "menu will be underlined when you hold down the <key>Alt</key>."
 msgstr ""
-"Auf das <app>Terminal</app>-Menü können Sie mit einer Kombination aus "
-"<key>Alt</key> und einem Buchstaben des Menüeintrags zugreifen. Der "
-"Buchstabe für den Zugriff auf das Menü wird unterstrichen, sobald Sie die "
-"Taste <key>Alt</key> gedrückt halten."
+"Доступ до пунктів меню <app>Термінала</app> можна здійснювати поєднанням"
+" клавіші <key>Alt</key> і літери у записів пункту меню. Літеру, якою вам слід"
+" скористатися для доступу до пункту меню, буде підкреслено, коли ви натиснете"
+" і утримуватимете клавішу <key>Alt</key>."
 
 #. (itstool) path: section/p
 #: C/pref-keyboard-access.page:56
@@ -2372,73 +2306,70 @@ msgid ""
 "style=\"menu\">File</gui> menu using <keyseq><key>Alt</key><key>F</key></"
 "keyseq>."
 msgstr ""
-"Zum Beispiel rufen Sie das <gui style=\"menu\">Bearbeiten</gui>-Menü mit "
-"<keyseq><key>Alt</key><key>B</key></keyseq> auf. Ähnlich greifen Sie auf das "
-"<gui style=\"menu\">Datei</gui>-Menü mit <keyseq><key>Alt</key><key>D</key></"
-"keyseq> zu."
+"Наприклад, розгорнути меню <gui style=\"menu\">Зміни</gui> можна за допомогою"
+" комбінації <keyseq><key>Alt</key><key>М</key></keyseq>. Так само, ви можете"
+" розгорнути меню <gui style=\"menu\">Файл</gui> за допомогою комбінації <"
+"keyseq><key>Alt</key><key>Ф</key></keyseq>."
 
 #. (itstool) path: section/p
 #: C/pref-keyboard-access.page:61
 msgid "To enable mnemonics:"
-msgstr "So aktivieren Sie Mnemonics:"
+msgstr "Щоб увімкнути мнемонічні скорочення, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/pref-keyboard-access.page:69 C/pref-keyboard-access.page:91
 #: C/pref-tab-window.page:60
 msgid "In the sidebar, select <gui>General</gui>."
-msgstr "Wählen Sie <gui>Allgemein</gui> in der Seitenleiste."
+msgstr "На бічній панелі виберіть пункт <gui>Загальне</gui>."
 
 #. (itstool) path: item/p
 #: C/pref-keyboard-access.page:72
 msgid "Check <gui style=\"checkbox\">Enable mnemonics</gui>."
-msgstr ""
-"Wählen Sie <gui style=\"checkbox\">Menükürzelbuchstaben aktivieren</gui> aus."
+msgstr "Позначте пункт <gui style=\"checkbox\">Увімкнути мнемоніку</gui>."
 
 #. (itstool) path: section/title
 #: C/pref-keyboard-access.page:79
 msgid "Menu accelerator key"
-msgstr "Menü-Tastenkombination"
+msgstr "Клавіша виклику панелі меню"
 
-# when the
 #. (itstool) path: section/p
 #: C/pref-keyboard-access.page:81
 msgid ""
 "This setting brings up the <gui style=\"menu\">File</gui> menu when the menu "
 "accelerator key is pressed. This key is usually <key>F10</key> by default."
 msgstr ""
-"Diese Einstellung aktiviert das <gui style=\"menu\">Datei</gui>-Menü, sobald "
-"die Menü-Tastenkombination gedrückt wird. Diese Taste ist per Voreinstellung "
-"<key>F10</key>."
+"За допомогою цього пункту можна наказати програмі відкривати меню <gui"
+" style=\"menu\">Файл</gui>, якщо натиснуто клавішу вмикання прискорювачів"
+" меню. Цією клавішею, зазвичай, є клавіша <key>F10</key>."
 
 #. (itstool) path: item/p
 #: C/pref-keyboard-access.page:94
 msgid "Check <gui style=\"checkbox\">Enable the menu accelerator key</gui>."
 msgstr ""
-"Wählen Sie <gui style=\"checkbox\">Menü-Tastenkombination aktivieren</gui> "
-"an."
+"Позначте пункт <gui style=\"checkbox\">Увімкнути акселератор меню</gui>."
 
 #. (itstool) path: info/desc
 #: C/pref-login-shell.page:30
 msgid "Start a login shell in <app>Terminal</app>."
-msgstr "Eine Login-Shell in <app>Terminal</app> starten."
+msgstr "Запуск оболонки входу у <app>Терміналі</app>."
 
 #. (itstool) path: page/title
 #: C/pref-login-shell.page:33
 msgid "Login shells"
-msgstr "Login-Shells"
+msgstr "Оболонки входу"
 
 #. (itstool) path: page/p
 #: C/pref-login-shell.page:35
 msgid ""
 "Shells in UNIX based systems can be started up in login and non-login modes:"
 msgstr ""
-"Shells in UNIX-basierten Systemen können im Anmelde- und Nicht-Anmeldemodus "
-"gestartet werden:"
+"Оболонки у системах на основі UNIX можна запускати у режимі входу або без"
+" входу:"
 
 #. (itstool) path: item/title
 #: C/pref-login-shell.page:40
 msgid "Login shell"
-msgstr "Login-Shell"
+msgstr "Оболонка входу"
 
 #. (itstool) path: item/p
 #: C/pref-login-shell.page:41
@@ -2448,16 +2379,15 @@ msgid ""
 "or placing a dash as the initial character of the command name, for example "
 "invoking <cmd>bash</cmd> as <cmd>-bash</cmd>."
 msgstr ""
-"Eine Login-Shell ist eine Shell, die einem Benutzer nach dessen Anmeldung an "
-"seinem Benutzerkonto zur Verfügung gestellt wird. Dies wird mit den Optionen "
-"<cmd>-l</cmd> oder <cmd>--login</cmd> erreicht, oder durch Voranstellen "
-"eines Bindestrichs vor den Befehlsnamen. Zum Beispiel können Sie die Bash "
-"mit <cmd>-bash</cmd> aufrufen."
+"Оболонка входу є оболонкою, яка надається користувачу під час входу до його"
+" облікового запису. Така оболонка ініціюється використанням параметра <cmd"
+">-l</cmd> або <cmd>--login</cmd> або додаванням мінуса як початкового символу"
+" назви команди, наприклад, викликом <cmd>bash</cmd> у формі <cmd>-bash</cmd>."
 
 #. (itstool) path: item/title
 #: C/pref-login-shell.page:48
 msgid "Sub shell"
-msgstr "Subshell"
+msgstr "Підлегла оболонка"
 
 #. (itstool) path: item/p
 #: C/pref-login-shell.page:49
@@ -2466,19 +2396,20 @@ msgid ""
 "process without the <cmd>-l</cmd> or <cmd>--login</cmd> option and without "
 "an extra dash before the command name."
 msgstr ""
-"Eine Subshell, auch Nicht-Login-Shell genannt, wird nach dem Anmeldevorgang "
-"ohne die Optionen <cmd>-l</cmd> oder <cmd>--login</cmd> gestartet, und auch "
-"ohne einen zusätzlichen Bindestrich vor dem Befehlsnamen."
+"Підоболонка, яку також називають оболонкою без входу, є оболонкою, яку"
+" запускають після процедури входу до системи, без параметра <cmd>-l</cmd> або"
+" <cmd>--login</cmd> і без додаткового мінуса перед назвою команди."
 
 #. (itstool) path: page/p
 #: C/pref-login-shell.page:55
 msgid "The general cases for having a login shell include:"
-msgstr "Einige grundlegende Anwendungsfälle für eine Login-Shell sind:"
+msgstr ""
+"Загальними випадками, у яких потрібна оболонка з входом, є такі випадки:"
 
 #. (itstool) path: item/p
 #: C/pref-login-shell.page:58
 msgid "Accessing your computer remotely using <app>ssh</app>."
-msgstr "Fernzugriff auf Ihren Rechner mittels <app>ssh</app>."
+msgstr "Доступ до комп'ютера віддалено за допомогою <app>ssh</app>."
 
 #. (itstool) path: item/p
 #: C/pref-login-shell.page:61
@@ -2486,18 +2417,21 @@ msgid ""
 "Simulating an initial login shell with <cmd>bash -l</cmd> or <cmd>sh -l</"
 "cmd>."
 msgstr ""
-"Simulation einer initialen Login-Shell mit <cmd>bash -l</cmd> oder <cmd>sh -"
-"l</cmd>."
+"Імітація початкової оболонки входу за допомогою <cmd>bash -l</cmd> або <cmd"
+">sh -l</"
+"cmd>."
 
 #. (itstool) path: item/p
 #: C/pref-login-shell.page:65
 msgid "Simulating an initial root login shell with <cmd>sudo -i</cmd>."
-msgstr "Simulation einer initialen Root-Login-Shell mit <cmd>sudo -i</cmd>."
+msgstr ""
+"Імітація початкового входу до оболонки від імені адміністратора (root) за"
+" допомогою <cmd>sudo -i</cmd>."
 
 #. (itstool) path: section/title
 #: C/pref-login-shell.page:70
 msgid "Start a login shell"
-msgstr "Eine Login-Shell starten"
+msgstr "Запуск оболонки входу до системи"
 
 #. (itstool) path: section/p
 #: C/pref-login-shell.page:72
@@ -2505,9 +2439,8 @@ msgid ""
 "You can allow <app>Terminal</app> to start a login shell. Your default shell "
 "will be started with a dash character prepended to its name."
 msgstr ""
-"Sie können dem <app>Terminal</app> erlauben eine Login-Shell zu starten. "
-"Ihre voreingestellte Shell wird mit einem dem Namen vorangestellten "
-"Bindestrich gestartet."
+"Ви можете дозволити <app>Терміналу</app> запускати оболонку входу. Вашу"
+" типову командну оболонку буде запущено із мінусом перед її назвою."
 
 #. (itstool) path: item/p
 #: C/pref-login-shell.page:92
@@ -2515,37 +2448,33 @@ msgid ""
 "Under the <gui>Command</gui> label, select <gui style=\"checkbox\">Run "
 "command as a login shell</gui>."
 msgstr ""
-"Wählen Sie im Bereich <gui>Befehl</gui> die Option <gui style=\"checkbox"
-"\">Befehl als Login-Shell starten</gui>."
+"Під міткою <gui>Команда</gui> позначте пункт <gui style=\"checkbox\""
+">Запускати команду як оболонку входу</gui>."
 
 #. (itstool) path: info/desc
 #: C/pref-menubar.page:31
-#| msgid "Hide and restore the menubar."
 msgid "Display and hide the menubar."
-msgstr "Die Menüleiste anzeigen und verbergen."
+msgstr "Показ і приховування смужки меню."
 
 #. (itstool) path: page/title
 #: C/pref-menubar.page:35
 msgid "Menubar visibility"
-msgstr "Sichtbarkeit der Menüleiste"
+msgstr "Видимість смужки меню"
 
 #. (itstool) path: page/p
 #: C/pref-menubar.page:37
-#| msgid ""
-#| "You can enable or disable the menubar as desired. This may be useful if "
-#| "you have limited screen space. To hide the menubar:"
 msgid ""
 "You can enable or disable the menubar as desired. This may be useful if you "
 "have limited screen space."
 msgstr ""
-"Aktivieren oder deaktivieren Sie die Menüleiste nach Wunsch. Dies ist "
-"nützlich, wenn Sie einen kleinen Bildschirm haben."
+"Ви можете, якщо хочете вмикати або вимикати показ смужки меню. Вимикання"
+" показу може бути корисним, якщо ви маєте справу із доволі обмеженим"
+" простором на екрані."
 
 #. (itstool) path: page/p
 #: C/pref-menubar.page:40
-#| msgid "To restore the menubar:"
 msgid "To display the menubar:"
-msgstr "So zeigen Sie die Menüleiste an:"
+msgstr "Щоб наказати програмі показати смужку меню, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/pref-menubar.page:43
@@ -2553,27 +2482,22 @@ msgid ""
 "Right click in <app>Terminal</app> and select <gui style=\"menuitem\">Show "
 "Menubar</gui>."
 msgstr ""
-"Klicken Sie mit der rechten Maustaste in das <app>Terminal</app> und wählen "
-"Sie <gui style=\"menuitem\">Menüleiste anzeigen</gui>."
+"Клацніть правою кнопкою миші у вікні <app>Термінала</app> і виберіть у"
+" контекстному меню пункт <gui style=\"menuitem\">Показати панель меню</gui>."
 
 #. (itstool) path: page/p
 #: C/pref-menubar.page:48
-#| msgid "To restore the menubar:"
 msgid "To hide the menubar:"
-msgstr "So verbergen Sie die Menüleiste:"
+msgstr "Щоб наказати програмі приховати смужку меню, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/pref-menubar.page:51
-#| msgid ""
-#| "Right click in <app>Terminal</app> and select <gui style=\"menuitem"
-#| "\">Show Menubar</gui>."
 msgid ""
 "Right click in <app>Terminal</app> and deselect <gui style=\"checkbox\">Show "
 "Menubar</gui>."
 msgstr ""
-"Klicken Sie mit der rechten Maustaste in das <app>Terminal</app> und"
-" deaktivieren "
-"Sie <gui style=\"checkbox\">Menüleiste anzeigen</gui>."
+"Клацніть правою кнопкою миші у вікні <app>Термінала</app> і зніміть позначку"
+" з пункту <gui style=\"checkbox\">Показати панель меню</gui>."
 
 #. (itstool) path: note/p
 #: C/pref-menubar.page:71
@@ -2581,18 +2505,18 @@ msgid ""
 "You can <link xref=\"adv-keyboard-shortcuts\">set a keyboard shortcut</link> "
 "to show and hide the menubar."
 msgstr ""
-"Sie können <link xref=\"adv-keyboard-shortcuts\">eine Tastenkombination "
-"hinzufügen</link>, um die Menüleiste anzuzeigen oder zu verbergen."
+"Ви можете <link xref=\"adv-keyboard-shortcuts\">налаштувати клавіатурне"
+" скорочення</link> для показу і приховування смужки меню."
 
 #. (itstool) path: info/desc
 #: C/pref-profiles.page:29
 msgid "Create, rename and delete profiles."
-msgstr "Erstellen, umbenennen und Löschen von Profilen."
+msgstr "Створення, перейменовування та вилучення профілів."
 
 #. (itstool) path: page/title
 #: C/pref-profiles.page:32
 msgid "Manage profiles"
-msgstr "Verwalten von Profilen"
+msgstr "Керування профілями"
 
 #. (itstool) path: page/p
 #: C/pref-profiles.page:40
@@ -2603,28 +2527,27 @@ msgid ""
 "shell</link>, set a profile exclusively to connect to remote computers using "
 "SSH or set a profile that launches a <app>GNU Screen</app> session."
 msgstr ""
-"Ein Profil ist eine Sammlung von <app>Terminal</app>-Einstellungen. "
-"<app>Terminal</app> unterstützt mehrere Profile. Sie können <app>Terminal</"
-"app>-Profile so einrichten, dass ein <link xref=\"pref-custom-command"
-"\">benutzerdefinierter Befehl oder Shell</link> ausgeführt wird, ein Profil "
-"exklusiv für eine Verbindung zu einem entfernten Rechner mittels SSH "
-"eingerichtet wird, oder ein Profil eine <app>GNU Screen</app>-Sitzung "
-"startet."
+"Профіль є збіркою параметрів <app>Термінала</app>. У <app>Терміналі</app>"
+" передбачено підтримку декількох профілів. Ви можете налаштувати профіль <app"
+">Термінала</app> для <link xref=\"pref-custom-command\">запуску нетипової"
+" команди або оболонки</link>, визначити профіль, який буде призначено"
+" виключно для з'єднання із віддаленими комп'ютерами за допомогою SSH, або"
+" визначити профіль, який запускатиме сеанс <app>GNU Screen</app>."
 
 #. (itstool) path: page/p
 #: C/pref-profiles.page:47
 msgid "The available <app>Terminal</app> settings include:"
-msgstr "Verfügbare <app>Terminal</app>-Einstellungen sind unter Anderen:"
+msgstr "Серед доступних параметрів <app>Термінала</app> такі:"
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:51
 msgid "Profile name."
-msgstr "Profilname."
+msgstr "Назва профілю."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:54
 msgid "Font and background colors."
-msgstr "Schriftart und Hintergrundfarben."
+msgstr "Кольори шрифту і тла."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:57
@@ -2632,18 +2555,18 @@ msgid ""
 "<gui style=\"tab\">Compatibility</gui> with <key>Backspace</key> and "
 "<key>Delete</key> keys."
 msgstr ""
-"<gui style=\"tab\">Kompatibilität</gui> mit der <key>Rücktaste</key> und der "
-"<key>Löschen</key>-Taste."
+"<gui style=\"tab\">Сумісність</gui> із клавішами <key>Backspace</key> і <key"
+">Delete</key>."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:61
 msgid "<gui style=\"tab\">Scrolling</gui>."
-msgstr "<gui style=\"tab\">Bildlauf</gui>."
+msgstr "<gui style=\"tab\">Прокручування</gui>."
 
 #. (itstool) path: section/title
 #: C/pref-profiles.page:66
 msgid "Select a profile"
-msgstr "Wählen Sie ein Profil"
+msgstr "Вибір профілю"
 
 #. (itstool) path: section/p
 #: C/pref-profiles.page:68
@@ -2653,23 +2576,23 @@ msgid ""
 "<guiseq><gui style=\"menu\">Terminal</gui> <gui style=\"menuitem\">Change "
 "Profile</gui></guiseq>."
 msgstr ""
-"Sofern Sie mehrere Profile definiert haben wechseln Sie das Profil ihres "
-"aktuellen <app>Terminal</app>-Reiters oder -Fensters, indem Sie ein Profil "
-"unter <guiseq><gui style=\"menu\">Terminal</gui><gui style=\"menuitem"
-"\">Profil wechseln</gui></guiseq> auswählen."
+"Якщо у вас визначено два або більше профілів, ви можете змінити профіль у"
+" вашій поточній вкладці або поточному вікні <app>Термінала</app>, вибравши"
+" його з зі списку <guiseq><gui style=\"menu\">Термінал</gui> <gui"
+" style=\"menuitem\">Змінити профіль</gui></guiseq>."
 
 #. (itstool) path: section/title
 #: C/pref-profiles.page:76
 msgid "Create a new profile"
-msgstr "Ein neues Profil anlegen"
+msgstr "Створити профіль"
 
 #. (itstool) path: section/p
 #: C/pref-profiles.page:78
 msgid ""
 "To create a new profile with the default settings of <app>Terminal</app>:"
 msgstr ""
-"So legen Sie ein neues Profil mit den Vorgabeeinstellungen von "
-"<app>Terminal</app> an:"
+"Щоб створити профіль із типовими параметрами <app>Термінала</app>, виконайте"
+" такі дії:"
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:83 C/pref-profiles.page:112 C/pref-profiles.page:162
@@ -2678,8 +2601,8 @@ msgid ""
 "Select <guiseq><gui style=\"menu\">Edit</gui> <gui style=\"menuitem"
 "\">Preferences</gui></guiseq>."
 msgstr ""
-"Wählen Sie <guiseq><gui style=\"menu\">Bearbeiten</gui><gui style=\"menuitem"
-"\">Einstellungen</gui></guiseq>."
+"Виберіть пункт меню <guiseq><gui style=\"menu\">Зміни</gui> <gui"
+" style=\"menuitem\">Параметри</gui></guiseq>."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:87
@@ -2687,22 +2610,19 @@ msgid ""
 "In the sidebar, click on the <gui style=\"button\">+</gui> button next to "
 "the <gui>Profiles</gui> label."
 msgstr ""
-"Klicken Sie in der Seitenleiste auf den Knopf <gui style=\"button\">+</gui> "
-"neben der Beschriftung <gui>Profile</gui>."
+"На бічній панелі натисніть кнопку <gui style=\"button\">+</gui> поряд із"
+" міткою <gui>Профілі</gui>."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:91 C/pref-profiles.page:126
 msgid "Enter a name for the new profile. You can change this name later."
-msgstr ""
-"Geben Sie den Namen des neuen Profils ein. Sie können den Namen später "
-"ändern."
+msgstr "Введіть назву нового профілю. Згодом ви можете змінити цю назву."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:94
 msgid "Click <gui style=\"button\">Create</gui> to create the new profile."
 msgstr ""
-"Klicken Sie auf <gui style=\"button\">Anlegen</gui>, um das neue Profil zu "
-"erstellen."
+"Натисніть кнопку <gui style=\"button\">Створити</gui>, щоб створити профіль."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:97 C/pref-profiles.page:132
@@ -2710,47 +2630,45 @@ msgid ""
 "Set your desired <link xref=\"#edit-profile\">profile preferences</link>. "
 "These will be saved automatically."
 msgstr ""
-"Legen Sie die gewünschten <link xref=\"#edit-profile\">Profileinstellungen</"
-"link> fest. Sie werden dann automatisch gespeichert."
+"Встановіть бажані <link xref=\"#edit-profile\">параметри профілю</link>. Ці"
+" параметри буде збережено автоматично."
 
 #. (itstool) path: section/title
 #: C/pref-profiles.page:105
 msgid "Create a new profile based on an existing profile"
-msgstr "Ein neues Profil basierend auf einem bestehenden Profil anlegen"
+msgstr "Створення профілю на основі наявного профілю"
 
 #. (itstool) path: section/p
 #: C/pref-profiles.page:107
 msgid ""
 "You can create a new profile based on settings from an existing profile:"
 msgstr ""
-"Sie können ein neues Profil basierend auf den Einstellungen eines "
-"bestehenden Profils anlegen:"
+"Ви можете створити профіль на основі параметрів наявного профілю. Ось так:"
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:116
 msgid ""
 "In the sidebar select the profile on which your new profile should be based."
 msgstr ""
-"Wählen Sie in der Seitenleiste das Profil aus, auf dem das neue Profil "
-"basieren soll."
+"На бічній панелі виберіть профіль, на якому буде засновано новий профіль."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:120 C/pref-profiles.page:211 C/pref-profiles.page:240
 #: C/pref-profiles.page:280
 msgid "Click on the arrow next to the profile name."
-msgstr "Klicken Sie auf den Pfeil neben dem Profilnamen."
+msgstr "Натисніть стрілочку, розташовану поруч із назвою профілю."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:123
 msgid "Select <gui style=\"menuitem\">Clone…</gui>."
-msgstr "Wählen Sie <gui style=\"menuitem\">Duplizieren …</gui>."
+msgstr "Виберіть пункт <gui style=\"menuitem\">Клонувати…</gui>."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:129
 msgid "Click <gui style=\"button\">Clone</gui> to create the new profile."
 msgstr ""
-"Klicken Sie auf <gui style=\"button\">Dupliziere</gui>, um das neue Profil "
-"anzulegen."
+"Натисніть кнопку <gui style=\"button\">Клонувати</gui>, щоб створити новий"
+" профіль."
 
 #. (itstool) path: note/p
 #: C/pref-profiles.page:138
@@ -2759,14 +2677,13 @@ msgid ""
 "an existing profile. Any changes to settings will be stored in the new "
 "profile."
 msgstr ""
-"Das Erstellen eines neuen Profils aus einem bestehen Profil beeinflusst "
-"nicht die Einstellungen eines bestehenden Profils. Alle Änderungen der "
-"Einstellungen werden in dem neuen Profil gespeichert."
+"Створення профілю з наявного профілю не змінить параметрів наявного профілю."
+" Усі зміни у параметрах буде збережено у новому профілі."
 
 #. (itstool) path: section/title
 #: C/pref-profiles.page:146
 msgid "Edit a profile"
-msgstr "Ein Profil bearbeiten"
+msgstr "Редагування профілю"
 
 #. (itstool) path: note/p
 #: C/pref-profiles.page:149
@@ -2779,18 +2696,21 @@ msgid ""
 "copy of the default profile</link> then edit the copy to create a custom "
 "profile."
 msgstr ""
-"Wenn das Standard-Profil bearbeitet wird, kann es nicht auf die "
-"ursprünglichen Einstellungen zurückgesetzt werden! Falls Sie kein anderes "
-"<app>Terminal</app>-Profil angelegt haben und das Standard-Profil verändert "
-"wurde, <em>könnte</em> <app>Terminal</app> unbrauchbar werden, falls einige "
-"Einstellungen Probleme verursachen. Es wird empfohlen, dass Sie <link xref="
-"\"#create-profile-from-existing\">eine Kopie des Standard-Profils erstellen</"
-"link> und dann die Kopie zum Erstellen eines angepassten Profils verwenden."
+"Якщо зміни вносяться до типового профілю, його початкові параметри відновити"
+" не вдасться! Якщо вами ще не було створено жодного іншого профілю <app"
+">Термінала</app>, і вами внесено зміни до типового профілю, <app>Термінал<"
+"/app> <em>може</em> стати непридатним до використання, якщо якісь із"
+" параметрів профілю спричинятимуть проблеми у роботі програми. Тому"
+" рекомендуємо вам <link xref=\"#create-profile-from-existing\">створити копію"
+" типового профілю</link>, а потім змінити її з метою створення вашого"
+" нетипового профілю."
 
 #. (itstool) path: section/p
 #: C/pref-profiles.page:158
 msgid "You can make changes to existing profiles. To edit a profile:"
-msgstr "Sie können bestehende Profile anpassen. So bearbeiten Sie ein Profil:"
+msgstr ""
+"Ви можете вносити зміни до наявних профілів. Щоб змінити якийсь із профілів,"
+" виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:166
@@ -2798,14 +2718,13 @@ msgid ""
 "Your current profile is selected in the sidebar. If you wish to edit a "
 "different profile, click on its name."
 msgstr ""
-"Ihr aktuelles Profil ist in der Seitenleiste ausgewählt. Wenn Sie ein "
-"anderes Profil bearbeiten möchten, so klicken Sie auf den entsprechenden "
-"Namen."
+"На бічній панелі буде позначено ваш поточний профіль. Якщо ви хочете"
+" редагувати інший профіль, клацніть на пункті з його назвою."
 
 #. (itstool) path: section/p
 #: C/pref-profiles.page:171
 msgid "Once the desired profile is selected, you can:"
-msgstr "Sobald das gewünschte Profil ausgewählt wurde, können Sie:"
+msgstr "Щойно буде позначено бажаний профіль, ви можете:"
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:175
@@ -2814,9 +2733,9 @@ msgid ""
 "\">cursor shapes</link> and <link xref=\"app-terminal-sizes\"><app>Terminal</"
 "app> size</link>."
 msgstr ""
-"Wählen Sie <link xref=\"app-fonts\">Schrift</link>, <link xref=\"app-cursor"
-"\">Form der Eingabemarke</link> und <link xref=\"app-terminal-sizes"
-"\"><app>Terminal</app>größe</link>."
+"Вибрати <link xref=\"app-fonts\">шрифт</link>, <link xref=\"app-cursor\""
+">форму курсора</link> та <link xref=\"app-terminal-sizes\">розмір <app"
+">Термінала</app></link>."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:180
@@ -2826,10 +2745,10 @@ msgid ""
 "\">custom login shell</link> or change <link xref=\"pref-scrolling"
 "\">scrollbar preferences</link>."
 msgstr ""
-"Passen Sie bei Bedarf das Verhalten von <app>Terminal</app> bei <link xref="
-"\"pref-custom-exit\">Befehlsende</link> an, legen Sie eine <link xref=\"pref-"
-"login-shell\">benutzerdefinierte Login-Shell</link> fest oder ändern Sie die "
-"<link xref=\"pref-scrolling\">Einstellungen der Bildlaufleiste</link>."
+"Ви також можете змінити поведінку <app>Термінала</app> у відповідь на <link"
+" xref=\"pref-custom-exit\">завершення команди</link>, встановити <link"
+" xref=\"pref-login-shell\">нетипову оболонку входу</link> або змінити <link"
+" xref=\"pref-scrolling\">параметри смужки гортання</link>."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:186
@@ -2837,9 +2756,9 @@ msgid ""
 "To change the <app>Terminal</app> background and text colors, see <link xref="
 "\"app-colors\"><app>Terminal</app> color schemes</link>."
 msgstr ""
-"Um den Hintergrund und Textfarben in <app>Terminal</app> zu ändern, lesen "
-"Sie bitte über <link xref=\"app-colors\">Farbschemata in <app>Terminal</"
-"app></link>."
+"Щоб змінити тло <app>Термінала</app> і кольори тексту, ознайомтеся із"
+" документацією щодо <link xref=\"app-colors\">схем кольорів <app>Термінала<"
+"/app></link>."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:190
@@ -2847,65 +2766,67 @@ msgid ""
 "Changes to profile are saved immediately. To return to <app>Terminal</app>, "
 "click <gui style=\"button\">Close</gui>."
 msgstr ""
-"Änderungen werden sofort gespeichert. Klicken Sie auf <gui style=\"button"
-"\">Schließen</gui>, um zu <app>Terminal</app> zurückzukehren."
+"Зміни у профілі будуть зберігатися негайно. Щоб повернутися до вікна <app"
+">Термінала</app>, натисніть кнопку <gui style=\"button\">Закрити</gui>."
 
 #. (itstool) path: section/title
 #: C/pref-profiles.page:198
 msgid "Rename an existing profile"
-msgstr "Ein bestehendes Profil umbenennen"
+msgstr "Перейменовування наявного профілю"
 
 #. (itstool) path: section/p
 #: C/pref-profiles.page:200
 msgid "You can rename existing profiles, including the default profile:"
-msgstr ""
-"Sie können bestehende Profile umbenennen, einschließlich des "
-"voreingestellten Profils:"
+msgstr "Ви можете перейменовувати наявні профілі, зокрема типовий профіль:"
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:208
 msgid "Select the profile you wish to rename."
-msgstr "Wählen Sie das Profil aus, welches Sie umbenennen wollen."
+msgstr "Виберіть пункт профілю, який ви хочете перейменувати."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:214
 msgid "Select <gui style=\"menuitem\">Rename…</gui>."
-msgstr "Wählen Sie <gui style=\"menuitem\">Umbenennen …</gui>."
+msgstr "Виберіть пункт меню <gui style=\"menuitem\">Перейменувати…</gui>."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:217
 msgid "Enter the new profile name."
-msgstr "Geben Sie den Namen für das neue Profil ein."
+msgstr "Введіть нову назву профілю."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:220
 msgid "Click <gui style=\"button\">Rename</gui> to rename."
-msgstr "Klicken Sie zum Umbenennen auf <gui style=\"button\">Umbenennen</gui>."
+msgstr ""
+"Натисніть кнопку <gui style=\"button\">Перейменувати</gui>, щоб завершити"
+" перейменовування."
 
 #. (itstool) path: section/title
 #: C/pref-profiles.page:227
 msgid "Delete a profile"
-msgstr "Ein Profil löschen"
+msgstr "Вилучення профілю"
 
 #. (itstool) path: section/p
 #: C/pref-profiles.page:229
 msgid "To delete a profile:"
-msgstr "So löschen Sie ein Profil:"
+msgstr "Щоб вилучити профіль, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:237
 msgid "Select the profile you wish to delete."
-msgstr "Wählen Sie das zu löschende Profil aus."
+msgstr "Виберіть пункт профілю, який ви хочете вилучити."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:243
 msgid "Select <gui style=\"menuitem\">Delete…</gui>."
-msgstr "Wählen Sie <gui style=\"menuitem\">Löschen …</gui>."
+msgstr "Виберіть пункт меню <gui style=\"menuitem\">Вилучити…</gui>."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:246
 msgid "Click <gui style=\"button\">Delete</gui> to confirm."
-msgstr "Klicken Sie zur Bestätigung auf <gui style=\"button\">Löschen</gui>."
+msgstr ""
+"Натисніть кнопку <gui style=\"button\">Вилучити</gui>, щоб підтвердити"
+" вилучення."
 
 #. (itstool) path: note/p
 #: C/pref-profiles.page:251
@@ -2913,14 +2834,14 @@ msgid ""
 "The default profile cannot be deleted. If you wish to delete that profile, "
 "first set another profile as <link xref=\"#set-default\">default</link>."
 msgstr ""
-"Das voreingestellte Profil kann nicht gelöscht werden. Falls Sie dieses "
-"Profil löschen möchten, legen Sie zunächst ein anderes Profil als <link xref="
-"\"#set-default\">Vorgabe</link> fest."
+"Типовий профіль не можна вилучати. Якщо ви хочете вилучити поточний типовий"
+" профіль, вам слід спочатку зробити інший профіль <link xref=\"#set-default\""
+">типовим</link>."
 
 #. (itstool) path: section/title
 #: C/pref-profiles.page:259
 msgid "Set a default profile"
-msgstr "Ein voreingestelltes Profil festlegen"
+msgstr "Встановлення типового профілю"
 
 #. (itstool) path: section/p
 #: C/pref-profiles.page:261
@@ -2929,10 +2850,9 @@ msgid ""
 "selected another profile. Any changes that you make to the settings will be "
 "stored in the currently selected profile."
 msgstr ""
-"Das voreingestellte Profil wird geladen, sobald ein neues Terminal geöffnet "
-"wird, es sei denn es ist ein anderes Profil ausgewählt. Jegliche Änderungen, "
-"die Sie an den Einstellungen vornehmen, werden in dem aktuell verwendeten "
-"Profil gespeichert."
+"Типовий профіль завантажується, коли відкривається новий термінал, якщо вами"
+" не було вказано іншого профілю для використання. Усі зміни, які буде внесено"
+" до параметрів профілю, буде збережено у поточному вибраному профілі."
 
 #. (itstool) path: section/p
 #: C/pref-profiles.page:265
@@ -2943,27 +2863,27 @@ msgid ""
 "menu entry or keyboard shortcut of <app>Terminal</app> to open a new "
 "terminal, the profile of the existing terminal is used."
 msgstr ""
-"Das voreingestellte Profil wird verwendet, wenn <app>Terminal</app> nicht "
-"anderweitig entscheiden konnte, welches Profil verwendet werden soll. Zum "
-"Beispiel, wenn <app>Terminal</app> neu startet und das erste Terminal-"
-"Fenster öffnet. Wenn Sie im Gegensatz dazu einen Menüeintrag oder ein "
-"Tastenkürzel in <app>Terminal</app> verwenden, um ein neues Terminal zu "
-"öffnen, wird das Profil des bestehenden Terminals übernommen."
+"Типовий профіль буде використано, якщо <app>Термінал</app> не зможе у інший"
+" спосіб визначити, яким профілем слід скористатися. Наприклад, якщо <app"
+">Термінал</app> запущено вперше, і програма відкриває перше вікно термінала."
+" Коли ви скористаєтеся пунктом меню або клавіатурним скороченням <app"
+">Термінал</app>, щоб відкрити новий термінал, буде використано профіль"
+" наявного термінала."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:277
 msgid "Select the profile you wish to set as the default."
-msgstr "Wählen Sie das Profil aus, welches Sie zur Vorgabe machen wollen."
+msgstr "Виберіть пункт профілю, який ви хочете зробити типовим."
 
 #. (itstool) path: item/p
 #: C/pref-profiles.page:283
 msgid "Select <gui style=\"menuitem\">Set as default</gui>."
-msgstr "Wählen Sie <gui style=\"menuitem\">Als Vorgabe festlegen</gui>."
+msgstr "Виберіть <gui style=\"menuitem\">Зробити типовим</gui>."
 
 #. (itstool) path: note/p
 #: C/pref-profiles.page:288
 msgid "The default profile is marked with a check mark symbol."
-msgstr "Das voreingestellte Profil ist mit einem Häkchen-Symbol markiert."
+msgstr "Типовий профіль буде позначено у списку профілів."
 
 #. (itstool) path: credit/years
 #: C/pref-profile-char-width.page:14 C/pref-profile-encoding.page:14
@@ -2974,12 +2894,12 @@ msgstr "2014"
 #. (itstool) path: info/desc
 #: C/pref-profile-char-width.page:24
 msgid "Display ambiguous-width characters as wide instead of narrow."
-msgstr "Zeichen mit mehrdeutiger Breite breit anstatt schmal darstellen."
+msgstr "Показ символів із неоднозначною шириною як широких, а не вузьких"
 
 #. (itstool) path: page/title
 #: C/pref-profile-char-width.page:28
 msgid "Characters look too narrow"
-msgstr "Zeichen sind zu schmal"
+msgstr "Символи виглядають надто вузькими"
 
 #. (itstool) path: page/p
 #: C/pref-profile-char-width.page:30
@@ -2992,42 +2912,36 @@ msgid ""
 "can change your profile preferences to display ambiguous characters as wide, "
 "which can be better if you are reading running prose."
 msgstr ""
-"Einige Zeichen wie z.B. griechische Buchstaben und asiatische Logogramme "
-"können entweder eine oder zwei Zellen in einem Terminal-Fenster belegen. "
-"Diese Zeichen werden oft als <em>mehrdeutige Zeichen</em> bezeichnet. Per "
-"Voreinstellung werden diese Zeichen mit schmaler Breite in <app>Terminal</"
-"app> dargestellt. In einigen Situationen sieht dies besser aus, z.B. bei "
-"ASCII-Kunst, die ein perfektes Layout erfordert. Beim Lesen von Fließtexten "
-"ist eine breite Darstellung der mehrdeutigen Zeichen jedoch häufig besser. "
-"Sie können die Profileinstellungen jederzeit Ihren Bedürfnissen anpassen."
+"Деякі символи, зокрема грецькі літери або азійські логограми можу займати"
+" одну або декілька клітинок у вікні термінала. Ці символи часто називають <em"
+">неоднозначними символами</em>. Типово, ці символи буде показано у <app"
+">Терміналі</app> у вузькому варіанті, який виглядає краще у випадках, коли"
+" важливе ідеальне компонування, зокрема при використанні псевдографіки ASCII."
+" Ви можете змінити параметри вашого профілю так, щоб неоднозначні символи"
+" було показано широкими. Це може бути зручнішим, якщо ви читаєте у терміналі"
+" тексти."
 
 #. (itstool) path: item/p
 #: C/pref-profile-char-width.page:48 C/pref-profile-encoding.page:46
-#| msgid ""
-#| "Open the <gui style=\"tab\">Compatibility</gui> tab and set the character "
-#| "encoding."
 msgid "Open the <gui style=\"tab\">Compatibility</gui> tab."
-msgstr "Öffnen Sie den Reiter <gui style=\"tab\">Kompatibilität</gui>."
+msgstr "Відкрийте вкладку <gui style=\"tab\">Сумісність</gui>."
 
 #. (itstool) path: item/p
 #: C/pref-profile-char-width.page:51
-#| msgid ""
-#| "Open the <gui style=\"tab\">Compatibility</gui> tab and set the ambiguous-"
-#| "width characters to <gui>Wide</gui>."
 msgid "Set <gui>Ambiguous-width characters</gui> to <gui>Wide</gui>."
 msgstr ""
-"Stellen "
-"Sie <gui>Zeichen mit unbekannter Breite</gui> auf <gui>Breit</gui> ein."
+"Встановіть для параметра <gui>Символи з нечіткою шириною</gui> значення <gui"
+">Широкий</gui>."
 
 #. (itstool) path: info/desc
 #: C/pref-profile-encoding.page:24
 msgid "Set a different encoding for each saved profile."
-msgstr "Eine andere Kodierung für jedes gespeicherte Profil einstellen."
+msgstr "Встановлення іншого кодування для кожного збереженого профілю."
 
 #. (itstool) path: page/title
 #: C/pref-profile-encoding.page:28
 msgid "Change profile character encoding"
-msgstr "Die Zeichenkodierung im Profil ändern"
+msgstr "Зміна кодування символів профілю"
 
 #. (itstool) path: page/p
 #: C/pref-profile-encoding.page:30
@@ -3037,16 +2951,16 @@ msgid ""
 "different character encoding for a specific task, you can <link xref=\"pref-"
 "profiles#new-profile\">create a new profile</link> with a different encoding."
 msgstr ""
-"Sie sollten normalerweise die Standard-Kodierung UTF-8 für alle Tätigkeiten "
-"verwenden können. Wen Sie dennoch regelmäßig eine andere Zeichenkodierung "
-"für eine spezielle Aufgabe brauchen, so können Sie <link xref=\"pref-"
-"profiles#new-profile\">ein neues Profil anlegen</link> mit anderer Kodierung."
+"Зазвичай, у вас має бути можливість скористатися типовим кодуванням UTF-8 для"
+" усіх ваших потреб у терміналі. Якщо у вас виникне потреба скористатися іншим"
+" кодуванням для певного завдання, ви можете <link"
+" xref=\"pref-profiles#new-profile\">створити профіль</link> із іншим"
+" кодуванням."
 
 #. (itstool) path: item/p
 #: C/pref-profile-encoding.page:49
-#| msgid "Change the character encoding"
 msgid "Set the character encoding."
-msgstr "Legen Sie die Zeichenkodierung fest."
+msgstr "Встановіть кодування символів."
 
 #. (itstool) path: note/p
 #: C/pref-profile-encoding.page:54
@@ -3054,18 +2968,18 @@ msgid ""
 "Most modern operating systems now support and use UTF-8 character encoding "
 "by default."
 msgstr ""
-"Die meisten modernen Betriebssysteme unterstützen und verwenden von Haus aus "
-"die UTF-8-Zeichenkodierung."
+"У більшості сучасних операційних системи передбачено підтримку і використання"
+" типового кодування символів UTF-8."
 
 #. (itstool) path: info/desc
 #: C/pref-scrolling.page:25
 msgid "Change the scroll output and scrollbar behavior."
-msgstr "Die Ausgabe bei Bildlauf und das Verhalten der Bildlaufleiste ändern."
+msgstr "Зміна виведення до буфера гортання та поведінки смужки гортання."
 
 #. (itstool) path: page/title
 #: C/pref-scrolling.page:28
 msgid "Scrollbar preferences"
-msgstr "Einstellungen für die Bildlaufleiste"
+msgstr "Параметри смужки гортання"
 
 #. (itstool) path: page/p
 #: C/pref-scrolling.page:30
@@ -3074,40 +2988,39 @@ msgid ""
 "to have your terminal behave in a specific manner so that it is easier to "
 "work with."
 msgstr ""
-"Wenn sehr viele Ausgaben in Ihrem Terminal erscheinen, so kann es hilfreich "
-"sein, dass Ihr Terminal auf eine bestimmte Art und Weise arbeitet und Ihre "
-"Arbeit erleichtert."
+"Якщо до термінала виводиться багато інформації, може бути корисним зробити"
+" так, щоб термінал поводився у найзручніший для роботи спосіб."
 
 #. (itstool) path: section/title
 #: C/pref-scrolling.page:35
 msgid "Scrollbar visibility"
-msgstr "Sichtbarkeit der Bildlaufleiste"
+msgstr "Видимість смужки гортання"
 
 #. (itstool) path: section/p
 #: C/pref-scrolling.page:37
 msgid "You can disable the scrollbar:"
-msgstr "Sie können die Bildlaufleiste abschalten:"
+msgstr "Ви можете вимкнути смужку гортання так:"
 
 #. (itstool) path: item/p
 #: C/pref-scrolling.page:49 C/pref-scrolling.page:76 C/pref-scrolling.page:101
 #: C/pref-scrolling.page:125 C/pref-scrolling.page:149
 msgid "Select <gui style=\"tab\">Scrolling</gui>."
-msgstr "Wählen Sie <gui style=\"tab\">Bildlauf</gui>."
+msgstr "Виберіть <gui style=\"tab\">Прокручування</gui>."
 
 #. (itstool) path: item/p
 #: C/pref-scrolling.page:52
 msgid "Uncheck <gui>Show scrollbar</gui>."
-msgstr "Wählen Sie <gui>Bildlaufleiste anzeigen</gui> ab."
+msgstr "Зніміть позначку з пункту <gui>Показувати смужку прокручування</gui>."
 
 #. (itstool) path: section/p
 #: C/pref-scrolling.page:56
 msgid "Your preference is saved immediately."
-msgstr "Ihre Einstellungen werden sofort gespeichert."
+msgstr "Внесені вами зміни буде негайно збережено."
 
 #. (itstool) path: section/title
 #: C/pref-scrolling.page:61
 msgid "Scroll on output"
-msgstr "Bildlauf bei Ausgabe"
+msgstr "Гортання виведених даних"
 
 #. (itstool) path: section/p
 #: C/pref-scrolling.page:63
@@ -3115,19 +3028,18 @@ msgid ""
 "You can lock scrolling so that it always shows the newest output while a "
 "command executes and produces output."
 msgstr ""
-"Sie können den Bildlauf sperren, damit immer die neuesten Ausgaben "
-"dargestellt werden, während ein Befehl ausgeführt wird und eine Ausgabe "
-"erfolgt."
+"Ви можете заблокувати гортання так, щоб термінал завжди показував найсвіжіші"
+" виведені дані, доки виконується команда, яка виводить дані до термінала."
 
 #. (itstool) path: item/p
 #: C/pref-scrolling.page:79
 msgid "Check <gui style=\"checkbox\">Scroll on output</gui>."
-msgstr "Wählen Sie <gui style=\"checkbox\">Bildlauf bei Ausgabe</gui>."
+msgstr "Позначте пункт <gui style=\"checkbox\">Прокручувати при виводі</gui>."
 
 #. (itstool) path: section/title
 #: C/pref-scrolling.page:86
 msgid "Scroll on input"
-msgstr "Bildlauf bei Eingabe"
+msgstr "Гортання введених даних"
 
 #. (itstool) path: section/p
 #: C/pref-scrolling.page:88
@@ -3135,26 +3047,28 @@ msgid ""
 "You can set the terminal to automatically scroll to the bottom of the window "
 "when you input text into the prompt."
 msgstr ""
-"Sie können das Terminal so einstellen, dass automatisch im Fenster nach "
-"unten gesprungen wird, sobald Sie Text in die Eingabeaufforderung eingeben."
+"Ви можете налаштувати термінал на автоматичне гортання до кінця вікна, коли"
+" ви починаєте вводити команду до запиту командного рядка."
 
 #. (itstool) path: item/p
 #: C/pref-scrolling.page:104
 msgid "Check <gui style=\"checkbox\">Scroll on keystroke</gui>."
-msgstr "Wählen Sie <gui style=\"checkbox\">Bildlauf bei Tastendruck</gui>."
+msgstr ""
+"Позначте пункт <gui style=\"checkbox\">Прокручувати при натисканні клавіші<"
+"/gui>."
 
 #. (itstool) path: section/title
 #: C/pref-scrolling.page:110
 msgid "Scrollback lines"
-msgstr "Zeilenspeicher"
+msgstr "Рядків зворотньої прокрутки"
 
 #. (itstool) path: section/p
 #: C/pref-scrolling.page:112
 msgid ""
 "You can limit the number of lines of terminal output which are remembered."
 msgstr ""
-"Sie können die Anzahl der Zeilen beschränken, die in der Terminalausgabe "
-"vorgehalten werden."
+"Ви можете обмежити кількість рядків виведених до термінала даних, які"
+" програма запам'ятовуватиме."
 
 #. (itstool) path: item/p
 #: C/pref-scrolling.page:128
@@ -3162,8 +3076,8 @@ msgid ""
 "Check <gui>Limit scrollback to</gui> and enter a number of lines to limit "
 "scrollback."
 msgstr ""
-"Wählen Sie <gui>Zeilenpuffer limitieren auf</gui> an und geben Sie die "
-"gewünschte Anzahl der Zeilen zur Begrenzung des Bildlaufs ein."
+"Позначте пункт <gui>Обмежити зворотне прокручування до</gui> і введіть"
+" кількість рядків, якою слід обмежити буфер гортання."
 
 #. (itstool) path: item/p
 #: C/pref-scrolling.page:132
@@ -3171,20 +3085,21 @@ msgid ""
 "Optionally, you can click on <gui style=\"button\">+</gui> to increase and "
 "<gui style=\"button\">-</gui> to decrease lines."
 msgstr ""
-"Optional können Sie auf <gui style=\"button\">+</gui> zum Erhöhen und <gui "
-"style=\"button\">-</gui> zum Verringern der Zeilen klicken."
+"Крім того, ви можете натискати <gui style=\"button\">+</gui> для збільшення"
+" кількості рядків і <gui style=\"button\">-</gui> для зменшення кількості"
+" рядків."
 
 #. (itstool) path: section/p
 #: C/pref-scrolling.page:137
 msgid "You can choose to have unlimited scrollback."
-msgstr "Der Zeilenpuffer kann als unbegrenzt eingestellt werden."
+msgstr "Ви можете не обмежувати буфер гортання."
 
 #. (itstool) path: item/p
 #: C/pref-scrolling.page:152
 msgid "Uncheck <gui>Limit scrollback to</gui>."
-msgstr "Wählen Sie <gui>Zeilenpuffer limitieren auf</gui> ab."
+msgstr ""
+"Зніміть позначку з пункту <gui>Обмежити зворотне прокручування до</gui>."
 
-# CHECK »entknüpft«
 #. (itstool) path: note/p
 #: C/pref-scrolling.page:157
 msgid ""
@@ -3194,12 +3109,12 @@ msgid ""
 "such, do not show up in the directory listing. The occupied disk space is "
 "freed up as soon as the corresponding terminal closes."
 msgstr ""
-"Die Pufferdaten werden in komprimierter und verschlüsselter Form auf der "
-"Festplatte im vom System vorgegebenen Ort für temporäre Daten gespeichert "
-"(üblicherweise <file>/tmp</file>). Diese Dateien werden unmittelbar nach "
-"ihrer Erstellung entknüpft und erscheinen als solche nicht als Ordnerinhalt. "
-"Der belegte Plattenplatz wird geräumt, sobald das zugehörige Terminal "
-"geschlossen wird."
+"Дані буфера гортання зберігаються у стиснених та зашифрованих файлах на диску"
+" у загальносистемному типовому каталозі для тимчасових файлів (зазвичай, <"
+"file>/tmp</"
+"file>). Ці файли від'єднуються одразу після створення, і отже, не показуються"
+" у списку файлів каталогів. Зайняте ними місце на диску звільняється одразу"
+" після закриття відповідного термінала."
 
 #. (itstool) path: note/p
 #: C/pref-scrolling.page:166
@@ -3208,9 +3123,9 @@ msgid ""
 "files. If in doubt, monitor disk usage for example with the command <cmd>du /"
 "tmp</cmd>."
 msgstr ""
-"Stellen Sie sicher, dass Sie ausreichend Festplattenspeicher für diese "
-"temporären Dateien besitzen. Überwachen Sie im Zweifelsfall die "
-"Festplattenbelegung mit dem Befehl <cmd>du /tmp</cmd>."
+"Переконайтеся, що на диску достатньо місця для цих тимчасових файлів. Якщо не"
+" можете розібратися із вільним місцем на диску, стежте за використанням"
+" місця, наприклад, за допомогою команди <cmd>du /tmp</cmd>."
 
 #. (itstool) path: note/p
 #: C/pref-scrolling.page:172
@@ -3218,9 +3133,9 @@ msgid ""
 "A giant scrollback buffer makes resizing the terminal window slower. As a "
 "rule of thumb, resizing gets noticeably slow at around 1 million lines."
 msgstr ""
-"Ein sehr großer Puffer verlangsamt die Größenänderung des Terminalfensters "
-"deutlich. Als Faustregel gilt, dass sich die Größenänderung ab einer Million "
-"vorgehaltener Zeilen deutlich bemerkbar macht."
+"Використання гігантського буфера гортання зробить зміну розмірів вікна"
+" термінала повільнішою. Як правило, зміна розмірів стає помітно повільною,"
+" якщо у буфері зберігається більше 1 мільйона рядків."
 
 #. (itstool) path: credit/years
 #: C/pref-tab-window.page:16
@@ -3230,14 +3145,12 @@ msgstr "2014–2015"
 #. (itstool) path: info/desc
 #: C/pref-tab-window.page:26
 msgid "Choose whether to open a new window or a new tab by default."
-msgstr ""
-"Wählen Sie, ob Sie per Vorgabe ein neues Fenster oder einen neuen Reiter "
-"öffnen möchten."
+msgstr "Виберіть, слід типово відкривати нове вікно чи нову вкладку."
 
 #. (itstool) path: page/title
 #: C/pref-tab-window.page:29
 msgid "Windows and tabs"
-msgstr "Fenster und Reiter"
+msgstr "Вікна та вкладки"
 
 #. (itstool) path: note/p
 #: C/pref-tab-window.page:32
@@ -3247,11 +3160,10 @@ msgid ""
 "and neither the <cmd>--tab</cmd> nor the <cmd>--window</cmd> options are "
 "passed."
 msgstr ""
-"Diese Einstellung ist nur anwendbar, wenn die <link xref=\"pref-menubar\""
-">Menüleiste "
-"aktiviert ist</link> oder das <app>Terminal</app> aus einer Befehlszeile"
-" gestartet wurde und als Optionen weder <cmd>--tab</cmd> noch <cmd>--window<"
-"/cmd> übergeben wurden."
+"Цей параметр стосується лише випадків, коли <link xref=\"pref-menubar\""
+">увімкнено показ смужки меню</link>, або якщо <app>Термінал</app> запущено з"
+" командного рядка і не передано параметра <cmd>--tab</cmd> або <cmd>--window<"
+"/cmd>."
 
 #. (itstool) path: page/p
 #: C/pref-tab-window.page:37
@@ -3259,39 +3171,36 @@ msgid ""
 "You can choose whether to open a new tab or a new <app>Terminal</app> window "
 "when you use <gui style=\"menuitem\">New Terminal</gui>."
 msgstr ""
-"Entscheiden Sie, ob ein neuer Reiter oder ein neues <app>Terminal</app>-"
-"Fenster geöffnet werden soll, wenn Sie <gui style=\"menuitem\">Terminal "
-"öffnen</gui> wählen."
+"Ви можете вибрати, відкривати нову вкладку або нове вікно <app>Термінала</app"
+">, коли ви використовуєте пункт меню <gui style=\"menuitem\">Новий термінал<"
+"/gui>."
 
 #. (itstool) path: steps/title
 #: C/pref-tab-window.page:41
 msgid "If the menubar is enabled,"
-msgstr "Bei aktivierter Menüleiste"
+msgstr "Якщо показ смужки меню увімкнено,"
 
 #. (itstool) path: item/p
 #: C/pref-tab-window.page:43
-#| msgid ""
-#| "Select <guiseq><gui style=\"menu\">Edit</gui> <gui style=\"menuitem"
-#| "\">Preferences</gui> <gui style=\"tab\">General</gui></guiseq>."
 msgid ""
 "Select <guiseq><gui style=\"menu\">Edit</gui><gui style=\"menuitem"
 "\">Preferences</gui> <gui style=\"tab\">General</gui></guiseq>."
 msgstr ""
-"Wählen Sie <guiseq><gui style=\"menu\">Bearbeiten</gui> <gui style=\"menuitem"
-"\">Einstellungen</gui> <gui style=\"tab\">Allgemein</gui></guiseq>."
+"Виберіть пункт меню <guiseq><gui style=\"menu\">Зміни</gui> <gui"
+" style=\"menuitem\">Параметри</gui><gui style=\"tab\">Загальне</gui></guiseq>."
 
 #. (itstool) path: item/p
 #: C/pref-tab-window.page:48 C/pref-tab-window.page:63
 msgid ""
 "Set <gui>Open new terminals in:</gui> to <gui>Tab</gui> or <gui>Window</gui>."
 msgstr ""
-"Setzen Sie <gui>Neue Terminals öffnen in:</gui> auf <gui>Reiter</gui> oder "
-"<gui>Fenster</gui>."
+"Встановіть для параметра <gui>Відкрити новий термінал у:</gui> значення <gui"
+">Вкладка</gui> або <gui>Вікно</gui>."
 
 #. (itstool) path: steps/title
 #: C/pref-tab-window.page:54
 msgid "If the menubar is not enabled,"
-msgstr "Falls die Menüleiste nicht aktiviert ist"
+msgstr "Якщо показ смужки меню вимкнено,"
 
 #. (itstool) path: page/p
 #: C/pref-tab-window.page:68
@@ -3303,23 +3212,24 @@ msgid ""
 "key> and then press <gui style=\"menuitem\">New Terminal</gui>, then a new "
 "window will be opened instead."
 msgstr ""
-"Sobald Sie die Einstellung festgelegt haben, können Sie diese mit <key>Strg</"
-"key> umkehren. Wenn Sie zum Beispiel eingestellt haben, dass ein neues "
-"Terminal in einem neuen Reiter geöffnet werden soll, dann öffnet <gui style="
-"\"menuitem\">Neues Terminal</gui> einen neuen Reiter. Wenn Sie andererseits "
-"<key>Strg</key> gedrückt halten und dann <gui style=\"menuitem\">Neues "
-"Terminal</gui> wählen, so wird statt dessen ein neues Fenster geöffnet."
+"Після встановлення пріоритетного значення параметра ви можете скористатися"
+" клавішею <key>Ctrl</key> для інвертування цього значення. Наприклад, якщо"
+" типовим є відкриття термінала у новій вкладці, натискання пункту <gui"
+" style=\"menuitem\">Новий термінал</gui> відкриє нову вкладку. Але якщо ви"
+" утримуватимете натиснутою клавішу <key>Ctrl</key> і натиснете пункт <gui"
+" style=\"menuitem\">Новий термінал</gui>, буде відкрито нове вікно програми."
 
 #. (itstool) path: info/desc
 #: C/pref-user-input.page:18
 msgid "Do not send user input to the application running in the terminal."
 msgstr ""
-"Benutzereingaben nicht an die im Terminal laufende Anwendung übergeben."
+"Заборона надсилання введених користувачем даних до програми, яку запущено у"
+" терміналі."
 
 #. (itstool) path: page/title
 #: C/pref-user-input.page:23
 msgid "Disable user input"
-msgstr "Benutzereingabe deaktivieren"
+msgstr "Вимикання введення користувачем"
 
 #. (itstool) path: page/p
 #: C/pref-user-input.page:25
@@ -3332,37 +3242,31 @@ msgid ""
 "also be able to copy selected text from the terminal, but you will not be "
 "able to paste text into the terminal."
 msgstr ""
-"Benutzereingaben, die im Terminal eingegeben werden und nicht an das aktuell "
-"im Terminal laufende Programm weitergegeben werden sollen, können verhindert "
-"werden. Dadurch kann das Programm ungehindert von Maus- oder "
-"Tastatureingaben ablaufen. Sie können dann trotzdem mit dem Terminal "
-"arbeiten, d.h. mit der Tastatur den Bildlauf aktivieren oder mit der Maus "
-"Text auswählen. Ebenso können Sie Text aus dem Terminal heraus kopieren. "
-"Lediglich Text einfügen können Sie dann nicht mehr."
+"Ви можете заборонити передавання введених користувачем даних до програми, яку"
+" зараз запущено у терміналі. Таким чином можна запобігти впливу на програму"
+" для усіх натискань клавіш, клацань кнопками миші або пересувань вказівника"
+" миші. Попри це, ви зможете взаємодіяти із самим терміналом — гортати текст і"
+" позначати його фрагменти за допомогою миші. Ви також зможете копіювати"
+" позначений текст з термінала, але не зможете вставляти текст до термінала."
 
 #. (itstool) path: page/p
 #: C/pref-user-input.page:33
 msgid "To use the read only mode:"
-msgstr "So verwenden Sie den schreibgeschützten Modus:"
+msgstr "Щоб скористатися режимом лише читання, виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/pref-user-input.page:37
-#| msgid ""
-#| "Right click in the <app>Terminal</app> window or select the <gui style="
-#| "\"menu\">Terminal</gui> menu."
 msgid ""
 "Right click in the <app>Terminal</app> window or press the menu button in "
 "the top-right corner of the window."
 msgstr ""
-"Klicken Sie mit der rechten Maustaste in das <app>Terminal</app>-Fenster "
-"oder klicken Sie auf den Menüknopf in der rechten oberen Ecke des Fensters."
+"Клацніть правою кнопкою миші у вікні <app>Термінала</app> або натисніть"
+" кнопку меню у верхньому правому куті вікна."
 
 #. (itstool) path: item/p
 #: C/pref-user-input.page:41
 msgid "Select <gui style=\"menuitem\">Read-Only</gui> so that it is checked."
-msgstr ""
-"Wählen Sie <gui style=\"menuitem\">Nur lesen</gui> aus, indem Sie es "
-"ankreuzen."
+msgstr "Позначте пункт <gui style=\"menuitem\">Лише читання</gui>."
 
 #. (itstool) path: page/p
 #: C/pref-user-input.page:45
@@ -3370,8 +3274,8 @@ msgid ""
 "You can disable the read only mode by unchecking <gui style=\"menuitem"
 "\">Read-Only</gui>."
 msgstr ""
-"Sie können den schreibgeschützten Modus deaktivieren, indem sie das Kreuz "
-"aus <gui style=\"menuitem\">Nut Lesen</gui> entfernen."
+"Вимкнути режим лише читання можна зняттям позначення з пункту <gui"
+" style=\"menuitem\">Лише читання</gui>."
 
 #. (itstool) path: info/desc
 #: C/prob-reset.page:24
@@ -3379,13 +3283,13 @@ msgid ""
 "How do I recover my <app>Terminal</app> screen when it becomes stuck or has "
 "lot of strange symbols on it?"
 msgstr ""
-"Wie kann ich meinen <app>Terminal</app>-Bildschirm retten, wenn er "
-"eingefroren ist oder viele seltsame Symbole darauf erscheinen?"
+"Як відновити роботу вікна <app>Термінала</app>, якщо виведення зависає або у"
+" виведених даних міститься багато дивних символів?"
 
 #. (itstool) path: page/title
 #: C/prob-reset.page:28
 msgid "Reset your <app>Terminal</app> state"
-msgstr "Das <app>Terminal</app> zurücksetzen"
+msgstr "Скидання стану <app>Термінала</app>"
 
 #. (itstool) path: page/p
 #: C/prob-reset.page:30
@@ -3395,48 +3299,41 @@ msgid ""
 "printed when you press keys. You can recover your <app>Terminal</app> in the "
 "following ways:"
 msgstr ""
-"Nach dem versehentlichen Betrachten einer Nicht-Text-Datei oder dem "
-"Ausführen eines Befehls kann es passieren, dass der Bildschirm von "
-"<app>Terminal</app> nicht mehr reagiert oder bei der Tastatureingabe "
-"seltsame Zeichen ausgegeben werden. Sie können <app>Terminal</app> auf eine "
-"der folgenden Arten wieder retten:"
+"Після помилкового читання нетекстового файла або запуску якоїсь команди може"
+" так статися, що вікно <app>Термінала</app> перестане відповідати на команди"
+" або показуватиме дивні літери у відповідь на натискання клавіш. Відновити"
+" роботу вашого <app>Термінала</app> можна в один з таких способів:"
 
 #. (itstool) path: section/title
 #: C/prob-reset.page:36
 msgid "Reset"
-msgstr "Zurücksetzen"
+msgstr "Скинути"
 
 #. (itstool) path: section/p
 #: C/prob-reset.page:38
 msgid "Reset <app>Terminal</app> screen."
-msgstr "<app>Terminal</app>-Bildschirm zurücksetzen."
+msgstr "Відновити початковий стан вікна <app>Термінала</app>."
 
 #. (itstool) path: item/p
 #: C/prob-reset.page:42
-#| msgid ""
-#| "Highlight the text portions you wish to copy with color and font "
-#| "attributes, then select <guiseq><gui style=\"menu\">Edit</gui> <gui style="
-#| "\"menuitem\">Copy as HTML</gui></guiseq>."
 msgid ""
 "Press the menu button in the top-right corner of the window and select "
 "<guiseq><gui style=\"menuitem\">Advanced</gui><gui style=\"menuitem\">Reset</"
 "gui></guiseq>."
 msgstr ""
-"Klicken Sie auf den Menüknopf in der oberen rechten Ecke des Fensters und"
-" wählen Sie <guiseq><gui style=\"menuitem\">Erweitert</gui><gui"
-" style=\"menuitem\">Zurücksetzen</"
+"Натисніть кнопку меню у верхньому правому куті вікна і виберіть пункт <guiseq"
+"><gui style=\"menuitem\">Додаткове</gui><gui style=\"menuitem\">Скинути</"
 "gui></guiseq>."
 
 #. (itstool) path: item/p
 #: C/prob-reset.page:47 C/prob-reset.page:68
 msgid "To obtain the prompt press <key>Enter</key>."
-msgstr ""
-"Um die Eingabeaufforderung zu erhalten, drücken Sie <key>Eingabe</key>."
+msgstr "Щоб отримати запит, натисніть клавішу <key>Enter</key>."
 
 #. (itstool) path: section/title
 #: C/prob-reset.page:54
 msgid "Reset and Clear"
-msgstr "Zurücksetzen und löschen"
+msgstr "Скинути та очистити"
 
 #. (itstool) path: section/p
 #: C/prob-reset.page:56
@@ -3446,26 +3343,22 @@ msgid ""
 "and the scrollback contents. To <gui style=\"menuitem\">Reset and Clear</"
 "gui> your <app>Terminal</app>:"
 msgstr ""
-"Zusätzlich zum Zurücksetzen Ihres <app>Terminals</app> können Sie mit <gui "
-"style=\"menuitem\">Zurücksetzen und löschen</gui> den sichtbaren "
-"<app>Terminal</app>-Bildschirmbereich und den Zeilenpuffer von sämtlicher "
-"Ausgabe löschen. So führen Sie <gui style=\"menuitem\">Zurücksetzen und "
-"löschen</gui> in Ihrem <app>Terminal</app> aus:"
+"Окрім відновлення початкового стану вашого <app>Термінала</app>, пункт <gui"
+" style=\"menuitem\">Скинути та очистити</gui> спорожняє видиму частину вікна"
+" <app>Термінала</app> і вилучає вміст буфера гортання. Щоб <gui"
+" style=\"menuitem\">Скинути та очистити</gui> ваш <app>Термінал</app>,"
+" виконайте такі дії:"
 
 #. (itstool) path: item/p
 #: C/prob-reset.page:63
-#| msgid ""
-#| "Select <guiseq><gui style=\"menu\">Terminal</gui> <gui style=\"menuitem"
-#| "\">Reset and Clear</gui></guiseq>."
 msgid ""
 "Press the menu button in the top-right corner of the window and select "
 "<guiseq><gui style=\"menuitem\">Advanced</gui><gui style=\"menuitem\">Reset "
 "and Clear</gui></guiseq>."
 msgstr ""
-"Klicken Sie auf den Menüknopf in der oberen rechten Ecke des Fensters und"
-" wählen Sie <guiseq><gui style=\"menuitem\">Erweitert</gui><gui"
-" style=\"menuitem\">Zurücksetzen und leeren</"
-"gui></guiseq>."
+"Натисніть кнопку меню у верхньому правому куті вікна і виберіть пункт <guiseq"
+"><gui style=\"menuitem\">Додаткове</gui><gui style=\"menuitem\">Скинути та"
+" очистити</gui></guiseq>"
 
 #. (itstool) path: note/p
 #: C/prob-reset.page:72
@@ -3473,18 +3366,18 @@ msgid ""
 "<gui>Reset and Clear</gui> provides similar functionality as the terminal "
 "command <cmd>reset</cmd>."
 msgstr ""
-"<gui>Zurücksetzen und löschen</gui> bietet eine Funktion ähnlich zum "
-"Terminal-Befehl <cmd>reset</cmd> (»zurücksetzen«)."
+"<gui>Скинути та очистити</gui> виконує ту саму дію, що і команда термінала <"
+"cmd>reset</cmd>."
 
 #. (itstool) path: info/desc
 #: C/txt-copy-paste.page:29
 msgid "Copy and paste text in <app>Terminal</app>."
-msgstr "Text im <app>Terminal</app> kopieren und einfügen."
+msgstr "Копіювання та вставлення тексту у <app>Терміналі</app>."
 
 #. (itstool) path: page/title
 #: C/txt-copy-paste.page:33
 msgid "Copy and paste"
-msgstr "Kopieren und Einfügen"
+msgstr "Копіювання і вставлення"
 
 #. (itstool) path: page/p
 #: C/txt-copy-paste.page:35
@@ -3492,55 +3385,49 @@ msgid ""
 "You can copy and paste text in <app>Terminal</app> in a similar way to other "
 "applications. However, the keyboard shortcuts differ."
 msgstr ""
-"Sie können Text im <app>Terminal</app> ähnlich wie in anderen Anwendungen "
-"kopieren und einfügen. Die Tastenkombinationen sind jedoch andere."
+"Ви можете скопіювати і вставити текст до <app>Термінала</app> у спосіб, яким"
+" ви типово користуєтеся в інших програмах. Втім, клавіатурні скорочення для"
+" цього є трохи іншими."
 
 #. (itstool) path: item/title
 #: C/txt-copy-paste.page:40
 msgid "<gui>Copy</gui>"
-msgstr "<gui>Kopieren</gui>"
+msgstr "<gui>Копіювати</gui>"
 
 #. (itstool) path: item/p
 #: C/txt-copy-paste.page:41
-#| msgid ""
-#| "Highlight the text portions you wish to copy, then select <guiseq><gui "
-#| "style=\"menu\">Edit</gui> <gui style=\"menuitem\">Copy</gui></guiseq>. "
-#| "Alternatively, you can press <keyseq><key>Shift</key><key>Ctrl</"
-#| "key><key>C</key></keyseq>."
 msgid ""
 "Highlight the text portions you wish to copy, then right click on the text "
 "portion and select <gui style=\"menuitem\">Copy</gui>. Alternatively, you "
 "can press <keyseq><key>Shift</key><key>Ctrl</key><key>C</key></keyseq>."
 msgstr ""
-"Markieren Sie die Textteile, die Sie kopieren "
-"möchten, klicken Sie mit der rechten Maustaste in den Textteil und wählen"
-" dann <gui style=\"menuitem\">Kopieren</gui>. Alternativ können Sie <keyseq><"
-"key>Umschalt</key><key>Strg</key><key>C</key></keyseq> drücken."
+"Позначте фрагмент тексту, який ви хочете скопіювати, потім клацніть правою"
+" кнопкою миші на позначеному фрагменті і виберіть у контекстному меню пункт <"
+"gui style=\"menuitem\">Копіювати</gui>. Крім того, ви можете натиснути"
+" комбінацію клавіш <keyseq><key>Shift</key><key>Ctrl</key><key>C</key><"
+"/keyseq>."
 
 #. (itstool) path: item/title
 #: C/txt-copy-paste.page:47
 msgid "<gui>Copy as HTML</gui>"
-msgstr "<gui>Als HTML kopieren</gui>"
+msgstr "<gui>Копіювати як HTML</gui>"
 
 #. (itstool) path: item/p
 #: C/txt-copy-paste.page:48
-#| msgid ""
-#| "Highlight the text portions you wish to copy with color and font "
-#| "attributes, then select <guiseq><gui style=\"menu\">Edit</gui> <gui style="
-#| "\"menuitem\">Copy as HTML</gui></guiseq>."
 msgid ""
 "Highlight the text portions you wish to copy with color and font attributes, "
 "then right click on the text portion and select <gui style=\"menuitem\">Copy "
 "as HTML</gui>."
 msgstr ""
-"Markieren Sie die Textteile, die Sie farbig und mit Schriftformat kopieren "
-"möchten, klicken Sie mit der rechten Maustaste in den Textteil und wählen"
-" dann <gui style=\"menuitem\">Als HTML kopieren</gui>."
+"Позначте фрагмент тексту, який ви хочете скопіювати із атрибутами кольору і"
+" шрифту, потім клацніть правою кнопкою миші на позначеному фрагменті і"
+" виберіть у контекстному меню пункт <gui style=\"menuitem\">Копіювати як"
+" HTML</gui>."
 
 #. (itstool) path: item/title
 #: C/txt-copy-paste.page:53
 msgid "<gui>Paste</gui>"
-msgstr "<gui>Einfügen</gui>"
+msgstr "<gui>Вставити</gui>"
 
 #. (itstool) path: item/p
 #: C/txt-copy-paste.page:54
@@ -3549,9 +3436,10 @@ msgid ""
 "\">Paste</gui>. Alternatively, you can press <keyseq><key>Shift</"
 "key><key>Ctrl</key><key>V</key></keyseq>."
 msgstr ""
-"Klicken Sie mit der rechten Maustaste ins <app>Terminal</app> und wählen Sie "
-"<gui style=\"menuitem\">Einfügen</gui>. Alternativ können Sie "
-"<keyseq><key>Umschalt</key><key>Strg</key><key>V</key></keyseq> drücken."
+"Клацніть правою кнопкою миші у вікні <app>Термінала</app> і виберіть у"
+" контекстному меню пункт <gui style=\"menuitem\">Вставити</gui>. Крім того,"
+" можете натиснути комбінацію клавіш <keyseq><key>Shift</key><key>Ctrl</key><"
+"key>V</key></keyseq>."
 
 #. (itstool) path: note/p
 #: C/txt-copy-paste.page:62
@@ -3559,19 +3447,18 @@ msgid ""
 "The standard keyboard shortcuts, such as <keyseq><key>Ctrl</key><key>C</"
 "key></keyseq>, cannot be used to copy and paste text."
 msgstr ""
-"Standard-Tastenkombinationen wie beispielsweise <keyseq><key>Strg</"
-"key><key>C</key></keyseq> können nicht zum Kopieren und Einfügen von Text "
-"verwendet werden."
+"Стандартними клавіатурними скороченнями, зокрема <keyseq><key>Ctrl</key><key"
+">C</key></keyseq>, для копіювання і вставлення тексту скористатися не можна."
 
 #. (itstool) path: info/desc
 #: C/txt-links.page:27
 msgid "Open links to web and email addresses."
-msgstr "Verweise auf Web- und E-Mail-Adressen öffnen."
+msgstr "Відкриття посилань на сторінки інтернету та адрес електронної пошти."
 
 #. (itstool) path: page/title
 #: C/txt-links.page:30
 msgid "Hyperlinks and email addresses"
-msgstr "Verweise und E-Mail-Adressen"
+msgstr "Гіперпосилання та адреси електронної пошти"
 
 #. (itstool) path: page/p
 #: C/txt-links.page:32
@@ -3581,10 +3468,11 @@ msgid ""
 "addresses are automatically highlighted when you point your cursor to the "
 "text, indicating that the link can be opened in an application."
 msgstr ""
-"<app>Terminal</app> analysiert die Ausgabe und erkennt automatisch "
-"Textstellen, die Web-Adressen oder E-Mail-Adressen sind. Diese werden "
-"automatisch hervorgehoben, wenn Sie mit dem Mauszeiger über den Text fahren, "
-"um anzuzeigen, dass Sie den Verweis in einer Anwendung öffnen können."
+"<app>Термінал</app> обробляє виведені до термінала дані і автоматично виявляє"
+" фрагменти тексту, які є адресами сторінок інтернету або адресами електронної"
+" пошти. Програма автоматично підсвічує адреси сторінок інтернету та"
+" електронної пошти, коли ви наводите вказівник миші на текст, вказуючи на"
+" тек, що посилання може бути відкрито у відповідній програмі."
 
 #. (itstool) path: page/p
 #: C/txt-links.page:37
@@ -3593,14 +3481,14 @@ msgid ""
 "<output>username@example.com</output> generated as a part of terminal output "
 "by programs such as <app>wget</app> or <app>curl</app>."
 msgstr ""
-"Zum Beispiel könnten Sie <output>http://www.gnome.org</output> oder "
-"<output>username@example.com</output> als Teil der Terminal-Ausgaben eines "
-"Programms wie <app>wget</app> oder <app>curl</app> sehen."
+"Наприклад, ви можете побачити <output>http://www.gnome.org</output> або <"
+"output>username@example.com</output> як частину виведення до термінала"
+" програм, зокрема <app>wget</app> або <app>curl</app>."
 
 #. (itstool) path: section/title
 #: C/txt-links.page:42
 msgid "Open or copy web addresses"
-msgstr "Web-Adressen öffnen oder kopieren"
+msgstr "Відкриття або копіювання вебадрес"
 
 #. (itstool) path: section/p
 #: C/txt-links.page:44
@@ -3608,45 +3496,43 @@ msgid ""
 "Web addresses are also called hyperlinks. They can be copied to the system "
 "clipboard or opened in your preferred web browser."
 msgstr ""
-"Web-Adressen werden auch als Verweise bezeichnet. Sie können in die "
-"Zwischenablage kopiert oder mit Ihrem bevorzugten Web-Browser geöffnet "
-"werden."
+"Вебадреси також називаються гіперпосиланнями. Їх можна скопіювати до буфера"
+" обміну системи або відкрити у типовому веббраузері."
 
 #. (itstool) path: item/p
 #: C/txt-links.page:49
 msgid "Copy a hyperlink:"
-msgstr "So kopieren Sie einen Verweis:"
+msgstr "Копіювання гіперпосилання:"
 
 #. (itstool) path: item/p
 #: C/txt-links.page:52
 msgid "Right click on the link in <app>Terminal</app>."
-msgstr ""
-"Klicken Sie mit der rechten Maustaste auf den Verweis im <app>Terminal</app>."
+msgstr "Клацніть правою кнопкою миші на посиланні у <app>Терміналі</app>."
 
 #. (itstool) path: item/p
 #: C/txt-links.page:55
 msgid "Select <gui style=\"menuitem\">Copy Link</gui>."
-msgstr "Wählen Sie <gui style=\"menuitem\">Verweis kopieren</gui>."
+msgstr "Виберіть пункт <gui style=\"menuitem\">Копіювати посилання</gui>."
 
 #. (itstool) path: item/p
 #: C/txt-links.page:60
 msgid "Open a hyperlink in your web browser:"
-msgstr "So öffnen Sie einen Verweis in Ihrem Web-Browser:"
+msgstr "Відкриття гіперпосилання у вашому браузері:"
 
 #. (itstool) path: item/p
 #: C/txt-links.page:63
 msgid "Right click on the hyperlink."
-msgstr "Klicken Sie mit der rechten Maustaste auf den Verweis."
+msgstr "Клацніть правою кнопкою миші на гіперпосиланні."
 
 #. (itstool) path: item/p
 #: C/txt-links.page:66
 msgid "Select <gui style=\"menuitem\">Open Link</gui>."
-msgstr "Wählen Sie <gui style=\"menuitem\">Verweis öffnen</gui>."
+msgstr "Виберіть <gui style=\"menuitem\">Відкрити посилання</gui>."
 
 #. (itstool) path: section/title
 #: C/txt-links.page:75
 msgid "Email or copy email addresses"
-msgstr "E-Mail-Adressen kopieren oder als Empfänger einer E-Mail verwenden"
+msgstr "Надсилання електронної пошти або копіювання поштових адрес"
 
 #. (itstool) path: section/p
 #: C/txt-links.page:77
@@ -3654,66 +3540,66 @@ msgid ""
 "Email addresses can be copied to the system clipboard or opened in your "
 "preferred email client."
 msgstr ""
-"E-Mail-Adressen können in die Zwischenablage kopiert oder mit Ihrem "
-"bevorzugten E-Mail-Programm geöffnet werden."
+"Адреси електронної пошти можна можна скопіювати до буфера обміну системи або"
+" відкрити у типовому клієнті електронної пошти."
 
 #. (itstool) path: item/p
 #: C/txt-links.page:82
 msgid "Copy an email address:"
-msgstr "So kopieren Sie eine E-Mail-Adresse:"
+msgstr "Копіювання адреси електронної пошти:"
 
 #. (itstool) path: item/p
 #: C/txt-links.page:85
 msgid "Right click on the email address in <app>Terminal</app>."
 msgstr ""
-"Klicken Sie mit der rechten Maustaste auf die E-Mail-Adresse im "
-"<app>Terminal</app>."
+"Клацніть правою кнопкою миші на адресі електронної пошти у <app>Терміналі<"
+"/app>."
 
 #. (itstool) path: item/p
 #: C/txt-links.page:88
 msgid "Select <gui style=\"menuitem\">Copy Mail Address</gui>."
-msgstr "Wählen Sie <gui style=\"menuitem\">E-Mail-Adresse kopieren</gui>."
+msgstr "Виберіть пункт <gui style=\"menuitem\">Копіювати поштову адресу</gui>."
 
 #. (itstool) path: item/p
 #: C/txt-links.page:93
 msgid "Send mail to the email address using your email client:"
 msgstr ""
-"So versenden Sie eine E-Mail an die E-Mail-Adresse mit Ihrem E-Mail-Programm:"
+"Надсилання пошти на адресу за допомогою вашого клієнта електронної пошти:"
 
 #. (itstool) path: item/p
 #: C/txt-links.page:96
 msgid "Right click on the address."
-msgstr "Klicken Sie mit der rechten Maustaste auf die Adresse."
+msgstr "Клацніть правою кнопкою миші на адресі."
 
 #. (itstool) path: item/p
 #: C/txt-links.page:99
 msgid "Select <gui style=\"menuitem\">Send Mail To…</gui>."
-msgstr "Wählen Sie <gui style=\"menuitem\">E-Mail senden an …</gui>."
+msgstr "Виберіть пункт <gui style=\"menuitem\">Надіслати листа…</gui>."
 
 #. (itstool) path: info/desc
 #: C/txt-search.page:29
 msgid "Search the <app>Terminal</app> output."
-msgstr "Die Ausgaben im <app>Terminal</app> durchsuchen."
+msgstr "Пошук у виведених до вікна <app>Термінала</app> даних."
 
 #. (itstool) path: page/title
 #: C/txt-search.page:33
 msgid "Search for text"
-msgstr "Nach Text suchen"
+msgstr "Знайти текст"
 
 #. (itstool) path: page/p
 #: C/txt-search.page:35
 msgid "You can search text in the <app>Terminal</app> output:"
-msgstr "So suchen Sie nach einem Text in der Ausgabe von <app>Terminal</app>:"
+msgstr "Ви можете шукати у виведених до вікна <app>Термінала</app> даних:"
 
 #. (itstool) path: item/p
 #: C/txt-search.page:39
-#| msgid "Press <keyseq><key>Shift</key><key>Ctrl</key><key>T</key></keyseq>."
 msgid ""
 "Press <_:media-1/> in the top-right corner, or press <keyseq><key>Ctrl</"
 "key><key>Shift</key><key>F</key></keyseq>."
 msgstr ""
-"Klicken Sie auf <_:media-1/> in der rechten oberen Ecke oder drücken Sie <"
-"keyseq><key>Umschalt</key><key>Strg</key><key>T</key></keyseq>."
+"Натисніть кнопку <_:media-1/> у верхньому правому куті вікна або натисніть"
+" комбінацію клавіш <keyseq><key>Ctrl</"
+"key><key>Shift</key><key>F</key></keyseq>."
 
 #. (itstool) path: item/p
 #: C/txt-search.page:44
@@ -3721,21 +3607,21 @@ msgid ""
 "Type in the search keyword and press <key>Enter</key> to search backwards. "
 "Alternatively, click on the arrows according to the desired search direction."
 msgstr ""
-"Geben Sie das zu suchende Schlüsselwort ein und drücken Sie die "
-"<key>Eingabetaste</key>, um rückwärts zu suchen. Alternativ können Sie auf "
-"die Pfeile klicken, um die Richtung der Suche anzugeben. "
+"Введіть ключові слова пошуку і натисніть клавішу <key>Enter</key> для пошуку"
+" у зворотному напрямку. Крім того, ви можете натискати кнопки зі стрілками,"
+" відповідно до бажаного напрямку пошуку."
 
 #. (itstool) path: page/p
 #: C/txt-search.page:50
 msgid "You can search using the following options to narrow down your results:"
 msgstr ""
-"Sie können die folgenden Optionen verwenden, um die Suchergebnisse "
-"einzugrenzen:"
+"Ви можете виконувати пошук із використанням вказаних нижче параметрів для"
+" звуження діапазону отриманих результатів:"
 
 #. (itstool) path: item/title
 #: C/txt-search.page:55
 msgid "<gui style=\"checkbox\">Match case</gui>"
-msgstr "<gui style=\"checkbox\">Groß-/Kleinschreibung berücksichtigen</gui>"
+msgstr "<gui style=\"checkbox\">Збігається регістр</gui>"
 
 #. (itstool) path: item/p
 #: C/txt-search.page:56
@@ -3743,13 +3629,14 @@ msgid ""
 "Make the search case sensitive: this restricts results to only those that "
 "match the case of your search keyword."
 msgstr ""
-"Großschreibung berücksichtigen: Suchergebnisse werden auf jene mit "
-"übereinstimmender Groß-/Kleinschreibung eingeschränkt."
+"Врахувати регістр при пошуку: обмежує пошук лише тими рядками, регістр"
+" символів яких збігається із регістром символів у вказаному вами ключовому"
+" слові."
 
 #. (itstool) path: item/title
 #: C/txt-search.page:60
 msgid "<gui style=\"checkbox\">Match entire word only</gui>"
-msgstr "<gui style=\"checkbox\">Nur vollständige Wörter berücksichtigen</gui>"
+msgstr "<gui style=\"checkbox\">Збігається ціле слово</gui>"
 
 #. (itstool) path: item/p
 #: C/txt-search.page:61
@@ -3759,15 +3646,16 @@ msgid ""
 "for “cat”, <app>Terminal</app> will show only results that match this "
 "keyword exactly and omit results such as “bobcat”."
 msgstr ""
-"<app>Terminal</app> sucht nach dem vollständigen Suchbegriff und ignoriert "
-"Ergebnisse mit teilweiser Übereinstimmung. Wenn Sie zum Beispiel nach »Glas« "
-"suchen, so zeigt <app>Terminal</app> nur Ergebnisse an, die exakt mit dem "
-"Suchbegriff übereinstimmen und ignoriert Ergebnisse wie z.B. »Fensterglas«."
+"<app>Термінал</app> шукатиме ключове слово повністю і ігноруватиме"
+" результати, які частково збігаються із вашим ключовим словом. Наприклад,"
+" якщо ви шукали «цвіт», <app>Terminal</app> покаже лише рядки, які містять"
+" лише це ціле слово, і не показуватиме рядки, які містять, наприклад, слово"
+" «дивоцвіт»."
 
 #. (itstool) path: item/title
 #: C/txt-search.page:68
 msgid "<gui style=\"checkbox\">Match as regular expression</gui>"
-msgstr "<gui style=\"checkbox\">Als regulären Ausdruck verarbeiten</gui>"
+msgstr "<gui style=\"checkbox\">Збіг як формальний вираз</gui>"
 
 #. (itstool) path: item/p
 #: C/txt-search.page:69
@@ -3776,16 +3664,14 @@ msgid ""
 "your search keywords. <app>Terminal</app> will display the results that "
 "match these search terms."
 msgstr ""
-"Sie können in Ihrem Suchbegriff Muster mit regulären Ausdrücken verwenden, "
-"die auch als Regex-Muster bekannt sind. <app>Terminal</app> zeigt die "
-"Ergebnisse an, die diesen Suchbegriffen entsprechen."
+"Ви можете скористатися взірцем у формі формального виразу у вашому ключовому"
+" слові для пошуку. <app>Термінал</app> покаже лише результати, які збігаються"
+" із вказаним взірцем."
 
 #. (itstool) path: item/title
 #: C/txt-search.page:74
 msgid "<gui style=\"checkbox\">Wrap around</gui>"
-msgstr ""
-"<gui style=\"checkbox\">Suche beim Erreichen des Endes am Anfang fortsetzen</"
-"gui>"
+msgstr "<gui style=\"checkbox\">Досягнувши кінця, починати спочатку</gui>"
 
 #. (itstool) path: item/p
 #: C/txt-search.page:75
@@ -3793,9 +3679,9 @@ msgid ""
 "<app>Terminal</app> searches from your current location in the scrollback to "
 "the end of available terminal output and then restarts the search."
 msgstr ""
-"<app>Terminal</app> sucht ab der aktuellen Position im Zeilenspeicher bis "
-"zum Ende der verfügbaren Terminalausgabe und beginnt dann die Suche wieder "
-"von oben."
+"<app>Термінал</app> виконує пошук від поточної позиції у буфері гортання до"
+" кінця виведених до термінала даних, а потім циклічно повертається до"
+" поточної позиції."
 
 #. (itstool) path: note/p
 #: C/txt-search.page:82
@@ -3804,9 +3690,10 @@ msgid ""
 "<link xref=\"pref-scrolling#lines\">scrollback lines</link> to a higher "
 "limit to allow <app>Terminal</app> to search further back."
 msgstr ""
-"Wenn Sie mit einer längeren Ausgabe in <app>Terminal</app> rechnen, so "
-"vergrößern Sie den <link xref=\"pref-scrolling#lines\">Zeilenspeicher</"
-"link>, um mit <app>Terminal</app> weiter zurück suchen zu können."
+"Якщо на вас очікує робота зі значним обсягом виведених до вікна <app"
+">Термінала</app> даних, збільште значення максимальної кількості <link"
+" xref=\"pref-scrolling#lines\">рядків у буфері гортання</link>, щоб збільшити"
+" діапазон даних для пошуку у <app>Терміналі</app>."
 
 #. (itstool) path: credit/years
 #: C/txt-select-text.page:20
@@ -3816,12 +3703,12 @@ msgstr "2013, 2015"
 #. (itstool) path: info/desc
 #: C/txt-select-text.page:25
 msgid "Select individual words or lines in the terminal."
-msgstr "Wählen Sie einzelne Worte oder Zeilen im Terminal."
+msgstr "Позначення окремих слів або рядків у терміналі."
 
 #. (itstool) path: page/title
 #: C/txt-select-text.page:29
 msgid "Text selection"
-msgstr "Textauswahl"
+msgstr "Вибір тексту"
 
 #. (itstool) path: page/p
 #: C/txt-select-text.page:31
@@ -3829,33 +3716,33 @@ msgid ""
 "You can select a word or a sentence, or make a rectangular selection from "
 "your terminal output:"
 msgstr ""
-"Sie können ein Wort oder einen Satz in der Terminal-Ausgabe wählen, oder "
-"eine rechteckige Auswahl markieren:"
+"Ви можете позначити слово чи речення або прямокутний блок тексту у даних, які"
+" виведено до термінала:"
 
 #. (itstool) path: item/title
 #: C/txt-select-text.page:36
 msgid "Select a word"
-msgstr "Ein Wort markieren"
+msgstr "Вибір слова"
 
 #. (itstool) path: item/p
 #: C/txt-select-text.page:37
 msgid "Double click on the word."
-msgstr "Klicken Sie zweimal auf das Wort."
+msgstr "Двічі клацніть на слові."
 
 #. (itstool) path: item/title
 #: C/txt-select-text.page:40
 msgid "Select a line"
-msgstr "Eine Zeile markieren"
+msgstr "Вибір рядка"
 
 #. (itstool) path: item/p
 #: C/txt-select-text.page:41
 msgid "Triple click on the line."
-msgstr "Klicken sie dreifach auf die Zeile."
+msgstr "Тричі клацніть на рядку."
 
 #. (itstool) path: item/title
 #: C/txt-select-text.page:44
 msgid "Make a rectangular selection"
-msgstr "Eine rechteckige Auswahl tätigen"
+msgstr "Позначення прямокутного блоку"
 
 #. (itstool) path: item/p
 #: C/txt-select-text.page:45
@@ -3863,8 +3750,8 @@ msgid ""
 "Hold down the <key>Ctrl</key>, click and hold down the left mouse button "
 "then drag the mouse."
 msgstr ""
-"Halten Sie die <key>Strg</key>-Taste gedrückt. Klicken und halten Sie die "
-"linke Maustaste und ziehen Sie die Maus."
+"Натисніть і утримуйте клавішу <key>Ctrl</key>, натисніть і утримуйте ліву"
+" кнопку миші, далі, перетягніть вказівник миші."
 
 #. (itstool) path: note/p
 #: C/txt-select-text.page:51
@@ -3873,259 +3760,7 @@ msgid ""
 "input, you need to use the <key>Shift</key> modifier for the <app>Terminal</"
 "app> to catch the mouse input."
 msgstr ""
-"Wenn Sie im <app>Terminal</app> eine Anwendung starten, die Mauseingaben "
-"annimmt, müssen sie die <key>Umschalt</key>-Taste verwenden, damit das "
-"<app>Terminal</app> die Mauseingabe abfängt."
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">Edit</gui> <gui style=\"menuitem"
-#~ "\">Preferences</gui> <gui style=\"tab\">Shortcuts</gui></guiseq>."
-#~ msgstr ""
-#~ "Wählen Sie <guiseq><gui style=\"menu\">Bearbeiten</gui> <gui style="
-#~ "\"menuitem\">Einstellungen</gui> <gui style=\"tab\">Tastenkombinationen</"
-#~ "gui></guiseq>."
-
-#~ msgid ""
-#~ "The default shortcuts for options under <gui style=\"menu\">File</gui> "
-#~ "menu are:"
-#~ msgstr ""
-#~ "Die voreingestellten Tastenkombinationen im <gui style=\"menu\">Datei</"
-#~ "gui>-Menü sind:"
-
-#~ msgid ""
-#~ "The default shortcuts for options under <gui style=\"menu\">Edit</gui> "
-#~ "menu are:"
-#~ msgstr ""
-#~ "Die voreingestellten Tastenkombinationen für die Optionen im Menü <gui "
-#~ "style=\"menu\">Bearbeiten</gui> sind:"
-
-#~ msgid ""
-#~ "The default shortcuts for options in the <gui style=\"menu\">View</gui> "
-#~ "menu are:"
-#~ msgstr ""
-#~ "Die voreingestellten Tastenkombinationen im <gui style=\"menu\">Ansicht</"
-#~ "gui>-Menü sind:"
-
-#~ msgid "<gui style=\"menu\">Find</gui> shortcuts"
-#~ msgstr "<gui style=\"menu\">Suchen</gui>-Tastenkombinationen"
-
-#~ msgid ""
-#~ "The default shortcuts for options under <gui style=\"menu\">Find</gui> "
-#~ "menu are:"
-#~ msgstr ""
-#~ "Die voreingestellten Tastenkombinationen im <gui style=\"menu\">Suchen</"
-#~ "gui>-Menü sind:"
-
-#~ msgid ""
-#~ "Open <guiseq><gui style=\"menu\">Edit</gui> <gui style=\"menuitem"
-#~ "\">Preferences</gui></guiseq>."
-#~ msgstr ""
-#~ "Wählen Sie <guiseq><gui style=\"menu\">Bearbeiten</gui><gui style="
-#~ "\"menuitem\">Einstellungen</gui></guiseq>."
-
-#~ msgid ""
-#~ "Select <gui style=\"menu\">View</gui> and uncheck <gui style=\"menuitem"
-#~ "\">Full Screen</gui>, or right click and select <gui style=\"menuitem"
-#~ "\">Leave Full Screen</gui>. Alternatively, press <key>F11</key>."
-#~ msgstr ""
-#~ "Wählen Sie <gui style=\"menu\">Ansicht</gui> und wählen Sie <gui style="
-#~ "\"menuitem\">Vollbild</gui> ab, oder klicken Sie mit der rechten "
-#~ "Maustaste und wählen Sie <gui style=\"menuitem\">Vollbild verlassen</"
-#~ "gui>. Drücken Sie alternativ <key>F11</key>."
-
-#~ msgid "Select <gui style=\"menu\">Terminal</gui>."
-#~ msgstr "Wählen Sie <gui style=\"menu\">Terminal</gui>."
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
-#~ "\">Zoom Out</gui></guiseq> or press <keyseq><key>Ctrl</key><key>-</key></"
-#~ "keyseq>."
-#~ msgstr ""
-#~ "Wählen Sie <guiseq><gui style=\"menu\">Ansicht</gui> <gui style=\"menuitem"
-#~ "\">Verkleinern</gui></guiseq> oder drücken Sie <keyseq><key>Strg</"
-#~ "key><key>-</key></keyseq>."
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">View</gui> <gui style=\"menuitem"
-#~ "\">Normal Size</gui></guiseq> or press <keyseq><key>Ctrl</key><key>0</"
-#~ "key></keyseq>."
-#~ msgstr ""
-#~ "Wählen Sie <guiseq><gui style=\"menu\">Ansicht</gui> <gui style=\"menuitem"
-#~ "\">Normale Größe</gui></guiseq> oder drücken Sie <keyseq><key>Strg</"
-#~ "key><key>0</key></keyseq>."
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">File</gui><gui style=\"menuitem"
-#~ "\">Close Tab</gui></guiseq>."
-#~ msgstr ""
-#~ "Wählen Sie <guiseq><gui style=\"menu\">Datei</gui> <gui style=\"menuitem"
-#~ "\">Reiter schließen</gui></guiseq>."
-
-#~ msgid "Change to a different character set."
-#~ msgstr "Auf einen anderen Zeichensatz wechseln."
-
-#~ msgid "Character encoding"
-#~ msgstr "Zeichenkodierung"
-
-#~ msgid ""
-#~ "The default <em>character encoding</em> is usually UTF-8. You may want to "
-#~ "change character encoding in <app>Terminal</app> if you:"
-#~ msgstr ""
-#~ "Die voreingestellte <em>Zeichenkodierung</em> ist normalerweise UTF-8. "
-#~ "Sie sollten eine Änderung der Zeichenkodierung in <app>Terminal</app> in "
-#~ "Betracht ziehen, wenn Sie:"
-
-#~ msgid ""
-#~ "are working with file or directory names that use characters unavailable "
-#~ "in your default encoding."
-#~ msgstr ""
-#~ "mit Datei- oder Ordnernamen arbeiten, die Zeichen verwenden, welche in "
-#~ "Ihrer aktuellen Kodierung nicht verfügbar sind."
-
-#~ msgid ""
-#~ "use an external hard disk that uses different encoding from your system."
-#~ msgstr ""
-#~ "eine externe Festplatte verwenden, die eine andere Kodierung als Ihr "
-#~ "System verwendet."
-
-#~ msgid "connect to a remote computer that uses a different encoding."
-#~ msgstr ""
-#~ "sich mit einem entfernten Rechner verbinden, der eine andere Kodierung "
-#~ "verwendet."
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">Terminal</gui> <gui style=\"menuitem"
-#~ "\">Set Character Encoding</gui></guiseq>."
-#~ msgstr ""
-#~ "Wählen Sie <guiseq><gui style=\"menu\">Terminal</gui> <gui style="
-#~ "\"menuitem\">Zeichenkodierung festlegen</gui></guiseq>."
-
-#~ msgid "Select the desired character encoding."
-#~ msgstr "Wählen Sie die gewünschte Zeichenkodierung."
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">Edit</gui> <gui style=\"menuitem\"> "
-#~ "Preferences</gui> <gui style=\"tab\">General</gui></guiseq>."
-#~ msgstr ""
-#~ "Wählen Sie <guiseq><gui style=\"menu\">Bearbeiten</gui> <gui style="
-#~ "\"menuitem\">Einstellungen</gui> <gui style=\"tab\">Allgemein</gui></"
-#~ "guiseq>."
-
-#~ msgid ""
-#~ "Select <gui style=\"menu\">View</gui> and deselect <gui style=\"menuitem"
-#~ "\">Show Menubar</gui>."
-#~ msgstr ""
-#~ "Wählen Sie <gui style=\"menu\">Ansicht</gui> und wählen Sie <gui style="
-#~ "\"menuitem\">Menüleiste anzeigen</gui> ab."
-
-#~ msgid ""
-#~ "To enable or disable the menubar by default in all <app>Terminal</app> "
-#~ "windows that you open:"
-#~ msgstr ""
-#~ "So aktivieren oder deaktivieren Sie laut Voreinstellung die Menüleiste in "
-#~ "allen <app>Terminal</app>-Fenstern, die Sie öffnen:"
-
-#~ msgid ""
-#~ "Select or deselect <gui>Show menubar by default in new terminals</gui>."
-#~ msgstr ""
-#~ "Wählen Sie <gui>Menüleiste in neuen Terminals per Vorgabe anzeigen</gui> "
-#~ "an oder ab."
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">Edit</gui><gui style=\"menuitem"
-#~ "\">Preferences</gui><gui style=\"tab\">General</gui></guiseq>."
-#~ msgstr ""
-#~ "Wählen Sie <guiseq><gui style=\"menu\">Bearbeiten</gui> <gui style="
-#~ "\"menuitem\">Einstellungen</gui> <gui style=\"tab\">Allgemein</gui></"
-#~ "guiseq>."
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">Terminal</gui><gui style=\"menuitem"
-#~ "\">Reset</gui></guiseq>."
-#~ msgstr ""
-#~ "Wählen Sie <guiseq><gui style=\"menu\">Terminal</gui> <gui style="
-#~ "\"menuitem\">Zurücksetzen</gui></guiseq>."
-
-#~ msgid "Save <app>Terminal</app> output to a file."
-#~ msgstr "Die Ausgaben im <app>Terminal</app> in eine Datei speichern."
-
-#~ msgid "Save contents"
-#~ msgstr "Inhalt speichern"
-
-#~ msgid ""
-#~ "You can save all the output from a <app>Terminal</app> tab or window to a "
-#~ "text file. This may be useful if you have to submit the terminal output "
-#~ "as debugging information."
-#~ msgstr ""
-#~ "Sie können alle Ausgaben eines <app>Terminal</app>-Reiters oder -Fensters "
-#~ "in eine Textdatei speichern. Dies kann nützlich sein, falls Sie die "
-#~ "Terminalausgaben als Fehlerdiagnose-Information einreichen wollen."
-
-#~ msgid "Go to <gui style=\"menu\">File</gui>."
-#~ msgstr "Wählen Sie <gui style=\"menu\">Datei</gui>."
-
-#~ msgid "Select <gui style=\"menuitem\">Save Contents…</gui>."
-#~ msgstr "Wählen Sie <gui style=\"menuitem\">Inhalt speichern …</gui>."
-
-#~ msgid "Choose your desired directory and enter a filename."
-#~ msgstr ""
-#~ "Wählen Sie Ihren gewünschten Ordner aus und geben Sie einen Dateinamen "
-#~ "ein."
-
-#~ msgid "Click <gui style=\"button\">Save</gui>."
-#~ msgstr "Klicken Sie auf <gui style=\"button\">Speichern</gui>."
-
-#~ msgid ""
-#~ "You may optionally input a file extension along with the filename, for "
-#~ "example <input>.txt</input>. This may be useful if you plan to view the "
-#~ "file when using another operating system."
-#~ msgstr ""
-#~ "Sie können bei Bedarf eine Dateiendung zum Dateinamen hinzufügen, zum "
-#~ "Beispiel <input>.txt</input>. Dies kann nützlich sein, falls Sie die "
-#~ "Datei in einem anderen Betriebssystem betrachten wollen."
-
-#~ msgid ""
-#~ "Select <guiseq><gui style=\"menu\">Search</gui> <gui style=\"menuitem"
-#~ "\">Find…</gui></guiseq>."
-#~ msgstr ""
-#~ "Wählen Sie <guiseq><gui style=\"menu\">Suchen</gui><gui style=\"menuitem"
-#~ "\">Suchen …</gui></guiseq>."
-
-#~ msgid "Move a tab to another <app>Terminal</app> window"
-#~ msgstr ""
-#~ "Einen Reiter in ein anderes <app>Terminal</app>-Fensters verschieben"
-
-#~ msgid "If you want to move a tab from one window to another:"
-#~ msgstr ""
-#~ "So verschieben Sie einen Reiter von einem Fenster in ein anderes Fenster:"
-
-#~ msgid "Drag the tab to the new window."
-#~ msgstr "Ziehen Sie den Reiter in ein neues Fenster."
-
-#~ msgid "Place it beside other tabs in the new window."
-#~ msgstr "Setzen Sie ihn neben andere Reiter im neuen Fenster."
-
-#~ msgid ""
-#~ "You can move a tab from one window to another by dragging the tab to the "
-#~ "<gui>Activities</gui> hot-corner of the <gui>GNOME Shell</gui>. This will "
-#~ "reveal each of the open <app>Terminal</app> windows. You can release the "
-#~ "tab that you are holding over the desired <app>Terminal</app> window."
-#~ msgstr ""
-#~ "Sie können einen Reiter von einem Fenster in ein anderes verschieben, "
-#~ "indem Sie den Reiter mit der Maus auf <gui>Aktivitäten</gui> in der "
-#~ "linken oberen Ecke der <gui>GNOME Shell</gui> ziehen. So wird jedes der "
-#~ "offenen <app>Terminal</app>-Fenster angezeigt. Legen Sie den Reiter auf "
-#~ "dem gewünschten <app>Terminal</app>-Fenster ab."
-
-#~ msgid "Move a tab to create a new <app>Terminal</app> window"
-#~ msgstr ""
-#~ "Einen Reiter zum Öffnen eines neuen <app>Terminal</app>-Fensters "
-#~ "verschieben"
-
-#~ msgid "To create a new window from an existing tab:"
-#~ msgstr "So erstellen Sie ein neues Fenster aus einem vorhandenen Reiter:"
-
-#~ msgid "Drag the tab out of the current <app>Terminal</app> window."
-#~ msgstr ""
-#~ "Ziehen Sie den Reiter mit der Maus aus dem aktuellen <app>Terminal</app>-"
-#~ "Fenster heraus."
+"Якщо у <app>Терміналі</app> запущено програму, яка реагує на клацання"
+" кнопками миші, вам слід скористатися натисканням додаткової"
+" клавіші-модифікатора <key>Shift</key>, щоб передати події натискання кнопок"
+" миші до самої програми <app>Термінал</app>."
