@@ -1,3 +1,9 @@
+gnome-terminal (3.38.1-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 02 Nov 2020 09:34:41 +0000
+
 gnome-terminal (3.38.0-1) unstable; urgency=medium
 
   * Team upload
