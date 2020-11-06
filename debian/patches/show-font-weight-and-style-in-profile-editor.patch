@@ -1,0 +1,22 @@
+Description: Show font weight and style in the profile editor
+ This patch effectively reverses this commit:
+ https://gitlab.gnome.org/GNOME/gnome-terminal/-/commit/e5c0b4f5
+ Since it currently picks a weight/style randomly instead of choosing the
+ regular font, showing all the monospace fonts makes more sense.
+Bug-Ubuntu: https://launchpad.net/bugs/1900729
+Bug-GNOME: https://gitlab.gnome.org/GNOME/pango/-/issues/483
+Author: Gunnar Hjalmarsson <gunnarhj@ubuntu.com>
+
+--- a/src/profile-editor.c
++++ b/src/profile-editor.c
+@@ -1295,8 +1295,8 @@
+   w = (GtkWidget*) gtk_builder_get_object (builder, "font-selector");
+   gtk_font_chooser_set_filter_func (GTK_FONT_CHOOSER (w), monospace_filter, NULL, NULL);
+ #if GTK_CHECK_VERSION (3, 24, 0)
+-  gtk_font_chooser_set_level (GTK_FONT_CHOOSER (w), GTK_FONT_CHOOSER_LEVEL_FAMILY |
+-                                                    GTK_FONT_CHOOSER_LEVEL_SIZE);
++//  gtk_font_chooser_set_level (GTK_FONT_CHOOSER (w), GTK_FONT_CHOOSER_LEVEL_FAMILY |
++//                                                    GTK_FONT_CHOOSER_LEVEL_SIZE);
+ #endif
+ 
+   profile_prefs_settings_bind (profile, TERMINAL_PROFILE_FONT_KEY,
