@@ -1,9 +1,9 @@
-gnome-terminal (3.38.0-1ubuntu1.1) UNRELEASED; urgency=medium
+gnome-terminal (3.38.0-1ubuntu1.1) groovy; urgency=medium
 
   * debian/patches/show-font-weight-and-style-in-profile-editor.patch:
     - Reverses upstream commit e5c0b4f5 for now (LP: #1900729)
 
- -- Gunnar Hjalmarsson <gunnarhj@ubuntu.com>  Fri, 06 Nov 2020 15:45:00 +0100
+ -- Gunnar Hjalmarsson <gunnarhj@ubuntu.com>  Fri, 06 Nov 2020 15:58:37 +0100
 
 gnome-terminal (3.38.0-1ubuntu1) groovy; urgency=medium
 
