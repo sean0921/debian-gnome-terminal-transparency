@@ -1,3 +1,72 @@
+commit 71b414832b1bf02f748048c59c31de7761181d44
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Oct 3 19:16:30 2020 +0200
+
+    build: Version 3.38.1
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a2354de2544f5fa28c1f7599da95bbc67a37b99c
+Author: Yosef Or Boczko <yoseforb@gnome.org>
+Date:   Mon Sep 28 22:13:19 2020 +0000
+
+    Update Hebrew translation
+
+ po/he.po | 931 ++++++++++++++++++++++++++++-----------------------------------
+ 1 file changed, 409 insertions(+), 522 deletions(-)
+
+commit 16bd9f6a4181d37af2769e7ca5a1f9a1211cfaac
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Thu Sep 17 17:10:47 2020 +0200
+
+    Revert "screen: Use clean env when creating new tab"
+    
+    The patch is correct, but it exposes a deficiency in the desktop
+    environment in that the WM/shell's environment contains necessary
+    env vars (e.g. ssh-agent variables) that are missing from the
+    systemd --user / d-bus activation environment.  The desktop will
+    need to update the activation environment, but until that is done,
+    reverting the patch will revert gnome-terminal to the previous
+    behaviour of effectively using the environment of the client
+    of the first terminal created for all new terminals opened via
+    new terminal/tab/window.
+    
+    This reverts commit 9bb94e3aab84ecc4e7733d0ee001ee50256bd273.
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/-/issues/253
+    (cherry picked from commit 57ea15c4bdf15247f1d403aa24fb18efe23cd8a7)
+
+ src/terminal-screen.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+commit e7bfd76868d4be69921300e06cebf63426d901f3
+Author: Jordi Mas <jmas@softcatala.org>
+Date:   Tue Sep 15 21:43:50 2020 +0200
+
+    Update Catalan translation
+
+ help/ca/ca.po | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit ebb9e2bfc18d9e5f87bbb02203f55d15389ee8a4
+Author: Juliano Camargo <julianosc@protonmail.com>
+Date:   Mon Sep 14 22:11:40 2020 +0000
+
+    Update Portuguese translation
+
+ po/pt.po | 3179 ++++++++++++++++++++++++++++++++++++--------------------------
+ 1 file changed, 1859 insertions(+), 1320 deletions(-)
+
+commit 093ab38c7bc5cea0c68512d03010607921348fa2
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Sep 12 21:22:19 2020 +0200
+
+    build: Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit 2f365483950a99c14d9cf88a21a4820b16780fc4
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Sat Sep 12 21:18:51 2020 +0200

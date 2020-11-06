@@ -21,7 +21,7 @@ Build-Depends: debhelper-compat (= 12),
                libnautilus-extension-dev (>= 3.28.0),
                libpcre2-dev (>= 10.00),
                libsm-dev,
-               libvte-2.91-dev (>= 0.62.0),
+               libvte-2.91-dev (>= 0.62.1),
                libx11-dev,
                uuid-dev,
                yelp-tools
