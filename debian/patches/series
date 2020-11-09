@@ -1,2 +1,5 @@
+screen-Manually-handle-env-inheritance.patch
+screen-Move-env-sanitization-from-client.patch
+screen-Ignore-some-more-environment-variables.patch
 01_onlyshowin.patch
 Provide-fallback-for-reading-current-directory-if-OS.patch
