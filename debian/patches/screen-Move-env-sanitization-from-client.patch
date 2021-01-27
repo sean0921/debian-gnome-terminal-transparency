@@ -14,10 +14,10 @@ Applied-upstream: no
  2 files changed, 26 insertions(+), 35 deletions(-)
 
 diff --git a/src/terminal-client-utils.c b/src/terminal-client-utils.c
-index f7fb6a8..774e5f5 100644
+index e929281..86c7f82 100644
 --- a/src/terminal-client-utils.c
 +++ b/src/terminal-client-utils.c
-@@ -119,37 +119,6 @@ terminal_client_append_exec_options (GVariantBuilder *builder,
+@@ -122,37 +122,6 @@ terminal_client_append_exec_options (GVariantBuilder *builder,
      gs_strfreev char **envv;
  
      envv = g_get_environ ();

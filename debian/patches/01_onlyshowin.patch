@@ -7,12 +7,12 @@ Subject: Only show gnome-terminal in GNOME menus
  1 file changed, 1 insertion(+)
 
 diff --git a/org.gnome.Terminal.desktop.in.in b/org.gnome.Terminal.desktop.in.in
-index 7b7c44f..c3dc447 100644
+index 4148c30..7fd2a43 100644
 --- a/org.gnome.Terminal.desktop.in.in
 +++ b/org.gnome.Terminal.desktop.in.in
-@@ -10,6 +10,7 @@ Type=Application
- Categories=GNOME;GTK;System;TerminalEmulator;
+@@ -11,6 +11,7 @@ Categories=GNOME;GTK;System;TerminalEmulator;
  StartupNotify=true
+ StartupWMClass=Gnome-terminal
  X-GNOME-SingleWindow=false
 +OnlyShowIn=GNOME;Unity;
  Actions=new-window;preferences;
