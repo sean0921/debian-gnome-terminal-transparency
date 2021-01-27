@@ -1,8 +1,12 @@
-gnome-terminal (3.38.2-1) UNRELEASED; urgency=medium
+gnome-terminal (3.38.2-1) unstable; urgency=medium
 
+  * Team upload
   * New upstream release
+  * Refresh patch series
+  * d/patches: Replace patches for #973918 with upstreamed version
+  * Standards-Version: 4.5.1 (no changes required)
 
- -- Simon McVittie <smcv@debian.org>  Wed, 27 Jan 2021 21:26:27 +0000
+ -- Simon McVittie <smcv@debian.org>  Wed, 27 Jan 2021 21:53:00 +0000
 
 gnome-terminal (3.38.1-2) unstable; urgency=medium
 
