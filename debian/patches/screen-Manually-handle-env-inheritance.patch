@@ -1,5 +1,5 @@
 From: "Jan Alexander Steffens (heftig)" <jan.steffens@gmail.com>
-Date: Tue, 27 Oct 2020 19:50:30 +0000
+Date: Fri, 25 Dec 2020 18:01:12 +0100
 Subject: screen: Manually handle env inheritance
 
 Don't let VTE handle merging the environment; build the merged block
@@ -7,16 +7,16 @@ ourselves. This avoids confusion when we reuse the exec data.
 
 Bug: https://gitlab.gnome.org/GNOME/gnome-terminal/-/issues/303
 Bug-Debian: https://bugs.debian.org/973918
-Applied-upstream: no
+Origin: upstream, 3.39.0, commit:aa45ba5c83d8e8940dc20e24397dc4475a72441d
 ---
- src/terminal-screen.c | 26 +++++++++++++-------------
- 1 file changed, 13 insertions(+), 13 deletions(-)
+ src/terminal-screen.c | 29 ++++++++++++++++-------------
+ 1 file changed, 16 insertions(+), 13 deletions(-)
 
 diff --git a/src/terminal-screen.c b/src/terminal-screen.c
-index 0c4ee50..d44315c 100644
+index 0e447ae..10d052f 100644
 --- a/src/terminal-screen.c
 +++ b/src/terminal-screen.c
-@@ -945,9 +945,7 @@ terminal_screen_exec (TerminalScreen *screen,
+@@ -946,9 +946,7 @@ terminal_screen_exec (TerminalScreen *screen,
                                                                    &shell);
  
    gboolean preserve_cwd = FALSE;
@@ -27,15 +27,15 @@ index 0c4ee50..d44315c 100644
    gs_strfreev char **exec_argv = NULL;
    if (!terminal_screen_get_child_command (screen,
                                            argv,
-@@ -1434,6 +1432,7 @@ terminal_screen_get_child_environment (TerminalScreen *screen,
+@@ -1435,6 +1433,7 @@ terminal_screen_get_child_environment (TerminalScreen *screen,
  {
    TerminalApp *app = terminal_app_get ();
    char **env;
-+  gs_strfreev **current_environ = NULL;
++  gs_strfreev char** current_environ = NULL;
    char *e, *v;
    GHashTable *env_table;
    GHashTableIter iter;
-@@ -1442,17 +1441,18 @@ terminal_screen_get_child_environment (TerminalScreen *screen,
+@@ -1443,17 +1442,21 @@ terminal_screen_get_child_environment (TerminalScreen *screen,
  
    env_table = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
  
@@ -43,8 +43,11 @@ index 0c4ee50..d44315c 100644
 -  if (env)
 +  if (initial_envv)
 +    env = initial_envv;
-+  else
++  else {
 +    env = current_environ = g_get_environ ();
++    /* Remove this variable which we set in server.c:main() */
++    env = g_environ_unsetenv (env, "G_ENABLE_DIAGNOSTIC");
++  }
 +
 +  for (i = 0; env[i]; ++i)
      {
@@ -63,4 +66,4 @@ index 0c4ee50..d44315c 100644
 +          g_hash_table_replace (env_table, g_strdup (env[i]), NULL);
      }
  
-   g_hash_table_remove (env_table, "COLUMNS");
+   /* Remove unwanted env variables */

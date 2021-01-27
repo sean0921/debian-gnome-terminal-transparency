@@ -1,0 +1,22 @@
+From: Christian Persch <chpe@src.gnome.org>
+Date: Fri, 25 Dec 2020 18:01:12 +0100
+Subject: client: Filter out some more env variables
+
+Origin: upstream, 3.39.0, commit:28c35c6017e7264b7b4ecd2883e5a0141bac614c
+---
+ src/terminal-client-utils.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/terminal-client-utils.c b/src/terminal-client-utils.c
+index 55f56ab..ae6c2ea 100644
+--- a/src/terminal-client-utils.c
++++ b/src/terminal-client-utils.c
+@@ -110,6 +110,8 @@ terminal_client_get_environment_filters (void)
+     "EXIT_STATUS",
+     "GIO_LAUNCHED_DESKTOP_FILE",
+     "GIO_LAUNCHED_DESKTOP_FILE_PID",
++    "GJS_DEBUG_OUTPUT",
++    "GJS_DEBUG_TOPICS",
+     "GNOME_DESKTOP_ICON",
+     "INVOCATION_ID",
+     "JOURNAL_STREAM",
