@@ -1,3 +1,112 @@
+commit 8682ee73244a9ad92d19cd3b52cb04a0155d4282
+Author: Akarshan Biswas <akarshan.biswas@hotmail.com>
+Date:   Mon Jan 4 08:27:36 2021 +0000
+
+    Update Bengali (India) translation
+
+ po/bn_IN.po | 3384 ++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 1982 insertions(+), 1402 deletions(-)
+
+commit 4db453ec9db9e28654887f161a4b9ca9f1aab4ef
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Thu Dec 31 20:53:56 2020 +0100
+
+    search: Use timestamp when presenting the search dialogue
+    
+    https://gitlab.gnome.org/GNOME/gnome-terminal/-/issues/294
+    (cherry picked from commit adeb0a07760b48d63dc186cd2efd07b6a775901a)
+
+ src/terminal-window.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit 5f1125c54c3c6030ac285e5c147c8f9f6cd2e9f6
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Dec 26 14:59:49 2020 +0100
+
+    desktop: Set StartupWMClass
+    
+    This isn't necessary for gnome-shell, but some other DEs need this to
+    match gnome-terminal-server to the correct name.
+    
+    Fixes: https://gitlab.gnome.org/GNOME/gnome-terminal/-/issues/314
+    (cherry picked from commit f806a81dc955ae5fcab7f651dcf58bec02a70a82)
+
+ org.gnome.Terminal.desktop.in.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 569ca367130801511fba379d89bf0cbf9591b069
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Dec 26 13:42:56 2020 +0100
+
+    search: Make sure to focus the search dialogue
+    
+    ... when it already exists; and move focus to the search entry.
+    
+    Fixes: https://gitlab.gnome.org/GNOME/gnome-terminal/-/issues/294
+    (cherry picked from commit 8d2ea58d6049aba02448b622b6ad2b97919ad9f8)
+
+ src/terminal-search-popover.c | 11 +++++++++++
+ src/terminal-window.c         |  6 ++++--
+ 2 files changed, 15 insertions(+), 2 deletions(-)
+
+commit 4b6051dacee101f323669ecf1ec65d87122b208c
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Fri Dec 25 18:01:12 2020 +0100
+
+    nautilus: Pass environment when creating a terminal in the current directory
+    
+    Fixes: https://gitlab.gnome.org/GNOME/gnome-terminal/-/issues/303
+    (cherry picked from commit c42d9ccf31923f2b1e2eb59c40b48bf196846c7a)
+
+ src/terminal-client-utils.c | 3 +++
+ src/terminal-nautilus.c     | 2 +-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+commit fcc742cc49b7e9c6a97802acd2dcdd58a9b3bf33
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:   Fri Dec 4 13:54:45 2020 +0000
+
+    Update Norwegian Bokmål translation
+
+ po/nb.po | 1547 ++++++++++++++++++++++++++++++++++----------------------------
+ 1 file changed, 846 insertions(+), 701 deletions(-)
+
+commit 25fa764fef8219a4aaa9c51814be31f37ad1d6ff
+Author: Cheng-Chia Tseng <pswo10680@gmail.com>
+Date:   Mon Oct 12 14:16:30 2020 +0000
+
+    Update Chinese (Taiwan) translation
+
+ po/zh_TW.po | 376 +++++++++++++++++++++++++++++++-----------------------------
+ 1 file changed, 194 insertions(+), 182 deletions(-)
+
+commit f564feda552b3318f4bb349b7ffb642f10f80d65
+Author: Andika Triwidada <atriwidada@gnome.org>
+Date:   Wed Oct 7 09:07:03 2020 +0200
+
+    Add Indonesian help translation
+
+ help/id/id.po | 3681 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 3681 insertions(+)
+
+commit 00ae3bd7113ee476dcb39b93a2ccddc0d968af7e
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:   Mon Oct 5 09:13:04 2020 +0200
+
+    Added id language to help
+
+ help/Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 92efd6f9ea80a09e72a24b270d17fe1c1fc87ba5
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Oct 3 19:21:03 2020 +0200
+
+    build: Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit 71b414832b1bf02f748048c59c31de7761181d44
 Author: Christian Persch <chpe@src.gnome.org>
 Date:   Sat Oct 3 19:16:30 2020 +0200

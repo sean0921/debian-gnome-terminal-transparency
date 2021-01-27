@@ -1150,7 +1150,9 @@ action_find_cb (GSimpleAction *action,
     search_popover_notify_regex_cb (priv->search_popover, NULL, window);
     search_popover_notify_wrap_around_cb (priv->search_popover, NULL, window);
 
-    gtk_widget_show (GTK_WIDGET (priv->search_popover));
+    gtk_window_present_with_time (GTK_WINDOW (priv->search_popover),
+                                  gtk_get_current_event_time ());
+    gtk_widget_grab_focus (GTK_WIDGET (priv->search_popover));
     return;
   }
 
@@ -1169,7 +1171,8 @@ action_find_cb (GSimpleAction *action,
 
   g_signal_connect (priv->search_popover, "destroy", G_CALLBACK (gtk_widget_destroyed), &priv->search_popover);
 
-  gtk_widget_show (GTK_WIDGET (priv->search_popover));
+  gtk_window_present_with_time (GTK_WINDOW (priv->search_popover), gtk_get_current_event_time ());
+  gtk_widget_grab_focus (GTK_WIDGET (priv->search_popover));
 }
 
 static void
