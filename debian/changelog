@@ -1,12 +1,13 @@
-gnome-terminal (3.38.3-1) UNRELEASED; urgency=medium
+gnome-terminal (3.38.3-1) unstable; urgency=medium
 
+  * Team upload
   * New upstream release
     - Limit the number of clipboard targets to 255
     - Update Norwegian Bokmål translation
   * d/gbp.conf: Use upstream/3.38.x branch for upstream source code.
     3.39.x releases have already happened.
 
- -- Simon McVittie <smcv@debian.org>  Wed, 17 Feb 2021 09:35:34 +0000
+ -- Simon McVittie <smcv@debian.org>  Wed, 17 Feb 2021 23:08:58 +0000
 
 gnome-terminal (3.38.2-1) unstable; urgency=medium
 
