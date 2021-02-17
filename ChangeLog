@@ -1,3 +1,32 @@
+commit 3be01f5fa7991bcd28a1a9d4b4390de3d4c16cb8
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Thu Feb 4 18:48:15 2021 +0100
+
+    app: Limit the number of clipboard targets to a sensible number
+    
+    (cherry picked from commit 4085fd5b87ebdc8fac4ebfa2ca926e47bf3f48ad)
+
+ src/terminal-app.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 340e57ce13ad742d185815dd889e304915d76cee
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:   Mon Jan 25 14:50:19 2021 +0000
+
+    Update Norwegian Bokmål translation
+
+ po/nb.po | 28 ++++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
+
+commit 5179a3306fc62d3cce837cacf4b53a006cadeacb
+Author: Christian Persch <chpe@src.gnome.org>
+Date:   Sat Jan 9 20:10:39 2021 +0100
+
+    Post release version bump
+
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 commit 8682ee73244a9ad92d19cd3b52cb04a0155d4282
 Author: Akarshan Biswas <akarshan.biswas@hotmail.com>
 Date:   Mon Jan 4 08:27:36 2021 +0000
