@@ -1,3 +1,9 @@
+gnome-terminal (3.30.2-2sean00) unstable; urgency=medium
+
+  * Restore transparency
+
+ -- Sean Ho <sean.li.shin.ho@gmail.com>  Mon, 01 Mar 2021 20:03:45 +0800
+
 gnome-terminal (3.30.2-2) unstable; urgency=medium
 
   * Restore -Wl,-O1 to our LDFLAGS
