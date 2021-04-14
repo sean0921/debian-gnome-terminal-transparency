@@ -1,8 +1,8 @@
-gnome-terminal (3.38.3-1sean00) unstable; urgency=medium
+gnome-terminal (3.38.3-1sean01) unstable; urgency=medium
 
-  * Restore transparency
+  * Refresh patches, restore transparency feature.
 
- -- Sean Ho <sean.li.shin.ho@gmail.com>  Wed, 14 Apr 2021 11:21:43 +0800
+ -- Sean Ho <sean.li.shin.ho@gmail.com>  Wed, 14 Apr 2021 11:38:46 +0800
 
 gnome-terminal (3.38.3-1) unstable; urgency=medium
 

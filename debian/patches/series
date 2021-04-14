@@ -4,3 +4,4 @@ screen-Manually-handle-env-inheritance.patch
 01_onlyshowin.patch
 Provide-fallback-for-reading-current-directory-if-OS.patch
 0001-Restore-transparency.patch
+0001-screen-window-Extra-padding-around-transparent-termi.patch
