@@ -269,11 +269,7 @@ popover_dialog_cancel_clicked_cb (GtkButton *button,
 {
   GtkPopover *popover_dialog = GTK_POPOVER (gtk_builder_get_object (the_pref_data->builder, "popover-dialog"));
 
-#if GTK_CHECK_VERSION (3, 22, 0)
   gtk_popover_popdown (popover_dialog);
-#else
-  gtk_widget_hide (GTK_WIDGET (popover_dialog));
-#endif
 }
 
 static void
@@ -359,11 +355,7 @@ profile_popup_dialog (GtkWidget *relative_to,
   gtk_popover_set_position (popover_dialog, GTK_POS_BOTTOM);
   gtk_popover_set_default_widget (popover_dialog, GTK_WIDGET (ok));
 
-#if GTK_CHECK_VERSION (3, 22, 0)
   gtk_popover_popup (popover_dialog);
-#else
-  gtk_widget_show (GTK_WIDGET (popover_dialog));
-#endif
 
   gtk_widget_grab_focus (entry_text != NULL ? GTK_WIDGET (entry) : GTK_WIDGET (cancel));
 }
@@ -441,25 +433,6 @@ profile_delete_cb (GSimpleAction *simple,
                         _("Delete"),
                         profile_delete_now);
 }
-
-#if !GTK_CHECK_VERSION (3, 22, 27)
-/* Avoid crash on PageUp and PageDown: bugs 791549 & 770703 */
-static gboolean
-listbox_key_press_event_cb (GtkListBox  *box,
-                            GdkEventKey *event,
-                            gpointer     user_data)
-{
-  switch (event->keyval) {
-  case GDK_KEY_Page_Up:
-  case GDK_KEY_Page_Down:
-  case GDK_KEY_KP_Page_Up:
-  case GDK_KEY_KP_Page_Down:
-    return TRUE;
-  default:
-    return FALSE;
-  }
-}
-#endif
 
 /* Create a (non-header) row of the sidebar, either a global or a profile entry. */
 static GtkListBoxRow *
@@ -585,7 +558,6 @@ listbox_add_all_profiles (PrefData *data)
 
   for (l = list; l != NULL; l = l->next) {
     GSettings *profile = (GSettings *) l->data;
-    gs_free gchar *text = g_settings_get_string (profile, TERMINAL_PROFILE_VISIBLE_NAME_KEY);
     gs_free gchar *uuid = terminal_settings_list_dup_uuid_from_child (data->profiles_list, profile);
 
     row = listbox_create_row (NULL,
@@ -595,6 +567,8 @@ listbox_add_all_profiles (PrefData *data)
                               (gpointer) 42);
     gtk_list_box_insert (data->listbox, GTK_WIDGET (row), -1);
   }
+
+  g_list_free(list); /* the items themselves were adopted into the model above */
 
   listbox_update (data->listbox);  /* FIXME: This is not needed but I don't know why :-) */
 }
@@ -751,7 +725,9 @@ terminal_prefs_show_preferences (GSettings *profile, const char *widget_name)
   GtkWidget *disable_shortcuts_button;
   GtkWidget *theme_variant_label, *theme_variant_combo;
   GtkWidget *new_terminal_mode_label, *new_terminal_mode_combo;
+  GtkWidget *new_tab_position_combo;
   GtkWidget *close_button, *help_button;
+  GtkWidget *content_box, *general_frame, *keybindings_frame;
   GSettings *settings;
 
   const GActionEntry action_entries[] = {
@@ -772,6 +748,9 @@ terminal_prefs_show_preferences (GSettings *profile, const char *widget_name)
   data->builder = terminal_util_load_widgets_resource ("/org/gnome/terminal/ui/preferences.ui",
                                        "preferences-dialog",
                                        "preferences-dialog", &dialog,
+                                       "dialogue-content-box", &content_box,
+                                       "general-frame", &general_frame,
+                                       "keybindings-frame", &keybindings_frame,
                                        "close-button", &close_button,
                                        "help-button", &help_button,
                                        "default-show-menubar-checkbutton", &show_menubar_button,
@@ -782,6 +761,7 @@ terminal_prefs_show_preferences (GSettings *profile, const char *widget_name)
                                        "disable-mnemonics-checkbutton", &disable_mnemonics_button,
                                        "disable-shortcuts-checkbutton", &disable_shortcuts_button,
                                        "disable-menu-accel-checkbutton", &disable_menu_accel_button,
+                                       "new-tab-position-combobox", &new_tab_position_combo,
                                        "accelerators-treeview", &tree_view,
                                        "the-stack", &data->stack,
                                        "the-listbox", &data->listbox,
@@ -807,9 +787,6 @@ terminal_prefs_show_preferences (GSettings *profile, const char *widget_name)
                                 NULL);
   g_signal_connect (data->listbox, "row-selected", G_CALLBACK (listbox_row_selected_cb), data->stack);
   gtk_list_box_set_sort_func (data->listbox, listboxrow_compare_cb, NULL, NULL);
-#if !GTK_CHECK_VERSION (3, 22, 27)
-  g_signal_connect (data->listbox, "key-press-event", G_CALLBACK (listbox_key_press_event_cb), NULL);
-#endif
 
   listbox_add_all_globals (data);
   listbox_add_all_profiles (data);
@@ -828,7 +805,7 @@ terminal_prefs_show_preferences (GSettings *profile, const char *widget_name)
   g_object_get (gtk_settings_get_default (),
                 "gtk-shell-shows-menubar", &shell_shows_menubar,
                 NULL);
-  if (shell_shows_menubar) {
+  if (shell_shows_menubar || terminal_app_get_use_headerbar (app)) {
     gtk_widget_set_visible (show_menubar_button, FALSE);
   } else {
     g_settings_bind (settings,
@@ -838,18 +815,14 @@ terminal_prefs_show_preferences (GSettings *profile, const char *widget_name)
                      G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
   }
 
-#if GTK_CHECK_VERSION (3, 19, 0)
   g_settings_bind (settings,
                    TERMINAL_SETTING_THEME_VARIANT_KEY,
                    theme_variant_combo,
                    "active-id",
                    G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
-#else
-  gtk_widget_set_visible (theme_variant_label, FALSE);
-  gtk_widget_set_visible (theme_variant_combo, FALSE);
-#endif /* GTK+ 3.19 */
 
-  if (terminal_app_get_menu_unified (app)) {
+  if (terminal_app_get_menu_unified (app) ||
+      terminal_app_get_use_headerbar (app)) {
     g_settings_bind (settings,
                      TERMINAL_SETTING_NEW_TERMINAL_MODE_KEY,
                      new_terminal_mode_combo,
@@ -859,6 +832,12 @@ terminal_prefs_show_preferences (GSettings *profile, const char *widget_name)
     gtk_widget_set_visible (new_terminal_mode_label, FALSE);
     gtk_widget_set_visible (new_terminal_mode_combo, FALSE);
   }
+
+  g_settings_bind (settings,
+                   TERMINAL_SETTING_NEW_TAB_POSITION_KEY,
+                   new_tab_position_combo,
+                   "active-id",
+                   G_SETTINGS_BIND_GET | G_SETTINGS_BIND_SET);
 
   if (shell_shows_menubar) {
     gtk_widget_set_visible (disable_mnemonics_button, FALSE);
@@ -891,6 +870,34 @@ terminal_prefs_show_preferences (GSettings *profile, const char *widget_name)
   /* Profile page */
 
   profile_prefs_init ();
+
+  /* Move action widgets to titlebar when headerbar is used */
+  if (terminal_app_get_dialog_use_headerbar (app)) {
+    GtkWidget *headerbar;
+    GtkWidget *bbox;
+
+    headerbar = g_object_new (GTK_TYPE_HEADER_BAR,
+                              "show-close-button", TRUE,
+                              NULL);
+    bbox = gtk_widget_get_parent (help_button);
+
+    gtk_container_remove (GTK_CONTAINER (bbox), g_object_ref (help_button));
+    gtk_header_bar_pack_start (GTK_HEADER_BAR (headerbar), help_button);
+    g_object_unref (help_button);
+
+    gtk_style_context_add_class (gtk_widget_get_style_context (help_button),
+                                 "text-button");
+
+    gtk_widget_show (headerbar);
+    gtk_widget_hide (bbox);
+
+    gtk_window_set_titlebar (GTK_WINDOW (dialog), headerbar);
+
+    /* Remove extra spacing around the content, and extra frames */
+    g_object_set (G_OBJECT (content_box), "margin", 0, NULL);
+    gtk_frame_set_shadow_type (GTK_FRAME (general_frame), GTK_SHADOW_NONE);
+    gtk_frame_set_shadow_type (GTK_FRAME (keybindings_frame), GTK_SHADOW_NONE);
+  }
 
   /* misc */
 

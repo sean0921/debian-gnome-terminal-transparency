@@ -1,8 +1,232 @@
-gnome-terminal (3.30.2-2sean00) unstable; urgency=medium
+gnome-terminal (3.38.3-1sean00) unstable; urgency=medium
 
   * Restore transparency
 
- -- Sean Ho <sean.li.shin.ho@gmail.com>  Mon, 01 Mar 2021 20:03:45 +0800
+ -- Sean Ho <sean.li.shin.ho@gmail.com>  Wed, 14 Apr 2021 11:21:43 +0800
+
+gnome-terminal (3.38.3-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+    - Limit the number of clipboard targets to 255
+    - Update Norwegian Bokmål translation
+  * d/gbp.conf: Use upstream/3.38.x branch for upstream source code.
+    3.39.x releases have already happened.
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 17 Feb 2021 23:08:58 +0000
+
+gnome-terminal (3.38.2-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+  * Refresh patch series
+  * d/patches: Replace patches for #973918 with upstreamed version
+  * Standards-Version: 4.5.1 (no changes required)
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 27 Jan 2021 21:53:00 +0000
+
+gnome-terminal (3.38.1-2) unstable; urgency=medium
+
+  * Team upload
+  * Add proposed patches to fix environment variable handling.
+    When launching a new terminal from the Nautilus extension, environment
+    variables were handled correctly; but when subsequently opening a new
+    tab in that same terminal, most of the environment variables were lost.
+    Thanks to Jan Alexander Steffens (Closes: #973918)
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 09 Nov 2020 11:17:47 +0000
+
+gnome-terminal (3.38.1-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+  * d/control.in: Require a matching vte version
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 02 Nov 2020 10:26:35 +0000
+
+gnome-terminal (3.38.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream stable release
+    - Fix URL drag-and-drop with variant x-moz-url type
+    - Translation updates
+    - Man page updates
+  * d/watch: Only watch for stable (even-numbered) releases
+  * Bump libvte build-dependency as per configure.ac
+  * Refresh patch series
+    - d/p/man-Document-the-various-ways-to-run-a-command-in-a-gnome.patch:
+      Drop, applied upstream
+  * Release to unstable
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 14 Sep 2020 10:18:22 +0100
+
+gnome-terminal (3.37.90-1) experimental; urgency=medium
+
+  * Team upload
+  * d/watch: Watch for development versions
+  * New upstream release
+  * Canonicalize order of dependency lists (wrap-and-sort -a)
+  * Canonicalize order of installed files (wrap-and-sort -a)
+  * Build-Depend on docbook-xsl, for the new upstream man page
+  * Use upstream's man page instead of Debian's
+  * Add a patch to improve the man page
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 03 Sep 2020 12:16:09 +0100
+
+gnome-terminal (3.36.2-3) unstable; urgency=medium
+
+  * Team upload
+  * d/gnome-terminal.wrapper: Pass --wait argument before -e.
+    If we put --wait last, then a command like "x-terminal-emulator -e irssi"
+    will turn into "gnome-terminal -- irssi --wait", passing the --wait
+    option to the command being run in the terminal (not usually valid)
+    instead of to the terminal itself.
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 31 Aug 2020 11:20:16 +0100
+
+gnome-terminal (3.36.2-2) unstable; urgency=medium
+
+  * debian/gnome-terminal.wrapper:
+    - Always wait for terminal to exit:
+      GNOME Terminal now uses a dbus-activated service, so calling it would exit
+      immediately once it dbus-activates the server, while the wrapper is
+      supposed to mimic xterm behavior and so to wait until the terminal is
+      explicitly closed.
+      This is particularly relevant for the XSession file that gdm ships, as in
+      case of failures it calls x-terminal-emulator (which very likely points to
+      this script) to open a terminal for debugging purposes, that should stay
+      visible until the user closes it. But right now we just exit immediately
+      and the x session is closed, sending the user back to gdm screen.
+      As per this, always use the --wait (implemented in commit 42f9f797)
+      argument to call gnome-terminal, so that the behavior is preserved.
+    - Don't support -ls and ignore +ls args.
+      GNOME terminal never supported to be a login shell, it included such
+      option but was never implemented (see commit 22d79929) and removed
+      around 7 years ago (commit 3413b72).
+      So in case `-ls` is passed, just fail early (as it would gnome-terminal),
+      while ignore `+ls` argument but warning about it.
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Sat, 29 Aug 2020 19:24:35 +0200
+
+gnome-terminal (3.36.2-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+    - Return to 3.36.0 behaviour of inheriting all environment variables
+      sent to the original tab/window into the second and subsequent
+      tabs/windows. This is likely to change in the 3.37/3.38 cycle,
+      because it introduces an inconsistency between new windows/tabs
+      created from another window/tab, and new windows/tabs created
+      via the CLI or a .desktop file (see upstream issue 253).
+      (Closes: #958502, #959188 - at least in the short term)
+    - Drop patches that came from upstream
+    - d/control.in: Update vte dependency
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 30 Apr 2020 18:29:45 +0100
+
+gnome-terminal (3.36.1.1-3) unstable; urgency=medium
+
+  * BD on gnome-shell-common which is arch:all and enable search provider on
+    all architectures
+
+ -- Laurent Bigonville <bigon@debian.org>  Tue, 21 Apr 2020 20:33:53 +0200
+
+gnome-terminal (3.36.1.1-2) unstable; urgency=medium
+
+  * Team upload
+  * d/patches: Update from upstream gnome-3-36 branch, commit
+    3.36.1.1-7-g11f0ad63
+    - Under `systemd --user`, don't kill processes that were launched
+      by gnome-terminal (e.g. a web browser from clicking on a link)
+      when the last terminal closes
+    - Don't log debug messages (from dconf etc.) if not --verbose
+    - Translation updates
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 10 Apr 2020 15:51:16 +0100
+
+gnome-terminal (3.36.1.1-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream stable release
+    - When opening a new tab or window from a terminal started with -x,
+      don't run the program from -x again (Closes: #954652)
+
+ -- Simon McVittie <smcv@debian.org>  Sat, 28 Mar 2020 11:32:03 +0000
+
+gnome-terminal (3.36.0.1-1) unstable; urgency=medium
+
+  * New upstream release
+    - Adjust the build-dependencies
+  * debian/control.in: Update nautilus-extension-gnome-terminal description
+  * debian/control.in: Bump Standards-Version to 4.5.0 (no further changes)
+  * Drop debian/patches/nautilus-x11.patch, the package builds fine without it
+  * Drop d/p/Don-t-allow-the-theme-to-set-black-on-black.patch, the default
+    theme is now Adwaita not Raleigh anymore
+  * d/p/Provide-fallback-for-reading-current-directory-if-OS.patch: Refreshed
+
+ -- Laurent Bigonville <bigon@debian.org>  Tue, 10 Mar 2020 18:53:11 +0100
+
+gnome-terminal (3.34.2-1) unstable; urgency=medium
+
+  * New upstream translations update
+
+ -- Jeremy Bicha <jbicha@debian.org>  Sat, 12 Oct 2019 06:46:07 -0400
+
+gnome-terminal (3.34.1-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bump minimum libvte-2.91-dev to 0.58.1
+
+ -- Jeremy Bicha <jbicha@debian.org>  Thu, 10 Oct 2019 07:00:42 -0400
+
+gnome-terminal (3.34.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * control: Bump vte Build-Depends version to 0.58 per configure.ac
+  * control, rules: Port to specifying compat level and sequences in
+    Build-Depends. Bump to compat 12
+  * control, rules, gnome-terminal.install: Standards-Version 4.4.0 & FHS 3.0.
+    This means we can stop overriding the libexecdir.
+
+ -- Iain Lane <laney@debian.org>  Thu, 12 Sep 2019 11:30:16 +0100
+
+gnome-terminal (3.33.90-1) experimental; urgency=medium
+
+  * New upstream release
+  * control: Bump BD on libvte per upstream
+
+ -- Iain Lane <laney@debian.org>  Wed, 21 Aug 2019 16:35:25 +0100
+
+gnome-terminal (3.32.1-1) experimental; urgency=medium
+
+  * New upstream release
+    + headermenu: Add placeholder item for win.set-title
+    + help: Fix pref-profiles.page to validate
+    + help: Update application icon for 3.32
+    + help: Update application screenshot for 3.32; remove localized versions
+    + window: Fix tabs menu
+    + window: Show last tab's accel in the tab menu
+  * Bump vte BD per upstream
+
+ -- Iain Lane <laney@debian.org>  Tue, 09 Apr 2019 13:13:25 +0100
+
+gnome-terminal (3.32.0-1) experimental; urgency=medium
+
+  * New upstream release
+  * Bump minimum libvte-2.91-dev to 0.56.0
+  * debian/gnome-terminal.gsettings-override: Drop unneeded headerbar=true
+    - The headerbar is now used automatically with GNOME.
+
+ -- Jeremy Bicha <jbicha@debian.org>  Wed, 13 Mar 2019 19:07:34 -0400
+
+gnome-terminal (3.31.90-1) experimental; urgency=medium
+
+  * New upstream development release
+  * Bump minimum libvte-2.91-dev to 0.55.90
+  * debian/gnome-terminal.install: Install new app icons
+  * debian/gnome-termina.gsettings-override: Set headerbar=true
+
+ -- Jeremy Bicha <jbicha@debian.org>  Wed, 06 Feb 2019 09:40:55 -0500
 
 gnome-terminal (3.30.2-2) unstable; urgency=medium
 

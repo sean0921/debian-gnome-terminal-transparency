@@ -6,28 +6,28 @@ Source: gnome-terminal
 Section: gnome
 Priority: optional
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
-Uploaders: Iain Lane <laney@debian.org>, Jeremy Bicha <jbicha@debian.org>, Michael Biebl <biebl@debian.org>
-Build-Depends: debhelper (>= 11),
-               dh-exec,
-               gnome-common,
-               intltool (>= 0.50.0),
-               libx11-dev,
-               libdconf-dev (>= 0.14.0),
-               libgtk-3-dev (>= 3.20),
-               libglib2.0-dev (>= 2.42.0),
-               libpcre2-dev (>= 10.00),
-               libvte-2.91-dev (>= 0.54.1),
-               libsm-dev,
-               gnome-pkg-tools (>= 0.10),
-               docbook-to-man,
-               uuid-dev,
-               yelp-tools,
+Uploaders: Iain Lane <laney@debian.org>, Jeremy Bicha <jbicha@debian.org>, Laurent Bigonville <bigon@debian.org>
+Build-Depends: debhelper-compat (= 12),
                desktop-file-utils,
+               dh-sequence-gnome,
+               docbook-to-man,
+               docbook-xsl,
+               gnome-common,
+               gnome-pkg-tools (>= 0.10),
+               gnome-shell-common (>= 3.36.1-6~) | gnome-shell,
                gsettings-desktop-schemas-dev (>= 0.1.0),
-               gnome-shell [!hurd-any !kfreebsd-any !s390x],
-               libnautilus-extension-dev (>= 3.21.92-3~)
+               libdconf-dev (>= 0.14.0),
+               libglib2.0-dev (>= 2.52.0),
+               libgtk-3-dev (>= 3.22.27),
+               libnautilus-extension-dev (>= 3.28.0),
+               libpcre2-dev (>= 10.00),
+               libsm-dev,
+               libvte-2.91-dev (>= 0.62.1),
+               libx11-dev,
+               uuid-dev,
+               yelp-tools
 Rules-Requires-Root: no
-Standards-Version: 4.3.0
+Standards-Version: 4.5.1
 Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-terminal
 Vcs-Git: https://salsa.debian.org/gnome-team/gnome-terminal.git
 Homepage: https://wiki.gnome.org/Apps/Terminal
@@ -35,12 +35,12 @@ Homepage: https://wiki.gnome.org/Apps/Terminal
 Package: gnome-terminal
 Architecture: any
 Multi-Arch: foreign
-Depends: ${shlibs:Depends},
-         ${misc:Depends},
-         default-dbus-session-bus | dbus-session-bus,
-         gsettings-desktop-schemas (>= 0.1.0),
+Depends: default-dbus-session-bus | dbus-session-bus,
+         gnome-terminal-data (<< ${gnome:NextVersion}),
          gnome-terminal-data (>= ${gnome:Version}),
-         gnome-terminal-data (<< ${gnome:NextVersion})
+         gsettings-desktop-schemas (>= 0.1.0),
+         ${misc:Depends},
+         ${shlibs:Depends}
 Provides: x-terminal-emulator
 Recommends: gvfs,
             nautilus-extension-gnome-terminal,
@@ -71,13 +71,13 @@ Description: Data files for the GNOME terminal emulator
 
 Package: nautilus-extension-gnome-terminal
 Architecture: any
-Depends: ${shlibs:Depends},
+Depends: gnome-terminal (= ${binary:Version}),
          ${misc:Depends},
-         gnome-terminal (= ${binary:Version})
+         ${shlibs:Depends}
 Enhances: nautilus
 Breaks: gnome-terminal (<< 3.27.92-2~)
 Replaces: brasero (<< 3.27.92-2~)
-Description: GNOME terminal emulator application
+Description: GNOME terminal emulator application - Nautilus extension
  GNOME Terminal is a terminal emulation application that you can use to
  perform the following actions:
   - Access a UNIX shell in the GNOME environment.

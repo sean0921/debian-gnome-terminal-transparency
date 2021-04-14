@@ -38,7 +38,6 @@
 #include "terminal-profiles-list.h"
 #include "terminal-util.h"
 #include "profile-editor.h"
-#include "terminal-encoding.h"
 #include "terminal-schemas.h"
 #include "terminal-gdbus.h"
 #include "terminal-defines.h"
@@ -107,7 +106,11 @@ struct _TerminalApp
   GMenuModel *menubar;
   GMenu *menubar_new_terminal_section;
   GMenu *menubar_set_profile_section;
-  GMenu *menubar_set_encoding_submenu;
+
+  GMenuModel *profilemenu;
+  GMenuModel *headermenu;
+  GMenu *headermenu_set_profile_section;
+
   GMenu *set_profile_menu;
 
   GtkClipboard *clipboard;
@@ -115,6 +118,7 @@ struct _TerminalApp
   int n_clipboard_targets;
 
   gboolean unified_menu;
+  gboolean use_headerbar;
 };
 
 enum
@@ -204,6 +208,49 @@ terminal_app_init_debug (void)
 }
 
 /* Helper functions */
+
+static gboolean
+strv_contains_gnome (char **strv)
+{
+  if (strv == NULL)
+    return FALSE;
+
+  for (int i = 0; strv[i] != NULL; i++) {
+    if (g_ascii_strcasecmp (strv[i], "gnome") == 0 ||
+        g_ascii_strcasecmp (strv[i], "gnome-classic") == 0)
+      return TRUE;
+  }
+
+  return FALSE;
+}
+
+/*
+ * terminal_app_should_use_headerbar:
+ *
+ * Determines if the app should use headerbars. This is determined
+ * * If the pref is set, the pref value is used
+ * * Otherwise, if XDG_CURRENT_DESKTOP contains GNOME or GNOME-Classic,
+ *   headerbar is used
+ * * Otherwise, headerbar is not used.
+ */
+static gboolean
+terminal_app_should_use_headerbar (TerminalApp *app)
+{
+  gboolean set, use;
+  g_settings_get (app->global_settings, TERMINAL_SETTING_HEADERBAR_KEY, "mb", &set, &use);
+  if (set)
+    return use;
+
+  const char *desktop = g_getenv ("XDG_CURRENT_DESKTOP");
+  if (desktop == NULL)
+    return FALSE;
+
+  char **desktops = g_strsplit (desktop, G_SEARCHPATH_SEPARATOR_S, -1);
+  use = strv_contains_gnome (desktops);
+  g_strfreev (desktops);
+
+  return use;
+}
 
 static gboolean
 load_css_from_resource (GApplication *application,
@@ -304,7 +351,6 @@ terminal_app_remove_profile (TerminalApp *app,
   terminal_settings_list_remove_child (app->profiles_list, uuid);
 }
 
-#if GTK_CHECK_VERSION (3, 19, 0)
 static void
 terminal_app_theme_variant_changed_cb (GSettings   *settings,
                                        const char  *key,
@@ -321,7 +367,6 @@ terminal_app_theme_variant_changed_cb (GSettings   *settings,
                   theme == TERMINAL_THEME_VARIANT_DARK,
                   NULL);
 }
-#endif /* GTK+ 3.19 */
 
 /* Submenus for New Terminal per profile, and to change profiles */
 
@@ -432,6 +477,27 @@ append_new_terminal_item (GMenu *section,
 }
 
 static void
+fill_header_new_terminal_menu (GMenuModel *menu,
+                               ProfileData *data,
+                               guint n_profiles)
+{
+  gs_unref_object GMenu *section = NULL;
+
+  if (n_profiles <= 1)
+    return;
+
+  section = g_menu_new ();
+
+  for (guint i = 0; i < n_profiles; i++) {
+    menu_append_numbered (section, data[i].label, i + 1,
+                          "win.new-terminal",
+                          g_variant_new ("(ss)", "default", data[i].uuid));
+  }
+
+  g_menu_append_section (G_MENU (menu), _("New Terminal"), G_MENU_MODEL (section));
+}
+
+static void
 fill_new_terminal_section (TerminalApp *app,
                            GMenu *section,
                            ProfileData *profiles,
@@ -466,8 +532,6 @@ set_profile_submenu_new (ProfileData *data,
 static void
 terminal_app_update_profile_menus (TerminalApp *app)
 {
-  g_menu_remove_all (G_MENU (app->menubar_new_terminal_section));
-  g_menu_remove_all (G_MENU (app->menubar_set_profile_section));
   g_clear_object (&app->set_profile_menu);
 
   /* Get profiles list and sort by label */
@@ -484,14 +548,78 @@ terminal_app_update_profile_menus (TerminalApp *app)
   ProfileData *profiles = (ProfileData*) array->data;
   guint n_profiles = array->len;
 
-  fill_new_terminal_section (app, app->menubar_new_terminal_section, profiles, n_profiles);
-
   app->set_profile_menu = set_profile_submenu_new (profiles, n_profiles);
 
-  if (app->set_profile_menu != NULL) {
-    g_menu_append_submenu (app->menubar_set_profile_section, _("Change _Profile"),
-                           G_MENU_MODEL (app->set_profile_menu));
+  if (app->menubar != NULL) {
+    g_menu_remove_all (G_MENU (app->menubar_new_terminal_section));
+    fill_new_terminal_section (app, app->menubar_new_terminal_section, profiles, n_profiles);
+
+    g_menu_remove_all (G_MENU (app->menubar_set_profile_section));
+    if (app->set_profile_menu != NULL) {
+      g_menu_append_submenu (app->menubar_set_profile_section, _("Change _Profile"),
+                             G_MENU_MODEL (app->set_profile_menu));
+    }
   }
+
+  if (app->profilemenu != NULL) {
+    g_menu_remove_all (G_MENU (app->profilemenu));
+    fill_header_new_terminal_menu (app->profilemenu, profiles, n_profiles);
+  }
+
+  if (app->headermenu != NULL) {
+    g_menu_remove_all (G_MENU (app->headermenu_set_profile_section));
+    if (app->set_profile_menu != NULL) {
+      g_menu_append_submenu (app->headermenu_set_profile_section, _("_Profile"),
+                             G_MENU_MODEL (app->set_profile_menu));
+    }
+  }
+}
+
+static GMenuModel *
+terminal_app_create_menubar (TerminalApp *app,
+                             gboolean shell_shows_menubar)
+{
+  /* If the menubar is shown by the shell, omit mnemonics for the submenus. This is because Alt+F etc.
+   * are more important to be usable in the terminal, the menu cannot be replaced runtime (to toggle
+   * between mnemonic and non-mnemonic versions), gtk-enable-mnemonics or gtk_window_set_mnemonic_modifier()
+   * don't effect the menubar either, so there wouldn't be a way to disable Alt+F for File etc. otherwise.
+   * Furthermore, the menu would even grab mnemonics from the File and Preferences windows.
+   * In Unity, Alt+F10 opens the menubar, this should be good enough for keyboard navigation.
+   * If the menubar is shown by the app, toggling mnemonics is handled in terminal-window.c using
+   * gtk_window_set_mnemonic_modifier().
+   * See bug 792978 for details. */
+  terminal_util_load_objects_resource (shell_shows_menubar ? "/org/gnome/terminal/ui/menubar-without-mnemonics.ui"
+                                                           : "/org/gnome/terminal/ui/menubar-with-mnemonics.ui",
+                                       "menubar", &app->menubar,
+                                       "new-terminal-section", &app->menubar_new_terminal_section,
+                                       "set-profile-section", &app->menubar_set_profile_section,
+                                       NULL);
+
+  /* Install profile sections */
+  terminal_app_update_profile_menus (app);
+
+  return app->menubar;
+}
+
+static void
+terminal_app_create_headermenu (TerminalApp *app)
+{
+  terminal_util_load_objects_resource ("/org/gnome/terminal/ui/headerbar-menu.ui",
+                                       "headermenu", &app->headermenu,
+                                       "set-profile-section", &app->headermenu_set_profile_section,
+                                       NULL);
+
+  /* Install profile sections */
+  terminal_app_update_profile_menus (app);
+}
+
+static void
+terminal_app_create_profilemenu (TerminalApp *app)
+{
+  app->profilemenu = G_MENU_MODEL (g_menu_new ());
+
+  /* Install profile sections */
+  terminal_app_update_profile_menus (app);
 }
 
 /* Clipboard */
@@ -512,7 +640,7 @@ update_clipboard_targets (TerminalApp *app,
   free_clipboard_targets (app);
 
   /* Sometimes we receive targets == NULL but n_targets == -1 */
-  if (targets != NULL) {
+  if (targets != NULL && n_targets < 255) {
     app->clipboard_targets = g_memdup (targets, sizeof (targets[0]) * n_targets);
     app->n_clipboard_targets = n_targets;
   }
@@ -558,7 +686,8 @@ clipboard_owner_change_cb (GtkClipboard *clipboard,
                                  app);
 }
 
-/* App menu callbacks */
+/* Callbacks from former app menu.
+ * The preferences one is still used with the "--preferences" cmdline option. */
 
 static void
 app_menu_preferences_cb (GSimpleAction *action,
@@ -617,7 +746,6 @@ static void
 terminal_app_startup (GApplication *application)
 {
   TerminalApp *app = TERMINAL_APP (application);
-  GtkApplication *gtk_application = GTK_APPLICATION (application);
   const GActionEntry action_entries[] = {
     { "preferences", app_menu_preferences_cb,   NULL, NULL, NULL },
     { "help",        app_menu_help_cb,          NULL, NULL, NULL },
@@ -638,51 +766,23 @@ terminal_app_startup (GApplication *application)
 
   app_load_css (application);
 
-  /* Figure out whether the shell shows appmenu/menubar */
-  gboolean shell_shows_appmenu, shell_shows_menubar;
+  /* Figure out whether the shell shows the menubar */
+  gboolean shell_shows_menubar;
   g_object_get (gtk_settings_get_default (),
-                "gtk-shell-shows-app-menu", &shell_shows_appmenu,
                 "gtk-shell-shows-menubar", &shell_shows_menubar,
                 NULL);
 
-  /* App menu */
-  GMenu *appmenu_new_terminal_section = gtk_application_get_menu_by_id (gtk_application,
-                                                                        "new-terminal-section");
-  fill_new_terminal_section (app, appmenu_new_terminal_section, NULL, 0); /* no submenu */
+  /* Create menubar */
+  terminal_app_create_menubar (app, shell_shows_menubar);
 
-  /* Menubar */
-  /* If the menubar is shown by the shell, omit mnemonics for the submenus. This is because Alt+F etc.
-   * are more important to be usable in the terminal, the menu cannot be replaced runtime (to toggle
-   * between mnemonic and non-mnemonic versions), gtk-enable-mnemonics or gtk_window_set_mnemonic_modifier()
-   * don't effect the menubar either, so there wouldn't be a way to disable Alt+F for File etc. otherwise.
-   * Furthermore, the menu would even grab mnemonics from the File and Preferences windows.
-   * In Unity, Alt+F10 opens the menubar, this should be good enough for keyboard navigation.
-   * If the menubar is shown by the app, toggling mnemonics is handled in terminal-window.c using
-   * gtk_window_set_mnemonic_modifier().
-   * See bug 792978 for details. */
-  terminal_util_load_objects_resource (shell_shows_menubar ? "/org/gnome/terminal/ui/menubar-without-mnemonics.ui"
-                                                           : "/org/gnome/terminal/ui/menubar-with-mnemonics.ui",
-                                       "menubar", &app->menubar,
-                                       "new-terminal-section", &app->menubar_new_terminal_section,
-                                       "set-profile-section", &app->menubar_set_profile_section,
-                                       "set-encoding-submenu", &app->menubar_set_encoding_submenu,
-                                       NULL);
-
-  /* Create dynamic menus and keep them updated */
-  terminal_app_update_profile_menus (app);
+  /* Keep dynamic menus updated */
   g_signal_connect_swapped (app->profiles_list, "children-changed",
                             G_CALLBACK (terminal_app_update_profile_menus), app);
 
-  /* Install the encodings submenu */
-  terminal_encodings_append_menu (app->menubar_set_encoding_submenu);
-
-  /* Show/hide the appmenu/menubar as appropriate:
-   * If the shell wants to show the menubar, make it available.
-   * If the shell wants to show both the appmenu and the menubar, there's no need for the appmenu. */
-  if (shell_shows_appmenu && shell_shows_menubar)
-    gtk_application_set_app_menu (GTK_APPLICATION (app), NULL);
+  /* Show/hide the menubar as appropriate: If the shell wants to show the menubar, make it available. */
   if (shell_shows_menubar)
-    gtk_application_set_menubar (GTK_APPLICATION (app), app->menubar);
+    gtk_application_set_menubar (GTK_APPLICATION (app),
+                                 terminal_app_get_menubar (app));
 
   _terminal_debug_print (TERMINAL_DEBUG_SERVER, "Startup complete\n");
 }
@@ -710,12 +810,12 @@ terminal_app_init (TerminalApp *app)
                                                      GTK_DEBUG_ENABLE_INSPECTOR_KEY,
                                                      GTK_DEBUG_ENABLE_INSPECTOR_TYPE);
 
-  /* This is an internal setting that exists only for distributions
-   * to override, so we cache it on startup and don't react to changes.
+  /* These are internal settings that exists only for distributions
+   * to override, so we cache them on startup and don't react to changes.
    */
-  app->unified_menu = g_settings_get_boolean (app->global_settings, TERMINAL_SETTING_UNIFIED_MENU);
+  app->unified_menu = g_settings_get_boolean (app->global_settings, TERMINAL_SETTING_UNIFIED_MENU_KEY);
+  app->use_headerbar = terminal_app_should_use_headerbar (app);
 
-#if GTK_CHECK_VERSION (3, 19, 0)
   GtkSettings *gtk_settings = gtk_settings_get_default ();
   terminal_app_theme_variant_changed_cb (app->global_settings,
                                          TERMINAL_SETTING_THEME_VARIANT_KEY, gtk_settings);
@@ -723,7 +823,6 @@ terminal_app_init (TerminalApp *app)
                     "changed::" TERMINAL_SETTING_THEME_VARIANT_KEY,
                     G_CALLBACK (terminal_app_theme_variant_changed_cb),
                     gtk_settings);
-#endif /* GTK+ 3.19 */
 
   /* Clipboard targets */
   GdkDisplay *display = gdk_display_get_default ();
@@ -741,7 +840,7 @@ terminal_app_init (TerminalApp *app)
   app->screen_map = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
 
   gs_unref_object GSettings *settings = g_settings_get_child (app->global_settings, "keybindings");
-  terminal_accels_init (G_APPLICATION (app), settings);
+  terminal_accels_init (G_APPLICATION (app), settings, app->use_headerbar);
 }
 
 static void
@@ -767,7 +866,9 @@ terminal_app_finalize (GObject *object)
   g_clear_object (&app->menubar);
   g_clear_object (&app->menubar_new_terminal_section);
   g_clear_object (&app->menubar_set_profile_section);
-  g_clear_object (&app->menubar_set_encoding_submenu);
+  g_clear_object (&app->profilemenu);
+  g_clear_object (&app->headermenu);
+  g_clear_object (&app->headermenu_set_profile_section);
   g_clear_object (&app->set_profile_menu);
 
   terminal_accels_shutdown ();
@@ -879,54 +980,6 @@ terminal_app_new (const char *app_id)
                        "application-id", app_id ? app_id : TERMINAL_APPLICATION_ID,
                        "flags", flags,
                        NULL);
-}
-
-/**
- * terminal_app_new_window:
- * @app:
- * @monitor:
- *
- * Creates a new #TerminalWindow on the default display.
- */
-TerminalWindow *
-terminal_app_new_window (TerminalApp *app,
-                         int monitor)
-{
-  TerminalWindow *window;
-
-  window = terminal_window_new (G_APPLICATION (app));
-
-  return window;
-}
-
-TerminalScreen *
-terminal_app_new_terminal (TerminalApp     *app,
-                           TerminalWindow  *window,
-                           GSettings       *profile,
-                           const char      *charset,
-                           char           **override_command,
-                           const char      *title,
-                           const char      *working_dir,
-                           char           **child_env,
-                           double           zoom)
-{
-  TerminalScreen *screen;
-
-  g_return_val_if_fail (TERMINAL_IS_APP (app), NULL);
-  g_return_val_if_fail (TERMINAL_IS_WINDOW (window), NULL);
-  g_return_val_if_fail (charset == NULL || terminal_encodings_is_known_charset (charset), NULL);
-
-  screen = terminal_screen_new (profile, charset, override_command, title,
-                                working_dir, child_env, zoom);
-
-  terminal_window_add_screen (window, screen, -1);
-  terminal_window_switch_screen (window, screen);
-  gtk_widget_grab_focus (GTK_WIDGET (screen));
-
-  /* Launch the child on idle */
-  _terminal_screen_launch_child_on_idle (screen);
-
-  return screen;
 }
 
 TerminalScreen *
@@ -1082,6 +1135,36 @@ terminal_app_get_menubar (TerminalApp *app)
 }
 
 /**
+ * terminal_app_get_headermenu:
+ * @app: a #TerminalApp
+ *
+ * Returns: (tranfer none): the main window headerbar menu bar as a #GMenuModel
+ */
+GMenuModel *
+terminal_app_get_headermenu (TerminalApp *app)
+{
+  if (app->headermenu == NULL)
+    terminal_app_create_headermenu (app);
+
+  return app->headermenu;
+}
+
+/**
+ * terminal_app_get_profilemenu:
+ * @app: a #TerminalApp
+ *
+ * Returns: (tranfer none): the main window headerbar profile menu as a #GMenuModel
+ */
+GMenuModel *
+terminal_app_get_profilemenu (TerminalApp *app)
+{
+  if (app->profilemenu == NULL)
+    terminal_app_create_profilemenu (app);
+
+  return app->profilemenu;
+}
+
+/**
  * terminal_app_get_profile_section:
  * @app: a #TerminalApp
  *
@@ -1171,4 +1254,25 @@ terminal_app_get_menu_unified (TerminalApp *app)
   g_return_val_if_fail (TERMINAL_IS_APP (app), TRUE);
 
   return app->unified_menu;
+}
+
+gboolean
+terminal_app_get_use_headerbar (TerminalApp *app)
+{
+  g_return_val_if_fail (TERMINAL_IS_APP (app), FALSE);
+
+  return app->use_headerbar;
+}
+
+gboolean
+terminal_app_get_dialog_use_headerbar (TerminalApp *app)
+{
+  g_return_val_if_fail (TERMINAL_IS_APP (app), FALSE);
+
+  gboolean dialog_use_header;
+  g_object_get (gtk_settings_get_default (),
+                "gtk-dialogs-use-header", &dialog_use_header,
+                NULL);
+
+  return dialog_use_header && app->use_headerbar;
 }

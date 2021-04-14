@@ -20,6 +20,24 @@
       </row>
     </data>
   </object>
+  <object class="GtkListStore" id="new-tab-position-liststore">
+    <columns>
+      <!-- column-name label -->
+      <column type="gchararray"/>
+      <!-- column-name id -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes" comments="New tab opens at the last position">Last</col>
+        <col id="1">last</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes" comments="New tab opens next to current tab">Next</col>
+        <col id="1">next</col>
+      </row>
+    </data>
+  </object>
   <object class="GtkListStore" id="theme-variant-liststore">
     <columns>
       <!-- column-name label -->
@@ -193,6 +211,9 @@
     </columns>
     <data>
       <row>
+        <col id="0" translatable="yes" comments="This is the name of a colour scheme">GNOME</col>
+      </row>
+      <row>
         <col id="0" translatable="yes" comments="This is the name of a colour scheme">Tango</col>
       </row>
       <row>
@@ -235,6 +256,28 @@
       </row>
     </data>
   </object>
+  <object class="GtkListStore" id="preserve-working-directory-model">
+    <columns>
+      <!-- column-name label -->
+      <column type="gchararray"/>
+      <!-- column-name id -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes" comments="Preserve working directory">Never</col>
+        <col id="1">never</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes" comments="Preserve working directory">Shell only</col>
+        <col id="1">safe</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes" comments="Preserve working directory">Always</col>
+        <col id="1">always</col>
+      </row>
+    </data>
+  </object>
   <object class="GtkApplicationWindow" id="preferences-dialog">
     <property name="can_focus">False</property>
     <property name="show_menubar">False</property>
@@ -251,7 +294,6 @@
           <object class="GtkHBox" id="main-hbox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="spacing">12</property>
             <child>
               <object class="GtkFrame">
                 <property name="visible">True</property>
@@ -283,7 +325,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkFrame" id="general">
+                      <object class="GtkFrame" id="general-frame">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
@@ -413,6 +455,38 @@
                                     <property name="left_attach">1</property>
                                   </packing>
                                 </child>
+                                <child>
+                                  <object class="GtkLabel" id="new-tab-position-label">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="label" translatable="yes">New tab _position:</property>
+                                    <property name="use_underline">True</property>
+                                    <property name="mnemonic_widget">new-tab-position-combobox</property>
+                                    <property name="xalign">0</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">2</property>
+                                    <property name="left_attach">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkComboBox" id="new-tab-position-combobox">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="model">new-tab-position-liststore</property>
+                                    <property name="id_column">1</property>
+                                    <child>
+                                      <object class="GtkCellRendererText" id="renderer3a"/>
+                                      <attributes>
+                                        <attribute name="text">0</attribute>
+                                      </attributes>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">2</property>
+                                    <property name="left_attach">1</property>
+                                  </packing>
+                                </child>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -434,7 +508,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkFrame" id="keybindings">
+                      <object class="GtkFrame" id="keybindings-frame">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
@@ -550,6 +624,7 @@
                                     <property name="can_focus">True</property>
                                     <property name="adjustment">adjustment1</property>
                                     <property name="numeric">True</property>
+                                    <property name="input_hints">GTK_INPUT_HINT_NO_EMOJI</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -586,6 +661,7 @@
                                     <property name="can_focus">True</property>
                                     <property name="adjustment">adjustment2</property>
                                     <property name="numeric">True</property>
+                                    <property name="input_hints">GTK_INPUT_HINT_NO_EMOJI</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -695,6 +771,7 @@
                                     <property name="adjustment">adjustment5</property>
                                     <property name="digits">2</property>
                                     <property name="numeric">True</property>
+                                    <property name="input_hints">GTK_INPUT_HINT_NO_EMOJI</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -731,6 +808,7 @@
                                     <property name="adjustment">adjustment6</property>
                                     <property name="digits">2</property>
                                     <property name="numeric">True</property>
+                                    <property name="input_hints">GTK_INPUT_HINT_NO_EMOJI</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -1145,6 +1223,7 @@
                                                     <property name="receives_default">False</property>
                                                     <property name="halign">start</property>
                                                     <property name="title" translatable="yes">Choose Terminal Text Color</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">1</property>
@@ -1158,6 +1237,7 @@
                                                     <property name="receives_default">False</property>
                                                     <property name="halign">start</property>
                                                     <property name="title" translatable="yes">Choose Terminal Background Color</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">1</property>
@@ -1187,6 +1267,7 @@
                                                     <property name="receives_default">False</property>
                                                     <property name="halign">start</property>
                                                     <property name="title" translatable="yes">Choose Terminal Bold Text Color</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">2</property>
@@ -1243,6 +1324,7 @@
                                                     <property name="receives_default">True</property>
                                                     <property name="halign">start</property>
                                                     <property name="title" translatable="yes">Choose Terminal Cursor Foreground Color</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">4</property>
@@ -1256,6 +1338,7 @@
                                                     <property name="receives_default">True</property>
                                                     <property name="halign">start</property>
                                                     <property name="title" translatable="yes">Choose Terminal Cursor Background Color</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">4</property>
@@ -1284,6 +1367,7 @@
                                                     <property name="receives_default">True</property>
                                                     <property name="halign">start</property>
                                                     <property name="title" translatable="yes">Choose Terminal Highlight Foreground Color</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">5</property>
@@ -1297,6 +1381,7 @@
                                                     <property name="receives_default">True</property>
                                                     <property name="halign">start</property>
                                                     <property name="title" translatable="yes">Choose Terminal Highlight Background Color</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">5</property>
@@ -1431,6 +1516,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">0</property>
@@ -1443,6 +1529,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">0</property>
@@ -1455,6 +1542,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">0</property>
@@ -1467,6 +1555,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">0</property>
@@ -1479,6 +1568,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">0</property>
@@ -1491,6 +1581,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">0</property>
@@ -1503,6 +1594,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">0</property>
@@ -1515,6 +1607,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">0</property>
@@ -1527,6 +1620,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">1</property>
@@ -1539,6 +1633,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">1</property>
@@ -1551,6 +1646,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">1</property>
@@ -1563,6 +1659,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">1</property>
@@ -1575,6 +1672,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">1</property>
@@ -1587,6 +1685,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">1</property>
@@ -1599,6 +1698,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">1</property>
@@ -1611,6 +1711,7 @@
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">False</property>
                                                     <property name="tooltip_text">dummy</property>
+                                                    <property name="show-editor">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="top_attach">1</property>
@@ -1766,6 +1867,7 @@
                                     <property name="can_focus">True</property>
                                     <property name="adjustment">adjustment4</property>
                                     <property name="numeric">True</property>
+                                    <property name="input_hints">GTK_INPUT_HINT_NO_EMOJI</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -1867,9 +1969,44 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="hexpand">True</property>
+                                <property name="input_hints">GTK_INPUT_HINT_NO_EMOJI</property>
                               </object>
                               <packing>
                                 <property name="top_attach">2</property>
+                                <property name="left_attach">1</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="preserve-working-directory-checkbutton-label">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">_Preserve working directory:</property>
+                                <property name="use_underline">True</property>
+                                <property name="justify">center</property>
+                                <property name="mnemonic_widget">preserve-working-directory-combobox</property>
+                                <property name="xalign">0</property>
+                              </object>
+                              <packing>
+                                <property name="top_attach">3</property>
+                                <property name="left_attach">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkComboBox" id="preserve-working-directory-combobox">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="model">preserve-working-directory-model</property>
+                                <property name="focus_on_click">False</property>
+                                <property name="halign">start</property>
+                                <child>
+                                  <object class="GtkCellRendererText" id="preserve-working-directory-renderer"/>
+                                  <attributes>
+                                    <attribute name="text">0</attribute>
+                                  </attributes>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="top_attach">3</property>
                                 <property name="left_attach">1</property>
                               </packing>
                             </child>
@@ -1883,7 +2020,7 @@
                                 <property name="xalign">0</property>
                               </object>
                               <packing>
-                                <property name="top_attach">3</property>
+                                <property name="top_attach">4</property>
                                 <property name="left_attach">0</property>
                               </packing>
                             </child>
@@ -1902,7 +2039,7 @@
                                 </child>
                               </object>
                               <packing>
-                                <property name="top_attach">3</property>
+                                <property name="top_attach">4</property>
                                 <property name="left_attach">1</property>
                               </packing>
                             </child>
@@ -2016,6 +2153,13 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="focus_on_click">False</property>
+                                <property name="id_column">0</property>
+                                <child>
+                                  <object class="GtkCellRendererText" id="encoding-combobox-renderer"/>
+                                  <attributes>
+                                    <attribute name="text">1</attribute>
+                                  </attributes>
+                                </child>
                               </object>
                               <packing>
                                 <property name="top_attach">2</property>
@@ -2057,6 +2201,22 @@
                               </packing>
                             </child>
                             <child>
+                              <object class="GtkCheckButton" id="enable-sixel-checkbutton">
+                                <property name="label" translatable="yes">Enable _SIXEL images</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">False</property>
+                                <property name="use_underline">True</property>
+                                <property name="xalign">0</property>
+                                <property name="draw_indicator">True</property>
+                              </object>
+                              <packing>
+                                <property name="top_attach">4</property>
+                                <property name="left_attach">0</property>
+                                <property name="width">2</property>
+                              </packing>
+                            </child>
+                            <child>
                               <object class="GtkButton" id="reset-compat-defaults-button">
                                 <property name="label" translatable="yes">_Reset Compatibility Options to Defaults</property>
                                 <property name="visible">True</property>
@@ -2067,7 +2227,7 @@
                                 <property name="halign">start</property>
                               </object>
                               <packing>
-                                <property name="top_attach">4</property>
+                                <property name="top_attach">5</property>
                                 <property name="left_attach">0</property>
                                 <property name="width">2</property>
                               </packing>

@@ -162,8 +162,8 @@ terminal_util_show_about (void)
     "Copyright © 2002–2004 Havoc Pennington\n"
     "Copyright © 2003–2004, 2007 Mariano Suárez-Alvarez\n"
     "Copyright © 2006 Guilherme de S. Pastore\n"
-    "Copyright © 2007–2018 Christian Persch\n"
-    "Copyright © 2013–2018 Egmont Koblinger";
+    "Copyright © 2007–2019 Christian Persch\n"
+    "Copyright © 2013–2019 Egmont Koblinger";
   char *licence_text;
   GKeyFile *key_file;
   GBytes *bytes;
@@ -448,8 +448,8 @@ terminal_util_load_widgets_resource (const char *path,
     /* Fixup dialogue padding, #735242 */
     if (GTK_IS_DIALOG (main_object) &&
         (action_area = (GtkWidget *) gtk_builder_get_object (builder, "dialog-action-area"))) {
-      gtk_widget_set_margin_left   (action_area, 5);
-      gtk_widget_set_margin_right  (action_area, 5);
+      gtk_widget_set_margin_start  (action_area, 5);
+      gtk_widget_set_margin_end    (action_area, 5);
       gtk_widget_set_margin_top    (action_area, 5);
       gtk_widget_set_margin_bottom (action_area, 5);
     }
@@ -713,8 +713,15 @@ terminal_util_get_etc_shells (void)
   char *str, *nl, *end;
   GPtrArray *arr;
 
-  if (!g_file_get_contents ("/etc/shells", &contents, &len, &err) || len == 0)
-    return NULL;
+  if (!g_file_get_contents ("/etc/shells", &contents, &len, &err) || len == 0) {
+    /* Defaults as per man:getusershell(3) */
+    char *default_shells[3] = {
+      (char*) "/bin/sh",
+      (char*) "/bin/csh",
+      NULL
+    };
+    return g_strdupv (default_shells);
+  }
 
   arr = g_ptr_array_new ();
   str = contents;
@@ -970,7 +977,8 @@ terminal_util_bind_mnemonic_label_sensitivity (GtkWidget *widget)
 
   if (GTK_IS_CONTAINER (widget))
     gtk_container_foreach (GTK_CONTAINER (widget),
-                           (GtkCallback) terminal_util_bind_mnemonic_label_sensitivity,
+                           /* See #96 for double casting. */
+                           (GtkCallback) (GCallback) terminal_util_bind_mnemonic_label_sensitivity,
                            NULL);
 }
 
@@ -992,14 +1000,14 @@ add_separators (const char *in, const char *sep, int groupby)
   ret = out = g_malloc(outlen + 1);
 
   firstgrouplen = (inlen - 1) % groupby + 1;
-  strncpy(out, in, firstgrouplen);
+  memcpy(out, in, firstgrouplen);
   in += firstgrouplen;
   out += firstgrouplen;
 
   while (*in != '\0') {
-    strncpy(out, sep, seplen);
+    memcpy(out, sep, seplen);
     out += seplen;
-    strncpy(out, in, groupby);
+    memcpy(out, in, groupby);
     in += groupby;
     out += groupby;
   }
@@ -1198,60 +1206,7 @@ char *terminal_util_hyperlink_uri_label (const char *uri)
     }
   }
 
-  return terminal_util_utf8_make_valid (unesc, -1);
-}
-
-/**
- * terminal_util_utf8_make_valid:
- *
- * Just as g_utf8_make_valid().
- *
- * FIXME: Use g_utf8_make_valid() instead once we require glib >= 2.52.
- */
-gchar *
-terminal_util_utf8_make_valid (const gchar *str,
-                               gssize       len)
-{
-  /* copied from glib's g_utf8_make_valid() implementation */
-  GString *string;
-  const gchar *remainder, *invalid;
-  gsize remaining_bytes, valid_bytes;
-
-  g_return_val_if_fail (str != NULL, NULL);
-
-  if (len < 0)
-    len = strlen (str);
-
-  string = NULL;
-  remainder = str;
-  remaining_bytes = len;
-
-  while (remaining_bytes != 0)
-    {
-      if (g_utf8_validate (remainder, remaining_bytes, &invalid))
-	break;
-      valid_bytes = invalid - remainder;
-
-      if (string == NULL)
-	string = g_string_sized_new (remaining_bytes);
-
-      g_string_append_len (string, remainder, valid_bytes);
-      /* append U+FFFD REPLACEMENT CHARACTER */
-      g_string_append (string, "\357\277\275");
-
-      remaining_bytes -= valid_bytes + 1;
-      remainder = invalid + 1;
-    }
-
-  if (string == NULL)
-    return g_strndup (str, len);
-
-  g_string_append_len (string, remainder, remaining_bytes);
-  g_string_append_c (string, '\0');
-
-  g_assert (g_utf8_validate (string->str, -1, NULL));
-
-  return g_string_free (string, FALSE);
+  return g_utf8_make_valid (unesc, -1);
 }
 
 #define TERMINAL_CACHE_DIR                 "gnome-terminal"
@@ -1428,4 +1383,198 @@ terminal_util_save_print_settings (GtkPrintSettings *settings,
                        NULL);
 
   save_cache_keyfile (keyfile, TERMINAL_PRINT_SETTINGS_FILENAME);
+}
+
+/*
+ * terminal_util_translate_encoding:
+ * @encoding: the encoding name
+ *
+ * Translates old encoding name to the one supported by ICU, or
+ * to %NULL if the encoding is not known to ICU.
+ *
+ * Returns: (transfer none): the translated encoding, or %NULL if
+ *   not translation was possible.
+ */
+const char*
+terminal_util_translate_encoding (const char *encoding)
+{
+  if (vte_get_encoding_supported (encoding))
+    return encoding;
+
+  /* ICU knows (or has aliases for) most of the old names, except the following */
+  struct {
+    const char *name;
+    const char *replacement;
+  } translations[] = {
+    { "ARMSCII-8",      NULL           }, /* apparently not supported by ICU */
+    { "GEORGIAN-PS",    NULL           }, /* no idea which charset this even is */
+    { "ISO-IR-111",     NULL           }, /* ISO-IR-111 refers to ECMA-94, but that
+                                           * standard does not contain cyrillic letters.
+                                           * ECMA-94 refers to ECMA-113 (ISO-IR-144),
+                                           * whose assignment differs greatly from ISO-IR-111,
+                                           * so it cannot be that either.
+                                           */
+    /* All the MAC_* charsets appear to be unknown to even glib iconv, so
+     * why did we have them in our list in the first place?
+     */
+    { "MAC_DEVANAGARI", NULL           }, /* apparently not supported by ICU */
+    { "MAC_FARSI",      NULL           }, /* apparently not supported by ICU */
+    { "MAC_GREEK",      "x-MacGreek"   },
+    { "MAC_GUJARATI",   NULL           }, /* apparently not supported by ICU */
+    { "MAC_GURMUKHI",   NULL           }, /* apparently not supported by ICU */
+    { "MAC_ICELANDIC",  NULL           }, /* apparently not supported by ICU */
+    { "MAC_ROMANIAN",   "x-macroman"   }, /* not sure this is the right one */
+    { "MAC_TURKISH",    "x-MacTurkish" },
+    { "MAC_UKRAINIAN",  "x-MacUkraine" },
+
+    { "TCVN",           NULL           }, /* apparently not supported by ICU */
+    { "UHC",            "cp949"        },
+    { "VISCII",         NULL           }, /* apparently not supported by ICU */
+
+    /* ISO-2022-* are known to ICU, but they simply cannot work in vte as
+     * I/O encoding, so don't even try.
+     */
+    { "ISO-2022-JP",    NULL           },
+    { "ISO-2022-KR",    NULL           },
+  };
+
+  const char *replacement = NULL;
+  for (guint i = 0; i < G_N_ELEMENTS (translations); ++i) {
+    if (g_str_equal (encoding, translations[i].name)) {
+      replacement = translations[i].replacement;
+      break;
+    }
+  }
+
+  return replacement;
+}
+
+/* BEGIN code copied from glib
+ *
+ * Copyright (C) 1995-1998  Peter Mattis, Spencer Kimball and Josh MacDonald
+ *
+ * Code originally under LGPL2+; used and modified here under GPL3+
+ * Changes:
+ *   Remove win32 support.
+ *   Make @program nullable.
+ *   Use @path instead of getenv("PATH").
+ *   Use strchrnul
+ */
+
+/**
+ * terminal_util_find_program_in_path:
+ * @path: (type filename) (nullable): the search path (delimited by G_SEARCHPATH_SEPARATOR)
+ * @program: (type filename) (nullable): the programme to find in @path
+ *
+ * Like g_find_program_in_path(), but uses @path instead of the
+ * PATH environment variable as the search path.
+ *
+ * Returns: (type filename) (transfer full) (nullable): a newly allocated
+ *  string containing the full path to @program, or %NULL if @program
+ *  could not be found in @path.
+ */
+char *
+terminal_util_find_program_in_path (const char *path,
+                                    const char *program)
+{
+  const gchar *p;
+  gchar *name, *freeme;
+  gsize len;
+  gsize pathlen;
+
+  if (program == NULL)
+    return NULL;
+
+  /* If it is an absolute path, or a relative path including subdirectories,
+   * don't look in PATH.
+   */
+  if (g_path_is_absolute (program)
+      || strchr (program, G_DIR_SEPARATOR) != NULL
+      )
+    {
+      if (g_file_test (program, G_FILE_TEST_IS_EXECUTABLE) &&
+	  !g_file_test (program, G_FILE_TEST_IS_DIR))
+        return g_strdup (program);
+      else
+        return NULL;
+    }
+
+  if (path == NULL)
+    {
+      /* There is no 'PATH' in the environment.  The default
+       * search path in GNU libc is the current directory followed by
+       * the path 'confstr' returns for '_CS_PATH'.
+       */
+
+      /* In GLib we put . last, for security, and don't use the
+       * unportable confstr(); UNIX98 does not actually specify
+       * what to search if PATH is unset. POSIX may, dunno.
+       */
+
+      path = "/bin:/usr/bin:.";
+    }
+
+  len = strlen (program) + 1;
+  pathlen = strlen (path);
+  freeme = name = g_malloc (pathlen + len + 1);
+
+  /* Copy the file name at the top, including '\0'  */
+  memcpy (name + pathlen + 1, program, len);
+  name = name + pathlen;
+  /* And add the slash before the filename  */
+  *name = G_DIR_SEPARATOR;
+
+  p = path;
+  do
+    {
+      char *startp;
+
+      path = p;
+      p = strchrnul (path, G_SEARCHPATH_SEPARATOR);
+
+      if (p == path)
+        /* Two adjacent colons, or a colon at the beginning or the end
+         * of 'PATH' means to search the current directory.
+         */
+        startp = name + 1;
+      else
+        startp = memcpy (name - (p - path), path, p - path);
+
+      if (g_file_test (startp, G_FILE_TEST_IS_EXECUTABLE) &&
+	  !g_file_test (startp, G_FILE_TEST_IS_DIR))
+        {
+          gchar *ret;
+          ret = g_strdup (startp);
+          g_free (freeme);
+          return ret;
+        }
+    }
+  while (*p++ != '\0');
+
+  g_free (freeme);
+  return NULL;
+}
+
+/* END code copied from glib */
+
+/*
+ * terminal_util_check_envv:
+ * @strv:
+ *
+ * Validates that each element is of the form 'KEY=VALUE'.
+ */
+gboolean
+terminal_util_check_envv(char const* const* strv)
+{
+  if (!strv)
+    return TRUE;
+
+  for (int i = 0; strv[i]; ++i) {
+          const char *str = strv[i];
+          const char *equal = strchr(str, '=');
+          if (equal == NULL || equal == str)
+                  return FALSE;
+  }
+
+  return TRUE;
 }

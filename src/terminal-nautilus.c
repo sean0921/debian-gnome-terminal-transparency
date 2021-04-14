@@ -24,8 +24,7 @@
 #include <gio/gio.h>
 #include <gtk/gtk.h>
 
-#include <libnautilus-extension/nautilus-menu-provider.h>
-#include <libnautilus-extension/nautilus-extension-types.h>
+#include <nautilus-extension.h>
 
 #include <errno.h>
 #include <fcntl.h>
@@ -89,7 +88,7 @@ static GType terminal_nautilus_menu_item_get_type (void);
 
 /* --- */
 
-#define TERMINAL_ICON_NAME "utilities-terminal"
+#define TERMINAL_ICON_NAME "org.gnome.Terminal"
 
 typedef enum {
   /* local files. Always open "conventionally", i.e. cd and spawn. */
@@ -232,7 +231,7 @@ ssh_argv (const char *uri,
   quoted_path = g_shell_quote (path);
 
   /* login shell */
-  argv[argc++] = g_strdup_printf ("cd %s && exec $SHELL -", quoted_path);
+  argv[argc++] = g_strdup_printf ("cd %s && exec $SHELL -l", quoted_path);
 
   g_free (path);
   g_free (quoted_path);
@@ -371,6 +370,7 @@ create_terminal (ExecData *data /* transfer full */)
   g_variant_builder_init (&builder, G_VARIANT_TYPE ("a{sv}"));
 
   terminal_client_append_exec_options (&builder,
+                                       TRUE, /* pass environment */
                                        data->path,
                                        NULL, 0, /* FD array */
                                        TRUE /* shell */);

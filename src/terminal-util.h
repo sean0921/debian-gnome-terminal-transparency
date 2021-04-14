@@ -99,14 +99,18 @@ char *terminal_util_uri_fixup (const char *uri,
 
 char *terminal_util_hyperlink_uri_label (const char *str);
 
-gchar *terminal_util_utf8_make_valid (const gchar *str,
-                                      gssize       len) G_GNUC_MALLOC;
-
 void terminal_util_load_print_settings (GtkPrintSettings **settings,
                                         GtkPageSetup **page_setup);
 
 void terminal_util_save_print_settings (GtkPrintSettings *settings,
                                         GtkPageSetup *page_setup);
+
+const char *terminal_util_translate_encoding (const char *encoding);
+
+char *terminal_util_find_program_in_path (const char *path,
+                                          const char *program);
+
+gboolean terminal_util_check_envv(char const* const* strv);
 
 G_END_DECLS
 

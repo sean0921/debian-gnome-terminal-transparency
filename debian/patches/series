@@ -1,5 +1,6 @@
-nautilus-x11.patch
+server-Filter-environment-variables-in-the-server-too.patch
+client-Filter-out-some-more-env-variables.patch
+screen-Manually-handle-env-inheritance.patch
 01_onlyshowin.patch
-Don-t-allow-the-theme-to-set-black-on-black.patch
 Provide-fallback-for-reading-current-directory-if-OS.patch
 0001-Restore-transparency.patch

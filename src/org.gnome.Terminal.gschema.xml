@@ -29,6 +29,11 @@
     <value nick='tab' value='1'/>
   </enum>
 
+  <enum id='org.gnome.Terminal.NewTabPosition'>
+    <value nick='last' value='0'/>
+    <value nick='next' value='1'/>
+  </enum>
+
    <enum id='org.gnome.Terminal.ScrollbarPolicy'>
     <value nick='always' value='0'/>
     <!-- <value nick='automatic' value='1'/> -->
@@ -53,9 +58,15 @@
     <value nick='hold' value='2'/>
   </enum>
 
-   <enum id='org.gnome.Terminal.CJKWidth'>
+  <enum id='org.gnome.Terminal.CJKWidth'>
     <value nick='narrow' value='1'/>
     <value nick='wide'   value='2'/>
+  </enum>
+
+  <enum id="org.gnome.Terminal.PreserveWorkingDirectory">
+    <value nick="never"  value='0'/>
+    <value nick="safe"   value='1'/>
+    <value nick="always" value='2'/>
   </enum>
 
   <!-- From gtk+ -->
@@ -124,12 +135,12 @@
       <description>Human-readable name of the profile.</description>
     </key>
     <key name="foreground-color" type="s">
-      <default>'#D3D7CF'</default>
+      <default>'#171421'</default>
       <summary>Default color of text in the terminal</summary>
       <description>Default color of text in the terminal, as a color specification (can be HTML-style hex digits, or a color name such as “red”).</description>
     </key>
     <key name="background-color" type="s">
-      <default>'#2E3436'</default>
+      <default>'#ffffff'</default>
       <summary>Default color of terminal background</summary>
       <description>Default color of terminal background, as a color specification (can be HTML-style hex digits, or a color name such as “red”).</description>
     </key>
@@ -183,13 +194,23 @@
       <summary>Highlight foreground colour</summary>
       <description>Custom color for the foreground of the text character at the terminal’s highlight position, as a color specification (can be HTML-style hex digits, or a color name such as “red”). This is ignored if highlight-colors-set is false.</description>
     </key>
-    <key name="allow-bold" type="b">
+    <key name="enable-bidi" type="b">
       <default>true</default>
-      <summary>Whether to allow bold text</summary>
-      <description>If true, allow applications in the terminal to make text boldface.</description>
+      <summary>Whether to perform bidirectional text rendering</summary>
+      <description>If true, perform bidirectional text rendering (“BiDi”).</description>
+    </key>
+    <key name="enable-shaping" type="b">
+      <default>true</default>
+      <summary>Whether to perform Arabic shaping</summary>
+      <description>If true, shape Arabic text.</description>
+    </key>
+    <key name="enable-sixel" type="b">
+      <default>false</default>
+      <summary>Whether to enable SIXEL images</summary>
+      <description>If true, SIXEL sequences are parsed and images are rendered.</description>
     </key>
     <key name="bold-is-bright" type="b">
-      <default>true</default>
+      <default>false</default>
       <summary>Whether bold is also bright</summary>
       <description>If true, setting bold on the first 8 colors also switches to their bright variants.</description>
     </key>
@@ -200,11 +221,6 @@
     <key name="word-char-exceptions" type="ms">
       <default>nothing</default>
       <summary>List of ASCII punctuation characters that are not to be treated as part of a word when doing word-wise selection</summary>
-    </key>
-    <key name="default-show-menubar" type="b">
-      <default>true</default>
-      <summary>Whether to show menubar in new windows/tabs</summary>
-      <description>True if the menubar should be shown in new window</description>
     </key>
     <key name="default-size-columns" type="i">
       <range min="16" max="511" />
@@ -252,6 +268,13 @@
       <summary>Whether to launch the command in the terminal as a login shell</summary>
       <description>If true, the command inside the terminal will be launched as a login shell (argv[0] will have a hyphen in front of it).</description>
     </key>
+    <key name="preserve-working-directory" enum="org.gnome.Terminal.PreserveWorkingDirectory">
+      <default>'safe'</default>
+      <summary>Whether to preserve the working directory when opening a new terminal</summary>
+      <description>
+        Controls when opening a new terminal from a previous one carries over the working directory of the opening terminal to the new one.
+      </description>
+    </key>
     <key name="use-custom-command" type="b">
       <default>false</default>
       <summary>Whether to run a custom command instead of the shell</summary>
@@ -276,22 +299,22 @@
       <description>Run this command in place of the shell, if use_custom_command is true.</description>
     </key>
     <key name="palette" type="as">
-      <default>["#2E3436",
-                "#CC0000",
-                "#4E9A06",
-                "#C4A000",
-                "#3465A4",
-                "#75507B",
-                "#06989A",
-                "#D3D7CF",
-                "#555753",
-                "#EF2929",
-                "#8AE234",
-                "#FCE94F",
-                "#729FCF",
-                "#AD7FA8",
-                "#34E2E2",
-                "#EEEEEC"]</default>
+      <default>['#171421',
+                '#c01c28',
+                '#26a269',
+                '#a2734c',
+                '#12488b',
+                '#a347ba',
+                '#2aa1b3',
+                '#d0cfcc',
+                '#5e5c64',
+                '#f66151',
+                '#33da7a',
+                '#e9ad0c',
+                '#2a7bde',
+                '#c061cb',
+                '#33c7de',
+                '#ffffff']</default>
       <summary>Palette for terminal applications</summary>
     </key>
     <key name="font" type="s">
@@ -319,80 +342,6 @@
       <summary>Whether to rewrap the terminal contents on window resize</summary>
     </key>
     <key name="encoding" type="s">
-      <choices>
-        <choice value="ISO-8859-1" />
-        <choice value="ISO-8859-2" />
-        <choice value="ISO-8859-3" />
-        <choice value="ISO-8859-4" />
-        <choice value="ISO-8859-5" />
-        <choice value="ISO-8859-6" />
-        <choice value="ISO-8859-7" />
-        <choice value="ISO-8859-8" />
-        <choice value="ISO-8859-8-I" />
-        <choice value="ISO-8859-9" />
-        <choice value="ISO-8859-10" />
-        <choice value="ISO-8859-13" />
-        <choice value="ISO-8859-14" />
-        <choice value="ISO-8859-15" />
-        <choice value="ISO-8859-16" />
-        <!-- <choice value="UTF-7" /> -->
-        <choice value="UTF-8" />
-        <!-- <choice value="UTF-16" /> -->
-        <!-- <choice value="UTF-32" /> -->
-        <!-- <choice value="UCS-4" /> -->
-        <choice value="ARMSCII-8" />
-        <choice value="BIG5" />
-        <choice value="BIG5-HKSCS" />
-        <choice value="CP866" />
-        <choice value="EUC-JP" />
-        <choice value="EUC-KR" />
-        <choice value="EUC-TW" />
-        <choice value="GB18030" />
-        <choice value="GB2312" />
-        <choice value="GBK" />
-        <choice value="GEORGIAN-PS" />
-        <choice value="IBM850" />
-        <choice value="IBM852" />
-        <choice value="IBM855" />
-        <choice value="IBM857" />
-        <choice value="IBM862" />
-        <choice value="IBM864" />
-        <choice value="ISO-2022-JP" />
-        <choice value="ISO-2022-KR" />
-        <choice value="ISO-IR-111" />
-        <!-- <choice value="JOHAB" /> -->
-        <choice value="KOI8-R" />
-        <choice value="KOI8-U" />
-        <choice value="MAC_ARABIC" />
-        <choice value="MAC_CE" />
-        <choice value="MAC_CROATIAN" />
-        <choice value="MAC-CYRILLIC" />
-        <choice value="MAC_DEVANAGARI" />
-        <choice value="MAC_FARSI" />
-        <choice value="MAC_GREEK" />
-        <choice value="MAC_GUJARATI" />
-        <choice value="MAC_GURMUKHI" />
-        <choice value="MAC_HEBREW" />
-        <choice value="MAC_ICELANDIC" />
-        <choice value="MAC_ROMAN" />
-        <choice value="MAC_ROMANIAN" />
-        <choice value="MAC_TURKISH" />
-        <choice value="MAC_UKRAINIAN" />
-        <choice value="SHIFT_JIS" />
-        <choice value="TCVN" />
-        <choice value="TIS-620" />
-        <choice value="UHC" />
-        <choice value="VISCII" />
-        <choice value="WINDOWS-1250" />
-        <choice value="WINDOWS-1251" />
-        <choice value="WINDOWS-1252" />
-        <choice value="WINDOWS-1253" />
-        <choice value="WINDOWS-1254" />
-        <choice value="WINDOWS-1255" />
-        <choice value="WINDOWS-1256" />
-        <choice value="WINDOWS-1257" />
-        <choice value="WINDOWS-1258" />
-      </choices>
       <default>'UTF-8'</default>
       <summary>Which encoding to use</summary>
     </key>
@@ -669,6 +618,10 @@
       <default>'&lt;Ctrl&gt;0'</default>
       <summary>Keyboard shortcut to make font normal-size</summary>
     </key>
+    <key name="header-menu" type="s">
+      <default>'disabled'</default>
+      <summary>Keyboard shortcut to show the primary menu</summary>
+    </key>
   </schema>
 
   <!-- Global settings -->
@@ -739,6 +692,19 @@
     <key name="theme-variant" enum="org.gnome.Terminal.ThemeVariant">
       <default>'system'</default>
       <summary>Which theme variant to use</summary>
+    </key>
+
+    <key name="new-tab-position" enum="org.gnome.Terminal.NewTabPosition">
+      <default>'last'</default>
+      <summary>Whether new tabs should open next to the current one or at the last position</summary>
+    </key>
+
+    <!-- Note that changing the following settings will only take effect
+         when gnome-terminal-server is restarted.
+    -->
+
+    <key name="headerbar" type="mb">
+      <default>nothing</default>
     </key>
 
     <key name="unified-menu" type="b">

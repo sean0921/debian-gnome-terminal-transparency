@@ -26,7 +26,7 @@
 
 G_BEGIN_DECLS
 
-#define GNOME_TERMINAL_ICON_NAME "utilities-terminal"
+#define GNOME_TERMINAL_ICON_NAME "org.gnome.Terminal"
 
 #define TERMINAL_RESOURCES_PATH_PREFIX "/org/gnome/terminal"
 
@@ -67,19 +67,6 @@ char *terminal_app_new_profile (TerminalApp *app,
 void terminal_app_remove_profile (TerminalApp *app,
                                   GSettings *profile);
 
-TerminalWindow * terminal_app_new_window   (TerminalApp *app,
-                                            int monitor);
-
-TerminalScreen *terminal_app_new_terminal (TerminalApp     *app,
-                                           TerminalWindow  *window,
-                                           GSettings       *profile,
-                                           const char      *charset,
-                                           char           **override_command,
-                                           const char      *title,
-                                           const char      *working_dir,
-                                           char           **child_env,
-                                           double           zoom);
-
 char *terminal_app_dup_screen_object_path (TerminalApp *app,
                                            TerminalScreen *screen);
 
@@ -101,9 +88,17 @@ TerminalSettingsList *terminal_app_get_profiles_list (TerminalApp *app);
 
 GMenuModel *terminal_app_get_menubar (TerminalApp *app);
 
+GMenuModel *terminal_app_get_headermenu (TerminalApp *app);
+
+GMenuModel *terminal_app_get_profilemenu (TerminalApp *app);
+
 GMenuModel *terminal_app_get_profile_section (TerminalApp *app);
 
 gboolean terminal_app_get_menu_unified (TerminalApp *app);
+
+gboolean terminal_app_get_use_headerbar (TerminalApp *app);
+
+gboolean terminal_app_get_dialog_use_headerbar (TerminalApp *app);
 
 /* GSettings */
 

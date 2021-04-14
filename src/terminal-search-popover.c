@@ -210,7 +210,6 @@ perform_search (TerminalSearchPopover *popover,
   g_signal_emit (popover, signals[SEARCH], 0, backward);
 }
 
-#if GTK_CHECK_VERSION (3, 16, 0)
 static void
 previous_match_cb (GtkWidget *widget,
                   TerminalSearchPopover *popover)
@@ -224,7 +223,6 @@ next_match_cb (GtkWidget *widget,
 {
   perform_search (popover, FALSE);
 }
-#endif /* GTK+ 3.16 */
 
 static void
 close_clicked_cb (GtkWidget *widget,
@@ -294,7 +292,7 @@ update_regex (TerminalSearchPopover *popover)
   if (search_text[0] != '\0') {
     guint32 compile_flags;
 
-    compile_flags = PCRE2_UTF | PCRE2_NO_UTF_CHECK | PCRE2_MULTILINE;
+    compile_flags = PCRE2_UTF | PCRE2_NO_UTF_CHECK | PCRE2_UCP | PCRE2_MULTILINE;
     if (caseless)
       compile_flags |= PCRE2_CASELESS;
 
@@ -346,6 +344,15 @@ wrap_around_toggled_cb (GtkToggleButton *button,
 /* Class implementation */
 
 static void
+terminal_search_popover_grab_focus (GtkWidget *widget)
+{
+  TerminalSearchPopover *popover = TERMINAL_SEARCH_POPOVER (widget);
+  TerminalSearchPopoverPrivate *priv = PRIV (popover);
+
+  gtk_widget_grab_focus (priv->search_entry);
+}
+
+static void
 terminal_search_popover_init (TerminalSearchPopover *popover)
 {
   TerminalSearchPopoverPrivate *priv = PRIV (popover);
@@ -379,18 +386,15 @@ terminal_search_popover_init (TerminalSearchPopover *popover)
     gtk_entry_set_completion (GTK_ENTRY (priv->search_entry), completion);
   }
 
-#if 0 // GTK_CHECK_VERSION (3, 17, 2)
-  G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+#if 0
   gtk_popover_set_default_widget (GTK_POPOVER (popover), priv->search_prev_button);
-  G_GNUC_END_IGNORE_DEPRECATIONS
 #else
-  gtk_window_set_default (GTK_WINDOW (popover), priv->search_prev_button);
+  GtkWindow *window = GTK_WINDOW (popover);
+  gtk_window_set_default (window, priv->search_prev_button);
 #endif
 
-#if GTK_CHECK_VERSION (3, 16, 0)
   g_signal_connect (priv->search_entry, "previous-match", G_CALLBACK (previous_match_cb), popover);
   g_signal_connect (priv->search_entry, "next-match", G_CALLBACK (next_match_cb), popover);
-#endif
 
   g_signal_connect (priv->search_prev_button, "clicked", G_CALLBACK (search_button_clicked_cb), popover);
   g_signal_connect (priv->search_next_button, "clicked", G_CALLBACK (search_button_clicked_cb), popover);
@@ -411,6 +415,20 @@ terminal_search_popover_init (TerminalSearchPopover *popover)
   g_signal_connect (priv->wrap_around_checkbutton, "toggled", G_CALLBACK (wrap_around_toggled_cb), popover);
 
   g_signal_connect (popover, "key-press-event", G_CALLBACK (key_press_cb), NULL);
+
+  if (terminal_app_get_dialog_use_headerbar (terminal_app_get ())) {
+    GtkWidget *headerbar;
+
+    headerbar = g_object_new (GTK_TYPE_HEADER_BAR,
+                              "title", gtk_window_get_title (window),
+                              "has-subtitle", FALSE,
+                              "show-close-button", TRUE,
+                              "visible", TRUE,
+                              NULL);
+    gtk_style_context_add_class (gtk_widget_get_style_context (headerbar),
+                                 "default-decoration");
+    gtk_window_set_titlebar (window, headerbar);
+  }
 }
 
 static void
@@ -475,6 +493,8 @@ terminal_search_popover_class_init (TerminalSearchPopoverClass *klass)
   gobject_class->finalize = terminal_search_popover_finalize;
   gobject_class->get_property = terminal_search_popover_get_property;
   gobject_class->set_property = terminal_search_popover_set_property;
+
+  widget_class->grab_focus = terminal_search_popover_grab_focus;
 
   signals[SEARCH] =
     g_signal_new (I_("search"),

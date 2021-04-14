@@ -84,6 +84,33 @@ terminal_receiver_impl_set_screen (TerminalReceiverImpl *impl,
 
 /* Class implementation */
 
+typedef struct {
+  TerminalReceiver *receiver;
+  GDBusMethodInvocation *invocation;
+} ExecData;
+
+static void
+exec_data_free (ExecData *data)
+{
+  g_object_unref (data->receiver);
+  g_object_unref (data->invocation);
+  g_free (data);
+}
+
+static void
+exec_cb (TerminalScreen *screen, /* unused, may be %NULL */
+         GError *error, /* set on error, %NULL on success */
+         ExecData *data)
+{
+  /* Note: these calls transfer the ref */
+  g_object_ref (data->invocation);
+  if (error) {
+    g_dbus_method_invocation_return_gerror (data->invocation, error);
+  } else {
+    terminal_receiver_complete_exec (data->receiver, data->invocation, NULL /* outfdlist */);
+  }
+}
+
 static gboolean
 terminal_receiver_impl_exec (TerminalReceiver *receiver,
                              GDBusMethodInvocation *invocation,
@@ -95,10 +122,10 @@ terminal_receiver_impl_exec (TerminalReceiver *receiver,
   TerminalReceiverImplPrivate *priv = impl->priv;
   const char *working_directory;
   gboolean shell;
-  char **exec_argv, **envv;
   gsize exec_argc;
-  GVariant *fd_array;
-  GError *error;
+  gs_free char **exec_argv = NULL; /* container needs to be freed, strings not owned */
+  gs_free char **envv = NULL; /* container needs to be freed, strings not owned */
+  gs_unref_variant GVariant *fd_array = NULL;
 
   if (priv->screen == NULL) {
     g_dbus_method_invocation_return_error_literal (invocation,
@@ -114,9 +141,17 @@ terminal_receiver_impl_exec (TerminalReceiver *receiver,
     shell = FALSE;
   if (!g_variant_lookup (options, "environ", "^a&ay", &envv))
     envv = NULL;
-
   if (!g_variant_lookup (options, "fd-set", "@a(ih)", &fd_array))
     fd_array = NULL;
+
+  /* Check environment */
+  if (!terminal_util_check_envv((const char * const*)envv)) {
+    g_dbus_method_invocation_return_error_literal (invocation,
+                                                   G_DBUS_ERROR,
+                                                   G_DBUS_ERROR_INVALID_ARGS,
+                                                   "Malformed environment");
+    goto out;
+  }
 
   /* Check FD passing */
   if ((fd_list != NULL) ^ (fd_array != NULL)) {
@@ -137,6 +172,13 @@ terminal_receiver_impl_exec (TerminalReceiver *receiver,
       const int fd = fd_array_data[2 * i];
       const int idx = fd_array_data[2 * i + 1];
 
+      if (fd == -1) {
+        g_dbus_method_invocation_return_error (invocation,
+                                               G_DBUS_ERROR,
+                                               G_DBUS_ERROR_INVALID_ARGS,
+                                               "Passing of invalid FD %d not supported", fd);
+        goto out;
+      }
       if (fd == STDIN_FILENO ||
           fd == STDOUT_FILENO ||
           fd == STDERR_FILENO) {
@@ -163,23 +205,34 @@ terminal_receiver_impl_exec (TerminalReceiver *receiver,
 
   exec_argv = (char **) g_variant_get_bytestring_array (arguments, &exec_argc);
 
-  error = NULL;
+  ExecData *exec_data = g_new (ExecData, 1);
+  exec_data->receiver = g_object_ref (receiver);
+  /* We want to transfer the ownership of @invocation to ExecData here, but
+   * we have to temporarily ref it so that in the error case below (where
+   * terminal_screen_exec() frees the exec data via the supplied callback,
+   * the g_dbus_method_invocation_take_error() calll still can take ownership
+   * of the invocation's ref passed to this function (terminal_receiver_impl_exec()).
+   */
+  exec_data->invocation = g_object_ref (invocation);
+
+  GError *err = NULL;
   if (!terminal_screen_exec (priv->screen,
                              exec_argc > 0 ? exec_argv : NULL,
                              envv,
                              shell,
                              working_directory,
                              fd_list, fd_array,
-                             &error)) {
-    g_dbus_method_invocation_take_error (invocation, error);
-  } else {
-    terminal_receiver_complete_exec (receiver, invocation, NULL /* outfdlist */);
+                             (TerminalScreenExecCallback) exec_cb,
+                             exec_data /* adopted */,
+                             (GDestroyNotify) exec_data_free,
+                             NULL /* cancellable */,
+                             &err)) {
+    /* Transfers ownership of @invocation */
+    g_dbus_method_invocation_take_error (invocation, err);
   }
 
-  g_free (exec_argv);
-  g_free (envv);
-  if (fd_array)
-    g_variant_unref (fd_array);
+  /* Now we can remove that extra ref again. */
+  g_object_unref (invocation);
 
 out:
 
@@ -385,22 +438,7 @@ terminal_factory_impl_create_instance (TerminalFactory *factory,
     const char *startup_id, *role;
     gboolean start_maximized, start_fullscreen;
 
-    /* We don't do multi-display anymore */
-#if 0
-    const char *display_name;
-    if (g_variant_lookup (options, "display", "^&ay", &display_name)) {
-      GdkDisplay *display = gdk_display_get_default ();
-      const char *default_display_name = display ? gdk_display_get_name (display) : NULL;
-
-      if (g_strcmp0 (default_display_name, display_name) != 0)
-        g_printerr ("Display \"%s\" requested but default display is \"%s\"\n",
-                    display_name, default_display_name);
-      /* Open window on our display anyway */
-    }
-#endif
-
-    int monitor = 0;
-    window = terminal_app_new_window (app, monitor);
+    window = terminal_window_new (G_APPLICATION (app));
     have_new_window = TRUE;
 
     if (g_variant_lookup (options, "desktop-startup-id", "^&ay", &startup_id))
@@ -440,14 +478,6 @@ terminal_factory_impl_create_instance (TerminalFactory *factory,
       zoom = 1.0;
   }
 
-  const char *encoding;
-  if (!g_variant_lookup (options, "encoding", "&s", &encoding)) {
-    if (parent_screen != NULL)
-      encoding = vte_terminal_get_encoding (VTE_TERMINAL (parent_screen));
-    else
-      encoding = NULL; /* use profile encoding */
-  }
-
   /* Look up the profile */
   gs_unref_object GSettings *profile = NULL;
   const char *profile_uuid;
@@ -471,7 +501,7 @@ terminal_factory_impl_create_instance (TerminalFactory *factory,
   g_assert_nonnull (profile);
 
   /* Now we can create the new screen */
-  TerminalScreen *screen = terminal_screen_new (profile, encoding, NULL, title, NULL, NULL, zoom);
+  TerminalScreen *screen = terminal_screen_new (profile, title, zoom);
   terminal_window_add_screen (window, screen, -1);
 
   /* Apply window properties */

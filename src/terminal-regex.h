@@ -43,7 +43,11 @@
 #ifndef TERMINAL_REGEX_H
 #define TERMINAL_REGEX_H
 
-/* Lookbehind to see if there's a preceding apostrophe */
+/* Lookbehind to see if there's a preceding apostrophe.
+ * Unlike the other *_DEF macros which define regex subroutines,
+ * this one is a named capture that defines APOS_START to either
+ * an apostrophe or the empty string, depending on the character
+ * preceding this APOS_START_DEF construct. */
 #define APOS_START_DEF "(?<APOS_START>(?<='))?"
 
 #define SCHEME "(?ix: news | telnet | nntp | https? | ftps? | sftp | webcal )"
@@ -146,7 +150,11 @@
 /* TODO: also support file:/etc/passwd */
 #define REGEX_URL_FILE   DEFS "(?ix: file:/ (?: / (?: " HOSTNAME1 " )? / )? (?! / ) )(?&PATH)"
 /* Lookbehind so that we don't catch "abc.www.foo.bar", bug 739757. Lookahead for www/ftp for convenience (so that we can reuse HOSTNAME1). */
-#define REGEX_URL_HTTP   DEFS "(?<!(?:" HOSTNAMESEGMENTCHARS_CLASS "|[.]))(?=(?i:www|ftp))" HOSTNAME1 PORT URLPATH
+/* The commented-out variant looks more like our other definitions, but fails with PCRE 10.34. See GNOME/gnome-terminal#221.
+ * TODO: revert to this nicer pattern some time after 10.35's release.
+ * #define REGEX_URL_HTTP   DEFS "(?<!(?:" HOSTNAMESEGMENTCHARS_CLASS "|[.]))(?=(?i:www|ftp))" HOSTNAME1 PORT URLPATH
+ */
+#define REGEX_URL_HTTP   APOS_START_DEF "(?<!(?:" HOSTNAMESEGMENTCHARS_CLASS "|[.]))(?=(?i:www|ftp))" HOSTNAME1 PORT PATH_INNER_DEF PATH_DEF URLPATH
 #define REGEX_URL_VOIP   DEFS "(?i:h323:|sips?:)" USERPASS URL_HOST PORT VOIP_PATH
 #define REGEX_EMAIL      DEFS "(?i:mailto:)?" USER "@" EMAIL_HOST
 #define REGEX_NEWS_MAN   "(?i:news:|man:|info:)[-[:alnum:]\\Q^_{|}~!\"#$%&'()*+,./;:=?`\\E]+"

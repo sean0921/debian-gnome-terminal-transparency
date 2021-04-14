@@ -62,11 +62,33 @@ terminal_fprintf (FILE* fp,
   }
 }
 
-#if GLIB_CHECK_VERSION (2, 50, 0)
+static TerminalVerbosity
+verbosity_from_log_level (GLogLevelFlags log_level)
+{
+  guint level = log_level & G_LOG_LEVEL_MASK;
+  TerminalVerbosity res;
+  level = level & ~(level - 1); /* extract the highest bit */
+  switch (level) {
+  case G_LOG_LEVEL_DEBUG:
+    res = TERMINAL_VERBOSITY_DEBUG;
+    break;
+  case G_LOG_LEVEL_INFO:
+    res = TERMINAL_VERBOSITY_DETAIL;
+    break;
+  default:
+    /* better display than lose important messages */
+    res = TERMINAL_VERBOSITY_NORMAL;
+  }
+  return res;
+}
 
 /* Need to install a special log writer so we never output
  * anything without the '# ' prepended, in case --print-environment
  * is used.
+ *
+ * FIXME: Until issue glib#2087 is fixed, apply a simple log level filter
+ * to prevent spamming dconf (and other) debug messages to stderr,
+ * see issue gnome-terminal#42.
  */
 GLogWriterOutput
 terminal_log_writer (GLogLevelFlags log_level,
@@ -74,15 +96,14 @@ terminal_log_writer (GLogLevelFlags log_level,
                      gsize n_fields,
                      gpointer user_data)
 {
+  TerminalVerbosity level = verbosity_from_log_level(log_level);
   for (gsize i = 0; i < n_fields; i++) {
     if (g_str_equal (fields[i].key, "MESSAGE"))
-      terminal_printerr ("%s\n", (const char*)fields[i].value);
+      terminal_fprintf (stderr, level, "%s\n", (const char*)fields[i].value);
   }
 
   return G_LOG_WRITER_HANDLED;
 }
-
-#endif /* GLIB 2.50 */
 
 static GOptionContext *get_goption_context (TerminalOptions *options);
 
@@ -235,6 +256,11 @@ add_new_window (TerminalOptions *options,
   apply_window_defaults (options, iw);
 
   it = initial_tab_new (profile);
+
+  /* If this is an implicit first window, the new tab should be active */
+  if (iw->implicit_first_window)
+    it->active = TRUE;
+
   iw->tabs = g_list_prepend (NULL, it);
   apply_tab_defaults (options, it);
 
@@ -1320,6 +1346,15 @@ get_goption_context (TerminalOptions *options)
       G_OPTION_ARG_CALLBACK,
       unsupported_option_callback,
       NULL, NULL
+    },
+    {
+      "no-environment",
+      0,
+      0,
+      G_OPTION_ARG_NONE,
+      &options->no_environment,
+      N_("Do not pass the environment"),
+      NULL
     },
     {
       "preferences",
