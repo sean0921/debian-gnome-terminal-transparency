@@ -1,3 +1,9 @@
+gnome-terminal (3.30.2-2sean01) unstable; urgency=medium
+
+  * Rebuild with amd64, arm64, armhf binary support
+
+ -- Sean Ho <sean.li.shin.ho@gmail.com>  Tue, 06 Jul 2021 07:54:54 +0800
+
 gnome-terminal (3.30.2-2sean00) unstable; urgency=medium
 
   * Restore transparency
